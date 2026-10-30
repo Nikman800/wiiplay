@@ -1,0 +1,5 @@
+address	old_name	new_name	unit	previous
+801AFFA0	Gfx_MatEditor_readChanColors	GetChanColor__18RPGrpModelMaterialFUcPQ218RPGrpModelMaterial9ChanColor	Pack/RPGraphics/RPGrpModelMaterial.cpp	
+801B0144	Gfx_MatEditor_readPixelModes	GetPixMode__18RPGrpModelMaterialFPQ218RPGrpModelMaterial7PixMode	Pack/RPGraphics/RPGrpModelMaterial.cpp	
+801B11E4	Gfx_MatEditor_dtor	__dt__18RPGrpModelMaterialFv	Pack/RPGraphics/RPGrpModelMaterial.cpp	
+803182A0	lbl_803182A0	sDefaultPixMode	Pack/RPGraphics/RPGrpModelMaterial.cpp	

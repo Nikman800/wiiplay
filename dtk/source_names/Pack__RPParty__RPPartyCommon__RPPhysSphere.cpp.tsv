@@ -1,0 +1,7 @@
+address	old_name	new_name	unit	previous
+801BB30C	RP_PhysSphere_calcSpinVelocity	CalcSpinVelocity__12RPPhysSphereCFRCQ23EGG8Vector3f	Pack/RPParty/RPPartyCommon/RPPhysSphere.cpp	
+801BB3C8	RP_PhysSphere_calcImpulse	CalcImpulse__12RPPhysSphereFPQ34nw4r4math4VEC3PQ34nw4r4math4VEC3RCQ34nw4r4math4VEC3RCQ34nw4r4math4VEC3fff	Pack/RPParty/RPPartyCommon/RPPhysSphere.cpp	
+801BDABC	RP_PhysSphere_dtor	__dt__12RPPhysSphereFv	Pack/RPParty/RPPartyCommon/RPPhysSphere.cpp	
+801BDB28	RP_PhysSphere_dtorThunk4	@4@__dt__12RPPhysSphereFv	Pack/RPParty/RPPartyCommon/RPPhysSphere.cpp	
+801BDB30	RP_PhysSphere_dtorThunk8	@8@__dt__12RPPhysSphereFv	Pack/RPParty/RPPartyCommon/RPPhysSphere.cpp	
+80357368	lbl_80357368	__vt__12RPPhysSphere	Pack/RPParty/RPPartyCommon/RPPhysSphere.cpp	

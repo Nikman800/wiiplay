@@ -1,0 +1,3 @@
+address	old_name	new_name	unit	previous
+801AFEDC	Gfx_ModelSnapshot_addModel	AddModel__18RPGrpShadowTextureFP10RPGrpModelf	Pack/RPGraphics/RPGrpShadowTexture.cpp	
+801AFEE4	Gfx_ShadowTexture_replace	Replace__18RPGrpShadowTextureFP10RPGrpModelPCce	Pack/RPGraphics/RPGrpShadowTexture.cpp	

@@ -1,0 +1,305 @@
+# batch hky_pnp: modules Hky, Pnp; 482 functions; 57 classes
+
+## classes (ledger class -> suggested C++ name; vtables; allocation sizes; methods)
+Hky_BalloonLyt -> RPHkyBalloonLyt; vtables -; sizes -; 8 methods: calc, create, draw, exit, load, requestOut, reset, show
+Hky_BgmCtrl -> RPHkyBgmCtrl; vtables -; sizes -; 5 methods: init, request, startGameBgm, stop, update
+Hky_Effect -> RPHkyEffect; vtables -; sizes -; 1 methods: setEmitterRate
+Hky_Field -> RPHkyField; vtables 803592D0; sizes 0x240 via RP_SimpleModel_ctor in Hky_Game_ctor (derived vtable 803592D0); 12 methods: calc, create, dtor, exit, getHitWallIndex, load, playWallAnim, reset, resetPaddleWallIter, resetPuckWallIter, testCircleCollision, testRectCollision
+Hky_Game -> RPHkyGame; vtables 80359300; sizes 0x50 via Hky_Game_ctor in Hky_createGame; 9 methods: calc, create, ctor, draw, dtor, exit, load, reset, stepPhysics
+Hky_GoalMsgLyt -> RPHkyGoalMsgLyt; vtables -; sizes -; 12 methods: calc, calcResultSwitch, create, draw, exit, isOutDone, load, playOut, reset, setScoreText, showGoal, startResult
+Hky_GoalPhase -> RPHkyGoalPhase; vtables 803594B0; sizes 0x4C via RP_SimpleModel_ctor in Hky_Game_ctor (derived vtable 803594B0); 8 methods: calc, create, draw, dtor, exit, load, reset, start
+Hky_Hud -> RPHkyHud; vtables 803594E0; sizes -; 7 methods: calc, create, draw, dtor, exit, load, reset
+Hky_IBinary -> RPHkyIBinary; vtables -; sizes -; 1 methods: setBinaryChecked
+Hky_IntroPhase -> RPHkyIntroPhase; vtables 80359430; sizes 0x50 via Hky_PaddleRound_ctor in Hky_Game_ctor (derived vtable 80359430); 0x50 via RP_SimpleModel_ctor in Hky_Game_ctor (derived vtable 80359430); 7 methods: calc, create, draw, dtor, exit, load, reset
+Hky_Msg03Lyt -> RPHkyMsg03Lyt; vtables -; sizes -; 7 methods: calc, create, draw, exit, load, playIn, reset
+Hky_Paddle -> RPHkyPaddle; vtables 80359404; sizes 0x1CC via Hky_Paddle_ctor in Hky_Game_ctor; 28 methods: applyVelocity, calc, calcCpuTargetRect, calcCpuTargetRound, calcHitVelocity, collideField, collideFieldRect, collideFieldRound, collidePaddle, collideRectEdges, collideRectVsPaddle, collideRound ...
+Hky_PaddleRound -> RPHkyPaddleRound; vtables 803594F0; sizes -; 8 methods: calc, create, ctor, dtor, exit, load, reset, restartHitAnim
+Hky_PaddleTrail -> RPHkyPaddleTrail; vtables 80359328; sizes -; 3 methods: dtor, dtorThunk, updateBySpeed
+Hky_Puck -> RPHkyPuck; vtables 803592A4; sizes 0xC8 via RP_SimpleModel_ctor in Hky_Game_ctor (derived vtable 803592A4); 16 methods: applyVelocity, calc, create, dtor, exit, handleGoal, handlePaddleCollision, handleWallCollision, hide, load, registerHit, reset ...
+Hky_PuckTrail -> RPHkyPuckTrail; vtables 803591C8; sizes -; 2 methods: dtor, dtorThunk
+Hky_ResultPhase -> RPHkyResultPhase; vtables 80359470; sizes 0x54 via RP_SimpleModel_ctor in Hky_Game_ctor (derived vtable 80359470); 8 methods: calc, create, draw, dtor, exit, load, reset, start
+Hky_Scene -> RPHkyScene; vtables 80359140; sizes 0x4C via __ct__10RPSysSceneFv in Sys_SceneCreator_createGameScene (derived vtable 80359140); 9 methods: calc, create, draw, drawThunk, dtor, dtorThunk, exit, load, reset
+Hky_SceneSound -> RPHkySceneSound; vtables -; sizes -; 1 methods: dtor
+Hky_ScoreLyt -> RPHkyScoreLyt; vtables -; sizes -; 10 methods: calc, create, draw, exit, load, playGoalSwitch, playIn, playOut, playResultSwitch, reset
+Hky_StartMsgLyt -> RPHkyStartMsgLyt; vtables -; sizes -; 8 methods: calc, create, draw, exit, isDone, load, reset, start
+Hky_TimeLyt -> RPHkyTimeLyt; vtables -; sizes -; 9 methods: calc, create, draw, exit, load, playIn, playOut, reset, setNumber
+Hky_TimeUpMsgLyt -> RPHkyTimeUpMsgLyt; vtables -; sizes -; 8 methods: calc, create, draw, exit, load, playIn, playOut, reset
+Hky_TimeUpPhase -> RPHkyTimeUpPhase; vtables 80359490; sizes -; 8 methods: calc, create, draw, dtor, exit, load, reset, start
+Hky_WaitPhase -> RPHkyWaitPhase; vtables 80359450; sizes -; 8 methods: calc, create, draw, dtor, exit, load, reset, start
+Pnp_ArrowLyt -> RPPnpArrowLyt; vtables -; sizes -; 7 methods: calc, create, draw, exit, load, reset, show
+Pnp_Audience -> RPPnpAudience; vtables 803599A8; sizes 0x804 via Pnp_Audience_ctor in Pnp_createAudience; 11 methods: calc, cheerTimed, create, ctor, draw, dtor, exit, load, playLoopAnimA, playLoopAnimB, reset
+Pnp_Ball -> RPPnpBall; vtables 803597F0; sizes 0xE0 via RP_SimpleModel_ctor in Pnp_Game_ctor (derived vtable 803597F0); 16 methods: applyReceiverSpin, calc, create, drawShadow, dtor, exit, integrate, load, onEvent, onEventState4, onEventState7, onEventState8 ...
+Pnp_BallTrail -> RPPnpBallTrail; vtables 80359638; sizes -; 3 methods: dtor, dtorThunk, updateEmitterRate
+Pnp_BalloonLyt -> RPPnpBalloonLyt; vtables -; sizes -; 7 methods: calc, create, draw, exit, load, reset, show
+Pnp_BgmCtrl -> RPPnpBgmCtrl; vtables -; sizes -; 5 methods: setCount, startRallyBgm, stop, updateRally, updateTracks
+Pnp_CountLyt -> RPPnpCountLyt; vtables -; sizes -; 10 methods: calc, create, draw, exit, load, playIn, playOut, reset, setCount, setNumber
+Pnp_FaultMsgLyt -> RPPnpFaultMsgLyt; vtables -; sizes -; 8 methods: calc, create, draw, exit, isDone, load, reset, show
+Pnp_Field -> RPPnpField; vtables 803595C0; sizes 0x44 via RP_SimpleModel_ctor in Pnp_Game_ctor (derived vtable 803595C0); 7 methods: calc, checkBallFloorHit, create, dtor, exit, load, reset
+Pnp_Game -> RPPnpGame; vtables 80359958; sizes 0x54 via Pnp_Game_ctor in Pnp_createGame; 11 methods: calc, checkPointEnd, create, ctor, draw, dtor, exit, getOpponentSide, load, reset, stepPhysics
+Pnp_HelpMsgLyt -> RPPnpHelpMsgLyt; vtables -; sizes -; 9 methods: applyText, calc, create, draw, exit, load, requestHide, reset, setMessage
+Pnp_Hud -> RPPnpHud; vtables 803599F8; sizes -; 7 methods: calc, create, draw, dtor, exit, load, reset
+Pnp_IBinary -> RPPnpIBinary; vtables -; sizes -; 1 methods: setBinaryChecked
+Pnp_IntroPhase -> RPPnpIntroPhase; vtables 803599D8; sizes 0x4C via RP_SimpleModel_ctor in Pnp_Game_ctor (derived vtable 803599D8); 8 methods: calc, calcCamera, create, draw, dtor, exit, load, reset
+Pnp_LevelTable -> RPPnpLevelTable; vtables 80359A08; sizes 0x1C via Pnp_LevelTable_ctor in Pnp_createLevelTable; 4 methods: ctor, dtor, getLevelEntry, lookupRally
+Pnp_NetShadow -> RPPnpNetShadow; vtables 80359A18; sizes -; 7 methods: calc, create, dtor, exit, load, reset, restartAnim
+Pnp_Player -> RPPnpPlayer; vtables 80359830; sizes 0x2C8 via Pnp_Player_ctor in Pnp_Game_ctor; 17 methods: calc, calcCpuReturnVelocity, checkBallHit, checkServeHit, create, ctor, drawDebug, dtor, exit, load, pickCpuServeX, pickCpuTargetX ...
+Pnp_PointMsgLyt -> RPPnpPointMsgLyt; vtables -; sizes -; 8 methods: calc, create, draw, exit, isDone, load, reset, show
+Pnp_PointPhase -> RPPnpPointPhase; vtables 80359850; sizes 0x5C via RP_SimpleModel_ctor in Pnp_Game_ctor (derived vtable 80359850); 15 methods: addPoint, calc, create, draw, dtor, exit, getServeTurn, getServerSide, isCourtChangePoint, isGameOver, isServeChangePoint, isServeTurnOdd ...
+Pnp_RacketTrail -> RPPnpRacketTrail; vtables 80359714; sizes -; 2 methods: dtor, dtorThunk
+Pnp_ReadyPhase -> RPPnpReadyPhase; vtables 80359938; sizes -; 7 methods: calc, create, draw, dtor, exit, load, reset
+Pnp_ResultLyt -> RPPnpResultLyt; vtables -; sizes -; 9 methods: calc, create, draw, exit, load, playOut, reset, setRallyText, show
+Pnp_ResultPhase -> RPPnpResultPhase; vtables 8035988C; sizes 0x60 via RP_SimpleModel_ctor in Pnp_Game_ctor (derived vtable 8035988C); 8 methods: calc, create, draw, dtor, exit, load, reset, start
+Pnp_Scene -> RPPnpScene; vtables 80359560; sizes -; 9 methods: calc, create, draw, drawThunk, dtor, dtorThunk, exit, load, reset
+Pnp_SceneSound -> RPPnpSceneSound; vtables -; sizes -; 1 methods: dtor
+Pnp_ScoreLyt -> RPPnpScoreLyt; vtables -; sizes -; 11 methods: calc, calcSwitch, create, draw, exit, load, playIn, playOut, playPointSwitch, reset, setScore
+Pnp_ServeMsgLyt -> RPPnpServeMsgLyt; vtables -; sizes -; 8 methods: calc, create, draw, exit, isDone, load, reset, show
+Pnp_ServePhase -> RPPnpServePhase; vtables 803598A8; sizes 0x54 via RP_SimpleModel_ctor in Pnp_Game_ctor (derived vtable 803598A8); 10 methods: calc, calcCourtChange, calcWaitServe, create, draw, dtor, exit, load, reset, start
+Pnp_ServerLyt -> RPPnpServerLyt; vtables -; sizes -; 9 methods: applyPending, calc, create, draw, exit, hide, load, reset, show
+Pnp_Spectator -> RPPnpSpectator; vtables 80359980; sizes 0xF8 via Pnp_Spectator_ctor in Pnp_Audience_ctor; 7 methods: calc, ctor, draw, dtor, dtorThunk, reset, updateWalkIn
+Pnp_StartMsgLyt -> RPPnpStartMsgLyt; vtables -; sizes -; 8 methods: calc, create, draw, exit, load, playOut, reset, show
+Pnp_Table -> RPPnpTable; vtables 80359810; sizes -; 8 methods: calc, create, dtor, exit, getBallRestHeight, handleBallCollision, load, reset
+
+## globals referenced (address name section size refs)
+800B221C _savegpr_16 .text 0x0 1
+800B2220 _savegpr_17 .text 0x0 1
+800B222C _savegpr_20 .text 0x0 2
+800B2230 _savegpr_21 .text 0x0 3
+800B2234 _savegpr_22 .text 0x0 2
+800B2238 _savegpr_23 .text 0x0 3
+800B223C _savegpr_24 .text 0x0 2
+800B2240 _savegpr_25 .text 0x0 4
+800B2244 _savegpr_26 .text 0x0 5
+800B2248 _savegpr_27 .text 0x0 24
+800B2268 _restgpr_16 .text 0x0 1
+800B226C _restgpr_17 .text 0x0 1
+800B2278 _restgpr_20 .text 0x0 2
+800B227C _restgpr_21 .text 0x0 3
+800B2280 _restgpr_22 .text 0x0 2
+800B2284 _restgpr_23 .text 0x0 3
+800B2288 _restgpr_24 .text 0x0 2
+800B228C _restgpr_25 .text 0x0 4
+800B2290 _restgpr_26 .text 0x0 5
+800B2294 _restgpr_27 .text 0x0 24
+80320698 lbl_80320698 .rodata 0x38 1
+803206D0 lbl_803206D0 .rodata 0xF8 5
+803207C8 lbl_803207C8 .rodata 0x18 1
+803207E0 lbl_803207E0 .rodata 0x6 1
+80320860 lbl_80320860 .rodata 0x50 2
+803208B0 lbl_803208B0 .rodata 0xA8 2
+80320958 lbl_80320958 .rodata 0xC 3
+80320A68 lbl_80320A68 .rodata 0xF8 5
+80320B60 lbl_80320B60 .rodata 0xB8 2
+80320C18 lbl_80320C18 .rodata 0x78 1
+80320C90 lbl_80320C90 .rodata 0xF8 3
+80320D88 lbl_80320D88 .rodata 0xB0 1
+80320E38 lbl_80320E38 .rodata 0x150 5
+80320F88 lbl_80320F88 .rodata 0x98 1
+80321020 lbl_80321020 .rodata 0x40 1
+80321060 lbl_80321060 .rodata 0xC 1
+8032106C lbl_8032106C .rodata 0x24 1
+80321090 lbl_80321090 .rodata 0x50 2
+803210E0 lbl_803210E0 .rodata 0xC 2
+80321128 lbl_80321128 .rodata 0xC 1
+80321134 lbl_80321134 .rodata 0x15 5
+80321210 lbl_80321210 .rodata 0xB 1
+80321220 lbl_80321220 .rodata 0xE0 2
+80321300 lbl_80321300 .rodata 0x140 1
+80321440 lbl_80321440 .rodata 0x18 1
+80321458 lbl_80321458 .rodata 0xD 1
+80321490 lbl_80321490 .rodata 0x198 4
+80321628 lbl_80321628 .rodata 0xE0 3
+80321708 lbl_80321708 .rodata 0xA0 1
+803217A8 lbl_803217A8 .rodata 0xC 2
+803218A8 lbl_803218A8 .rodata 0xC 2
+80321960 lbl_80321960 .rodata 0x40 1
+803219A0 lbl_803219A0 .rodata 0x118 3
+80321AB8 lbl_80321AB8 .rodata 0x80 2
+80321B38 lbl_80321B38 .rodata 0x98 2
+80321BD0 lbl_80321BD0 .rodata 0x110 3
+80321CE0 lbl_80321CE0 .rodata 0xC0 3
+80321DA0 lbl_80321DA0 .rodata 0xA0 2
+80321E40 lbl_80321E40 .rodata 0x28 1
+8032D3F8 lbl_8032D3F8 .data 0x11 1
+8032D40C lbl_8032D40C .data 0x12 1
+8032DAEC lbl_8032DAEC .data 0x1B 1
+8032DB08 lbl_8032DB08 .data 0xD 1
+8034F32C lbl_8034F32C .data 0x14 2
+80357A14 lbl_80357A14 .data 0x22 1
+80357A38 lbl_80357A38 .data 0x12 1
+803587D0 lbl_803587D0 .data 0x10 2
+80358964 lbl_80358964 .data 0xDC 4
+80358A40 lbl_80358A40 .data 0x38 4
+80358A78 lbl_80358A78 .data 0x10 4
+80358A88 lbl_80358A88 .data 0x24 8
+80358AF4 lbl_80358AF4 .data 0x15 4
+80358B0C lbl_80358B0C .data 0xE 4
+80358DA4 lbl_80358DA4 .data 0x15 2
+80358DC0 lbl_80358DC0 .data 0x10 2
+80358E18 lbl_80358E18 .data 0x20 1
+80359130 lbl_80359130 .data 0x10 1
+803591A0 jumptable_803591A0 .data 0x28 1
+803591C8 lbl_803591C8 .data 0xDC 1
+803592A4 lbl_803592A4 .data 0x2C 1
+803592D0 lbl_803592D0 .data 0x30 1
+80359300 lbl_80359300 .data 0x28 1
+80359328 lbl_80359328 .data 0xDC 1
+80359404 lbl_80359404 .data 0x2C 1
+80359430 lbl_80359430 .data 0x20 1
+80359450 lbl_80359450 .data 0x20 1
+80359470 lbl_80359470 .data 0x20 1
+80359490 lbl_80359490 .data 0x20 1
+803594B0 lbl_803594B0 .data 0x20 1
+803594D0 lbl_803594D0 .data 0xA 2
+803594E0 lbl_803594E0 .data 0x10 1
+803594F0 lbl_803594F0 .data 0x30 1
+80359520 jumptable_80359520 .data 0x20 1
+80359540 lbl_80359540 .data 0xA 1
+80359550 lbl_80359550 .data 0x10 1
+803595C0 lbl_803595C0 .data 0x20 1
+803595E0 jumptable_803595E0 .data 0x20 1
+80359600 jumptable_80359600 .data 0x38 1
+80359638 lbl_80359638 .data 0xDC 1
+80359714 lbl_80359714 .data 0xDC 1
+803597F0 lbl_803597F0 .data 0x20 1
+80359810 lbl_80359810 .data 0x20 1
+80359830 lbl_80359830 .data 0x20 1
+80359850 lbl_80359850 .data 0x20 1
+80359870 jumptable_80359870 .data 0x1C 1
+8035988C lbl_8035988C .data 0x1C 1
+803598A8 lbl_803598A8 .data 0x20 1
+803598C8 lbl_803598C8 .data 0x70 1
+80359938 lbl_80359938 .data 0x20 1
+80359958 lbl_80359958 .data 0x28 1
+80359980 lbl_80359980 .data 0x28 1
+803599A8 lbl_803599A8 .data 0x20 1
+803599C8 lbl_803599C8 .data 0xA 1
+803599D8 lbl_803599D8 .data 0x20 1
+803599F8 lbl_803599F8 .data 0x10 1
+80359A08 lbl_80359A08 .data 0x10 1
+80359A18 lbl_80359A18 .data 0x20 1
+8039F340 lbl_8039F340 .bss 0x30 1
+804390E0 lbl_804390E0 .bss 0x10 4
+804390F0 lbl_804390F0 .bss 0x10 8
+80439170 lbl_80439170 .bss 0x30 16
+804391A0 lbl_804391A0 .bss 0xC 3
+804391AC lbl_804391AC .bss 0x24 3
+8043A6B8 lbl_8043A6B8 .bss 0x10 2
+8043A6C8 lbl_8043A6C8 .bss 0x10 1
+8043A6D8 lbl_8043A6D8 .bss 0xC 2
+8043A6E4 lbl_8043A6E4 .bss 0xC 1
+8043A6F0 lbl_8043A6F0 .bss 0x10 1
+8043A700 lbl_8043A700 .bss 0x10 2
+8043A710 lbl_8043A710 .bss 0x24 4
+8043A734 lbl_8043A734 .bss 0xC 3
+8043A740 lbl_8043A740 .bss 0x10 1
+8043A750 lbl_8043A750 .bss 0x10 1
+8043AC28 lbl_8043AC28 .sdata 0x2 5
+8043AC2C lbl_8043AC2C .sdata 0x2 4
+8043B354 lbl_8043B354 .sdata 0x4 6
+8043B5D0 lbl_8043B5D0 .sdata 0x4 5
+8043B5D4 lbl_8043B5D4 .sdata 0x4 4
+8043B5D8 lbl_8043B5D8 .sdata 0x4 3
+8043B5DC lbl_8043B5DC .sdata 0x4 2
+8043B5E0 lbl_8043B5E0 .sdata 0x4 1
+8043B5E4 lbl_8043B5E4 .sdata 0x4 1
+8043B5E8 lbl_8043B5E8 .sdata 0x4 1
+8043B5EC lbl_8043B5EC .sdata 0x4 1
+8043B5F0 lbl_8043B5F0 .sdata 0x4 1
+8043B5F4 lbl_8043B5F4 .sdata 0x4 1
+8043B5F8 lbl_8043B5F8 .sdata 0x4 2
+8043B5FC lbl_8043B5FC .sdata 0x4 1
+8043B600 lbl_8043B600 .sdata 0x4 1
+8043B604 lbl_8043B604 .sdata 0x4 1
+8043B608 lbl_8043B608 .sdata 0x4 1
+8043B60C lbl_8043B60C .sdata 0x4 1
+8043B610 lbl_8043B610 .sdata 0x4 1
+8043B614 lbl_8043B614 .sdata 0x4 1
+8043B618 lbl_8043B618 .sdata 0x4 1
+8043B61C lbl_8043B61C .sdata 0x4 1
+8043B620 lbl_8043B620 .sdata 0x8 1
+8043B628 lbl_8043B628 .sdata 0x8 2
+8043B630 lbl_8043B630 .sdata 0x4 2
+8043B634 lbl_8043B634 .sdata 0x4 7
+8043B638 lbl_8043B638 .sdata 0x4 6
+8043B63C lbl_8043B63C .sdata 0x4 1
+8043B640 lbl_8043B640 .sdata 0x4 1
+8043B644 lbl_8043B644 .sdata 0x4 1
+8043B648 lbl_8043B648 .sdata 0x4 7
+8043B64C lbl_8043B64C .sdata 0x4 9
+8043B650 lbl_8043B650 .sdata 0x4 1
+8043B654 lbl_8043B654 .sdata 0x4 2
+8043B658 lbl_8043B658 .sdata 0x4 2
+8043B65C lbl_8043B65C .sdata 0x4 4
+8043B660 lbl_8043B660 .sdata 0x8 2
+8043B668 lbl_8043B668 .sdata 0x8 2
+8043B670 lbl_8043B670 .sdata 0x8 2
+8043B678 lbl_8043B678 .sdata 0x8 2
+8043B680 lbl_8043B680 .sdata 0x8 2
+8043B688 lbl_8043B688 .sdata 0x8 2
+8043B690 lbl_8043B690 .sdata 0x8 1
+8043B698 lbl_8043B698 .sdata 0x8 1
+8043B6A0 lbl_8043B6A0 .sdata 0x6 1
+8043B6A8 lbl_8043B6A8 .sdata 0x4 1
+8043B6AC lbl_8043B6AC .sdata 0x4 1
+8043B6B0 lbl_8043B6B0 .sdata 0x8 1
+8043B6B8 lbl_8043B6B8 .sdata 0x8 2
+8043B6C0 lbl_8043B6C0 .sdata 0x4 1
+8043B6C4 lbl_8043B6C4 .sdata 0x4 1
+8043B6C8 lbl_8043B6C8 .sdata 0x4 2
+8043B6CC lbl_8043B6CC .sdata 0x4 1
+8043B6D0 lbl_8043B6D0 .sdata 0x4 2
+8043B6D4 lbl_8043B6D4 .sdata 0x4 2
+8043B6D8 lbl_8043B6D8 .sdata 0x4 1
+8043B6DC lbl_8043B6DC .sdata 0x4 2
+8043B6E0 lbl_8043B6E0 .sdata 0x4 1
+8043B6E4 lbl_8043B6E4 .sdata 0x4 3
+8043B6E8 lbl_8043B6E8 .sdata 0x4 1
+8043B6EC lbl_8043B6EC .sdata 0x4 1
+8043B6F0 lbl_8043B6F0 .sdata 0x4 1
+8043B6F4 lbl_8043B6F4 .sdata 0x4 1
+8043B6F8 lbl_8043B6F8 .sdata 0x4 1
+8043B6FC lbl_8043B6FC .sdata 0x4 1
+8043B700 lbl_8043B700 .sdata 0x4 1
+8043B704 lbl_8043B704 .sdata 0x4 1
+8043B708 lbl_8043B708 .sdata 0x8 1
+8043B710 lbl_8043B710 .sdata 0x4 2
+8043B714 lbl_8043B714 .sdata 0x4 3
+8043B718 lbl_8043B718 .sdata 0x4 1
+8043B71C lbl_8043B71C .sdata 0x4 1
+8043B720 lbl_8043B720 .sdata 0x8 2
+8043B728 lbl_8043B728 .sdata 0x4 6
+8043B72C lbl_8043B72C .sdata 0x4 3
+8043B730 lbl_8043B730 .sdata 0x8 3
+8043B738 lbl_8043B738 .sdata 0x8 1
+8043B740 lbl_8043B740 .sdata 0x6 1
+8043B748 lbl_8043B748 .sdata 0x6 1
+8043BBA8 lbl_8043BBA8 .sbss 0x4 8
+8043BC70 lbl_8043BC70 .sbss 0x4 9
+8043C458 lbl_8043C458 .sbss 0x8 2
+8043C470 lbl_8043C470 .sbss 0x8 5
+8043C4C8 lbl_8043C4C8 .sbss 0x8 3
+8043C588 lbl_8043C588 .sbss 0x8 5
+8043C590 lbl_8043C590 .sbss 0x8 11
+8043C5A0 lbl_8043C5A0 .sbss 0x4 10
+8043C5A5 lbl_8043C5A5 .sbss 0x1 6
+8043C5D4 lbl_8043C5D4 .sbss 0x4 35
+8043C5E8 lbl_8043C5E8 .sbss 0x8 4
+8043C620 lbl_8043C620 .sbss 0x8 9
+8043C6C8 lbl_8043C6C8 .sbss 0x8 13
+8043C6D8 lbl_8043C6D8 .sbss 0x8 12
+8043C7D0 lbl_8043C7D0 .sbss 0x2 1
+8043C7D4 lbl_8043C7D4 .sbss 0x4 1
+8043C7D8 lbl_8043C7D8 .sbss 0x8 1
+8043C7E0 lbl_8043C7E0 .sbss 0x8 42
+8043C7E8 lbl_8043C7E8 .sbss 0x1 1
+8043C7EC lbl_8043C7EC .sbss 0x4 1
+8043C7F0 lbl_8043C7F0 .sbss 0x8 19
+8043C7F8 lbl_8043C7F8 .sbss 0x8 3
+8043C800 lbl_8043C800 .sbss 0x1 2
+8043C804 lbl_8043C804 .sbss 0xC 1
+8043C810 lbl_8043C810 .sbss 0x8 3
+8043C818 lbl_8043C818 .sbss 0x4 1
+8043C81C lbl_8043C81C .sbss 0x4 74
+8043C820 lbl_8043C820 .sbss 0x8 11
+8043C828 lbl_8043C828 .sbss 0x8 22
+8043C830 lbl_8043C830 .sbss 0x8 5

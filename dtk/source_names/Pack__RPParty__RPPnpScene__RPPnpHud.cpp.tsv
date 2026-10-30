@@ -1,0 +1,12 @@
+address	old_name	new_name	unit	previous
+802327AC	Pnp_Hud_draw	Draw__8RPPnpHudFv	Pack/RPParty/RPPnpScene/RPPnpHud.cpp	
+80232874	Pnp_Hud_exit	Exit__8RPPnpHudFv	Pack/RPParty/RPPnpScene/RPPnpHud.cpp	
+802328F4	Pnp_Hud_calc	Calculate__8RPPnpHudFv	Pack/RPParty/RPPnpScene/RPPnpHud.cpp	
+80232974	Pnp_Hud_reset	Reset__8RPPnpHudFv	Pack/RPParty/RPPnpScene/RPPnpHud.cpp	
+802329F4	Pnp_Hud_load	Load__8RPPnpHudFv	Pack/RPParty/RPPnpScene/RPPnpHud.cpp	
+80232A74	Pnp_Hud_create	Create__8RPPnpHudFv	Pack/RPParty/RPPnpScene/RPPnpHud.cpp	
+80232AF4	Pnp_Hud_dtor	__dt__8RPPnpHudFv	Pack/RPParty/RPPnpScene/RPPnpHud.cpp	
+80232B64	Pnp_destroyHud	DestroyInstance__8RPPnpHudFv	Pack/RPParty/RPPnpScene/RPPnpHud.cpp	
+80232BA8	Pnp_createHud	CreateInstance__8RPPnpHudFv	Pack/RPParty/RPPnpScene/RPPnpHud.cpp	
+803599F8	Pnp_Hud_vtable	__vt__8RPPnpHud	Pack/RPParty/RPPnpScene/RPPnpHud.cpp	
+8043C828	Pnp_hudInstance	sInstance__8RPPnpHud	Pack/RPParty/RPPnpScene/RPPnpHud.cpp	

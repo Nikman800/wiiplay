@@ -1,0 +1,2 @@
+address	old_name	new_name	unit	previous
+801F4C24	Party_getConst12b	GetResourceNum__9RPDollMgrFv	Pack/RPParty/RPPartyCommon/RPDoll_3.cpp	

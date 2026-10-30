@@ -1,0 +1,32 @@
+vtable	class_name	evidence
+8035CE18	Game	ctor 8029AD28; vf01 loads cow_field/kakasi/hurdle/tree resources; vf03 race state machine; owns all object arrays
+8035CE40	Camera	per-player (x2, 0xd0); loads demo/scene_Light plight; 12 member-fn camera states setting eye/target via Gfx_801A6878
+8035CF30	PlayerSound	0x98 sound actor created in Player create (base Wly_WtdAvaSwim01 vtable); vf21/vf29 start sound ids
+8035D00C	Player	x2, 0x72e8; transform/model/arrow/cursor; score +0x72c8; movement, input, collision handling
+8035D080	Field	creates field model (resource 2) and transform; draws with identity matrix
+8035D170	ObjSound	0x90 sound actor created by field-object create (same base as PlayerSound)
+8035D250	KakasiGroup	pmp 0x70005 zones; spawns pooled kakasi near players; counts hits and awards group bonus
+8035D2B8	Goal	pmp 0x70002; onCollide tests crossing of a plane; arrow target in 1P (name inferred)
+8035D320	Kakasi	pool of 32; models cow_kakasi/cow_kakasiL1; spawned by KakasiGroup; vtable also holds shared FieldObj methods
+8035D388	Tree	pmp 0x70004; model cow_tree (0x13), TreeBatch in 2P, cow_maru_kage shadow
+8035D3F0	Hurdle	pmp 0x70000; models cow_hurdle/hurdleL1, cow_hurdle_kage shadow
+8035D458	ModelBatch	instanced model renderer (Gfx draw callback slots 26-29); base uses cow_maru_shadow_128 x128
+8035D4D8	TreeBatch	ModelBatch subclass, cow_treeL1_many x64
+8035D558	HurdleBatch	ModelBatch subclass, cow_hurdleL1_many x32
+8035D5D8	KakasiBatch	ModelBatch subclass, cow_kakasiL1_many x32
+8035D658	PointPopup	pool of 32; cowPoint_00 layout point popups (L/S/XL/XS/Perfect)
+8035D6C0	KakasiKing	x8; model cow_kakasi_king (0xb)
+8035D728	MainHud	cowMain_00/01 layout: time, score, time bonus, total, result anims
+8035D788	PerfectMsg	cowPerfect_00 layout and Cow_2d_perfect_* effects
+8035D7E8	ExMsg	cowEx_00 layout, per-player T_ex messages (0xa8f)
+8035D848	OrderMsg	cowOrder_00 layout shown before the race (message 0xa91)
+8035D8A8	StartMsg	cowStart_00 layout (message 0xa92)
+8035D908	GoalMsg	cowGoal_00 layout, complete text and Cow_2d_complete effect
+8035D968	LimitCount	cowLimit_00 layout, 0-9 countdown digits for last seconds
+8035D9C8	VsResult	cowVsResult_00 layout, win1p/win2p anims, player scores
+8035DA28	TargetMarker	cowOrder_01 layout; per-player marker projected at player's target position
+8035DA88	Balloon	cowBalloon_00 layout; per-player balloon projected above player's cow
+8035DAE8	CowModel	"CowRoot": cow_knit_1P/2P model + rider, joint callback on cow_root
+8035DB08	Cloud	pmp 0x70009/0x7000a; models cow_cloudA/cow_cloudB
+8035DB70	KnitCowEx	pmp 0x70007/0x70008; models cow_knit_exA/exB with ex_wait/ex_eat anims
+8035DBD8	AngleDisp	cowAngle_00 layout: 1P/2P angle display and switchCow anims

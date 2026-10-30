@@ -1,0 +1,14 @@
+address	old_name	new_name	unit	previous
+8028D2E8	Wly_TargetPhase_draw	Draw__16RPWlyTargetPhaseFv	Pack/RPParty/RPWlyScene/RPWlyPhase_3.cpp	
+8028D2EC	Wly_TargetPhase_destroy	Destroy__16RPWlyTargetPhaseFv	Pack/RPParty/RPWlyScene/RPWlyPhase_3.cpp	
+8028D2F0	Wly_TargetPhase_calc	Calculate__16RPWlyTargetPhaseFv	Pack/RPParty/RPWlyScene/RPWlyPhase_3.cpp	
+8028D478	Wly_TargetPhase_reset	Reset__16RPWlyTargetPhaseFv	Pack/RPParty/RPWlyScene/RPWlyPhase_3.cpp	
+8028D488	Wly_TargetPhase_create	Create__16RPWlyTargetPhaseFv	Pack/RPParty/RPWlyScene/RPWlyPhase_3.cpp	
+8028D48C	Wly_TargetPhase_init	Init__16RPWlyTargetPhaseFv	Pack/RPParty/RPWlyScene/RPWlyPhase_3.cpp	
+8028D498	Wly_TargetPhase_start	Start__16RPWlyTargetPhaseFv	Pack/RPParty/RPWlyScene/RPWlyPhase_3.cpp	
+8028D560	Wly_TargetPhase_dtor	__dt__16RPWlyTargetPhaseFv	Pack/RPParty/RPWlyScene/RPWlyPhase_3.cpp	
+80291B0C	Wly_TimerLyt_playIn	PlayIn__13RPWlyTimerLytFv	Pack/RPParty/RPWlyScene/RPWlyPhase_3.cpp	
+80292858	Wly_QuestionLyt_showIn	ShowIn__16RPWlyQuestionLytFv	Pack/RPParty/RPWlyScene/RPWlyPhase_3.cpp	
+802934B8	Wly_DisplayLyt_playLevelOut	PlayLevelOut__15RPWlyDisplayLytFv	Pack/RPParty/RPWlyScene/RPWlyPhase_3.cpp	
+80293534	Wly_DisplayLyt_playLevelIn	PlayLevelIn__15RPWlyDisplayLytFv	Pack/RPParty/RPWlyScene/RPWlyPhase_3.cpp	
+8035CAA8	lbl_8035CAA8	__vt__16RPWlyTargetPhase	Pack/RPParty/RPWlyScene/RPWlyPhase_3.cpp	

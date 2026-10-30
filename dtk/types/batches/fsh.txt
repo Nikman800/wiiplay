@@ -1,0 +1,312 @@
+# batch fsh: modules Fsh; 505 functions; 49 classes
+
+## classes (ledger class -> suggested C++ name; vtables; allocation sizes; methods)
+Fsh_AimArrow -> RPFshAimArrow; vtables 80359020; sizes -; 7 methods: calc, create, destroy, draw, dtor, new, reset
+Fsh_BonusFish -> RPFshBonusFish; vtables 80359060; sizes 0xC8 via Fsh_BonusFish_ctor in Fsh_BonusFish_new; 24 methods: calc, calcFadeIn, calcFadeOut, calcShow, calcSpinDown, calcSpinUp, create, ctor, destroy, draw, drawThunk, dtor ...
+Fsh_BonusSM -> RPFshBonusSM; vtables -; sizes 0x28 via Fsh_BonusSM_ctor in Fsh_BonusFish_ctor; 8 methods: callCalc, callEnter, callExit, ctor, init, requestState, setStateFuncs, update
+Fsh_Camera -> RPFshCamera; vtables 80358DD0; sizes -; 11 methods: calc, calcIntroMove, ctor, dtor, isOffPreset, moveToCatchView, moveToDefault, moveToResultView, reset, setDefault, startIntroMove
+Fsh_CameraMgr -> RPFshCameraMgr; vtables 80358D98; sizes -; 5 methods: calc, create, destroy, dtor, reset
+Fsh_Cls8035CB48 -> RPFshCls8035CB48; vtables -; sizes -; 1 methods: returnZero
+Fsh_Ease -> RPFshEase; vtables -; sizes -; 3 methods: getValue, init, step
+Fsh_Fish -> RPFshFish; vtables 803587E0; sizes 0x118 via Fsh_Fish_ctor in Fsh_FishMgr_create; 38 methods: calc, calcApproach, calcCatchView, calcEscape, calcFadeOut, calcHooked, calcJump, calcShowPoints, calcSwim, calcVanish, create, ctor ...
+Fsh_FishMgr -> RPFshFishMgr; vtables 80358B40; sizes -; 12 methods: calc, callVf38All, countFishOfType, create, createAll, destroy, dtor, reset, setFishToSwim, spawnFishOfType, spawnInitialFish, spawnRandomFish
+Fsh_FishSnd -> RPFshFishSnd; vtables -; sizes -; 4 methods: holdStruggle, setSizeClass, startBite, startCatch
+Fsh_FishingArrow00 -> RPFshFishingArrow00; vtables -; sizes -; 1 methods: 80359020_vf06
+Fsh_FishingPoint00 -> RPFshFishingPoint00; vtables -; sizes -; 1 methods: 80358F20_vf14
+Fsh_FishingYank00 -> RPFshFishingYank00; vtables -; sizes -; 1 methods: 80358FF8_vf06
+Fsh_FshFishA -> RPFshFshFishA; vtables -; sizes -; 1 methods: 80358E98_vf31
+Fsh_FshHookDrop -> RPFshFshHookDrop; vtables -; sizes -; 1 methods: 80358C10_vf38
+Fsh_MouthLoc -> RPFshMouthLoc; vtables -; sizes -; 1 methods: 803587E0_vf38
+Fsh_Msg00 -> RPFshMsg00; vtables 803590F0; sizes -; 15 methods: calc, calcIn, calcOut, calcWait, close, create, destroy, draw, dtor, enterIn, enterOut, enterWait ...
+Fsh_Msg00SM -> RPFshMsg00SM; vtables -; sizes -; 8 methods: callCalc, callEnter, callExit, ctor, init, requestState, setStateFuncs, update
+Fsh_Msg01 -> RPFshMsg01; vtables 80359110; sizes -; 15 methods: calc, calcIn, calcOut, calcWait, close, create, destroy, draw, dtor, enterIn, enterOut, enterWait ...
+Fsh_Msg01SM -> RPFshMsg01SM; vtables -; sizes -; 2 methods: ctor, requestState
+Fsh_NPointL00 -> RPFshNPointL00; vtables -; sizes -; 1 methods: 80358E38_vf14
+Fsh_Player -> RPFshPlayer; vtables 80358B50; sizes 0x17DC via Fsh_Player_ctor in Fsh_PlayerMgr_create; 28 methods: addCaughtFish, calc, calcAim, calcAimPos, calcFight, calcIdle, calcLand, calcReturn, calcWait, create, ctor, drawShadow ...
+Fsh_PlayerMgr -> RPFshPlayerMgr; vtables 80358BE0; sizes -; 10 methods: calc, calcRods, create, createAll, destroy, dtor, exitAll, initPlayers, reset, setCatchingPlayer
+Fsh_PointPopup -> RPFshPointPopup; vtables 80358F20; sizes 0x30 via __ct__15RP_DEBUG_STUB_1Fv in Fsh_PointPopup_new (derived vtable 80358F20); 19 methods: calc, calcIn, calcOut, calcShow, close, create, destroy, draw, drawThunk, dtor, dtorThunk04, dtorThunk08 ...
+Fsh_ResultFish -> RPFshResultFish; vtables 80358E98; sizes 0x78 via Fsh_ResultFish_ctor in Fsh_ResultLayout_ctor; 9 methods: calc, create, ctor, dtor, dtorThunk04, dtorThunk08, getScreenPos, reset, setScreenPos
+Fsh_ResultLayout -> RPFshResultLayout; vtables 80358E38; sizes 0xE84 via Fsh_ResultLayout_ctor in Fsh_ResultLayout_new; 28 methods: calc, calcCameraMove, calcCountPoints, calcFinish, calcIntro, calcJudge, calcSingleEnd, calcVersusEnd, create, ctor, destroy, draw ...
+Fsh_Rod -> RPFshRod; vtables 80358C10; sizes 0x160 via Fsh_Rod_ctor in Fsh_Player_ctor; 24 methods: calc, calcHookWater, calcRestDir, calcRopeJoints, calcRopeJointsThunk, create, ctor, drawHookShadow, drawHookShadowThunk, dtor, dtorThunk04, dtorThunk08 ...
+Fsh_RodSnd -> RPFshRodSnd; vtables -; sizes -; 1 methods: holdSplash
+Fsh_RodSndActor -> RPFshRodSndActor; vtables 80358CBC; sizes -; 2 methods: dtor, dtorThunk
+Fsh_Rope -> RPFshRope; vtables -; sizes -; 3 methods: getPoint, getTargetPoint, setTargetPoint
+Fsh_SM -> RPFshSM; vtables -; sizes -; 2 methods: isStateSettledA, isStateSettledB
+Fsh_Scene -> RPFshScene; vtables 803590E0; sizes 0x8 via Fsh_Scene_ctor in Fsh_Scene_new; 17 methods: calcPlay, configure, createObjects, ctor, destroy, destroyObjects, dtor, dtorThunk, dtor_802154E0, enterPlay, exit, loadResources ...
+Fsh_SceneSM -> RPFshSceneSM; vtables -; sizes 0x28 via Fsh_SceneSM_ctor in Fsh_Scene_ctor; 7 methods: callCalc, callEnter, callExit, ctor, init, setStateFuncs, update
+Fsh_SceneTexture -> RPFshSceneTexture; vtables 80358E18; sizes 0x200 via __ct__Q23EGG13ShadowTextureFUsUsUs in Bil_Table_load (derived vtable 80358E18); 0x200 via __ct__Q23EGG13ShadowTextureFUsUsUs in Cow_Player_init (derived vtable 80358E18); 0x200 via __ct__Q23EGG13ShadowTextureFUsUsUs in Fsh_Stage_create (derived vtable 80358E18); 0x200 via __ct__Q23EGG13ShadowTextureFUsUsUs in Pnp_Game_load (derived vtable 80358E18); 1 methods: dtor
+Fsh_ScoreLayout -> RPFshScoreLayout; vtables 80358F68; sizes 0xA4 via Fsh_ScoreLayout_ctor in Fsh_ScoreLayout_new; 26 methods: addFishCount, calc, calcGet, calcHidden, calcIn, calcOut, calcShown, create, ctor, destroy, draw, drawThunk ...
+Fsh_ScoreSM -> RPFshScoreSM; vtables -; sizes 0x28 via Fsh_ScoreSM_ctor in Fsh_ScoreLayout_ctor; 8 methods: callCalc, callEnter, callExit, ctor, init, requestState, setStateFuncs, update
+Fsh_ShadowDummy -> RPFshShadowDummy; vtables -; sizes -; 2 methods: 80358DE8_vf07, 80358DE8_vf09
+Fsh_SndActor -> RPFshSndActor; vtables 80358888; sizes -; 49 methods: addIndex, applyVolume, applyVolumeThunk, callVf50, detailHoldSound, detailHoldSoundEx, detailPrepareSound, detailStartSound, detailStartSoundEx, dtor, dtorThunk, getDefaultRatio ...
+Fsh_SndActorBase -> RPFshSndActorBase; vtables 80358964; sizes -; 2 methods: dtor, dtorThunk
+Fsh_SndHandleArray -> RPFshSndHandleArray; vtables -; sizes -; 1 methods: dtor
+Fsh_SndPlayerBase -> RPFshSndPlayerBase; vtables 80358A88; sizes 0x60 via __ct__Q23EGG8DisposerFv in Bil_BallMgr_ctor (derived vtable 80358A88); 0x60 via __ct__Q23EGG8DisposerFv in Bil_Camera_ctor (derived vtable 80358A88); 0x68 via __ct__Q23EGG8DisposerFv in Wly_GameMgr_ctor (derived vtable 80358A88); 0xA8 via __ct__16RPSysKokeshiIconFPC19RPSysKokeshiGenInfo in Bil_BallMgr_ctor (derived vtable 80358A88); 2 methods: dtor, getDefaultRatio
+Fsh_Stage -> RPFshStage; vtables 80358DE8; sizes 0x24 via __ct__15RP_DEBUG_STUB_1Fv in Fsh_Stage_new (derived vtable 80358DE8); 6 methods: calc, create, destroy, dtor, dtorThunk04, new
+Fsh_StartLayout -> RPFshStartLayout; vtables 80358FB0; sizes 0x40 via Fsh_StartLayout_ctor in Fsh_StartLayout_new; 18 methods: calc, calcCount, calcIntro, calcWaitReady, create, ctor, destroy, draw, drawThunk, dtor, dtorThunk04, dtorThunk08 ...
+Fsh_StartSM -> RPFshStartSM; vtables -; sizes 0x28 via Fsh_StartSM_ctor in Fsh_StartLayout_ctor; 8 methods: callCalc, callEnter, callExit, ctor, init, requestState, setStateFuncs, update
+Fsh_StateMachine -> RPFshStateMachine; vtables -; sizes -; 16 methods: callCalc, callCalc_80216A84, callEnter, callEnter_80216AE4, callExit, callExit_80216A24, ctor, init, init_80216960, isStateOrPending, isStateSettled, registerState ...
+Fsh_TCountdown100 -> RPFshTCountdown100; vtables -; sizes -; 1 methods: 80358FB0_vf14
+Fsh_TFishL00 -> RPFshTFishL00; vtables -; sizes -; 1 methods: 80358F68_vf14
+Fsh_Timer -> RPFshTimer; vtables 80358E80; sizes -; 18 methods: calc, calcCount, calcCountdown, calcEnd, calcIdle, calcLastSecond, destroy, draw, dtor, enterCount, enterCountdown, enterEnd ...
+Fsh_YankPrompt -> RPFshYankPrompt; vtables 80358FF8; sizes -; 9 methods: calc, create, destroy, draw, dtor, hide, new, reset, show
+
+## globals referenced (address name section size refs)
+800B2220 _savegpr_17 .text 0x0 1
+800B2224 _savegpr_18 .text 0x0 2
+800B2228 _savegpr_19 .text 0x0 1
+800B222C _savegpr_20 .text 0x0 1
+800B2234 _savegpr_22 .text 0x0 2
+800B2238 _savegpr_23 .text 0x0 3
+800B223C _savegpr_24 .text 0x0 2
+800B2240 _savegpr_25 .text 0x0 4
+800B2244 _savegpr_26 .text 0x0 4
+800B2248 _savegpr_27 .text 0x0 8
+800B226C _restgpr_17 .text 0x0 1
+800B2270 _restgpr_18 .text 0x0 2
+800B2274 _restgpr_19 .text 0x0 1
+800B2278 _restgpr_20 .text 0x0 1
+800B2280 _restgpr_22 .text 0x0 2
+800B2284 _restgpr_23 .text 0x0 3
+800B2288 _restgpr_24 .text 0x0 2
+800B228C _restgpr_25 .text 0x0 4
+800B2290 _restgpr_26 .text 0x0 4
+800B2294 _restgpr_27 .text 0x0 8
+8030FE48 lbl_8030FE48 .rodata 0x10 16
+8031EEA0 lbl_8031EEA0 .rodata 0x40 1
+8031EEE0 lbl_8031EEE0 .rodata 0xA 1
+8031F000 lbl_8031F000 .rodata 0x28 1
+8031F028 lbl_8031F028 .rodata 0x18 1
+8031F040 lbl_8031F040 .rodata 0x10 1
+8031F050 lbl_8031F050 .rodata 0x168 1
+8031F1B8 lbl_8031F1B8 .rodata 0xA 3
+8031F2D0 lbl_8031F2D0 .rodata 0x10 1
+8031F2E0 lbl_8031F2E0 .rodata 0x40 3
+8031F320 lbl_8031F320 .rodata 0xA8 1
+8031F3C8 lbl_8031F3C8 .rodata 0x70 1
+8031F438 lbl_8031F438 .rodata 0x18 1
+8031F450 lbl_8031F450 .rodata 0x18 1
+8031F468 lbl_8031F468 .rodata 0x8 2
+8031F570 lbl_8031F570 .rodata 0x9 1
+8031F5B8 lbl_8031F5B8 .rodata 0x10 1
+8031F5C8 lbl_8031F5C8 .rodata 0x10 1
+8031F5D8 lbl_8031F5D8 .rodata 0xD8 1
+8031F6B0 lbl_8031F6B0 .rodata 0xC 1
+8031F830 lbl_8031F830 .rodata 0xA8 1
+8031F8D8 lbl_8031F8D8 .rodata 0x20 1
+8031F958 lbl_8031F958 .rodata 0x18 1
+8031F9C0 lbl_8031F9C0 .rodata 0x60 1
+8031FA20 lbl_8031FA20 .rodata 0x10 1
+8031FA30 lbl_8031FA30 .rodata 0x10 1
+8031FA40 lbl_8031FA40 .rodata 0x1F 2
+8031FB58 lbl_8031FB58 .rodata 0x100 3
+8031FC58 lbl_8031FC58 .rodata 0xA8 1
+8031FD00 lbl_8031FD00 .rodata 0x1F 1
+8031FE48 lbl_8031FE48 .rodata 0x78 1
+8031FEC0 lbl_8031FEC0 .rodata 0x10 1
+8031FED0 lbl_8031FED0 .rodata 0x18 1
+8031FEE8 lbl_8031FEE8 .rodata 0x1F 1
+80320008 lbl_80320008 .rodata 0x10 1
+80320018 lbl_80320018 .rodata 0x7 1
+80320098 lbl_80320098 .rodata 0xC 1
+803200A4 lbl_803200A4 .rodata 0x25 1
+80320140 lbl_80320140 .rodata 0x90 1
+803201D0 lbl_803201D0 .rodata 0x18 1
+803201E8 lbl_803201E8 .rodata 0xC 1
+803201F4 lbl_803201F4 .rodata 0xB 1
+80320330 lbl_80320330 .rodata 0x150 1
+80320480 lbl_80320480 .rodata 0x18 1
+80320498 lbl_80320498 .rodata 0x60 1
+803204F8 lbl_803204F8 .rodata 0xC 1
+80320504 lbl_80320504 .rodata 0x1D 1
+80320598 lbl_80320598 .rodata 0x60 1
+803205F8 lbl_803205F8 .rodata 0xC 1
+80320604 lbl_80320604 .rodata 0x1D 1
+8032DAEC lbl_8032DAEC .data 0x1B 2
+8032DB08 lbl_8032DB08 .data 0xD 2
+8034F32C lbl_8034F32C .data 0x14 1
+80357A14 lbl_80357A14 .data 0x22 1
+80357A38 lbl_80357A38 .data 0x12 1
+803587C0 lbl_803587C0 .data 0x10 1
+803587D0 lbl_803587D0 .data 0x10 1
+803587E0 lbl_803587E0 .data 0xA8 1
+80358888 lbl_80358888 .data 0xDC 2
+80358964 lbl_80358964 .data 0xDC 3
+80358A40 lbl_80358A40 .data 0x38 3
+80358A78 lbl_80358A78 .data 0x10 3
+80358A88 lbl_80358A88 .data 0x24 8
+80358AAC lbl_80358AAC .data 0x13 4
+80358AC0 lbl_80358AC0 .data 0xE 4
+80358AD0 lbl_80358AD0 .data 0x13 2
+80358AE4 lbl_80358AE4 .data 0xE 2
+80358AF4 lbl_80358AF4 .data 0x15 3
+80358B0C lbl_80358B0C .data 0xE 3
+80358B20 lbl_80358B20 .data 0x10 1
+80358B30 lbl_80358B30 .data 0x10 1
+80358B40 lbl_80358B40 .data 0x10 1
+80358B50 lbl_80358B50 .data 0x90 1
+80358BE0 lbl_80358BE0 .data 0x10 1
+80358BF0 lbl_80358BF0 .data 0x20 1
+80358C10 lbl_80358C10 .data 0xAC 1
+80358CBC lbl_80358CBC .data 0xDC 1
+80358D98 lbl_80358D98 .data 0xC 1
+80358DA4 lbl_80358DA4 .data 0x15 2
+80358DC0 lbl_80358DC0 .data 0x10 2
+80358DD0 lbl_80358DD0 .data 0x18 1
+80358DE8 lbl_80358DE8 .data 0x30 1
+80358E18 lbl_80358E18 .data 0x20 1
+80358E38 lbl_80358E38 .data 0x48 1
+80358E80 lbl_80358E80 .data 0x18 1
+80358E98 lbl_80358E98 .data 0x88 1
+80358F20 lbl_80358F20 .data 0x48 1
+80358F68 lbl_80358F68 .data 0x48 1
+80358FB0 lbl_80358FB0 .data 0x48 1
+80358FF8 lbl_80358FF8 .data 0x28 1
+80359020 lbl_80359020 .data 0x28 1
+80359048 lbl_80359048 .data 0x18 1
+80359060 lbl_80359060 .data 0x80 1
+803590E0 lbl_803590E0 .data 0x10 1
+803590F0 lbl_803590F0 .data 0x20 1
+80359110 lbl_80359110 .data 0x20 1
+8039F540 lbl_8039F540 .bss 0x58 5
+804390E0 lbl_804390E0 .bss 0x10 3
+804390F0 lbl_804390F0 .bss 0x10 8
+8043A4D0 lbl_8043A4D0 .bss 0xC 1
+8043A4DC lbl_8043A4DC .bss 0xC 2
+8043A4E8 lbl_8043A4E8 .bss 0xC 1
+8043A4F4 lbl_8043A4F4 .bss 0x24 1
+8043A518 lbl_8043A518 .bss 0x18 1
+8043A530 lbl_8043A530 .bss 0x38 1
+8043A568 lbl_8043A568 .bss 0xC 1
+8043A574 lbl_8043A574 .bss 0x18 1
+8043A58C lbl_8043A58C .bss 0xC 1
+8043A598 lbl_8043A598 .bss 0xC 3
+8043A5A4 lbl_8043A5A4 .bss 0x18 3
+8043A5BC lbl_8043A5BC .bss 0x18 3
+8043A5D4 lbl_8043A5D4 .bss 0x18 1
+8043A5EC lbl_8043A5EC .bss 0x18 1
+8043A604 lbl_8043A604 .bss 0x18 1
+8043A61C lbl_8043A61C .bss 0x6C 1
+8043A688 lbl_8043A688 .bss 0xC 1
+8043A694 lbl_8043A694 .bss 0xC 2
+8043A6A0 lbl_8043A6A0 .bss 0xC 1
+8043A6AC lbl_8043A6AC .bss 0xC 1
+8043AC28 lbl_8043AC28 .sdata 0x2 3
+8043AC2C lbl_8043AC2C .sdata 0x2 5
+8043B354 lbl_8043B354 .sdata 0x4 11
+8043B498 lbl_8043B498 .sdata 0x4 1
+8043B49C lbl_8043B49C .sdata 0x4 1
+8043B4A0 lbl_8043B4A0 .sdata 0x4 1
+8043B4A4 lbl_8043B4A4 .sdata 0x4 1
+8043B4A8 lbl_8043B4A8 .sdata 0x4 1
+8043B4AC lbl_8043B4AC .sdata 0x4 1
+8043B4B0 lbl_8043B4B0 .sdata 0x4 1
+8043B4B4 lbl_8043B4B4 .sdata 0x4 1
+8043B4B8 lbl_8043B4B8 .sdata 0x4 1
+8043B4BC lbl_8043B4BC .sdata 0x4 1
+8043B4C0 lbl_8043B4C0 .sdata 0x4 1
+8043B4C4 lbl_8043B4C4 .sdata 0x4 2
+8043B4C8 lbl_8043B4C8 .sdata 0x4 1
+8043B4CC lbl_8043B4CC .sdata 0x4 1
+8043B4D0 lbl_8043B4D0 .sdata 0x4 1
+8043B4D4 lbl_8043B4D4 .sdata 0x4 1
+8043B4D8 lbl_8043B4D8 .sdata 0x4 1
+8043B4DC lbl_8043B4DC .sdata 0x4 2
+8043B4E0 lbl_8043B4E0 .sdata 0x4 2
+8043B4E4 lbl_8043B4E4 .sdata 0x4 1
+8043B4E8 lbl_8043B4E8 .sdata 0x4 1
+8043B4EC lbl_8043B4EC .sdata 0x4 1
+8043B4F0 lbl_8043B4F0 .sdata 0x4 1
+8043B4F4 lbl_8043B4F4 .sdata 0x4 1
+8043B4F8 lbl_8043B4F8 .sdata 0x4 1
+8043B4FC lbl_8043B4FC .sdata 0x4 1
+8043B500 lbl_8043B500 .sdata 0x4 1
+8043B504 lbl_8043B504 .sdata 0x1 1
+8043B508 lbl_8043B508 .sdata 0x4 1
+8043B50C lbl_8043B50C .sdata 0x4 1
+8043B510 lbl_8043B510 .sdata 0x4 1
+8043B514 lbl_8043B514 .sdata 0x4 4
+8043B518 lbl_8043B518 .sdata 0x4 2
+8043B51C lbl_8043B51C .sdata 0x4 1
+8043B520 lbl_8043B520 .sdata 0x4 2
+8043B524 lbl_8043B524 .sdata 0x4 2
+8043B528 lbl_8043B528 .sdata 0x4 1
+8043B52C lbl_8043B52C .sdata 0x4 1
+8043B530 lbl_8043B530 .sdata 0x4 1
+8043B534 lbl_8043B534 .sdata 0x4 1
+8043B538 lbl_8043B538 .sdata 0x4 1
+8043B53C lbl_8043B53C .sdata 0x4 1
+8043B540 lbl_8043B540 .sdata 0x4 1
+8043B544 lbl_8043B544 .sdata 0x4 1
+8043B548 lbl_8043B548 .sdata 0x4 1
+8043B54C lbl_8043B54C .sdata 0x4 1
+8043B550 lbl_8043B550 .sdata 0x8 1
+8043B558 lbl_8043B558 .sdata 0x4 1
+8043B55C lbl_8043B55C .sdata 0x4 1
+8043B560 lbl_8043B560 .sdata 0x4 2
+8043B564 lbl_8043B564 .sdata 0x4 1
+8043B568 lbl_8043B568 .sdata 0x4 2
+8043B56C lbl_8043B56C .sdata 0x4 2
+8043B570 lbl_8043B570 .sdata 0x4 1
+8043B574 lbl_8043B574 .sdata 0x4 2
+8043B578 lbl_8043B578 .sdata 0x4 1
+8043B57C lbl_8043B57C .sdata 0x4 1
+8043B580 lbl_8043B580 .sdata 0x4 3
+8043B584 lbl_8043B584 .sdata 0x4 1
+8043B588 lbl_8043B588 .sdata 0x4 1
+8043B58C lbl_8043B58C .sdata 0x4 1
+8043B590 lbl_8043B590 .sdata 0x4 2
+8043B594 lbl_8043B594 .sdata 0x4 1
+8043B598 lbl_8043B598 .sdata 0x4 1
+8043B59C lbl_8043B59C .sdata 0x4 1
+8043B5A0 lbl_8043B5A0 .sdata 0x8 1
+8043B5A8 lbl_8043B5A8 .sdata 0x8 1
+8043B5B0 lbl_8043B5B0 .sdata 0x4 3
+8043B5B4 lbl_8043B5B4 .sdata 0x4 2
+8043B5B8 lbl_8043B5B8 .sdata 0x8 1
+8043B5C0 lbl_8043B5C0 .sdata 0x4 1
+8043B5C4 lbl_8043B5C4 .sdata 0x4 3
+8043B5C8 lbl_8043B5C8 .sdata 0x4 1
+8043B5CC lbl_8043B5CC .sdata 0x4 1
+8043BBA8 lbl_8043BBA8 .sbss 0x4 2
+8043BC70 lbl_8043BC70 .sbss 0x4 7
+8043C458 lbl_8043C458 .sbss 0x8 1
+8043C468 lbl_8043C468 .sbss 0x8 1
+8043C470 lbl_8043C470 .sbss 0x8 4
+8043C588 lbl_8043C588 .sbss 0x8 7
+8043C590 lbl_8043C590 .sbss 0x8 2
+8043C5A0 lbl_8043C5A0 .sbss 0x4 21
+8043C5A5 lbl_8043C5A5 .sbss 0x1 11
+8043C5D4 lbl_8043C5D4 .sbss 0x4 34
+8043C5E0 lbl_8043C5E0 .sbss 0x8 5
+8043C5E8 lbl_8043C5E8 .sbss 0x8 24
+8043C620 lbl_8043C620 .sbss 0x8 14
+8043C628 lbl_8043C628 .sbss 0x8 11
+8043C6C8 lbl_8043C6C8 .sbss 0x8 2
+8043C6D8 lbl_8043C6D8 .sbss 0x8 13
+8043C728 lbl_8043C728 .sbss 0x8 18
+8043C730 lbl_8043C730 .sbss 0x4 2
+8043C734 lbl_8043C734 .sbss 0x4 2
+8043C738 lbl_8043C738 .sbss 0x8 2
+8043C740 lbl_8043C740 .sbss 0x8 45
+8043C748 lbl_8043C748 .sbss 0x8 2
+8043C750 lbl_8043C750 .sbss 0x8 20
+8043C758 lbl_8043C758 .sbss 0x8 10
+8043C760 lbl_8043C760 .sbss 0x8 11
+8043C768 lbl_8043C768 .sbss 0x8 15
+8043C770 lbl_8043C770 .sbss 0x8 9
+8043C778 lbl_8043C778 .sbss 0x8 16
+8043C780 lbl_8043C780 .sbss 0x8 14
+8043C788 lbl_8043C788 .sbss 0x4 3
+8043C78C lbl_8043C78C .sbss 0x4 2
+8043C790 lbl_8043C790 .sbss 0x8 9
+8043C798 lbl_8043C798 .sbss 0x8 6
+8043C7A0 lbl_8043C7A0 .sbss 0x4 2
+8043C7A4 lbl_8043C7A4 .sbss 0x4 2
+8043C7A8 lbl_8043C7A8 .sbss 0x4 3
+8043C7AC lbl_8043C7AC .sbss 0x4 3
+8043C7B0 lbl_8043C7B0 .sbss 0x8 12
+8043C7B8 lbl_8043C7B8 .sbss 0x4 6
+8043C7BC lbl_8043C7BC .sbss 0x4 3
+8043C7C0 lbl_8043C7C0 .sbss 0x8 6
+8043C7C8 lbl_8043C7C8 .sbss 0x8 7

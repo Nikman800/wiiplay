@@ -1,0 +1,232 @@
+address	old_name	new_name	confidence	evidence
+801831DC	Sys_Display_getFloat64	Sys_System_getModifyRatio	medium	returns f32 at sConfigData.mDisplay+0x64 (EGG::AsyncDisplay mTimeScale); sits after getFBHeight/getFBWidth like Wii Sports' unnamed getModifyRatio slot; no this, so RPSysSystem not Display
+801831F0	Sys_System_getByte4D	Sys_System_getUnk4D	high	lbz 0x4D(this): RPSysSystem::GetUnk4D (header), next to the mFrameRate byte at +0x4C
+80183B0C	Sys_ConfigData_getSceneMgr	Sys_ConfigData_getSceneMgr	high	RPSysConfigData vtable 8034F01C slot 5 returns mSceneMgr (header getSceneMgr)
+80183B14	Sys_ConfigData_getAudioMgr	Sys_ConfigData_getAudioMgr	high	RPSysConfigData vtable 8034F01C slot 6 returns mAudioMgr (header getAudioMgr)
+801840C8	Sys_SceneCreator_mapIndexToSceneId	Sys_SceneCreator_getSceneID	high	maps ESportID Bsb/Tns/Gol/Box/Bow (0..4) to ESceneID 3/6/5/7/4, else -1: RPSysSceneCreator::getSceneID(ESportID)
+801841D0	Sys_SceneCreator_destroy	Sys_SceneCreator_destroy	high	__vt__17RPSysSceneCreator slot 1 (destroy(s32)): shuts the system down when application end is reserved or the scene manager is not in normal state
+80184EAC	Sys_fadeOutFaders	Sys_Scene_setFadeFrame	high	forwards its u16 to RPSysSceneMgr::setFadeFrame; sits among the RPSysScene fade methods (Wii Sports RPSysScene::setFadeFrame, size 8)
+8018713C	Sys_ResMgr_clearCache	Sys_ResMgr_removeFromFileList	high	List_Remove(&mResourceLists[1], file); called from the RPSysFile destructor: RPSysResourceManager::RemoveFromFileList
+8018741C	Sys_Cls8034F308_dtor	Sys_QueuedScene_dtor	high	destructor in __vt__16RPSysQueuedScene slot 0 (deletes when flag > 0); next to CreateInstance__16RPSysQueuedScene
+80189158	Sys_SaveFile_setPlayerData	Sys_SaveFile_setPlayerData	high	RPSysSaveDataMgr: copies a 0x45C RPSportsPlayerData into RPSysSaveData via Sys_SaveData_setPlayerData (setSportsPlayerData); Settings/Record siblings are the Party data
+80189654	Sys_SaveFile_getPlayerData	Sys_SaveFile_getPlayerData	high	RPSysSaveDataMgr getSportsPlayerData: struct return (r3) copied from Sys_SaveData_getPlayerData(mpSaveData, idx)
+80189BBC	Sys_NamedBase_emptySlot1	Sys_NamedBase_listenPropertyEvent	high	empty slot 1 of the IRPSysHostIOSocket vtable 8034F430 (ListenPropertyEvent); emitted after RPSysSaveDataMgr as in Wii Sports (8018A904)
+80189BC0	Sys_NamedBase_emptySlot2	Sys_NamedBase_genMessage	high	empty slot 2 of the IRPSysHostIOSocket vtable 8034F430 (GenMessage); Wii Sports 8018A908
+80189BC4	Sys_PlayerData_setField0C	Sys_PlayerData_setDebutTime	high	stores mDebutTime (+0xC); same order as Wii Sports RPSportsPlayerData::setDebutTime
+80189BCC	Sys_PlayerData_getField0C	Sys_PlayerData_getDebutTime	high	returns mDebutTime (+0xC)
+80189BD4	Sys_PlayerData_setBytes4	Sys_PlayerData_setCreateID	high	copies 8 bytes into mCreateID (+0x4): setCreateID(const RFLCreateID*)
+80189C18	Sys_PlayerData_getBytes4	Sys_PlayerData_getCreateID	high	copies mCreateID (+0x4, 8 bytes) out: getCreateID(RFLCreateID*)
+80189C5C	Sys_PlayerData_setFlag2	Sys_PlayerData_setRegistered	high	sets/clears mPlayerFlags bit EFlag_Registered (mask 2) from a bool
+80189C84	Sys_PlayerData_getFlag2	Sys_PlayerData_isRegistered	high	returns mPlayerFlags bit EFlag_Registered (mask 2)
+80189C90	Sys_PlayerData_setBitHigh	Sys_PlayerData_setHandSecondary	high	sets/clears bit (sport+5) of mHandFlags (+0x10) from hand: setHandSecondary(EHand, ESport) (ESport_Max = 5)
+80189CE0	Sys_PlayerData_setBit	Sys_PlayerData_setHandPrimary	high	sets/clears bit sport of mHandFlags: setHandPrimary(EHand, ESport)
+80189D28	Sys_PlayerData_testBitHigh	Sys_PlayerData_getHandSecondary	high	tests bit (sport+5) of mHandFlags
+80189D54	Sys_PlayerData_testBit	Sys_PlayerData_getHandPrimary	high	tests bit sport of mHandFlags; next is reset (Sys_PlayerData_init), Wii Sports order
+8018A088	Sys_FontMgr_getFirstFont	Sys_FontMgr_getFirstFont	high	returns the first mpResFonts[i] whose mpResFontData[i] is loaded (Wii Play addition to RPSysFontManager)
+8018A940	Sys_SaveData_setPlayerData	Sys_SaveData_setPlayerData	high	RPSysSaveData: copies a 0x45C RPSportsPlayerData into mpSportsPlayerList[idx] (setSportsPlayerData; siblings Settings/Record are the Party data)
+8018AE20	Sys_SaveData_getPlayerData	Sys_SaveData_getPlayerData	high	RPSysSaveData: returns mpSportsPlayerList + idx*0x45C (getSportsPlayerData)
+8018B0E0	Sys_Pause_calcLayout	Sys_Pause_draw	high	if mPause bit 0 calls RPSysPauseMenu::draw on mPauseMenu: RPSysPauseMgr::draw
+8018B260	Sys_Pause_clearData	Sys_Pause_init	medium	clears mPause, +0xC and the 120 floats: RPSysPauseMgr::init (header)
+8018B458	Sys_Pause_callPauseLyt	Sys_Pause_loadMenu	medium	calls Lyt_PauseMenu_load on mPauseMenu (+0x1F0); called while the boot scene loads system resources
+8018B460	Sys_Pause_createSingleton	Sys_Pause_createInstance	high	singleton create: allocs 0x1F4 RPSysPauseMgr (vtable 8034F410) with an RPSysPauseMenu, sets spInstance__13RPSysPauseMgr
+8018B8E8	RP_SaveData_getU16At16	RP_SaveData_getRegistLastDate	high	returns RPPartySystemData::mRegistLastDate (+0x16)
+8018B8F0	RP_RankEntry_setU16At16	RP_SaveData_setRegistLastDate	high	stores RPPartySystemData::mRegistLastDate (+0x16)
+8018B8F8	RP_SaveData_getU8At15	RP_SaveData_getRegistTodayCount	high	returns RPPartySystemData::mRegistTodayCount (+0x15)
+8018B900	RP_RankEntry_setByteAt15	RP_SaveData_setRegistTodayCount	high	stores RPPartySystemData::mRegistTodayCount (+0x15)
+8018BC0C	RP_PlayerRecord_setField0C	RP_PlayerRecord_setDebutTime	high	RPPartyPlayerData mDebutTime (+0xC) setter (Wii Sports setDebutTime__17RPPartyPlayerData)
+8018BC14	RP_PlayerRecord_getField0C	RP_PlayerRecord_getDebutTime	high	returns RPPartyPlayerData mDebutTime (+0xC)
+8018BCA4	RP_PlayerRecord_setFlag2	RP_PlayerRecord_setRegistered	high	sets/clears mPlayerFlags EFlag_Registered (mask 2) from a bool
+8018BCCC	RP_PlayerRecord_getFlag2	RP_PlayerRecord_isRegistered	high	returns mPlayerFlags EFlag_Registered (mask 2)
+8018BD18	RP_PlayerRecord_setFlag4	RP_PlayerRecord_setFirstPlay	medium	sets mPlayerFlags mask 4 with no argument; same flag/size pattern as RPSportsPlayerData::setFirstPlay (EFlag_FirstPlay = 2)
+8018BD28	RP_PlayerRecord_isFlag4Clear	RP_PlayerRecord_isFirstPlay	medium	returns true while mPlayerFlags mask 4 is clear, like RPSportsPlayerData::isFirstPlay
+8018BE70	RP_dtor_8018BE70	RP_PlayerMgr_dtor	high	destructor in RPSysPlayerMgr vtable 8034F420 slot 0 (deletes when flag > 0); precedes RP_PlayerMgr_ctor as in Wii Sports
+8018C070	RP_SavedSlot_ctor	RP_SavedSlot_ctor	high	RPSysPlayerOldData ctor: constructs the RPSysCoreAddress member
+8018C0E4	RP_PlayerData_setEntryMii	RP_PlayerData_setAvatar	high	RPSysPlayer::setAvatar(mpPlayers[idx], s8, u16, const RFLCreateID&): RPSysPlayerMgr::setAvatar
+8018C0F8	Sys_resetPlayerSlots	RP_PlayerData_loadAllData	high	builds RPSysPlayerArg from +0x1C..0x28 and calls RPSysPlayer::loadData for each of mPlayerNum players: RPSysPlayerMgr::loadAllData (Wii Sports order)
+8018C180	RP_PlayerData_setEntryMiiInfo	RP_PlayerData_loadData	high	RPSysPlayer::loadData(mpPlayers[idx], arg from the player-data pointers): RPSysPlayerMgr::loadData(s32)
+8018F990	RP_Base8034F478_dtor	RP_Base8034F478_dtor	high	RPSysKokeshi destructor: RPSysAvatar base dtor, deletes when flag > 0
+8018F9E8	RP_Base8034F478_ctor	RP_Base8034F478_ctor	high	RPSysKokeshi ctor: RPSysAvatar ctor, vtable 8034F478, Construct__12RPSysKokeshi
+80194BD4	RP_LytGroup_unbindAnim	RP_LytGroup_unbindAnim	high	calls pane vtable 0x48 (UnbindAnimation) with this->mpAnimTrans on every pane of a lyt group (RPSysLayout code)
+80194C4C	RP_LytGroup_bindAnim	RP_LytGroup_bindAnim	high	calls pane vtable 0x44 (BindAnimation) with this->mpAnimTrans on every pane of a lyt group
+801978B0	RP_Cls8034F6A0_dtor	Sys_CachedArchive_dtor	high	RPSysFile destructor (__vt__9RPSysFile, RemoveFromFileList, Disposer dtor); sibling of Sys_CachedArchive_ctor
+80197998	RP_Cls8034F6B0_ctor	RP_Cls8034F6B0_ctor	high	RPCls8034F6B0 ctor: RPBase8034F6B0 ctor then vtable 8034F6B0
+801979D4	RP_Cls8034F6B0_dtor	RP_Cls8034F6B0_dtor	high	RPCls8034F6B0 destructor via the RPBase8034F6B0 dtor
+80197D98	RP_dtor_80197D98	Lyt_MessageWindow_dtor	high	destructor in RPMessageWindow vtable 8034F6E0 slot 0; precedes Lyt_MessageWindow_ctor
+80197E94	RP_PageLayout_draw	Lyt_MessageWindow_draw	high	RPMessageWindow: if visible flag and resources, draws mpLayouts[mWindow] and the A-button prompt; moved to the Lyt_MessageWindow siblings
+801A4DB0	RP_varargsWrapper_801A47E8	RP_Nwc24Msg_commitMail	high	varargs RPSysNWC24Manager::commitMail(altName, msg, date, avatar, argc, ...) packing a va_list for the va_list overload
+801A4E3C	RP_dtor_801A4E3C	RP_Nwc24Msg_dtor	high	destructor in RPSysNWC24Manager vtable 8034F9FC slot 0
+801A4E7C	RP_Nwc24Msg_ctor	RP_Nwc24Msg_ctor	high	RPSysNWC24Manager ctor: vtable 8034F9FC, 0x4000 NWC24 work and 0x800 message buffers
+801A5030	RP_setHeadMaterial	RP_Base8034F6B0_getItemJointMtx	high	looks up node "item" on mpHandModel (+0xA4), gets its world mtx and removes base scale (GetModelBaseScaleInvalidatedMtx); used by Pnp to place the held item
+801A5384	RP_Base8034F6B0_dtorBase	RP_Base8034F6B0_dtor	high	RPBase8034F6B0 destructor: RPSysAvatar dtor, deletes when flag > 0
+801AFB84	RP_Cls80350118_dtor	RP_GrpLightManager_dtor	high	destructor in __vt__17RPGrpLightManager (80350118)
+801AFBC4	RP_dtor_801AFBC4	RP_GrpFogManager_dtor	high	destructor in __vt__15RPGrpFogManager (80350108)
+801B11E4	RP_dtor_801B11E4	Gfx_MatEditor_dtor	high	destructor in __vt__18RPGrpModelMaterial (803501D0)
+801B1574	RP_setByte9ByMode	Gfx_CapTexture_setFilter	high	mode 0 sets mpCapTexture min/mag filter bytes (+9/+0xA) to 1 (linear), mode 1 to 0 (near); RPGrpCaptureTexture code, callers pass their capture texture
+801B17E0	RP_dtor_801B17E0	Gfx_CapTexture_dtor	high	destructor in __vt__19RPGrpCaptureTexture (803501F0)
+801B5754	Snd_setHandleVolumePitch	Snd_SndUtility_setHandleDpdPan	high	same size (0xF8) and place as Wii Sports RPSndUtility::setHandleDpdPan: pans the handle by dpd x * scale clamped to [-1,1], surround pan above 0.8
+801B5974	Snd_setWord0	Snd_SndRangeTable_setInfo	medium	stores the range table pointer into an 8-byte {table, handle} object (Fsh_StartLayout_ctor), next to RPSndRangeTable::Lookup
+801B6568	RP_calcVecProjection	RP_makeRotMtxFromTo	high	builds a rotation MTX34 turning unit vector a onto normalized b (cross + half-vector terms), identity when b is zero
+801B67EC	RP_orthonormalizeBasis	RP_orthonormalizeBasis	high	repeatedly normalizes and re-orthogonalizes three basis vectors until the error is below the threshold
+801B6A7C	RP_sinit_80439110	RP_sinit_80439110	high	static initializer of RP_vecEx/Ey/Ez, zero/one vectors and mtx33 identity
+801B6B60	RP_SceneObj_nop06	RP_SceneObj_draw	high	RPSceneObj vtable 80357180 slot 6 (Draw), empty
+801B6B64	RP_SceneObj_nop05	RP_SceneObj_exit	high	RPSceneObj slot 5 (Exit), empty
+801B6B68	RP_SceneObj_nop04	RP_SceneObj_calculate	high	RPSceneObj slot 4 (Calculate), empty
+801B6B6C	RP_SceneObj_nop03	RP_SceneObj_reset	high	RPSceneObj slot 3 (Reset), empty
+801B6B70	RP_SceneObj_nop02	RP_SceneObj_load	high	RPSceneObj slot 2 (Load), empty
+801B6B74	RP_SceneObj_nop01	RP_SceneObj_create	high	RPSceneObj slot 1 (Create), empty
+801B6C0C	Sys_ResSlots_findOrLoad	RP_ResSlots_findOrLoad	high	RPResSlots: returns the slot holding the named resource, else loads it from the common archive into a free slot and registers it in the model res manager
+801B6D5C	RP_ResSlots_init	RP_ResSlots_init	high	RPResSlots::Init: stores the model res manager, creates its list, allocates and clears mSlotNum slots
+801B6DF8	RP_ResSlots_dtor	RP_ResSlots_dtor	high	RPResSlots destructor (vtable 803571A8) via the RPSceneObj dtor
+801B6E50	RP_ResSlots_destroyInstance	RP_ResSlots_destroyInstance	high	RPResSlots::DestroyInstance
+801B6E94	RP_ResSlots_createInstance	RP_ResSlots_createInstance	high	RPResSlots::CreateInstance (0x10 object, vtable 803571A8)
+801B6EF0	RP_ModelObj_nop06	RP_ModelObj_draw	high	RPModelObj vtable 803571D0 slot 6 (Draw), empty override
+801B6EF4	RP_ModelObj_nop04	RP_ModelObj_calculate	high	RPModelObj slot 4 (Calculate), empty override
+801B6EF8	RP_ModelObj_getAnimFrame	RP_ModelObj_getAnmNumFrame	high	slot 18 (GetAnmNumFrame): RPGrpModelAnm::GetNumFrame (0x4C) as f32
+801B6F48	RP_ModelObj_animVf58	RP_ModelObj_getAnmFrame	high	slot 17 (GetAnmFrame): RPGrpModelAnm::GetFrame (0x58)
+801B6F60	RP_ModelObj_animVf5C	RP_ModelObj_setAnmUpdateRate	high	slot 16 (SetAnmUpdateRate): RPGrpModelAnm::SetUpdateRate (0x5C)
+801B6F78	RP_ModelObj_animVf3C	RP_ModelObj_cancelAnm	high	slot 15 (CancelAnm): RPGrpModelAnm::Cancel (0x3C)
+801B6F90	RP_ModelObj_animVf38	RP_ModelObj_startAnmBlend	high	slot 14 (StartAnmBlend): RPGrpModelAnm::StartBlend (0x38)
+801B6FA8	RP_ModelObj_animVf40	RP_ModelObj_startAnm	high	slot 13 (StartAnm): RPGrpModelAnm::Start (0x40)
+801B6FC0	RP_ModelObj_animVf0C	RP_ModelObj_registAnm	high	slot 12 (RegistAnm): RPGrpModelAnm::Regist (0xC)
+801B6FDC	RP_ModelObj_loadAnim	RP_ModelObj_loadAnm	high	slot 11 (LoadAnm): maps anm kind to resource type, fetches via RPResSlots, then calls RegistAnm (0x38)
+801B7094	RP_ModelObj_calcModel	RP_ModelObj_createAnmBuffer	high	slot 10 (CreateAnmBuffer): RPGrpModelAnm::CreateBuffer(anm, num)
+801B70A0	RP_ModelObj_createModel	RP_ModelObj_createModel	high	slot 9 (CreateModel): RPGrpModel::Construct from a handle, sets sDrawGroup
+801B70F4	RP_ModelObj_loadModel	RP_ModelObj_loadModel	high	slot 8 (LoadModel): fetches the resource via RPResSlots and constructs the model
+801B7394	RP_ModelObj_setDefaultLayer	RP_ModelObj_setDrawGroup	high	stores the static sDrawGroup used when creating models (RPModelObj::SetDrawGroup)
+801B739C	RP_ModelObj_setField40	RP_ModelObj_setUnk40	high	slot 19 (SetUnk40): stores unk40 (+0x40) and marks the model dirty
+801B73BC	RP_LookAtCam_calcBasisB	RP_LookAtCam_updateView	high	RPLookAtCam vtable 80357228 slot 5 (UpdateView): recomputes look vector, dir/side/up and copies pos/target/up to the camera
+801B74B0	RP_LookAtCam_vf04	RP_LookAtCam_calculate	high	slot 4 (Calculate): controller update then UpdateView (vtable 0x1C)
+801B74F8	RP_LookAtCam_calcBasis	RP_LookAtCam_initView	high	slot 3 (InitView): computes the view basis from pos/target/up and copies it to the camera
+801B75EC	RP_LookAtCam_reset	RP_LookAtCam_reset	high	slot 2 (Reset): resets look pos/up/target/basis to defaults
+801B76CC	RP_LookAtCam_dtor	RP_LookAtCam_dtor	high	RPLookAtCam destructor (slot 0)
+801B770C	RP_LookAtCam_ctor	RP_LookAtCam_ctor	high	RPLookAtCam ctor: RPGrpCamera ctor, vtable 80357228
+801B7748	RP_Kcl_checkSphereTri	RP_Kcl_checkSphereTri	medium	RPKcl sphere-vs-prism test writing hit position/normal/depth (header CheckSphereTri)
+801B8048	RP_Kcl_checkPoint	RP_Kcl_checkPoint	high	RPKcl::CheckPoint: octree lookup of the point and per-prism plane tests, fills hits
+801B83A8	RP_makeMtxFromRotPos	RP_makeMtxFromRotPos	high	builds a 3x4 matrix from a 3x3 rotation and a translation
+801B840C	RP_sinit_80439170	RP_sinit_80439170	high	static initializer of the second set of unit/zero/one vectors and mtx33 identity at 80439170
+801B84F0	RP_drawDebugShapeRed	RP_drawShadowVolume	medium	EGG::DrawGX BeginDrawShadowVolume, then draws the given shape twice (front/back cull, add/subtract blend): shadow volume pass, not a debug draw (callers Pnp_Ball_drawShadow)
+801B85B0	RP_SimpleModel_nop04	RP_SimpleModel_nop04	medium	RPSimpleModel vtable 80357248 slot 4 (header placeholder VF_0x18), empty
+801B85B4	RP_SimpleModel_nop03	RP_SimpleModel_calculate	high	RPSimpleModel slot 3 (Calculate), empty
+801B85B8	RP_SimpleModel_load	RP_SimpleModel_loadModel	high	slot 2 (LoadModel): registers the resource (kind 0xD) and constructs the model
+801B862C	RP_SimpleModel_loadRes	RP_SimpleModel_loadResource	high	slot 1 (LoadResource): loads the file from the common archive into the res table (kind 0xC)
+801B897C	RP_ResFile_create	RP_ResFile_create	high	RPResFile::Create: allocates the 8-byte wrapper and relocates
+801B89DC	RP_ResFile_relocate	RP_ResFile_relocate	high	RPResFile::Relocate: converts header/table offsets to pointers once (flag bit 0)
+801B8CE8	RP_getEntry14	RP_getPathPoint	medium	returns *(res+0x18) + idx*0x14: point table entry of a path resource (all callers are RPPathFollower)
+801B8CF8	RP_initScale4C	RP_ActorBase_resetAxes	high	sets mAxisZ (+0x34) = (0,0,1), mAxisY (+0x40) = (0,1,0), mAxisX (+0x4C) = (1,0,0); just before the RPActorBase code, called by RPDollBase reset
+801B8FA8	RP_ActorBase_getVec10	RP_ActorBase_getPos	high	RPActorBase vtable 80357268 slot 11 (GetPos): &mPos
+801B8FB0	RP_ActorBase_setVec10	RP_ActorBase_setPos	high	slot 12 (SetPos)
+801B8FCC	RP_ActorBase_getVec1C	RP_ActorBase_getVec1C	high	slot 13 (GetVec1C)
+801B8FD4	RP_ActorBase_setVec1C	RP_ActorBase_setVec1C	high	slot 14 (SetVec1C)
+801B8FF0	RP_ActorBase_getVec28	RP_ActorBase_getVec28	high	slot 15 (GetVec28)
+801B8FF8	RP_ActorBase_setVec28	RP_ActorBase_setVec28	high	slot 16 (SetVec28)
+801B9014	RP_ActorBase_getVec34	RP_ActorBase_getAxisZ	high	slot 17 (GetAxisZ): &mAxisZ (+0x34)
+801B901C	RP_ActorBase_setVec34	RP_ActorBase_setAxisZ	high	slot 18 (SetAxisZ)
+801B9038	RP_ActorBase_getVec40	RP_ActorBase_getAxisY	high	slot 19 (GetAxisY): &mAxisY (+0x40)
+801B9040	RP_ActorBase_setVec40	RP_ActorBase_setAxisY	high	slot 20 (SetAxisY)
+801B905C	RP_ActorBase_getVec4C	RP_ActorBase_getAxisX	high	slot 21 (GetAxisX): &mAxisX (+0x4C)
+801B9064	RP_ActorBase_setVec4C	RP_ActorBase_setAxisX	high	slot 22 (SetAxisX)
+801B9080	RP_ActorBase_getF58	RP_ActorBase_getScale	high	slot 23 (GetScale): mScale (+0x58)
+801B9088	RP_ActorBase_setF58	RP_ActorBase_setScale	high	slot 24 (SetScale)
+801B9090	RP_ActorBase_getU5C	RP_ActorBase_getModel	high	slot 25 (GetModel): mpModel (+0x5C)
+801B9098	RP_ActorBase_setU5C	RP_ActorBase_setModel	high	slot 26 (SetModel)
+801B90A0	RP_ActorBase_dtorThunk4	RP_ActorBase_dtorThunk4	high	slot 3: IRPSysHostIOSocket sub-object (this-4) destructor thunk
+801B90A8	RP_ActorBase_dtorThunk8	RP_ActorBase_dtorThunk8	high	slot 8: IRPGrpDrawObject sub-object (this-8) destructor thunk
+801B92B8	RP_drawDebugQuadWhite	RP_drawShadowVolumeQuad	medium	BeginDrawShadowVolume, scale mtx from width/height, draws the shape twice (front/back cull) (caller Fsh_Rod_drawHookShadow)
+801B93B0	RP_calcHitBoundingBox	RP_KclHolder_calcPushOut	medium	this is a 4-byte holder of an RPKcl*: collects up to 32 octree hits for the sphere, accumulates normal*depth in an RPBBox and returns min+max (net push-out vector)
+801B94EC	RP_setBoxMinMax	RP_BBox_getSumB	medium	returns box.mMinNeg + box.mMaxPos (another copy of RPBBox::GetSum); used by push-out code
+801B94F4	RP_callLyt801B82DC	RP_KclHolder_setResource	medium	forwards the kcl file to RPKcl::SetResource (RP_relocateResHeader) of the held RPKcl (Fsh_Stage_create)
+801B94FC	RP_allocBuffer40	RP_KclHolder_ctor	medium	4-byte holder ctor: allocates a 0x40 RPKcl (mpHeader = NULL) into its only member (Fsh_Stage_new)
+801B95A0	RP_dtor_801B95A0	RP_Cls803572E0_dtor	high	destructor in vtable 803572E0 (RPCls803572E0)
+801B95E0	RP_Cls803572E0_destroyInstance	RP_Cls803572E0_destroyInstance	high	RPCls803572E0::DestroyInstance
+801B9624	RP_Cls803572E0_createInstance	RP_Cls803572E0_createInstance	high	RPCls803572E0::CreateInstance (8 bytes, vtable 803572E0)
+801B9694	RP_PointArray_setPoint	RP_Curve_setPoint	high	RPCurve::SetPoint: mpPoints[idx] = pos (ledger RP_PointArray is RPCurve; moved to the RP_Curve siblings)
+801B96C8	RP_Curve_build	RP_Curve_build	medium	RPCurve::Build: segment lengths/tangents from the points (paired-single heavy)
+801B9B18	RP_Curve_samplePoints	RP_Curve_samplePoints	medium	RPCurve: fills mpPoints from a start point plus direction, resets tangents, copies segment lengths
+801B9C34	RP_Curve_copy	RP_Curve_copy	high	RPCurve::Copy: copies counts and allocates/copies the arrays of another curve
+801B9E2C	RP_Range_isEmpty	RP_Range_isEnd	high	returns mFrame == mDuration: RPRange::IsEnd
+801B9F70	RP_Range_init	RP_Range_ctor	high	zeroes mFrame/mDuration/mEaseType and returns this; used with new(0xC) by RPInterpCamera
+801BA018	RP_Polyline_calc	RP_Polyline_calc	high	RPPolyline::Calc
+801BA150	RP_Polyline_setPoints	RP_Polyline_setPoints	high	RPPolyline::SetPoints: copies mPointNum VEC3 into mpPoints
+801BA194	RP_dtor_801BA194	RP_Polyline_dtor	high	destructor in RPPolyline vtable 80357310
+801BA1D4	RP_Polyline_ctor	RP_Polyline_ctor	high	RPPolyline ctor (vtable 80357310 at +0x10)
+801BA474	RP_drawDebugShape	RP_drawDebugShape	medium	draws the shape via EGG::DrawGX (Duc shot)
+801BA75C	RP_PosHistory_pullFromController	RP_PosHistory_pullFromController	high	RPPosHistory vtable 80357320 slot 2 (PullFromController)
+801BA9B4	RP_PosHistory_clear	RP_PosHistory_clear	high	RPPosHistory slot 1 (Clear): zeroes the samples, count 0
+801BAA00	RP_PosHistory_push	RP_PosHistory_push	high	RPPosHistory::Push: shifts and inserts at the front, count capped
+801BAA74	RP_PosHistory_dtor	RP_PosHistory_dtor	high	RPPosHistory destructor (slot 0)
+801BAAB4	RP_PosHistory_ctor	RP_PosHistory_ctor	high	RPPosHistory ctor
+801BAB3C	RP_CursorTrail_update	RP_CursorTrail_update	high	RPCursorTrail::Update
+801BAE54	RP_CursorTrail_reset	RP_CursorTrail_reset	high	RPCursorTrail::Reset
+801BAEC0	RP_dtor_801BAEC0	RP_CursorTrail_dtor	high	destructor in RPCursorTrail vtable 80357338
+801BAF00	RP_CursorTrail_ctor	RP_CursorTrail_ctor	high	RPCursorTrail ctor (vtable 80357338 at +0x24)
+801BAFC0	RP_JointMtxBuffer_getMtx	RP_JointMtxBuffer_getWorldMtx	high	returns mpWorldMtx (+0x10) + idx*0x30: RPJointMtxBuffer::GetWorldMtx
+801BAFE0	RP_JointMtxBuffer_captureAll	RP_JointMtxBuffer_editWorldMtx	high	vtable 80357348 slot 3 (IRPGrpModelCallback::EditWorldMtx): copies every joint world matrix into mpWorldMtx
+801BB098	RP_JointMtxBuffer_onJointCalc	RP_JointMtxBuffer_editJointLocalMtx	high	slot 1 (EditJointLocalMtx): stores the joint local matrix and advances to the next joint
+801BB190	RP_JointMtxBuffer_ctor	RP_JointMtxBuffer_ctor	high	RPJointMtxBuffer ctor
+801BB2CC	RP_JointMtxBuffer_dtor	RP_JointMtxBuffer_dtor	high	RPJointMtxBuffer destructor
+801BB30C	RP_PhysSphere_calcWorldOffset	RP_PhysSphere_calcSpinVelocity	medium	struct return: (axes * mAngVel +0xE0) x offset, the spin contribution to the velocity of a contact point
+801BB3C8	RP_PhysSphere_calcImpulse	RP_PhysSphere_calcImpulse	high	RPPhysSphere::CalcImpulse
+801BB770	RP_PhysSphere_applyImpulse	RP_PhysSphere_applyImpulse	high	RPPhysSphere::ApplyImpulse: adds linear impulse to +0x1C and angular to mAngVel (+0xE0)
+801BB8FC	RP_PhysSphere_checkContact	RP_PhysSphere_checkContact	high	RPPhysSphere::CheckContact: classifies contact velocity against mParam.restSpeed (0/1/2)
+801BBAC0	RP_PhysSphere_collideA	RP_PhysSphere_collideA	medium	RPPhysSphere collision response A (header placeholder CollideA)
+801BC6B8	RP_PhysSphere_collideB	RP_PhysSphere_collideB	medium	RPPhysSphere collision response B (header placeholder CollideB)
+801BD1B8	RP_RigidBody_resetMatrices	RP_PhysSphere_resetMatrices	high	RPPhysSphere::ResetMatrices: builds mRotMtx/mRotMtxT from mAxisX/Y/Z; moved to the RP_PhysSphere siblings
+801BD284	RP_PhysSphere_update	RP_PhysSphere_update	high	RPPhysSphere::Update: stops slow bodies, damps and integrates position/rotation
+801BDB28	RP_PhysSphere_dtorThunk4	RP_PhysSphere_dtorThunk4	high	slot 3 (this-4) destructor thunk
+801BDB30	RP_PhysSphere_dtorThunk8	RP_PhysSphere_dtorThunk8	high	slot 8 (this-8) destructor thunk
+801BDC60	RP_InterpCamera_start	RP_InterpCamera_start	high	RPInterpCamera::Start
+801BDE04	RP_InterpCamera_calc	RP_InterpCamera_calculate	high	vtable 803573E0 slot 3 (Calculate): eases pos/target/up while mpEase runs
+801BDFB4	RP_Camera_clearLock	RP_InterpCamera_reset	high	vtable 803573E0 slot 2 (Reset): clears mActive (+0x1FC)
+801BDFC0	RP_InterpCamera_ctor	RP_InterpCamera_ctor	high	RPInterpCamera ctor
+801BE064	RP_InterpCamera_dtor	RP_InterpCamera_dtor	high	RPInterpCamera destructor
+801BE0E8	RP_getPointerScreenPos	RP_getPointerScreenPos	medium	returns the controller dpd position (+0x120/+0x124) divided by half the screen size when valid
+801BFC78	RP_TnkMapData_getField0C	RP_TnkMapData_getUnk0C	high	returns Map::unkC of mpMaps[stage][p][layer]: RPTnkMapData::GetUnk0C
+801BFCA0	RP_TnkMapData_getField08	RP_TnkMapData_getUnk08	high	returns Map::unk8: RPTnkMapData::GetUnk08
+801BFCC8	RP_TnkMapData_dtor	RP_TnkMapData_dtor	high	RPTnkMapData destructor
+801C2EE0	RP_BBox_sumMinMax	RP_BBox_getSum	high	returns mMinNeg + mMaxPos: RPBBox::GetSum
+801C51A8	RP_ResTable_load	RP_ResTable_load	high	RPResTable::Load: loads the named file and creates the RPResFile
+801C5DD0	RP_ColliderList_callAll	RP_ColliderList_drawAll	high	walks the list calling RPCollider vtable 0x18 (Draw): RPColliderList::DrawAll
+801C5E24	RP_CollisionModel_vf06	RP_Collider_draw	high	empty RPCollider::Draw (0x18), slot 6 of RPCollisionModel's vtable 80357580 (header: only Draw has a body, 801C5E24)
+801C6084	RP_Actor_returnTrue	RP_Actor_isEnabled	high	IRPActorEnable::IsEnabled (0x20 of RPActor vtable 80357668): returns true
+801C66CC	RP_CollisionModel_getRadius	RP_CollisionModel_getRadius	high	RPCollisionModel slot 9 (GetRadius, 0x2C): returns 0
+801C7D54	RP_ActorScene_broadcastControllerEvent	RP_ActorScene_debugDraw	high	RPActorScene vtable 803575D8 slot 23 (0x64 DebugDraw): passes the draw pass to active actors and the list when sFlags bit 0 and mode 3
+801C7DD0	RP_ActorScene_callListVf24	RP_ActorScene_userDraw	high	slot 22 (0x60 UserDraw): RPActorList::Draw unless paused (bit 3)
+801C7F40	RP_ActorScene_setup	RP_ActorScene_configure	high	slot 15 (0x44 Configure): stores the scene id, clears sUnk688, calls CreateActorList (0x5C)
+801C8084	RP_Actor_vf17	RP_Actor_onStop	high	RPActor vtable 80357668 slot 17 (0x4C OnStop), empty
+801C812C	RP_Actor_vf16	RP_Actor_onStart	high	slot 16 (0x48 OnStart), empty
+801C81A0	RP_Actor_vf21	RP_Actor_drawPass	high	slot 21 (0x5C DrawPass), empty
+801C81A4	RP_Actor_vf20	RP_Actor_drawScreen	high	slot 20 (0x58 DrawScreen), empty
+801C8210	RP_Actor_vf19	RP_Actor_calculate	high	slot 19 (0x54 Calculate), empty
+801C8378	RP_Actor_vf18	RP_Actor_onActivate	high	slot 18 (0x50 OnActivate), empty
+801C83D0	RP_Actor_vf15	RP_Actor_loadResource	high	slot 15 (0x44 LoadResource), empty
+801C881C	RP_Actor_vf13	RP_Actor_vf13	medium	slot 13 (0x3C, header placeholder VF_0x3C), empty
+801C8820	RP_Actor_vf14	RP_Actor_vf14	medium	slot 14 (0x40, header placeholder VF_0x40), empty
+801C884C	RP_getResShortOrDefault	RP_getResShortOrDefault	medium	returns the s16 at res+0x48+2*idx, or the default when zero (Cow placement params)
+801C8880	RP_PathObject_init	RP_PathObject_init	high	RPPathObject::Init: transform from the placement resource, creates an RPPathFollower when a path is present
+801CAE30	RP_ButtonSeq_isComplete	RP_ButtonSeq_isComplete	high	RPButtonSeq::IsComplete: current sequence entry is 0
+801CAE4C	RP_ButtonSeq_update	RP_ButtonSeq_update	high	RPButtonSeq::Update: advances on the expected trigger, else restarts
+801CAED0	RP_ButtonSeq_init	RP_ButtonSeq_init	high	RPButtonSeq::Init(channel, sequence), index 0
+801CAEE4	RP_ButtonSeqHolder_update	RP_ButtonSeqHolder_update	high	RPButtonSeqHolder::Update
+801CAEEC	RP_ButtonSeqHolder_isComplete	RP_ButtonSeqHolder_isComplete	high	RPButtonSeqHolder::IsComplete
+801CAEF4	RP_dtor_801CAEF4	RP_ButtonSeqHolder_dtor	high	destructor in RPButtonSeqHolder vtable 80357738
+801CAF34	RP_ButtonSeqHolder_ctor	RP_ButtonSeqHolder_ctor	high	RPButtonSeqHolder ctor
+801CB250	RP_Cls80357918_ctor	Mii_BodyJoints_ctor	high	RPBodyJoints ctor (vtable 80357918); joins the Mii_BodyJoints siblings
+801D151C	RP_setMtxAndPos	Mii_KokeshiHead_setTransform	high	copies MTX34 into mMtx (+0xC8) and VEC3 into mScale (+0xBC) of RPKokeshiHead; next to Mii_KokeshiHead_resetTransform, called by Mii_KokeshiMgr_calc
+801E4360	RP_AvatarScene_cleanup	RP_AvatarScene_exit	high	RPAvatarScene vtable 80358128 slot 19 (0x54 Exit): destroys the menu background and select scene
+801E4384	RP_AvatarScene_nop21	RP_AvatarScene_userDraw	high	slot 21 (0x5C UserDraw), empty
+801E4388	Sys_AvatarAnimScene_calculate	RP_AvatarScene_calculate	high	slot 18 (0x50 Calculate): changes to the chosen game scene after the fade; joins the RP_AvatarScene siblings
+801E46F4	RP_AvatarScene_setup	RP_AvatarScene_configure	high	slot 15 (0x44 Configure): model scenes, res list, menu background, camera, screens
+801E48E0	RP_AvatarScene_dtor	RP_AvatarScene_dtor	high	RPAvatarScene destructor
+801E4984	RP_AvatarScene_thunkNop21	RP_AvatarScene_userDrawThunk	high	slot 11: IRPGrpDrawObject (this-0x24) thunk to UserDraw
+801E498C	RP_AvatarScene_dtorThunk	RP_AvatarScene_dtorThunk	high	slot 10: (this-0x24) destructor thunk
+801E4998	RP_Scene80358188_resetAndNotify	RP_Scene80358188_reset	high	vtable 80358188 slot 17 (0x4C Reset): resets the scene-info singleton and changes to scene 0x1B
+801E49D0	RP_Scene80358188_dtor	RP_Scene80358188_dtor	high	RPScene80358188 destructor
+801E4A2C	RP_Scene80358188_dtorThunk	RP_Scene80358188_dtorThunk	high	slot 10 destructor thunk
+801E4A34	RP_dtor_801E4A34	RP_SceneInfo_dtor	medium	destructor in vtable 803581E8 of the 0xD8 scene-info singleton (RP_sceneInfoInstance): destroys the RPWlyMiiEntry at +0x30
+801E4A90	RP_resetFromPlayerCount	RP_SceneInfo_reset	medium	scene-info singleton: player count from RPSysPlayerMgr into +4, clears the rest (called by RPScene80358188::Reset)
+801E4AD4	RP_destroyInstance_8043C6C8	RP_SceneInfo_destroyInstance	medium	deletes RP_sceneInfoInstance and clears it (RPScene80358188::Exit)
+801E4BA8	RP_getPairFromField20	RP_getPairFromField20	low	copies +0x90/+0xA0 of the object at +0x20 into a pair (Party_MedalResult_calcMedal); meaning unknown
+801E4BC0	RP_getPairFromField1C	RP_getPairFromField1C	low	copies +0x90/+0xA0 of the object at +0x1C into a pair (Party_MedalResult_calcMedal); meaning unknown
+801FEEF4	RP_dtor_801FEEF4	Snd_SndSceneSound_dtor	high	RPSndSceneSound destructor (vtable 803587D0, EGG::Disposer base), per RPSndSceneSound.h
+801FEFD8	RP_dtor_801FEFD8	Fsh_SceneSound_dtor	high	RPFshSceneSound destructor (vtable 803587C0, RPFshSound.h)
+802003EC	Mpe_AudioMgr_checkBgmHeader	Fsh_Fish_enterFadeOut	high	enter function of the fade-out state in Fsh_fishStateFuncs (paired with Fsh_Fish_calcFadeOut): restarts sound 0x21 on the audio manager unless the current label is a BGM; not an RPSndAudioMgr method

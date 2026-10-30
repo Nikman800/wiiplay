@@ -1,0 +1,438 @@
+address	new_name	confidence	note
+80186128	Snd_loadCommonPartySoundGroup	medium	if scene check ok: opens rp_Common_Party.brsar, loads GROUP_LOGO (id 0) or GROUP_COMMON_01; then calls vfunc 0x48
+8018FA2C	Wly_compareMiiIdStub	low	always returns 0; called as compare(a+8,b+8) in Wly avatar Mii selection loops and Pnp setup
+80190904	Wly_getRPMiiCount	low	returns RP_801A3148(field 0x3c of lbl_8043C4D0); used as Mii count in avatar creation; also called by Pnp (RP helper?)
+801A29A8	HomeMenu_loadResources	high	loads homeBtnIcon.bti, region homeBtn_XXX.arc by language, SpeakerSe, home_nosave.csv, config.txt, HomeButtonSe.brsar
+801B2F98	Mpe_AudioMgr_stopAllExceptPause	high	stops every sound player except RP_COM_GAME_PLAYER_PAUSE player (fade 0)
+801B3018	Mpe_AudioMgr_releasePauseFlag1	medium	clears pause bit0; when no pause bits remain unpauses all players except pause player (or schedules unpause)
+801B30CC	Mpe_AudioMgr_setPauseFlag1	medium	if pause bit0 clear: pauses all players except pause player when no other pause bits; sets bit0
+801B3178	Mpe_AudioMgr_releasePauseFlag2	medium	clears pause bit1; unpauses players (fade 20) when no bits left; restores fx (callback or applyFxPreset)
+801B325C	Mpe_AudioMgr_setPauseFlag2	medium	pauses all players except pause player if unpaused, sets pause bit1, sets 3 output volumes 0xf
+801B3338	Mpe_AudioMgr_applyRemoteSpeakerFromHandle	low	if handle 0x928 playing, reads sound user param bytes and forwards scaled /127 values to RP_801B50C8 (remote speaker)
+801B33FC	Mpe_AudioMgr_loadGroupByLabel	medium	if archive opened: converts label to group id (fn_80041F04) and loads group into sound heap
+801B3488	Mpe_AudioMgr_loadGroupById2	medium	if archive opened: loads group param_2 into sound heap (overload of loadGroup)
+801B3508	Mpe_AudioMgr_loadGroupById	medium	if archive opened: loads group param_2 into sound heap (overload of loadGroup)
+801B3588	Mpe_AudioMgr_applyFxPreset	medium	sets 3 aux FX buses on fx mgr (0x854) depending on output mode lbl_8043C470+0xc (reverb presets)
+801B36A0	Mpe_AudioMgr_setPendingSound	low	stores sound id/params at 0xf80..0xf90, controller channel mask (1<<chan), flag 0xf7c=1
+801B3728	Mpe_AudioMgr_startSoundWithRemote	medium	calls vfunc 0xbc to start sound in handle 0x928, then routes to remote speaker via RP_801B5754/RP_801B50C8
+801B384C	Mpe_AudioMgr_startSoundByLabel	medium	converts label to sound id (assert if -1) then starts sound into handle; returns success
+801B38F8	Mpe_AudioMgr_startSoundById2	medium	starts sound id via fn_80047524 (SoundStartable) into handle; returns success
+801B3934	Mpe_AudioMgr_startSoundById	medium	starts sound id via fn_80047524 (SoundStartable) into handle; returns success
+801B3970	Mpe_AudioMgr_loadState	medium	if 0 < level < heap state count, restores sound heap to that level
+801B39FC	Mpe_AudioMgr_stopAndResetAll	medium	stops all players, stops arc player sounds, resets heap, resets volumes, releases pause flags
+801B3B7C	Mpe_AudioMgr_resetForSceneExit	medium	stopAndResetAll then mode 0xfa8=0; called from every minigame scene exit
+801B3BB0	Mpe_AudioMgr_fadeOutAllExceptPause	high	stops every player except RP_COM_GAME_PLAYER_PAUSE with fade 60 frames
+801B3C30	Mpe_AudioMgr_resetMasterVolume	low	unless output mode 2/3: sets volume fader 0x94c to 0 immediately
+801B3C58	Mpe_AudioMgr_setPlayerCount	medium	resets if mode 1/3, mode=2, asserts 1<=n<=4, stores player count 0x850, refresh remotes
+801B3D0C	Mpe_AudioMgr_enterMenuMode	low	stops all players, mode=3, refresh remote speakers, fades volume to 1.0
+801B3D90	Mpe_AudioMgr_enterSceneMode	low	resets if mode 2, applies fx preset, volume 1.0, mode=1, refresh remote speakers
+801B3E04	Mpe_AudioMgr_calc	medium	per-frame audio update: delayed starts, fades, pending remote sounds, pause on HOME menu state, player volumes
+801B4484	Mpe_AudioMgr_openSceneArchive	high	builds brsar path (local/common, Sound/RPMpeScene/ fallback), checks file exists, opens via vfunc 0xb0
+801B45F4	Mpe_AudioMgr_openArchive	medium	opens sound archive from DVD/NAND/memory per mode, stores name at 0x8a0, setups player, resets volume
+801B47EC	Mpe_AudioMgr_initialize	medium	sets heap/stream sizes by output mode, init exp/heap/fx managers, pause player list, remote speaker
+801B49B8	Mpe_AudioMgr_dtor	high	destroys sub-objects, base dtor, operator delete when flag>0
+801B4B98	Mpe_AudioMgr_thunk_loadState	high	this-8 adjustor thunk to loadState
+801B4BA0	Mpe_AudioMgr_thunk_startSoundById	high	this-0xf8 adjustor thunk to startSoundById
+801B4BA8	Mpe_AudioMgr_thunk_startSoundById2	high	this-0xf8 adjustor thunk to startSoundById2
+801B4BB0	Mpe_AudioMgr_thunk_startSoundByLabel	high	this-0xf8 adjustor thunk to startSoundByLabel
+801B4BB8	Mpe_AudioMgr_thunk_calc	high	this-0xf8 adjustor thunk to calc
+801B4BC0	Mpe_AudioMgr_thunk_loadGroupById	high	this-0xf8 adjustor thunk to loadGroupById
+801B4BC8	Mpe_AudioMgr_thunk_loadGroupById2	high	this-0xf8 adjustor thunk to loadGroupById2
+801B4BD0	Mpe_AudioMgr_thunk_loadGroupByLabel	high	this-0xf8 adjustor thunk to loadGroupByLabel
+801B4BD8	Mpe_AudioMgr_thunk_dtor	high	this-0xf8 adjustor thunk to dtor
+801B55FC	Mpe_refreshRemoteSpeakers	low	for each of 4 remotes with speaker: queues a speaker entry (ring of 20) in lbl_8043C5E0, clears flag 0x1a
+801B58B8	Snd_SndUtility_lookupRangeValue	medium	RPSndUtility: walks (threshold,value) table, returns value whose range contains param; -1 if none
+801B5974	Snd_setWord0	low	trivial setter: *this = value
+801B597C	Snd_updateFaderList	medium	iterates fader list lbl_80439100, calls each update vfunc, removes entries that return 0
+801B5A10	Snd_VolumeFader_update	medium	steps fader value toward target, invokes callback, applies volume to player/handle by type
+801B5B78	Snd_VolumeFader_init	medium	initializes fader fields (value 1.0, type, target) and vtable
+801B5BB4	Snd_Fader_update	medium	decrements frame counter, steps value toward target, invokes callback; returns 1 while active
+801B5C2C	Snd_Fader_set	high	sets fader target and frame count; immediate when frames==0 else computes per-frame step
+801B5C78	Snd_Fader_ctor	medium	sets vtable lbl_803504E8, value/target/step 1.0, frames 0
+801B5CA4	Snd_VolumeFader_thunk_update	high	this-8 adjustor thunk to VolumeFader_update
+801B5CAC	Snd_HomeButtonSndMgr_calc	low	if archive opened (0x6a8) calls arc player update fn_800AF4B4
+801B5CC4	Snd_HomeButtonSndMgr_openArchive	medium	opens given brsar via arc player vfunc 0x1c, sets opened flag; used for HomeButtonSe.brsar
+801B5D18	Snd_HomeButtonSndMgr_dtor	high	destroys arc player and heap members, base dtor, operator delete when flag>0
+801B5DA8	Snd_HomeButtonSndMgr_ctor	high	constructs sound heap, three buffers, arc player; sets vtables 803504F8/8035050C
+801B5E44	Snd_HomeButtonSndMgr_thunk_calc	high	this-0xf0 adjustor thunk to calc
+801B5E4C	Snd_HomeButtonSndMgr_thunk_dtor	high	this-0xf0 adjustor thunk to dtor
+801B5E54	Snd_startRemoteSoundForController	low	if remote speaker ready starts sound and routes to speaker, else queues pending entry per remote
+801B5F9C	Snd_RemoteArcPlayer_calc	low	processes 4 pending remote-speaker sound entries (start when ready or timeout), then arc player update
+801B6108	Snd_RemoteArcPlayer_openArchive	medium	opens archive from global audio mgr (lbl_8043C5D4+0xc) via vfunc 0x1c
+801B615C	Snd_RemoteArcPlayer_dtor	high	destroys members, arc player base dtor, operator delete when flag>0
+801CB288	Health_StrapScene_initSystemResources	medium	slot 20: initializes font, timestamp, layout, kokeshi, basic gfx, home menu, banner and common resources
+801CB300	Health_StrapScene_exit	medium	slot 19 (scene exit): sets fade colour black; clears lbl_8043C550+0x60 unless mode 2
+801CB354	Health_StrapScene_draw	medium	slot 21: draws strap layout (RP_80194250) or overlay depending on mode
+801CB414	Health_StrapScene_calc	medium	slot 18: updates strap layout; state machine: wait fade-in, 60-frame display, then wait for input
+801CB530	Health_StrapScene_calcWaitInput	medium	counts to 1200 frames; on any button or timeout requests next scene via Sys_8018459C, state=3
+801CB618	Health_StrapScene_reset	medium	slot 17: sets fade colour white, fade 30 frames, resets state and strap layout animation
+801CB6C0	Health_StrapScene_loadResources	high	slot 16: in mode 2 opens rp_Health_sound.brsar through audio manager
+801CB6F0	Health_StrapScene_create	high	slot 15: creates screen, decompresses strap.arc, picks strap_00_<region>.brlyt/.brlan by language
+801CB984	Health_StrapScene_dtor	high	base scene dtor fn_800AB4F8, operator delete when flag>0
+801CB9E0	Health_StrapScene_thunk_draw	high	this-0x24 adjustor thunk to draw (slot 21)
+801CB9E8	Health_StrapScene_thunk_dtor	high	this-0x24 adjustor thunk to dtor
+802753A4	Wly_Scene_setPaused	medium	slot 14: sets hide flag on both cursors and saves/hides avatar model visibility via AvatarMgr
+802753C4	Wly_Scene_draw	medium	slot 21: tail-calls GameMgr vfunc 0x1c (draw)
+802753D8	Wly_Scene_exit	medium	slot 19: resets audio mgr for scene exit (unless party mode), calls GameMgr destroy (vfunc 0x20)
+8027542C	Wly_Scene_calc	medium	slot 18: tail-calls GameMgr vfunc 0x18 (calc)
+80275440	Wly_Scene_reset	medium	slot 17: resets timer sound state, calls GameMgr reset (vfunc 0x14), starts 25-frame fade
+80275494	Wly_Scene_loadResources	high	slot 16: opens rp_Wly_sound.brsar, loads basic_wanted.breff/.breft, GameMgr create (vfunc 0x10)
+80275574	Wly_Scene_create	medium	slot 15: sets audio player count, creates sound holder, copies party config, creates GameMgr, init
+80275934	Wly_GameConfig_assign	low	copies a 0xa0-byte party/game config block field by field (dst = src)
+80275B28	Wly_GameConfig_copyCtor	low	copy-constructs 0xa0-byte config block incl. embedded vtables 8034F758/68/78
+80275D60	Wly_80275D60	keep	76-byte function, pseudocode empty; no callers
+80275DAC	Wly_Scene_dtor	high	base scene dtor fn_800AB4F8, operator delete when flag>0
+80275E08	Wly_SoundHolder_dtor	low	dtor with base fn_800AC520 (0x18 sound holder created in Scene create), delete if flag>0
+80275E64	Wly_Scene_thunk_draw	high	this-0x24 adjustor thunk to Scene draw
+80275E6C	Wly_Scene_thunk_dtor	high	this-0x24 adjustor thunk to Scene dtor
+80275E74	Wly_LayoutSet_draw	medium	draws the Wly layouts (start count, timer, question, message, popups, end score, complete)
+80275F1C	Wly_LayoutSet_destroy	medium	calls destroy on each of the 9 layout sub-objects (GameMgr destroy path)
+80275F8C	Wly_LayoutSet_calc	medium	calls calc on each of the 9 layout sub-objects (GameMgr calc path)
+80275FFC	Wly_LayoutSet_reset	medium	calls reset on each of the 9 layout sub-objects (GameMgr reset path)
+8027606C	Wly_LayoutSet_create	medium	calls create on each layout: wallyStartCount, wallyDisplay, wallyTime, wallyQue, wallyMsg, points...
+802760DC	Wly_LayoutSet_init	medium	calls init on each of the 9 layout sub-objects (GameMgr init path)
+8027614C	Wly_LayoutSet_dtor	medium	clears the 9 layout pointers, operator delete when flag>0
+802761B4	Wly_LayoutSet_destroyGlobal	high	deletes global layout set lbl_8043C960 via vfunc 8 and clears it
+802761F8	Wly_LayoutSet_createGlobal	high	allocates layout set (vtable 8035C5D0) and its 9 layout structs, stores lbl_8043C960
+802762AC	Wly_Avatar_startExtraAnim	low	if level mode==1 calls vfunc 0xc of avatar object at +0xd0
+802762FC	Wly_Avatar_setPaused	medium	on pause saves model visibility bit and hides models 0xa4/0xa8/shadow; on resume restores it
+802763DC	Wly_Avatar_setModelByte1	low	writes byte at +1 of both models (0xa4, 0xa8); used with value 4 in stage reset
+80276400	Wly_Avatar_playHoverSound	medium	if GameMgr state 2 starts sound 7 on the avatar sound actor (+0xbc)
+80276430	Wly_SoundActor_startSoundAutoHandle2	medium	finds same-id / free / lowest-priority handle, then startSoundImpl; overload of slot 21
+80276630	Wly_SoundActor_startSoundImpl	medium	stops old sound in handle, StartSound on player[idx], routes to remote speaker with mask 0x80
+8027674C	Wly_Avatar_onFound	medium	plays found voice (kind 1 or 2 if all found), calls child effect objects 0xc4 and 0xc8/0xcc
+80276830	Wly_Avatar_setFound	medium	if reaction state 0: state(0xd4)=2, timer 0
+80276850	Wly_Avatar_startWrongReaction	medium	if reaction state 0: state=1 and plays voice kind 0; returns true when started
+802768E0	Wly_Avatar_drawDebugHitArea	low	debug-only (lbl_8043B354==3): sets child visibility, draws red lines with eggDrawGX around avatar
+80276BC4	Wly_Avatar_calcModelPose	low	computes facing/rotation, sets all_root and chest node matrices on models 0xa8/0xa4
+80277614	Wly_SoundActor_setAllPlayersParam	low	calls fn_80041370(player, value) on each of the 4 sound players
+80277670	Wly_Avatar_resetState	medium	clears flags 0xdd/0xde, scales 1.0, resets shadow object (vfunc 0x20)
+802776B0	Wly_Avatar_calc	low	slot 1: base KokeshiHead slot 1 then shadow vfunc 0x1c
+802776F8	Wly_Avatar_dtor	high	destroys member 0xb4 and base kokeshi, operator delete when flag>0
+80277760	Wly_Avatar_ctor	high	creates sound actor, voice state, shadow, 4 effect objects (Wtd_ava_swim01 etc.), sets vtables
+80277BBC	Wly_SoundActorBase_dtor	high	stops all players, destroys handle array and fader, unregisters from list, delete if flag>0
+80277CC8	Wly_SoundObj8_dtor	low	dtor of sound object with 8 handles (base 80358A88), unregisters from list, delete if flag>0
+80277D74	Wly_SoundActor_dtor	high	stops all players, destroys handle array and fader, unregisters from list, delete if flag>0
+80277E88	Wly_SoundActor_getDefaultVolume	low	slot 12: returns 1.0
+80277E90	Wly_returnOneF_80277E90	low	returns 1.0 (double); no callers
+80277E98	Wly_returnZero_80277E98	low	returns 0; no callers
+80277EA0	Wly_SoundActor_holdSoundImplWithMask	medium	HoldSound on player[idx], routes to remote speaker with explicit mask
+80277F88	Wly_SoundActor_startSoundImplWithMask	medium	stops old sound, StartSound on player[idx], routes to remote speaker with explicit mask
+80278098	Wly_SoundActor_prepareSoundImpl	medium	stops old sound, PrepareSound on player[idx], routes to remote speaker
+802781B4	Wly_SoundActor_holdSoundImpl	medium	HoldSound on player[idx], routes to remote speaker with mask 0x80
+8027829C	Wly_SoundActor_getVolume	high	returns fader current value (+0x44)
+802782A4	Wly_SoundActor_setVolume	high	sets volume fader (+0x30) target/frames via Snd_Fader_set
+802782AC	Wly_SoundActor_stopAllSounds	high	stops every active handle with given fade frames
+80278334	Wly_SoundActor_stopSoundByLabel	high	label to id; stops handles playing that id
+802783E4	Wly_SoundActor_stopSoundById	high	stops handles whose sound id matches (fade param)
+80278474	Wly_SoundActor_stopSoundById2	high	stops handles whose sound id matches (fade param); overload
+80278504	Wly_SoundActor_prepareSoundAtIndex	medium	asserts index < count, stops handle[idx], prepareSoundImpl
+80278604	Wly_SoundActor_prepareSoundAtIndexByLabel	medium	label to id, stops handle[idx], prepareSoundImpl
+80278724	Wly_SoundActor_prepareSoundByLabel	medium	label to id, picks same-id/free/lowest-priority handle, prepareSoundImpl
+80278938	Wly_SoundActor_prepareSound2	medium	picks same-id/free/lowest-priority handle, prepareSoundImpl; overload
+80278B2C	Wly_SoundActor_prepareSound	medium	picks same-id/free/lowest-priority handle, prepareSoundImpl
+80278D20	Wly_SoundActor_holdSoundAtIndexByLabel	medium	label to id, asserts index, holdSoundImpl on handle[idx]
+80278E08	Wly_SoundActor_holdSoundAtIndex	medium	asserts index < count, holdSoundImpl on handle[idx]
+80278ED0	Wly_SoundActor_holdSoundByLabel	medium	label to id, picks same-id or free handle, holdSoundImpl
+80279018	Wly_SoundActor_holdSound2	medium	picks same-id or free handle, holdSoundImpl; overload
+80279128	Wly_SoundActor_holdSound	medium	picks same-id or free handle, holdSoundImpl
+80279238	Wly_SoundActor_holdSoundByLabelWithMask	medium	label to id, same-id or free handle, holdSoundImplWithMask
+80279390	Wly_SoundActor_holdSoundWithMask2	medium	same-id or free handle, holdSoundImplWithMask; overload
+802794A8	Wly_SoundActor_holdSoundWithMask	medium	same-id or free handle, holdSoundImplWithMask
+802795C0	Wly_SoundActor_startSoundAtIndexByLabel	medium	label to id, asserts index, stops handle[idx], startSoundImpl
+802796EC	Wly_SoundActor_startSoundAtIndex	medium	asserts index < count, stops handle[idx], startSoundImpl
+802797F8	Wly_SoundActor_startSoundByLabel	medium	label to id, same-id/free/lowest-priority handle, startSoundImpl
+80279A18	Wly_SoundActor_startSoundAutoHandle	medium	same-id/free/lowest-priority handle, startSoundImpl
+80279C18	Wly_SoundActor_startSoundByLabelWithMask	medium	label to id, same-id/free/lowest-priority handle, startSoundImplWithMask
+80279E40	Wly_SoundActor_startSoundWithMask2	medium	same-id/free/lowest-priority handle, startSoundImplWithMask; overload
+8027A048	Wly_SoundActor_startSoundWithMask	medium	same-id/free/lowest-priority handle, startSoundImplWithMask
+8027A250	Wly_SoundActor_updateVolume	medium	if fader changed, applies volume to every active handle (fn_8003FA84)
+8027A300	Wly_SoundActor_getPlayerParam	low	returns player[idx] + 0xb8
+8027A310	Wly_SoundActor_dispatchOffsetSoundId	low	calls own vfunc 0xd0 (offsetSoundId) through secondary vtable
+8027A320	Wly_SoundActor_getOffsetSoundLabel	low	label to id, adds offset, returns fn_80041EDC(archive, id)
+8027A38C	Wly_SoundActor_offsetSoundId	medium	returns id + offset
+8027A394	Wly_Avatar_thunk_dtor	high	this-0xb4 adjustor thunk to Avatar dtor
+8027A39C	Wly_SoundActorBase_thunk_dtor	high	this-0x10 adjustor thunk to SoundActorBase dtor
+8027A3A4	Wly_SoundActor_thunk_updateVolume	high	this-0x10 adjustor thunk to updateVolume
+8027A3AC	Wly_SoundActor_thunk_setVolume	high	this-0x10 adjustor thunk to setVolume
+8027A3B4	Wly_SoundActor_thunk_stopAllSounds	high	this-0x10 adjustor thunk to stopAllSounds
+8027A3BC	Wly_SoundActor_thunk_stopSoundById2	high	this-0x10 adjustor thunk to stopSoundById2
+8027A3C4	Wly_SoundActor_thunk_stopSoundById	high	this-0x10 adjustor thunk to stopSoundById
+8027A3CC	Wly_SoundActor_thunk_stopSoundByLabel	high	this-0x10 adjustor thunk to stopSoundByLabel
+8027A3D4	Wly_SoundActor_thunk_getVolume	high	this-0x4c adjustor thunk to getVolume
+8027A3DC	Wly_SoundActor_thunk_dtor	high	this-0x10 adjustor thunk to SoundActor dtor
+8027A3E4	Wly_SoundActor_thunk_getPlayerParam	high	this-0x10 adjustor thunk to getPlayerParam
+8027A3EC	Wly_AvatarMgr_startExtraAnims	low	for each avatar (by level count/flag) calls Avatar_startExtraAnim
+8027A498	Wly_AvatarMgr_setPaused	medium	calls Avatar_setPaused on every avatar
+8027A50C	Wly_AvatarMgr_draw	low	if stage active, calls Avatar_drawDebugHitArea for every avatar
+8027A578	Wly_AvatarMgr_destroy	low	empty; called from GameMgr destroy
+8027A57C	Wly_AvatarMgr_calc	medium	updates stage, finds avatar under each cursor, plays hover sound when hover target changes
+8027A658	Wly_AvatarMgr_findAvatarNearCursor	low	fallback search for selectable avatar near cursor of player idx
+8027A828	Wly_Cursor_getPos	medium	copies 2D position (+0x10,+0x14) of cursor object
+8027A83C	Wly_AvatarMgr_findAvatarUnderCursor	medium	returns nearest selectable avatar whose hit radius contains the cursor (-1 if none)
+8027A9F8	Wly_AvatarMgr_reset	medium	resets flags by avatar count, resets all 100 avatars, clears hover indices to -1
+8027AAF8	Wly_AvatarMgr_create	medium	loads wtd_avatar_anim.brres anims (wtd_happyR, selectR, swim/space...) and sets up models
+8027B0F8	Wly_AvatarMgr_init	low	empty; called from GameMgr init
+8027B0FC	Wly_AvatarMgr_isAnyWrongReacting	medium	returns 1 if any avatar has reaction state (0xd4) == 1
+8027B178	Wly_AvatarMgr_isWrongReacting	medium	returns avatar[idx] reaction state == 1
+8027B198	Wly_AvatarMgr_showAll	low	sets flag 0xde=1 on every avatar
+8027B200	Wly_AvatarMgr_hideAll	low	sets flag 0xde=0 on every avatar
+8027B268	Wly_AvatarMgr_hideNonTargets	medium	clears flag 0xde on avatars that are not (found) targets
+8027B338	Wly_AvatarMgr_markFound	medium	stores last found idx, marks stage target found, Avatar_onFound, records Mii in stage type 6
+8027B3AC	Wly_AvatarMgr_setAvatarFound	medium	if idx valid calls Avatar_setFound
+8027B3C8	Wly_AvatarMgr_tryWrongReaction	medium	if idx valid returns Avatar_startWrongReaction
+8027B408	Wly_AvatarMgr_dtor	high	destroys Mii info arrays (100 entries), base dtor, delete if flag>0
+8027B4C4	Wly_AvatarMgr_ctor	high	constructs 100 Mii info entries, stage object (0xc78), avatars, extra avatar
+8027B6CC	Wly_AvatarMgr_createAvatars	low	picks Miis (user/guest counts) and constructs avatars for normal stages
+8027BF30	Wly_AvatarMgr_createAvatarsSpecial	low	constructs avatars for stage types 6-7 (uses party config Mii)
+8027C544	Wly_AvatarMgr_destroyGlobal	high	deletes lbl_8043C968 via vfunc 8 and clears it
+8027C588	Wly_AvatarMgr_createGlobal	high	allocates 0x291c AvatarMgr, stores in lbl_8043C968
+8027C5BC	Wly_GameMgr_draw	medium	slot 5: draws avatars, layouts, pointer, phase objects
+8027C6A8	Wly_GameMgr_destroy	medium	slot 6: destroys sub-objects, deletes AvatarMgr, LayoutSet, LevelTable and self global
+8027C784	Wly_GameMgr_calc	medium	slot 4: main per-frame update: timers, phases, cursor input, layouts, BGM, controllers
+8027CEB0	Wly_GameMgr_reset	medium	slot 3: resets cursors, field, wipe, avatars, layouts and phase objects for a round
+8027D284	Wly_Cursor_setPos	medium	sets cursor position (current and previous) and scale
+8027D2A4	Wly_GameMgr_create	high	slot 2: loads party_message.bmg, scene brres (RPScene/WNTScene), lights, field, anims, layouts
+8027D5B8	Wly_GameMgr_init	medium	slot 1: sets timer 900, player count, inits wipe, field, cursors, layouts, phases
+8027D6D8	Wly_GameMgr_dtor	high	operator delete when flag>0
+8027D718	Wly_GameMgr_ctor	medium	sets up cameras/screens, sound object, cursors, level table, AvatarMgr, LayoutSet, phases
+8027DE7C	Wly_GameMgr_calcClearPhase	low	hides non-targets; on clear phase advances round or goes to result (state 4) with sound
+8027DF8C	Wly_GameMgr_onAvatarPicked	medium	handles pick: wrong-pick penalty popup, or found target (rumble, markFound, clear/next)
+8027E2BC	Wly_GameMgr_onPickResolved	low	if not found: wrong reaction + 50-frame lockout; else rumble and markFound
+8027E368	Wly_GameMgr_is1pTypeAStage	low	returns 1 when single player and level type in 1..4
+8027E3C4	Wly_GameMgr_createGlobal	high	allocates 0x70 GameMgr, stores in lbl_8043C970
+8027E3F8	Wly_SoundObj_calcNoDuck	medium	slot 12 of 8035DD60: applies fader volume to all active handles (no BGM duck handling)
+8027E4A8	Wly_SoundObj_updateVolume	medium	slot 6: if fader changed applies volume to every active handle
+8027E558	Wly_SoundObj_getVolume	high	returns fader value (+0x34)
+8027E560	Wly_SoundObj_setVolume	high	sets fader (+0x20) via Snd_Fader_set
+8027E568	Wly_SoundObj_stopAllSounds	high	stops every active handle with fade frames
+8027E5F0	Wly_SoundObj_stopSoundByLabel	high	label to id; stops handles playing that id
+8027E6A0	Wly_SoundObj_stopSoundById2	high	stops handles whose sound id matches; overload
+8027E730	Wly_SoundObj_stopSoundById	high	stops handles whose sound id matches
+8027E7C0	Wly_SoundObj_prepareSoundAtIndex	medium	asserts index, stops handle[idx], PrepareSound, applies volume/pan callbacks, remote speaker
+8027E9C8	Wly_SoundObj_prepareSound	medium	free handle, PrepareSound, applies volume/pan, remote speaker mask 0x58
+8027EBA4	Wly_SoundObj_holdSoundByLabelWithMask	medium	label to id, same-id or free handle, HoldSound, remote speaker with mask
+8027EDA0	Wly_SoundObj_holdSoundWithMask	medium	same-id or free handle, HoldSound, remote speaker with explicit mask
+8027EF58	Wly_SoundObj_holdSoundByLabel	medium	label to id, same-id or free handle, HoldSound, remote speaker mask 0x58
+8027F150	Wly_SoundObj_holdSound2	medium	same-id or free handle, HoldSound, remote speaker; overload
+8027F308	Wly_SoundObj_holdSound	medium	same-id or free handle, HoldSound, remote speaker
+8027F4C0	Wly_SoundObj_startSoundAtIndex	medium	asserts index, stops handle[idx], StartSound, applies volume/pan, remote speaker
+8027F6C8	Wly_SoundObj_startSoundWithMask	medium	free handle, StartSound, applies volume/pan, remote speaker with explicit mask
+8027F8A8	Wly_SoundObj_startSound	medium	free handle, StartSound, applies volume/pan, remote speaker mask 0x58
+8027FA84	Wly_SoundObj_thunk_getVolume	high	this-0x3c adjustor thunk to getVolume
+8027FA8C	Wly_Cursor_draw	low	slot 4: empty
+8027FA90	Wly_Cursor_calc	medium	slot 3: reads controller pointer, clamps/moves cursor position, updates cursor effects
+8027FE3C	Wly_Cursor_setEffectsVisible	medium	slot 5: shows/hides 3 cursor effects depending on hide flag and GameMgr state
+8027FEC4	Wly_Cursor_reset	medium	slot 2: clears flag 0x38, resets the 3 cursor effects (vfunc 0xc)
+8027FF30	Wly_Cursor_init	low	slot 1: empty
+8027FF34	Wly_Cursor_create	high	slot 0: creates Wtd_cursor_normal_1p/2p, _blur and _sd effects
+80280000	Wly_Cursor_ctor	high	sets vtable 8035C898, player index, initial position (+/-0.4) by player
+80280070	Wly_ClearPhase_draw	low	empty; called from GameMgr draw
+80280074	Wly_ClearPhase_destroy	low	empty; called from GameMgr destroy
+80280078	Wly_ClearPhase_calc	medium	slot 3: in GameMgr state 3 runs clear sequence or starts Wtd_clear effect
+80280154	Wly_ClearPhase_reset	medium	clears state and timer
+80280164	Wly_ClearPhase_create	low	empty; called from GameMgr create
+80280168	Wly_ClearPhase_init	medium	clears state
+80280174	Wly_ClearPhase_updateSequence	low	steps clear sequence: time-bonus ticks, timer warn anim, sounds, records Mii config at end
+80280610	Wly_ClearPhase_start	high	state=1, plays one-shot Wtd_clear effect
+802806B4	Wly_ClearPhase_dtor	high	base dtor RP_Cls_80357248_vf00, delete if flag>0
+8028070C	Wly_Stage_updateAvatarHoverReactions	low	per hovered avatar plays hover/wrong voice reactions depending on found state
+802809D0	Wly_Stage_updateHoverTimers	medium	per-avatar hover timer; after ~30 frames calls GameMgr_onAvatarPicked
+80280AF4	Wly_Stage_isAvatarHovered	medium	returns hover flag of avatar idx (+0x20 + idx*0x10)
+80280B04	Wly_Stage_checkMultiHoverPick	low	counts avatars hovered >30 frames; resolves picks when count matches targets, voice + popup
+80280CF0	Wly_Stage_recordFoundMii	low	copies found avatar's Mii info into party game config
+802810B8	Wly_AvatarMgr_getMiiIdEntry	low	builds small struct from AvatarMgr entry +0x2444 + idx*8
+802810D8	Wly_AvatarMgr_getMiiInfo	low	copies 0x5c-byte Mii info entry idx from AvatarMgr into struct
+802811DC	Wly_Stage_getPointValue	low	in 2P mode looks up value from table by target/found count, else 1
+80281254	Wly_Stage_isAllFound	high	returns foundCount >= targetCount
+80281270	Wly_Stage_markTargetFound	high	sets found flag for target idx (single flag in stage 6) and increments found count
+80281324	Wly_Stage_isTargetFound	medium	returns found flag for idx (single flag in stage type 6)
+802813C4	Wly_Stage_isTargetNotFound	medium	returns 1 if idx is a target that is not yet found
+80281464	Wly_Stage_isTargetFoundInPlay	medium	isTargetFound but returns 0 while GameMgr state is 3
+8028151C	Wly_Stage_calc	medium	per-frame stage update: avatar motion by level pattern, pose, hover timers
+80281ED4	Wly_Stage_clampPosition	medium	clamps position to stage bounds (+0x664/+0x668 * 1.5)
+80281FA4	Wly_Stage_reset	medium	once: places avatars by level pattern, sets camera/zoom values from level data
+802820F8	Wly_Stage_calcMotionCategory4	low	motion update for level category 4 (positions from model nodes)
+80282528	Wly_Stage_placeCategory4	low	initial placement for level category 4
+80282DF8	Wly_Stage_getNodePosition	low	computes avatar slot position from field model node name (sprintf)
+80282F84	Wly_Stage_calcMotionPattern5	low	motion/anim update for level pattern 5
+80283224	Wly_Stage_placePattern5	low	initial placement for level pattern 5
+802834D0	Wly_Stage_calcMotionPattern2	low	motion update for level patterns 2/4/6/7 (movement with avoidance)
+802847A8	Wly_Stage_placePattern2	low	initial placement/anims for level patterns 2/4/6/7
+80285124	Wly_Stage_calcMotionPattern1	low	motion update for level patterns 1/3, plays group sound cues
+80285CB8	Wly_Stage_placePattern1	low	initial placement/anims for level patterns 1/3
+8028646C	Wly_Stage_calcMotionPattern0	low	motion/anim update for level pattern 0
+8028670C	Wly_Stage_placePattern0	low	initial placement/anims for level pattern 0
+80286FF4	Wly_Stage_placeAvatarsSpaced	low	random positions with retries (max 1000) and spacing; used by pattern 5
+80287568	Wly_Stage_placeAvatarsRandom	low	random positions with minimum-distance constraints (max 1000 tries)
+80287BA4	Wly_Stage_placeAvatarsFormation	low	huge switch on avatar count building formations for placement
+8028CA0C	Wly_Stage_ctor	medium	initializes stage object (0xc78) from level data, switch on level type
+8028CC58	Wly_ResultPhase_draw	low	empty; called from GameMgr draw
+8028CC5C	Wly_ResultPhase_destroy	low	empty; called from GameMgr destroy
+8028CC60	Wly_ResultPhase_calc	medium	slot 3: result state machine: sound, score tally, end score/complete layouts, party results
+8028CF94	Wly_ResultPhase_reset	medium	clears state/timer, winner=-1, flag=1
+8028CFB4	Wly_ResultPhase_create	low	empty; called from GameMgr create
+8028CFB8	Wly_ResultPhase_init	low	empty; called from GameMgr init
+8028CFBC	Wly_ResultPhase_calcTally	medium	after 120/180 frames decides winner by score, shows end score / all-clear layouts
+8028D104	Wly_ResultPhase_start	medium	state=1; starts sound 0x78 on audio mgr unless already playing
+8028D1B8	Wly_ResultPhase_dtor	high	base dtor RP_Cls_80357248_vf00, delete if flag>0
+8028D210	Wly_IntroPhase_draw	low	empty; called from GameMgr draw
+8028D214	Wly_IntroPhase_destroy	low	empty; called from GameMgr destroy
+8028D218	Wly_IntroPhase_calc	medium	slot 3: in GameMgr state 0 advances state 0->1->2
+8028D270	Wly_IntroPhase_reset	medium	clears state and timer
+8028D280	Wly_IntroPhase_create	low	empty; called from GameMgr create
+8028D284	Wly_IntroPhase_init	medium	clears state
+8028D290	Wly_IntroPhase_dtor	high	base dtor RP_Cls_80357248_vf00, delete if flag>0
+8028D2E8	Wly_TargetPhase_draw	low	empty; called from GameMgr draw
+8028D2EC	Wly_TargetPhase_destroy	low	empty; called from GameMgr destroy
+8028D2F0	Wly_TargetPhase_calc	medium	slot 3: in GameMgr state 1 shows level/time/target Mii, waits, then starts out anims
+8028D478	Wly_TargetPhase_reset	medium	clears state and timer
+8028D488	Wly_TargetPhase_create	low	empty; called from GameMgr create
+8028D48C	Wly_TargetPhase_init	medium	clears state
+8028D498	Wly_TargetPhase_start	medium	state=1, plays BGM, level msg, timer in, question layout in, sound 0x7b
+8028D560	Wly_TargetPhase_dtor	high	base dtor RP_Cls_80357248_vf00, delete if flag>0
+8028D5B8	Wly_TimerSe_reset	medium	stops audio mgr handles 0x920/0x924, resets countdown sound state fields
+8028D65C	Wly_TimerSe_update	low	per-frame countdown sound: tick/hurry sounds and volume by remaining seconds
+8028D8CC	Wly_TimerSe_startRoundSound	low	stops handle, starts sound 0x7a (volume tweak), sets handle volume by time left
+8028DC30	Wly_TimerSe_resetAndPlayFound	low	stops handles, resets state, starts sound 0x79 on audio mgr
+8028DD30	Wly_TimerSe_init	medium	initializes countdown sound state (volume 1.0, ids -1, 30/10 frame values)
+8028DD70	Wly_playAvatarVoice	medium	plays avatar voice from table by Mii voice type and kind (0-3) or sounds 8/9 on avatar sound actor
+8028DEF0	Wly_LevelTable_isSpotlightStage	low	current level entry +0x24 != 0; selects WNTScene/spotlight lights and alt field
+8028DF5C	Wly_LevelTable_hasAltMessage	low	current level entry +0x14 != +0x10; used for message text and motion
+8028DFC8	Wly_LevelTable_getCurrentLevel	high	returns current 0x40-byte level entry from 1p/2p table for current level index
+8028E01C	Wly_LevelTable_setup	low	initializes level progression from party config (game mode, per-player data)
+8028E7AC	Wly_LevelTable_getLevelIndex	medium	returns current level index (level-1, remapped by party mode groups of 5)
+8028E938	Wly_LevelTable_dtor	low	operator delete when flag>0
+8028E978	Wly_LevelTable_ctor	high	loads wanted_1p_leveltable.bin and wanted_2p_leveltable.bin into heap copies
+8028EB44	Wly_LevelTable_destroyGlobal	high	deletes lbl_8043C988 via vfunc 8 and clears it
+8028EB88	Wly_LevelTable_createGlobal	high	allocates 0x1c LevelTable, stores lbl_8043C988
+8028EBBC	Wly_Field_destroy	low	empty; called from GameMgr destroy
+8028EBC0	Wly_Field_calc	medium	slot 3: updates earth/ground sub-objects, wtd_field03_earth node, spotlight anims
+8028F068	Wly_Field_reset	medium	resets ground or earth sub-object (vfunc 0x20) and shooting star effect
+8028F0EC	Wly_Field_create	high	loads field model by level (wtd_field01..09 .brres with anims), spotlight scene objects
+8028FCBC	Wly_Field_init	medium	creates earth (+Wtd_shootingstar01) or ground sub-object by level, straps for spotlight stage
+8028FDE8	Wly_Field_dtor	high	base dtor RP_Cls_80357248_vf00, delete if flag>0
+8028FE40	Wly_MiiEntry_dtor	low	destroys Mii info members (0x10, 0x6c, array 0x88), delete if flag>0; called from 801E4A34
+8028FEC4	Wly_MiiEntry_ctor	low	sets vtable 8035CB38, constructs Mii info members, defaults (0x708, -1 ids)
+8028FF78	Wly_SoundObj_calc	medium	slot 12: applies fader volume; restores ducked BGM to full volume after 60 frames
+802900A8	Wly_SoundObj_duckBgm	medium	sets BGM handle volume 0.4 over 20 frames, starts restore timer
+80290128	Wly_SoundObj_stopBgm	medium	stops BGM handle (+0x5c) immediately
+80290188	Wly_SoundObj_playBgm	medium	stops BGM, starts BGM id from table by index via vfunc 0x3c, volume 1.0
+8029023C	Wly_SoundObj_dtor	high	destroys 4-handle array and fader, unregisters from list, delete if flag>0
+802902F0	Wly_AvatarShadow_calc	medium	slot 3: unless level mode 1/2 resets matrix and updates model (RP_801B8680)
+80290418	Wly_AvatarShadow_resetTransform	medium	slot 6: resets position and scale vectors
+8029045C	Wly_AvatarShadow_loadModel	high	slot 5: loads /G3D/wtd_ava_shadow.brres model wtd_ava_shadow
+802904BC	Wly_AvatarShadow_ctor	high	base model ctor, sets vtable 8035CBB0
+802904F8	Wly_AvatarShadow_dtor	high	base dtor RP_Cls_80357248_vf00, delete if flag>0
+80290550	Wly_StartCountLyt_draw	medium	draws layout unless state 1
+80290568	Wly_StartCountLyt_destroy	low	empty
+8029056C	Wly_StartCountLyt_calc	medium	countdown anim sequence, plays count sounds 3/4 at each step, updates layout
+80290880	Wly_StartCountLyt_reset	medium	rewinds 4 anims, binds first count anim, state 0
+80290934	Wly_StartCountLyt_create	high	loads wallyStartCount_00.brlyt and count/star anims from wally.arc, sets start texts
+80290A38	Wly_StartCountLyt_init	medium	zeroes 8 fields
+80290A60	Wly_PointPopupSet_areAllIdle	medium	returns 1 if all 20 point popups are in state 1 (idle)
+80290B74	Wly_PointPopupSet_showNext	medium	shows next popup in ring of 20 (PointPopup_show)
+80290BCC	Wly_PointPopupSet_draw	medium	draws all 20 point popups
+80290C18	Wly_PointPopupSet_destroy	medium	destroys all 20 point popups
+80290C64	Wly_PointPopupSet_calc	medium	calcs all 20 point popups
+80290CB0	Wly_PointPopupSet_reset	medium	resets ring index and all 20 point popups
+80290D04	Wly_PointPopupSet_create	medium	creates all 20 point popup layouts
+80290D50	Wly_PointPopupSet_init	medium	allocates 20 popups (0x44 each) and inits them
+80290DC4	Wly_PointPopup_show	medium	sets +/- number text (T_numberU/D_00), plays timer plus/minus anim, binds in/out anim
+802910DC	Wly_PointPopup_draw	medium	draws popup unless idle; in result state only if its avatar is visible
+80291148	Wly_PointPopup_destroy	low	empty
+8029114C	Wly_PointPopup_calc	medium	state machine; follows avatar position, updates layout
+802911C8	Wly_PointPopup_reset	medium	rewinds anim, hides center panes, state 0
+80291274	Wly_PointPopup_create	high	loads wallyPoint_00 or wallyTimePoint_00 layout and number/center panes
+802913E8	Wly_PointPopup_init	medium	stores player mode, clears state, avatar idx -1
+80291414	Wly_PointPopup_updatePos	medium	moves N_centerU/D panes to avatar screen position; 1p time penalty ticks of 60
+80291614	Wly_Earth_calc	medium	slot 3: resets matrix and updates model (RP_801B8680)
+80291704	Wly_Earth_reset	low	slot 6: empty
+80291708	Wly_Earth_loadModel	high	slot 5: loads wtd_field03_earth model and anim from /G3D/wtd_field03.brres
+80291828	Wly_Earth_ctor	high	base model ctor, vtable 8035CC80, position and scale 0.4
+8029188C	Wly_Earth_dtor	high	base dtor RP_Cls_80357248_vf00, delete if flag>0
+802918E4	Wly_TimerLyt_updateWarnAnim	medium	binds normal or low-time (timer < 301) animation
+8029198C	Wly_TimerLyt_playMinus	medium	state 5, plays switchMinus anim
+80291A08	Wly_TimerLyt_playPlus	medium	state 4, scale 1.5, plays switchPlus anim
+80291A90	Wly_TimerLyt_playOut	medium	state 3, plays outTime anim
+80291B0C	Wly_TimerLyt_playIn	medium	if level 1: state 2, plays inTime anim
+80291B98	Wly_TimerLyt_draw	medium	draws timer layout
+80291BA0	Wly_TimerLyt_destroy	low	empty
+80291BA4	Wly_TimerLyt_calc	medium	updates T_timeNum texts from GameMgr timer, timer sounds, anim states
+80291F84	Wly_TimerLyt_reset	medium	rewinds 5 anims, binds in anim, sets initial time text
+8029212C	Wly_TimerLyt_create	high	loads wallyTime_00.brlyt and in/out/switch anims, sets time texts
+8029227C	Wly_TimerLyt_init	medium	zeroes state, scale 1.0
+802922B4	Wly_MessageLyt_show	medium	state 2, plays inMsg anim
+80292330	Wly_MessageLyt_draw	medium	draws message layout
+80292338	Wly_MessageLyt_destroy	low	empty
+8029233C	Wly_MessageLyt_calc	medium	in -> wait (5 loops) -> out anim state machine
+80292510	Wly_MessageLyt_reset	medium	rewinds 3 anims, binds in anim
+802925C4	Wly_MessageLyt_create	high	loads wallyMsg_00.brlyt and in/wait/out anims, sets msg texts by level
+8029275C	Wly_MessageLyt_init	medium	zeroes fields
+8029277C	Wly_QuestionLyt_isOutDone	medium	returns finished flag of out anim
+8029278C	Wly_QuestionLyt_startOut	medium	if shown: state 3, plays outQue anim, toggles pointer flag for special levels
+80292858	Wly_QuestionLyt_showIn	medium	picks visible name/face panes by state and level, state 2, plays inQue anim
+80292ABC	Wly_QuestionLyt_draw	medium	draws question layout
+80292AC4	Wly_QuestionLyt_destroy	low	empty
+80292AC8	Wly_QuestionLyt_calc	medium	in/switch/out anim state machine
+80292C34	Wly_QuestionLyt_reset	medium	rewinds 3 anims, binds in anim, ready flag
+80292CF0	Wly_QuestionLyt_create	high	loads wallyQue_00.brlyt and anims, sets target Mii names and question texts
+80293094	Wly_QuestionLyt_init	medium	zeroes fields
+802930B4	Wly_DisplayLyt_playWinnerScore	medium	state 6, plays switch1p/2p score anim for the leading player
+802931E4	Wly_DisplayLyt_startScoreResult	medium	state 5, plays score pane anims for winner (or tie anim)
+8029341C	Wly_DisplayLyt_playEndIn	medium	hides N_msgStart, state 4, plays inLevel2End anim
+802934B8	Wly_DisplayLyt_playLevelOut	medium	state 3, plays outLevel anim
+80293534	Wly_DisplayLyt_playLevelIn	medium	shows N_msgStart, plays inLevel1 (level 1) or inLevel2End anim
+80293634	Wly_DisplayLyt_draw	medium	draws display layout and per-player Mii icons
+802936B4	Wly_DisplayLyt_destroy	low	empty
+802936B8	Wly_DisplayLyt_calc	medium	anim state machine incl. score result and winner score anims
+802938AC	Wly_DisplayLyt_reset	medium	rewinds 6 anims, binds level-in anim, sets both player scores
+802939EC	Wly_DisplayLyt_create	high	loads wallyDisplay_00.brlyt and anims, sets 1p/2p texts and level message
+80293CCC	Wly_DisplayLyt_init	medium	clears fields, creates per-player Mii icon objects
+80293DB4	Wly_DisplayLyt_setPlayerScore	high	clamps score 0..999, formats digits, writes T_1pScore_00/T_2pScore_00
+80293EEC	Wly_DisplayLyt_updateScoreResult	medium	state 5 update: plays winner score anims, returns to idle when done
+802940B8	Wly_Ground_calc	medium	slot 3: increments timer, resets matrix and updates model
+802941B4	Wly_Ground_reset	low	slot 6: empty
+802941B8	Wly_Ground_loadModel	high	slot 5: loads wtd_field02_ground from /G3D/wtd_field02.brres
+80294218	Wly_Ground_ctor	high	base model ctor, vtable 8035CCC8, default scale/params
+8029428C	Wly_Ground_dtor	high	base dtor RP_Cls_80357248_vf00, delete if flag>0
+802942E4	Wly_Field06_calc	medium	slot 3: updates wtd_field06 model and anims relative to cursors/state
+802947D8	Wly_Field06_reset	low	slot 6: empty
+802947DC	Wly_Field06_loadModel	high	slot 5: loads wtd_field06 model and anim from /G3D/wtd_field06.brres
+80294908	Wly_Field06_ctor	high	base model ctor, vtable 8035CCF0, matrices and params from level data
+802949F4	Wly_Field06_dtor	high	base dtor RP_Cls_80357248_vf00, delete if flag>0
+80294A4C	Wly_DisplayEndLyt_playOut	medium	state 5, plays outEnd anim
+80294AC8	Wly_DisplayEndLyt_playIn	medium	shows N_msgEnd, state 4, plays inLevel2End anim
+80294B64	Wly_DisplayEndLyt_draw	medium	draws end-message layout in GameMgr state 4
+80294B80	Wly_DisplayEndLyt_destroy	low	empty
+80294B84	Wly_DisplayEndLyt_calc	medium	anim state machine; updates layout in state 4
+80294C2C	Wly_DisplayEndLyt_reset	medium	rewinds 4 anims, binds start anim, hides msg panes
+80294D6C	Wly_DisplayEndLyt_create	high	loads wallyDisplay_00.brlyt (end variant) and anims, sets T_msgEnd texts
+80294EA0	Wly_DisplayEndLyt_init	medium	zeroes fields
+80294EC8	Wly_EndScoreLyt_playOut	medium	state 3, plays outScore anim
+80294F44	Wly_EndScoreLyt_show	medium	sets T_scoreNum/T_scoreUnit texts from reached level, state 2, plays inScore anim
+802950DC	Wly_EndScoreLyt_draw	medium	draws end score layout and Mii icon
+80295134	Wly_EndScoreLyt_destroy	low	empty
+80295138	Wly_EndScoreLyt_calc	medium	in/out anim state machine, updates layout
+802951A8	Wly_EndScoreLyt_reset	medium	rewinds 2 anims, binds in anim
+8029525C	Wly_EndScoreLyt_create	high	loads wallyEndScore_00.brlyt and in/out anims, sets texts
+80295350	Wly_EndScoreLyt_init	medium	zeroes fields, creates Mii icon object
+80295418	Wly_Wipe_startClose	low	sets flag +0x44 = 1
+80295424	Wly_Wipe_destroy	low	empty
+80295428	Wly_Wipe_calc	medium	slot 3: drives wipe anims; when wipe passes point shows message, starts round sound
+80295690	Wly_Wipe_reset	low	empty
+80295694	Wly_Wipe_create	high	loads /G3D/wtd_wipe_a.brres model and its two anim sets
+802958E8	Wly_Wipe_init	low	empty
+802958EC	Wly_Wipe_ctor	high	base model ctor, vtable 8035CD18, clears flags, small scale
+80295954	Wly_Wipe_dtor	high	base dtor RP_Cls_80357248_vf00, delete if flag>0
+802959AC	Wly_CompleteLyt_playOut	medium	state 3, plays out anim
+80295A28	Wly_CompleteLyt_showAllClear	high	state 2, plays in anim and one-shot Wtd_all_clear effect
+80295B1C	Wly_CompleteLyt_draw	medium	draws complete layout
+80295B24	Wly_CompleteLyt_destroy	low	empty
+80295B28	Wly_CompleteLyt_calc	medium	in/out anim state machine, updates layout
+80295B98	Wly_CompleteLyt_reset	medium	rewinds 2 anims, binds in anim
+80295C4C	Wly_CompleteLyt_create	high	loads wallyComp_00.brlyt and in/out anims, sets T_complete texts
+80295D20	Wly_CompleteLyt_init	medium	zeroes 5 fields; called from LayoutSet init
+80295D3C	Cow_Scene_createCowMgr	medium	moved from Wly (position): allocates 0x7c Cow_Cow object, stores lbl_8043C680; vtable 8035CD38
+80295D70	Cow_Scene_dtor	medium	moved from Wly (position): Lyt scene base dtor, delete if flag>0; vtable 8035CD38 (Cow scene)
+80295DC8	Cow_Scene_thunk_dtor	medium	moved from Wly (position): this-0x24 adjustor thunk to dtor of 8035CD38

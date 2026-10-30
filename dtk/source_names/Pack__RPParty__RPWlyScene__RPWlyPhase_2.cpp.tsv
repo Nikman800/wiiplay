@@ -1,0 +1,9 @@
+address	old_name	new_name	unit	previous
+8028D210	Wly_IntroPhase_draw	Draw__15RPWlyIntroPhaseFv	Pack/RPParty/RPWlyScene/RPWlyPhase_2.cpp	
+8028D214	Wly_IntroPhase_destroy	Destroy__15RPWlyIntroPhaseFv	Pack/RPParty/RPWlyScene/RPWlyPhase_2.cpp	
+8028D218	Wly_IntroPhase_calc	Calculate__15RPWlyIntroPhaseFv	Pack/RPParty/RPWlyScene/RPWlyPhase_2.cpp	
+8028D270	Wly_IntroPhase_reset	Reset__15RPWlyIntroPhaseFv	Pack/RPParty/RPWlyScene/RPWlyPhase_2.cpp	
+8028D280	Wly_IntroPhase_create	Create__15RPWlyIntroPhaseFv	Pack/RPParty/RPWlyScene/RPWlyPhase_2.cpp	
+8028D284	Wly_IntroPhase_init	Init__15RPWlyIntroPhaseFv	Pack/RPParty/RPWlyScene/RPWlyPhase_2.cpp	
+8028D290	Wly_IntroPhase_dtor	__dt__15RPWlyIntroPhaseFv	Pack/RPParty/RPWlyScene/RPWlyPhase_2.cpp	
+8035CA88	lbl_8035CA88	__vt__15RPWlyIntroPhase	Pack/RPParty/RPWlyScene/RPWlyPhase_2.cpp	

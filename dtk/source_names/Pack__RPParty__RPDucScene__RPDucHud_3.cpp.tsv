@@ -1,0 +1,13 @@
+address	old_name	new_name	unit	previous
+8024E094	Duc_ScoreLayout_exit	VF_0x18__16RPDucScoreLayoutFv	Pack/RPParty/RPDucScene/RPDucHud_3.cpp	
+8024E098	Duc_ScoreLayout_draw	Draw__16RPDucScoreLayoutFv	Pack/RPParty/RPDucScene/RPDucHud_3.cpp	
+8024E158	Duc_ScoreLayout_calc	Calculate__16RPDucScoreLayoutFv	Pack/RPParty/RPDucScene/RPDucHud_3.cpp	
+8024E238	Duc_ScoreLayout_reset	Reset__16RPDucScoreLayoutFv	Pack/RPParty/RPDucScene/RPDucHud_3.cpp	
+8024E4CC	Duc_ScoreLayout_load	Load__16RPDucScoreLayoutFPQ23EGG7Archive	Pack/RPParty/RPDucScene/RPDucHud_3.cpp	
+8024E5C4	Duc_ScoreLayout_updateAnimStates	UpdateAnimStates__16RPDucScoreLayoutFv	Pack/RPParty/RPDucScene/RPDucHud_3.cpp	
+8024E880	Duc_ScoreLayout_playScoreAnimP2	PlayScoreAnimP2__16RPDucScoreLayoutFl	Pack/RPParty/RPDucScene/RPDucHud_3.cpp	
+8024E9E8	Duc_ScoreLayout_playScoreAnimP1	PlayScoreAnimP1__16RPDucScoreLayoutFl	Pack/RPParty/RPDucScene/RPDucHud_3.cpp	
+8024EB50	Duc_ScoreLayout_updateHitCounterP2	UpdateHitCounterP2__16RPDucScoreLayoutFv	Pack/RPParty/RPDucScene/RPDucHud_3.cpp	
+8024EE88	Duc_ScoreLayout_updateHitCounterP1	UpdateHitCounterP1__16RPDucScoreLayoutFv	Pack/RPParty/RPDucScene/RPDucHud_3.cpp	
+8024F238	Duc_ScoreLayout_dtor	__dt__16RPDucScoreLayoutFv	Pack/RPParty/RPDucScene/RPDucHud_3.cpp	
+8035AD30	lbl_8035AD30	__vt__16RPDucScoreLayout	Pack/RPParty/RPDucScene/RPDucHud_3.cpp	

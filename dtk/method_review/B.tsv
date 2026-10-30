@@ -1,0 +1,136 @@
+address	old_name	new_name	confidence	evidence
+8018C688	Mii_matchPlayerSlotsToControllerMiis	RP_PlayerMgr_isValidOldData	high	RPSysPlayerMgr code between getSavedSlot and assignChannels, Wii Sports isValidOldData slot (0x2D4 vs 0x2C0): checks mpOldData (+0x18, 0x12 stride) DB indices against create IDs, reorders entries to match controller core addresses, returns all matched
+8018F5F4	Mii_KokeshiHead_build	Mii_KokeshiHead_loadResource	high	vtable 80357A70 +0xC = RPSysKokeshi::LoadResource (Wii Sports same position and size 0x39C): RPSysAvatar::LoadResource, body/hand models into +0xA8..+0xB0, clothes textures, colours
+80193DB0	Gfx_Effect_sinitNullHandle	Gfx_Effect_sinitNullHandle	high	__sinit of RPSysEffect::INVALID_HANDLE (nw4r::ef::HandleBase ctor); Wii Sports __sinit_RPSysEffectBase_cpp, size 8
+80193DB8	Lyt_getTableEntry80317890	Lyt_Layout_getPlayerColor	high	returns &table[idx*4] (GXColor); Wii Sports RPSysLayout::getPlayerColor(u32) at the same position, size 0x14; caller RPSysLytWindow::applyPlayerColor
+80193DCC	Lyt_drawPaneQuad	Lyt_Layout_drawKokeshiIcon	high	RPSysLayout::drawKokeshiIcon(screen, pane, icon, color) (Wii Sports same position, size 0x100): quad from pane size and global mtx, DrawQuadTexture with the icon ResTIMG
+80194878	Lyt_bindTexturePatterns	Lyt_Layout_forceBindAnmObjToPane	high	Wii Sports RPSysLayout::forceBindAnmObjToPane (size 0x2F4, after unbindAnmObjToPane): matches anim names to panes/materials (FindPaneByName/FindMaterialByName) and adds animation links
+80194B6C	Lyt_Pane_childrenUnbindAll	Lyt_unbindAllAnimationInGroup	high	first arg is an nw4r::lyt::Group: for each pane link (+0x10) calls Pane::UnbindAllAnimation(recursive) (vtable 0x4C); no this class
+80196A20	Lyt_setTextBoxFormattedAt	RP_TextWriter_printfAt	medium	varargs on a TextWriter: sets cursor x/y (+0x2C/+0x30, y negated in canvas mode 0), expands message tags into a buffer and Prints it; only caller RP_drawDebugLogAndGraphs
+80197A2C	Mii_MiiIconBase_refreshMiiInfo	Mii_MiiIconBase_setup	high	Wii Sports RPSysAvatar::Setup slot (0x188): fills mAdditionalInfo +0x68 (guest names, placeholder for invalid DB Mii) and RegistLocation with the kokeshi manager
+80198CC4	Lyt_getTextColorBytes	Lyt_getWriterTextColor	medium	struct-return copy of the colour at +0x18 (CharWriter text colour); Wii Sports fn_8019AC20 unnamed; caller Lyt_TagProcessor_processCommon
+8019C03C	Mii_MiiDataSource_querySecondary	Mii_MiiDataSource_updateAsync	high	RFLUpdateMiddleDBAsync(this->mpRandomDB) on RPSysMiddleDB
+8019D9AC	Lyt_CursorManager_getCurrentPlayerCursorPos	Lyt_CursorManager_getCurrentPlayerCursorPos	medium	header RPSysCursorDrawMgr::getCurrentPlayerCursorPos (Wii Play only): out-of-screen pos unless active cursor enabled, else cursor of RPSysPlayerMgr::getChannel(player)
+801A22C0	Lyt_createSingleton8043C530	Lyt_SystemWindow_createInstance	high	allocates 0xE0 RPSysSystemWinMgr once into spInstance (Lyt_systemWindowInstance); Wii Sports CreateInstance position (fn_801A48D0, 0x60)
+801A4F44	Lyt_ResTexObj_resolveSource	Lyt_ResTexObj_construct	high	like RPSysKokeshi::Construct: resolves location by gen type (GetLocationPlayer/GetLocationFriend) then RPSysAvatar::Setup
+801A50C0	Gfx_registerLightTexA4	Lyt_ResTexObj_applyLightTexture	high	vtable 8034FA08 +0x10 = ApplyLightTexture(drawScene): ReplaceModelTexture of lm_0/lm_1 on hand model +0xA4
+801A5130	Gfx_createMiiModelCallback	Lyt_ResTexObj_loadResource	high	vtable 8034FA08 +0xC = LoadResource: RPSysAvatar::LoadResource, hand model into +0xA4, clothes textures, colours (RPBase8034F6B0.h)
+801A53DC	Lyt_ResTexObj_ctor	Lyt_ResTexObj_ctor	high	RPBase8034F6B0 ctor: RPSysAvatar ctor, vtable 8034FA08, construct
+801A6DDC	Gfx_ScnProc_drawStage	Gfx_ScnProc_scnProcDraw	high	__vt__20RPGrpDrawPathManager +0xC = scnProcDraw(u16): calls mpDrawHook->Draw(step), step 4 only when DOF path enabled
+801A7AFC	Gfx_Model_createHelper34	Gfx_Model_createBoundingInfo	high	Wii Sports RPGrpModel::CreateBoundingInfo(u32) (same position, size 0xC0): new RPGrpModelBoundingInfo into mpBoundingInfo +0x34
+801A7BBC	Gfx_KokeshiModel_setCallback	Gfx_Model_setCallback	high	Wii Sports RPGrpModel::SetCallback (size 0x10, RPGrpModel code): swaps mpCallback +0x1C, returns old; moved from Gfx_KokeshiModel (inherited base slot)
+801ABC90	Gfx_ModelSceneMgr_drawPostAll	Gfx_ModelSceneMgr_drawPostAll	high	RPGrpModelManager: calls RPGrpModelScene::DrawFinish (vtable 0x18) on each of 8 scenes; from RPGrpRenderer::Rendering (header DrawPost)
+801ABD48	Gfx_ModelSceneMgr_calcWorldAll	Gfx_ModelSceneMgr_calcWorldAll	high	RPGrpModelManager: for each scene sets ScnRenderer draw-mode flag 2, EGG::ScnRootEx::CalcWorld, clears it; from CalculateInPause (header CalcWorldModelScenes)
+801AC0CC	Gfx_deleteObj_801AC0CC	Gfx_ModelSceneMgr_dtor	high	__vt__17RPGrpModelManager +0x8 (destructor; delete when flag > 0)
+801AC37C	Gfx_ResTable_getAnmByIndex	Gfx_GrpModelResManager_getPtrByIndex	high	Wii Sports RPGrpModelResManager::GetPtr(Type, u16, int) (size 0x1D4): ResFile Get<Res*>(idx) by type 0xD-0x16; this is RPGrpModelResManager, not RPResTable
+801AC550	Gfx_ResTable_getAnmByName	Gfx_GrpModelResManager_getPtrByName	high	Wii Sports RPGrpModelResManager::GetPtr(Type, u16, const char*) (size 0x1D4): ResFile Get<Res*>(name) by type
+801ACBC0	Gfx_ScnProcDrawHook_vf02Empty	Gfx_ScnProcDrawHook_vf10	high	vtable 8034FF70 +0x10 (header VF_0x10), empty
+801ACBC4	Gfx_ScnProcDrawHook_draw	Gfx_ScnProcDrawHook_draw	high	vtable 8034FF70 +0xC = RPScnProcDrawHook::Draw(step): sets draw step, runs draw list, effects on step 5
+801AD088	Gfx_Renderer_endFrame	Gfx_Renderer_endFrame	high	RPGrpRenderer: draw step 4 and UserDraw on every draw object; called from RPSysSystem::mainLoop
+801AD6B0	Gfx_Renderer_beginFrame	Gfx_Renderer_beginFrame	high	RPGrpRenderer: model manager ResetViews, draw step 0 pass over draw objects; called from RPSysSystem::mainLoop
+801ADB80	Gfx_deleteObj_801ADB80	Gfx_Renderer_dtor	high	__vt__13RPGrpRenderer +0x8 (destructor; delete when flag > 0)
+801ADD40	Gfx_initScreenSize	Gfx_GrpScreen_initialize	high	Wii Sports RPGrpScreen::Initialize(const u16*, const u16*) (same position, size 0xC): EGG::Screen::Initialize with sRootScreen
+801AE4DC	Gfx_calcFrustumCorners	Gfx_Clipper_calc	high	Wii Sports RPGrpView::Clipper::Calc(const RPGrpScreen*) (same position, size 0x150): four frustum plane normals (cross + normalize); callers RPGrpView::Calc/PrepareDraw
+801AF24C	Gfx_ModelScene_setLightHook	Gfx_ModelScene_setProjection	high	mpProjections[obj first byte] = obj (+0x18, 32 slots): header RPGrpModelScene::SetProjection
+801AF260	Gfx_ModelScene_drawShadow	Gfx_ModelScene_drawFinish	high	__vt__15RPGrpModelScene +0x18 (header DrawFinish): forwards to ScnRenderer vtable 0x10
+801AFCF8	Gfx_Flag10Ctrl_ctor	Gfx_Flag10Ctrl_ctor	high	RPGrpDrawPathLightMap ctor: renderer, vtable 80350160, light texture manager
+801AFD20	Gfx_Flag10Ctrl_dtor	Gfx_Flag10Ctrl_dtor	high	__vt__21RPGrpDrawPathLightMap +0x8 destructor
+801AFD60	Gfx_Flag10Ctrl_set	Gfx_Flag10Ctrl_on	high	__vt__21RPGrpDrawPathLightMap +0xC (On): sets light texture manager flag 0x10
+801AFD74	Gfx_Flag10Ctrl_clear	Gfx_Flag10Ctrl_off	high	__vt__21RPGrpDrawPathLightMap +0x10 (Off): clears flag 0x10
+801AFD88	Gfx_Flag10Ctrl_isSet	Gfx_Flag10Ctrl_isEnable	high	__vt__21RPGrpDrawPathLightMap +0x14 (IsEnable): returns flag 0x10
+801AFEDC	Gfx_ModelSnapshot_capture	Gfx_ModelSnapshot_addModel	high	Wii Sports RPGrpShadowTexture::AddModel(model, density) (size 8): EGG::ModelSnapshot::AddModelEx(model +0x40)
+801AFEE4	Gfx_ShadowTexture_attachF	Gfx_ShadowTexture_replace	high	Wii Sports RPGrpShadowTexture::Replace(model, fmt, ...) (size 0xBC): vsprintf then EGG::ShadowTexture::Replace
+801AFFA0	Gfx_MatEditor_readTevColor	Gfx_MatEditor_readChanColors	high	reads GX channel material and ambient colours (GXGetChanMatColor/AmbColor) for a channel pair into 8 bytes; called by RPGrpModelMaterial ctor
+801B0144	Gfx_MatEditor_readPixelModes	Gfx_MatEditor_readPixelModes	high	reads alpha compare, z mode, blend mode, dst alpha of ResMatPix into a byte array; called by RPGrpModelMaterial ctor
+801B02E8	Gfx_MatEditor_apply	Gfx_MatEditor_calc	high	Wii Sports RPGrpModelMaterial::Calc (same position, size 0x6F4): writes synced gen mode, chan ctrl/colours, pixel modes, TEV colours; caller RPGrpModel::CalcMaterial
+801B09DC	Gfx_MatEditor_ctor	Gfx_MatEditor_ctor	high	Wii Sports __ct__18RPGrpModelMaterial (size 0x808)
+801B1224	Gfx_JointMtx_apply	Gfx_JointMtx_calc	high	RPGrpModelRecord::Calc(RPGrpModel*) (header): records joint matrices (flag bit 0) or plays them back interpolated (bit 1)
+801B1418	Gfx_TexObj_ctorFromResIdx	Gfx_TexObj_ctorFromRes	high	Wii Sports RPGrpTexture(RPGrpHandle, const char*) (size 0x80): ResFile GetResTex(name) -> GXTexObj
+801B1498	Gfx_TexObj_ctorFromObj	Gfx_TexObj_ctorFromCapTexture	high	Wii Sports RPGrpTexture(const RPGrpCaptureTexture*) (size 0x50): cap texture +0x4 vfunc fills the tex obj
+801B14E8	Gfx_TexObj_ctor	Gfx_TexObj_ctorFromResTIMG	high	Wii Sports RPGrpTexture(const EGG::ResTIMG*) (size 0x3C): GXUtility::getTexObj(ResTIMG)
+801B1524	Gfx_TexObj_ctorFromTex	Gfx_TexObj_ctorFromCpuTexture	high	Wii Sports RPGrpTexture(const EGG::CpuTexture*) (size 0x50): texture vfunc 0x10 fills the tex obj
+801B15B8	Gfx_CapTexture_capture	Gfx_CapTexture_capture	high	Wii Sports RPGrpCaptureTexture::Capture(int) (size 0x10C)
+801B9FC8	Lyt_LytObjBase_ctor	Lyt_LytObjBase_ctor	high	RPLytObjBase ctor: vtable 803572F0, creates RPSysLytResAccessor into +0x4
+801BFE58	Lyt_drawPaneWithAlpha	Lyt_drawKokeshiIconWithPaneAlpha	high	colour white (or black when flag set) with the pane alpha (+0xB5), then RPSysLayout::drawKokeshiIcon(screen or current, pane, icon); used by many minigame HUDs
+801BFEEC	Mii_MiiIconSet_calcAll	Mii_MiiIconSet_load	high	vtable 80357458 +0x10 (header Load): LoadResource(NULL) (vtable 0xC) on every icon
+801C17C0	Lyt_AnimButton_vf04	Lyt_AnimButton_vf18	high	vtable 803574A0 +0x18 (header VF_0x18), empty
+801C17F4	Lyt_AnimButton_getPane	Lyt_AnimButton_getPane	high	returns mpPane +0x4
+801C17FC	Lyt_AnimButton_setPane	Lyt_AnimButton_setPane	high	sets mpPane +0x4
+801C1804	Lyt_AnimButton_setLayout	Lyt_AnimButton_setAnimPane	high	sets mpAnimPane +0x8 (header field), a Pane, not a layout
+801C1D80	Lyt_AnimButton_vf03	Lyt_AnimButton_vf14	high	vtable 803574A0 +0x14 (header VF_0x14), empty
+801C1D84	Lyt_AnimButton_vf02	Lyt_AnimButton_vf10	high	vtable 803574A0 +0x10 (header VF_0x10), empty
+801C1D88	Lyt_AnimButton_vf01	Lyt_AnimButton_vf0C	high	vtable 803574A0 +0xC (header VF_0xC), empty
+801C1D8C	Lyt_AnimButton_vf00	Lyt_AnimButton_vf08	high	vtable 803574A0 +0x8 (header VF_0x8), empty
+801C7DC0	Lyt_getGlobalByte5A5	Lyt_getCurrentViewNo	high	returns Gfx_currentViewNo (8043C5A5); used to filter draws per view
+801C7DC8	Lyt_getGlobalMode354	Lyt_getDrawStep	high	returns Gfx_drawStep (8043B354)
+801C857C	Gfx_callGfx801AC978	Gfx_createResourceList	high	thunk: RPGrpModelResManager::CreateResourceList(spCurrent, n); first arg unused
+801C8584	Gfx_addToDrawScene	Gfx_createView2D	high	thunk: RPGrpRenderer::CreateView2D (ledger Gfx_Renderer_createView2D) on the current renderer
+801C8598	Gfx_createDrawModel	Gfx_createView3DWithCamera	high	news a 0x178 RPGrpCamera and passes it to RPGrpRenderer::CreateView3D; returns the camera
+801C86BC	Gfx_updateModel	Gfx_entryModel	high	thunk: RPGrpModel::Entry(model) (not an update)
+801C8738	Gfx_drawModel	Gfx_updateModelFrame	high	thunk: RPGrpModel::UpdateFrame(model) (not a draw)
+801C9CEC	Lyt_FrameDown_vf04	Lyt_FrameDown_vf18	high	vtable 80357718 +0x18 (header VF_0x18), empty
+801CA2A4	Lyt_ABPress_isNeeded	Lyt_ABPress_isNeeded	high	true when any player (or the given one) has not A+B-pressed per RPSysPlayerMgr::isABPress slot (stub 8018CA14)
+801CB260	Mii_BodyJoints_getCount	Mii_BodyJoints_getFriendClothesStartIndex	high	vtable 80357918 +0x8 = IRPSysKokeshiBodyManager::GetFriendClothesStartIndex; returns 12
+801CB268	Mii_BodyJoints_getCount2	Mii_BodyJoints_getFriendClothesIndexRange	high	vtable 80357918 +0xC = GetFriendClothesIndexRange; returns 12
+801CB278	Mii_BodyJoints_vf03	Mii_BodyJoints_getBodyModelIndex	high	vtable 80357918 +0x14 = GetBodyModelIndex; returns 0
+801CB280	Mii_BodyJoints_getDefaultData	Mii_BodyJoints_getClothesFileName	high	vtable 80357918 +0x18 = GetClothesFileName; returns Mii_clothesFileName
+801CBDE8	Menu_MenuScene_loadPlayerMiis	Menu_MenuScene_loadPlayerMiis	medium	if the player-count flag is set: loads saved slots, RPSysPlayerMgr::isValidOldData, requests remote Miis for core-controller players; clears flag on success
+801CBED0	Menu_MenuScene_calcPaused	Menu_MenuScene_calcPaused	medium	while paused: system window msg 0x10F after 30 frames (replays con-change SE), change scene on result 6; KokeshiMgr calc
+801CBFD0	Menu_MenuScene_commitPlayerMii	Menu_MenuScene_commitPlayerMii	high	mode 0: msg 0x122/3; mode 1: stores Mii, time and flag to the sports/party player record, msg 0x118/9 for new Mii; sets next state
+801CC2E4	Menu_MenuScene_calcConfirm	Menu_MenuScene_calcConfirm	high	calcs RPPlayerConfirm, saves player data async when confirmed, then picks next state (0xF/7/3/0xE/0/0xD)
+801CC4F8	Menu_MenuScene_calcPlayerSettings	Menu_MenuScene_calcPlayerSettings	high	calcs RPPlayerSettingPanel; on confirm writes its 6 options to the sports player data bits and commits the Mii
+801CC680	Menu_MenuScene_startPlayerSettings	Menu_MenuScene_startPlayerSettings	high	loads 6 option bits from the player data into RPPlayerSettingPanel, opens it, attaches the player Kokeshi, state 9
+801CCE10	Menu_MenuScene_exit	Menu_MenuScene_exit	high	RPMenuScene vtable +0x54 (Exit): panel Exit, destroys panel/confirm/PtMenuBg, disables connection
+801CE050	Menu_isAnimStateDone	RP_StateMachine4_isStateSettled2	medium	RPStateMachine<T>::isStateSettled template copy (size 0x34, same code as RP_StateMachine_isStateSettled), used on RPPlayerConfirm machine; RP_StateMachine4_isStateSettled is taken by another copy
+801D0008	Menu_MenuFrame_getAnchorPos	Menu_MenuFrame_getAnchorPos	high	struct return: global translation (+0x90/+0xA0 of the anchor pane mtx) when RootPane and anchor pane are visible, else 4649.0 off-screen
+801D00E4	Menu_MenuFrame_isFrameNotEntering	Menu_MenuFrame_isFrameNotEntering	high	inline !isStateOrNext(1) on mpFrameState
+801D1598	Mii_MiiModel_applyTransform	Mii_MiiModel_applyTransform	high	RPKokeshiHead::Calculate (header): body mtx/scale, face on right-hand joint, Calc both, draw group, Entry when flag bit 0
+801D17A4	Mii_KokeshiMgr_calcPaneMtx	Mii_KokeshiMgr_calcPaneMtx	high	header CalcPaneMtx: pane screen pos -> world (RPGrpView::GetScreenToWorld), builds a 3x4 matrix facing the camera
+801D1A40	Mii_KokeshiMgr_fixPartyMiiIndices	Mii_KokeshiMgr_resetStalePartyRecords	high	for each of 100 party records with a Mii create ID whose official DB index != record index: Sys_SaveRecord_reset and write back; sets changed flag
+801D1B78	Mii_KokeshiMgr_fixPlayerMiiIndices	Mii_KokeshiMgr_resetStalePlayerRecords	high	same for the 100 sports player data records (Sys_PlayerData_init and write back)
+801D1CC4	Mii_KokeshiMgr_loaderFunc801A3AD4	Mii_KokeshiMgr_isRemoteLoadError	high	forwards to RPSysKokeshiCtrlMgr::isLoadError(chan) on mpCtrlMgr +0xB4
+801D1CCC	Mii_KokeshiMgr_requestRemoteMii	Mii_KokeshiMgr_requestRemoteMii	high	RPSysKokeshiCtrlMgr::resetResource(chan) on mpCtrlMgr: starts the remote Mii reload when idle
+801D1CD4	Mii_KokeshiMgr_isRemoteMiiReady	Mii_KokeshiMgr_isRemoteMiiReady	high	bool of RPSysKokeshiCtrlMgr::isIdle(chan) on mpCtrlMgr
+801D1D04	Mii_KokeshiMgr_loaderFunc801A3B04	Mii_KokeshiMgr_notifyRemoteMiiRelease	high	forwards to RPSysKokeshiCtrlMgr::notifyReleaseResource(chan)
+801D1D0C	Mii_KokeshiMgr_applyPlayerHighlights	Mii_KokeshiMgr_applyPlayerHighlights	high	resets material type/TEV effect of all heads, then highlight material, brightness and colour (+0x59) for the first n player slots
+801D214C	Mii_KokeshiMgr_setViewMode	Mii_KokeshiMgr_setViewMode	high	selects offset preset (+0x60/+0x64) by mode/count and sets the view screen x/width per mode
+801D257C	Mii_KokeshiMgr_sortMiis	Mii_KokeshiMgr_sortMiis	high	header SortMiis: resets stale records, sorts DB heads by record field 0xC (last used) descending, then moves flagged heads forward
+801D2998	Mii_KokeshiMgr_onRemoteMiiRemoved	Mii_KokeshiMgr_onReleaseResource	high	vtable 80357AB4 +0x28 = IRPSysKokeshiCtrlDataCallback::onReleaseResource: clears the remote head and count
+801D2A18	Mii_KokeshiMgr_onRemoteMiiAdded	Mii_KokeshiMgr_onCreateResource	high	vtable 80357AB4 +0x24 = IRPSysKokeshiCtrlDataCallback::onCreateResource: builds a 0xF8 RPKokeshiHead for (chan, index), LoadResource/ApplyLightTexture, appends
+801D3904	Menu_updateRemoteIconAnim	Menu_RimoconEntryLyt_setRemoteIconAnim	high	this is RPRimoconEntryLyt (mCountSelect +0x8, mpLayout +0x44, anims +0x48): pane P_rimo_00..05, binds offRimocon (14+i) or onRimocon (18+i) and restarts it; caller RimoconEntryLyt_calc
+801D3D10	Menu_RimoconEntryLyt_resetButton6Anim	Menu_RimoconEntryLyt_resetButton6Anim	medium	clears button state 4, binds onOffButton (anim 32) to P_button_06 and plays it backward or rewinds
+801D4300	Menu_RimoconEntryLyt_playEntryOutAnim	Menu_RimoconEntryLyt_playEntryOutAnim	high	N_rimoEntry_00: unbinds inScene/outScene (anims 0/1), binds outScene and restarts it
+801D4C1C	Menu_PlayerNumSelect_calcEntryButtons	Menu_PlayerNumSelect_calcEntryButtons	medium	d-pad activates C-pad cursor on the current button with cursor SE; A on OK: button state 2, KEY_A_02 SE, state 5
+801D4EB0	Menu_PlayerNumSelect_calcCountInput	Menu_PlayerNumSelect_calcCountInput	medium	d-pad navigation via table 80319D78; A validates the count against connected remotes (NG SE, msgs 200/0xD2) or confirms; B pushes back button
+801D6EBC	Menu_MiiSelectLyt_playMessageAnimB	Menu_MiiSelectLyt_playMessageMoveAnim	high	N_message_00: unbinds inoutText/moveText (anims 43/44, table 80319F48), binds moveText and restarts it
+801D7498	Menu_MiiSelectLyt_areSelectAnimsDone	Menu_MiiSelectLyt_areSelectAnimsDone	high	false while any activePlayer/activeButton anim (31-33, 37-39) is playing
+801D75D8	Menu_MiiSelectLyt_areDecideAnimsDone	Menu_MiiSelectLyt_areDecideAnimsDone	high	false while any pushPlayer/pushButton anim (34-36, 40-42) is playing
+801D7BC8	Menu_MiiSelectLyt_drawBackLayer	Menu_MiiSelectLyt_drawBackLayer	medium	draws the layout with arrow/back visible, then hides them again
+801D84F8	Menu_MiiSelect_getItemAfterPageChange	Menu_MiiSelect_getItemAfterPageChange	medium	cursor item after a page change from current category/item and page fill (5/9/10/14)
+801D8910	Menu_MiiSelect_initCategory	Menu_MiiSelect_initCategory	medium	page 0/1 by count of players without a Mii vs page capacity; cursor to first free face
+801D9D58	Menu_MiiSelect_onMessageResult	Menu_MiiSelect_onMessageResult	medium	handles the closed message by kind (+0x10): select item, retry (state 0xC) or return to menu
+801DA440	Menu_MiiSelect_calcTabChange	Menu_MiiSelect_calcTabChange	medium	after faceAll anim: reattaches page Kokeshi, resets items, re-places cursor, state 1
+801DB3B8	Menu_SportsMsgPanel_init	Menu_SportsMsgPanel_init	high	binds 8 anims, 7 panes, 2 player-colour pictures and texts (msg 0x367) for a player panel
+801DB4E4	Menu_SportsMessageScene_exit	Menu_SportsMessageScene_exit	high	RPSportsMessageScene vtable +0x54 (Exit): fades the active cursor
+801DB988	Menu_getGameIconIndex	Menu_getSportIdFromScene	medium	scene id 3/6/5,14/7/4 -> 0/1/2/3/4: inverse of RPSysSceneCreator::getSceneID (ESportID); first arg unused, no references
+801DB9DC	Menu_SportsMessageScene_isGameIndex3	Menu_SportsMessageScene_isBoxing	medium	true when the selected sport (from next scene or 8043C6B8+4) is ESportID 3 (Box per getSceneID); no references
+801DBB6C	Menu_SportsMessageScene_goNext	Menu_SportsMessageScene_goNext	medium	changes scene by pack / 8043C6B8 mode (9 or 10) or sets state 6
+801DBBE0	Menu_SportsMessageScene_startGame	Menu_SportsMessageScene_startGame	high	changes scene to the selected sport (getSceneID of 8043C6B8+4) or the queued next scene
+801DCDE0	Menu_SportsMessageScene_resetState	Menu_SportsMessageScene_resetState	medium	no BGM, clears state/player index, player count, mUsePointer = isBoxing; no references
+801DCF54	Menu_PtMenuBg_setMode	Menu_PtMenuBg_setMode	high	stores mMode +0x64
+801DCF5C	Menu_PtMenuBg_calcTvModel	Menu_PtMenuBg_calcTvModel	high	rotates PT_menu_TV_model animation toward slot*40 deg, sets mtx, UpdateFrame/Calc/Entry
+801DD968	Menu_PlayerSettingPanel_onHoverChange	Menu_PlayerSettingPanel_onHoverChange	medium	plays a hover SE (sound vfunc 0xBC) on row change; first call only sets +0x10C
+801DDC68	Menu_PlayerSettingPanel_getNextRow	Menu_PlayerSettingPanel_getNextRow	medium	next row for a d-pad move honouring mSelectableRows
+801DF3F0	Menu_PlayerSettingPanel_exit	Menu_PlayerSettingPanel_exit	high	RPPlayerSettingPanel vtable +0x1C (Exit), empty
+801DF84C	Menu_slotToGameId	Menu_slotToGameId	high	identity table slot 0..8 -> game id, 9 -> -1
+801DF8C0	Menu_gameIdToSlot	Menu_gameIdToSlot	high	inverse of slotToGameId; 9 when not found
+801DFC5C	Menu_PlayerNameTag_shownCalc	Menu_PlayerNameTag_shownCalc	high	state table 8031B568 calc of state 1 (shown); empty
+801DFC60	Menu_PlayerNameTag_shownEnter	Menu_PlayerNameTag_shownEnter	high	state table 8031B568 enter of state 1 (shown); empty
+801E1D24	Menu_PlayerConfirm_message_calc	Menu_PlayerConfirm_message_calc	high	state table 8031B9A8 calc (6th state): when RPABPress done -> state 8
+801E1D68	Menu_PlayerConfirm_message_enter	Menu_PlayerConfirm_message_enter	high	state table 8031B9A8 enter: copies 4 player values into RPABPress and starts it
+801E3C68	Menu_CommonMessage_changeToScene1	Menu_CommonMessage_calcState4	high	RPCommonMessage vtable +0xB4 (header CalcState4): next scene 0x1A, change scene 1 after fade
+801E3C84	Menu_CommonMessage_calcWaitInput	Menu_CommonMessage_calcWaitInput	medium	polls remotes for low battery (msg 0x96), forwards A/B to the title layout, enters state 0 when the title reaches state 6
+801E3EE8	Menu_CommonMessage_exit	Menu_CommonMessage_exit	high	RPCommonMessage vtable +0x54 (Exit): base exit, fade active cursor, finish DPD check
+801E3F18	Menu_CommonMessage_draw	Menu_CommonMessage_userDraw	high	RPCommonMessage vtable +0x5C (UserDraw): base draw, title layout and time stamp in view 0 step 5
+801E4484	Lyt_AvatarAnim_resetSelection	Lyt_AvatarAnim_reset	high	RPAvatarScene vtable 80358128 +0x4C (Reset): clears scene info fields, DPD check, active cursor, PtMenuBg reset, select scene state 1
+801E4B18	Mii_createMiiListHolder	RP_createSceneInfo	high	allocates the 0xD8 scene info singleton (vtable 803581E8, Wly_MiiEntry +0x30, RPSysMiddleDB type 3/100 +0xD4) into RP_sceneInfoInstance; called by RPScene80358188 Configure

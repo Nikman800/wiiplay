@@ -1,0 +1,5 @@
+address	old_name	new_name	unit	previous
+80258868	RPTnkTestCircleVsWall__FfPQ34nw4r4math4VEC3PfPUlPCQ34nw4r4math4VEC3P9RPTnkWall	RPTnkTestCircleVsWall__FfPQ34nw4r4math4VEC3PfPUlPCQ34nw4r4math4VEC3P9RPTnkWall	Pack/RPParty/RPTnkScene/RPTnkField_3.cpp	
+80258A38	Tnk_initAxisConsts	__sinit_\RPTnkField_3_cpp	Pack/RPParty/RPTnkScene/RPTnkField_3.cpp	@72@__dt__15RPTnkFieldModelFv;__sinit_\RPTnkField_cpp;__sinit_\RPTnkField_2_cpp
+8043A894	Tnk_floorQuadBasis	sFloorQuadBasis	Pack/RPParty/RPTnkScene/RPTnkField_3.cpp	
+804402B0	lbl_804402B0	sWallMargin	Pack/RPParty/RPTnkScene/RPTnkField_3.cpp	

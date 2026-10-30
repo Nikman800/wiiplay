@@ -1,0 +1,11 @@
+address	old_name	new_name	unit	previous
+802E9674	Bom_LytMiss_show	Show__12RPBomLytMissFl	Pack/RPParty/RPBomScene/RPBomLyt_10.cpp	Load__12RPBomLytMissFPQ23EGG7Archive
+802E9708	Bom_LytMiss_exit	VF_0x18__12RPBomLytMissFv	Pack/RPParty/RPBomScene/RPBomLyt_10.cpp	
+802E970C	Bom_LytMiss_draw	Draw__12RPBomLytMissFv	Pack/RPParty/RPBomScene/RPBomLyt_10.cpp	
+802E9724	Bom_LytMiss_calc	Calculate__12RPBomLytMissFv	Pack/RPParty/RPBomScene/RPBomLyt_10.cpp	
+802E9758	Bom_LytMiss_reset	Reset__12RPBomLytMissFv	Pack/RPParty/RPBomScene/RPBomLyt_10.cpp	
+802E985C	Bom_LytMiss_load	Load__12RPBomLytMissFPQ23EGG7Archive	Pack/RPParty/RPBomScene/RPBomLyt_10.cpp	Show__16RPBomLytMissImplFR12RPBomLytMissl
+802E98F8	Bom_LytMiss_setMissText	SetMissText__12RPBomLytMissFl	Pack/RPParty/RPBomScene/RPBomLyt_10.cpp	SetMissText__16RPBomLytMissImplFR12RPBomLytMissl
+802E9C30	Bom_LytMiss_dtor	__dt__12RPBomLytMissFv	Pack/RPParty/RPBomScene/RPBomLyt_10.cpp	
+802E9C70	Bom_LytMiss_ctor	__ct__12RPBomLytMissFv	Pack/RPParty/RPBomScene/RPBomLyt_10.cpp	
+8035F8F0	lbl_8035F8F0	__vt__12RPBomLytMiss	Pack/RPParty/RPBomScene/RPBomLyt_10.cpp	

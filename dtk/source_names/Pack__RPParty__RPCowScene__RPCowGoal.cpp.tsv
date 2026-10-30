@@ -1,0 +1,20 @@
+address	old_name	new_name	unit	previous
+802A63B0	Cow_Player_getPrevPos	GetPrevPos__11RPCowPlayerFv	Pack/RPParty/RPCowScene/RPCowGoal.cpp	GetPrevPos__11RPCowPlayerCFv
+802ABAD0	Cow_Goal_entryDraw	Calculate__9RPCowGoalFv	Pack/RPParty/RPCowScene/RPCowGoal.cpp	
+802ABAD4	Cow_Goal_calc	OnActivate__9RPCowGoalFv	Pack/RPParty/RPCowScene/RPCowGoal.cpp	
+802ABAEC	Cow_Goal_exit	OnStop__9RPCowGoalFv	Pack/RPParty/RPCowScene/RPCowGoal.cpp	
+802ABB50	Cow_Goal_reset	OnStart__9RPCowGoalFv	Pack/RPParty/RPCowScene/RPCowGoal.cpp	
+802ABC88	Cow_Goal_init	LoadResource__9RPCowGoalFv	Pack/RPParty/RPCowScene/RPCowGoal.cpp	
+802ABD3C	Cow_Goal_dtor	__dt__9RPCowGoalFv	Pack/RPParty/RPCowScene/RPCowGoal.cpp	
+802ABD94	Cow_Goal_ctor	__ct__9RPCowGoalFv	Pack/RPParty/RPCowScene/RPCowGoal.cpp	
+802ABDE8	Cow_Goal_onCollide	IsEnabled__9RPCowGoalFP16IRPActorPriority	Pack/RPParty/RPCowScene/RPCowGoal.cpp	
+802ABF50	Cow_Goal_drawShadowVolume	DrawDebugBox__9RPCowGoalFv	Pack/RPParty/RPCowScene/RPCowGoal.cpp	
+802AC108	Cow_Goal_onCollideThunk	@16@IsEnabled__9RPCowGoalFP16IRPActorPriority	Pack/RPParty/RPCowScene/RPCowGoal.cpp	
+802AC110	Cow_Goal_dtorThunk	@20@__dt__9RPCowGoalFv	Pack/RPParty/RPCowScene/RPCowGoal.cpp	
+80440D50	lbl_80440D50	sPathScale__9RPCowGoal	Pack/RPParty/RPCowScene/RPCowGoal.cpp	
+80440D54	lbl_80440D54	sRadius__9RPCowGoal	Pack/RPParty/RPCowScene/RPCowGoal.cpp	
+80440D58	lbl_80440D58	sBoxOfsY__9RPCowGoal	Pack/RPParty/RPCowScene/RPCowGoal.cpp	
+80440D5C	lbl_80440D5C	sBoxOfsZ__9RPCowGoal	Pack/RPParty/RPCowScene/RPCowGoal.cpp	
+80440D60	lbl_80440D60	sBoxScaleX__9RPCowGoal	Pack/RPParty/RPCowScene/RPCowGoal.cpp	
+80440D64	lbl_80440D64	sBoxScaleY__9RPCowGoal	Pack/RPParty/RPCowScene/RPCowGoal.cpp	
+80440D68	lbl_80440D68	sBoxScaleZ__9RPCowGoal	Pack/RPParty/RPCowScene/RPCowGoal.cpp	

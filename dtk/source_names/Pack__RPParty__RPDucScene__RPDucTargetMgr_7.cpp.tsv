@@ -1,0 +1,9 @@
+address	old_name	new_name	unit	previous
+8024B8D0	Duc_CanMgr_createInstance	CreateInstance__11RPDucCanMgrFl	Pack/RPParty/RPDucScene/RPDucTargetMgr_7.cpp	
+8024B944	Duc_CanMgr_load	Load__11RPDucCanMgrFv	Pack/RPParty/RPDucScene/RPDucTargetMgr_7.cpp	
+8024B948	Duc_CanMgr_dtor	__dt__11RPDucCanMgrFv	Pack/RPParty/RPDucScene/RPDucTargetMgr_7.cpp	
+8024B9A0	Duc_CanMgr_allocTarget	AllocTarget__11RPDucCanMgrFv	Pack/RPParty/RPDucScene/RPDucTargetMgr_7.cpp	
+8024B9D0	Duc_CanMgr_destroyInstance	DestroyInstance__11RPDucCanMgrFv	Pack/RPParty/RPDucScene/RPDucTargetMgr_7.cpp	
+8024D188	Duc_Can_ctor	__ct__8RPDucCanFv	Pack/RPParty/RPDucScene/RPDucTargetMgr_7.cpp	
+8035AB88	lbl_8035AB88	__vt__11RPDucCanMgr	Pack/RPParty/RPDucScene/RPDucTargetMgr_7.cpp	
+8043C8A0	Duc_canMgrInstance	sInstance__11RPDucCanMgr	Pack/RPParty/RPDucScene/RPDucTargetMgr_7.cpp	

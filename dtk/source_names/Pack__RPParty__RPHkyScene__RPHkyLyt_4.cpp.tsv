@@ -1,0 +1,3 @@
+address	old_name	new_name	unit
+801BFE58	Lyt_drawKokeshiIconWithPaneAlpha	RPDrawKokeshiIcon__FP16RPSysKokeshiIconPQ34nw4r3lyt4PaneiP11RPGrpScreen	Pack/RPParty/RPHkyScene/RPHkyLyt_4.cpp
+8043AC28	lbl_8043AC28	sTVModeWidths__Q23EGG6Screen	Pack/RPParty/RPHkyScene/RPHkyLyt_4.cpp

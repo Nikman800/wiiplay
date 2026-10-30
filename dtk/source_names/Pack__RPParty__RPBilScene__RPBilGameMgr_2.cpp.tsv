@@ -1,0 +1,5 @@
+address	old_name	new_name	unit	previous
+802C65A0	Bil_MusicState_applyState	ApplyState__15RPBilMusicStateFv	Pack/RPParty/RPBilScene/RPBilGameMgr_2.cpp	
+802C6988	Bil_Music_setState	SetState__15RPBilMusicStateFl	Pack/RPParty/RPBilScene/RPBilGameMgr_2.cpp	
+802C69A0	Bil_MusicState_calc	Calculate__15RPBilMusicStateFv	Pack/RPParty/RPBilScene/RPBilGameMgr_2.cpp	
+802C6B20	Bil_MusicState_start	Start__15RPBilMusicStateFv	Pack/RPParty/RPBilScene/RPBilGameMgr_2.cpp	

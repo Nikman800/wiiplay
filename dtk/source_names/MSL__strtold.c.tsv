@@ -1,0 +1,3 @@
+address	old_name	new_name	unit	previous
+8043AC84	lbl_8043AC84	__float_huge	MSL/strtold.c	
+8043AC88	lbl_8043AC88	__double_huge	MSL/strtold.c	

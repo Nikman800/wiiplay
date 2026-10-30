@@ -1,0 +1,15 @@
+address	old_name	new_name	unit	previous
+8022AA04	Pnp_PointPhase_addPoint	AddPoint__15RPPnpPointPhaseFl	Pack/RPParty/RPPnpScene/RPPnpPhase.cpp	
+8022AB60	Pnp_PointPhase_isCourtChangePoint	IsCourtChangePoint__15RPPnpPointPhaseCFv	Pack/RPParty/RPPnpScene/RPPnpPhase.cpp	
+8022AC0C	Pnp_PointPhase_getServerSide	GetServerSide__15RPPnpPointPhaseCFv	Pack/RPParty/RPPnpScene/RPPnpPhase.cpp	
+8022AC6C	Pnp_PointPhase_draw	Draw__15RPPnpPointPhaseFv	Pack/RPParty/RPPnpScene/RPPnpPhase.cpp	
+8022AC70	Pnp_PointPhase_exit	Exit__15RPPnpPointPhaseFv	Pack/RPParty/RPPnpScene/RPPnpPhase.cpp	
+8022AC74	Pnp_PointPhase_calc	Calculate__15RPPnpPointPhaseFv	Pack/RPParty/RPPnpScene/RPPnpPhase.cpp	
+8022AD6C	Pnp_PointPhase_reset	Reset__15RPPnpPointPhaseFv	Pack/RPParty/RPPnpScene/RPPnpPhase.cpp	
+8022AD8C	Pnp_PointPhase_load	Load__15RPPnpPointPhaseFv	Pack/RPParty/RPPnpScene/RPPnpPhase.cpp	
+8022AD90	Pnp_PointPhase_create	Create__15RPPnpPointPhaseFv	Pack/RPParty/RPPnpScene/RPPnpPhase.cpp	
+8022ADB8	Pnp_PointPhase_start	Start__15RPPnpPointPhaseFv	Pack/RPParty/RPPnpScene/RPPnpPhase.cpp	
+8022B01C	Pnp_PointPhase_dtor	__dt__15RPPnpPointPhaseFv	Pack/RPParty/RPPnpScene/RPPnpPhase.cpp	
+80359850	Pnp_PointPhase_vtable	__vt__15RPPnpPointPhase	Pack/RPParty/RPPnpScene/RPPnpPhase.cpp	
+8043B710	Pnp_serveChangePoints	sServeChangePoints__15RPPnpPointPhase	Pack/RPParty/RPPnpScene/RPPnpPhase.cpp	
+8043B714	Pnp_serveTurnPoints	sServeTurnPoints__15RPPnpPointPhase	Pack/RPParty/RPPnpScene/RPPnpPhase.cpp	

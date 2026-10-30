@@ -1,0 +1,13 @@
+address	old_name	new_name	unit	previous
+802B406C	Cow_VsResult_drawScreen	DrawScreen__13RPCowVsResultFUc	Pack/RPParty/RPCowScene/RPCowHud_10.cpp	
+802B4080	Cow_VsResult_calc	OnActivate__13RPCowVsResultFv	Pack/RPParty/RPCowScene/RPCowHud_10.cpp	
+802B40C8	Cow_VsResult_reset	OnStart__13RPCowVsResultFv	Pack/RPParty/RPCowScene/RPCowHud_10.cpp	
+802B41D0	Cow_VsResult_init	LoadResource__13RPCowVsResultFv	Pack/RPParty/RPCowScene/RPCowHud_10.cpp	
+802B4374	Cow_VsResult_dtor	__dt__13RPCowVsResultFv	Pack/RPParty/RPCowScene/RPCowHud_10.cpp	
+802B43CC	Cow_VsResult_ctor	__ct__13RPCowVsResultFv	Pack/RPParty/RPCowScene/RPCowHud_10.cpp	
+802B4420	Cow_VsResult_setScore	SetScore__13RPCowVsResultFll	Pack/RPParty/RPCowScene/RPCowHud_10.cpp	
+802B44D4	Cow_VsResult_showWinner	ShowWinner__13RPCowVsResultFl	Pack/RPParty/RPCowScene/RPCowHud_10.cpp	
+802B45EC	Cow_VsResult_playOut	PlayOut__13RPCowVsResultFv	Pack/RPParty/RPCowScene/RPCowHud_10.cpp	
+802B4670	Cow_VsResult_show	Show__13RPCowVsResultFv	Pack/RPParty/RPCowScene/RPCowHud_10.cpp	
+802B47F4	Cow_VsResult_dtorThunk	@20@__dt__13RPCowVsResultFv	Pack/RPParty/RPCowScene/RPCowHud_10.cpp	
+8035D9C8	lbl_8035D9C8	__vt__13RPCowVsResult	Pack/RPParty/RPCowScene/RPCowHud_10.cpp	

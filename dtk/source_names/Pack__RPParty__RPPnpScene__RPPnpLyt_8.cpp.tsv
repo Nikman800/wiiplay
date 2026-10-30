@@ -1,0 +1,9 @@
+address	old_name	new_name	unit	previous
+80233B70	Pnp_FaultMsgLyt_isDone	IsDone__16RPPnpFaultMsgLytCFv	Pack/RPParty/RPPnpScene/RPPnpLyt_8.cpp	
+80233B80	Pnp_FaultMsgLyt_show	Show__16RPPnpFaultMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_8.cpp	
+80233E3C	Pnp_FaultMsgLyt_draw	Draw__16RPPnpFaultMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_8.cpp	
+80233E44	Pnp_FaultMsgLyt_exit	Exit__16RPPnpFaultMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_8.cpp	
+80233E48	Pnp_FaultMsgLyt_calc	Calculate__16RPPnpFaultMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_8.cpp	
+80233F40	Pnp_FaultMsgLyt_reset	Reset__16RPPnpFaultMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_8.cpp	
+80234000	Pnp_FaultMsgLyt_load	Load__16RPPnpFaultMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_8.cpp	
+8023407C	Pnp_FaultMsgLyt_create	Create__16RPPnpFaultMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_8.cpp	

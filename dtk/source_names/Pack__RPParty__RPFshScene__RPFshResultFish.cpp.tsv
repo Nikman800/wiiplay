@@ -1,0 +1,12 @@
+address	old_name	new_name	unit	previous
+801B8E3C	RP_ActorBase_ctor	__ct__11RPActorBaseFv	Pack/RPParty/RPFshScene/RPFshResultFish.cpp	
+8020F1A8	Fsh_ResultFish_setScreenPos	SetScreenPos__15RPFshResultFishFRCQ34nw4r4math4VEC2	Pack/RPParty/RPFshScene/RPFshResultFish.cpp	
+8020F37C	Fsh_ResultFish_calc	Calculate__15RPFshResultFishFv	Pack/RPParty/RPFshScene/RPFshResultFish.cpp	
+8020F494	Fsh_FshFishA_80358E98_vf31	Exit__15RPFshResultFishFv	Pack/RPParty/RPFshScene/RPFshResultFish.cpp	
+8020F498	Fsh_ResultFish_reset	Reset__15RPFshResultFishFv	Pack/RPParty/RPFshScene/RPFshResultFish.cpp	
+8020F4AC	Fsh_ResultFish_create	Create__15RPFshResultFishFv	Pack/RPParty/RPFshScene/RPFshResultFish.cpp	
+8020F53C	Fsh_ResultFish_ctor	__ct__15RPFshResultFishFl	Pack/RPParty/RPFshScene/RPFshResultFish.cpp	
+8020F5EC	Fsh_ResultFish_dtor	__dt__15RPFshResultFishFv	Pack/RPParty/RPFshScene/RPFshResultFish.cpp	
+8020F658	Fsh_ResultFish_dtorThunk04	@4@__dt__15RPFshResultFishFv	Pack/RPParty/RPFshScene/RPFshResultFish.cpp	
+8020F660	Fsh_ResultFish_dtorThunk08	@8@__dt__15RPFshResultFishFv	Pack/RPParty/RPFshScene/RPFshResultFish.cpp	
+80358E98	lbl_80358E98	__vt__15RPFshResultFish	Pack/RPParty/RPFshScene/RPFshResultFish.cpp	

@@ -1,0 +1,11 @@
+address	old_name	new_name	unit	previous
+802C9BA0	Bil_AimMarker_userDraw	UserDraw__14RPBilAimMarkerFv	Pack/RPParty/RPBilScene/RPBilAimMarker.cpp	
+802C9BA4	Bil_AimMarker_calc	Calculate__14RPBilAimMarkerFv	Pack/RPParty/RPBilScene/RPBilAimMarker.cpp	
+802C9C2C	Bil_AimMarker_exit	Exit__14RPBilAimMarkerFv	Pack/RPParty/RPBilScene/RPBilAimMarker.cpp	
+802C9C30	Bil_AimMarker_reset	Reset__14RPBilAimMarkerFv	Pack/RPParty/RPBilScene/RPBilAimMarker.cpp	
+802C9C3C	Bil_AimMarker_load	Load__14RPBilAimMarkerFv	Pack/RPParty/RPBilScene/RPBilAimMarker.cpp	
+802C9D94	Bil_AimMarker_dtor	__dt__14RPBilAimMarkerFv	Pack/RPParty/RPBilScene/RPBilAimMarker.cpp	
+802C9E00	Bil_AimMarker_dtorThunk4	@4@__dt__14RPBilAimMarkerFv	Pack/RPParty/RPBilScene/RPBilAimMarker.cpp	__dt__11RPActorBaseFv
+802C9E08	Bil_AimMarker_drawThunk	@8@UserDraw__14RPBilAimMarkerFv	Pack/RPParty/RPBilScene/RPBilAimMarker.cpp	
+802C9E10	Bil_AimMarker_dtorThunk8	@8@__dt__14RPBilAimMarkerFv	Pack/RPParty/RPBilScene/RPBilAimMarker.cpp	
+8035E1E0	lbl_8035E1E0	__vt__14RPBilAimMarker	Pack/RPParty/RPBilScene/RPBilAimMarker.cpp	

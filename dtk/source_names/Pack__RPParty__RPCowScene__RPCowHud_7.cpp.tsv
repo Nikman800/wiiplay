@@ -1,0 +1,13 @@
+address	old_name	new_name	unit	previous
+801C8740	RP_Actor_dtor	__dt__7RPActorFv	Pack/RPParty/RPCowScene/RPCowHud_7.cpp	
+801C879C	RP_Actor_ctor	__ct__7RPActorFv	Pack/RPParty/RPCowScene/RPCowHud_7.cpp	
+802B2C84	Cow_StartMsg_drawScreen	DrawScreen__13RPCowStartMsgFUc	Pack/RPParty/RPCowScene/RPCowHud_7.cpp	
+802B2C98	Cow_StartMsg_calc	OnActivate__13RPCowStartMsgFv	Pack/RPParty/RPCowScene/RPCowHud_7.cpp	
+802B2CD0	Cow_StartMsg_reset	OnStart__13RPCowStartMsgFv	Pack/RPParty/RPCowScene/RPCowHud_7.cpp	
+802B2D50	Cow_StartMsg_init	LoadResource__13RPCowStartMsgFv	Pack/RPParty/RPCowScene/RPCowHud_7.cpp	
+802B2E28	Cow_StartMsg_dtor	__dt__13RPCowStartMsgFv	Pack/RPParty/RPCowScene/RPCowHud_7.cpp	
+802B2E80	Cow_StartMsg_ctor	__ct__13RPCowStartMsgFv	Pack/RPParty/RPCowScene/RPCowHud_7.cpp	
+802B2ED4	Cow_StartMsg_show	Show__13RPCowStartMsgFv	Pack/RPParty/RPCowScene/RPCowHud_7.cpp	
+802B2F7C	Cow_StartMsg_dtorThunk	@20@__dt__13RPCowStartMsgFv	Pack/RPParty/RPCowScene/RPCowHud_7.cpp	
+8035D8A8	lbl_8035D8A8	__vt__13RPCowStartMsg	Pack/RPParty/RPCowScene/RPCowHud_7.cpp	
+801C8210	RP_Actor_calculate	Calculate__7RPActorFv	Pack/RPParty/RPCowScene/RPCowHud_7.cpp	

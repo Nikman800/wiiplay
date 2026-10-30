@@ -1,0 +1,48 @@
+vtable	class_name	evidence
+8034F2D4	RP_ParamBase	empty read/write virtuals; ctor links object into owner's list at +4 (parameter group created by Sys_RPPrint_80185D10)
+8034F2C0	RP_ParamString	derives ParamBase; slot0 reads via eggStream_800A9000, slot1 writes via eggStream_800A8894
+8034F2AC	RP_ParamF32	slot0/1 read/write +0xc via eggStream f32 routines
+8034F410	RP_SaveMgr	500-byte singleton lbl_8043C4A8 with layout object at +0x1f0; zeroed data block (low confidence name)
+8034F420	RP_PlayerMgr	singleton lbl_8043C4B0: player count, 2 player slots (0x18), 3 saved slots, PlayerRecord arrays
+8034F430	RP_Base8034F430	common base whose ctor/dtor are called by many framework and minigame classes
+8034F458	RP_DbgTextWriter	debug text writer lbl_8043C4C8 (begin/end/printf with ortho setup)
+8034F468	RP_MsgRes	message resource wrapper on eggMsgRes base (vtable stored at +0x1c)
+8034F478	RP_Base8034F478	base ctor Lyt_80197C58/dtor Lyt_80197BE4; used by KokeshiHead and minigame objects
+80357A70	Mii_KokeshiHead	Mii head object; vf01 builds head textures from Mii db, vf02 registers light textures (Mii module)
+8034F4B8	Gfx_EffectMgr	singleton lbl_8043C4D8 holding 3 effect groups; creates emitters for Gfx_Effect
+8034F5D0	Gfx_Effect	effect handle wrapper (name, ids, emitter handle +0x78, transform flags); used by all minigame effects
+8034F668	Gfx_EffectGroup	effect group with base id arg<<7, owns breff/breft resources, 64 effect slots
+8034F678	RP_TextWriter	nw4r text writer subclass with format buffer lbl_8043C4E8 and font from Sys font manager
+8034F688	Lyt_ResAccessor	archive resource accessor; GetResource redirects 'font' type to Sys font manager
+8034F908	HomeMenu_Mgr	HOME button menu manager lbl_8043C538: 0x80000 work buffer, sound callback, fade, controller feed
+8034F928	Mii_HeadLoader	per-slot loader with own heap and request lists, state machine (4 per set)
+8034F944	Mii_HeadLoaderSet	holds 4 Mii_HeadLoader, registered on Mii manager lbl_8043C4D0 +0x54
+8034F950	RP_CtrlMgr	controller manager lbl_8043C550 (created by RP_CtrlMgr_create), WPAD callbacks
+8034F9FC	RP_Nwc24Msg	WiiConnect24 message work buffers (0x4000 + 0x800)
+8034FA20	RP_ChildOverride	vtable at +0x1c; applies flagged u16/vec2/vec3 overrides to child nodes each calc
+8034FA58	Gfx_RflModel	RFL (Mii) character model scene object: init, expression get/set, draw
+80350160	Gfx_Flag10Ctrl	toggles bit 4 of target byte (set/clear/isSet)
+803501B8	Gfx_Flag01Ctrl	toggles bit 0 of target byte (set/clear/isSet)
+803501A8	Gfx_BoundingInfo	eggModelBoundingInfo wrapper (vtable at +0x14)
+803501D0	Gfx_MatEditor	captures and re-applies material TEV colors / pixel modes of a model
+803501E0	Gfx_TexObj	texture object wrapper (vtable at +0x20) built from resource, texture or GX utility
+803501F0	Gfx_CapTexture	screen capture texture (CPU texture sized to screen)
+80350200	Gfx_ProjScreen	camera + screen pair used for projected textures (vtable at +0x1e4)
+803502E0	Mpe_AudioMgr	0xfac sound/audio manager singleton lbl_8043C5D4 (same class as Mpe_RPCOMGAMEPLAYERPAUSE_* methods)
+803504C0	Snd_RmtSpkMgr	remote speaker manager lbl_8043C5E0: 4 channels, setup/shutdown request ring of 20
+80357180	RP_SceneObj	base object (Gfx_80190C64 base) with empty virtual slots 1-6; base of many Duc/Tnk classes
+803571A8	RP_ResSlots	SceneObj-derived resource slot table wrapper (lbl_8043C608)
+803571D0	RP_ModelObj	SceneObj-derived object owning a model at +0x44, forwards anim controller calls
+80357228	RP_LookAtCam	camera (base Gfx_801A6CA0, vtable at +0x174) computing basis from pos/target/up
+80357248	RP_SimpleModel	model holder (base Gfx_80190C64) loading resource kinds 0xc/0xd, calcs matrix from rot/pos
+80357268	RP_ActorBase	actor base with secondary base 8034F430; vec3 accessors at +0x10..+0x4c, float +0x58
+80357310	RP_Polyline	n points plus two n-1 segment arrays
+80357320	RP_PosHistory	newest-first ring of vec3 samples pulled from controller history
+80357338	RP_CursorTrail	per-entry bytes, two vec2 arrays and floats filled from controller samples
+80357348	RP_JointMtxBuffer	registered as model joint callback, stores per-joint 3x4 matrices
+80357368	RP_PhysSphere	ActorBase-derived rigid sphere (mass, radius, inertia 0.4*m*r^2); used by Billiards
+803573E0	RP_InterpCamera	camera interpolating position/target over a timer (vtable at +0x174)
+80357738	RP_ButtonSeqHolder	holds a button-sequence detector (table lbl_80318818)
+80358128	RP_AvatarScene	scene loading avatar_anim brres, scene lights and select-menu effects
+80358188	RP_Scene80358188	scene with singleton lbl_8043C6C8 (low confidence)
+80358760	Fsh_Scene	Fishing scene: vf16 loads fsh_* brres, basic_fishing effects, rp_Fsh_sound.brsar (Fsh module)

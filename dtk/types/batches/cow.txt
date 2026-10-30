@@ -1,0 +1,237 @@
+# batch cow: modules Cow; 412 functions; 38 classes
+
+## classes (ledger class -> suggested C++ name; vtables; allocation sizes; methods)
+Cow_AngleDisp -> RPCowAngleDisp; vtables 8035DBD8; sizes 0x58 via Cow_AngleDisp_ctor in Cow_Game_ctor; 10 methods: calc, ctor, drawScreen, dtor, dtorThunk, exit, init, playSwitch, reset, setAngle
+Cow_Arrow -> RPCowArrow; vtables -; sizes -; 3 methods: calc, init, reset
+Cow_Balloon -> RPCowBalloon; vtables 8035DA88; sizes -; 12 methods: calc, create, ctor, destroy, drawScreen, dtor, dtorThunk, exit, hide, init, reset, show
+Cow_Camera -> RPCowCamera; vtables 8035CE40; sizes -; 40 methods: calc, calcDistance, create, ctor, destroy, drawPass, dtor, dtorThunk, entryDraw, exit, getBackDir, getEyePos ...
+Cow_Cloud -> RPCowCloud; vtables 8035DB08; sizes 0x150 via Cow_Cloud_ctor in Cow_Game_load; 8 methods: ctor, dtor, dtorThunk, exit, init, onCollide, onCollideThunk, reset
+Cow_CowModel -> RPCowCowModel; vtables 8035DAE8; sizes 0x1F4 via Cow_CowModel_ctor in Cow_Player_create; 12 methods: calcAnim, calcJoint, clearLandState, ctor, dtor, init, playGoalAnim, playJumpAnim, playLandAnim, reset, setIntroState, setRunState
+Cow_ExMsg -> RPCowExMsg; vtables 8035D7E8; sizes 0x70 via Cow_ExMsg_ctor in Cow_Game_ctor; 12 methods: calc, ctor, drawScreen, dtor, dtorThunk, exit, hide, init, reset, showCollisionMsg, showInputMsg, showMoveMsg
+Cow_Field -> RPCowField; vtables 8035D080; sizes 0x2C via Cow_Field_ctor in Cow_Game_ctor; 8 methods: calc, ctor, dtor, dtorThunk, entryDraw, exit, init, reset
+Cow_FieldObj -> RPCowFieldObj; vtables -; sizes -; 26 methods: calc, create, destroy, entryDraw, getForwardDir, knockFly, knockHurdle, knockSlide, resetTransform, setSoundMode, setVisibleForScreen, spawnAppear ...
+Cow_Game -> RPCowGame; vtables 8035CE18; sizes 0x7C via Cow_Game_ctor in Cow_Scene_createCowMgr; 10 methods: calc, ctor, draw, drawListPass, drawScreenPass, dtor, load, onCourseComplete, onTimeUp, reset
+Cow_Goal -> RPCowGoal; vtables 8035D2B8; sizes 0x30 via Cow_Goal_ctor in Cow_Game_load; 12 methods: calc, ctor, drawDebugBox, dtor, dtorThunk, entryDraw, exit, getPos, init, onCollide, onCollideThunk, reset
+Cow_GoalMsg -> RPCowGoalMsg; vtables 8035D908; sizes 0x48 via Cow_GoalMsg_ctor in Cow_Game_ctor; 9 methods: calc, ctor, drawScreen, dtor, dtorThunk, exit, init, reset, show
+Cow_Hurdle -> RPCowHurdle; vtables 8035D3F0; sizes 0x150 via Cow_Hurdle_ctor in Cow_Game_load; 8 methods: ctor, dtor, dtorThunk, exit, init, onCollide, onCollideThunk, reset
+Cow_HurdleBatch -> RPCowHurdleBatch; vtables 8035D558; sizes -; 4 methods: dtor, dtorThunk, dtorThunk2, init
+Cow_Kakasi -> RPCowKakasi; vtables 8035D320; sizes -; 8 methods: ctor, dtor, dtorThunk, exit, init, onCollide, onCollideThunk, reset
+Cow_KakasiBatch -> RPCowKakasiBatch; vtables 8035D5D8; sizes -; 4 methods: dtor, dtorThunk, dtorThunk2, init
+Cow_KakasiGroup -> RPCowKakasiGroup; vtables 8035D250; sizes 0x50 via Cow_KakasiGroup_ctor in Cow_Game_load; 15 methods: calc, ctor, drawScreen, dtor, dtorThunk, entryDraw, exit, getPos, init, onCollide, onCollideThunk, onKakasiHit ...
+Cow_KakasiKing -> RPCowKakasiKing; vtables 8035D6C0; sizes -; 8 methods: ctor, dtor, dtorThunk, exit, init, onCollide, onCollideThunk, reset
+Cow_KnitCowEx -> RPCowKnitCowEx; vtables 8035DB70; sizes 0x150 via Cow_KnitCowEx_ctor in Cow_Game_load; 8 methods: ctor, dtor, dtorThunk, exit, init, onCollide, onCollideThunk, reset
+Cow_LimitCount -> RPCowLimitCount; vtables 8035D968; sizes 0x74 via Cow_LimitCount_ctor in Cow_Game_ctor; 12 methods: calc, ctor, drawScreen, dtor, dtorThunk, exit, hideMessage, init, reset, setCount, showFinish, start
+Cow_MainHud -> RPCowMainHud; vtables 8035D728; sizes 0xD0 via Cow_MainHud_ctor in Cow_Game_ctor; 20 methods: calc, ctor, drawScreen, dtor, dtorThunk, exit, init, isAnimIdle, playInResult, playOut, playOut1P, playOutResult ...
+Cow_ModelBatch -> RPCowModelBatch; vtables 8035D458; sizes 0x38 via Cow_ModelBatch_ctor in Cow_Game_ctor; 12 methods: addInstance, calc, ctor, dtor, dtorThunk, dtorThunk2, entryDraw, exit, getInstanceMtx, getInstanceMtxThunk, init, reset
+Cow_ObjSound -> RPCowObjSound; vtables 8035D170; sizes -; 2 methods: dtor, dtorThunk
+Cow_OrderMsg -> RPCowOrderMsg; vtables 8035D848; sizes 0x44 via Cow_OrderMsg_ctor in Cow_Game_ctor; 9 methods: calc, ctor, drawScreen, dtor, dtorThunk, exit, init, reset, show
+Cow_PerfectMsg -> RPCowPerfectMsg; vtables 8035D788; sizes 0xB0 via Cow_PerfectMsg_ctor in Cow_Game_ctor; 9 methods: calc, ctor, drawScreen, dtor, dtorThunk, exit, init, reset, show
+Cow_Player -> RPCowPlayer; vtables 8035D00C; sizes -; 38 methods: addBonusScore, addGroupScore, addScore, calc, calcFootEffects, calcInput, calcMovement, calcProgress, create, ctor, destroy, drawPass ...
+Cow_PlayerCursor -> RPCowPlayerCursor; vtables -; sizes -; 6 methods: calc, ctor, draw, dtor, init, reset
+Cow_PlayerEffects -> RPCowPlayerEffects; vtables -; sizes -; 3 methods: emitWool, init, resetWool
+Cow_PlayerSound -> RPCowPlayerSound; vtables 8035CF30; sizes -; 8 methods: dtor, dtorThunk, holdSound, playHit, playRunStep, playSound, playSpeedSound, setParam
+Cow_PointPopup -> RPCowPointPopup; vtables 8035D658; sizes -; 11 methods: calc, ctor, drawScreen, dtor, dtorThunk, entryDraw, exit, init, onCollide, onCollideThunk, reset
+Cow_PosHistory -> RPCowPosHistory; vtables -; sizes -; 3 methods: ctor, dtor, push
+Cow_Scene -> RPCowScene; vtables 8035CD38; sizes 0x44 via RP_ActorScene_ctor in Sys_SceneCreator_createGameScene (derived vtable 8035CD38); 3 methods: createCowMgr, dtor, thunk_dtor
+Cow_StartMsg -> RPCowStartMsg; vtables 8035D8A8; sizes 0x38 via Cow_StartMsg_ctor in Cow_Game_ctor; 8 methods: calc, ctor, drawScreen, dtor, dtorThunk, init, reset, show
+Cow_TargetMarker -> RPCowTargetMarker; vtables 8035DA28; sizes -; 10 methods: calc, ctor, drawScreen, dtor, dtorThunk, exit, init, reset, restartAnim, show
+Cow_Transform -> RPCowTransform; vtables -; sizes -; 1 methods: getDelta
+Cow_Tree -> RPCowTree; vtables 8035D388; sizes 0x150 via Cow_Tree_ctor in Cow_Game_load; 8 methods: ctor, dtor, dtorThunk, exit, init, onCollide, onCollideThunk, reset
+Cow_TreeBatch -> RPCowTreeBatch; vtables 8035D4D8; sizes -; 4 methods: dtor, dtorThunk, dtorThunk2, init
+Cow_VsResult -> RPCowVsResult; vtables 8035D9C8; sizes 0x5C via Cow_VsResult_ctor in Cow_Game_ctor; 11 methods: calc, ctor, drawScreen, dtor, dtorThunk, init, playOut, reset, setScore, show, showWinner
+
+## globals referenced (address name section size refs)
+800B222C _savegpr_20 .text 0x0 1
+800B2234 _savegpr_22 .text 0x0 4
+800B2238 _savegpr_23 .text 0x0 1
+800B223C _savegpr_24 .text 0x0 5
+800B2240 _savegpr_25 .text 0x0 1
+800B2244 _savegpr_26 .text 0x0 2
+800B2248 _savegpr_27 .text 0x0 3
+800B2278 _restgpr_20 .text 0x0 1
+800B2280 _restgpr_22 .text 0x0 4
+800B2284 _restgpr_23 .text 0x0 1
+800B2288 _restgpr_24 .text 0x0 5
+800B228C _restgpr_25 .text 0x0 1
+800B2290 _restgpr_26 .text 0x0 2
+800B2294 _restgpr_27 .text 0x0 3
+803254B0 lbl_803254B0 .rodata 0x528 1
+803259D8 lbl_803259D8 .rodata 0xC8 1
+80325AA0 lbl_80325AA0 .rodata 0x50 2
+80325AF0 lbl_80325AF0 .rodata 0x28 5
+80325B18 lbl_80325B18 .rodata 0x18 1
+80325B30 lbl_80325B30 .rodata 0x60 1
+80325B90 lbl_80325B90 .rodata 0xE 1
+80325BA0 lbl_80325BA0 .rodata 0xE 1
+80325BB0 lbl_80325BB0 .rodata 0x10 1
+80325BC0 lbl_80325BC0 .rodata 0x78 1
+80325C38 lbl_80325C38 .rodata 0x1C 1
+80325E38 lbl_80325E38 .rodata 0xE 1
+80325E48 lbl_80325E48 .rodata 0x1F 1
+80325EF0 lbl_80325EF0 .rodata 0xC8 1
+80325FB8 lbl_80325FB8 .rodata 0x17 2
+803263C0 lbl_803263C0 .rodata 0x78 1
+80326438 lbl_80326438 .rodata 0x1F 1
+803266B8 lbl_803266B8 .rodata 0x40 3
+803266F8 lbl_803266F8 .rodata 0xC 1
+80326704 lbl_80326704 .rodata 0x15 1
+80326778 lbl_80326778 .rodata 0x18 1
+803267E0 lbl_803267E0 .rodata 0x1B 1
+80326830 lbl_80326830 .rodata 0xC 1
+8032683C lbl_8032683C .rodata 0x17 1
+803268F8 lbl_803268F8 .rodata 0x30 1
+80326928 lbl_80326928 .rodata 0x30 1
+80326958 lbl_80326958 .rodata 0x10 1
+80326968 lbl_80326968 .rodata 0x38 1
+803269A0 lbl_803269A0 .rodata 0x1B 1
+80326AE0 lbl_80326AE0 .rodata 0x30 1
+80326B10 lbl_80326B10 .rodata 0x1B 1
+80326C10 lbl_80326C10 .rodata 0x10 1
+80326C20 lbl_80326C20 .rodata 0x18 1
+80326C88 lbl_80326C88 .rodata 0x18 1
+80326CA0 lbl_80326CA0 .rodata 0x1A 1
+80326D60 lbl_80326D60 .rodata 0xD8 2
+80326E38 lbl_80326E38 .rodata 0x48 2
+80326E80 lbl_80326E80 .rodata 0xE 1
+80326E90 lbl_80326E90 .rodata 0x10 1
+80326EA0 lbl_80326EA0 .rodata 0x18 1
+80326EB8 lbl_80326EB8 .rodata 0x18 1
+8032D89C lbl_8032D89C .data 0xD 1
+8032D8AC lbl_8032D8AC .data 0xD 1
+8032D8BC lbl_8032D8BC .data 0xD 1
+8032D8CC lbl_8032D8CC .data 0xD 1
+8032DAEC lbl_8032DAEC .data 0x1B 1
+8032DB08 lbl_8032DB08 .data 0xD 1
+8034F32C lbl_8034F32C .data 0x14 1
+803587D0 lbl_803587D0 .data 0x10 1
+80358A88 lbl_80358A88 .data 0x24 4
+80358AF4 lbl_80358AF4 .data 0x15 2
+80358B0C lbl_80358B0C .data 0xE 2
+80358DA4 lbl_80358DA4 .data 0x15 1
+80358DC0 lbl_80358DC0 .data 0x10 1
+80358E18 lbl_80358E18 .data 0x20 1
+8035C6BC lbl_8035C6BC .data 0xDC 2
+8035C798 lbl_8035C798 .data 0x38 2
+8035C7D0 lbl_8035C7D0 .data 0x10 2
+8035CDA0 jumptable_8035CDA0 .data 0x64 1
+8035CE08 lbl_8035CE08 .data 0x10 1
+8035CE18 lbl_8035CE18 .data 0x28 2
+8035CE40 lbl_8035CE40 .data 0x60 1
+8035CEA0 lbl_8035CEA0 .data 0xC 1
+8035CEAC lbl_8035CEAC .data 0xC 1
+8035CEB8 lbl_8035CEB8 .data 0xC 1
+8035CEC4 lbl_8035CEC4 .data 0xC 1
+8035CED0 lbl_8035CED0 .data 0xC 1
+8035CEDC lbl_8035CEDC .data 0xC 1
+8035CEE8 lbl_8035CEE8 .data 0xC 1
+8035CEF4 lbl_8035CEF4 .data 0xC 1
+8035CF00 lbl_8035CF00 .data 0xC 1
+8035CF0C lbl_8035CF0C .data 0xC 1
+8035CF18 lbl_8035CF18 .data 0xC 1
+8035CF24 lbl_8035CF24 .data 0xC 1
+8035CF30 lbl_8035CF30 .data 0xDC 1
+8035D00C lbl_8035D00C .data 0x64 1
+8035D070 lbl_8035D070 .data 0x10 1
+8035D080 lbl_8035D080 .data 0x60 1
+8035D0E0 lbl_8035D0E0 .data 0xC 6
+8035D0EC lbl_8035D0EC .data 0xC 6
+8035D0F8 lbl_8035D0F8 .data 0xC 6
+8035D104 lbl_8035D104 .data 0xC 6
+8035D110 lbl_8035D110 .data 0xC 6
+8035D11C lbl_8035D11C .data 0xC 6
+8035D128 lbl_8035D128 .data 0xC 6
+8035D134 lbl_8035D134 .data 0xC 6
+8035D140 lbl_8035D140 .data 0xC 6
+8035D14C lbl_8035D14C .data 0xC 6
+8035D158 lbl_8035D158 .data 0xC 6
+8035D164 lbl_8035D164 .data 0xC 6
+8035D170 lbl_8035D170 .data 0xE0 1
+8035D250 lbl_8035D250 .data 0x68 1
+8035D2B8 lbl_8035D2B8 .data 0x68 1
+8035D320 lbl_8035D320 .data 0x68 1
+8035D388 lbl_8035D388 .data 0x68 1
+8035D3F0 lbl_8035D3F0 .data 0x68 1
+8035D458 lbl_8035D458 .data 0x80 1
+8035D4D8 lbl_8035D4D8 .data 0x80 1
+8035D558 lbl_8035D558 .data 0x80 1
+8035D5D8 lbl_8035D5D8 .data 0x80 1
+8035D658 lbl_8035D658 .data 0x68 1
+8035D6C0 lbl_8035D6C0 .data 0x68 1
+8035D728 lbl_8035D728 .data 0x60 1
+8035D788 lbl_8035D788 .data 0x60 1
+8035D7E8 lbl_8035D7E8 .data 0x60 1
+8035D848 lbl_8035D848 .data 0x60 1
+8035D8A8 lbl_8035D8A8 .data 0x60 1
+8035D908 lbl_8035D908 .data 0x60 1
+8035D968 lbl_8035D968 .data 0x60 1
+8035D9C8 lbl_8035D9C8 .data 0x60 1
+8035DA28 lbl_8035DA28 .data 0x60 1
+8035DA88 lbl_8035DA88 .data 0x60 1
+8035DAE8 lbl_8035DAE8 .data 0x20 1
+8035DB08 lbl_8035DB08 .data 0x68 1
+8035DB70 lbl_8035DB70 .data 0x68 1
+8035DBD8 lbl_8035DBD8 .data 0x60 1
+8039F340 lbl_8039F340 .bss 0x30 1
+804390E0 lbl_804390E0 .bss 0x10 2
+804390F0 lbl_804390F0 .bss 0x10 4
+8043A2BC lbl_8043A2BC .bss 0x30 5
+8043A304 lbl_8043A304 .bss 0x84 5
+8043A388 lbl_8043A388 .bss 0x30 3
+8043A8E8 lbl_8043A8E8 .bss 0xC 2
+8043A8F4 lbl_8043A8F4 .bss 0xC 19
+8043A900 lbl_8043A900 .bss 0x10 1
+8043A910 lbl_8043A910 .bss 0xC 1
+8043A91C lbl_8043A91C .bss 0xC 1
+8043A928 lbl_8043A928 .bss 0x10 1
+8043AC28 lbl_8043AC28 .sdata 0x2 3
+8043AC2C lbl_8043AC2C .sdata 0x2 3
+8043BBA8 lbl_8043BBA8 .sbss 0x4 6
+8043BC70 lbl_8043BC70 .sbss 0x4 1
+8043C458 lbl_8043C458 .sbss 0x8 1
+8043C468 lbl_8043C468 .sbss 0x8 1
+8043C588 lbl_8043C588 .sbss 0x8 6
+8043C590 lbl_8043C590 .sbss 0x8 1
+8043C5A0 lbl_8043C5A0 .sbss 0x4 8
+8043C5D4 lbl_8043C5D4 .sbss 0x4 15
+8043C5E8 lbl_8043C5E8 .sbss 0x8 3
+8043C620 lbl_8043C620 .sbss 0x8 6
+8043C628 lbl_8043C628 .sbss 0x8 13
+8043C680 lbl_8043C680 .sbss 0x4 92
+8043C68C lbl_8043C68C .sbss 0x4 1
+8043C6C8 lbl_8043C6C8 .sbss 0x8 3
+8043C6D8 lbl_8043C6D8 .sbss 0x8 4
+8043C990 lbl_8043C990 .sbss 0x8 2
+8043C998 lbl_8043C998 .sbss 0x8 1
+8043C9A0 lbl_8043C9A0 .sbss 0x4 3
+8043C9A4 lbl_8043C9A4 .sbss 0x4 2
+8043C9A8 lbl_8043C9A8 .sbss 0x8 2
+8043C9B0 lbl_8043C9B0 .sbss 0x8 1
+804419A0 lbl_804419A0 .sbss2 0x8 1
+804419A8 lbl_804419A8 .sbss2 0x4 1
+804419AC lbl_804419AC .sbss2 0x4 1
+804419B0 lbl_804419B0 .sbss2 0x4 1
+804419B4 lbl_804419B4 .sbss2 0x4 1
+804419B8 lbl_804419B8 .sbss2 0x4 1
+804419BC lbl_804419BC .sbss2 0x4 1
+804419C0 lbl_804419C0 .sbss2 0x4 6
+804419C4 lbl_804419C4 .sbss2 0x4 1
+804419C8 lbl_804419C8 .sbss2 0x8 1
+804419D0 lbl_804419D0 .sbss2 0x4 1
+804419D4 lbl_804419D4 .sbss2 0x4 1
+804419D8 lbl_804419D8 .sbss2 0x4 1
+804419DC lbl_804419DC .sbss2 0x4 1
+804419E0 lbl_804419E0 .sbss2 0x8 1
+804419E8 lbl_804419E8 .sbss2 0x4 1
+804419EC lbl_804419EC .sbss2 0x4 1
+804419F0 lbl_804419F0 .sbss2 0x4 1
+804419F4 lbl_804419F4 .sbss2 0x4 1
+804419F8 lbl_804419F8 .sbss2 0x8 1
+80441A00 lbl_80441A00 .sbss2 0x4 1
+80441A04 lbl_80441A04 .sbss2 0x4 1
+80441A08 lbl_80441A08 .sbss2 0x8 1
+80441A10 lbl_80441A10 .sbss2 0x4 1
+80441A14 lbl_80441A14 .sbss2 0x4 1
+80441A18 lbl_80441A18 .sbss2 0x8 1
+80441A20 lbl_80441A20 .sbss2 0x4 1
+80441A24 lbl_80441A24 .sbss2 0x4 1
+80441A28 lbl_80441A28 .sbss2 0x4 1

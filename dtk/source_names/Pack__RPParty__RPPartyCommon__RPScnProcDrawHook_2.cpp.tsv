@@ -1,0 +1,3 @@
+address	old_name	new_name	unit	previous
+801ADBC0	Gfx_ScnProcDrawHook_dtor	__sinit_\RPScnProcDrawHook_2_cpp	Pack/RPParty/RPPartyCommon/RPScnProcDrawHook_2.cpp	
+801ADC00	Gfx_ScnProcDrawHook_initGlobal	__dt__17RPScnProcDrawHookFv	Pack/RPParty/RPPartyCommon/RPScnProcDrawHook_2.cpp	__dt__17RPScnProcDrawHookFv;__dt__20RPScnProcDrawHookTmpFv

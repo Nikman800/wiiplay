@@ -1,0 +1,42 @@
+address	symbol	reason
+8003E7C8	GetLocalVariable__Q44nw4r3snd6detail9SeqPlayerCFi	size-run slid one step: returns the local variable (reads only); Wii Play's version adds getters
+8003E7D8	GetGlobalVariable__Q44nw4r3snd6detail9SeqPlayerFi	size-run slid one step: lazily inits the table, then returns the global variable
+8003E848	SetGlobalVariable__Q44nw4r3snd6detail9SeqPlayerFis	real setter: lazily inits the table, then stores the value
+8003FA7C	nw4r_snd_SeqSound_SetTrackMute	size-run slid one step: forwards to SeqPlayer::SetTrackMute (8003E8B8); not in the references
+8003FA84	SetTrackVolume__Q44nw4r3snd6detail8SeqSoundFUlf	size-run slid one step: forwards to SeqPlayer::SetTrackVolume
+8003FA8C	SetTrackPitch__Q44nw4r3snd6detail8SeqSoundFUlf	real method: forwards to SeqPlayer::SetTrackPitch
+800C1384	asin	MSL wrapper order acos, asin, atan2, fmod, pow; a duplicate atan2 label made both atan2 symbols local (RPHkyPaddle calls 800C1388)
+800A1980	__ml__3EGGFfRCQ23EGG8Vector3f	EGG operator*(f32, const Vector3f&) (out-of-line friend, 0x28: scales the three components into r3), not Vector3f::multScalar (Fishing agent)
+8009AAB8	InitList__Q23EGG13ShadowTextureFv	overrides ModelSnapshot::InitList (vtable slot 0x18); Wii Sports names it ResetModel, which C++ cannot override with
+8005A518	GetResLightSetByRefNumber__Q34nw4r3g3d9ResAnmScnCFUl	size-run slid one step: Rhae (matching) has the light-set getter here; the fog getter is not linked
+8005A564	GetResAnmAmbLightByRefNumber__Q34nw4r3g3d9ResAnmScnCFUl	size-run slid one step (Rhae)
+8005A5B0	GetResAnmLightByRefNumber__Q34nw4r3g3d9ResAnmScnCFUl	size-run slid one step (Rhae); 0x5C-byte records are ResAnmLightData
+8005A5FC	GetResAnmCameraByRefNumber__Q34nw4r3g3d9ResAnmScnCFUl	the camera getter RPGrpCamera calls (count at +0x10 in our ResAnmScnInfoData); Rhae calls it the fog one with fog/camera fields swapped
+800361D8	GetFxSend__Q44nw4r3snd6detail11BasicPlayerCFQ34nw4r3snd6AuxBus	Rhae (matching) names this function
+800361E8	SetRemoteOutVolume__Q44nw4r3snd6detail11BasicPlayerFif	Rhae (matching) names this function
+800361F8	GetRemoteOutVolume__Q44nw4r3snd6detail11BasicPlayerCFi	Rhae (matching) names this function
+80036208	GetRemoteSend__Q44nw4r3snd6detail11BasicPlayerCFi	Rhae (matching) names this function
+80036218	GetRemoteFxSend__Q44nw4r3snd6detail11BasicPlayerCFi	Rhae (matching) names this function
+8009A7F8	__ct__Q34nw4r4math4VEC2Fv	the constructor of EGG::Screen::sTVModeRatios (VEC2s) and of RPCursorTrail's VEC2 arrays; Rhae names it after its TVModeRatio struct
+801444DC	NWC24IsMsgLibOpenedByTool	Rhae (matching) names this function
+80087C90	DrawPoint__Q23EGG6DrawGXFPCQ34nw4r4math4VEC3Us8_GXColorUc	Wii Play DrawGX: GXSetPointSize + GX_POINTS (no DrawLineStrip in this binary)
+80087E94	DrawCircle2D__Q23EGG6DrawGXFQ33EGG6DrawGX6Circlefff8_GXColorUc	Wii Play DrawGX: circle with a line width
+80087F70	DrawCylinderY__Q23EGG6DrawGXFQ33EGG6DrawGX6CircleRCQ34nw4r4math5MTX348_GXColor	draws DL_CYLINDER_16/32
+80088038	DrawCornY__Q23EGG6DrawGXFQ33EGG6DrawGX6CircleRCQ34nw4r4math5MTX34RC8_GXColor	draws DL_CONE_16/32
+800A27CC	conjugate__Q23EGG5QuatfFv	eggQuat.cpp (unit 800A2734-800A2C28)
+800A2820	__ct__Q23EGG5QuatfFfQ23EGG8Vector3f	eggQuat.cpp, out of line
+800A2840	rotateVector__Q23EGG5QuatfFRCQ23EGG8Vector3f	eggQuat.cpp; RPBilCamera_2 calls it
+800A2920	__ml__Q23EGG5QuatfCFRCQ23EGG8Vector3f	eggQuat.cpp
+800A29BC	__ml__Q23EGG5QuatfCFRCQ23EGG5Quatf	eggQuat.cpp
+800A1AF8	asin__Q23EGG7Math<f>Ff	asserts -1 <= t && t <= 1, calls asin
+800A1B6C	acos__Q23EGG7Math<f>Ff	asserts -1 <= t && t <= 1, calls acos; slerpTo calls it
+8008FDB4	LoadAmbientColorGX__Q23EGG12LightManagerCFv	EGG light classes (agent report 2026-10-27)
+80092348	capture__Q23EGG12LightTextureFb	EGG light classes (agent report 2026-10-27)
+80092614	GetVersion__Q23EGG29IBinary<Q23EGG12LightTexture>CFv	EGG light classes (agent report 2026-10-27)
+80090CFC	GetBinarySize__Q23EGG28IBinary<Q23EGG11LightObject>CFv	EGG light classes (agent report 2026-10-27)
+800A23B0	toQuat__Q23EGG9Matrix34fCFRQ23EGG5Quatf	eggMatrix.cpp; RPActorBase_2 calls it
+8009DC20	CopyFromG3D__Q23EGG11LightObjectFRCQ34nw4r3g3d11ResAnmLightf	(const ResAnmLight&, f32): the code uses only the animation and the frame
+80091AA8	draw__Q23EGG12LightTextureFv	LightTexture::draw() takes no argument (caller never sets r4)
+8009355C	GetBinarySize__Q23EGG36IBinary<Q23EGG19LightTextureManager>CFv	IBinary<LightTextureManager> template instance
+8043AC30	spExtension__Q23EGG28IBinary<Q23EGG11LightObject>	IBinary<LightObject> binary extension pointer (RPGrpRenderer sets it)
+800A650C	startMotor__Q23EGG14CoreControllerFv	EGG::CoreController::startMotor (between startSimpleRumble and stopMotor)

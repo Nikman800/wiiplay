@@ -1,0 +1,10 @@
+address	old_name	new_name	unit	previous
+80233788	Pnp_StartMsgLyt_playOut	PlayOut__16RPPnpStartMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_7.cpp	
+80233804	Pnp_StartMsgLyt_show	Show__16RPPnpStartMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_7.cpp	
+802339A8	Pnp_StartMsgLyt_draw	Draw__16RPPnpStartMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_7.cpp	
+802339B0	Pnp_StartMsgLyt_exit	Exit__16RPPnpStartMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_7.cpp	
+802339B4	Pnp_StartMsgLyt_calc	Calculate__16RPPnpStartMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_7.cpp	
+80233A24	Pnp_StartMsgLyt_reset	Reset__16RPPnpStartMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_7.cpp	
+80233AD8	Pnp_StartMsgLyt_load	Load__16RPPnpStartMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_7.cpp	
+80233B54	Pnp_StartMsgLyt_create	Create__16RPPnpStartMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_7.cpp	
+8043B728	Pnp_rallyLimit	sRallyLimit__9RPPnpGame	Pack/RPParty/RPPnpScene/RPPnpLyt_7.cpp	

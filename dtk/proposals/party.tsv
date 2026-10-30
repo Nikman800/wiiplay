@@ -1,0 +1,620 @@
+address	new_name	confidence	note
+8018B840	RP_SaveData_testFlag1C	medium	returns bit n of word at +0x1c; used with bit 9 on c (moved from Party: generic save-data accessor among RP_ neighbours)
+8018B890	RP_SaveData_isGameUnlocked	medium	returns bit n of word at +0x18; same bitfield set vi (moved from Party: generic save-data accessor among RP_ neighbours)
+8018B8B4	RP_SaveData_setGameUnlocked	medium	sets/clears bit n of word at +0x18; called with next (moved from Party: generic save-data accessor among RP_ neighbours)
+8018B8E8	RP_SaveData_getU16At16	low	returns u16 at +0x16 (moved from Party: generic save-data accessor among RP_ neighbours)
+8018B8F8	RP_SaveData_getU8At15	low	returns u8 at +0x15 (moved from Party: generic save-data accessor among RP_ neighbours)
+8018BD48	RP_SaveData_getMedal	medium	returns byte at +0xc4+gameIdx; compared against meda (moved from Party: generic save-data accessor among RP_ neighbours)
+8018CA1C	RP_SaveMgr_applyDefaultToAll	low	loops count at +8, passes 16-byte block at +0x1c to  (moved from Party: generic save-data accessor among RP_ neighbours)
+801A4DB0	RP_varargsWrapper_801A47E8	low	varargs thunk packing r3-r10/f1-f8 into va_list and calling RP_801A47E8 (moved: generic framework utility)
+801B2C04	Snd_SoundMgr_playFanfareBgm	medium	vcall 0xbc plays BGM by name, records tick and per-fanfare duration, adjusts other streams (moved: sound manager method)
+801E431C	Party_TitleSeq_isState	medium	title layout state machine query: current==s and (next==s or no pending change)
+801E4970	Party_SelectSceneSeq_changeState	medium	state machine: set next state at +8 and set pending flags
+801E4BD8	Party_RankGetLyt_close	medium	if not in state 3/4, request state 3 (out animation)
+801E4C38	Party_RankGetLyt_open	high	if idle -> state 1; sets T_step_00 and T_rankGet_00/01 texts from rank param
+801E4D54	Party_RankGetLyt_draw	medium	draws layout (RP_80194250) unless state 0 or 4
+801E4D78	Party_RankGetLyt_drawOther	low	empty; called from Party_MedalResult_drawLayer1A
+801E4D7C	Party_RankGetLyt_calcOut	medium	state func: when out anim (+0x18) finished -> state 4
+801E4D9C	Party_RankGetLyt_enterOut	medium	state func: binds and rewinds out anim (+0x18)
+801E4E10	Party_RankGetLyt_stateNop_801E4E10	low	empty state callback
+801E4E14	Party_RankGetLyt_stateNop_801E4E14	low	empty state callback
+801E4E18	Party_RankGetLyt_calcIn	medium	state func: when in anim (+0x14) finished -> state 2
+801E4E38	Party_RankGetLyt_enterIn	medium	state func: binds and rewinds in anim (+0x14)
+801E4EAC	Party_RankGetLyt_calc	medium	vf02: steps state machine, animates layout unless state 0/4
+801E4EFC	Party_RankGetLyt_reset	medium	vf01: state 0, rewinds in/out anims, resets layout
+801E4FB0	Party_RankGetLyt_load	high	vf00: loads myRecord.arc ptRankGet_00 layout, in/out anims, rankGet/congrats texts, panes
+801E5120	Party_RankGetLyt_ctor	high	stores vtable 803581F8, creates 5-state machine and registers state funcs
+801E5230	Party_RankGetSeq_ctor	medium	state machine ctor: owner, state count, allocs enter/calc/exit PTMF tables (12 bytes each)
+801E5310	Party_RankGetSeq_setStateFuncs	medium	state machine: stores enter/calc PTMFs for state index
+801E5354	Party_RankGetSeq_init	medium	state machine: sets cur/prev/next to state, pending without exit
+801E5378	Party_RankGetSeq_changeState	medium	state machine: set next state and pending flags
+801E538C	Party_RankGetSeq_update	medium	state machine: exit old, enter new on pending change, calc current, inc frame counter
+801E5418	Party_RankGetSeq_callExit	medium	calls PTMF from table +0x20 for current state if non-null
+801E5478	Party_RankGetSeq_callCalc	medium	calls PTMF from table +0x1c for current state if non-null
+801E54D8	Party_RankGetSeq_callEnter	medium	calls PTMF from table +0x18 for current state if non-null
+801E5538	Party_RankGetSeq_isStateOrPending	medium	true if current==s or pending next==s
+801E556C	Party_MedalResult_saveResults	medium	stores updated top-5 records and medal level, unlocks next game bit, commits save
+801E56D8	Party_MedalResult_getRankForScore	high	returns index 0-4 of first top-5 record (+0x6c..) beaten by score, else -1
+801E5744	Party_MedalResult_start	high	called by all minigames with score; if idle: fetch save slot, store score, state 1, start sub-objects
+801E57CC	Party_MedalResult_drawLayer1C	medium	if active draws record layout and rank-get layout
+801E5814	Party_MedalResult_drawLayer1A	medium	if active draws record layout variant and rank-get secondary draw
+801E585C	Party_MedalResult_calcSave	medium	state func: when save done (Sys_80188800) -> state 4; updates player cursors
+801E58B0	Party_MedalResult_enterSave	low	state func: if medal earned and flag set, calls Party_801F9D58 for current game
+801E58E0	Party_MedalResult_calcMedal	medium	state func: positions medal model/sparkles from rank layout pane, A/B or timeout closes, -> state 3
+801E5FDC	Party_MedalResult_enterMedal	high	state func: opens rank layout, plays RP_COM_BGM_GET_COPPER/SILVER/GOLD/PLATINA by medal level
+801E61F8	Party_MedalResult_calcRecord	medium	state func: drives record layout, avatar anims, A/B skips; on done -> state 2 (medal) or 3
+801E6688	Party_MedalResult_enterRecord	medium	state func: computes rank of score, inserts into top-5, picks medal level from threshold table
+801E6928	Party_MedalResult_calc	medium	updates camera matrices, steps state machine, fades sparkle alpha, calcs 22 effect objects
+801E6B04	Party_MedalResult_reset	medium	state 0, identity matrices, reads top-5 records from save, resets layouts
+801E6CF0	Party_MedalResult_load	high	loads layouts, G3D/medal_model.brres medal_* models with appear/wait anims, 22 effect objects
+801E6ED4	Party_MedalResult_ctor	high	vtable 80358218; creates record layout, rank-get layout, 5-state machine
+801E7030	Party_MedalResult_dtor	medium	dtor: base teardown, operator delete if flag>0
+801E709C	Party_MedalResultSeq_update	medium	state machine update (exit/enter/calc, frame counter)
+801E7128	Party_MedalResultSeq_changeState	medium	state machine: set next state and pending flags
+801E713C	Party_MedalResultSeq_init	medium	state machine: set cur/prev/next to state
+801E7160	Party_MedalResultSeq_setStateFuncs	medium	state machine: stores enter/calc PTMFs for state index
+801E71A4	Party_MedalResultSeq_ctor	medium	state machine ctor: owner, count, allocs PTMF tables
+801E7284	Party_MedalResultSeq_callEnter	medium	calls enter PTMF (+0x18) for current state
+801E72E4	Party_MedalResultSeq_callCalc	medium	calls calc PTMF (+0x1c) for current state
+801E7344	Party_MedalResultSeq_callExit	medium	calls exit PTMF (+0x20) for current state
+801E73A4	Party_initStaticScreenOffsets	low	static init: four float pairs (20,110),(20,110),(50,75),(25,90) registered as global objects
+801E746C	Party_MedalResult_dtorThunk4	medium	vf03 thunk: dtor on this-4
+801E7474	Party_MedalResult_dtorThunk8	medium	vf08 thunk: dtor on this-8
+801E747C	Party_getNextGameId	medium	Menu_801DF84C index of current game; returns id of next game (or 9 at end)
+801E74B8	Party_getGameMsgIndex	low	maps game index via table {0,1,2,3,4,5,7,8,9}; flag out if Lyt_8019E400 false
+801E7570	Party_Common_getGameMsgIndex	low	same table lookup using current game id at ctx+0x10; flag out if Lyt_8019E400 false
+801E7630	Party_isAnyPlayerPressingAB	high	loops first n controllers, true if trigger bits 0x800 (A) or 0x400 (B) set
+801E76B0	Party_isPadAPressed	medium	returns bit 11 (A) of trigger word at lbl_8043C504+0x18
+801E76C0	Party_Common_playAvatarAnim	medium	calls anim vfunc 0x38 on player n avatar model with rate and anim id
+801E76F0	Party_Common_setAvatarScale	medium	sets uniform scale on player n avatar and its sub-model, updates matrices
+801E77E0	Party_Common_screenToWorld	low	Gfx_801A6788 with common camera +0x34/+0x38 converting point
+801E77F8	Party_getMedalDrawLayer	low	returns constant 7 (layer id used when building medal/effect models)
+801E7800	Party_getSavedMedal	medium	reads save slot 0 and returns saved medal byte for game id at ctx+0x10
+801E7844	Party_addLayerBase1A	low	returns arg + 0x1a
+801E7850	Party_getConst16	low	returns constant 0x10
+801E7858	Party_Common_draw	medium	per draw pass 0x1a/0x1c: draws medal result, result menu, tie, other sub-objects
+801E78F0	Party_Common_calc	high	called by all minigames each frame; calcs all six party sub-objects
+801E7948	Party_Common_reset	high	called by all minigames; resets fade and all party sub-objects
+801E7A0C	Party_Common_loadResources	high	loads sceneFile/avatar_anim brres (cmn_loseR/drawL/drawR), lights, party_message.bmg, sub-objects
+801E7CB4	Party_CommonParam_setDefault	medium	sets param struct to {6, 1}
+801E7CC8	Party_Common_ctor	high	vtable 80358290; creates screen, camera, medal result, result menu, tie, avatars per player
+801E7FF8	Party_Common_destroy	high	deletes singleton lbl_8043C6D8 via vfunc dtor and clears it
+801E8040	Party_Common_dtor	medium	dtor: RP_8018ED50 teardown, operator delete if flag>0
+801E8098	Party_Common_create	high	allocs 0x54 bytes, constructs Party_Common, stores singleton lbl_8043C6D8
+801E80DC	Party_Common_drawThunk	medium	thunk: Party_Common_draw on this-4
+801E80E4	Party_Common_dtorThunk	medium	thunk: dtor on this-4
+801E80EC	Party_RecordLyt_getPanePos	medium	returns latched pos (+0x2c) if set, else pane +0x50 translation
+801E8124	Party_RecordLyt_latchPanePos	medium	stores current pane position at +0x2c and sets latched flag
+801E8170	Party_RecordLyt_close	medium	if in state 4 (idle) -> state 5 (out)
+801E81B8	Party_RecordLyt_open	high	if state 0: stores score, rank index, 5 records, new-record flag; -> state 1
+801E8244	Party_RecordLyt_drawLayer1C	medium	toggles visibility of two panes and draws layout unless state 0/6
+801E82D0	Party_RecordLyt_drawLayer1A	medium	toggles the two panes the other way and draws layout unless state 0/6
+801E835C	Party_RecordLyt_calcOut	medium	state func: when out anim finished -> state 6
+801E83B0	Party_RecordLyt_enterOut	medium	state func: plays outNewRec or outRec anim, plays SE
+801E8510	Party_RecordLyt_stateNop_801E8510	low	empty state callback
+801E8514	Party_RecordLyt_stateNop_801E8514	low	empty state callback
+801E8518	Party_RecordLyt_calcNewRec	medium	state func: when newRec anim finished -> state 4
+801E8538	Party_RecordLyt_enterNewRec	high	state func: plays newRec anim, sets T_newRec_00 text, starts blink on new rank row
+801E8680	Party_RecordLyt_calcBlink	medium	state func: after 180 frames -> state 4
+801E869C	Party_RecordLyt_enterBlink	medium	state func: starts blink anim on rank row pane
+801E8724	Party_RecordLyt_calcIn	medium	state func: when in anim finished -> state 3 (new record), 2 (ranked) or 4
+801E8790	Party_RecordLyt_enterIn	high	state func: plays in anim, fills T_nMyRec_00, T_nRecord_0x, T_uRecord_0x texts
+801E8A7C	Party_RecordLyt_calc	medium	vf02: steps state machine, shows header panes, animates layout
+801E8B10	Party_RecordLyt_reset	medium	vf01: state 0, rewinds 5 anims, resets layout and rank row panes
+801E8CA8	Party_RecordLyt_load	high	vf00: loads myRecord_00 layout with in/newRec/outRec/outNewRec/blink anims, T_header_00
+801E8DB8	Party_RecordLyt_ctor	high	vtable 803582E8; creates 7-state machine and registers state funcs
+801E8EC8	Party_RecordSeq_ctor	medium	state machine ctor: owner, count, allocs PTMF tables
+801E8FA8	Party_RecordSeq_setStateFuncs	medium	state machine: stores enter/calc PTMFs for state index
+801E8FEC	Party_RecordSeq_init	medium	state machine: set cur/prev/next to state
+801E9010	Party_RecordSeq_changeState	medium	state machine: set next state and pending flags
+801E9024	Party_RecordSeq_update	medium	state machine update (exit/enter/calc, frame counter)
+801E90B0	Party_RecordSeq_callExit	medium	calls exit PTMF (+0x20) for current state
+801E9110	Party_RecordSeq_callCalc	medium	calls calc PTMF (+0x1c) for current state
+801E9170	Party_RecordSeq_callEnter	medium	calls enter PTMF (+0x18) for current state
+801E91D0	Party_RecordSeq_isState	medium	current==s and (next==s or no pending change)
+801E9204	Party_ResultMenu_getChoice	high	called by all minigames: returns chosen option when state 4, else -1
+801E9224	Party_ResultMenu_start	high	called by all minigames: if idle stores player count and winner, resets pointer, -> state 1
+801E9280	Party_ResultMenu_drawLayer1C	medium	if active draws choices layout, cursor (vfunc 0x14) and vs-result layout
+801E92DC	Party_ResultMenu_drawLayer1A	medium	if active secondary draw of choices and vs-result layouts
+801E9324	Party_ResultMenu_calcDecide	medium	state func: when choices reach state 5 (and vs result done) -> state 4; calcs sub-objects
+801E93C0	Party_ResultMenu_enterDecide	medium	state func: confirms choices, vs-result if >1 player, hides cursor, pause SE when choice 0
+801E9430	Party_ResultMenu_calcSelect	medium	state func: pointer/d-pad selection of 2 choices, A confirms -> state 3; updates cursor
+801E9638	Party_ResultMenu_enterSelect	low	empty state callback
+801E963C	Party_ResultMenu_calcShow	medium	state func: when choices reach state 2 (and vs result ready) -> state 2; calcs sub-objects
+801E96D8	Party_ResultMenu_enterShow	medium	state func: multiplayer updates win counters (cap 99) and balance (-3..3); opens choices
+801E9804	Party_ResultMenu_calc	medium	updates pointer hit choice, remembers last choice, steps state machine
+801E9874	Party_ResultMenu_reset	medium	state 0, clears selection, resets choices, cursor and vs-result layout
+801E991C	Party_ResultMenu_load	medium	calls load vfunc on choices, cursor and vs-result objects
+801E999C	Party_ResultMenu_ctor	high	vtable 80358308; 5-state machine, creates NChoices layout, CPadCursor, PtVsResult layout
+801E9AF4	Party_ResultMenu_dtor	medium	dtor: RP_8018ED50 teardown, operator delete if flag>0
+801E9B4C	Party_ResultMenuSeq_update	medium	state machine update (exit/enter/calc, frame counter)
+801E9BD8	Party_ResultMenuSeq_changeState	medium	state machine: set next state and pending flags
+801E9BEC	Party_ResultMenuSeq_init	medium	state machine: set cur/prev/next to state
+801E9C10	Party_ResultMenuSeq_setStateFuncs	medium	state machine: stores enter/calc PTMFs for state index
+801E9C54	Party_ResultMenuSeq_ctor	medium	state machine ctor: owner, count, allocs PTMF tables
+801E9D34	Party_ResultMenuSeq_callEnter	medium	calls enter PTMF (+0x18) for current state
+801E9D94	Party_ResultMenuSeq_callCalc	medium	calls calc PTMF (+0x1c) for current state
+801E9DF4	Party_ResultMenuSeq_callExit	medium	calls exit PTMF (+0x20) for current state
+801E9E54	Party_VsResultLyt_close	medium	if state 2 and no pending change -> state 3 (out)
+801E9E84	Party_VsResultLyt_open	medium	if state 0: stores two win counters, -> state 1
+801E9EC0	Party_VsResultLyt_draw	medium	draws layout unless state 0 or 4
+801E9EE0	Party_VsResultLyt_drawOther	low	empty; called from Party_ResultMenu_drawLayer1A
+801E9EE4	Party_VsResultLyt_calcOut	medium	state func: when out anim (+0x28) finished -> state 4
+801E9F08	Party_VsResultLyt_enterOut	medium	state func: binds and rewinds out anim
+801E9F7C	Party_VsResultLyt_calcIn	medium	state func: when in anim (+0x24) finished -> state 2
+801E9FA0	Party_VsResultLyt_enterIn	medium	state func: plays in anim, writes both players' win counts (msg 0x1f54) into text panes
+801EA0F0	Party_VsResultLyt_calc	medium	vf02: inline state machine via PTMF table, animates layout unless state 0/4
+801EA270	Party_VsResultLyt_reset	medium	vf01: state 0, rewinds in/out anims, resets layout
+801EA31C	Party_VsResultLyt_load	high	vf00: loads ptVsResult.arc ptVsResult_00 layout, in/out anims, sets text messages 0x1f56
+801EA46C	Party_VsResultLyt_ctor	high	stores vtable 80358320 after base ctor
+801EA4A8	Party_ChoiceLyt_playCursorSE	medium	plays SE via sound mgr vcall 0xbc; optionally triggers Lyt_80199744 on pad
+801EA538	Party_ChoiceLyt_getButtonPane	medium	returns button pane pointer at +0x48+i*4
+801EA548	Party_ChoiceLyt_hitTest	medium	returns index of choice button (0/1) containing pointer pos, else -1
+801EA5C8	Party_ChoiceLyt_setCursor	medium	when selectable, plays active anim forward on new choice and backward on old one
+801EA76C	Party_ChoiceLyt_decide	medium	if state 2 and no pending change -> state 3
+801EA7A8	Party_ChoiceLyt_open	medium	if state 0 and no pending change -> state 1
+801EA7D4	Party_ChoiceLyt_draw	medium	draws layout unless state 0
+801EA7EC	Party_ChoiceLyt_drawOther	low	empty; called from Party_ResultMenu_drawLayer1A
+801EA7F0	Party_ChoiceLyt_calcOut	medium	state func: fades N_choices alpha out with out anim, on finish -> state 5
+801EA884	Party_ChoiceLyt_enterOut	medium	state func: unbinds push anim of chosen button, rewinds out anim
+801EA908	Party_ChoiceLyt_calcPush	medium	state func: when chosen button push anim finished -> state 5
+801EA938	Party_ChoiceLyt_enterPush	high	state func: plays push anim on chosen button, RP_COM_GAME_PARTY_SE_RESULT_KEY_A_01/02 TV+remote SE
+801EABF0	Party_ChoiceLyt_calcIn	medium	state func: fades N_choices alpha in with in anim, on finish -> state 2
+801EAC80	Party_ChoiceLyt_enterIn	medium	state func: rewinds in anim, resets both buttons' active anims
+801EAD5C	Party_ChoiceLyt_calc	medium	vf02: inline state machine via PTMF table, animates layout unless state 0
+801EAED4	Party_ChoiceLyt_reset	medium	vf01: state 0, no choice, rewinds all anims, shows choice panes
+801EB098	Party_ChoiceLyt_load	high	vf00: loads ptGOMenu_00 layout, in/out/active/push anims, T_choicesF/S texts, N_/B_choices panes
+801EB284	Party_ChoiceLyt_ctor	high	stores vtable 80358340, clears button pane pointers
+801EB2CC	Party_VsWinner_updatePositions	medium	places both avatars at winner-layout pane positions and trophy model at N_tPosition
+801EB6F4	Party_VsWinner_start	high	called by all minigames with winner (-1=tie -> tie model); if idle -> state 1
+801EB774	Party_VsWinner_drawLayer1C	medium	if active calls winner layout draw (empty)
+801EB790	Party_VsWinner_drawLayer1A	medium	if active calls winner layout secondary draw (empty)
+801EB7AC	Party_VsWinner_calcSave	medium	state func: when save done (Sys_80188800) -> state 5
+801EB7F0	Party_VsWinner_enterSave	low	empty state callback
+801EB7F4	Party_VsWinner_calcClose	medium	state func: when trophy anim ends and layout out done -> state 4; shrinks spotlight effect
+801EB99C	Party_VsWinner_enterClose	medium	state func: switches trophy anim, closes winner layout, stops confetti effect
+801EBA1C	Party_VsWinner_calcShow	medium	state func: trophy anim done and A/B or 300 frames -> state 3; places effects on winner
+801EBCA0	Party_VsWinner_enterShow	medium	state func: plays trophy anim, starts effects, sets next-game unlocked bit and saves
+801EBD6C	Party_VsWinner_calcIn	medium	state func: when winner layout reaches state 2 -> state 2
+801EBDBC	Party_VsWinner_enterIn	medium	state func: plays win/lose (or tie) avatar anims for 2 players, opens winner layout
+801EBF20	Party_VsWinner_calc	medium	updates per-player rotation matrices, calcs layout, steps state machine, calcs effects
+801EC088	Party_VsWinner_reset	medium	state 0, identity matrices, default scales, resets layout
+801EC238	Party_VsWinner_load	high	loads layout, win_1P/win_2P/tie models with tie_0/tie_1 anims, Bcm_win_fubuki/spot01 effects
+801EC42C	Party_VsWinner_ctor	high	vtable 80358360; constructs matrix arrays, winner layout, 6-state machine
+801EC5A4	Party_VsWinner_dtor	medium	destroys matrix arrays, base teardown, operator delete if flag>0
+801EC65C	Party_VsWinnerSeq_update	medium	state machine update (exit/enter/calc, frame counter)
+801EC6E8	Party_VsWinnerSeq_changeState	medium	state machine: set next state and pending flags
+801EC6FC	Party_VsWinnerSeq_init	medium	state machine: set cur/prev/next to state
+801EC720	Party_VsWinnerSeq_setStateFuncs	medium	state machine: stores enter/calc PTMFs for state index
+801EC764	Party_VsWinnerSeq_ctor	medium	state machine ctor: owner, count, allocs PTMF tables
+801EC844	Party_VsWinnerSeq_callEnter	medium	calls enter PTMF (+0x18) for current state
+801EC8A4	Party_VsWinnerSeq_callCalc	medium	calls calc PTMF (+0x1c) for current state
+801EC904	Party_VsWinnerSeq_callExit	medium	calls exit PTMF (+0x20) for current state
+801EC964	Party_initStaticVsWinnerOffsets	low	static init: float pairs (50,95),(-50,95),(0,-30) and vec (7,8,8) registered as globals
+801ECA34	Party_VsWinnerLyt_getTrophyPanePos	medium	returns x/y of N_tPosition pane (+0x20)
+801ECA4C	Party_VsWinnerLyt_getPlayerPanePos	medium	returns x/y of player pane N_pL/RPosition (+0x18+i*4)
+801ECA6C	Party_VsWinnerLyt_close	medium	if not in state 3/4 -> state 3 (out)
+801ECACC	Party_VsWinnerLyt_open	medium	if state 0 -> state 1
+801ECAE8	Party_VsWinnerLyt_draw	low	empty draw hook
+801ECAEC	Party_VsWinnerLyt_drawOther	low	empty draw hook
+801ECAF0	Party_VsWinnerLyt_calcOut	medium	state func: when out anim (+0x14) finished -> state 4
+801ECB10	Party_VsWinnerLyt_enterOut	medium	state func: binds and rewinds out anim
+801ECB84	Party_VsWinnerLyt_stateNop_801ECB84	low	empty state callback
+801ECB88	Party_VsWinnerLyt_stateNop_801ECB88	low	empty state callback
+801ECB8C	Party_VsWinnerLyt_calcIn	medium	state func: when in anim (+0x10) finished -> state 2
+801ECBAC	Party_VsWinnerLyt_enterIn	medium	state func: binds and rewinds in anim, plays SE
+801ECC74	Party_VsWinnerLyt_calc	medium	vf02: steps state machine, animates layout unless state 0/4
+801ECCC4	Party_VsWinnerLyt_reset	medium	vf01: state 0, rewinds in/out anims, resets layout
+801ECD78	Party_VsWinnerLyt_load	high	vf00: loads ptVsWinner_00 layout, in/out anims, N_pL/pR/tPosition panes
+801ECE84	Party_VsWinnerLyt_ctor	high	vtable 80358378; creates 5-state machine and registers state funcs
+801ECF94	Party_VsWinnerLytSeq_ctor	medium	state machine ctor: owner, count, allocs PTMF tables
+801ED074	Party_VsWinnerLytSeq_setStateFuncs	medium	state machine: stores enter/calc PTMFs for state index
+801ED0B8	Party_VsWinnerLytSeq_init	medium	state machine: set cur/prev/next to state
+801ED0DC	Party_VsWinnerLytSeq_changeState	medium	state machine: set next state and pending flags
+801ED0F0	Party_VsWinnerLytSeq_update	medium	state machine update (exit/enter/calc, frame counter)
+801ED17C	Party_VsWinnerLytSeq_callExit	medium	calls exit PTMF (+0x20) for current state
+801ED1DC	Party_VsWinnerLytSeq_callCalc	medium	calls calc PTMF (+0x1c) for current state
+801ED23C	Party_VsWinnerLytSeq_callEnter	medium	calls enter PTMF (+0x18) for current state
+801ED29C	Party_VsWinnerLytSeq_isStateOrPending	medium	true if current==s or pending next==s
+801ED2D0	Party_SelectGameLyt_stopMedalEffects	low	calls vfunc 0x18 on the 7 effect objects of game slot (+0x43c + game*0x1c)
+801ED32C	Party_SelectGameLyt_startMedalEffects	medium	1P mode: starts (vfunc 0xc) effect range chosen by saved medal level of game slot
+801ED40C	Party_SelectGameLyt_getAnimLength	low	returns RP_80196CD4 of in/out anim i (+0x1dc); used as divisor for doll fade speed
+801ED41C	Party_SelectGameLyt_getPlayerPanePos	medium	gets global pos of N_pPositionC (1P) or N_pPositionL/R pane for player i
+801ED43C	Party_SelectGameLyt_playCursorSE	high	plays RP_COMMON_SE_KEY_CURSOR_01 panned by game icon screen position; optional pad effect
+801ED510	Party_SelectGameLyt_close	medium	if not in state 4/5 -> state 4 (out)
+801ED570	Party_SelectGameLyt_isSelectable	medium	true if a game is highlighted and layout is in state 2
+801ED5C0	Party_SelectGameLyt_decideGame	medium	in state 2: highlights game, -> state 3 and game slot sub-state 4 (decide anim)
+801ED698	Party_SelectGameLyt_getNeighborGame	medium	maps d-pad bit (0x10008/0x20004/0x40001/0x80002) to direction, table lookup of adjacent game id
+801ED774	Party_SelectGameLyt_hitTestGame	medium	returns game id whose icon pane contains pointer (unlocked/locked panes), else 9
+801ED8D8	Party_SelectGameLyt_open	medium	if state 0 or 5 -> state 1, clears highlighted game
+801ED93C	Party_SelectGameLyt_draw	medium	vf03: draws layout unless state 0/5
+801ED960	Party_SelectGameLyt_calcOut	medium	state func: when out anim (+0x1e0) finished -> state 5
+801ED980	Party_SelectGameLyt_enterOut	medium	state func: plays out anim on N_center
+801ED9F8	Party_SelectGameLyt_calcDecide	medium	state func: when decided game slot reaches sub-state 5 -> state 2
+801EDA24	Party_SelectGameLyt_stateNop_801EDA24	low	empty state callback
+801EDA28	Party_SelectGameLyt_stateNop_801EDA28	low	empty state callback
+801EDA2C	Party_SelectGameLyt_stateNop_801EDA2C	low	empty state callback
+801EDA30	Party_SelectGameLyt_calcIn	medium	state func: when in anim (+0x1dc) finished -> state 2
+801EDA50	Party_SelectGameLyt_enterIn	medium	state func: plays in anim on N_center
+801EDAC8	Party_SelectGameLyt_calc	medium	vf02: steps main and 19 per-game state machines, animates layout, positions medal effects on N_rank panes
+801EDC3C	Party_SelectGameLyt_reset	medium	vf01: resets all state machines, anims, pane visibility, T_p1Score text
+801EE130	Party_SelectGameLyt_load	high	vf00: loads ptSelectGame_00 layout, anims, rank/medal/unlock panes, player names, T_gameExp texts
+801EEBAC	Party_SelectGameLyt_ctor	high	vtable 80358398; creates main, per-game and cursor state machines and 63 medal effect objects
+801EEFB8	Party_SelectGameSeq_ctor	medium	state machine ctor: owner, count, allocs PTMF tables
+801EF098	Party_SelectGameSeq_setStateFuncs	medium	state machine: stores enter/calc PTMFs for state index
+801EF0DC	Party_SelectGameSeq_init	medium	state machine: set cur/prev/next to state
+801EF100	Party_SelectGameSeq_changeState	medium	state machine: set next state and pending flags
+801EF114	Party_SelectGameSeq_update	medium	state machine update (exit/enter/calc, frame counter)
+801EF1A0	Party_SelectGameSeq_callExit	medium	calls exit PTMF (+0x20) for current state
+801EF200	Party_SelectGameSeq_callCalc	medium	calls calc PTMF (+0x1c) for current state
+801EF260	Party_SelectGameSeq_callEnter	medium	calls enter PTMF (+0x18) for current state
+801EF2C0	Party_SelectGameSeq_isState	medium	current==s and (next==s or no pending change)
+801EF2F4	Party_SelectGameSeq_isStateOrPending	medium	true if current==s or pending next==s
+801EF328	Party_gameIndexToMsgIndex	medium	table lookup {0,1,2,3,4,5,7,8,9}[i]
+801EF38C	Party_SelectScene_getDollAvatar	low	thunk to Party_DollMgr_getAvatar on lbl_8043C6F8
+801EF394	Party_getConst12	low	returns constant 0xc
+801EF398	Party_SelectScene_draw	medium	vf31: in draw pass 3 draws select layout, game info, cursor, back button, rank-complete
+801EF44C	Party_SelectScene_handleDollClicks	high	A on doll part (body/head/hands/feet) triggers reaction and RP_COMMON_SE_Party_DOLL_CLICK_* SE
+801EFAD0	Party_SelectScene_enterFinish	medium	state func: if from state 0xc stores chosen game, fades BGM; else (re)starts RP_COMMON_BGM_PARTY_MENU
+801EFCC4	Party_SelectScene_calcGotoSelect	low	state func: immediately -> state 5
+801EFCD0	Party_SelectScene_enterReturnToSelect	medium	state func: closes game info, opens select layout and back button, sets doll fade-in speed
+801EFD38	Party_SelectScene_calcWaitBackButton	low	state func: when back button finished (Menu_801CF888) -> state 0xe
+801EFD7C	Party_SelectScene_enterBackButtonPress	low	state func: Menu_801CF8B8 press on back button with controller
+801EFD8C	Party_SelectScene_calcWaitInfoConfirm	low	state func: when game info confirmed and timer elapsed -> state 0xf
+801EFDD0	Party_SelectScene_enterInfoConfirm	low	state func: confirms game info layout (push A) with controller
+801EFDE0	Party_SelectScene_calcGameInfo	medium	state func: pointer over back button; A on info -> 0xc, back/B -> 0xd
+801EFEC8	Party_SelectScene_stateNop_801EFEC8	low	empty state callback
+801EFECC	Party_SelectScene_calcWaitInfoOpen	medium	state func: when game info reaches state 2 and select layout state 5 -> state 0xb
+801EFF30	Party_SelectScene_stateNop_801EFF30	low	empty state callback
+801EFF34	Party_SelectScene_calcGotoState10	low	state func: immediately -> state 10
+801EFF40	Party_SelectScene_enterShowGameInfo	medium	state func: closes select layout; from state 7 opens game info for chosen game, fades dolls out
+801EFFC0	Party_SelectScene_calcBackHighlight	low	state func: updates game highlight; when back button done -> state 2
+801F0024	Party_SelectScene_enterBackPress	low	state func: presses back button, disables d-pad cursor
+801F006C	Party_SelectScene_calcDecideGame	medium	state func: highlights chosen game; when selectable -> state 9
+801F00BC	Party_SelectScene_enterDecideGame	medium	state func: decides chosen game on select layout, disables d-pad cursor
+801F0108	Party_SelectScene_calcSelect	high	state func: pointer/d-pad game selection, NG SE on locked game, doll clicks, BGM pause when dolls doze
+801F0954	Party_SelectScene_enterSelect	low	state func: resets hover timer, allows dolls to doze
+801F0968	Party_SelectScene_calcWaitSelectOpen	medium	state func: when select layout in state 2 and back button ready -> state 6
+801F09EC	Party_SelectScene_enterOpenSelect	medium	state func: opens select layout and back button, enables d-pad cursor
+801F0A54	Party_SelectScene_calcRankComplete	medium	state func: A/B after 280 frames closes rank-complete; when closed -> state 5
+801F0AF0	Party_SelectScene_enterRankComplete	medium	state func: opens rank-complete layout with medal level, makes dolls react
+801F0B38	Party_SelectScene_calcWaitUnlockMsg	medium	state func: when message window closed and save done -> state 5 or 4 (rank complete)
+801F0BA8	Party_SelectScene_enterUnlockGame	medium	state func: marks new game unlocked in save, selects it, shows unlock message 0x1b76+n, saves
+801F0C64	Party_SelectScene_calcWaitDialog	medium	state func: dialog result 4 -> state 0xf, 5 -> state 6 restoring highlighted game
+801F0CD8	Party_SelectScene_enterDialog	low	state func: shows message window 0x1b6c (1P) or 0x1b6d
+801F0D50	Party_SelectScene_calcWaitSaveLoad	medium	state func: after save ready counts unlocked games; new unlock -> 3, else 4/5
+801F0E48	Party_SelectScene_enterStart	medium	state func: starts menu BGM, opens back button, checks all-medal completion per player, saves
+801F1164	Party_SelectScene_calc	medium	vf30: pointer update, game hit test, state machine, doll positions, back-button text, sub-object calcs
+801F1498	Party_SelectScene_reset	medium	vf29: state 0, restores last game, resets dolls, layouts, cursor
+801F15C0	Party_SelectScene_load	high	vf28: loads party_message.bmg and calls load on dolls, layouts, back button, cursor
+801F1700	Party_SelectScene_ctor	high	vtable 803583B8; 16-state machine, doll managers, select/info/rank layouts, back button, cursor
+801F18C4	Party_SelectScene_dtor	medium	dtor: destroys doll managers and helper, base teardown, operator delete if flag>0
+801F195C	Party_SelectScene_destroy	high	deletes singleton lbl_8043C6E8 and clears it
+801F19A0	Party_SelectScene_create	high	allocs 0xe0 bytes, constructs scene, stores singleton lbl_8043C6E8
+801F19D4	Party_SelectSceneSeq_update	medium	state machine update (exit/enter/calc, frame counter)
+801F1A60	Party_SelectSceneSeq_init	medium	state machine: set cur/prev/next to state
+801F1A84	Party_SelectSceneSeq_setStateFuncs	medium	state machine: stores enter/calc PTMFs for state index
+801F1AC8	Party_SelectSceneSeq_ctor	medium	state machine ctor: owner, count, allocs PTMF tables
+801F1BA8	Party_GameInfoSeq_isState	medium	current==s and (next==s or no pending change); used on game info layout machine
+801F1BDC	Party_SelectSceneSeq_callEnter	medium	calls enter PTMF (+0x18) for current state
+801F1C3C	Party_SelectSceneSeq_callCalc	medium	calls calc PTMF (+0x1c) for current state
+801F1C9C	Party_SelectSceneSeq_callExit	medium	calls exit PTMF (+0x20) for current state
+801F1CFC	Party_SelectScene_dtorThunk4	medium	vf03 thunk: dtor on this-4
+801F1D04	Party_SelectScene_drawThunk	medium	vf09 thunk: draw on this-8
+801F1D0C	Party_SelectScene_dtorThunk8	medium	vf08 thunk: dtor on this-8
+801F1D14	Party_GameInfoLyt_close	medium	if not in state 4/5 -> state 4 (out)
+801F1D74	Party_GameInfoLyt_confirm	medium	in state 2: stores controller, starts timer, -> state 3 (push A)
+801F1E1C	Party_GameInfoLyt_open	high	if state 0/5: stores game, -> state 1, sets T_gameTitle_00, T_comment_00, T_step_00/01 texts
+801F1F8C	Party_GameInfoLyt_draw	medium	vf03: draws layout unless state 0/5
+801F1FB0	Party_GameInfoLyt_calcOut	medium	state func: when out anim (+0x2c) finished -> state 5
+801F1FD0	Party_GameInfoLyt_enterOut	medium	state func: binds and rewinds out anim
+801F2044	Party_GameInfoLyt_calcPushA	medium	state func: when pushA anim (+0x28) finished -> state 2
+801F2064	Party_GameInfoLyt_enterPushA	high	state func: plays pushA anim, sets timer, RP_COMMON_SE_KEY_A_01 CTSP/TVSP
+801F21FC	Party_GameInfoLyt_stateNop	low	empty state callback
+801F2200	Party_GameInfoLyt_calcIdle	low	state func: sets remote-demo anim speed to 1.0
+801F221C	Party_GameInfoLyt_calcIn	medium	state func: when in anim (+0x24) finished -> state 2
+801F223C	Party_GameInfoLyt_enterIn	high	state func: plays in anim, attaches game's remote-hold layout (N_remote_00) under N_remoteP_00
+801F240C	Party_GameInfoLyt_calc	medium	vf02: steps state machine and animates layout
+801F2444	Party_GameInfoLyt_reset	medium	vf01: state 0, rewinds in/pushA/out anims, resets layout
+801F2538	Party_GameInfoLyt_load	high	vf00: loads ptSelectGame_01 and ptG0-G8Remote layouts with anims, T_start_00 text
+801F2760	Party_GameInfoLyt_ctor	high	vtable 80358440; creates 6-state machine, stores player mode
+801F2880	Party_GameInfoSeq_ctor	medium	state machine ctor: owner, count, allocs PTMF tables
+801F2960	Party_GameInfoSeq_setStateFuncs	medium	state machine: stores enter/calc PTMFs for state index
+801F29A4	Party_GameInfoSeq_init	medium	state machine: set cur/prev/next to state
+801F29C8	Party_GameInfoSeq_changeState	medium	state machine: set next state and pending flags
+801F29DC	Party_GameInfoSeq_update	medium	state machine update (exit/enter/calc, frame counter)
+801F2A68	Party_GameInfoSeq_callExit	medium	calls exit PTMF (+0x20) for current state
+801F2AC8	Party_GameInfoSeq_callCalc	medium	calls calc PTMF (+0x1c) for current state
+801F2B28	Party_GameInfoSeq_callEnter	medium	calls enter PTMF (+0x18) for current state
+801F2B88	Party_GameInfoSeq_isStateOrPending	medium	true if current==s or pending next==s
+801F2BBC	Party_Doll_adjustBillboardMatrix	low	vf41: re-orthogonalises model matrix columns toward camera-related vector, rescales by +0x58
+801F2D54	Party_Doll_setPointerActive	low	stores flag at +0x1d8; when set clears idle timer +0x1dc
+801F2D6C	Party_Doll_lookAtPointer	low	if idle (state 0) calls Party_801F6518 with turn constants
+801F2D8C	Party_Doll_setScreenPos	medium	converts screen pos plus per-mode offset to world position via camera (Gfx_801AE6AC)
+801F2EA8	Party_Doll_requestReaction	medium	switch on click type 0-7: unless already in that state, change to reaction state 1/9-0xe/0x11
+801F303C	Party_Doll_calcPairAnim	low	state func: at frame 27 face 4 and anim 0x12/0x13 by side; when done -> state 0xf
+801F3124	Party_Doll_enterFaceNeutral_801F3124	low	state func: sets face expression 0
+801F3168	Party_Doll_calcPairReact	low	state func: when anim 0x10/0x11 (by side) done -> state 0
+801F31EC	Party_Doll_enterPairReact	low	state func: face 0, anim 0x10/0x11 by side, makes other doll react (type 7)
+801F3274	Party_Doll_calcLookAtOther	low	state func: turns toward other doll until timer, then randomly -> state 0 or 0x10
+801F3398	Party_Doll_enterLookAtOther	low	state func: random face (after state 0x11), sets turn speed, random 180-360 frame timer
+801F34F8	Party_Doll_calcWakeUp	low	state func: when anim 9 done -> state 0
+801F3550	Party_Doll_enterWakeUp	high	state func: anim 9, face 0, plays RP_COMMON_SE_Party_DOLL_WakUp_01
+801F3620	Party_Doll_calcSleep	low	state func: after timer and doze allowed -> state 8; clears flags
+801F3680	Party_Doll_enterSleep	low	state func: anim 8, face 5, random 7200-8200 frame timer
+801F3730	Party_Doll_calcDoze7	low	state func: when anim 7 done -> state 0
+801F3788	Party_Doll_enterDoze7	low	state func: face 5, anim 7
+801F37DC	Party_Doll_calcAnim6	low	state func: when anim 6 done -> state 0
+801F3834	Party_Doll_enterAnim6	low	state func: face 5, anim 6
+801F3888	Party_Doll_calcAnim5	low	state func: when anim 5 done -> state 0 (or 0xf randomly in 2P)
+801F3968	Party_Doll_enterAnim5	low	state func: face 0, anim 5
+801F39BC	Party_Doll_calcResultLoop	low	state func: loops anim 3/4 by side; after 300 frames -> state 0
+801F3A44	Party_Doll_enterFaceNeutral_801F3A44	low	state func: sets face expression 0
+801F3A88	Party_Doll_calcAnim2Loop	low	state func: loops anim 2; after 300 frames -> state 0
+801F3AF0	Party_Doll_enterFace3	low	state func: sets face expression 3
+801F3B34	Party_Doll_calcAnim1Loop	low	state func: loops anim 1; after 300 frames and flag +0x1e4 -> state 0
+801F3BA8	Party_Doll_enterFace1	low	state func: sets face expression 1
+801F3BEC	Party_Doll_calcIdle	medium	state func: after 60 frames picks weighted random idle action, or doze after long inactivity
+801F3ECC	Party_Doll_enterIdle	medium	state func: face 0, anim 0, random 400-1000 frame action timer, turn speed
+801F3F9C	Party_Doll_calcTableReaction	low	state func: looks up current state in table 8031DEB0; when its anim done -> state 0
+801F4020	Party_Doll_enterTableReaction	low	state func: looks up current state in table 8031DEB0; sets face and plays anim at given rate
+801F40A4	Party_Doll_calc	medium	vf37: scale by mode/balance, fade flags, idle timers, steps state machine, base calc
+801F42BC	Party_Doll_reset	medium	vf36: base reset, initial state from last result (win/lose/tie), identity matrix
+801F440C	Party_Doll_load	medium	vf35: base load, finds chest joint, binds 20 avatar anims from table
+801F453C	Party_Doll_ctor	high	vtable 80358490; base ctor, 18-state machine, avatar object, helper object
+801F469C	Party_DollBase_dtor	medium	vf00 of 80358558: destroys matrix array, base teardown, operator delete
+801F4724	Party_Doll_dtor	medium	vf00: destroys matrix array, base teardown, operator delete if flag>0
+801F47B0	Party_DollSeq_isStateOrPending	medium	true if current==s or pending next==s
+801F47E4	Party_DollSeq_update	medium	state machine update (exit/enter/calc, frame counter)
+801F4870	Party_DollSeq_changeState	medium	state machine: set next state and pending flags
+801F4884	Party_DollSeq_init	medium	state machine: set cur/prev/next to state
+801F48A8	Party_DollSeq_setStateFuncs	medium	state machine: stores enter/calc PTMFs for state index
+801F48EC	Party_DollSeq_ctor	medium	state machine ctor: owner, count, allocs PTMF tables
+801F49CC	Party_DollSeq_callEnter	medium	calls enter PTMF (+0x18) for current state
+801F4A2C	Party_DollSeq_callCalc	medium	calls calc PTMF (+0x1c) for current state
+801F4A8C	Party_DollSeq_callExit	medium	calls exit PTMF (+0x20) for current state
+801F4AEC	Party_initStaticDollOffsets	low	static init: screen offset pairs for 1P/2P doll placement, turn constant
+801F4BFC	Party_Doll_dtorThunk4	medium	vf03 thunk: dtor on this-4
+801F4C04	Party_Doll_dtorThunk8	medium	vf08 thunk: dtor on this-8
+801F4C0C	Party_Doll_vf40Thunk60	low	vf33 thunk: calls vf40 on this-0x60
+801F4C14	Party_Doll_adjustMatrixThunk	low	vf32 thunk: vf41 on this-0x60
+801F4C1C	Party_Doll_dtorThunk60	medium	vf30 thunk: dtor on this-0x60
+801F4C24	Party_getConst12b	low	returns constant 0xc
+801F4C2C	Party_DollMgr_hitTestDoll	medium	returns doll i part hit by pointer (Party_801F5D34), -1 if none
+801F4C3C	Party_DollMgr_setPointerActive	low	sets pointer-active flag on all dolls
+801F4CAC	Party_DollMgr_lookAt	low	idle dolls (one or all) look at given position
+801F4D48	Party_DollMgr_clearLookFlag	low	clears flag +0x8c on idle doll i (or all)
+801F4E04	Party_DollMgr_getDollPos	low	returns pointer to doll i data at +0x68
+801F4E18	Party_DollMgr_setDollScreenPos	medium	sets screen position of doll i
+801F4E28	Party_DollMgr_setDozeAllowed	low	sets byte +0x1e5 on all dolls
+801F4E54	Party_DollMgr_setIdleExitAllowed	low	sets byte +0x1e4 on all dolls
+801F4E80	Party_DollMgr_areAllInState7	low	true if every doll is in (or pending) state 7
+801F4EFC	Party_DollMgr_requestReaction	medium	requests reaction type on doll i (or all, -1); returns false if any refused
+801F4F7C	Party_DollMgr_getAvatar	medium	returns avatar object (+0x1c8) of doll i
+801F4F90	Party_DollMgr_calc	medium	vf02: steps fade alpha (clamped 0-255) into scene layer, calcs each doll
+801F5044	Party_DollMgr_reset	medium	vf01: sets fade alpha 255, speed 0, calls reset vfunc (0x98) on each doll
+801F50B0	Party_DollMgr_load	medium	vf00: calls load vfunc (0x94) on each doll
+801F511C	Party_DollMgr_destroy	high	deletes singleton lbl_8043C6F8 via vfunc and clears it
+801F5160	Party_DollMgr_dtor	medium	vf03: operator delete if flag>0
+801F51A0	Party_DollMgr_create	high	allocs manager (vtable 80358540) with one Party_Doll per player, stores lbl_8043C6F8
+801F5248	Party_DollSeq_isState	medium	current==s and (next==s or no pending change)
+801F527C	Party_DollBase_cacheJointPositions	medium	vf40: stores world translation of the 14 cached joints into +0xe0 array
+801F530C	Party_DollBase_rayHitSphere	medium	ray/sphere intersection (quadratic), optional distance output
+801F54D8	Party_DollBase_rayHitCapsule	medium	samples spheres along a segment, returns nearest hit distance
+801F5698	Party_DollBase_isAnimDone	medium	if anim id is in an active blend slot, true when its frame reached end
+801F5770	Party_DollBase_playAnim	medium	starts anim id with blend time 1/rate, reusing or evicting a blend slot
+801F58F4	Party_DollBase_startBlendAnim	medium	moves current anim to a free slot and starts new anim with blend weights
+801F5A24	Party_DollBase_updateModelMatrices	medium	applies model matrix and scale, computes head look orientation, updates avatar sub-model
+801F5D2C	Party_DollBase_getTurnSpeed	low	returns float constant lbl_8043B440
+801F5D34	Party_DollBase_hitTestPart	medium	ray from pointer vs head sphere, body capsule and limb capsules; returns part index or -1
+801F6098	Party_DollBase_clampLookDir	low	vf39: limits look direction to max angle from facing, rotating toward it
+801F6330	Party_DollBase_projectLookTarget	low	vf38: computes look target from camera position/orientation
+801F6494	Party_DollBase_lookAtTarget	low	sets look flag, gets target via vfunc 0xa4, stores look start/end vectors
+801F6518	Party_DollBase_lookAt	low	sets look flag, gets target via vfunc 0xa0, stores look start/end vectors
+801F659C	Party_DollBase_calc	medium	vf37: updates look blend weights, anim blend slot weights
+801F67F0	Party_DollBase_reset	medium	vf36: base reset, joint cache to position, identity orientation
+801F6994	Party_DollBase_load	high	vf35: loads avatar, resolves head/hip/arm/wrist/leg/ankle joint indices
+801F6B78	Party_DollBase_ctor	high	vtable 80358558; base ctor, joint position array, stores index
+801F6BFC	Party_DollBase_dtorThunk4	medium	vf03 thunk: dtor on this-4
+801F6C04	Party_DollBase_dtorThunk8	medium	vf08 thunk: dtor on this-8
+801F6C0C	Party_DollBase_dtorThunk60	medium	vf30 thunk: dtor on this-0x60
+801F6C14	Party_CrowdMii_start	medium	if inactive: random side, start position off-screen and heading, -> state 1
+801F6D54	Party_CrowdMii_pickMoveState	medium	weighted random choice of state 1/2/4/5
+801F6E90	Party_CrowdMii_calcLook6	low	state func: after 121 frames picks next move state
+801F6EA8	Party_CrowdMii_enterLook6	low	state func: looks toward camera, plays anim 6
+801F6EF0	Party_CrowdMii_calcFlail	low	state func: after 101 frames picks next move state
+801F6F08	Party_CrowdMii_enterFlail	low	state func: maybe looks toward camera, plays anim 5 (cmn_batabataR)
+801F6FC0	Party_CrowdMii_calcSwim	low	state func: accelerates along heading; off-screen -> 0, timer -> 1
+801F70A0	Party_CrowdMii_enterSwim	low	state func: anim 4 (cmn_swimR), target speed, random 200-400 frame timer
+801F71AC	Party_CrowdMii_calcMove2	low	state func: moves along heading; off-screen -> 0, timer -> state 4 or 2
+801F730C	Party_CrowdMii_enterMove2	low	state func: anim 2, target speed, random 100-200 frame timer
+801F7418	Party_CrowdMii_calcRunaway	low	state func: moves along heading; off-screen -> 0, timer -> state 3 or 2
+801F7578	Party_CrowdMii_enterRunaway	low	state func: anim 3 (cmn_runawayR), target speed, random timer
+801F7684	Party_CrowdMii_calcMove1	low	state func: moves along heading; off-screen -> 0, timer -> pick move state
+801F7764	Party_CrowdMii_enterMove1	low	state func: anim 1, target speed, random 150-350 frame timer
+801F7870	Party_CrowdMii_calcIdle	low	state func: after 120 frames weighted random choice among states 2-7
+801F79E4	Party_CrowdMii_enterIdle	low	state func: maybe looks toward camera, anim 0 (cmn_waitR), speed 0
+801F7AA4	Party_CrowdMii_calc	medium	vf37: fixed scale/depth by index, steps state machine, base calc, face and matrices when active
+801F7B60	Party_CrowdMii_reset	medium	vf36: base reset, state 0, off-screen position by index, neutral face
+801F7C90	Party_CrowdMii_load	high	vf35: base load, binds cmn_waitR/runawayR/swimR/batabataR and other anims
+801F7D64	Party_CrowdMii_ctor	high	vtable 80358608; base ctor, 8-state machine, avatar and face helper objects
+801F7EDC	Party_CrowdMii_dtor	medium	vf00: destroys joint array, base teardown, operator delete if flag>0
+801F7F68	Party_CrowdMiiSeq_update	medium	state machine update (exit/enter/calc, frame counter)
+801F7FF4	Party_CrowdMiiSeq_changeState	medium	state machine: set next state and pending flags
+801F8008	Party_CrowdMiiSeq_init	medium	state machine: set cur/prev/next to state
+801F802C	Party_CrowdMiiSeq_setStateFuncs	medium	state machine: stores enter/calc PTMFs for state index
+801F8070	Party_CrowdMiiSeq_ctor	medium	state machine ctor: owner, count, allocs PTMF tables
+801F8150	Party_CrowdMiiSeq_callEnter	medium	calls enter PTMF (+0x18) for current state
+801F81B0	Party_CrowdMiiSeq_callCalc	medium	calls calc PTMF (+0x1c) for current state
+801F8210	Party_CrowdMiiSeq_callExit	medium	calls exit PTMF (+0x20) for current state
+801F8270	Party_initStaticCrowdLookParams	low	static init: lbl_8043C704 = pi/2, lbl_8043C700 = -lbl_8043B460
+801F8288	Party_CrowdMii_dtorThunk4	medium	vf03 thunk: dtor on this-4
+801F8290	Party_CrowdMii_dtorThunk8	medium	vf08 thunk: dtor on this-8
+801F8298	Party_CrowdMii_dtorThunk60	medium	vf30 thunk: dtor on this-0x60
+801F82A0	Party_getConst60	low	returns constant 0x3c
+801F82A8	Party_CrowdMgr_calc	medium	vf03: if fewer than 5 of 10 walkers active, randomly starts one
+801F8460	Party_CrowdMgr_reset	medium	vf02: calls vfunc 0x98 on each of 10 walkers
+801F84B8	Party_CrowdMgr_load	medium	vf01: calls vfunc 0x94 on each of 10 walkers
+801F8510	Party_CrowdMgr_dtor	medium	vf00: operator delete if flag>0
+801F8550	Party_CrowdMgr_destroy	high	deletes singleton lbl_8043C708 via vfunc and clears it
+801F8594	Party_CrowdMgr_create	high	allocs manager (vtable 803586B8) with 10 Party_CrowdMii, stores lbl_8043C708
+801F861C	Party_CrowdMiiSeq_isState	medium	current==s and (next==s or no pending change)
+801F8650	Party_FaceCtrl_calc	low	per-avatar expression timer: random blink/expression changes via RP_80190980
+801F8904	Party_FaceCtrl_reset	low	reads current expression (RP_80190910) and sets timers from per-expression table
+801F8B30	Party_FaceCtrl_ctor	low	empty constructor of 0x18-byte face helper
+801F8B34	Party_LeadCursorLyt_hide	medium	if slot active and owned by player, sets hide flag
+801F8B70	Party_LeadCursorLyt_show	medium	if slot idle, stores player and sets show flag
+801F8BA4	Party_LeadCursorLyt_draw	medium	draws layout if either slot active
+801F8BE4	Party_LeadCursorLyt_calcOut	medium	state func: when slot out anim finished -> state 0
+801F8C14	Party_LeadCursorLyt_enterOut	medium	state func: plays out anim on slot pane
+801F8CB8	Party_LeadCursorLyt_calcLoop	medium	state func: when hide requested -> state 3
+801F8CE0	Party_LeadCursorLyt_enterLoop	medium	state func: plays loop anim on slot pane
+801F8D94	Party_LeadCursorLyt_calcIn	medium	state func: when in anim finished -> state 2
+801F8DC4	Party_LeadCursorLyt_enterIn	medium	state func: shows slot pane, plays in anim, sets player-colored panes and text
+801F8F84	Party_LeadCursorLyt_calcIdle	medium	state func: when show requested -> state 1, adopts pending player
+801F8FE4	Party_LeadCursorLyt_enterIdle	medium	state func: hides slot pane
+801F9004	Party_LeadCursorLyt_calc	medium	steps both slot state machines, animates layout if active
+801F909C	Party_LeadCursorLyt_reset	medium	resets slot machines, flags, anims
+801F9200	Party_LeadCursorLyt_load	high	loads leadCursor.arc leadCursor_00 layout, in/roop/out anims, arrow/line panes, party_message.bmg
+801F9400	Party_LeadCursorLyt_ctor	medium	creates two 4-state slot machines, stores player count
+801F94CC	Party_LeadCursorSeq_ctor	medium	state machine ctor: owner, count, allocs PTMF tables
+801F95AC	Party_LeadCursorSeq_setStateFuncs	medium	state machine: stores enter/calc PTMFs for state index
+801F95F0	Party_LeadCursorSeq_init	medium	state machine: set cur/prev/next to state
+801F9614	Party_LeadCursorSeq_changeState	medium	state machine: set next state and pending flags
+801F9628	Party_LeadCursorSeq_update	medium	state machine update (exit/enter/calc, frame counter)
+801F96B4	Party_LeadCursorSeq_callEnter	medium	calls enter PTMF (+0x18) for current state
+801F9714	Party_LeadCursorSeq_callCalc	medium	calls calc PTMF (+0x1c) for current state
+801F9774	Party_LeadCursorSeq_callExit	medium	calls exit PTMF (+0x20) for current state
+801F97D4	Party_LeadCursor_setPlayerDisabled	medium	sets per-player disable byte at +0x20+i; called by minigames
+801F97E0	Party_LeadCursor_setAllDisabled	medium	sets disable byte for all players; called by minigames and result screens
+801F9804	Party_LeadCursor_setPlayerTimer	low	stores value at +0x18+i*4
+801F9814	Party_LeadCursor_setTimers	low	stores value to both +0x18 and +0x1c
+801F9820	Party_LeadCursor_draw	medium	draws lead-cursor layout
+801F9828	Party_LeadCursor_calc	medium	per enabled player checks remote pointer status, shows/hides off-screen guide after timer
+801F99E4	Party_LeadCursor_reset	medium	clears counters, timers 120, enables all, resets layout
+801F9A14	Party_LeadCursor_load	medium	loads lead-cursor layout
+801F9A1C	Party_LeadCursor_ctor	medium	vtable 803586D0; stores player count, creates layout object
+801F9A84	Party_LeadCursor_dtor	medium	dtor: RP_8018ED50 teardown, operator delete if flag>0
+801F9ADC	Party_ScreenFade_calc	medium	steps fade counter up/down, computes RGBA fade color toward target color
+801F9BC8	Party_ScreenFade_reset	medium	clears fade, white color, target from globals
+801F9C34	Party_ScreenFade_ctor	medium	vtable 803586E8 after base ctor
+801F9C70	Party_ScreenFade_dtor	medium	dtor: RP_8018ED50 teardown, operator delete if flag>0
+801F9CC8	Party_MsgBoard_postAllMedalsMessage	medium	posts message board entry (msg 0x2715+n / 0x2b1d+n) with date for a Mii
+801F9D58	Party_MsgBoard_postMedalMessage	medium	posts message board entry for game medal (msg 0x2711+medal, 0x2b5c+game)
+801F9E48	Party_MsgBoard_postUnlockMessage	low	posts message board entry with msgs 10000/11000 for a Mii
+801F9EEC	Party_MsgBoard_recordPost	medium	if save date matches today, increments daily post counter in save data
+801F9F7C	Party_MsgBoard_canPost	medium	true if no post today or today's post count < 15
+801FA000	Party_MsgBoard_loadMessages	high	loads party_message.bmg into message data object at +8
+801FA060	Party_MsgBoard_dtor	medium	operator delete if flag>0
+801FA0A0	Party_MsgBoard_destroy	high	deletes singleton lbl_8043C720 and clears it
+801FA0E4	Party_MsgBoard_create	medium	allocs object (vtable 80358700) with RP_801A4E7C helper, stores lbl_8043C720
+801FA150	Party_RankCompleteLyt_close	medium	if not in state 3/4 -> state 3 (out)
+801FA1B0	Party_RankCompleteLyt_open	high	if idle: stores medal level, -> state 1, sets T_rank_00 text
+801FA238	Party_RankCompleteLyt_draw	medium	vf03: draws layout unless state 0/4
+801FA25C	Party_RankCompleteLyt_calcOut	medium	state func: when out anim finished -> state 4
+801FA27C	Party_RankCompleteLyt_enterOut	medium	state func: plays out anim, stops confetti effect
+801FA304	Party_RankCompleteLyt_stateNop	low	empty state callback
+801FA308	Party_RankCompleteLyt_enterShow	high	state func: plays RP_COMMON_BGM_RANK_COMPLETE fanfare
+801FA31C	Party_RankCompleteLyt_calcIn	medium	state func: on frame 1 starts confetti and medal-level fireworks effects
+801FA470	Party_RankCompleteLyt_enterIn	medium	state func: plays in anim
+801FA4E4	Party_RankCompleteLyt_calc	medium	vf02: steps state machine, animates layout, calcs 5 effects
+801FA564	Party_RankCompleteLyt_reset	medium	vf01: state 0, rewinds in/out anims, resets layout
+801FA618	Party_RankCompleteLyt_load	high	vf00: loads rankComplete_00 layout, in/out anims, T_congrats texts
+801FA724	Party_RankCompleteLyt_ctor	high	vtable 80358710; 5-state machine, Bsm_com_fireworks fubuki/slv/gld/pla effects
+801FA8AC	Party_RankCompleteSeq_ctor	medium	state machine ctor: owner, count, allocs PTMF tables
+801FA98C	Party_RankCompleteSeq_setStateFuncs	medium	state machine: stores enter/calc PTMFs for state index
+801FA9D0	Party_RankCompleteSeq_init	medium	state machine: set cur/prev/next to state
+801FA9F4	Party_RankCompleteSeq_changeState	medium	state machine: set next state and pending flags
+801FAA08	Party_RankCompleteSeq_update	medium	state machine update (exit/enter/calc, frame counter)
+801FAA94	Party_RankCompleteSeq_callExit	medium	calls exit PTMF (+0x20) for current state
+801FAAF4	Party_RankCompleteSeq_callCalc	medium	calls calc PTMF (+0x1c) for current state
+801FAB54	Party_RankCompleteSeq_callEnter	medium	calls enter PTMF (+0x18) for current state
+801FABB4	Party_RankCompleteSeq_isState	medium	current==s and (next==s or no pending change)
+801FABE8	Party_RankCompleteSeq_isStateOrPending	medium	true if current==s or pending next==s
+801FAC1C	Party_PauseTextLyt_hide	medium	sets hide flag for player slot
+801FAC34	Party_PauseTextLyt_show	medium	if game paused (lbl_8043C6C8+0x2c) and slot idle, sets show flag
+801FAC70	Party_PauseTextLyt_draw	medium	draws layout if either slot active
+801FACB0	Party_PauseTextLyt_calcOut	medium	state func: when slot out anim finished -> state 0
+801FACE0	Party_PauseTextLyt_enterOut	medium	state func: plays out anim on slot pane
+801FADA8	Party_PauseTextLyt_calcShown	medium	state func: when hide requested -> state 3
+801FADD0	Party_PauseTextLyt_enterShown	low	empty state callback
+801FADD4	Party_PauseTextLyt_calcIn	medium	state func: when slot in anim finished -> state 2
+801FAE04	Party_PauseTextLyt_enterIn	medium	state func: shows slot pane and plays in anim
+801FAEEC	Party_PauseTextLyt_calcIdle	medium	state func: when show requested -> state 1
+801FAF14	Party_PauseTextLyt_enterIdle	medium	state func: hides slot pane
+801FAF34	Party_PauseTextLyt_calc	medium	steps both slot state machines, animates layout if active
+801FAFCC	Party_PauseTextLyt_reset	medium	resets slot machines and flags, rewinds anims
+801FB154	Party_PauseTextLyt_load	high	loads ptPauseText.arc ptPauseText_00 layout, in/out anims, N_pause panes, T_pause texts
+801FB2B0	Party_PauseTextLyt_ctor	medium	creates two 4-state slot machines
+801FB378	Party_PauseTextSeq_ctor	medium	state machine ctor: owner, count, allocs PTMF tables
+801FB458	Party_PauseTextSeq_setStateFuncs	medium	state machine: stores enter/calc PTMFs for state index
+801FB49C	Party_PauseTextSeq_init	medium	state machine: set cur/prev/next to state
+801FB4C0	Party_PauseTextSeq_changeState	medium	state machine: set next state and pending flags
+801FB4D4	Party_PauseTextSeq_update	medium	state machine update (exit/enter/calc, frame counter)
+801FB560	Party_PauseTextSeq_callEnter	medium	calls enter PTMF (+0x18) for current state
+801FB5C0	Party_PauseTextSeq_callCalc	medium	calls calc PTMF (+0x1c) for current state
+801FB620	Party_PauseTextSeq_callExit	medium	calls exit PTMF (+0x20) for current state
+801FB680	Party_PauseText_setDisabled	medium	sets both per-player disable bytes; called by results code and minigames
+801FB68C	Party_PauseText_draw	medium	draws pause-text layout
+801FB694	Party_PauseText_calc	medium	for enabled players hides/shows pause text, steps layout
+801FB708	Party_PauseText_reset	medium	clears disable flags, resets layout
+801FB71C	Party_PauseText_load	medium	loads pause-text layout
+801FB724	Party_PauseText_ctor	medium	vtable 80358730; creates pause-text layout object
+801FB778	Party_PauseText_dtor	medium	dtor: RP_8018ED50 teardown, operator delete if flag>0
+801FB7D0	Party_TitleLyt_onButtonPress	medium	in state 3: player button press animates A/B button panel and spawns a bubble with cooldown
+801FB8C0	Party_TitleLyt_open	medium	if state 0 or 6 -> state 1
+801FB91C	Party_TitleLyt_draw	medium	draws background, active bubble layouts, logo and info layouts
+801FB9B4	Party_TitleLyt_calcBubble	medium	state func: when bubble anim finished -> bubble state 0
+801FBA08	Party_TitleLyt_enterBubble	medium	state func: picks one of 3 bubble anims at random and plays it
+801FBB80	Party_TitleLyt_calcButtonPress	medium	state func: when player button anim finished -> player state 2
+801FBBAC	Party_TitleLyt_enterButtonPress	medium	state func: plays player's button action anim at speed 1
+801FBC70	Party_TitleLyt_stateNop	low	empty state callback
+801FBC74	Party_TitleLyt_enterButtonIdle	medium	state func: binds player's button anim with speed 0
+801FBD38	Party_TitleLyt_calcClosed	low	state func: after timer lbl_8043B494 -> state 6
+801FBD58	Party_TitleLyt_enterClosed	low	empty state callback
+801FBD5C	Party_TitleLyt_calcOut	medium	state func: when info out anim finished -> state 5
+801FBD7C	Party_TitleLyt_enterOut	medium	state func: plays out anim on info layout
+801FBDF0	Party_TitleLyt_calcWaitPress	medium	state func: when start-press flag set -> state 4
+801FBE0C	Party_TitleLyt_enterLoop	medium	state func: plays background/logo/info loop anims
+801FBF18	Party_TitleLyt_calcIn	medium	state func: when bg, logo and info in anims finished -> state 3
+801FBF58	Party_TitleLyt_enterIn	high	state func: starts in anims and RP_COMMON_BGM_PARTY_01 if not already playing
+801FC0A8	Party_TitleLyt_calcWaitReady	low	state func: when Sys_80184F0C reports ready -> state 2
+801FC0F0	Party_TitleLyt_enterWaitReady	medium	state func: binds in anims with speed 0
+801FC220	Party_TitleLyt_calc	medium	steps main, per-player and bubble state machines, animates layouts
+801FC4C0	Party_TitleLyt_reset	medium	resets all state machines and anims, region-dependent pane visibility
+801FC9F0	Party_TitleLyt_load	high	loads ptTitle.arc bg/logo/info/bubble layouts and anims, japan/notJapan panes, T_textPush texts
+801FD05C	Party_TitleLyt_ctor	high	vtable 80358748; 7-state main machine plus per-player and bubble machines
+801FD340	Party_TitleLyt_dtor	medium	dtor: RP_8018ED50 teardown, operator delete if flag>0
+801FD398	Party_TitleSeq_isStateOrPending	medium	true if current==s or pending next==s
+801FD3CC	Party_TitleSeq_update	medium	state machine update (exit/enter/calc, frame counter)
+801FD458	Party_TitleSeq_changeState	medium	state machine: set next state and pending flags
+801FD46C	Party_TitleSeq_init	medium	state machine: set cur/prev/next to state
+801FD490	Party_TitleSeq_setStateFuncs	medium	state machine: stores enter/calc PTMFs for state index
+801FD4D4	Party_TitleSeq_ctor	medium	state machine ctor: owner, count, allocs PTMF tables
+801FD5B4	Party_TitleSeq_callEnter	medium	calls enter PTMF (+0x18) for current state
+801FD614	Party_TitleSeq_callCalc	medium	calls calc PTMF (+0x1c) for current state
+801FD674	Party_TitleSeq_callExit	medium	calls exit PTMF (+0x20) for current state
+801FD6D4	Party_SelectGameLyt_animateIcons	low	called from select layout calc; random-driven float motion applied to game icon panes
+801FDA38	Party_SelectGameLyt_getGameIconPos	medium	global position of game's icon pane (+0x2c4 + slot*0x10)
+801FDA8C	Party_SelectGameLyt_getGameIconPane	medium	returns pane kind n of game slot (+0x354 + slot*0x10)
+801FDADC	Party_SelectGameLyt_unhighlightAll	medium	every game slot not already unhighlighting/idle -> slot state 3
+801FDB7C	Party_SelectGameLyt_unhighlightOthers	medium	unhighlights every game slot except given game
+801FDC30	Party_SelectGameLyt_highlightGame	medium	unhighlights others; if layout in state 2 highlights given game slot
+801FDD88	Party_SelectGameLyt_calcSlotDecide	medium	slot state func: when decide anim finished -> slot state 5, stops medal effects
+801FDDEC	Party_SelectGameLyt_enterSlotDecide	high	slot state func: plays decide anim on icon, RP_COMMON_SE_KEY_A_02 CTSP/TVSP
+801FDFC4	Party_SelectGameLyt_calcSlotUnhighlight	medium	slot state func: when unhighlight anim finished -> slot state 2
+801FDFF8	Party_SelectGameLyt_enterSlotUnhighlight	medium	slot state func: stops medal effects, plays unhighlight anim
+801FE0B4	Party_SelectGameLyt_calcSlotIdle	low	empty slot state callback
+801FE0B8	Party_SelectGameLyt_enterSlotIdle	medium	slot state func: stops medal effects, hides highlight pane, unhighlight anim at end
+801FE184	Party_SelectGameLyt_calcSlotHighlight	medium	slot state func: on frame 7 starts medal effects; when anim finished -> slot state 0
+801FE1FC	Party_SelectGameLyt_enterSlotHighlight	medium	slot state func: shows highlight pane, plays highlight anim
+801FE2F8	Party_SelectGameLyt_calcSlotHighlighted	low	slot state func: keeps medal effects running
+801FE300	Party_SelectGameLyt_enterSlotHighlighted	medium	slot state func: highlight anim set to its end frame
+801FE3A8	Party_SelectGameLyt_stopLockedAnim	medium	sets stop flag (+0x18d) and clears request (+0x184) for game slot
+801FE3EC	Party_SelectGameLyt_requestLockedAnim	medium	sets request flag (+0x184) and clears stop (+0x18d) for game slot
+801FE430	Party_SelectGameLyt_calcLockedEnd	medium	locked-icon state func: when end anim finished -> state 0
+801FE464	Party_SelectGameLyt_enterLockedEnd	medium	locked-icon state func: plays end anim on game explanation pane
+801FE52C	Party_SelectGameLyt_calcLockedLoop	medium	locked-icon state func: when stop requested -> state 3
+801FE558	Party_SelectGameLyt_enterLockedLoop	low	empty state callback
+801FE55C	Party_SelectGameLyt_calcLockedStart	medium	locked-icon state func: when start anim finished -> state 2
+801FE590	Party_SelectGameLyt_enterLockedStart	medium	locked-icon state func: shows explanation pane, plays start anim and SE

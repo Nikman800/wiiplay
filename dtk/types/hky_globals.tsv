@@ -1,0 +1,70 @@
+address	name	type	confidence	note
+8043C7E0	Hky_gameInstance	RPHkyGame*	H	Hky_createGame; deleted by RPHkyGame::Exit; HUD layouts read the message, timer, state and paddles through it
+8043C7F0	Hky_hudInstance	RPHkyHud*	H	Hky_createHud / Hky_destroyHud
+8043A6B8	Hky_lightPos	nw4r::math::VEC3	H	(0, 745, 0), Hky_sinitLightPos; copied into light 0 by RPHkyGame::Create
+8043A6C8	Hky_cpuStallPuckPos	nw4r::math::VEC3	M	function static of RPHkyPaddle::UpdateCpuStallTimer: puck position last frame
+8043C7E8	Hky_cpuStallPuckPosInit	bool	M	init guard of Hky_cpuStallPuckPos
+8043C7EC	Hky_cpuStallCounter	s32	M	frames the puck sat still on the CPU side; after 40 the CPU gets mCpuStallTimer = 20
+8043C7D0	Hky_debugHoldPuck	s16	L	when non-zero RPHkyPuck::ApplyVelocity pins the puck at (Hky_debugHoldPuckX, 0, Hky_debugHoldPuckZ); never set
+8043C7D4	Hky_debugHoldPuckX	f32	L	see Hky_debugHoldPuck
+8043C7D8	Hky_debugHoldPuckZ	f32	L	see Hky_debugHoldPuck
+8043B5D0	Hky_puckRadius	f32	M	16; collision radius for the wall/paddle tests
+8043B5D4	Hky_puckSpeed	f32	M	current puck speed factor; reset to Hky_puckSpeedInit, raised by Hky_puckSpeedStep per goal up to Hky_puckSpeedMax
+8043B5D8	Hky_puckSpeedInit	f32	M	0.6 in the file; RPHkyPuck::Create sets 0.65 (widescreen) or 0.5
+8043B5DC	Hky_puckSpeedStep	f32	M	0.025 in the file; RPHkyPuck::Create sets 0.02
+8043B5E0	Hky_puckSpeedMax	f32	M	1.5
+8043B5E4	Hky_puckFriction	f32	M	0.9998; XZ velocity multiplier per sub-step
+8043B5E8	Hky_puckWallBounce	f32	L	1.0; (1 + e) factor of the wall reflection
+8043B5EC	Hky_puckPaddleBounce	f32	L	1.0; (1 + e) factor of the paddle reflection
+8043B5F0	Hky_puckWallSpinFactor	f32	L	0.1
+8043B5F4	Hky_puckPaddleSpinFactor	f32	L	0.1
+8043B5F8	Hky_puckSpinImpulseScale	f32	L	-10; scales the cross product giving mSpinImpulse
+8043B5FC	Hky_puckSpinMax	f32	M	0.9; mSpin clamp
+8043B600	Hky_puckSpinDamping	f32	L	0.9998
+8043B604	Hky_puckGravity	f32	M	-0.003; added to velocity Y per sub-step
+8043B608	Hky_puckGoalSlope	f32	L	1.0
+8043B60C	Hky_puckGoalDepth	f32	L	-10; puck Y below this counts as fallen into the goal
+8043B610	Hky_puckSpinFactor	f32	L	-0.0
+8043B614	Hky_puckHitCooldown	s32	M	9 frames between hits from the same paddle/wall
+8043B618	Hky_puckPaddleHitScale	f32	L	1.0
+8043B61C	Hky_puckPaddlePushScale	f32	L	1.0
+8043B620	Hky_puckWallAngleLimit	f32	L	180
+8043B628	Hky_fieldScale	f32	M	1.0; goal width = 200 * scale (RPHkyField::Create)
+8043B630	Hky_fieldLength	f32	M	880 in the file; RPHkyGame::Create sets 1000 (widescreen) or 800
+8043B634	Hky_fieldWidth	f32	M	440 in the file; RPHkyGame::Create sets 500 (widescreen) or 400
+8043B638	Hky_paddleRoundRadius	f32	M	34; round paddle collision radius
+8043B63C	Hky_paddleCpuGain	f32	L	0.03; CPU paddle steering gain
+8043B640	Hky_paddleMaxSpeed	f32	L	10
+8043B644	Hky_paddleVelDamping	f32	L	0.5
+8043B648	Hky_paddleRectLength	f32	M	105; bar paddle edge length
+8043B64C	Hky_paddleRectWidth	f32	M	16; bar paddle edge width
+8043B650	Hky_paddleRumbleFrames	s32	M	10
+8043B654	Hky_paddleAngleScale	f32	L	3
+8043B658	Hky_cpuTargetLerp	f32	L	1.0
+8043B65C	Hky_cpuSkill	f32	M	0.3 in the file; adapted between Hky_cpuSkillMin and Hky_cpuSkillMax as goals are scored
+8043B660	Hky_cpuSkillStep	f32[2]	L	{0.2, 0.2} (round paddle / bar paddle)
+8043B668	Hky_cpuSkillMin	f32[2]	L	{0.1, 0.1}
+8043B670	Hky_cpuAimFactorA	f32[2]	L	{0.05, 0.05}
+8043B678	Hky_cpuAimFactorB	f32[2]	L	{0.05, 0.05}
+8043B680	Hky_cpuSkillMax	f32[2]	L	{0.9, 0.9}
+8043B688	Hky_cpuReactionFrames	s32[2]	L	{10, 10}
+8043B690	Hky_paddleInputScale	f32	L	1.2; pointer movement multiplier
+8043B698	Hky_waitPhaseFrames	s32	M	80; RPHkyWaitPhase duration
+8043B6A0	Hky_timeNumberFormat	wchar_t[3]	H	L"%d", RPHkyTimeLyt::SetNumber
+803594D0	Hky_scoreFormat	wchar_t[5]	H	L"%02d", RPHkyScoreLyt
+80359540	Hky_goalScoreFormat	wchar_t[5]	H	L"%02d", RPHkyGoalMsgLyt::SetScoreText
+80359140	Hky_Scene_vtable	void*[24]	H	RPHkyScene
+803591C8	Hky_PuckTrail_vtable	void*[55]	H	puck sound actor (derived from the shared sound actor, vtable 80358964)
+803592A4	Hky_Puck_vtable	void*[11]	H	RPHkyPuck
+803592D0	Hky_Field_vtable	void*[12]	H	RPHkyField
+80359300	Hky_Game_vtable	void*[10]	H	RPHkyGame
+80359328	Hky_PaddleTrail_vtable	void*[55]	H	paddle sound actor
+80359404	Hky_Paddle_vtable	void*[11]	H	RPHkyPaddle
+80359430	Hky_IntroPhase_vtable	void*[8]	H	RPHkyIntroPhase
+80359450	Hky_WaitPhase_vtable	void*[8]	H	RPHkyWaitPhase
+80359470	Hky_ResultPhase_vtable	void*[8]	H	RPHkyResultPhase
+80359490	Hky_TimeUpPhase_vtable	void*[8]	H	RPHkyTimeUpPhase
+803594B0	Hky_GoalPhase_vtable	void*[8]	H	RPHkyGoalPhase
+803594E0	Hky_Hud_vtable	void*[4]	H	RPHkyHud
+803594F0	Hky_PaddleRound_vtable	void*[12]	H	RPHkyPaddleRound
+80359130	Hky_SceneSound_vtable	void*[4]	H	scene sound object (derived from the shared scene sound base, vtable 803587D0)

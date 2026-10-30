@@ -1,0 +1,16 @@
+address	old_name	new_name	unit	previous
+801DCF54	Menu_PtMenuBg_setMode	SetMode__10RPPtMenuBgFl	Pack/RPParty/RPPartyCommon/RPPtMenuBg.cpp	
+801DCF5C	Menu_PtMenuBg_calcTvModel	CalcTvModel__10RPPtMenuBgFv	Pack/RPParty/RPPartyCommon/RPPtMenuBg.cpp	
+801DD694	Menu_PtMenuBg_ctor	__ct__10RPPtMenuBgFUcUcb	Pack/RPParty/RPPartyCommon/RPPtMenuBg.cpp	
+801DD808	Menu_PtMenuBg_dtor	__dt__10RPPtMenuBgFv	Pack/RPParty/RPPartyCommon/RPPtMenuBg.cpp	
+801DD8D8	Menu_PtMenuBg_dtorThunk	@4@__dt__10RPPtMenuBgFv	Pack/RPParty/RPPartyCommon/RPPtMenuBg.cpp	
+801DD8E0	Menu_PtMenuBg_dtorThunk2	@8@__dt__10RPPtMenuBgFv	Pack/RPParty/RPPartyCommon/RPPtMenuBg.cpp	
+80357DE8	lbl_80357DE8	__vt__10RPPtMenuBg	Pack/RPParty/RPPartyCommon/RPPtMenuBg.cpp	
+8043B3D8	lbl_8043B3D8	sTvRateIdle__10RPPtMenuBg	Pack/RPParty/RPPartyCommon/RPPtMenuBg.cpp	
+8043B3DC	lbl_8043B3DC	sTvRateMove__10RPPtMenuBg	Pack/RPParty/RPPartyCommon/RPPtMenuBg.cpp	
+801DD10C	Menu_PtMenuBg_calc	Calculate__10RPPtMenuBgFv	Pack/RPParty/RPPartyCommon/RPPtMenuBg.cpp	
+801DD1BC	Menu_PtMenuBg_reset	Reset__10RPPtMenuBgFl	Pack/RPParty/RPPartyCommon/RPPtMenuBg.cpp	
+801DD430	Menu_PtMenuBg_load	Load__10RPPtMenuBgFPQ23EGG7Archive	Pack/RPParty/RPPartyCommon/RPPtMenuBg.cpp	
+801DD7C4	Menu_destroyPtMenuBg	DestroyInstance__10RPPtMenuBgFv	Pack/RPParty/RPPartyCommon/RPPtMenuBg.cpp	
+801DD874	Menu_createPtMenuBg	CreateInstance__10RPPtMenuBgFUcUcb	Pack/RPParty/RPPartyCommon/RPPtMenuBg.cpp	
+8043C6A8	Menu_ptMenuBgInstance	sInstance__10RPPtMenuBg	Pack/RPParty/RPPartyCommon/RPPtMenuBg.cpp	

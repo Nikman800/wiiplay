@@ -1,0 +1,17 @@
+address	old_name	new_name	unit	previous
+801C7F64	RP_ActorScene_dtor	__dt__12RPActorSceneFv	Pack/RPParty/RPCowScene/RPCowScene.cpp	
+80295D3C	Cow_Scene_createCowMgr	CreateActorList__10RPCowSceneFv	Pack/RPParty/RPCowScene/RPCowScene.cpp	
+80295D70	Cow_Scene_dtor	__dt__10RPCowSceneFv	Pack/RPParty/RPCowScene/RPCowScene.cpp	
+80295DC8	Cow_Scene_thunk_dtor	@36@__dt__10RPCowSceneFv	Pack/RPParty/RPCowScene/RPCowScene.cpp	
+8029AD28	Cow_Game_ctor	__ct__9RPCowGameFv	Pack/RPParty/RPCowScene/RPCowScene.cpp	
+8043C680	RP_actorList	spActorList__12RPActorScene	Pack/RPParty/RPCowScene/RPCowScene.cpp	
+801C7F40	RP_ActorScene_configure	Configure__12RPActorSceneFv	Pack/RPParty/RPCowScene/RPCowScene.cpp	
+801C7EC0	RP_ActorScene_draw	LoadResource__12RPActorSceneFv	Pack/RPParty/RPCowScene/RPCowScene.cpp	
+801C7E6C	RP_ActorScene_reset	Reset__12RPActorSceneFv	Pack/RPParty/RPCowScene/RPCowScene.cpp	
+801C7DF8	RP_ActorScene_calc	Calculate__12RPActorSceneFv	Pack/RPParty/RPCowScene/RPCowScene.cpp	
+801C7EF8	RP_ActorScene_destroyActorList	Exit__12RPActorSceneFv	Pack/RPParty/RPCowScene/RPCowScene.cpp	
+801C7DD0	RP_ActorScene_userDraw	UserDraw__12RPActorSceneFv	Pack/RPParty/RPCowScene/RPCowScene.cpp	
+801C7D54	RP_ActorScene_debugDraw	DebugDraw__12RPActorSceneFv	Pack/RPParty/RPCowScene/RPCowScene.cpp	
+801C8048	RP_ActorScene_thunkCallListVf24	@36@UserDraw__12RPActorSceneFv	Pack/RPParty/RPCowScene/RPCowScene.cpp	
+801C8040	RP_ActorScene_thunkBroadcast	@36@DebugDraw__12RPActorSceneFv	Pack/RPParty/RPCowScene/RPCowScene.cpp	
+801C8050	RP_ActorScene_dtorThunk	@36@__dt__12RPActorSceneFv	Pack/RPParty/RPCowScene/RPCowScene.cpp	

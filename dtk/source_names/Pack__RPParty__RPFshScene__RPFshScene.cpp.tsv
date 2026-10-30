@@ -1,0 +1,13 @@
+address	old_name	new_name	unit	previous
+801B9544	RP_loadMsgRes	LoadMessage__13RPCls803572E0FPCc	Pack/RPParty/RPFshScene/RPFshScene.cpp	
+801B95E0	RP_Cls803572E0_destroyInstance	DestroyInstance__13RPCls803572E0Fv	Pack/RPParty/RPFshScene/RPFshScene.cpp	
+801FE978	Fsh_Scene_exit	Exit__10RPFshSceneFv	Pack/RPParty/RPFshScene/RPFshScene.cpp	
+801FE9AC	Fsh_Scene_calc	Calculate__10RPFshSceneFv	Pack/RPParty/RPFshScene/RPFshScene.cpp	
+801FE9B4	Fsh_Scene_reset	Reset__10RPFshSceneFv	Pack/RPParty/RPFshScene/RPFshScene.cpp	
+801FE9BC	Fsh_Scene_loadResources	LoadResource__10RPFshSceneFv	Pack/RPParty/RPFshScene/RPFshScene.cpp	
+801FEC04	Fsh_Scene_configure	Configure__10RPFshSceneFv	Pack/RPParty/RPFshScene/RPFshScene.cpp	
+801FEEF4	Snd_SndSceneSound_dtor	__dt__15RPSndSceneSoundFv	Pack/RPParty/RPFshScene/RPFshScene.cpp	
+801FEF4C	RP_801FEF4C	initSound3D__15RPFshSceneSoundFl	Pack/RPParty/RPFshScene/RPFshScene.cpp	
+801FEF7C	Fsh_Scene_dtor	__dt__10RPFshSceneFv	Pack/RPParty/RPFshScene/RPFshScene.cpp	
+801FEFD8	Fsh_SceneSound_dtor	__dt__15RPFshSceneSoundFv	Pack/RPParty/RPFshScene/RPFshScene.cpp	
+801FF034	Fsh_Scene_dtorThunk	@36@__dt__10RPFshSceneFv	Pack/RPParty/RPFshScene/RPFshScene.cpp	

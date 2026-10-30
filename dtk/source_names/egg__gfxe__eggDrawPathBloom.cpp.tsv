@@ -1,0 +1,3 @@
+address	old_name	new_name	unit	previous
+8030DF08	lbl_8030DF08	BLEND_MODES$16239	egg/gfxe/eggDrawPathBloom.cpp	
+8032D150	lbl_8032D150	__vt__Q23EGG13DrawPathBloom	egg/gfxe/eggDrawPathBloom.cpp	

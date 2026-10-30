@@ -1,0 +1,12 @@
+#include <Pack/RPKernel.h>
+// Ported from doldecomp/ogws (CC0) src/Pack/RPKernel/RP_DEBUG_STUB_0.cpp @ f5a1bb5e; Wii Play changes marked "Wii Play:".
+
+RP_SINGLETON_IMPL(RP_DEBUG_STUB_0);
+
+void RP_DEBUG_STUB_0::Calculate() {
+    // Stubbed for release
+}
+
+void RP_DEBUG_STUB_0::DebugDraw() {
+    // Stubbed for release
+}

@@ -1,0 +1,5 @@
+address	old_name	new_name	unit	previous
+800BD5AC	__write_console	__write_console	MSL_C/uart_console_io_gcn.c	__write_console__FUlPUcPUlPFv_v
+800BD67C	__close_console	__close_console	MSL_C/uart_console_io_gcn.c	__close_console__FUl
+800C5D70	__TRK_write_console	__TRK_write_console__FUlPUcPUlPFv_v	MSL_C/uart_console_io_gcn.c	
+8043BCF8	lbl_8043BCF8	__uart_initialized	MSL_C/uart_console_io_gcn.c	

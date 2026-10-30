@@ -1,0 +1,4 @@
+address	old_name	new_name	unit	previous
+801B1418	Gfx_TexObj_ctorFromRes	__ct__12RPGrpTextureFUsPCc	Pack/RPGraphics/RPGrpTexture.cpp	
+801B1498	Gfx_TexObj_ctorFromCapTexture	__ct__12RPGrpTextureFPC19RPGrpCaptureTexture	Pack/RPGraphics/RPGrpTexture.cpp	
+801B1524	Gfx_TexObj_ctorFromCpuTexture	__ct__12RPGrpTextureFPCQ23EGG10CpuTexture	Pack/RPGraphics/RPGrpTexture.cpp	

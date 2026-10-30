@@ -1,0 +1,459 @@
+address	new_name	confidence	note
+8018C688	Mii_matchPlayerSlotsToControllerMiis	low	swaps 0x12-byte player slots so slot Mii IDs match controller Mii IDs (+0x2ba8); returns all matched; moved from Lyt
+8018CA14	Lyt_returnFalse_8018CA14	high	returns 0
+8018CB28	Mii_clearPlayerSlots	medium	resets 3 0x12-byte slots: id 0xff, 0xffff, zero bytes, clears 6-byte Mii ID; moved from Lyt
+8018F3E4	Mii_MiiIconBase_rebuildMii	low	resolves Mii source by mode (+4) then creates Mii model (stored +0xa4) and refreshes Mii info; moved from Lyt
+8018FA80	Mii_pickMiiAvoidingDuplicates	medium	for db Miis: advance until not used by players; else random available or random guest (type 6); moved from Lyt
+8018FED0	Mii_getPlayerMiiOrRandomGuest	medium	returns player N's Mii source if N < count, else random guest Mii (type 6, 0..5); moved from Lyt
+8019009C	Mii_getMiiDataFromSource	low	resolves type-7 source index via datasource then fills Mii data buffer (fn_80176A9C); moved from Lyt
+80190414	Mii_createMiiModelForSource	low	resolves Mii source, constructs Mii model (RP_Cls_80350210) and registers it in player list +0x54; moved from Lyt
+80196A20	Lyt_setTextBoxFormattedAt	low	varargs: sets pane pos (+0x2c/+0x30, y flipped), expands message tags into buffer and sets string
+8019727C	Lyt_setTextBoxMessage	medium	fetches message (group,id), expands tags, TextBox SetString via vtable+0x70, applies msg font scale
+80197A2C	Mii_MiiIconBase_refreshMiiInfo	low	fills Mii info at +0x68; guest Miis get default name; invalid db Mii gets placeholder + random bits; moved from Lyt
+80197BC0	Lyt_80197BC0	keep	empty function
+80197BE4	Mii_MiiIconBase_dtor	medium	destroys members +0x60 and +4 (MiiIconParam), base dtor, delete when flag>0; moved from Lyt
+80197C58	Mii_MiiIconBase_ctor	medium	base ctor, vtable 8034F6C8, constructs MiiIconParam at +4 and copies 0x58-byte param struct; moved from Lyt
+80197DD8	Lyt_MessageWindow_ctor	medium	vtable 8034F6E0, zeroes fields, calls reset, allocates 0x24-byte A-button helper at +0x280
+80197EF0	Lyt_MessageWindow_calc	medium	state flags +0x4c: in/out anims, alpha fades over 10 frames, A-button prompt, updates layout
+801984A4	Lyt_MessageWindow_reset	medium	clears state/timers, rewinds in-anims of both layouts, resets A-button helper
+801985B4	Lyt_MessageWindow_load	high	loads messageWindow.arc, B/W brlyt + in/out brlan, finds N_texWind/N_twPosition/T_message panes
+80198758	Lyt_MessageWindow_createInstance	high	singleton lbl_8043C4F0: allocates 0x284 bytes and constructs MessageWindow if absent
+801987B8	Lyt_setPaneColorFromTable	medium	gets pane material via vtable+0x5c and sets 4 color shorts (+0x18..+0x1e) from RP color table entry
+80198824	Lyt_TagProcessor_drawRuby	medium	tag 0xff0007: measures/draws ruby (furigana) text above base text centered, scaled by tag percent
+80198CC4	Lyt_getTextColorBytes	low	copies 4 bytes at +0x18 (text color) into out
+80198CE8	Lyt_TagProcessor_processCommon	medium	handles 0x1a tags: font scale, uppercase, color table, ruby; else nw4r base Process/CalcRect
+80198EC8	Lyt_TagProcessor_calcRect	medium	vtable entry branching to common handler with rect argument
+80198ECC	Lyt_TagProcessor_process	medium	calls common handler with rect=NULL
+80198EDC	Lyt_expandMessageTags	medium	copies message string, substitutes 0x1a group-0 tags with wordset args, applies group-2 control tags
+801990D8	Lyt_TagProcessor_dtor	medium	calls nw4r TagProcessorBase dtor then delete when flag>0
+80199130	Lyt_createTagProcessor	medium	allocates 4 bytes, base ctor, vtable 8034F6F0, stores global lbl_8043C4F8
+8019917C	Lyt_initTagColorTable	medium	static init: 4 RGBA colors used by color tags (table lbl_80438C90)
+8019922C	RP_Controller_requestWpadInfo	low	clears 0x1c-byte info at +0xa6c and issues async WPAD request with callback; sets flag on error; moved from Lyt
+801992AC	RP_Controller_onWpadInfo	low	async callback: finds controller by channel, sets +0xa84 flags (bit0 on success, bit1 done); moved from Lyt
+8019930C	RP_popAllControllerPosStacks	medium	for 4 controllers decrements four position-stack depths (+0x93c/+0x988/+0x9d4/+0xa20); moved from Lyt
+801993C0	RP_pushAllControllerPosStacks	medium	for 4 controllers increments four stack depths copying default pair into new top; moved from Lyt
+80199534	RP_Controller_setPosStack3Top	medium	writes float pair to top of stack at +0xa20; moved from Lyt
+80199558	RP_Controller_setPosStack2Top	medium	writes float pair to top of stack at +0x9d4; moved from Lyt
+8019957C	RP_Controller_setPosStack1Top	medium	writes float pair to top of stack at +0x988; moved from Lyt
+801995A0	RP_Controller_setPosStack0Top	medium	writes float pair to top of stack at +0x93c; moved from Lyt
+801995C4	RP_Controller_getDpdStackTop	medium	returns top byte of DPD-enable stack (+0x932/+0x934); moved from Lyt
+801995E4	RP_popAllControllerDpdStacks	medium	decrements DPD-enable stack depth (+0x932) on all 4 controllers; moved from Lyt
+80199638	RP_pushAllControllerDpdStacks	medium	pushes byte onto DPD-enable stack of all 4 controllers; moved from Lyt
+801996A8	RP_Controller_setChannelAndMiiId	medium	sets channel (+4) and copies 6-byte Mii ID to +0x2ba8; moved from Lyt
+801996E0	Lyt_801996E0	keep	thunk: RP_801A3DD4(controller manager)
+801996E8	Lyt_801996E8	keep	thunk: RP_801A3DE4(controller manager)
+801996F0	RP_Controller_isConnected	medium	true if probe result (+0x900) != -1 and device type (+0x70) valid (<=2, 0xfb/0xfc, 0xff); moved from Lyt
+80199744	RP_Controller_startRumblePattern	medium	starts rumble pattern ****-------- for 0, another pattern for 1..3; moved from Lyt
+8019978C	RP_stopAllControllerRumble	low	calls eggController_800A6518 for each of 4 controllers; moved from Lyt
+801997D0	Lyt_801997D0	keep	empty function
+801997D4	RP_setMainController	medium	stores controller in lbl_8043C504 and copies its Mii ID to globals; moved from Lyt
+8019980C	RP_Controller_calc	medium	WPAD probe, DPD on/off from stack, sensor params from stacks, base read, button repeat, accel filters; moved from Lyt
+80199A98	RP_Controller_dtor	high	destroys subobject +0x8fc, delete when flag>0; moved from Lyt
+80199AF4	RP_Controller_ctor	high	egg controller base ctor, vtable 8034F708, inits stacks, filters, repeat params, channel arg; moved from Lyt
+80199E04	RP_resetAllControllerStacks	medium	resets all position stacks and DPD stacks of 4 controllers to defaults; moved from Lyt
+8019A004	Lyt_8019A004	keep	calls fn_800D04E0(1)
+8019A00C	RP_resetPlayerControllerAssignments	low	thunk: Lyt_801A4324(controller manager); moved from Lyt
+8019A014	RP_applySensorBarPosition	medium	reads sensor bar setting; sets sensor height -0.35 or 0.15 on 4 channels; moved from Lyt
+8019A07C	RP_initControllerSystem	medium	sets controller factory to Lyt_createController, inits manager, sensor params, enables controllers; moved from Lyt
+8019A130	RP_createController	medium	factory: allocates 0x2bb0 Controller; first one becomes main controller; moved from Lyt
+8019A1AC	Lyt_8019A1AC	keep	returns flag bit0 of +0x18 && byte +0x14 < 2
+8019A1E0	Mii_isMiiIdEqual	medium	compares two 6-byte Mii IDs; moved from Lyt
+8019A278	Mii_isMiiIdNonZero	medium	true if any of 6 Mii ID bytes non-zero; moved from Lyt
+8019A2F8	Lyt_getByteAt	low	returns byte at base+index
+8019A300	Mii_copyMiiId	medium	memcpy 6 bytes; moved from Lyt
+8019A308	Mii_generateMiiId	low	repeatedly calls fn_800CC918 until 6-byte ID non-zero (max 1000); moved from Lyt
+8019A418	Mii_clearMiiId	medium	zeroes 6 bytes; moved from Lyt
+8019A438	Mii_clearMiiId2	medium	zeroes 6 bytes (duplicate); moved from Lyt
+8019A458	RP_AccelFilter_update	low	smooths KPAD acceleration samples with distance-based weight, stores magnitude and delta; moved from Lyt
+8019A6A4	Mii_clearMainMiiId	medium	zeroes global main Mii ID bytes lbl_8043C508..D; moved from Lyt
+8019A6C8	RP_Controller_dtorThunk	high	adjusts this by -0x8fc and calls Controller dtor; moved from Lyt
+8019A6D0	Mii_MiiIcon_render	medium	creates CapTexture at +0xa4, resolves Mii, builds model, draws frame/Mii into texture; moved from Lyt
+8019A9C0	Mii_MiiIcon_beginCapture	low	sets GX state, viewport, clear color from Mii favorite color unless given; moved from Lyt
+8019AB64	Mii_MiiIcon_drawFrame	low	draws background rectangle with rounded corners (sin/cos loop) and border colors into texture; moved from Lyt
+8019B678	Lyt_8019B678	keep	trivial dtor (delete when flag>0), owner unknown
+8019B6B8	Mii_MiiIcon_drawMii	medium	sets up camera and GX, draws Mii model via vtable, copies to CapTexture; moved from Lyt
+8019B9D4	Mii_MiiIcon_setupCamera	medium	sets camera pos/target per view type (0/1/2), perspective from aspect, viewport; moved from Lyt
+8019BC54	Lyt_8019BC54	keep	empty function
+8019BC58	Mii_MiiIcon_getTexture	medium	returns CpuTexture image of +0xa4; moved from Lyt
+8019BC60	Mii_MiiIcon_setupModelTextures	low	loads 2 textures from archive into model via vtable+0x20, sets model scale; moved from Lyt
+8019BD5C	Mii_MiiIconBase_setParam60	low	copies short from arg into +0x60 if non-null; moved from Lyt
+8019BD60	Mii_MiiIcon_dtor	medium	calls MiiIconBase dtor, delete when flag>0; moved from Lyt
+8019BDB8	Mii_MiiIcon_ctor	medium	MiiIconBase ctor, vtable 8034F740, then renders icon texture; moved from Lyt
+8019BDFC	Mii_MiiIconParam_dtor	medium	destroys MiiSource at +8, delete when flag>0; moved from Lyt
+8019BE58	Mii_MiiIconParam_ctor	medium	vtable 8034F758 at +0x58, MiiSource at +8, defaults (size 0x80x0x80, etc); moved from Lyt
+8019BF0C	Mii_MiiSource_dtor	medium	trivial dtor for Mii source struct (type,index,ptr); moved from Lyt
+8019BF4C	Mii_MiiSource_ctor	medium	zeroes type/index/ptr, vtable 8034F768 at +0xc; moved from Lyt
+8019BF6C	Mii_MiiIdxHandle_dtor	low	trivial dtor paired with 8019BFAC; moved from Lyt
+8019BFAC	Mii_MiiIdxHandle_ctor	low	sets vtable 8034F778 at +4 and short to 0xffff; moved from Lyt
+8019BFC8	Mii_MiiDataSourceParam_dtor	low	trivial dtor paired with 8019C008 (same callers); moved from Lyt
+8019C008	Mii_MiiDataSourceParam_ctor	low	type=3, vtable 8034F788, defaults 2,3,3; moved from Lyt
+8019C03C	Mii_MiiDataSource_querySecondary	low	calls fn_80175020 on member +4; moved from Lyt
+8019C044	Mii_MiiDataSource_resolveIndex	medium	maps index to primary list or wraps into secondary list (modulo its count); moved from Lyt
+8019C0CC	Mii_MiiDataSource_advanceCursor	low	increments short +0xc, wraps at +8; moved from Lyt
+8019C0F4	Lyt_8019C0F4	keep	trivial dtor (delete when flag>0), owner unknown
+8019C134	Mii_MiiDataSource_ctor	low	vtable 8034F7C4; creates primary list by type and secondary list (max 100) via fn_80174420; moved from Lyt
+8019C368	Lyt_HeapHolder_dtor	low	calls fn_800A3C20 then delete; used by layout/anim loaders
+8019C3C0	Lyt_HeapHolder_ctor	low	base ctor, vtable 8034F7D0, links node into chain with empty callback
+8019C41C	Lyt_HeapHolder_nullCallback	low	empty callback installed by HeapHolder ctor
+8019C420	Lyt_PaneSlideAnim_calc	medium	eased slide in/out of pane translate (+0x2c..) with alpha fade over duration
+8019C778	Lyt_PaneSlideAnim_reset	medium	state idle, pane at start position, alpha 0
+8019C7B8	Lyt_PaneSlideAnim_ctor	medium	binds pane, records pos/alpha, offsets start by screen size per direction; debug tag FEEL MIE
+8019C94C	Mii_MiiLoader_tickRetry	low	starts or counts attempts; fails after per-type limit (100/10/6); moved from Lyt
+8019C9EC	Mii_MiiLoader_load	low	loops trying to load Mii data by source type until success or retry limit; moved from Lyt
+8019CB0C	Mii_MiiLoader_reset	low	zeroes state and counter; moved from Lyt
+8019CB1C	Mii_MiiLoader_dtor	low	trivial dtor, delete when flag>0; moved from Lyt
+8019CB5C	Mii_MiiLoader_ctor	low	stores type, vtable 8034F804, zero state; moved from Lyt
+8019CB7C	Lyt_CursorManager_dtor	high	CursorManager vtable 8034F810 slot 0: destroys 8-element array at +0x68 and base, delete when flag>0
+8019CBF0	Lyt_CursorManager_ctor	high	"Cursor Manager" heap obj, vtable 8034F810, loads def_cursor_normal_Np/_blur/_sd panes for 4 players
+8019CF48	Lyt_CursorManager_posElemCtor	medium	empty element ctor passed to array-construct for the 4 cursor position Vec2s
+8019CF4C	Lyt_CursorManager_drawCursorAt	medium	sets pos/rotation of cursor, blur and shadow (+3,-3) panes for a player and calls pane vf 0x88
+8019D0A8	Lyt_CursorManager_setPaneVisibility	medium	shows/hides cursor/blur/shadow panes of one cursor via vf 0x20, sets alpha for inactive one
+8019D238	Lyt_CursorManager_drawPlayerCursors	medium	per-player mode: draws each enabled player's cursor once per controller (enabled bits first)
+8019D3DC	Lyt_CursorManager_draw	medium	if enabled: draws shared-mode cursors (2 or 4) then per-player cursors
+8019D474	Lyt_CursorManager_calc	medium	reads pad pointer pos, clamps to [-1,1], scales to screen, computes roll angle; offscreen if none
+8019D894	RP_KPad_getHorizon	low	copies floats at +0x34/+0x38 of pad status; used with atan2 for cursor rotation; moved from Lyt
+8019D8A8	RP_KPad_getPointerPos	medium	copies floats at +0x20/+0x24 of pad status; clamped and scaled to cursor screen position; moved from Lyt
+8019D8BC	Lyt_CursorManager_reset	high	clears flags/state stack/controller ids, resets positions offscreen and panes (vf 0x18)
+8019D9AC	Lyt_CursorManager_getCurrentPlayerCursorPos	low	returns cursor pos slot for controller from RP_8018CB08(player mgr) or offscreen default
+8019D9FC	Lyt_CursorManager_getPlayerControllerIdx	medium	returns controller index of player if cursor enabled for that player bit, else -1
+8019DA50	Lyt_CursorManager_getPlayerCursorPos	high	returns &pos[ctrl of player] if player's cursor bit enabled, else offscreen default pos
+8019DAA0	Lyt_CursorManager_disablePlayer	high	clears player's enable bit, resets pos offscreen, hides its panes
+8019DAF8	Lyt_CursorManager_enablePlayer	high	sets player's enable bit (flags bit 4+n), maps controller via RP_8018CB08, refreshes all panes
+8019DBF4	Lyt_CursorManager_getSharedControllerIdx	medium	in shared mode (flag 0x100) returns controller idx from lbl_8043C504+0x908, else -1
+8019DC1C	Lyt_CursorManager_getSharedPointerState	low	shared mode: returns per-controller value at +0x30 (pointer-valid byte copied from pad status)
+8019DC54	Lyt_CursorManager_getSharedCursorPos	high	shared mode: returns &pos[shared controller] else offscreen default pos
+8019DC8C	Lyt_CursorManager_hideAll	medium	flags=1 (enabled, no cursors) and hides all 4 cursor pane sets
+8019DCF4	Lyt_CursorManager_enableSharedMode	medium	flags=0x101, controller from lbl_8043C504+0x908, clears player map, refreshes panes
+8019DDC8	Lyt_CursorManager_popState	high	restores flags from 4-deep stack at +0xc; re-enables shared or per-player cursors
+8019DEE4	Lyt_CursorManager_pushState	high	pushes current flags onto stack at +0xc, resets to flags=1, hides panes, resets positions
+8019E018	Lyt_CursorManager_createInstance	high	singleton lbl_8043C528: allocates 0xb8 bytes and constructs CursorManager once
+8019E078	Lyt_initOffscreenCursorPos	medium	static init: default cursor pos lbl_8043C520 = (0, 12800.0), registers global dtor
+8019E0A4	Lyt_toFullWidthStr	high	converts ASCII in UTF-16 string to full-width (space->U+3000, 0x21-0x7E +0xFEE0)
+8019E118	Lyt_formatPaddedNumberFullWidth	medium	formats number via Lyt_formatPaddedNumber then converts to full-width
+8019E194	Lyt_formatPaddedNumber	high	writes N decimal digits of value to UTF-16 buffer, optional leading spaces, NUL-terminates
+8019E2C0	Lyt_formatSignedIntFullWidth	high	optional sign (+, or +- for zero), swprintf of int, then ASCII->full-width conversion
+8019E39C	Lyt_formatSignedInt	high	optional sign (+, or +- for zero) then swprintf of int into UTF-16 buffer
+8019E400	Lyt_isSingularNumber	medium	returns 1 if value is +-1 (or |v|<2 when language setting +0x10 == 1); for plural text
+8019E450	RP_AsyncTask_poll	low	while busy (state 1) maps result of fn_8016804C: 0/2->done(2), 6->keep, other->0; moved from Lyt
+8019E4D4	RP_AsyncTask_isNotBusy	low	returns state != 1; moved from Lyt
+8019E4EC	RP_AsyncTask_start	low	if not busy sets state 1 and calls fn_80174248(handle); immediate failure resets state 0; moved from Lyt
+8019E55C	RP_AsyncTask_isNotDone	low	returns state != 2; moved from Lyt
+8019E574	RP_AsyncTask_dtor	medium	vtable 8034F870 slot 0; deletes this when flag > 0; moved from Lyt
+8019E5B4	RP_AsyncTask_ctor	medium	stores handle, state=0, vtable 8034F870 at +8; used by Gfx_KokeshiManager; moved from Lyt
+8019E5D0	Lyt_PauseMenu_dtor	medium	called from pause owner dtor Sys_8018AF1C on its +0x1F0 pause menu; deletes when flag > 0
+8019E610	Lyt_PauseMenu_ctor	high	zeroes fields and allocates CPadCursor (600 bytes) at +0x70; created by RP_8018B460
+8019E6D0	Lyt_PauseMenu_resetButtonAnims	medium	for 3 buttons sets anim to selected/unselected end state matching current choice
+8019E820	Lyt_PauseMenu_updateButtonHighlight	medium	updates focused button (pointer or d-pad), rumble/SE on change, plays highlight anims
+8019EB20	Lyt_PauseMenu_updateSelect	high	pointer hit-test/d-pad on 3 buttons; A press plays PAUSE_KEY_A_01..03 SE, starts decide anim
+8019F05C	Lyt_PauseMenu_draw	high	if visible draws layout (RP_80194250) and cursor (vf 0x14)
+8019F0AC	Lyt_PauseMenu_calc	high	state machine (in/select/decided/out), manages cursors, returns chosen button index or 3
+8019F44C	Lyt_PauseMenu_open	high	resets selection, plays pause_00 in anim, sets text visibility, resets button anims
+8019F79C	Lyt_PauseMenu_load	high	loads pause.arc, pause_00.brlyt panes, in/out/button anims and common_message.bmg texts
+8019F9D0	Lyt_SystemWindow_dtor	high	vtable 8034F8CC slot 0; deletes this when flag > 0
+8019FA10	Lyt_SystemWindow_ctor	high	vtable 8034F8CC, zeroes fields, allocates CPadCursor at +0xA4; singleton via RP_801A22C0
+8019FAE4	Lyt_SystemWindow_setPlayerInput	medium	input from one player (per-player cursor) with controller from CursorManager
+8019FB3C	Lyt_SystemWindow_setSharedInput	medium	input from shared cursor: player=4, controller = CursorManager shared controller
+8019FB94	Lyt_SystemWindow_decideButton	high	plays KEY_A_04 or KEY_BACK_01 SE (pad speaker mask) and starts decide anim of chosen button
+801A0128	Lyt_SystemWindow_resetButtonAnims	medium	for 2 buttons sets focus anim end state matching focused button
+801A0298	Lyt_SystemWindow_checkDpadInput	medium	d-pad left/right moves focus between 2 buttons; returns 1 if any direction pressed
+801A039C	Lyt_SystemWindow_hitTestPointer	high	tests cursor pos against 2 button panes; rumble on hover change; records hovered button
+801A04D0	Lyt_SystemWindow_checkAPress	high	on A press decides hovered/focused button via decideButton
+801A05A4	Lyt_SystemWindow_updateFocus	medium	combines pointer hover and d-pad focus into per-button focus flags
+801A075C	Lyt_SystemWindow_updateAButtonOnly	medium	no-choice window: plays A-button anim, A press calls decideButton
+801A0890	Lyt_SystemWindow_draw	high	if open and loaded draws layout (RP_80194250) and cursor (vf 0x14)
+801A08EC	Lyt_SystemWindow_calc	high	state machine by window type (0,2,998,999,888): focus anims, KEY_CURSOR_01 SE, sets result
+801A149C	Lyt_SystemWindow_reset	medium	clears state, result, type and input fields then resetInputState
+801A14C8	Lyt_SystemWindow_load	high	loads messageWindow.arc systemWindow_00.brlyt, T_message_00..03, buttons, N_AButton_00, anims
+801A1754	Lyt_SystemWindow_resetInputState	medium	clears button focus flags/timers, resets cursor, sets focus mode by window type
+801A17FC	Lyt_SystemWindow_enableCursors	medium	pushes cursor state then enables shared or per-player cursors for input players
+801A18F8	Lyt_SystemWindow_close	high	state 5: disables cursors, pops cursor state, plays systemWindow out anim
+801A1A04	Lyt_SystemWindow_setMessagePage	medium	stores page index +0x98 and toggles visibility of T_message panes accordingly
+801A1AAC	Lyt_SystemWindow_open	high	varargs msg id: sets texts/buttons by message type (A-only, 2-choice, yes/no), plays in anim
+801A35D0	RP_AsyncJob_calc	low	polls AsyncTask; state 1->2, 2 runs Gfx_801A348C, when task finishes sets state 4, clears result; moved from Lyt
+801A37EC	RP_AsyncJob_finishIfIdle	low	if state 0 marks job finished (4) and clears result struct; moved from Lyt
+801A3DF8	RP_ControllerMgr_handleConnections	low	on new connections matches pad address to slot, swaps slots, rumble+SE; flags disconnects; moved from Lyt
+801A4324	RP_ControllerMgr_compactSlots	low	for each slot whose channel is disconnected, swaps pad address with next connected slot; moved from Lyt
+801A4F44	Lyt_ResTexObj_resolveSource	low	by source type 0/1/2 gets 10-byte id via Lyt_8018FED0/Lyt_8018FA80, then Lyt_80197A2C setup
+801A53DC	Lyt_ResTexObj_ctor	low	base ctor Lyt_80197C58, vtable 8034FA08, then resolveSource
+801B82DC	RP_relocateResHeader	medium	copies 15-word resource header into this and converts first 4 offsets to absolute pointers; moved from Lyt
+801B8888	RP_ResTable_getFilteredEntry	medium	returns Nth 0x58-byte entry whose group byte is 0 or matches this->group; moved from Lyt
+801B8908	RP_ResTable_countFilteredEntries	medium	counts 0x58-byte entries whose group byte is 0 or matches this->group; moved from Lyt
+801B8CE8	RP_getEntry14	low	returns *(this+0x18) + idx*0x14 (array element accessor); moved from Lyt
+801BE1E8	Lyt_CPadCursor_calcFadeAlpha	medium	per fade state (+0x18): fade out over 60 frames, fade in over 120, swaps pending target; returns alpha
+801BE4FC	Lyt_CPadCursor_updateCorners	medium	pulse timer; places 4 corner panes around target rect using anchor flags, sets alpha when fading
+801BE7C0	Lyt_CPadCursor_setTarget	medium	copies button name/rect/anchor (+0xb8,+0x4c..,+0xb6) into current/pending targets, starts fade on change
+801BF4C4	Lyt_CPadCursor_selectStyle	medium	stores index +0x10, hides the 3 N_cPadCursor panes and shows the selected one
+801BF51C	Lyt_CPadCursor_isActive	high	returns +8 == 1
+801BF530	Lyt_CPadCursor_setActive	high	if panes loaded, sets +8 to 1 or 0
+801BF598	Lyt_CPadCursor_draw	medium	draws layout +0x254 when active or fading
+801BF604	Lyt_CPadCursor_calc	medium	starts fade-out/in on active change, updates corners, animates layout
+801BF708	Lyt_CPadCursor_reset	medium	inactive, style 0, default rect from globals, clears target strings and fade state
+801BF8F8	Lyt_CPadCursor_loadWithParent	medium	loads cPadCursor.arc (Health variant), cPadCursor_00.brlyt with parent arg, finds 3 panes
+801BFA44	Lyt_CPadCursor_ctor	high	base ctor RP_801B9FC8, vtable 80357428, zeroes fields
+801BFAB4	Lyt_CPadCursor_load	high	loads cPadCursor.arc / HealthCPadCursor.arc, cPadCursor_00.brlyt, panes N_cPadCursor_00..02
+801BFBF4	Lyt_initCPadCursorDefaultRect	medium	static init: default rect 1000x1000, scale 1, pos 100,100
+801BFC34	RP_TnkMapData_getCell	medium	returns map cell (x + row*width) of map [mode][p][layer] loaded by TnkMapData; moved from Lyt
+801BFC78	RP_TnkMapData_getField0C	low	returns header word +0xc of map [mode][p][layer]; moved from Lyt
+801BFCA0	RP_TnkMapData_getField08	low	returns header word +8 of map [mode][p][layer]; moved from Lyt
+801BFCC8	RP_TnkMapData_dtor	low	trivial dtor (delete when flag>0); vtable dtor of TnkMapData singleton; moved from Lyt
+801BFD08	RP_TnkMapData_ctor	high	vtable 80357448; loads MapData/TnkMapData_P%d_%02d_%d.bin 2x2x30 into heap copies; moved from Lyt
+801BFDE0	RP_destroyTnkMapData	high	deletes singleton lbl_8043C640 via vtable dtor; moved from Lyt
+801BFE24	RP_createTnkMapData	high	allocates 0x1e4 bytes, constructs TnkMapData into lbl_8043C640; moved from Lyt
+801BFE58	Lyt_drawPaneWithAlpha	low	builds color from pane alpha (+0xb5), white or black, and calls RP_80193DCC with draw info
+801BFEDC	Mii_MiiIconSet_getTexture	medium	returns texture of Mii icon N from array +0xc; moved from Lyt
+801BFEEC	Mii_MiiIconSet_calcAll	low	calls vtable+0xc(0) on each Mii icon in array; moved from Lyt
+801BFF48	Mii_MiiIconSet_createIcons	medium	allocates N MiiIcon (0xa8) for player indices with size params from arg; moved from Lyt
+801C0048	Mii_MiiIconSet_dtor	high	base dtor RP_Cls_80357180, delete when flag>0; moved from Lyt
+801C00A0	Mii_destroyMiiIconSet	high	deletes singleton lbl_8043C648 via vtable; moved from Lyt
+801C00E4	Mii_createMiiIconSet	high	allocates 0x14, base ctor, vtable 80357458, stores lbl_8043C648; moved from Lyt
+801C013C	Lyt_WCursor_calcFadeAlpha	medium	per fade state computes alpha; resets target strings to ?????; swaps pending target
+801C044C	Lyt_WCursor_updateWindow	medium	places/sizes window pane around target rect using anchor flags, sets alpha when fading
+801C069C	Lyt_WCursor_setTarget	medium	copies button name/rect/anchor into current/pending targets, starts fade on change
+801C1378	Lyt_WCursor_setActive	high	sets +8 to 1 or 0
+801C1398	Lyt_WCursor_draw	medium	draws layout +0x24c when active or fading
+801C13DC	Lyt_WCursor_calc	medium	starts fade on active change, updates window pane, animates layout
+801C14B8	Lyt_WCursor_reset	medium	inactive, default rect, clears target strings (?????), resets window pane
+801C1678	Lyt_WCursor_ctor	high	base ctor RP_801B9FC8, vtable 80357480
+801C16D8	Lyt_WCursor_load	high	loads cCursorCircle.arc / cCursorCircle_00.brlyt, window W_cursor_00, pane N_cursor_00
+801C1780	Lyt_initWCursorDefaultRect	medium	static init: default rect 1000x1000, scale 1, pos 100,100
+801C17C0	Lyt_AnimButton_vf04	low	empty virtual
+801C17C4	Lyt_AnimButton_getCurrentAnimLength	medium	returns end-start frame of current anim (+0xc index), 0 if none
+801C17F4	Lyt_AnimButton_getPane	low	returns +4
+801C17FC	Lyt_AnimButton_setPane	low	sets +4
+801C1804	Lyt_AnimButton_setLayout	low	sets +8
+801C180C	Lyt_AnimButton_setAnim	medium	stores anim pointer in slot N (+0x10 + 4N)
+801C181C	Lyt_AnimButton_playAnim	medium	stops all 8 anims, binds anim N, carries frame across paired anims, frame overrides, plays
+801C1C30	Lyt_AnimButton_hitTest	medium	if pane set, tests point against pane rect via RP_80193F24
+801C1C9C	Lyt_AnimButton_playDefaultAnim	medium	binds default anim (+0x30) at frame +0xb8 and plays
+801C1D80	Lyt_AnimButton_vf03	low	empty virtual
+801C1D84	Lyt_AnimButton_vf02	low	empty virtual
+801C1D88	Lyt_AnimButton_vf01	low	empty virtual
+801C1D8C	Lyt_AnimButton_vf00	low	empty virtual
+801C1D90	Lyt_AnimButton_ctor	high	vtable 803574A0, clears 2 frame-override tables and anim slots, current anim -1, default anim 2
+801C1E28	Lyt_CommonMessage_updateState16	medium	state 16 handler: Sys_80185884(scene mgr, 0)
+801C1E34	Lyt_CommonMessage_updateState15	medium	if choice result 6, enterState16
+801C1E58	Lyt_CommonMessage_updateState14	medium	choice 3 -> enterState13, choice 2 -> enterState7
+801C1E98	Lyt_CommonMessage_updateState13	medium	choice 3 -> enterState16; choice 2 -> save flag and enterState4
+801C1F14	Lyt_CommonMessage_updateState12	medium	choice 3 -> enterState13, choice 2 -> enterState16
+801C1F54	Lyt_CommonMessage_updateState11	medium	choice 3 -> enterState13, choice 2 -> enterState16
+801C1F94	Lyt_CommonMessage_updateState10	medium	choice 3 -> enterState16; choice 2 -> save flag and enterState4
+801C2010	Lyt_CommonMessage_updateState9	medium	if choice result 6, enterState16
+801C2034	Lyt_CommonMessage_updateState8	medium	if choice result 6, enterState4
+801C2058	Lyt_CommonMessage_updateState7	medium	waits save op done, then error code dispatch to enterState8/10/15
+801C211C	Lyt_CommonMessage_updateState6	medium	choice 3 -> enterState13, choice 2 -> enterState7
+801C215C	Lyt_CommonMessage_updateState5	medium	waits save op, by result/flags enterState6/10/11/12/15
+801C2258	Lyt_CommonMessage_updateState3	medium	save check: enterState4 or enterState14
+801C22BC	Lyt_CommonMessage_updateState2	medium	waits save op, by error code enterState3/10/14/15
+801C2380	Lyt_CommonMessage_updateState1	medium	waits save op, by result enterState2/5/10/14/15
+801C246C	Lyt_CommonMessage_updateState0	medium	by mode (global +0x40): enterState1 / enterState9 / enterState15
+801C24CC	Lyt_CommonMessage_enterState16	medium	state = 16
+801C24D8	Lyt_CommonMessage_enterState15	medium	state = 15, opens system window message 0xaa
+801C24FC	Lyt_CommonMessage_enterState14	medium	state = 14, opens system window message 100
+801C2520	Lyt_CommonMessage_enterState13	medium	state = 13, opens system window message 0x65
+801C2544	Lyt_CommonMessage_enterState12	medium	state = 12, formats save value into string, opens message 0x6e with it
+801C25AC	Lyt_CommonMessage_enterState11	medium	state = 11, formats save value into string, opens message 0x68 with it
+801C2614	Lyt_CommonMessage_enterState10	medium	state = 10, opens system window message 0x35
+801C2638	Lyt_CommonMessage_enterState9	medium	state = 9, opens system window message 0xa0
+801C265C	Lyt_CommonMessage_enterState8	medium	state = 8, opens system window message 0x6b
+801C2680	Lyt_CommonMessage_enterState7	medium	state = 7, conditionally starts save sub-op, then starts save op Sys_80188A74
+801C26E0	Lyt_CommonMessage_enterState6	medium	state = 6, opens system window message 0x69 with arg +0x48
+801C270C	Lyt_CommonMessage_enterState5	medium	state = 5, starts save op Sys_80188B14
+801C271C	Lyt_CommonMessage_enterState4	medium	state = 4
+801C2728	Lyt_CommonMessage_enterState3	medium	state = 3
+801C2734	Lyt_CommonMessage_enterState2	medium	state = 2, starts save op Sys_801888FC
+801C2744	Lyt_CommonMessage_enterState1	medium	state = 1, starts save op Sys_80188BB4
+801C2754	Lyt_CommonMessage_enterState0	medium	state = 0
+801C2760	Lyt_CommonMessage_callEnterState0	medium	calls vtable+0x60 (enterState0) on object
+801C2770	Lyt_801C2770	keep	empty function
+801C2774	Lyt_801C2774	keep	empty function
+801C2778	Lyt_CommonMessage_updateCurrentState	medium	switch on state +0x44 (0..16) calling per-state update virtual
+801C28B0	Lyt_801C28B0	keep	empty function
+801C28B4	Lyt_801C28B4	keep	empty function
+801C28B8	Lyt_CommonMessage_bindSystems	medium	stores save manager and system window globals in +0x4c/+0x50, clears +0x48
+801C28DC	Lyt_FrameOverrideTable_get	medium	returns value of entry N if flagged, else -1
+801C2900	Lyt_FrameOverrideTable_has	medium	returns flag byte of entry N
+801C290C	Lyt_FrameOverrideTable_clear	medium	zeroes 8 {flag,value} entries
+801C2954	Lyt_AnimButtonTable_getAnimLengthById	medium	finds button by id among 100 entries, returns current anim length
+801C2A48	Lyt_AnimButtonTable_getPaneById	medium	finds button by id, returns its pane
+801C2B3C	Lyt_AnimButtonTable_hitTest	medium	returns id of first button whose pane contains point, else -1
+801C2BCC	Lyt_AnimButtonTable_playAnimById	medium	finds button by id and plays anim N
+801C2CB4	Lyt_AnimButtonTable_add	medium	stores {id, button} into first empty of 100 slots
+801C2DD4	Lyt_801C2DD4	keep	empty function
+801C2DD8	Lyt_AnimButtonTable_ctor	medium	vtable 80357508, zeroes 100 entries
+801C2EE0	RP_BBox_sumMinMax	low	VEC3 add of box min and max (+0xc) into out; moved from Lyt
+801C2EE8	RP_BBox_extend	medium	extends max/min float triples with point; moved from Lyt
+801C303C	RP_BBox_reset	medium	zero box, max sentinels -FLT_MAX, min sentinels +FLT_MAX; moved from Lyt
+801C307C	RP_BBox_reset2	medium	identical to Lyt_BBox_reset; moved from Lyt
+801C30BC	RP_drawDebugLogAndGraphs	medium	pad-controlled zoom/scroll; draws 32-line debug text log and 600-sample graphs; moved from Lyt
+801C4230	RP_pushDebugGraphSamples	medium	appends 3 floats to three 600-entry ring buffers; moved from Lyt
+801C4340	RP_debugLogPrintf	medium	vsnprintf into line and appends to 32-line ring buffer lbl_8043C660; moved from Lyt
+801C4480	RP_clearDebugBuffers	medium	resets indices of debug log and graph ring buffers; moved from Lyt
+801C44C8	RP_freeDebugBuffers	high	frees debug log and 3 graph buffer arrays; moved from Lyt
+801C4504	RP_allocDebugBuffers	high	allocates debug log (0x200c) and graph arrays (6/3/3 x 0x96c); moved from Lyt
+801C45B0	RP_DebugGraph_ctor	medium	zeroes ring buffer indices/full flag; moved from Lyt
+801C45C4	RP_addRumblePattern	medium	copies rumble pattern into first free of 4 slots for controller; moved from Lyt
+801C466C	RP_updateRumblePatterns	medium	per controller advances pattern slots; starts or stops motor from bit; moved from Lyt
+801C478C	RP_clearRumblePatterns	medium	zeroes counters of all 16 rumble pattern slots; moved from Lyt
+801C4818	RP_RumblePattern_build	medium	fills bit pattern of given length from strength with ramp-up (error diffusion); moved from Lyt
+801C4944	RP_RumblePattern_ctor	medium	sets length fields and builds bit pattern; moved from Lyt
+801C4980	RP_RumblePattern_ctorDefault	medium	empty pattern, self pointer at +0x88; moved from Lyt
+801C4994	RP_initRumblePatternSlots	medium	static init: constructs 16 rumble pattern slots at lbl_804391F0; moved from Lyt
+801C49B4	RP_BezierSegment_evalPosAndTangent	medium	cubic Bezier at t*len scale: position from 4 control points and derivative scaled into tangent; moved from Lyt
+801C4B88	RP_BezierSegment_evalPos	medium	cubic Bezier position from 4 control points (+0,+0xc,+0x18,+0x24); moved from Lyt
+801C4C8C	RP_BezierSegment_init	medium	sets endpoints, derives inner control points from neighbors (1/3 length), stores length and 1/length; moved from Lyt
+801C4E64	RP_LinearSegment_evalPosAndTangent	medium	lerp between endpoints (+0,+0x24) and direction scaled by 1/length; moved from Lyt
+801C4F50	RP_LinearSegment_evalPos	medium	lerp between endpoints (+0,+0x24); moved from Lyt
+801C4FEC	RP_LinearSegment_init	medium	stores endpoints as control points, length and inverse length; moved from Lyt
+801C50B8	RP_ResTable_countEntriesOfType	medium	counts table entries whose first word equals type; moved from Lyt
+801C512C	RP_ResTable_findNthEntryOfType	medium	returns Nth entry whose first word equals type, else NULL; moved from Lyt
+801C51A8	RP_ResTable_load	low	loads named file from archive and binds table header via RP_801B897C; moved from Lyt
+801C5204	RP_PathFollower_getPointAhead	medium	returns path point after segment in travel direction, wrapping when looped; moved from Lyt
+801C52A4	RP_PathFollower_getPointBehind	medium	returns path point behind segment in travel direction, wrapping when looped; moved from Lyt
+801C5344	RP_PathFollower_setSegment	medium	sets segment index, resets distance (or segment length when reversed), then evaluates; moved from Lyt
+801C53B0	RP_PathFollower_advance	medium	moves distance along segments, handles end (clamp/loop/ping-pong), evaluates pos and tangent; moved from Lyt
+801C5770	RP_PathFollower_initFromRes	medium	binds path resource, allocates Bezier or linear segment array, inits each segment from neighbor points; moved from Lyt
+801C5B10	RP_LinearSegment_dtor	medium	destroys 4 Vec3 members, delete when flag>0; used as array element dtor; moved from Lyt
+801C5B78	RP_LinearSegment_ctor	medium	constructs 4 Vec3 members, vtable 8035752C at +0x38; moved from Lyt
+801C5BD8	RP_BezierSegment_dtor	medium	destroys 4 Vec3 members, delete when flag>0; used as array element dtor; moved from Lyt
+801C5C40	RP_BezierSegment_ctor	medium	constructs 4 Vec3 members, vtable 80357518 at +0x38; moved from Lyt
+801C5CA0	RP_LinearSegmentArray_getCount	high	returns count +4; moved from Lyt
+801C5CA8	RP_LinearSegmentArray_getSegment	high	returns element N (stride 0x3c) or NULL; moved from Lyt
+801C5CCC	RP_LinearSegmentArray_dtor	high	destroys element array with LinearSegment dtor, delete when flag>0; moved from Lyt
+801C5D38	RP_BezierSegmentArray_getCount	high	returns count +4; moved from Lyt
+801C5D40	RP_BezierSegmentArray_getSegment	high	returns element N (stride 0x3c) or NULL; moved from Lyt
+801C5D64	RP_BezierSegmentArray_dtor	high	destroys element array with BezierSegment dtor, delete when flag>0; moved from Lyt
+801C5DD0	RP_ColliderList_callAll	low	walks linked list calling handler virtual +0x18 on each node; moved from Lyt
+801C5E24	RP_CollisionModel_vf06	low	empty virtual; moved from Lyt
+801C5E28	RP_ColliderList_checkHit	medium	walks colliders matching mask, calls shape tests, accumulates hit pos/normal boxes and flags; moved from Lyt
+801C6084	RP_Actor_returnTrue	low	returns 1; shared by several actor vtables; moved from Lyt
+801C608C	RP_CollisionModel_sweepSphere	medium	transforms motion into model space and steps along it testing sphere hits; returns hit pos/normal; moved from Lyt
+801C6370	RP_rotateVecByMtx	medium	multiplies vector by 3x3 rotation part of matrix; moved from Lyt
+801C63D4	RP_CollisionModel_checkSphere	medium	queries collision triangles (Bil_801B7D1C, max 64), filters by flag mask, accumulates hit boxes; moved from Lyt
+801C65F0	RP_CollisionModel_reset	medium	rebinds resource header, clears pos/rot, identity matrix, scale 1; moved from Lyt
+801C664C	RP_CollisionModel_ctor	high	vtables 80357580/80357588, binds resource, clears pos/rot, identity matrix, scale 1; moved from Lyt
+801C66CC	RP_CollisionModel_getRadius	low	returns 0 (shape size query of collision model); moved from Lyt
+801C66D4	RP_CollisionModel_getRot	medium	returns +0x60; moved from Lyt
+801C66DC	RP_CollisionModel_getPos	medium	returns +0x54; moved from Lyt
+801C66E4	RP_CollisionModel_thunkSweepSphere	high	this-0x40 thunk to sweepSphere; moved from Lyt
+801C66EC	RP_CollisionModel_thunkGetRadius	high	this-0x40 thunk to getRadius; moved from Lyt
+801C66F4	RP_CollisionModel_thunkGetRot	high	this-0x40 thunk to getRot; moved from Lyt
+801C66FC	RP_CollisionModel_thunkGetPos	high	this-0x40 thunk to getPos; moved from Lyt
+801C6704	RP_CollisionShape_debugDraw	medium	draws sphere or box by type with color by hit flag, plus rotation axis line; moved from Lyt
+801C6A78	RP_CollisionShape_checkSphere	medium	AABB reject, then sphere-vs-sphere (type 1) or sphere-vs-box (type 2) test; moved from Lyt
+801C6BE8	RP_CollisionShape_checkSphereVsBox	medium	sphere vs box: face push-out along dominant axis or edge/corner via sphere test; moved from Lyt
+801C7080	RP_CollisionShape_checkSphereVsPoint	medium	distance test of offset vs radius; outputs push-out vector and normal; moved from Lyt
+801C7220	RP_clampVec3Abs	high	clamps each component to [-r, r]; moved from Lyt
+801C72A4	RP_isVec3WithinAbs	high	true if all components within [-r, r]; moved from Lyt
+801C730C	RP_isVec3DiffWithinAbs	high	true if all components of a-b within [-r, r]; moved from Lyt
+801C738C	RP_isWithinRange	high	true if |a-b| <= r; moved from Lyt
+801C73B8	RP_wrapAngleNear	high	adds/subtracts 2pi until angle is within pi of reference; moved from Lyt
+801C740C	RP_springStep	medium	vel += k*((target-x)-vel); x += vel; moved from Lyt
+801C7434	RP_approachStep	medium	vel = k*(target-x); x += vel; moved from Lyt
+801C7454	RP_accelerateToward	medium	moves value toward target with max speed and accel, braking to stop at target; moved from Lyt
+801C75C4	RP_dampVec3AndApply	high	vel *= k; pos += vel (Vec3); moved from Lyt
+801C7618	RP_dampAndApply	high	vel *= k; pos += vel (scalar); moved from Lyt
+801C7634	RP_CollisionShape_accumRotOffset	medium	extends rotation-offset box (+0xa8) with vector; moved from Lyt
+801C763C	RP_CollisionShape_accumPosOffset	medium	extends position-offset box (+0x78) with vector; moved from Lyt
+801C7644	RP_CollisionShape_applyOffsets	medium	adds accumulated pos/rot offsets, copies prev pos, resets accumulators; moved from Lyt
+801C770C	RP_CollisionShape_getMtx	medium	builds shape matrix by type (+0x14): euler, or axis frames from vectors; moved from Lyt
+801C7964	RP_Mtx34_getColumn	high	copies column N of 3x4 matrix into vec; moved from Lyt
+801C7988	RP_CollisionShape_reset	medium	pos/rot from identity, zero type/radius, type 1, resets offset boxes; moved from Lyt
+801C7A88	RP_CollisionShape_ctor	high	vtable 803575B8 at +0x10, inits offset boxes and default transform; moved from Lyt
+801C7BA8	RP_CollisionShape_getPos	high	returns +0x1c; moved from Lyt
+801C7BB0	RP_CollisionShape_getRot	high	returns +0x34; moved from Lyt
+801C7BB8	RP_CollisionShape_getRadius	high	returns float +0x70; moved from Lyt
+801C7BC0	RP_initMathConstants	high	static init: zero/one/unit X,Y,Z vectors, -FLT_MAX/+FLT_MAX vectors, zero and identity mtx; moved from Lyt
+801C7D54	RP_ActorScene_broadcastControllerEvent	low	if flag bit0 and mode 3: broadcasts value to active actors and list virtual +0x20; moved from Lyt
+801C7DBC	Lyt_801C7DBC	keep	empty function
+801C7DC0	Lyt_getGlobalByte5A5	low	returns byte lbl_8043C5A5
+801C7DC8	Lyt_getGlobalMode354	low	returns lbl_8043B354
+801C7DD0	RP_ActorScene_callListVf24	low	unless paused flag (bit3) calls actor list virtual +0x24; moved from Lyt
+801C7DF4	Lyt_801C7DF4	keep	empty function
+801C7DF8	RP_ActorScene_calc	medium	unless paused: frame++, list pre-calc, sort/start actors, rumble update, calc active actors; moved from Lyt
+801C7E68	Lyt_Cow_8035CE18_vf04	keep	empty virtual in Cow vtable
+801C7E6C	RP_ActorScene_reset	medium	clears flags/counters, stops flagged actors, list reset, clears debug buffers and rumble; moved from Lyt
+801C7EC0	RP_ActorScene_draw	medium	calls list virtual +0xc then draws all actors; moved from Lyt
+801C7EF8	RP_ActorScene_destroyActorList	high	deletes actor list lbl_8043C680 via vtable; moved from Lyt
+801C7F40	RP_ActorScene_setup	low	stores scene ptr global, clears counter, calls own virtual +0x5c; moved from Lyt
+801C7F64	RP_ActorScene_dtor	high	frees debug buffers, base scene dtor, delete when flag>0; moved from Lyt
+801C7FE0	RP_ActorScene_ctor	high	base scene ctor, vtable 803575D8, clears globals, allocates debug buffers; moved from Lyt
+801C8040	RP_ActorScene_thunkBroadcast	high	this-0x24 thunk to vf23; moved from Lyt
+801C8048	RP_ActorScene_thunkCallListVf24	high	this-0x24 thunk to vf22; moved from Lyt
+801C8050	RP_ActorScene_dtorThunk	high	this-0x24 thunk to dtor; moved from Lyt
+801C8058	RP_ActorList_stopActor	medium	clears actor state flags and calls actor virtual +0x4c; moved from Lyt
+801C8084	RP_Actor_vf17	low	empty virtual; moved from Lyt
+801C8088	RP_ActorList_stopFlaggedActors	medium	for actors with bit7 set: clear flags and call virtual +0x4c; moved from Lyt
+801C80F8	RP_ActorList_startActor	medium	sets actor state flags (0xb8) and calls actor virtual +0x48; moved from Lyt
+801C812C	RP_Actor_vf16	low	empty virtual; moved from Lyt
+801C8130	RP_ActorList_broadcast	medium	calls virtual +0x5c(value) on actors with active bit6; moved from Lyt
+801C81A0	RP_Actor_vf21	low	empty virtual; moved from Lyt
+801C81A4	RP_Actor_vf20	low	empty virtual; moved from Lyt
+801C81A8	RP_ActorList_calcActive	medium	calls virtual +0x54 on actors with bits 6 and 4 set; moved from Lyt
+801C8210	RP_Actor_vf19	low	empty virtual; moved from Lyt
+801C8214	RP_ActorList_sortAndActivate	medium	bubble-swaps adjacent nodes by priority (+8) and activates pending (bit5) actors via +0x50; moved from Lyt
+801C8378	RP_Actor_vf18	low	empty virtual; moved from Lyt
+801C837C	RP_ActorList_drawAll	medium	calls virtual +0x44 on every actor; moved from Lyt
+801C83D0	RP_Actor_vf15	low	empty virtual; moved from Lyt
+801C83D4	RP_ActorList_allocTables	medium	stores capacity, allocates and zeroes two pointer arrays of that size; moved from Lyt
+801C857C	Gfx_callGfx801AC978	low	thunk: Gfx_801AC978(lbl_8043C590); moved from Lyt
+801C8584	Gfx_addToDrawScene	low	thunk: Gfx_801ACF54(lbl_8043C5A0, a, b); moved from Lyt
+801C8598	Gfx_createDrawModel	low	allocates 0x178 Gfx object (Gfx_801A6CA0) and registers it in draw scene; moved from Lyt
+801C8608	RP_ActorList_dtor	medium	vtable 80357640, frees two tables, delete when flag>0; moved from Lyt
+801C8688	RP_ActorList_ctor	medium	zero head/tail/counts, vtable 80357640 at +0x18; moved from Lyt
+801C86B8	Lyt_801C86B8	keep	empty function
+801C86BC	Gfx_updateModel	low	thunk: Gfx_801A79F4(model); moved from Lyt
+801C86C4	Gfx_setModelScale	medium	sets uniform scale (min 0.01) on model, updates; moved from Lyt
+801C8738	Gfx_drawModel	low	thunk: Gfx_801A7A88(model); moved from Lyt
+801C8740	RP_Actor_dtor	high	destroys member +0x14 (Gfx base), delete when flag>0; moved from Lyt
+801C879C	RP_Actor_ctor	high	sets sub-vtables, Gfx member ctor, vtable 80357668 at +0x20, zero priority fields; moved from Lyt
+801C881C	RP_Actor_vf13	low	empty virtual; moved from Lyt
+801C8820	RP_Actor_vf14	low	empty virtual; moved from Lyt
+801C8824	RP_Actor_getField1A	medium	returns short +0x1a; moved from Lyt
+801C882C	RP_Actor_getPriority	medium	returns short +0x18 (list sort key); moved from Lyt
+801C8834	RP_Actor_thunkGetField1A	high	this-0xc thunk to getField1A; moved from Lyt
+801C883C	RP_Actor_thunkGetPriority	high	this-0xc thunk to getPriority; moved from Lyt
+801C8844	RP_Actor_dtorThunk	high	this-0x14 thunk to dtor; moved from Lyt
+801C884C	RP_getResShortOrDefault	low	returns short table entry (+0x48) of resource, or default when zero; moved from Lyt
+801C8880	RP_PathObject_init	low	copies transform from placement res, creates PathFollower (0x68) if path present; moved from Lyt
+801C8A18	RP_PathFollower_applyPointParams	medium	resets segment, reads speed/wait params from neighboring path points; moved from Lyt
+801C8CB4	RP_PathFollower_ctor	medium	inits from path res, scales speed params by 1/100, applies point params; moved from Lyt
+801C8D28	Lyt_AButtonPrompt_isHidden	medium	true if state +0x1c == 0
+801C8D38	Lyt_AButtonPrompt_isShown	medium	true if state +0x1c == 2
+801C8D4C	Lyt_AButtonPrompt_playOut	medium	binds out anim, state 3
+801C8DC8	Lyt_AButtonPrompt_show	medium	attaches root pane to parent, positions, plays in anim, state 1
+801C8EF4	Lyt_AButtonPrompt_draw	medium	draws layout when visible
+801C8F0C	Lyt_AButtonPrompt_calc	medium	in -> blink loop -> out state machine, detaches pane when done
+801C904C	Lyt_AButtonPrompt_reset	medium	detaches pane, rewinds layout, hidden state
+801C90A8	Lyt_AButtonPrompt_load	high	loads AButton.arc, brlyt, in/out/blink brlan, RootPane and N_AButton_00
+801C9184	RP_playerIndexToMask	high	0..3 -> 1,2,4,8; otherwise 0xf; moved from Lyt
+801C91C8	Lyt_FrameDown_playPressed	medium	state 5: plays press anim on caption/back panes, plays SE RP_COMMON_SE_KEY_BACK_01
+801C9578	Lyt_FrameDown_playUnhover	medium	state 4: plays hover anim backward on caption/back panes
+801C9844	Lyt_FrameDown_playHover	medium	state 3: plays hover anim, cursor SE at pane pos, rumbles player controller
+801C9BA4	Lyt_getPaneGlobalPos	medium	copies x/y from pane global matrix (+0x90,+0xa0)
+801C9BB8	Lyt_FrameDown_requestPressed	medium	if idle or hovered, request state 5
+801C9BD8	Lyt_FrameDown_requestUnhover	medium	if hovered, request state 4
+801C9BF0	Lyt_FrameDown_requestHover	medium	if idle, store player and request state 3
+801C9C0C	Lyt_FrameDown_requestIn	medium	if hidden, request state 1
+801C9C24	Lyt_FrameDown_isIdleOrHovered	medium	true if state is 2 or 3
+801C9C48	Lyt_FrameDown_hitTestBackButton	medium	tests point against 2 back button panes
+801C9CD8	Lyt_FrameDown_isIdle	medium	true if state == 2
+801C9CEC	Lyt_FrameDown_vf04	low	empty virtual
+801C9CF0	Lyt_FrameDown_draw	high	draws layout +0x14
+801C9CF8	Lyt_FrameDown_calc	medium	applies requested state (hidden/in/idle/hover/unhover/press/out), advances on anim end
+801CA044	Lyt_FrameDown_reset	medium	rewinds N_frameDown_00 in-anim, state and request 0
+801CA10C	Lyt_FrameDown_load	medium	loads layout and 4 anims, common_message.bmg, sets caption text by mode
+801CA210	Lyt_FrameDown_dtor	high	trivial dtor, delete when flag>0
+801CA250	Lyt_FrameDown_ctor	high	base ctor RP_801B9FC8, stores mode, vtable 80357718
+801CA29C	Lyt_ABPress_isDone	medium	returns done flag +0x14
+801CA2A4	Lyt_ABPress_isNeeded	low	returns 1 unless all players (or given) pass check Lyt_returnFalse_8018CA14
+801CA330	Lyt_ABPress_start	medium	if players need it: state 1, timer -1, target player (or -1 all), clear done
+801CA3FC	Lyt_ABPress_draw	medium	draws layout when active
+801CA414	Lyt_ABPress_calc	medium	in anim, waits each player holds A+B (plays SE, OK anim), then out and done
+801CAAFC	Lyt_ABPress_reset	medium	state 0, timer -1, rewinds layout, clears target/done
+801CAB58	Lyt_ABPress_load	high	loads ABPress.arc/ABPress_00.brlyt, in/out/LED/inOK anims, per-player panes, texts
+801E419C	Lyt_CommonMessage_setup	medium	binds systems, creates screen, sub-objects (+0x5c,+0x60), sets state 0x11
+801E42BC	Lyt_CommonMessage_dtor	high	base dtor fn_800AB4F8, delete when flag>0
+801E4350	Lyt_CommonMessage_thunkVf21	high	adjusts this by -0x24 and calls Menu_CommonMessage vf21
+801E4358	Lyt_CommonMessage_dtorThunk	high	adjusts this by -0x24 and calls dtor
+801E4484	Lyt_AvatarAnim_resetSelection	low	clears singleton fields, pushes/enables cursor manager, calls menu and object virtual +0x7c
+801E4B18	Mii_createMiiListHolder	low	allocates 0xd8 (vtable 803581E8) with MiiDataSource (type 3, 100) into lbl_8043C6C8; moved from Lyt

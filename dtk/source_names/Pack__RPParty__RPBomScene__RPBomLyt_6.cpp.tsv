@@ -1,0 +1,9 @@
+address	old_name	new_name	unit	previous
+802E6080	Bom_LytLevel_show	Show__13RPBomLytLevelFv	Pack/RPParty/RPBomScene/RPBomLyt_6.cpp	
+802E6228	Bom_LytLevel_exit	VF_0x18__13RPBomLytLevelFv	Pack/RPParty/RPBomScene/RPBomLyt_6.cpp	
+802E622C	Bom_LytLevel_draw	Draw__13RPBomLytLevelFv	Pack/RPParty/RPBomScene/RPBomLyt_6.cpp	
+802E6244	Bom_LytLevel_calc	Calculate__13RPBomLytLevelFv	Pack/RPParty/RPBomScene/RPBomLyt_6.cpp	
+802E6350	Bom_LytLevel_reset	Reset__13RPBomLytLevelFv	Pack/RPParty/RPBomScene/RPBomLyt_6.cpp	
+802E6528	Bom_LytLevel_load	Load__13RPBomLytLevelFPQ23EGG7Archive	Pack/RPParty/RPBomScene/RPBomLyt_6.cpp	
+802E65CC	Bom_LytLevel_dtor	__dt__13RPBomLytLevelFv	Pack/RPParty/RPBomScene/RPBomLyt_6.cpp	
+8035F848	lbl_8035F848	__vt__13RPBomLytLevel	Pack/RPParty/RPBomScene/RPBomLyt_6.cpp	

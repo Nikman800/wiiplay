@@ -1,0 +1,4 @@
+address	old_name	new_name	unit	previous
+801C28DC	Lyt_FrameOverrideTable_get	Get__20RPFrameOverrideTableCFl	Pack/RPParty/RPPartyCommon/RPAnimButton_2.cpp	
+801C2900	Lyt_FrameOverrideTable_has	Has__20RPFrameOverrideTableCFl	Pack/RPParty/RPPartyCommon/RPAnimButton_2.cpp	
+801C290C	Lyt_FrameOverrideTable_clear	Clear__20RPFrameOverrideTableFv	Pack/RPParty/RPPartyCommon/RPAnimButton_2.cpp	

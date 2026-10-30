@@ -1,0 +1,6 @@
+address	old_name	new_name	unit	previous
+802BBCD0	Bil_Camera_computeDefaultView	ComputeDefaultView__11RPBilCameraFP11RPGrpCameraRCQ23EGG8Vector3f	Pack/RPParty/RPBilScene/RPBilCamera_3.cpp	
+802CAF50	Bil_AuxCamera_calc	Calculate__14RPBilAuxCameraFv	Pack/RPParty/RPBilScene/RPBilCamera_3.cpp	
+802CAF8C	Bil_AuxCamera_reset	Reset__14RPBilAuxCameraFv	Pack/RPParty/RPBilScene/RPBilCamera_3.cpp	
+802CB01C	Bil_AuxCamera_dtor	__dt__14RPBilAuxCameraFv	Pack/RPParty/RPBilScene/RPBilCamera_3.cpp	
+8035E348	lbl_8035E348	__vt__14RPBilAuxCamera	Pack/RPParty/RPBilScene/RPBilCamera_3.cpp	

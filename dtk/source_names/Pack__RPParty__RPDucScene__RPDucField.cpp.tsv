@@ -1,0 +1,13 @@
+address	old_name	new_name	unit	previous
+801B72C4	RP_ModelObj_ctor	__ct__10RPModelObjFv	Pack/RPParty/RPDucScene/RPDucField.cpp	
+802368F8	Duc_ShtGrass_playSound	PlaySound__13RPDucShtGrassFl	Pack/RPParty/RPDucScene/RPDucField.cpp	
+8023695C	Duc_ShtGrass_spawnHitEffect	SpawnHitEffect__13RPDucShtGrassFv	Pack/RPParty/RPDucScene/RPDucField.cpp	
+802369F8	Duc_ShtGrass_startShake	StartShake__13RPDucShtGrassFv	Pack/RPParty/RPDucScene/RPDucField.cpp	
+80236A64	Duc_ShtGrass_calc	Calculate__13RPDucShtGrassFv	Pack/RPParty/RPDucScene/RPDucField.cpp	
+80236B2C	Duc_ShtGrass_reset	Reset__13RPDucShtGrassFv	Pack/RPParty/RPDucScene/RPDucField.cpp	
+80236C24	Duc_ShtGrass_load	Load__13RPDucShtGrassFv	Pack/RPParty/RPDucScene/RPDucField.cpp	
+80236D7C	Duc_ShtGrass_init	Create__13RPDucShtGrassFv	Pack/RPParty/RPDucScene/RPDucField.cpp	
+80236EFC	Duc_ShtGrass_dtor	__dt__13RPDucShtGrassFv	Pack/RPParty/RPDucScene/RPDucField.cpp	
+80236F54	Duc_ShtGrass_ctor	__ct__13RPDucShtGrassFv	Pack/RPParty/RPDucScene/RPDucField.cpp	
+80359AA8	lbl_80359AA8	__vt__13RPDucShtGrass	Pack/RPParty/RPDucScene/RPDucField.cpp	
+80359B00	lbl_80359B00	__vt__13RPDucSndActor	Pack/RPParty/RPDucScene/RPDucField.cpp	lbl_80359B00

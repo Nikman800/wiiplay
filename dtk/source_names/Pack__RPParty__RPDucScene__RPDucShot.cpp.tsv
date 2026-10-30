@@ -1,0 +1,21 @@
+address	old_name	new_name	unit	previous
+801B6410	RP_calcPerpendicularDir	RPCalcPerpendicularDir__FPQ34nw4r4math4VEC3PCQ34nw4r4math4VEC3PCQ34nw4r4math4VEC3PCQ34nw4r4math4VEC3	Pack/RPParty/RPDucScene/RPDucShot.cpp	
+801BA474	RP_drawDebugShape	DrawDebug__12RPPosHistoryFv	Pack/RPParty/RPDucScene/RPDucShot.cpp	
+801BAF00	RP_CursorTrail_ctor	__ct__13RPCursorTrailFll	Pack/RPParty/RPDucScene/RPDucShot.cpp	
+80242C14	Duc_Shot_findHitTargets	FindHitTargets__9RPDucShotFv	Pack/RPParty/RPDucScene/RPDucShot.cpp	
+8024310C	Duc_8024310C	__dt__16RPDucShotHitListFv	Pack/RPParty/RPDucScene/RPDucShot.cpp	
+8024314C	Duc_Shot_checkGrassHits	CheckGrassHits__9RPDucShotFv	Pack/RPParty/RPDucScene/RPDucShot.cpp	
+80243418	Duc_Shot_updatePointer	UpdatePointer__9RPDucShotFv	Pack/RPParty/RPDucScene/RPDucShot.cpp	
+80243420	Duc_Shot_draw	Draw__9RPDucShotFv	Pack/RPParty/RPDucScene/RPDucShot.cpp	
+80243424	Duc_Shot_calc	Calculate__9RPDucShotFv	Pack/RPParty/RPDucScene/RPDucShot.cpp	
+802435E8	Duc_Shot_updateCursorEffects	UpdateCursorEffects__9RPDucShotFv	Pack/RPParty/RPDucScene/RPDucShot.cpp	
+8024376C	Duc_Shot_setCursorMode	SetCursorMode__9RPDucShotFl	Pack/RPParty/RPDucScene/RPDucShot.cpp	
+802438A4	Duc_Shot_restartTailEffect	RestartTailEffect__9RPDucShotFv	Pack/RPParty/RPDucScene/RPDucShot.cpp	
+80243938	Duc_Shot_restartMainEffect	RestartMainEffect__9RPDucShotFv	Pack/RPParty/RPDucScene/RPDucShot.cpp	
+802439CC	Duc_Shot_reset	Reset__9RPDucShotFv	Pack/RPParty/RPDucScene/RPDucShot.cpp	
+80243AA4	Duc_Shot_init	Create__9RPDucShotFv	Pack/RPParty/RPDucScene/RPDucShot.cpp	
+80243C48	Duc_Shot_playShotSound	PlayShotSound__9RPDucShotFv	Pack/RPParty/RPDucScene/RPDucShot.cpp	PlayShotSound__9RPDucShotFv;__dt__11RPSysEffectFv
+80243EF0	Duc_Shot_testRaySphere	TestRaySphere__9RPDucShotFRCQ34nw4r4math4VEC3fPQ34nw4r4math4VEC3Pf	Pack/RPParty/RPDucScene/RPDucShot.cpp	
+80244110	Duc_Shot_updateAim	UpdateAim__9RPDucShotFv	Pack/RPParty/RPDucScene/RPDucShot.cpp	
+802444D4	Duc_Shot_dtor	__dt__9RPDucShotFv	Pack/RPParty/RPDucScene/RPDucShot.cpp	
+8035A450	lbl_8035A450	__vt__9RPDucShot	Pack/RPParty/RPDucScene/RPDucShot.cpp	

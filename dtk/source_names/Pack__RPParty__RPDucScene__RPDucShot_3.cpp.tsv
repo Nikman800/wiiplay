@@ -1,0 +1,8 @@
+address	old_name	new_name	unit	previous
+801BAA00	RP_PosHistory_push	Push__12RPPosHistoryFQ34nw4r4math4VEC3	Pack/RPParty/RPDucScene/RPDucShot_3.cpp	
+801BAA74	RP_PosHistory_dtor	__dt__12RPPosHistoryFv	Pack/RPParty/RPDucScene/RPDucShot_3.cpp	
+801BAAB4	RP_PosHistory_ctor	__ct__12RPPosHistoryFll	Pack/RPParty/RPDucScene/RPDucShot_3.cpp	
+8024FD3C	Duc_ShotPointer_pullFromController	PullFromController__16RPDucShotPointerFv	Pack/RPParty/RPDucScene/RPDucShot_3.cpp	
+8024FEEC	Duc_ShotPointer_dtor	__dt__16RPDucShotPointerFv	Pack/RPParty/RPDucScene/RPDucShot_3.cpp	
+8024FF44	Duc_ShotPointer_ctor	__ct__16RPDucShotPointerFll	Pack/RPParty/RPDucScene/RPDucShot_3.cpp	
+8035AD70	lbl_8035AD70	__vt__16RPDucShotPointer	Pack/RPParty/RPDucScene/RPDucShot_3.cpp	

@@ -1,0 +1,11 @@
+address	old_name	new_name	unit	previous
+802719A8	Tnk_StartMsg_play	Play__13RPTnkStartMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_6.cpp	
+80271A7C	Tnk_StartMsg_exit	VF_0x18__13RPTnkStartMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_6.cpp	
+80271A80	Tnk_StartMsg_draw	Draw__13RPTnkStartMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_6.cpp	
+80271A88	Tnk_StartMsg_calc	Calculate__13RPTnkStartMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_6.cpp	
+80271A90	Tnk_StartMsg_reset	Reset__13RPTnkStartMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_6.cpp	
+80271C14	Tnk_StartMsg_load	Load__13RPTnkStartMsgFPQ23EGG7Archive	Pack/RPParty/RPTnkScene/RPTnkLyt_6.cpp	
+80271CB0	Tnk_StartMsg_dtor	__dt__13RPTnkStartMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_6.cpp	
+80271CF0	Tnk_StartMsg_ctor	__ct__13RPTnkStartMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_6.cpp	
+8035C348	Tnk_StartMsg_vtable	__vt__13RPTnkStartMsg	Pack/RPParty/RPTnkScene/RPTnkLyt_6.cpp	
+8043C938	Tnk_layoutManagerInstance	sInstance__18RPTnkLayoutManager	Pack/RPParty/RPTnkScene/RPTnkLyt_6.cpp	

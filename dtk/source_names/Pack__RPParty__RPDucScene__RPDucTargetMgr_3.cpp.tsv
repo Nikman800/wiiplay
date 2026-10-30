@@ -1,0 +1,9 @@
+address	old_name	new_name	unit	previous
+80239ECC	Duc_DuckMgr_createInstance	CreateInstance__12RPDucDuckMgrFl	Pack/RPParty/RPDucScene/RPDucTargetMgr_3.cpp	
+80239F40	Duc_DuckMgr_load	Load__12RPDucDuckMgrFv	Pack/RPParty/RPDucScene/RPDucTargetMgr_3.cpp	
+80239F44	Duc_DuckMgr_dtor	__dt__12RPDucDuckMgrFv	Pack/RPParty/RPDucScene/RPDucTargetMgr_3.cpp	
+80239F9C	Duc_DuckMgr_allocTarget	AllocTarget__12RPDucDuckMgrFv	Pack/RPParty/RPDucScene/RPDucTargetMgr_3.cpp	
+80239FCC	Duc_DuckMgr_destroyInstance	DestroyInstance__12RPDucDuckMgrFv	Pack/RPParty/RPDucScene/RPDucTargetMgr_3.cpp	
+8023D038	Duc_Duck_ctor	__ct__9RPDucDuckFv	Pack/RPParty/RPDucScene/RPDucTargetMgr_3.cpp	
+80359ED8	lbl_80359ED8	__vt__12RPDucDuckMgr	Pack/RPParty/RPDucScene/RPDucTargetMgr_3.cpp	
+8043C850	Duc_duckMgrInstance	sInstance__12RPDucDuckMgr	Pack/RPParty/RPDucScene/RPDucTargetMgr_3.cpp	

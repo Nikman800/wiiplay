@@ -1,0 +1,10 @@
+address	old_name	new_name	unit	previous
+80234AC8	Pnp_HelpMsgLyt_requestHide	RequestHide__15RPPnpHelpMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_11.cpp	
+80234AD4	Pnp_HelpMsgLyt_setMessage	SetMessage__15RPPnpHelpMsgLytFl	Pack/RPParty/RPPnpScene/RPPnpLyt_11.cpp	
+80234B88	Pnp_HelpMsgLyt_draw	Draw__15RPPnpHelpMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_11.cpp	
+80234B90	Pnp_HelpMsgLyt_exit	Exit__15RPPnpHelpMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_11.cpp	
+80234B94	Pnp_HelpMsgLyt_calc	Calculate__15RPPnpHelpMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_11.cpp	
+80234DCC	Pnp_HelpMsgLyt_reset	Reset__15RPPnpHelpMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_11.cpp	
+80234E7C	Pnp_HelpMsgLyt_load	Load__15RPPnpHelpMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_11.cpp	
+80234F10	Pnp_HelpMsgLyt_create	Create__15RPPnpHelpMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_11.cpp	
+80234F3C	Pnp_HelpMsgLyt_applyText	ApplyText__15RPPnpHelpMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_11.cpp	

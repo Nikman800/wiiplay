@@ -1,0 +1,4 @@
+address	size	our_name	ref_name	ref_unit	repo	size_diff	gap_len
+80087E94	220	eggDrawGX_80087E94	DrawCircle2D__Q23EGG6DrawGXFQ33EGG6DrawGX6Circlefff8_GXColor	egg/gfxe/eggDrawGX.cpp	ogws	-16	3
+80087F70	200	eggDrawGX_80087F70	DrawCornY__Q23EGG6DrawGXFQ33EGG6DrawGX6CircleRCQ34nw4r4math5MTX348_GXColor	egg/gfxe/eggDrawGX.cpp	ogws	0	3
+80088038	200	eggDrawGX_80088038	DrawPolygon__Q23EGG6DrawGXFRCQ34nw4r4math4VEC3RCQ34nw4r4math4VEC3RCQ34nw4r4math4VEC38_GXColor	egg/gfxe/eggDrawGX.cpp	ogws	200	3

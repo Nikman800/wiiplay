@@ -1,0 +1,9 @@
+address	old_name	new_name	unit	previous
+80234654	Pnp_ServeMsgLyt_isDone	IsDone__16RPPnpServeMsgLytCFv	Pack/RPParty/RPPnpScene/RPPnpLyt_10.cpp	
+80234664	Pnp_ServeMsgLyt_show	Show__16RPPnpServeMsgLytFl	Pack/RPParty/RPPnpScene/RPPnpLyt_10.cpp	
+80234794	Pnp_ServeMsgLyt_draw	Draw__16RPPnpServeMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_10.cpp	
+8023479C	Pnp_ServeMsgLyt_exit	Exit__16RPPnpServeMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_10.cpp	
+802347A0	Pnp_ServeMsgLyt_calc	Calculate__16RPPnpServeMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_10.cpp	
+80234898	Pnp_ServeMsgLyt_reset	Reset__16RPPnpServeMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_10.cpp	
+80234988	Pnp_ServeMsgLyt_load	Load__16RPPnpServeMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_10.cpp	
+80234AA4	Pnp_ServeMsgLyt_create	Create__16RPPnpServeMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_10.cpp	

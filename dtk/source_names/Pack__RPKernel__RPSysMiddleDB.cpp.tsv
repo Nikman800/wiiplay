@@ -1,0 +1,3 @@
+address	old_name	new_name	unit	previous
+8019C03C	Mii_MiiDataSource_updateAsync	UpdateRandomDBAsync__13RPSysMiddleDBFv	Pack/RPKernel/RPSysMiddleDB.cpp	
+8034F7C4	lbl_8034F7C4	__vt__13RPSysMiddleDB	Pack/RPKernel/RPSysMiddleDB.cpp	

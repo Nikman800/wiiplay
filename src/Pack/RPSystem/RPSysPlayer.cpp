@@ -1,0 +1,191 @@
+#include <Pack/RPSystem.h>
+// Ported from doldecomp/ogws (CC0) src/Pack/RPSystem/RPSysPlayer.cpp @ f5a1bb5e; Wii Play changes marked "Wii Play:".
+
+#include <RVLFaceLib.h>
+
+// Wii Play: not in Wii Sports (stubbed for release)
+void RPSysPlayer_DebugSprintf(char* /* pBuffer */, const char* /* pFmt */, ...) {
+    ;
+}
+
+namespace {
+
+/**
+ * @brief Tests whether two given RFL create IDs are equivalent
+ *
+ * @param rLhs Left-hand side ID
+ * @param rRhs Right-hand side ID
+ */
+bool IsSameCreateID(const RFLCreateID& rLhs, const RFLCreateID& rRhs) {
+    for (u32 i = 0; i < RFL_CREATEID_LEN; i++) {
+        if (rLhs.data[i] != rRhs.data[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+} // namespace
+
+/**
+ * @brief Constructor
+ */
+RPSysPlayer::RPSysPlayer() : mpSportsPlayerData(NULL), mpPartyPlayerData(NULL) {
+#if defined(PACK_SPORTS)
+    mpSportsPlayerData = new RPSportsPlayerData();
+#elif defined(PACK_PARTY)
+    mpPartyPlayerData = new RPPartyPlayerData();
+#endif
+}
+
+/**
+ * @brief Resets the data to a default state
+ */
+void RPSysPlayer::reset() {
+    mChannel = WPAD_CHAN0;
+    mDataSource = -1;
+    mIndex = -1;
+    mPlayerDataIndex = -1;
+
+    for (int i = 0; i < RFL_CREATEID_LEN; i++) {
+        mCreateID.data[i] = 0;
+    }
+
+#if defined(PACK_SPORTS)
+    mpSportsPlayerData->reset();
+#elif defined(PACK_PARTY)
+    mpPartyPlayerData->reset();
+#endif
+}
+
+/**
+ * @brief Sets the Mii avatar associated with this player
+ *
+ * @param dataSrc Mii data source
+ * @param index Mii database index
+ * @param rCreateID Mii create ID
+ */
+void RPSysPlayer::setAvatar(s8 dataSrc, u16 index,
+                            const RFLCreateID& rCreateID) {
+    mDataSource = dataSrc;
+    mIndex = index;
+    mCreateID = rCreateID;
+}
+
+/**
+ * @brief Loads this player's data
+ *
+ * @param rArg Parameter set
+ */
+void RPSysPlayer::loadData(const RPSysPlayerArg& rArg) {
+    mPlayerDataIndex = mIndex;
+
+    if (mDataSource == RFLDataSource_Official && mIndex < RFL_DB_CHAR_MAX) {
+        RPSysSaveDataMgr* pSaveDataMgr = RP_GET_INSTANCE(RPSysSaveDataMgr);
+
+        if (mpSportsPlayerData != NULL) {
+            *mpSportsPlayerData =
+                pSaveDataMgr->getSportsPlayerData(mPlayerDataIndex);
+        }
+
+        if (mpPartyPlayerData != NULL) {
+            *mpPartyPlayerData =
+                pSaveDataMgr->getPartyPlayerData(mPlayerDataIndex);
+        }
+
+    } else if (mDataSource == RFLDataSource_Default &&
+               mIndex < RFL_DEFAULT_CHAR_MAX) {
+
+        if (mpSportsPlayerData != NULL &&
+            rArg.pDefaultSportsPlayerData != NULL) {
+            *mpSportsPlayerData =
+                rArg.pDefaultSportsPlayerData[mPlayerDataIndex];
+        }
+
+        if (mpPartyPlayerData != NULL && rArg.pDefaultPartyPlayerData != NULL) {
+            *mpPartyPlayerData = rArg.pDefaultPartyPlayerData[mPlayerDataIndex];
+        }
+
+    } else if (mDataSource >= RFLDataSource_Controller1 &&
+               mDataSource <= RFLDataSource_Controller4 &&
+               mIndex < RFL_CTRL_CHAR_MAX) {
+
+        u32 ctrlIndex = mDataSource - RFLDataSource_Controller1;
+
+        if (mpSportsPlayerData != NULL && rArg.ppCtrlSportsPlayerData != NULL) {
+            *mpSportsPlayerData =
+                rArg.ppCtrlSportsPlayerData[ctrlIndex][mPlayerDataIndex];
+        }
+
+        if (mpPartyPlayerData != NULL && rArg.ppCtrlPartyPlayerData != NULL) {
+            *mpPartyPlayerData =
+                rArg.ppCtrlPartyPlayerData[ctrlIndex][mPlayerDataIndex];
+        }
+    }
+
+    // Wii Play: the party player data (Wii Sports uses the sports player data here)
+    RFLCreateID expected;
+    mpPartyPlayerData->getCreateID(&expected);
+
+    if (!IsSameCreateID(mCreateID, expected)) {
+        mpPartyPlayerData->reset();
+        mpPartyPlayerData->setCreateID(&mCreateID);
+    }
+}
+
+/**
+ * @brief Saves this player's data
+ *
+ * @param rArg Parameter set
+ */
+void RPSysPlayer::saveData(const RPSysPlayerArg& rArg) {
+    if (mPlayerDataIndex < 0) {
+        return;
+    }
+
+    if (mDataSource == RFLDataSource_Official &&
+        mPlayerDataIndex < RFL_DB_CHAR_MAX) {
+
+        RPSysSaveDataMgr* pSaveDataMgr = RP_GET_INSTANCE(RPSysSaveDataMgr);
+
+        if (mpSportsPlayerData != NULL) {
+            pSaveDataMgr->setSportsPlayerData(*mpSportsPlayerData,
+                                              mPlayerDataIndex);
+        }
+
+        if (mpPartyPlayerData != NULL) {
+            pSaveDataMgr->setPartyPlayerData(*mpPartyPlayerData,
+                                             mPlayerDataIndex);
+        }
+
+    } else if (mDataSource == RFLDataSource_Default &&
+               mPlayerDataIndex < RFL_DEFAULT_CHAR_MAX) {
+
+        if (mpSportsPlayerData != NULL &&
+            rArg.pDefaultSportsPlayerData != NULL) {
+            rArg.pDefaultSportsPlayerData[mPlayerDataIndex] =
+                *mpSportsPlayerData;
+        }
+
+        if (mpPartyPlayerData != NULL && rArg.pDefaultPartyPlayerData != NULL) {
+            rArg.pDefaultPartyPlayerData[mPlayerDataIndex] = *mpPartyPlayerData;
+        }
+
+    } else if (mDataSource >= RFLDataSource_Controller1 &&
+               mDataSource <= RFLDataSource_Controller4 &&
+               mPlayerDataIndex < RFL_CTRL_CHAR_MAX) {
+
+        u32 ctrlIndex = mDataSource - RFLDataSource_Controller1;
+
+        if (mpSportsPlayerData != NULL && rArg.ppCtrlSportsPlayerData != NULL) {
+            rArg.ppCtrlSportsPlayerData[ctrlIndex][mPlayerDataIndex] =
+                *mpSportsPlayerData;
+        }
+
+        if (mpPartyPlayerData != NULL && rArg.ppCtrlPartyPlayerData != NULL) {
+            rArg.ppCtrlPartyPlayerData[ctrlIndex][mPlayerDataIndex] =
+                *mpPartyPlayerData;
+        }
+    }
+}

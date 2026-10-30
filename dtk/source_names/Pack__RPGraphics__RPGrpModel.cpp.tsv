@@ -1,0 +1,11 @@
+address	old_name	new_name	unit	previous
+801A7AFC	Gfx_Model_createBoundingInfo	CreateBoundingInfo__10RPGrpModelFUl	Pack/RPGraphics/RPGrpModel.cpp	
+801A7BBC	Gfx_Model_setCallback	SetCallback__10RPGrpModelFP19IRPGrpModelCallback	Pack/RPGraphics/RPGrpModel.cpp	
+801A7BCC	Gfx_Model_createMaterials	Configure__10RPGrpModelFv	Pack/RPGraphics/RPGrpModel.cpp	
+801A7CAC	Gfx_Model_baseDtor	__dt__10RPGrpModelFv	Pack/RPGraphics/RPGrpModel.cpp	
+801A7CEC	Gfx_Model_ctor	__ct__10RPGrpModelFUc	Pack/RPGraphics/RPGrpModel.cpp	
+801B02E8	Gfx_MatEditor_calc	Calc__18RPGrpModelMaterialFv	Pack/RPGraphics/RPGrpModel.cpp	
+801B09DC	Gfx_MatEditor_ctor	__ct__18RPGrpModelMaterialFP10RPGrpModelUs	Pack/RPGraphics/RPGrpModel.cpp	
+8043C570	lbl_8043C570	spCalcModel__10RPGrpModel	Pack/RPGraphics/RPGrpModel.cpp	
+801AB274	__ct__13RPGrpModelG3DFUsPCcUcUlUl	__ct__13RPGrpModelG3DFUsPCcUcUlUl	Pack/RPGraphics/RPGrpModel.cpp	
+8043C578	lbl_8043C578	spCalcViewMtxArray__10RPGrpModel	Pack/RPGraphics/RPGrpModel.cpp	

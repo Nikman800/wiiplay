@@ -1,0 +1,14 @@
+address	old_name	new_name	unit	previous
+802B3770	Cow_LimitCount_drawScreen	DrawScreen__15RPCowLimitCountFUc	Pack/RPParty/RPCowScene/RPCowHud_9.cpp	
+802B3784	Cow_LimitCount_calc	OnActivate__15RPCowLimitCountFv	Pack/RPParty/RPCowScene/RPCowHud_9.cpp	
+802B3888	Cow_LimitCount_exit	OnStop__15RPCowLimitCountFv	Pack/RPParty/RPCowScene/RPCowHud_9.cpp	
+802B388C	Cow_LimitCount_reset	OnStart__15RPCowLimitCountFv	Pack/RPParty/RPCowScene/RPCowHud_9.cpp	
+802B3A28	Cow_LimitCount_init	LoadResource__15RPCowLimitCountFv	Pack/RPParty/RPCowScene/RPCowHud_9.cpp	
+802B3C08	Cow_LimitCount_dtor	__dt__15RPCowLimitCountFv	Pack/RPParty/RPCowScene/RPCowHud_9.cpp	
+802B3C60	Cow_LimitCount_ctor	__ct__15RPCowLimitCountFv	Pack/RPParty/RPCowScene/RPCowHud_9.cpp	
+802B3CB4	Cow_LimitCount_setCount	SetCount__15RPCowLimitCountFl	Pack/RPParty/RPCowScene/RPCowHud_9.cpp	
+802B3DE8	Cow_LimitCount_hideMessage	HideMessage__15RPCowLimitCountFv	Pack/RPParty/RPCowScene/RPCowHud_9.cpp	
+802B3DFC	Cow_LimitCount_start	Start__15RPCowLimitCountFv	Pack/RPParty/RPCowScene/RPCowHud_9.cpp	
+802B3F88	Cow_LimitCount_showFinish	ShowFinish__15RPCowLimitCountFv	Pack/RPParty/RPCowScene/RPCowHud_9.cpp	
+802B4064	Cow_LimitCount_dtorThunk	@20@__dt__15RPCowLimitCountFv	Pack/RPParty/RPCowScene/RPCowHud_9.cpp	
+8035D968	lbl_8035D968	__vt__15RPCowLimitCount	Pack/RPParty/RPCowScene/RPCowHud_9.cpp	

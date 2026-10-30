@@ -1,0 +1,324 @@
+# batch bil: modules Bil; 647 functions; 48 classes
+
+## classes (ledger class -> suggested C++ name; vtables; allocation sizes; methods)
+Bil_AimMarker -> RPBilAimMarker; vtables 8035E1E0; sizes 0x68 via Bil_AimMarker_ctor in Bil_BallMgr_ctor; 10 methods: calc, ctor, draw, drawThunk, dtor, dtorThunk4, dtorThunk8, exit, load, reset
+Bil_AuxCamera -> RPBilAuxCamera; vtables 8035E348; sizes 0x200 via Bil_AuxCamera_ctor in Bil_CameraMgr_create; 4 methods: calc, ctor, dtor, reset
+Bil_Ball -> RPBilBall; vtables 8035DE68; sizes 0x84 via Bil_Ball_ctor in Bil_BallMgr_ctor; 42 methods: calc, calcOnTable, calcOut, calcPocketed, checkPocket, ctor, draw, drawThunk, dtor, dtorThunk4, dtorThunk8, enterOnTable ...
+Bil_BallIcon -> RPBilBallIcon; vtables 8035E538; sizes 0x88 via Bil_BallIcon_ctor in Bil_BallMgr_ctor; 17 methods: calc, calcEnter, calcLeave, calcWait, ctor, dtor, dtorThunk4, dtorThunk8, enterEnter, enterLeave, enterWait, exit ...
+Bil_BallMgr -> RPBilBallMgr; vtables 8035DEF8; sizes 0x104 via Bil_BallMgr_ctor in Bil_BallMgr_create; 35 methods: areAllBallsStopped, areIconsDone, areIconsIdle, calc, calcBallCollisions, calcTableCollisions, canPlaceBall, countPocketed, create, ctor, destroy, draw ...
+Bil_BallNumberTag -> RPBilBallNumberTag; vtables 8035E680; sizes 0x54 via Lyt_LytObjBase_ctor in Bil_BallNumberTag_create (derived vtable 8035E680); 19 methods: calc, calcIdle, calcIn, calcOut, calcShown, create, destroy, draw, drawThunk, dtor, dtorThunk, enterIdle ...
+Bil_BallSM -> RPBilBallSM; vtables -; sizes 0x28 via Bil_BallSM_ctor in Bil_Ball_ctor; 10 methods: callCalc, callEnter, callExit, changeState, ctor, isInOrEnteringState, isInState, reset, setStateFuncs, update
+Bil_BreakLottery -> RPBilBreakLottery; vtables 8035E450; sizes 0x38 via __ct__15RP_DEBUG_STUB_1Fv in Bil_BreakLottery_create (derived vtable 8035E450); 18 methods: calc, calcDone, calcSpin, calcWait, create, destroy, draw, drawThunk, dtor, dtorThunk4, dtorThunk8, enterDone ...
+Bil_Camera -> RPBilCamera; vtables 8035DD48; sizes -; 14 methods: calc, computeDefaultView, ctor, dtor, getBaseDistance, getZoomDistance, moveToAimAt, moveToDefaultView, moveToLookAt, moveToOverview, orbitPitch, orbitYaw ...
+Bil_CameraMgr -> RPBilCameraMgr; vtables 8035DD38; sizes -; 5 methods: calc, create, destroy, dtor, reset
+Bil_ContactInput -> RPBilContactInput; vtables -; sizes -; 2 methods: ctor, dtor
+Bil_ContactResult -> RPBilContactResult; vtables -; sizes -; 2 methods: ctor, dtor
+Bil_CueGhost -> RPBilCueGhost; vtables 8035E2B8; sizes 0x64 via Bil_CueGhost_ctor in Bil_BallMgr_ctor; 10 methods: calc, ctor, draw, drawThunk, dtor, dtorThunk4, dtorThunk8, exit, load, reset
+Bil_GameMgr -> RPBilGameMgr; vtables 8035DF88; sizes 0x8 via Bil_GameMgr_ctor in Bil_GameMgr_create; 21 methods: calc, calcFoul, calcGameOver, calcIntro, calcPlay, calcScore, calcStart, create, ctor, destroy, dtor, enterFoul ...
+Bil_GameSM -> RPBilGameSM; vtables -; sizes 0x28 via Bil_GameSM_ctor in Bil_GameMgr_ctor; 8 methods: callCalc, callEnter, callExit, changeState, ctor, reset, setStateFuncs, update
+Bil_Hint -> RPBilHint; vtables 8035E660; sizes -; 17 methods: calc, calcFadeIn, calcFadeOut, calcIdle, calcShown, create, destroy, draw, dtor, enterFadeIn, enterFadeOut, enterIdle ...
+Bil_HintLyt -> RPBilHintLyt; vtables 8035E608; sizes 0x14 via Lyt_LytObjBase_ctor in Bil_Hint_create (derived vtable 8035E608); 4 methods: calc, draw, load, reset
+Bil_HintSM -> RPBilHintSM; vtables -; sizes -; 9 methods: callCalc, callEnter, callExit, changeState, ctor, isInState, reset, setStateFuncs, update
+Bil_Hud -> RPBilHud; vtables 8035E498; sizes 0xA0 via Bil_Hud_ctor in Bil_Hud_create; 33 methods: calc, calcPromptIdle, calcPromptIn, calcPromptOut, calcPromptShown, calcTurnPanelIdle, calcTurnPanelIn, calcTurnPanelOut, calcTurnPanelShown, create, ctor, destroy ...
+Bil_HudSM -> RPBilHudSM; vtables -; sizes 0x28 via Bil_HudSM_ctor in Bil_Hud_ctor; 8 methods: callCalc, callEnter, callExit, changeState, ctor, reset, setStateFuncs, update
+Bil_IconSM -> RPBilIconSM; vtables -; sizes 0x28 via Bil_IconSM_ctor in Bil_BallIcon_ctor; 9 methods: callCalc, callEnter, callExit, changeState, ctor, isInState, reset, setStateFuncs, update
+Bil_MsgSM -> RPBilMsgSM; vtables -; sizes 0x28 via Bil_MsgSM_ctor in Bil_MsgWindow_create; 10 methods: callCalc, callEnter, callExit, changeState, ctor, isInOrEnteringState, isInState, reset, setStateFuncs, update
+Bil_MsgWindow -> RPBilMsgWindow; vtables 8035E4D0; sizes 0x24 via Lyt_LytObjBase_ctor in Bil_MsgWindow_create (derived vtable 8035E4D0); 17 methods: calc, calcClose, calcOpen, calcOpening, close, create, destroy, draw, drawThunk, dtor, dtorThunk, enterClose ...
+Bil_Music -> RPBilMusic; vtables 8035E528; sizes -; 6 methods: applyState, calc, create, destroy, setState, start
+Bil_NextBallMarker -> RPBilNextBallMarker; vtables 8035E3C0; sizes 0x7C via RP_ActorBase_ctor in Bil_NextBallMarker_create (derived vtable 8035E3C0); 13 methods: calc, create, destroy, draw, drawThunk, dtor, dtorThunk4, dtorThunk8, exit, load, reset, show ...
+Bil_Player -> RPBilPlayer; vtables 8035DDC8; sizes 0x68CC via Bil_Player_ctor in Bil_PlayerMgr_create; 37 methods: addScore, calc, calcAddress, calcAfterShot, calcAim, calcCueFromCamera, calcPlaceBall, calcPointerRay, calcRotateView, calcStroke, calcWait, ctor ...
+Bil_PlayerMgr -> RPBilPlayerMgr; vtables 8035DE58; sizes -; 14 methods: addPlayerScore, assignChannels, calc, create, destroy, dtor, exit, incPlayerStat687C, isAorBTriggered, load, reset, setCursorsVisible ...
+Bil_PlayerSM -> RPBilPlayerSM; vtables -; sizes 0x28 via Bil_PlayerSM_ctor in Bil_Player_ctor; 8 methods: callCalc, callEnter, callExit, changeState, ctor, reset, setStateFuncs, update
+Bil_PocketCam -> RPBilPocketCam; vtables 8035E360; sizes 0x204 via Bil_PocketCam_ctor in Bil_CameraMgr_create; 5 methods: calc, ctor, dtor, lookAtPocket, reset
+Bil_PocketCamWindow -> RPBilPocketCamWindow; vtables 8035E378; sizes 0x30 via __ct__15RP_DEBUG_STUB_1Fv in Bil_PocketCamWindow_create (derived vtable 8035E378); 12 methods: calc, clampTimers, create, destroy, draw, drawThunk, dtor, dtorThunk4, dtorThunk8, load, reset, showPocket
+Bil_PopupLytSM -> RPBilPopupLytSM; vtables -; sizes 0x28 via Bil_PopupLytSM_ctor in Bil_ScorePopupLyt_ctor; 10 methods: callCalc, callEnter, callExit, changeState, ctor, isInOrEnteringState, isInState, reset, setStateFuncs, update
+Bil_Result -> RPBilResult; vtables 8035E270; sizes 0x60 via Bil_Result_ctor in Bil_Result_create; 27 methods: calc, calc1pRecord, calcBranch, calcEndMenu, calcSummary, calcWait, calcWinner, computeScores, create, ctor, destroy, draw ...
+Bil_ResultLyt -> RPBilResultLyt; vtables 8035E508; sizes 0x6C via Bil_ResultLyt_ctor in Bil_Result_ctor; 15 methods: calc, calcHide, calcShow, calcShown, ctor, draw, dtor, enterHide, enterShow, enterShown, hideSide, isShowDone ...
+Bil_ResultLytSM -> RPBilResultLytSM; vtables -; sizes 0x28 via Bil_ResultLytSM_ctor in Bil_ResultLyt_ctor; 10 methods: callCalc, callEnter, callExit, changeState, ctor, isInOrEnteringState, isInState, reset, setStateFuncs, update
+Bil_ResultSM -> RPBilResultSM; vtables -; sizes 0x28 via Bil_ResultSM_ctor in Bil_Result_ctor; 8 methods: callCalc, callEnter, callExit, changeState, ctor, reset, setStateFuncs, update
+Bil_Scene -> RPBilScene; vtables 8035DC48; sizes 0x58 via __ct__10RPSysSceneFv in Sys_SceneCreator_createGameScene (derived vtable 8035DC48); 8 methods: calc, create, drawPass, dtor, dtorThunk, exit, loadResources, reset
+Bil_SceneSoundRef -> RPBilSceneSoundRef; vtables 8035DC38; sizes -; 1 methods: dtor
+Bil_ScorePopup -> RPBilScorePopup; vtables 8035E5E0; sizes -; 15 methods: calc, calcClose, calcOpen, calcShow, create, destroy, draw, dtor, enterClose, enterOpen, enterShow, exit ...
+Bil_ScorePopupLyt -> RPBilScorePopupLyt; vtables 8035E5C0; sizes 0x28 via Bil_ScorePopupLyt_ctor in Bil_ScorePopup_create; 13 methods: calc, calcClose, calcOpen, calcOpening, ctor, draw, enterClose, enterOpen, enterOpening, hide, load, reset ...
+Bil_ScorePopupSM -> RPBilScorePopupSM; vtables -; sizes -; 9 methods: callCalc, callEnter, callExit, changeState, ctor, isInState, reset, setStateFuncs, update
+Bil_Sound3D -> RPBilSound3D; vtables 8035DF98; sizes 0xB4 via Bil_Sound3D_ctor in Bil_Ball_ctor; 0xB4 via Bil_Sound3D_ctor in Bil_Player_ctor; 54 methods: applyToAllHandles, applyVolume, applyVolumeThunk, ctor, dtor, dtorThunk, getHandleSlot, getHandleSlotThunk, getOne, getSoundInfoByLabel, getVolume, getVolumeThunk ...
+Bil_Sound3DBase -> RPBilSound3DBase; vtables 8035E074; sizes -; 2 methods: dtor, dtorThunk
+Bil_Sound3DPart -> RPBilSound3DPart; vtables -; sizes -; 2 methods: getOne, getZero
+Bil_SoundActor -> RPBilSoundActor; vtables 8035DD60; sizes -; 3 methods: dtor, playCameraTick, startSound
+Bil_SoundActorPart -> RPBilSoundActorPart; vtables -; sizes -; 1 methods: dtor
+Bil_StrokeGuide -> RPBilStrokeGuide; vtables 8035E628; sizes 0x24 via Lyt_LytObjBase_ctor in Bil_StrokeGuide_create (derived vtable 8035E628); 10 methods: calc, create, destroy, draw, drawThunk, dtor, dtorThunk, load, reset, setMode
+Bil_Table -> RPBilTable; vtables 8035DCA8; sizes 0xB8 via RP_ActorBase_ctor in Bil_Table_create (derived vtable 8035DCA8); 16 methods: calc, create, destroy, draw, drawThunk, dtor, dtorThunk4, dtorThunk8, exit, getPocketPos, hideGuideLine, isInsideBallRange ...
+Bil_TagSM -> RPBilTagSM; vtables -; sizes 0x28 via Bil_TagSM_ctor in Bil_BallNumberTag_create; 8 methods: callCalc, callEnter, callExit, changeState, ctor, reset, setStateFuncs, update
+
+## globals referenced (address name section size refs)
+800B2214 _savegpr_14 .text 0x0 1
+800B2230 _savegpr_21 .text 0x0 1
+800B2234 _savegpr_22 .text 0x0 2
+800B2238 _savegpr_23 .text 0x0 1
+800B2240 _savegpr_25 .text 0x0 3
+800B2244 _savegpr_26 .text 0x0 4
+800B2248 _savegpr_27 .text 0x0 5
+800B2260 _restgpr_14 .text 0x0 1
+800B227C _restgpr_21 .text 0x0 1
+800B2280 _restgpr_22 .text 0x0 2
+800B2284 _restgpr_23 .text 0x0 1
+800B228C _restgpr_25 .text 0x0 3
+800B2290 _restgpr_26 .text 0x0 4
+800B2294 _restgpr_27 .text 0x0 5
+8030FE48 lbl_8030FE48 .rodata 0x10 21
+80326F78 lbl_80326F78 .rodata 0x20 1
+80326F98 lbl_80326F98 .rodata 0xA 1
+80327058 lbl_80327058 .rodata 0x50 1
+803270A8 lbl_803270A8 .rodata 0xD8 1
+80327180 lbl_80327180 .rodata 0x14 1
+80327194 lbl_80327194 .rodata 0xC 1
+803271A0 lbl_803271A0 .rodata 0x14 1
+80327218 lbl_80327218 .rodata 0x60 1
+80327278 lbl_80327278 .rodata 0x30 1
+803272A8 lbl_803272A8 .rodata 0x18 1
+803272C0 lbl_803272C0 .rodata 0x90 1
+80327350 lbl_80327350 .rodata 0x60 1
+803273B0 lbl_803273B0 .rodata 0xB 1
+803273C0 lbl_803273C0 .rodata 0x48 1
+80327408 lbl_80327408 .rodata 0xC0 1
+803274C8 lbl_803274C8 .rodata 0xB 1
+803274D8 lbl_803274D8 .rodata 0x30 1
+80327508 lbl_80327508 .rodata 0xE 1
+80327518 lbl_80327518 .rodata 0x78 1
+80327590 lbl_80327590 .rodata 0x60 2
+803275F0 lbl_803275F0 .rodata 0xB0 1
+803276A0 lbl_803276A0 .rodata 0x1B 2
+803278E0 lbl_803278E0 .rodata 0x60 1
+80327940 lbl_80327940 .rodata 0x10 1
+80327950 lbl_80327950 .rodata 0x1B 2
+803279C0 lbl_803279C0 .rodata 0xB0 2
+80327A70 lbl_80327A70 .rodata 0x1B 2
+80327DC8 lbl_80327DC8 .rodata 0x60 1
+80327E28 lbl_80327E28 .rodata 0x24 1
+80327E4C lbl_80327E4C .rodata 0x9 1
+80327E58 lbl_80327E58 .rodata 0x60 1
+80327EB8 lbl_80327EB8 .rodata 0x1B 2
+80327F48 lbl_80327F48 .rodata 0x60 1
+80327FA8 lbl_80327FA8 .rodata 0x48 1
+80327FF0 lbl_80327FF0 .rodata 0xC8 1
+803280B8 lbl_803280B8 .rodata 0x60 1
+80328118 lbl_80328118 .rodata 0x60 1
+80328178 lbl_80328178 .rodata 0x30 1
+803281A8 lbl_803281A8 .rodata 0x18 1
+8032D3F8 lbl_8032D3F8 .data 0x11 2
+8032D40C lbl_8032D40C .data 0x12 2
+8032DAEC lbl_8032DAEC .data 0x1B 2
+8032DB08 lbl_8032DB08 .data 0xD 2
+8034F32C lbl_8034F32C .data 0x14 1
+80357A14 lbl_80357A14 .data 0x22 1
+80357A38 lbl_80357A38 .data 0x12 1
+803587D0 lbl_803587D0 .data 0x10 1
+80358A78 lbl_80358A78 .data 0x10 2
+80358A88 lbl_80358A88 .data 0x24 7
+80358AF4 lbl_80358AF4 .data 0x15 1
+80358B0C lbl_80358B0C .data 0xE 1
+80358DA4 lbl_80358DA4 .data 0x15 2
+80358DC0 lbl_80358DC0 .data 0x10 2
+80358E18 lbl_80358E18 .data 0x20 1
+8035DC38 lbl_8035DC38 .data 0x10 1
+8035DCA8 lbl_8035DCA8 .data 0x90 1
+8035DD38 lbl_8035DD38 .data 0x10 1
+8035DD48 lbl_8035DD48 .data 0x18 1
+8035DD60 lbl_8035DD60 .data 0x68 2
+8035DDC8 lbl_8035DDC8 .data 0x90 1
+8035DE58 lbl_8035DE58 .data 0x10 1
+8035DE68 lbl_8035DE68 .data 0x90 1
+8035DEF8 lbl_8035DEF8 .data 0x90 1
+8035DF88 lbl_8035DF88 .data 0x10 1
+8035DF98 lbl_8035DF98 .data 0xDC 1
+8035E074 lbl_8035E074 .data 0xDC 2
+8035E150 lbl_8035E150 .data 0x38 1
+8035E188 lbl_8035E188 .data 0x10 1
+8035E198 lbl_8035E198 .data 0x13 4
+8035E1AC lbl_8035E1AC .data 0xE 4
+8035E1BC lbl_8035E1BC .data 0x13 2
+8035E1D0 lbl_8035E1D0 .data 0xE 2
+8035E1E0 lbl_8035E1E0 .data 0x90 1
+8035E270 lbl_8035E270 .data 0x48 1
+8035E2B8 lbl_8035E2B8 .data 0x90 1
+8035E348 lbl_8035E348 .data 0x18 1
+8035E360 lbl_8035E360 .data 0x18 1
+8035E378 lbl_8035E378 .data 0x48 1
+8035E3C0 lbl_8035E3C0 .data 0x90 1
+8035E450 lbl_8035E450 .data 0x48 1
+8035E498 lbl_8035E498 .data 0x38 1
+8035E4D0 lbl_8035E4D0 .data 0x38 1
+8035E508 lbl_8035E508 .data 0x20 1
+8035E528 lbl_8035E528 .data 0x10 1
+8035E538 lbl_8035E538 .data 0x88 1
+8035E5C0 lbl_8035E5C0 .data 0x20 1
+8035E5E0 lbl_8035E5E0 .data 0x28 1
+8035E608 lbl_8035E608 .data 0x20 1
+8035E628 lbl_8035E628 .data 0x38 1
+8035E660 lbl_8035E660 .data 0x20 1
+8035E680 lbl_8035E680 .data 0x38 1
+8039F340 lbl_8039F340 .bss 0x30 1
+8039F540 lbl_8039F540 .bss 0x58 9
+804390E0 lbl_804390E0 .bss 0x10 1
+804390F0 lbl_804390F0 .bss 0x10 7
+8043A938 lbl_8043A938 .bss 0xC 1
+8043A944 lbl_8043A944 .bss 0xC 3
+8043A950 lbl_8043A950 .bss 0x54 2
+8043A9A4 lbl_8043A9A4 .bss 0xC 1
+8043A9B0 lbl_8043A9B0 .bss 0x18 1
+8043A9C8 lbl_8043A9C8 .bss 0x10 1
+8043AC28 lbl_8043AC28 .sdata 0x2 9
+8043AC2C lbl_8043AC2C .sdata 0x2 6
+8043B354 lbl_8043B354 .sdata 0x4 11
+8043B788 lbl_8043B788 .sdata 0x1 1
+8043B78C lbl_8043B78C .sdata 0x4 1
+8043B790 lbl_8043B790 .sdata 0x1 1
+8043B791 lbl_8043B791 .sdata 0x1 1
+8043B792 lbl_8043B792 .sdata 0x1 1
+8043B793 lbl_8043B793 .sdata 0x1 1
+8043B794 lbl_8043B794 .sdata 0x1 1
+8043B795 lbl_8043B795 .sdata 0x1 1
+8043B796 lbl_8043B796 .sdata 0x1 1
+8043B797 lbl_8043B797 .sdata 0x1 1
+8043B798 lbl_8043B798 .sdata 0x4 2
+8043B79C lbl_8043B79C .sdata 0x4 1
+8043B7A0 lbl_8043B7A0 .sdata 0x4 1
+8043B7A4 lbl_8043B7A4 .sdata 0x4 1
+8043B7A8 lbl_8043B7A8 .sdata 0x4 2
+8043B7AC lbl_8043B7AC .sdata 0x4 2
+8043B7B0 lbl_8043B7B0 .sdata 0x4 2
+8043B7B4 lbl_8043B7B4 .sdata 0x4 3
+8043B7B8 lbl_8043B7B8 .sdata 0x4 3
+8043B7BC lbl_8043B7BC .sdata 0x4 2
+8043B7C0 lbl_8043B7C0 .sdata 0x4 1
+8043B7C4 lbl_8043B7C4 .sdata 0x4 1
+8043B7C8 lbl_8043B7C8 .sdata 0x4 1
+8043B7CC lbl_8043B7CC .sdata 0x4 2
+8043B7D0 lbl_8043B7D0 .sdata 0x8 1
+8043B7D8 lbl_8043B7D8 .sdata 0x4 1
+8043B7DC lbl_8043B7DC .sdata 0x4 1
+8043B7E0 lbl_8043B7E0 .sdata 0x4 1
+8043B7E4 lbl_8043B7E4 .sdata 0x4 1
+8043B7E8 lbl_8043B7E8 .sdata 0x4 1
+8043B7EC lbl_8043B7EC .sdata 0x4 1
+8043B7F0 lbl_8043B7F0 .sdata 0x4 1
+8043B7F4 lbl_8043B7F4 .sdata 0x4 1
+8043B7F8 lbl_8043B7F8 .sdata 0x4 2
+8043B7FC lbl_8043B7FC .sdata 0x4 2
+8043B800 lbl_8043B800 .sdata 0x4 2
+8043B804 lbl_8043B804 .sdata 0x4 2
+8043B808 lbl_8043B808 .sdata 0x4 1
+8043B80C lbl_8043B80C .sdata 0x4 1
+8043B810 lbl_8043B810 .sdata 0x4 1
+8043B814 lbl_8043B814 .sdata 0x4 1
+8043B818 lbl_8043B818 .sdata 0x4 2
+8043B81C lbl_8043B81C .sdata 0x4 2
+8043B820 lbl_8043B820 .sdata 0x4 1
+8043B824 lbl_8043B824 .sdata 0x4 1
+8043B828 lbl_8043B828 .sdata 0x4 1
+8043B82C lbl_8043B82C .sdata 0x4 1
+8043B830 lbl_8043B830 .sdata 0x4 2
+8043B834 lbl_8043B834 .sdata 0x4 1
+8043B838 lbl_8043B838 .sdata 0x4 1
+8043B83C lbl_8043B83C .sdata 0x4 1
+8043B840 lbl_8043B840 .sdata 0x4 2
+8043B844 lbl_8043B844 .sdata 0x4 1
+8043B848 lbl_8043B848 .sdata 0x4 1
+8043B84C lbl_8043B84C .sdata 0x1 1
+8043B850 lbl_8043B850 .sdata 0x4 1
+8043B854 lbl_8043B854 .sdata 0x4 1
+8043B858 lbl_8043B858 .sdata 0x8 1
+8043B860 lbl_8043B860 .sdata 0x4 3
+8043B864 lbl_8043B864 .sdata 0x4 2
+8043B868 lbl_8043B868 .sdata 0x4 2
+8043B86C lbl_8043B86C .sdata 0x4 1
+8043B870 lbl_8043B870 .sdata 0x4 3
+8043B874 lbl_8043B874 .sdata 0x4 1
+8043B878 lbl_8043B878 .sdata 0x4 1
+8043B87C lbl_8043B87C .sdata 0x4 1
+8043B880 lbl_8043B880 .sdata 0x4 1
+8043B884 lbl_8043B884 .sdata 0x4 1
+8043B888 lbl_8043B888 .sdata 0x4 1
+8043B88C lbl_8043B88C .sdata 0x4 1
+8043B890 lbl_8043B890 .sdata 0x4 1
+8043B894 lbl_8043B894 .sdata 0x4 1
+8043B898 lbl_8043B898 .sdata 0x4 1
+8043B89C lbl_8043B89C .sdata 0x4 1
+8043B8A0 lbl_8043B8A0 .sdata 0x4 1
+8043B8A4 lbl_8043B8A4 .sdata 0x4 1
+8043B8A8 lbl_8043B8A8 .sdata 0x4 1
+8043B8AC lbl_8043B8AC .sdata 0x4 1
+8043B8B0 lbl_8043B8B0 .sdata 0x4 1
+8043B8B4 lbl_8043B8B4 .sdata 0x4 1
+8043B8B8 lbl_8043B8B8 .sdata 0x8 1
+8043B8C0 lbl_8043B8C0 .sdata 0x8 1
+8043B8C8 lbl_8043B8C8 .sdata 0x8 2
+8043B8D0 lbl_8043B8D0 .sdata 0x8 1
+8043B8D8 lbl_8043B8D8 .sdata 0x4 1
+8043B8DC lbl_8043B8DC .sdata 0x4 1
+8043B8E0 lbl_8043B8E0 .sdata 0x4 1
+8043B8E4 lbl_8043B8E4 .sdata 0x4 2
+8043B8E8 lbl_8043B8E8 .sdata 0x4 2
+8043B8EC lbl_8043B8EC .sdata 0x4 1
+8043B8F0 lbl_8043B8F0 .sdata 0x4 1
+8043B8F4 lbl_8043B8F4 .sdata 0x4 3
+8043B8F8 lbl_8043B8F8 .sdata 0x8 2
+8043B900 lbl_8043B900 .sdata 0x8 1
+8043B908 lbl_8043B908 .sdata 0x4 1
+8043B90C lbl_8043B90C .sdata 0x4 1
+8043B910 lbl_8043B910 .sdata 0x8 1
+8043B918 lbl_8043B918 .sdata 0x8 1
+8043B920 lbl_8043B920 .sdata 0x4 2
+8043B924 lbl_8043B924 .sdata 0x4 1
+8043B928 lbl_8043B928 .sdata 0x4 1
+8043B92C lbl_8043B92C .sdata 0x4 1
+8043BBA8 lbl_8043BBA8 .sbss 0x4 15
+8043BC18 lbl_8043BC18 .sbss 0x4 3
+8043BC1C lbl_8043BC1C .sbss 0x4 2
+8043BC70 lbl_8043BC70 .sbss 0x4 13
+8043C458 lbl_8043C458 .sbss 0x8 1
+8043C468 lbl_8043C468 .sbss 0x8 4
+8043C470 lbl_8043C470 .sbss 0x8 2
+8043C588 lbl_8043C588 .sbss 0x8 3
+8043C590 lbl_8043C590 .sbss 0x8 2
+8043C5A0 lbl_8043C5A0 .sbss 0x4 25
+8043C5A5 lbl_8043C5A5 .sbss 0x1 11
+8043C5AC lbl_8043C5AC .sbss 0x4 3
+8043C5D4 lbl_8043C5D4 .sbss 0x4 31
+8043C5E0 lbl_8043C5E0 .sbss 0x8 5
+8043C5E8 lbl_8043C5E8 .sbss 0x8 23
+8043C620 lbl_8043C620 .sbss 0x8 4
+8043C628 lbl_8043C628 .sbss 0x8 10
+8043C6C8 lbl_8043C6C8 .sbss 0x8 2
+8043C6D8 lbl_8043C6D8 .sbss 0x8 17
+8043C9B8 lbl_8043C9B8 .sbss 0x8 23
+8043C9C0 lbl_8043C9C0 .sbss 0x8 25
+8043C9C8 lbl_8043C9C8 .sbss 0x4 1
+8043C9CC lbl_8043C9CC .sbss 0x4 2
+8043C9D0 lbl_8043C9D0 .sbss 0x4 2
+8043C9D4 lbl_8043C9D4 .sbss 0x4 2
+8043C9D8 lbl_8043C9D8 .sbss 0x4 2
+8043C9DC lbl_8043C9DC .sbss 0x4 2
+8043C9E0 lbl_8043C9E0 .sbss 0x4 2
+8043C9E4 lbl_8043C9E4 .sbss 0x4 2
+8043C9E8 lbl_8043C9E8 .sbss 0x8 1
+8043C9F0 lbl_8043C9F0 .sbss 0x8 21
+8043C9F8 lbl_8043C9F8 .sbss 0x8 35
+8043CA00 lbl_8043CA00 .sbss 0x4 7
+8043CA04 lbl_8043CA04 .sbss 0x4 8
+8043CA08 lbl_8043CA08 .sbss 0x8 9
+8043CA10 lbl_8043CA10 .sbss 0x4 2
+8043CA14 lbl_8043CA14 .sbss 0x4 2
+8043CA18 lbl_8043CA18 .sbss 0x4 2
+8043CA1C lbl_8043CA1C .sbss 0x4 2
+8043CA20 lbl_8043CA20 .sbss 0x8 12
+8043CA28 lbl_8043CA28 .sbss 0x8 9
+8043CA30 lbl_8043CA30 .sbss 0x4 3
+8043CA34 lbl_8043CA34 .sbss 0x4 8
+8043CA38 lbl_8043CA38 .sbss 0x8 19
+8043CA40 lbl_8043CA40 .sbss 0x8 7
+8043CA48 lbl_8043CA48 .sbss 0x8 11
+8043CA50 lbl_8043CA50 .sbss 0x8 7
+8043CA58 lbl_8043CA58 .sbss 0x8 9
+8043CA60 lbl_8043CA60 .sbss 0x8 12
+8043CA68 lbl_8043CA68 .sbss 0x8 13

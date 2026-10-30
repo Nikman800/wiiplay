@@ -1,0 +1,8 @@
+address	old_name	new_name	unit	previous
+8022EBE8	Pnp_Audience_calc	Calculate__13RPPnpAudienceFv	Pack/RPParty/RPPnpScene/RPPnpAudience_2.cpp	
+8022F1CC	Pnp_Audience_load	Load__13RPPnpAudienceFv	Pack/RPParty/RPPnpScene/RPPnpAudience_2.cpp	
+8022F3F0	Pnp_Audience_dtor	__dt__13RPPnpAudienceFv	Pack/RPParty/RPPnpScene/RPPnpAudience_2.cpp	
+8022F49C	Pnp_Audience_ctor	__ct__13RPPnpAudienceFv	Pack/RPParty/RPPnpScene/RPPnpAudience_2.cpp	
+8022F9EC	Pnp_createAudience	CreateInstance__13RPPnpAudienceFv	Pack/RPParty/RPPnpScene/RPPnpAudience_2.cpp	
+803599A8	Pnp_Audience_vtable	__vt__13RPPnpAudience	Pack/RPParty/RPPnpScene/RPPnpAudience_2.cpp	
+8043B738	Pnp_maxOfficialMii	sMaxOfficialMii__13RPPnpAudience	Pack/RPParty/RPPnpScene/RPPnpAudience_2.cpp	

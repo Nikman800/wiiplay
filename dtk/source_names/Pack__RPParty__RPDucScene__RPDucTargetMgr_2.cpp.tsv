@@ -1,0 +1,9 @@
+address	old_name	new_name	unit	previous
+80238D68	Duc_ClayMgr_createInstance	CreateInstance__12RPDucClayMgrFl	Pack/RPParty/RPDucScene/RPDucTargetMgr_2.cpp	
+80238DDC	Duc_ClayMgr_load	Load__12RPDucClayMgrFv	Pack/RPParty/RPDucScene/RPDucTargetMgr_2.cpp	
+80238DE0	Duc_ClayMgr_dtor	__dt__12RPDucClayMgrFv	Pack/RPParty/RPDucScene/RPDucTargetMgr_2.cpp	
+80238E38	Duc_ClayMgr_allocTarget	AllocTarget__12RPDucClayMgrFv	Pack/RPParty/RPDucScene/RPDucTargetMgr_2.cpp	
+80238E68	Duc_ClayMgr_destroyInstance	DestroyInstance__12RPDucClayMgrFv	Pack/RPParty/RPDucScene/RPDucTargetMgr_2.cpp	
+80239DDC	Duc_Clay_ctor	__ct__9RPDucClayFv	Pack/RPParty/RPDucScene/RPDucTargetMgr_2.cpp	
+80359DA0	lbl_80359DA0	__vt__12RPDucClayMgr	Pack/RPParty/RPDucScene/RPDucTargetMgr_2.cpp	
+8043C848	Duc_clayMgrInstance	sInstance__12RPDucClayMgr	Pack/RPParty/RPDucScene/RPDucTargetMgr_2.cpp	

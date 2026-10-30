@@ -1,0 +1,228 @@
+address	old_name	new_name	confidence	evidence
+8018FA2C	Wly_compareMiiIdStub	Mii_isSameKokeshiLocation	medium	stub returning 0 that sits in the RPSysKokeshiManager code (before UpdateCtrlMgr), not Wly; called with two RPSysKokeshiLocation (genInfo+8, &mGenInfos[0].mLocation) as a duplicate check by Wly createAvatars/createAvatarsSpecial and Pnp_Audience_ctor
+80255D8C	Tnk_Scene_vf14NotifyChildren	Tnk_Scene_pauseCallBack	high	scene vtable 8035B100 slot 14 = 0x40 pauseCallBack(bool); on enter calls the cursor manager's SetDisplayModeAll(0)
+802572F4	Tnk_Camera_stateFixed	Tnk_Camera_stateFixed	high	empty; state 1 (fixed) of Tnk_Camera_stateFuncs 8035B160 (StateIntroMove, StateFixed)
+802575FC	Tnk_Field_drawPlainQuad	Tnk_Field_drawPlainQuad	medium	view 1, draw step 2 in Tnk_Scene_draw: draws a 1000-scaled white quad from Tnk_floorQuadBasis with EGG DrawGX
+80257AFC	Tnk_Field_drawClearQuad	Tnk_Field_clearCaptureTexture	medium	drawn by Tnk_Scene_draw instead of the capture texture during the first 10 steps or when the step timer's mClear is set (then cleared): screen-sized white quad, GX state saved/restored
+80257D38	Tnk_BlockPool_destroy	Tnk_BlockPool_destroy	high	RPTnkBlockPool vtable 8035B748 slot 9 = 0x2C Destroy: deletes Tnk_blockPoolInstance and clears it
+802583DC	Tnk_FieldModel_vf27	Tnk_FieldModel_editWorldMtx	high	vtable 8035B1C0 slot 27 = 0x74 EditWorldMtx (IRPGrpModelCallback override, has a thunk); empty
+802587B8	Tnk_FieldModel_create	Tnk_FieldModel_create	high	vtable 8035B1C0 slot 1 = 0xC Create, empty in header
+80259428	Tnk_Actor_calc	Tnk_Actor_calc	high	RPTnkActor default slot 4 = 0x18 Calculate, empty
+8025943C	Tnk_Actor_collideWithField	Tnk_Actor_collideWithField	high	RPTnkActor default slot 27 = 0x74 CollideWithField, empty
+80259494	Tnk_Actor_load	Tnk_Actor_load	high	RPTnkActor default slot 2 = 0x10 Load, empty
+802595FC	Tnk_Actor_applySpawnParam	Tnk_Actor_applySpawnParam	high	RPTnkActor default slot 24 = 0x68 ApplySpawnParam, empty
+80259600	Tnk_Actor_onSpawn	Tnk_Actor_onSpawn	high	RPTnkActor default slot 23 = 0x64 OnSpawn, empty
+80259D20	Tnk_keepNearestF8	Tnk_Tank_keepNearestMineHit	high	stores the (id,dist) hit into RPTnkTank::mMineHit (0xF8) if closer; only caller Tnk_TankManager_recordMineHit
+80259D44	Tnk_keepNearestF0	Tnk_Tank_keepNearestShellHit	high	stores the (id,dist) hit into RPTnkTank::mShellHit (0xF0) if closer; only caller Tnk_TankManager_recordShellHit
+80259F08	Tnk_Tank_accumulatePushOutAlt	Tnk_Tank_onHitWall	high	tank vtable 8035B490 slot 33 = 0x8C OnHitWall: min/max push-out into mPosAccum and velocity correction into mVelAccum
+8025A474	Tnk_Tank_playMineSe	Tnk_Tank_holdMineFuseSe	medium	holdSound(0x17) (TRPSndObject 0x80) on the tank sound for player tanks; called every frame by Tnk_Mine_stateArmed while the owner's mine fuse is lit
+8025A4A0	Tnk_Tank_playFireSe	Tnk_Tank_playLayMineSe	high	startSound 0x14 (+0x13 for players); called right after Tnk_WeaponManager_layMine in PlayerController_handleFireInput and AiAttack_executeActions (not on firing)
+8025A50C	Tnk_Tank_playFireSeByType	Tnk_Tank_playFireSeByType	high	startSound by player index (1/2) or enemy type; called right after Tnk_WeaponManager_fireShell
+8025C358	Tnk_Tank_initOrientation	Tnk_Tank_initOrientation	high	picks the facing from Tnk_cardinalDirs by position against the field diagonals, builds mRot and copies it to mTurretRot; called by spawnPlayer/spawnEnemy
+8025C4F8	Tnk_Tank_setField108	Tnk_Tank_applySpawnParam	high	tank vtable slot 24 = 0x68 ApplySpawnParam: mSpawnParam = param & 0xF
+8025C954	Tnk_TankManager_limitAiFlag118	Tnk_TankManager_limitMineReadyEnemies	medium	from a random enemy, allows only one active enemy whose AiAttack mMineInterval (0x118) is 1; the others get 2
+8025CA10	Tnk_TankManager_limitAiFlag110	Tnk_TankManager_limitFireReadyEnemies	medium	from a random enemy, allows only two active enemies whose AiAttack mFireInterval (0x110) is 1; the others get 2
+8025CCA8	Tnk_TankManager_drawTrackMarks	Tnk_TankManager_drawTrackMarks	high	Tnk_drawTreadMark for every active player and enemy tank; called in Tnk_Scene_draw
+8025CD38	Tnk_TankManager_getPlayersDeadState	Tnk_TankManager_getPlayersDeadState	high	returns a code from the players' mAlive: 2P mode 0..3, 1P mode 1 or 3
+8025D438	Tnk_TankManager_unload	Tnk_TankManager_exit	high	vtable 8035B598 slot 5 = 0x1C Exit: Exit on every tank, destroys the check-mark pool and footmark textures (header comment)
+8025DD58	Tnk_callSlot10OnListReverse	Tnk_CursorManager_setDisplayModeAll	high	calls cursor vtable 0x30 SetDisplayMode(arg) on every cursor, last first; called by the scene pause callback (header SetDisplayModeAll)
+8025DDC4	Tnk_CursorManager_callActiveSlot6	Tnk_CursorManager_draw	high	vtable 8035B5C0 slot 6 = 0x20 Draw: Draw on each active cursor
+8025DE2C	Tnk_CursorManager_callAllSlot5	Tnk_CursorManager_exit	high	vtable 8035B5C0 slot 5 = 0x1C Exit: Exit on every cursor
+8025E088	Tnk_CursorManager_vf02	Tnk_CursorManager_load	high	vtable 8035B5C0 slot 2 = 0x10 Load, empty in header
+8025E34C	Tnk_Cursor_vf06	Tnk_Cursor_draw	high	vtable 8035B61C slot 6 = 0x20 Draw, empty in header
+8025F6DC	Tnk_PlayerController_getMaxSpeed	Tnk_PlayerController_getMaxSpeed	high	returns mMaxSpeed; used by the player tank states
+8025FC44	Tnk_PlayerController_turnBodyTowards	Tnk_PlayerController_turnBodyTowards	medium	rotates the body basis toward the input direction, falling back to turnBodyStep; writes the turn sign
+8025FE3C	Tnk_PlayerController_turnBodyStep	Tnk_PlayerController_turnBodyStep	medium	rotates the body basis by one mTurnSpeed step toward the input and rebuilds the orthonormal axes
+80260A14	Tnk_Block_checkBreak	Tnk_Block_collideWithField	high	block vtable 8035B684 slot 27 = 0x74 CollideWithField: kind 0 sets mBreakRequested when Tnk_MinePool_isInExplosion
+80262660	Tnk_ShellPool_callActiveSlot42	Tnk_ShellPool_stopEffectsAll	high	calls actor vtable 0xB0 StopEffects on every active shell; used on stage clear
+80262D5C	Tnk_Shell_stopSmokeEffects	Tnk_Shell_stopEffects	high	shell vtable 8035B804 slot 42 = 0xB0 StopEffects: stops the 4 smoke effects
+80262E10	Tnk_Shell_updateModelMtx	Tnk_Shell_calculate	high	shell vtable slot 4 = 0x18 Calculate: runs the state PTMF, then sound set3DPosition(mPos) (header: state, sound position)
+80263DA4	Tnk_WeaponManager_callPoolSlot16	Tnk_WeaponManager_calcModelMtxAll	high	calls pool vtable 0x48 CalcModelMtxAll on the shell and mine pools
+80263E94	Tnk_WeaponManager_resolveHits	Tnk_WeaponManager_integrateAll	high	calls pool vtable 0x3C IntegrateAll on the shell and mine pools
+80264248	Tnk_GameManager_reportStageResult	Tnk_GameManager_startStageBgm	high	forwards stage+1, enemy alive count and max enemy type to Tnk_BgmMix_startStageBgm(mpBgmMix)
+80264604	Tnk_GameManager_stateEndMenu	Tnk_GameManager_stateEndMenu	high	state 12 (table 8035B8EC): result menu choice sets mQuit or mRetry (count++)
+802646F4	Tnk_GameManager_stateResultMenu	Tnk_GameManager_stateResultMenu	high	state 11: waits for VsWinner/MedalResult, starts the Party result menu, state 12
+802647DC	Tnk_GameManager_stateResultWait	Tnk_GameManager_stateResultWait	high	state 10: when the result layout is done starts VsWinner (2P) or MedalResult (1P), state 11
+80264874	Tnk_GameManager_stateFailedWait	Tnk_GameManager_stateFailedWait	high	state 9: when FailedMsg is done plays ExMsg outAll, starts the result layout, state 10
+802648CC	Tnk_GameManager_stateCompleteWait	Tnk_GameManager_stateCompleteWait	high	state 8: when CompleteMsg is done starts the result layout, state 10
+80264A64	Tnk_GameManager_stateStageClearWait	Tnk_GameManager_stateStageClearWait	high	state 6: when ClearMsg is done starts the fade (bonus life from params), state 7
+80264EA8	Tnk_GameManager_stateCountdown	Tnk_GameManager_stateCountdown	high	state 3: counts mTimer down, then activates player and enemy tanks, state 4
+80264F94	Tnk_GameManager_stateWaitLifeNo	Tnk_GameManager_stateWaitLifeNo	high	state 1: when the fade layout flag is set, enables pause text, timer 165, state 2
+80265D54	Tnk_StageMap_create	Tnk_StageMap_create	high	vtable 8035B9B0 slot 1 = 0xC Create, empty in header
+802665A4	Tnk_MinePool_addTankAvoidance	Tnk_MinePool_detectNearbyMines	high	this is the mine pool (count +8, list +0xC..+0x10), the AI move object is the 2nd argument: for each active mine in range calls Tnk_AiMove_addMineThreat; mirrors Tnk_ShellPool_detectIncomingShells in Tnk_AiMove_update
+80266C1C	Tnk_Mine_accumulatePush	Tnk_Mine_onHitWall	high	mine vtable 8035BA54 slot 33 = 0x8C OnHitWall: min/max push-out into mPosAccum
+80267F18	Tnk_Mine_setUserValue	Tnk_Mine_setOwnerTank	high	mine vtable slot 45 = 0xBC SetOwnerTank: mpOwnerTank = arg
+80267F3C	Tnk_Mine_getUserValue	Tnk_Mine_getOwnerTank	high	mine vtable slot 46 = 0xC0 GetOwnerTank: returns mpOwnerTank
+80267FBC	Tnk_BgmMix_startBgm3C	Tnk_BgmMix_playStageClearBgm	high	starts stream 0x3C and resets the mix state; called by checkStageClear on a normal stage clear (final stage uses 0x3E/0x3F)
+80268978	Tnk_StepTimer_nop02	Tnk_StepTimer_load	high	vtable 8035C040 slot 2 = 0x10 Load, empty in header
+8026897C	Tnk_StepTimer_nop01	Tnk_StepTimer_create	high	vtable 8035C040 slot 1 = 0xC Create, empty in header
+80268A68	Tnk_EmptyTask_nop05	Tnk_EmptyTask_exit	high	vtable 8035C068 slot 5 = 0x1C Exit, empty
+80268A6C	Tnk_EmptyTask_nop04	Tnk_EmptyTask_calculate	high	vtable 8035C068 slot 4 = 0x18 Calculate, empty
+80268A70	Tnk_EmptyTask_nop03	Tnk_EmptyTask_reset	high	vtable 8035C068 slot 3 = 0x14 Reset, empty
+80268A74	Tnk_EmptyTask_nop02	Tnk_EmptyTask_load	high	vtable 8035C068 slot 2 = 0x10 Load, empty
+80268A78	Tnk_EmptyTask_nop01	Tnk_EmptyTask_create	high	vtable 8035C068 slot 1 = 0xC Create, empty
+8026A0B8	Tnk_AiMove_stateKeepDirection	Tnk_AiMove_stateKeepDirection	medium	state 2 of Tnk_AiMove_stateFuncs: move dir = average of the direction history; clears 0x1F9 when no mine threat is within 16
+8026D860	Tnk_LayoutManager_exit	Tnk_LayoutManager_exit	high	vtable 8035C1F0 slot 5 = 0x1C Exit: calls slot 0x18 on every layout part
+8026E558	Tnk_Fade_exit	Tnk_Fade_exit	medium	layout slot 4 (0x18, RPLytObjBase VF_0x18), empty; called by Tnk_LayoutManager_exit
+8026FA5C	Tnk_Hud_exit	Tnk_Hud_exit	medium	layout slot 4 (0x18 VF_0x18), empty; called by Tnk_LayoutManager_exit
+80270690	Tnk_HitPopup_exit	Tnk_HitPopup_exit	medium	layout slot 4 (0x18 VF_0x18), empty; called by Tnk_LayoutManager_exit
+80270BD8	Tnk_ExMsg_exit	Tnk_ExMsg_exit	medium	layout slot 4 (0x18 VF_0x18), empty; called by Tnk_LayoutManager_exit
+80270EE0	Tnk_ExGuide_vf05	Tnk_ExGuide_exit	high	vtable 8035C320 slot 5 = 0x1C Exit, empty in header
+80270FF8	Tnk_ExGuide_vf01	Tnk_ExGuide_create	high	vtable 8035C320 slot 1 = 0xC Create, empty in header
+80270FFC	Tnk_ExGuide_stateCheckCursorNear	Tnk_ExGuide_stateCheckCursorNear	medium	state 3 (table 8035C2F0): a player cursor within 30 of the guide screen point shows the hint, else state 2/1
+80271284	Tnk_ExGuide_stateShowHintUntilNear	Tnk_ExGuide_stateShowHintUntilNear	medium	state 2: shows the hint by state; cursor within 30 of the guide point -> state 3, else state 1
+80271508	Tnk_ExGuide_stateShowHint	Tnk_ExGuide_stateShowHint	medium	state 1: sets state 2 when a player tank coordinate >= 10, then shows the ExMsg hint for the state
+80271638	Tnk_ExGuide_stateCheckMoved	Tnk_ExGuide_stateCheckMoved	medium	state 0: distance moved from the start positions; > 40 -> state 1, idle counter shows the hint
+80271A7C	Tnk_StartMsg_exit	Tnk_StartMsg_exit	medium	layout slot 4 (0x18 VF_0x18), empty; called by Tnk_LayoutManager_exit
+802721B8	Tnk_ClearMsg_exit	Tnk_ClearMsg_exit	medium	layout slot 4 (0x18 VF_0x18), empty; called by Tnk_LayoutManager_exit
+802726C4	Tnk_FailedMsg_exit	Tnk_FailedMsg_exit	medium	layout slot 4 (0x18 VF_0x18), empty; called by Tnk_LayoutManager_exit
+80272B08	Tnk_CompleteMsg_exit	Tnk_CompleteMsg_exit	medium	layout slot 4 (0x18 VF_0x18), empty; called by Tnk_LayoutManager_exit
+80273788	Tnk_ResultLyt_exit	Tnk_ResultLyt_exit	medium	layout slot 4 (0x18 VF_0x18), empty; called by Tnk_LayoutManager_exit
+80274D7C	Tnk_FootmarkTex_vf01	Tnk_FootmarkTex_create	high	vtable 8035C410 slot 1 = 0xC Create, empty in header
+80275260	Tnk_CheckMark_create	Tnk_CheckMark_create	high	check mark vtable 8035C49C slot 1 = 0xC Create: tail call to Tnk_Actor_create
+80275934	Wly_GameConfig_assign	Wly_GameConfig_assign	high	copies the 0xA0-byte RPWlyGameConfig field by field (operator=)
+80275B28	Wly_GameConfig_copyCtor	Wly_GameConfig_copyCtor	high	copy-constructs RPWlyGameConfig incl. the embedded GenInfo/Location/OverloadInfo vtables 8034F758/68/78
+80275E08	Wly_SoundHolder_dtor	Wly_SoundHolder_dtor	medium	RPWlySoundHolder destructor: EGG::Disposer dtor, delete when flag > 0
+802762AC	Wly_Avatar_startExtraAnim	Wly_Avatar_startSwimEffect	high	creates mpEffects[3] ("Wtd_ava_swim01" in Wly_Avatar_ctor) when the level's field type is 1
+802763DC	Wly_Avatar_setModelByte1	Wly_Avatar_setDrawScene	high	writes RPGrpModel::mDrawScene (byte +1) of the nigaoe and body models
+802768E0	Wly_Avatar_drawDebugHitArea	Wly_Avatar_draw	medium	per-avatar draw from Wly_AvatarMgr_draw: in view 0 step 3 toggles the Wtd_ok01-03 (and swim) effects by hovered and visible, and draws cubes at the hand/position when unkDF is set; not gated on a debug flag
+80276BC4	Wly_Avatar_calcModelPose	Wly_Avatar_calcModelPose	high	sway/spin/scale, model matrices (all_root, chest), screen and sound positions (header CalcModelPose)
+80277614	Wly_SoundActor_setAllPlayersParam	Wly_SoundActor_set3DPosition	high	TRPSndObject<4> slot at 0x48 (vtable 8035C6BC slot 16, shared by Wly/Cow/Bom): Sound3DActor::SetPosition on all four actors
+802776B0	Wly_Avatar_calc	Wly_Avatar_loadResource	high	vtable 8035C7E0 slot 1 = 0xC LoadResource: base RPSysKokeshi load (Mii_KokeshiHead_build), then the shadow's Load (0x1C)
+80277CC8	Wly_SoundObj8_dtor	Wly_SoundObj8_dtor	high	dtor of TRPSndAudioActorBaseWithHandles<4,4> (class alias): clears 8 handles, unlinks from the actor list, delete
+8027A300	Wly_SoundActor_getPlayerParam	Wly_SoundActor_get3DPosition	high	TRPSndObject slot 0x44 get3DPosition (slot 15): returns &actor[idx] + 0xB8
+8027A310	Wly_SoundActor_dispatchOffsetSoundId	Wly_SoundActor_offsetSoundId2	high	TRPSndObject slot 0xD8 (slot 52): getSoundId(unsigned int) forwarding to the u32 overload at 0xD0 (ledger offsetSoundId); 2 as for the other unsigned-int overloads
+8027A320	Wly_SoundActor_getOffsetSoundLabel	Wly_SoundActor_getOffsetSoundLabel	high	TRPSndObject slot 0xD4 getSoundLabel: label -> id, + offset, returns the label string
+8027A3EC	Wly_AvatarMgr_startExtraAnims	Wly_AvatarMgr_startSwimEffects	high	Wly_Avatar_startSwimEffect on every avatar (timed by the wipe's mDone); called from GameMgr calc and Wipe calc
+8027A50C	Wly_AvatarMgr_draw	Wly_AvatarMgr_draw	high	when the stage is active calls the per-avatar draw for every avatar; called from Wly_GameMgr_draw
+8027A578	Wly_AvatarMgr_destroy	Wly_AvatarMgr_destroy	high	empty; called from Wly_GameMgr_destroy
+8027A658	Wly_AvatarMgr_findAvatarNearCursor	Wly_AvatarMgr_findAvatarNearCursor	medium	nearest not-found avatar within the hit radius of the player's cursor (two hit points each); header FindAvatarNearCursor
+8027B0F8	Wly_AvatarMgr_init	Wly_AvatarMgr_init	high	empty; called from Wly_GameMgr_init
+8027B198	Wly_AvatarMgr_showAll	Wly_AvatarMgr_showAll	high	sets mVisible (0xDE) = 1 on every avatar
+8027B200	Wly_AvatarMgr_hideAll	Wly_AvatarMgr_hideAll	high	sets mVisible (0xDE) = 0 on every avatar
+8027B6CC	Wly_AvatarMgr_createAvatars	Wly_AvatarMgr_createAvatars	medium	builds middle DBs, picks Miis and constructs the avatars (Wly_Avatar_ctor) for normal levels
+8027BF30	Wly_AvatarMgr_createAvatarsSpecial	Wly_AvatarMgr_createAvatarsSpecial	medium	constructs avatars from the party config Mii (scene info +0x30) for the special levels
+8027DE7C	Wly_GameMgr_calcClearPhase	Wly_GameMgr_calcClearPhase	medium	hides non-targets; at clear step 2 advances the stage (scene change) or starts the result phase (state 4) with sound
+8027E2BC	Wly_GameMgr_onPickResolved	Wly_GameMgr_onPickResolved	medium	pick result: wrong -> try wrong reaction, 50-frame lockout, duck BGM; right -> rumble and markFound
+8027E368	Wly_GameMgr_is1pTypeAStage	Wly_GameMgr_is1pTypeAStage	medium	true when single-player mode and the level's question type (0x8) is 1..4
+8027FA8C	Wly_Cursor_draw	Wly_Cursor_draw	high	cursor vtable 8035C898 slot 4 = 0x18 Draw, empty in header
+8027FF30	Wly_Cursor_init	Wly_Cursor_init	high	cursor vtable 8035C898 slot 1 = 0xC Init, empty in header
+80280070	Wly_ClearPhase_draw	Wly_ClearPhase_draw	high	empty; called from Wly_GameMgr_draw
+80280074	Wly_ClearPhase_destroy	Wly_ClearPhase_destroy	high	empty; called from Wly_GameMgr_destroy
+80280164	Wly_ClearPhase_create	Wly_ClearPhase_create	high	empty; called from Wly_GameMgr_create
+80280174	Wly_ClearPhase_updateSequence	Wly_ClearPhase_updateSequence	medium	steps the clear sequence (time ticks, timer warn anim, sounds) and writes the game config back at the end
+8028070C	Wly_Stage_updateAvatarHoverReactions	Wly_Stage_updateAvatarHoverReactions	medium	per hovered avatar plays hover/wrong voices (Wly_playAvatarVoice 3/4) by found state
+80280B04	Wly_Stage_checkMultiHoverPick	Wly_Stage_checkMultiHoverPick	medium	counts avatars hovered long enough; resolves the pick via onPickResolved, voices and point popups
+80280CF0	Wly_Stage_recordFoundMii	Wly_Stage_recordFoundMii	medium	copies the found avatar's gen info/overload info into the scene-info game config (assign)
+802810B8	Wly_AvatarMgr_getMiiIdEntry	Wly_AvatarMgr_getOverloadInfo	high	struct return (r3 = out): builds an RPSysKokeshiOverloadInfo (vtable 8034F778) from the u16 at mgr+0x2444+idx*8; caller destroys it with the OverloadInfo dtor
+802810D8	Wly_AvatarMgr_getMiiInfo	Wly_AvatarMgr_getGenInfo	high	struct return (r3 = out): copies avatar idx's RPSysKokeshiGenInfo (0x5C bytes at mgr+0x54, vtables 8034F758/68); caller destroys it with the GenInfo dtor
+802811DC	Wly_Stage_getPointValue	Wly_Stage_getPointValue	high	2P mode: points from a table by target and found count, else 1
+802820F8	Wly_Stage_calcMotionCategory4	Wly_Stage_calcMotionEscalator	medium	Wly_Stage_calc branch for field type 4, the escalator stage (positions from the esc1/esc2/esc3 field model nodes)
+80282528	Wly_Stage_placeCategory4	Wly_Stage_placeEscalator	medium	Wly_Stage_reset branch for field type (0xC) 4, the escalator stage
+80282DF8	Wly_Stage_getNodePosition	Wly_Stage_getEscalatorSlotPos	medium	position of an avatar slot from field node %s_%02d with esc1/esc2/esc3 and the animation frame
+80282F84	Wly_Stage_calcMotionPattern5	Wly_Stage_calcMotionPattern5	medium	Wly_Stage_calc branch for motion pattern (level 0x4) 5
+80283224	Wly_Stage_placePattern5	Wly_Stage_placePattern5	medium	Wly_Stage_reset branch for motion pattern 5
+802834D0	Wly_Stage_calcMotionPattern2	Wly_Stage_calcMotionPattern2	medium	Wly_Stage_calc branch for motion patterns 2/4/6/7
+802847A8	Wly_Stage_placePattern2	Wly_Stage_placePattern2	medium	Wly_Stage_reset branch for motion patterns 2/4/6/7
+80285124	Wly_Stage_calcMotionPattern1	Wly_Stage_calcMotionPattern1	medium	Wly_Stage_calc branch for motion patterns 1/3
+80285CB8	Wly_Stage_placePattern1	Wly_Stage_placePattern1	medium	Wly_Stage_reset branch for motion patterns 1/3
+8028646C	Wly_Stage_calcMotionPattern0	Wly_Stage_calcMotionPattern0	medium	Wly_Stage_calc branch for motion pattern 0
+8028670C	Wly_Stage_placePattern0	Wly_Stage_placePattern0	medium	Wly_Stage_reset branch for motion pattern 0
+80286FF4	Wly_Stage_placeAvatarsSpaced	Wly_Stage_placeAvatarsSpaced	medium	random placement with spacing and retries (max 1000); used by pattern 5
+80287568	Wly_Stage_placeAvatarsRandom	Wly_Stage_placeAvatarsRandom	medium	random placement with minimum distances (max 1000 tries); used by patterns 1/2
+80287BA4	Wly_Stage_placeAvatarsFormation	Wly_Stage_placeAvatarsFormation	medium	switch on the avatar count building fixed formations; used by patterns 0/1/2
+8028CC58	Wly_ResultPhase_draw	Wly_ResultPhase_draw	high	empty; called from Wly_GameMgr_draw
+8028CC5C	Wly_ResultPhase_destroy	Wly_ResultPhase_destroy	high	empty; called from Wly_GameMgr_destroy
+8028CFB4	Wly_ResultPhase_create	Wly_ResultPhase_create	high	empty; called from Wly_GameMgr_create
+8028CFB8	Wly_ResultPhase_init	Wly_ResultPhase_init	high	empty; called from Wly_GameMgr_init
+8028D210	Wly_IntroPhase_draw	Wly_IntroPhase_draw	high	empty; called from Wly_GameMgr_draw
+8028D214	Wly_IntroPhase_destroy	Wly_IntroPhase_destroy	high	empty; called from Wly_GameMgr_destroy
+8028D280	Wly_IntroPhase_create	Wly_IntroPhase_create	high	empty; called from Wly_GameMgr_create
+8028D2E8	Wly_TargetPhase_draw	Wly_TargetPhase_draw	high	empty; called from Wly_GameMgr_draw
+8028D2EC	Wly_TargetPhase_destroy	Wly_TargetPhase_destroy	high	empty; called from Wly_GameMgr_destroy
+8028D488	Wly_TargetPhase_create	Wly_TargetPhase_create	high	empty; called from Wly_GameMgr_create
+8028D65C	Wly_TimerSe_update	Wly_TimerSe_update	medium	per second: BGM fade at mFadeSecond, track mask by seconds left, stream stop/fade at the end; called from TimerLyt calc
+8028D8CC	Wly_TimerSe_startRoundSound	Wly_TimerSe_startRoundSound	medium	stops the stream, starts stream 0x7A, sets the fade second and volume by the time left
+8028DC30	Wly_TimerSe_resetAndPlayFound	Wly_TimerSe_resetAndPlayFound	medium	stops system SE and stream, resets the timer state (30 s), starts wave sound 0x79
+8028DEF0	Wly_LevelTable_isSpotlightStage	Wly_LevelTable_isSpotlightStage	high	current level's mSpotlight (0x24) != 0
+8028DF5C	Wly_LevelTable_hasAltMessage	Wly_LevelTable_hasAltMessage	medium	current level's 0x14 != 0x10
+8028E01C	Wly_LevelTable_setup	Wly_LevelTable_setup	medium	sets up the level progression from the party config (mode, per-player data); header Setup
+8028E938	Wly_LevelTable_dtor	Wly_LevelTable_dtor	high	RPWlyLevelTable dtor: delete when flag > 0
+8028EBBC	Wly_Field_destroy	Wly_Field_destroy	high	empty; called from Wly_GameMgr_destroy
+8028FE40	Wly_MiiEntry_dtor	Wly_MiiEntry_dtor	high	RPWlyMiiEntry dtor: destroys the Vector2f array, OverloadInfo and GenInfo, delete when flag > 0
+8028FEC4	Wly_MiiEntry_ctor	Wly_MiiEntry_ctor	high	RPWlyMiiEntry ctor: vtable 8035CB38, constructs the members, timer 0x708, tier offsets -1
+80290568	Wly_StartCountLyt_destroy	Wly_StartCountLyt_destroy	high	empty; called from Wly_LayoutSet_destroy
+80291148	Wly_PointPopup_destroy	Wly_PointPopup_destroy	high	empty; called from Wly_PointPopupSet_destroy
+80291704	Wly_Earth_reset	Wly_Earth_reset	high	vtable 8035CC80 slot 6 = 0x20 Reset (RPWlyObject), empty
+80291BA0	Wly_TimerLyt_destroy	Wly_TimerLyt_destroy	high	empty; called from Wly_LayoutSet_destroy
+80292338	Wly_MessageLyt_destroy	Wly_MessageLyt_destroy	high	empty; called from Wly_LayoutSet_destroy
+80292AC4	Wly_QuestionLyt_destroy	Wly_QuestionLyt_destroy	high	empty; called from Wly_LayoutSet_destroy
+802936B4	Wly_DisplayLyt_destroy	Wly_DisplayLyt_destroy	high	empty; called from Wly_LayoutSet_destroy
+802941B4	Wly_Ground_reset	Wly_Ground_reset	high	vtable 8035CCC8 slot 6 = 0x20 Reset, empty
+802947D8	Wly_Field06_reset	Wly_Field06_reset	high	vtable 8035CCF0 slot 6 = 0x20 Reset, empty
+80294B80	Wly_DisplayEndLyt_destroy	Wly_DisplayEndLyt_destroy	high	empty; called from Wly_LayoutSet_destroy
+80295134	Wly_EndScoreLyt_destroy	Wly_EndScoreLyt_destroy	high	empty; called from Wly_LayoutSet_destroy
+80295418	Wly_Wipe_startClose	Wly_Wipe_startClose	high	sets mCloseRequested (0x44), checked by Wly_Wipe_calc; called from TargetPhase calc
+80295424	Wly_Wipe_destroy	Wly_Wipe_destroy	high	empty; called from Wly_GameMgr_destroy
+80295690	Wly_Wipe_reset	Wly_Wipe_reset	high	empty; called from Wly_GameMgr_reset
+802958E8	Wly_Wipe_init	Wly_Wipe_init	high	empty; called from Wly_GameMgr_init
+80295B24	Wly_CompleteLyt_destroy	Wly_CompleteLyt_destroy	high	empty; called from Wly_LayoutSet_destroy
+80295DD0	Cow_Game_drawListPass	Cow_Game_drawPass	high	vtable 8035CE18 slot 6 = 0x20 DrawPass(u8): pass 0/2 draws the Cow_objectColliders / Cow_colliderListB lists
+80295E20	Cow_Game_drawScreenPass	Cow_Game_drawScreen	high	vtable 8035CE18 slot 5 = 0x1C DrawScreen(u8): text writer begin/end for passes 2/3 and 4
+8029CF20	Cow_initStatics	Cow_initStatics	medium	static init: draw priority base 0x60 and clears the three static actor lists
+8029EA50	Cow_Camera_setFollowState	Cow_Camera_setFollowState	high	sets the state pointer to entry 4 (+0xB0, follow); header SetFollowState
+8029EA5C	Cow_Camera_setFollowNearState	Cow_Camera_setFollowNearState	high	sets the state pointer to entry 3 (+0xAC, follow near)
+8029EAB4	Cow_Camera_startStart	Cow_Camera_startStart	high	sets the state pointer to entry 11 (+0xCC, start); called after the countdown
+8029EEA8	Cow_Camera_stateStart	Cow_Camera_stateStart	medium	camera state 11: eases offsets behind the player, sets eye/target
+8029F120	Cow_Camera_stateReady	Cow_Camera_stateReady	medium	camera state 10: eases offsets (16/15, -40/-30 by player count) behind the player
+8029F350	Cow_Camera_stateIntroBlend	Cow_Camera_stateIntroBlend	medium	camera state 9: blends between both players' positions and yaws
+8029F6B0	Cow_Camera_stateIntro	Cow_Camera_stateIntro	medium	camera state 8: blends player positions by 0x84, eases offsets
+8029F998	Cow_Camera_stateResultOrbit	Cow_Camera_stateResultOrbit	medium	camera state 7: eases offsets and yaw toward the player
+8029FC50	Cow_Camera_stateResult	Cow_Camera_stateResult	medium	camera state 6: eases toward the player, switches after 30 frames
+8029FED0	Cow_Camera_stateFinish	Cow_Camera_stateFinish	medium	camera state 5: follows at height + 20 with slow ease
+802A0140	Cow_Camera_stateFollow	Cow_Camera_stateFollow	medium	camera state 4: follow with slow ease, switches when settled
+802A0438	Cow_Camera_stateFollowNear	Cow_Camera_stateFollowNear	medium	camera state 3: follow (near)
+802A06A8	Cow_Camera_stateFollowSnap	Cow_Camera_stateFollowSnap	medium	camera state 2: follow with ease rate 1.0
+802A0918	Cow_Camera_stateFollowEase	Cow_Camera_stateFollowEase	medium	camera state 1: follow with rate 0.2, switches when close
+802A0BBC	Cow_Camera_stateOverview	Cow_Camera_stateOverview	medium	camera state 0: fixed high eye looking at the player
+802A0C90	Cow_Camera_setModelVisible	Cow_Camera_setModelVisible	high	sets/clears bit 0 of mpModel->mFlags by the argument
+802A0CBC	Cow_Camera_projectToScreenClamped	Cow_Camera_projectToScreenClamped	high	world-to-screen; when the distance is < 30 first pushes the point along the back direction
+802A0ED4	Cow_Camera_calcDistance	Cow_Camera_calcSquareDistance	high	PSVECSquareDistance(pos, draw camera eye): squared distance
+802A1680	Cow_Player_drawShadowTex	Cow_Player_drawShadowTex	high	EGG::ShadowTexture BeginDrawQuad/DrawQuad of mpShadowTex with mShadowMtx
+802A1884	Cow_Player_calc	Cow_Player_calc	medium	player vtable 8035D00C slot 18 = 0x50 OnActivate (ledger calc): only pushes debug graph samples and a debug print
+802A2804	Cow_Player_calcProgress	Cow_Player_calcProgress	medium	2P catch-up scaling, time-up check, arrow/cursor/foot-effect updates; called from Cow_Game_calc
+802A2D90	Cow_PlayerSound_setParam	Cow_PlayerSound_set3DPosition	high	vtable 8035CF30 slot 16 = 0x48 set3DPosition override: SetPosition on the 4 actors, then resets the speed-volume state
+802A5E54	Cow_copyVec3At68	Cow_getFsAccel	medium	struct return: copies the VEC3 at +0x68 of a CoreStatus (getCoreStatus result) = KPADStatus ex_status.fs.acc (Nunchuk acceleration)
+802A5FA0	Cow_Player_playBonusSound	Cow_Player_playKakasiHitSound	medium	startSound(0x99) on the player sound; only caller Cow_KakasiGroup_onKakasiHit
+802A61AC	Cow_Player_getCameraYawVec	Cow_Player_getCameraYawVec	medium	struct return (0, unk71D8, 0) of the player; used by the camera states as the yaw vector
+802A6E14	Cow_FieldObj_setSoundMode	Cow_FieldObj_setSoundMode	medium	sets the sound actor byte flag to 0 (1P) or 1 (2P); called from Kakasi/KakasiKing init
+802A7008	Cow_FieldObj_stateKnockHurdle	Cow_FieldObj_stateKnockHurdle	low	state entry 11 (+0x14C): gravity 0.1, spin damped 0.94, exits below y -20; the hurdle part of the name is not verified
+802A7260	Cow_FieldObj_stateKnockFly	Cow_FieldObj_stateKnockFly	low	state entry 10 (+0x148): same as 0x14C with damping 0.96; the fly part of the name is not verified
+802A74B8	Cow_FieldObj_stateKnockSlide	Cow_FieldObj_stateKnockSlide	medium	state entry 9 (+0x144): knocked with gravity 0.02, exits at y <= -20
+802A7678	Cow_FieldObj_stateFallSpin	Cow_FieldObj_stateFallSpin	medium	state entry 8 (+0x140): gravity 0.1 while spinning, exits at y <= -20
+802A774C	Cow_FieldObj_stateKingJump1	Cow_FieldObj_stateKingJump1	medium	state entry 7: king jump landing with Cow_kksking_jumpsmk and sound 0x4F, hops toward the players
+802A7C44	Cow_FieldObj_stateKingJump2	Cow_FieldObj_stateKingJump2	medium	state entry 6: king jump step toward the players with Cow_kksking_jumpsmk
+802A83B0	Cow_FieldObj_stateKingJump3	Cow_FieldObj_stateKingJump3	medium	state entry 5: king jump landing step with the jump smoke effect
+802A87DC	Cow_FieldObj_stateHop	Cow_FieldObj_stateHop	medium	state entry 4: small gravity, upward velocity 0.2 on landing
+802A88D4	Cow_FieldObj_stateIdle	Cow_FieldObj_stateIdle	high	state entry 3 (+0x12C): empty
+802A88D8	Cow_FieldObj_stateSink	Cow_FieldObj_stateSink	medium	state entry 2: sinks with spin, exits at y <= -20
+802A89AC	Cow_FieldObj_stateRise	Cow_FieldObj_stateRise	medium	state entry 1: rises from the ground, then the next state
+802A8C48	Cow_FieldObj_stateDrop	Cow_FieldObj_stateDrop	medium	state entry 0: falls to the ground, then the next state
+802A9398	Cow_isSeHandleFree	Cow_holdGlobalSe	medium	SoundStartable detail_HoldSound of id on the global Cow_seHandle; returns true when it fails
+802A94F8	Cow_PlayerSound_holdSound	Cow_PlayerSound_holdSound	high	vtable 8035CF30/8035D170 slot 29 = 0x7C holdSound(u32) override: finds or allocates a handle and holds the sound
+802A9AA0	Cow_PlayerSound_playSound	Cow_PlayerSound_startSound	high	vtable 8035CF30/8035D170 slot 21 = 0x5C startSound(u32) override: finds or allocates a handle and starts the sound
+802AA774	Cow_PlayerSound_playSpeedSound	Cow_PlayerSound_holdSpeedSound	medium	speed >= 0.35: holdSound (0x7C) 0x3B-0x3D by cow type, volume from speed
+802AA8D0	Cow_PlayerSound_playRunStep	Cow_PlayerSound_holdRunStepSound	medium	holdSound (0x7C) of Cow_runStepSoundIds[speed bucket] (per mode table in 2P)
+802ABF50	Cow_Goal_drawDebugBox	Cow_Goal_drawShadowVolume	medium	EGG DrawGX BeginDrawShadowVolume, scaled box at the collision position, drawn twice with opposite cull modes and blend modes
+802AE044	Cow_PointPopup_entryDraw	Cow_PointPopup_entryDraw	medium	vtable 8035D658 slot 19 = 0x54 Calculate (ledger entryDraw): RP_CollisionShape_applyOffsets
+802AFC0C	Cow_getHalfScreenHeight	Cow_getHalfScreenHeight	high	table 8043AC2C[aspect 8043BBA8] >> 1
+802AFC24	Cow_getHalfScreenWidth	Cow_getHalfScreenWidth	high	table 8043AC28[aspect 8043BBA8] >> 1
+802B217C	Cow_ExMsg_showCollisionMsg	Cow_ExMsg_showCollisionMsg	medium	shows message 0xA8F #1 for 180 frames; caller Cow_Player_handleCollisions
+802B2324	Cow_ExMsg_showMoveMsg	Cow_ExMsg_showMoveMsg	medium	shows message 0xA8F #2; caller Cow_Player_calcMovement
+802B24C8	Cow_ExMsg_showInputMsg	Cow_ExMsg_showInputMsg	medium	shows message 0xA8F #0 for 30 frames; caller Cow_Player_calcInput
+802B547C	Cow_CowModel_calcAnim	Cow_CowModel_calcAnim	medium	anim/joint update for the cow and rider models; called from Cow_Player_updateModel
+802B66D4	Cow_Player_calcFootEffects	Cow_Player_calcFootEffects	medium	reads cow_root/j_L_front/j_R_front/j_R_back joint matrices for the foot effects; called from calcProgress
+802B8410	Cow_CowModel_setRunState	Cow_CowModel_setRunState	medium	binds avatar anim slot 6, mState 0
+802B848C	Cow_CowModel_setIntroState	Cow_CowModel_setIntroState	medium	binds avatar anim slot 6, mState 1, land state 1.0
+802B9EC8	Cow_bindAnimsMode2	Cow_AngleDisp_bindAnimsMode2	high	RPCowAngleDisp layout (mpLayout 0x24, anims 0x28.., panes 0x38.., 0x50 = 2), placed among the Cow_AngleDisp methods; header BindAnimsMode2
+802B9F74	Cow_bindAnimsMode1	Cow_AngleDisp_bindAnimsMode1	high	RPCowAngleDisp: shows the angle panes, rebinds the anims per player, rewinds, 0x50 = 1; header BindAnimsMode1

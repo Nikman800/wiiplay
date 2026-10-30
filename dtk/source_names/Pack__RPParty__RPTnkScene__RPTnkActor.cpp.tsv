@@ -1,0 +1,32 @@
+address	old_name	new_name	unit	previous
+80259114	Tnk_Actor_onHitWall	OnHitWall__10RPTnkActorFfPCQ34nw4r4math4VEC3lRCQ34nw4r4math4VEC3	Pack/RPParty/RPTnkScene/RPTnkActor.cpp	
+80259118	Tnk_Actor_testHitAlt	TestHitAlt__10RPTnkActorFP10RPTnkActorPf	Pack/RPParty/RPTnkScene/RPTnkActor.cpp	TestHitAlt__10RPTnkActorFPC10RPTnkActorPf
+8025922C	Tnk_Actor_testHit	TestHit__10RPTnkActorFP10RPTnkActorPf	Pack/RPParty/RPTnkScene/RPTnkActor.cpp	TestHit__10RPTnkActorFPC10RPTnkActorPf
+80259340	Tnk_Actor_kill	Kill__10RPTnkActorFv	Pack/RPParty/RPTnkScene/RPTnkActor.cpp	
+80259374	Tnk_Actor_spawn	Spawn__10RPTnkActorFRCQ34nw4r4math4VEC3Ul	Pack/RPParty/RPTnkScene/RPTnkActor.cpp	
+80259428	Tnk_Actor_calc	Calculate__10RPTnkActorFv	Pack/RPParty/RPTnkScene/RPTnkActor.cpp	
+8025942C	Tnk_Actor_integrateStep	IntegrateStep__10RPTnkActorFv	Pack/RPParty/RPTnkScene/RPTnkActor.cpp	
+8025943C	Tnk_Actor_collideWithField	CollideWithField__10RPTnkActorFv	Pack/RPParty/RPTnkScene/RPTnkActor.cpp	
+80259440	Tnk_Actor_clearForcesStep	ClearForcesStep__10RPTnkActorFv	Pack/RPParty/RPTnkScene/RPTnkActor.cpp	
+80259450	Tnk_Actor_applyVelocity	ApplyVelocity__10RPTnkActorFv	Pack/RPParty/RPTnkScene/RPTnkActor.cpp	
+80259484	Tnk_Actor_reset	Reset__10RPTnkActorFv	Pack/RPParty/RPTnkScene/RPTnkActor.cpp	
+80259494	Tnk_Actor_load	Load__10RPTnkActorFv	Pack/RPParty/RPTnkScene/RPTnkActor.cpp	
+80259498	Tnk_Actor_create	Create__10RPTnkActorFv	Pack/RPParty/RPTnkScene/RPTnkActor.cpp	
+802595FC	Tnk_Actor_applySpawnParam	ApplySpawnParam__10RPTnkActorFUl	Pack/RPParty/RPTnkScene/RPTnkActor.cpp	
+80259600	Tnk_Actor_onSpawn	OnSpawn__10RPTnkActorFv	Pack/RPParty/RPTnkScene/RPTnkActor.cpp	
+80259604	Tnk_Actor_integrate	Integrate__10RPTnkActorFv	Pack/RPParty/RPTnkScene/RPTnkActor.cpp	
+80259698	Tnk_Actor_clearForces	ClearForces__10RPTnkActorFv	Pack/RPParty/RPTnkScene/RPTnkActor.cpp	
+802596D0	Tnk_Actor_resetState	ResetState__10RPTnkActorFv	Pack/RPParty/RPTnkScene/RPTnkActor.cpp	
+802597FC	Tnk_Actor_dtor	__dt__10RPTnkActorFv	Pack/RPParty/RPTnkScene/RPTnkActor.cpp	
+80259854	Tnk_Actor_ctor	__ct__10RPTnkActorFv	Pack/RPParty/RPTnkScene/RPTnkActor.cpp	
+80259940	Tnk_ActorSound_dtor	__dt__15RPTnkActorSoundFv	Pack/RPParty/RPTnkScene/RPTnkActor.cpp	
+80259A50	Tnk_Cls_8035B290_vf36	GetOwnerSlot__10RPTnkActorCFv	Pack/RPParty/RPTnkScene/RPTnkActor.cpp	
+80259A58	Tnk_Cls_8035B290_vf37	GetKind__10RPTnkActorCFv	Pack/RPParty/RPTnkScene/RPTnkActor.cpp	
+80259A60	Tnk_Cls_8035B290_vf38	GetHeight__10RPTnkActorCFv	Pack/RPParty/RPTnkScene/RPTnkActor.cpp	
+80259A68	Tnk_Cls_8035B290_vf42	StopEffects__10RPTnkActorFv	Pack/RPParty/RPTnkScene/RPTnkActor.cpp	
+80259A6C	Tnk_Cls_8035B290_vf43	Explode__10RPTnkActorFv	Pack/RPParty/RPTnkScene/RPTnkActor.cpp	
+80259A70	Tnk_Cls_8035B290_vf44	IsExploding__10RPTnkActorCFv	Pack/RPParty/RPTnkScene/RPTnkActor.cpp	
+80259A78	Tnk_Cls_8035B290_vf46	GetOwnerTank__10RPTnkActorCFv	Pack/RPParty/RPTnkScene/RPTnkActor.cpp	
+80259A80	Tnk_ActorSound_dtorThunk	@16@__dt__15RPTnkActorSoundFv	Pack/RPParty/RPTnkScene/RPTnkActor.cpp	
+8035B290	Tnk_Actor_vtable	__vt__10RPTnkActor	Pack/RPParty/RPTnkScene/RPTnkActor.cpp	
+8035B354	Tnk_ActorSound_vtable	__vt__15RPTnkActorSound	Pack/RPParty/RPTnkScene/RPTnkActor.cpp	

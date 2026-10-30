@@ -1,0 +1,3 @@
+address	old_name	new_name	unit	previous
+8034F928	lbl_8034F928	__vt__23RPSysKokeshiCtrlDataMgr	Pack/RPKernel/RPSysKokeshiCtrlDataMgr.cpp	
+8043BC30	lbl_8043BC30	sCurrentHeap__Q23EGG4Heap	Pack/RPKernel/RPSysKokeshiCtrlDataMgr.cpp	

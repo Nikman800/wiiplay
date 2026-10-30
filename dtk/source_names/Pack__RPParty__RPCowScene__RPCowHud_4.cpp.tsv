@@ -1,0 +1,11 @@
+address	old_name	new_name	unit	previous
+802B1138	Cow_PerfectMsg_drawScreen	DrawScreen__15RPCowPerfectMsgFUc	Pack/RPParty/RPCowScene/RPCowHud_4.cpp	
+802B114C	Cow_PerfectMsg_calc	OnActivate__15RPCowPerfectMsgFv	Pack/RPParty/RPCowScene/RPCowHud_4.cpp	
+802B1350	Cow_PerfectMsg_exit	OnStop__15RPCowPerfectMsgFv	Pack/RPParty/RPCowScene/RPCowHud_4.cpp	
+802B1354	Cow_PerfectMsg_reset	OnStart__15RPCowPerfectMsgFv	Pack/RPParty/RPCowScene/RPCowHud_4.cpp	
+802B14B0	Cow_PerfectMsg_init	LoadResource__15RPCowPerfectMsgFv	Pack/RPParty/RPCowScene/RPCowHud_4.cpp	
+802B178C	Cow_PerfectMsg_dtor	__dt__15RPCowPerfectMsgFv	Pack/RPParty/RPCowScene/RPCowHud_4.cpp	
+802B17E4	Cow_PerfectMsg_ctor	__ct__15RPCowPerfectMsgFv	Pack/RPParty/RPCowScene/RPCowHud_4.cpp	
+802B1838	Cow_PerfectMsg_show	Show__15RPCowPerfectMsgFlll	Pack/RPParty/RPCowScene/RPCowHud_4.cpp	
+802B1B70	Cow_PerfectMsg_dtorThunk	@20@__dt__15RPCowPerfectMsgFv	Pack/RPParty/RPCowScene/RPCowHud_4.cpp	
+8035D788	lbl_8035D788	__vt__15RPCowPerfectMsg	Pack/RPParty/RPCowScene/RPCowHud_4.cpp	

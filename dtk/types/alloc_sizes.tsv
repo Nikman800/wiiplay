@@ -1,0 +1,551 @@
+size	ctor	class	caller	caller_addr	flag	vtable	vtable_class
+0x68	Bil_AimMarker_ctor	Bil_AimMarker	Bil_BallMgr_ctor	802C4EE8			
+0x200	Bil_AuxCamera_ctor	Bil_AuxCamera	Bil_CameraMgr_create	802BBC14			
+0x84	Bil_Ball_ctor	Bil_Ball	Bil_BallMgr_ctor	802C4EE8			
+0x88	Bil_BallIcon_ctor	Bil_BallIcon	Bil_BallMgr_ctor	802C4EE8			
+0x104	Bil_BallMgr_ctor	Bil_BallMgr	Bil_BallMgr_create	802C5208			
+0x28	Bil_BallSM_ctor	Bil_BallSM	Bil_Ball_ctor	802C2674			
+0x14	Bil_Camera_ctor	Bil_Camera	Bil_CameraMgr_create	802BBC14	base?		
+0x238	Bil_Camera_ctor	Bil_Camera	Bil_CameraMgr_create	802BBC14	base?		
+0x64	Bil_CueGhost_ctor	Bil_CueGhost	Bil_BallMgr_ctor	802C4EE8			
+0x8	Bil_GameMgr_ctor	Bil_GameMgr	Bil_GameMgr_create	802C6230			
+0x28	Bil_GameSM_ctor	Bil_GameSM	Bil_GameMgr_ctor	802C6084			
+0x18	Bil_HintSM_ctor	Bil_HintSM	Bil_Hint_create	802D28E0	base?		
+0x28	Bil_HintSM_ctor	Bil_HintSM	Bil_Hint_create	802D28E0	base?		
+0xA0	Bil_Hud_ctor	Bil_Hud	Bil_Hud_create	802CE06C			
+0x28	Bil_HudSM_ctor	Bil_HudSM	Bil_Hud_ctor	802CDDF4			
+0x28	Bil_IconSM_ctor	Bil_IconSM	Bil_BallIcon_ctor	802D0A34			
+0x28	Bil_MsgSM_ctor	Bil_MsgSM	Bil_MsgWindow_create	802CE884			
+0x68CC	Bil_Player_ctor	Bil_Player	Bil_PlayerMgr_create	802C1660			
+0x28	Bil_PlayerSM_ctor	Bil_PlayerSM	Bil_Player_ctor	802C0BC0			
+0x204	Bil_PocketCam_ctor	Bil_PocketCam	Bil_CameraMgr_create	802BBC14			
+0x28	Bil_PopupLytSM_ctor	Bil_PopupLytSM	Bil_ScorePopupLyt_ctor	802D1334			
+0x60	Bil_Result_ctor	Bil_Result	Bil_Result_create	802CA888			
+0x6C	Bil_ResultLyt_ctor	Bil_ResultLyt	Bil_Result_ctor	802CA688			
+0x28	Bil_ResultLytSM_ctor	Bil_ResultLytSM	Bil_ResultLyt_ctor	802CFE8C			
+0x28	Bil_ResultSM_ctor	Bil_ResultSM	Bil_Result_ctor	802CA688			
+0x28	Bil_ScorePopupLyt_ctor	Bil_ScorePopupLyt	Bil_ScorePopup_create	802D1BAC			
+0x18	Bil_ScorePopupSM_ctor	Bil_ScorePopupSM	Bil_ScorePopup_create	802D1BAC	base?		
+0x28	Bil_ScorePopupSM_ctor	Bil_ScorePopupSM	Bil_ScorePopup_create	802D1BAC	base?		
+0xB4	Bil_Sound3D_ctor	Bil_Sound3D	Bil_Player_ctor	802C0BC0			
+0xB4	Bil_Sound3D_ctor	Bil_Sound3D	Bil_Ball_ctor	802C2674			
+0x28	Bil_TagSM_ctor	Bil_TagSM	Bil_BallNumberTag_create	802D3538			
+0x14	Bom_Bgm_ctor	Bom_Bgm	Bom_GameManager_create	802D9A0C			
+0x60	Bom_Cursor_ctor	Bom_Cursor	Bom_CursorManager_createCursors	802D6524			
+0x104	Bom_GameManager_ctor	Bom_GameManager	Bom_GameManager_createInstance	802DB4A8			
+0x7C	Bom_LytClear_ctor	Bom_LytClear	Bom_LayoutMgr_create	802E3C7C			
+0x20	Bom_LytEnd_ctor	Bom_LytEnd	Bom_LayoutMgr_create	802E3C7C			
+0x28	Bom_LytLevel_ctor	Bom_LytLevel	Bom_LayoutMgr_create	802E3C7C			
+0x14	Bom_LytMiss_ctor	Bom_LytMiss	Bom_LayoutMgr_create	802E3C7C			
+0x1C	Bom_LytPoint_ctor	Bom_LytPoint	Bom_LayoutMgr_create	802E3C7C			
+0xC8	Bom_LytPoseSel_ctor	Bom_LytPoseSel	Bom_LayoutMgr_create	802E3C7C			
+0x20	Bom_LytReady_ctor	Bom_LytReady	Bom_LayoutMgr_create	802E3C7C			
+0x5C	Bom_LytScore_ctor	Bom_LytScore	Bom_LayoutMgr_create	802E3C7C			
+0x24	Bom_LytStart_ctor	Bom_LytStart	Bom_LayoutMgr_create	802E3C7C			
+0x18	Bom_ObjPool_ctor	Bom_ObjPool	Bom_PanelPool_createInstance	802E20E4		8035F620	PanelPool
+0x11C	Bom_Panel_ctor	Bom_Panel	Bom_PanelPool_createItem	802E2130			
+0x164	Bom_Player_ctor	Bom_Player	Bom_PlayerManager_createPlayers	802D945C			
+0x58	Cow_AngleDisp_ctor	Cow_AngleDisp	Cow_Game_ctor	8029AD28			
+0x150	Cow_Cloud_ctor	Cow_Cloud	Cow_Game_load	80297C24			
+0x1F4	Cow_CowModel_ctor	Cow_CowModel	Cow_Player_create	802A2190			
+0x70	Cow_ExMsg_ctor	Cow_ExMsg	Cow_Game_ctor	8029AD28			
+0x2C	Cow_Field_ctor	Cow_Field	Cow_Game_ctor	8029AD28			
+0x7C	Cow_Game_ctor	Cow_Game	Cow_Scene_createCowMgr	80295D3C			
+0x30	Cow_Goal_ctor	Cow_Goal	Cow_Game_load	80297C24			
+0x48	Cow_GoalMsg_ctor	Cow_GoalMsg	Cow_Game_ctor	8029AD28			
+0x150	Cow_Hurdle_ctor	Cow_Hurdle	Cow_Game_load	80297C24			
+0x50	Cow_KakasiGroup_ctor	Cow_KakasiGroup	Cow_Game_load	80297C24			
+0x150	Cow_KnitCowEx_ctor	Cow_KnitCowEx	Cow_Game_load	80297C24			
+0x74	Cow_LimitCount_ctor	Cow_LimitCount	Cow_Game_ctor	8029AD28			
+0xD0	Cow_MainHud_ctor	Cow_MainHud	Cow_Game_ctor	8029AD28			
+0x38	Cow_ModelBatch_ctor	Cow_ModelBatch	Cow_Game_ctor	8029AD28			
+0x44	Cow_OrderMsg_ctor	Cow_OrderMsg	Cow_Game_ctor	8029AD28			
+0xB0	Cow_PerfectMsg_ctor	Cow_PerfectMsg	Cow_Game_ctor	8029AD28			
+0x38	Cow_StartMsg_ctor	Cow_StartMsg	Cow_Game_ctor	8029AD28			
+0x150	Cow_Tree_ctor	Cow_Tree	Cow_Game_load	80297C24			
+0x5C	Cow_VsResult_ctor	Cow_VsResult	Cow_Game_ctor	8029AD28			
+0x204	Duc_Avatar_ctor	Duc_Avatar	Duc_AvatarMgr_allocTarget	80252764			
+0x208	Duc_Balloon_ctor	Duc_Balloon	Duc_BalloonMgr_allocTarget	80237B7C			
+0x470	Duc_Can_ctor	Duc_Can	Duc_CanMgr_allocTarget	8024B9A0			
+0x2CC	Duc_CircleTarget_ctor	Duc_CircleTarget	Duc_CircleTargetMgr_allocTarget	80250834			
+0x32C	Duc_Clay_ctor	Duc_Clay	Duc_ClayMgr_allocTarget	80238E38			
+0x3E0	Duc_Duck_ctor	Duc_Duck	Duc_DuckMgr_allocTarget	80239F9C			
+0x38	Duc_EndLayout_ctor	Duc_EndLayout	Duc_Hud_init	8024B70C			
+0x1C	Duc_PointPopup_ctor	Duc_PointPopup	Duc_Hud_init	8024B70C			
+0x90	Duc_ScoreLayout_ctor	Duc_ScoreLayout	Duc_Hud_init	8024B70C			
+0xA0	Duc_Shot_ctor	Duc_Shot	Duc_ShotMgr_createShots	80244A44			
+0x18	Duc_ShotPointer_ctor	Duc_ShotPointer	Duc_Shot_init	80243AA4			
+0x48	Duc_ShtCloud_ctor	Duc_ShtCloud	Duc_Field_init	802375D0			
+0x48	Duc_ShtField_ctor	Duc_ShtField	Duc_Field_init	802375D0			
+0x54	Duc_ShtGrass_ctor	Duc_ShtGrass	Duc_Field_init	802375D0			
+0x11C	Duc_Spawner_ctor	Duc_Spawner	Duc_Spawner_createInstance	802495D8			
+0x30	Duc_StartLayout_ctor	Duc_StartLayout	Duc_Hud_init	8024B70C			
+0x1C	Duc_TargetMgr_ctor	Duc_TargetMgr	Duc_BalloonMgr_createInstance	80237AAC	base?		
+0x1C	Duc_TargetMgr_ctor	Duc_TargetMgr	Duc_ClayMgr_createInstance	80238D68	base?		
+0x1C	Duc_TargetMgr_ctor	Duc_TargetMgr	Duc_DuckMgr_createInstance	80239ECC	base?		
+0x1C	Duc_TargetMgr_ctor	Duc_TargetMgr	Duc_UfoMgr_createInstance	8023EC0C	base?		
+0x1C	Duc_TargetMgr_ctor	Duc_TargetMgr	Duc_CanMgr_createInstance	8024B8D0	base?		
+0x1C	Duc_TargetMgr_ctor	Duc_TargetMgr	Duc_AvatarMgr_createInstance	80252118	base?		
+0x3C	Duc_TargetMgr_ctor	Duc_TargetMgr	Duc_CircleTargetMgr_createInstance	8025070C	base?		
+0x6C8	Duc_Ufo_ctor	Duc_Ufo	Duc_UfoMgr_allocTarget	8023ECDC			
+0x14	__ct__Q23EGG9AllocatorFPQ23EGG4Heapl	EGG::Allocator	__ct__Q23EGG17CoreControllerMgrFv	800A7124			
+0x14	__ct__Q23EGG9AllocatorFPQ23EGG4Heapl	EGG::Allocator	init__10RPSysSceneFv	80184898			
+0x14	__ct__Q23EGG9AllocatorFPQ23EGG4Heapl	EGG::Allocator	Construct__16RPSysKokeshiIconFv	8019A6D0			
+0x14	__ct__Q23EGG9AllocatorFPQ23EGG4Heapl	EGG::Allocator	resetData__23RPSysKokeshiCtrlDataMgrFv	801A348C			
+0x14	__ct__Q23EGG9AllocatorFPQ23EGG4Heapl	EGG::Allocator	__ct__23RPSysKokeshiCtrlDataMgrFP29IRPSysKokeshiCtrlDataCallbackPQ23EGG4HeapUll	801A38FC			
+0x88	__ct__Q23EGG12AsyncDisplayFUc	EGG::AsyncDisplay	initialize__11RPSysSystemFv	8018381C			
+0x68	__ct__Q23EGG17CoreControllerMgrFv	EGG::CoreControllerMgr	create__22RPSysCoreControllerMgrFv	801A45D4		8034F950	RP_CtrlMgr
+0x18	__ct__Q23EGG10CpuTextureFUsUs9_GXTexFmt	EGG::CpuTexture	initialize__Q23EGG12LightTextureFUsPQ23EGG4Heap	800911EC	base?		
+0x18	__ct__Q23EGG10CpuTextureFUsUs9_GXTexFmt	EGG::CpuTexture	__ct__Q23EGG17PostEffectMaskDOFFv	8009E610	base?		
+0x2C	__ct__Q23EGG10CpuTextureFUsUs9_GXTexFmt	EGG::CpuTexture	Construct__16RPSysKokeshiIconFv	8019A6D0	base?		
+0x18	__ct__Q23EGG8DisposerFv	EGG::Disposer	Fsh_Scene_configure	801FEC04	base?		
+0x18	__ct__Q23EGG8DisposerFv	EGG::Disposer	Hky_Scene_create	80216CD0	base?		
+0x18	__ct__Q23EGG8DisposerFv	EGG::Disposer	Pnp_Scene_create	8022465C	base?		
+0x18	__ct__Q23EGG8DisposerFv	EGG::Disposer	Duc_Scene_create	80236168	base?		
+0x18	__ct__Q23EGG8DisposerFv	EGG::Disposer	Tnk_Scene_create	8025652C	base?		
+0x18	__ct__Q23EGG8DisposerFv	EGG::Disposer	Wly_Scene_create	80275574	base?		
+0x18	__ct__Q23EGG8DisposerFv	EGG::Disposer	Cow_Game_ctor	8029AD28	base?		
+0x18	__ct__Q23EGG8DisposerFv	EGG::Disposer	Bil_Scene_create	802BA354	base?		
+0x18	__ct__Q23EGG8DisposerFv	EGG::Disposer	Bom_Scene_create	802D414C	base?		
+0x3C	__ct__Q23EGG8DisposerFv	EGG::Disposer	mount__Q23EGG7ArchiveFPvPQ23EGG4Heapi	800AC60C	base?		
+0x60	__ct__Q23EGG8DisposerFv	EGG::Disposer	Bil_Camera_ctor	802BC950	base?	80358A88	SndPlayerBase
+0x60	__ct__Q23EGG8DisposerFv	EGG::Disposer	Bil_BallMgr_ctor	802C4EE8	base?	80358A88	SndPlayerBase
+0x68	__ct__Q23EGG8DisposerFv	EGG::Disposer	Wly_GameMgr_ctor	8027D718	base?	80358A88	SndPlayerBase
+0x134	__ct__Q23EGG13DrawPathBloomFv	EGG::DrawPathBloom	createPath__Q23EGG11ScnRendererFUlP12MEMAllocator	8009C5F8			
+0xB4	__ct__Q23EGG11DrawPathDOFFv	EGG::DrawPathDOF	createPath__Q23EGG11ScnRendererFUlP12MEMAllocator	8009C5F8			
+0x80	__ct__Q23EGG11DrawPathHDRFv	EGG::DrawPathHDR	createPath__Q23EGG11ScnRendererFUlP12MEMAllocator	8009C5F8			
+0x98	__ct__Q23EGG20DrawPathShadowVolumeFv	EGG::DrawPathShadowVolume	createPath__Q23EGG11ScnRendererFUlP12MEMAllocator	8009C5F8			
+0x90	__ct__Q23EGG15DrawPathXluSnapFv	EGG::DrawPathXluSnap	createPath__Q23EGG11ScnRendererFUlP12MEMAllocator	8009C5F8			
+0x20	__ct__Q23EGG3FogFv	EGG::Fog	__ct__Q23EGG10FogManagerFv	8008E990			
+0x88	__ct__Q23EGG10FogManagerFv	EGG::FogManager	Gfx_ModelScene_ctor	801AF6A0			
+0xC	__ct__Q23EGG9GfxEngineFv	EGG::GfxEngine	initialize__Q23EGG9GfxEngineFUsUsPQ23EGG4Heap	8008F624			
+0x2C	__ct__Q23EGG12LightManagerFUlUlUc	EGG::LightManager	Gfx_ModelScene_ctor	801AF6A0			
+0xB0	__ct__Q23EGG11LightObjectFv	EGG::LightObject	__ct__Q23EGG12LightManagerFUlUlUc	8008F85C			
+0x1C	__ct__Q23EGG19LightTextureManagerFPCQ23EGG12LightManager	EGG::LightTextureManager	__ct__Q23EGG12LightManagerFUlUlUc	8008F85C			
+0x14	__ct__Q23EGG7ModelExFPQ34nw4r3g3d6ScnObj	EGG::ModelEx	__ct__13RPGrpModelG3DFUsPCcUcUlUl	801AB274			
+0x14	__ct__Q23EGG7ModelExFPQ34nw4r3g3d6ScnObj	EGG::ModelEx	__ct__13RPGrpModelG3DFUsUcUlUl	801AB36C			
+0x14	__ct__Q23EGG7ModelExFPQ34nw4r3g3d6ScnObj	EGG::ModelEx	Construct__13RPGrpModelRflF13RFLDataSourceUsP11RFLMiddleDB13RFLResolutionUlUcUl	801B27E0			
+0x80	__ct__Q23EGG14PostEffectBlurFv	EGG::PostEffectBlur	__ct__Q23EGG13DrawPathBloomFv	80089A04			
+0x80	__ct__Q23EGG14PostEffectBlurFv	EGG::PostEffectBlur	__ct__Q23EGG11DrawPathDOFFv	8008B5CC			
+0x80	__ct__Q23EGG14PostEffectBlurFv	EGG::PostEffectBlur	__ct__Q23EGG13ShadowTextureFUsUsUs	8009A7FC			
+0x58	__ct__Q23EGG20PostEffectBlurGatherFv	EGG::PostEffectBlurGather	__ct__Q23EGG13DrawPathBloomFv	80089A04			
+0x34	__ct__Q23EGG20PostEffectBlurSimpleFv	EGG::PostEffectBlurSimple	__ct__Q23EGG13DrawPathBloomFv	80089A04			
+0x34	__ct__Q23EGG20PostEffectBlurSimpleFv	EGG::PostEffectBlurSimple	__ct__Q23EGG11DrawPathDOFFv	8008B5CC			
+0x34	__ct__Q23EGG20PostEffectBlurSimpleFv	EGG::PostEffectBlurSimple	__ct__Q23EGG13ShadowTextureFUsUsUs	8009A7FC			
+0x48	__ct__Q23EGG13PostEffectHDRFv	EGG::PostEffectHDR	__ct__Q23EGG11DrawPathHDRFv	8008CFA8			
+0x1B4	__ct__Q23EGG14PostEffectMaskFv	EGG::PostEffectMask	__ct__Q23EGG13DrawPathBloomFv	80089A04			
+0x1B4	__ct__Q23EGG14PostEffectMaskFv	EGG::PostEffectMask	__ct__Q23EGG11DrawPathDOFFv	8008B5CC			
+0x50	__ct__Q23EGG17PostEffectMaskDOFFv	EGG::PostEffectMaskDOF	__ct__Q23EGG11DrawPathDOFFv	8008B5CC			
+0x30	__ct__Q23EGG16PostEffectSimpleFv	EGG::PostEffectSimple	__ct__Q23EGG13DrawPathBloomFv	80089A04			
+0x14C	__ct__Q23EGG12ProcessMeterFb	EGG::ProcessMeter	initialize__11RPSysSystemFv	8018381C			
+0x38	__ct__Q23EGG12SceneManagerFPQ23EGG12SceneCreator	EGG::SceneManager	CreateInstance__13RPSysSceneMgrFPQ23EGG4Heap	801859A8		8034F248	Sys_SceneMgr
+0x60	__ct__Q23EGG11ScnRendererFPQ34nw4r3g3d7ScnRoot	EGG::ScnRenderer	Gfx_ModelScene_ctor	801AF6A0			
+0x68	__ct__Q23EGG6ScreenFv	EGG::Screen	__ct__Q23EGG9ScnRootExFPQ34nw4r3g3d7ScnRoot	80098674			
+0x68	__ct__Q23EGG6ScreenFv	EGG::Screen	__ct__17RPSysCommonObjectFv	80187678		8034F32C	Sys_Screen
+0x68	__ct__Q23EGG6ScreenFv	EGG::Screen	Health_StrapScene_create	801CB6F0		8034F32C	Sys_Screen
+0x68	__ct__Q23EGG6ScreenFv	EGG::Screen	Menu_MenuScene_configure	801CDC9C		8034F32C	Sys_Screen
+0x68	__ct__Q23EGG6ScreenFv	EGG::Screen	Menu_MenuBgModel_ctor	801CE460		8034F32C	Sys_Screen
+0x68	__ct__Q23EGG6ScreenFv	EGG::Screen	Mii_KokeshiMgr_ctor_801D2BB8	801D2BB8		8034F32C	Sys_Screen
+0x68	__ct__Q23EGG6ScreenFv	EGG::Screen	Menu_SportsMessageScene_configure	801DCB5C		8034F32C	Sys_Screen
+0x68	__ct__Q23EGG6ScreenFv	EGG::Screen	Menu_PtMenuBg_ctor	801DD694		8034F32C	Sys_Screen
+0x68	__ct__Q23EGG6ScreenFv	EGG::Screen	Menu_LogoModel_ctor	801E2EFC		8034F32C	Sys_Screen
+0x68	__ct__Q23EGG6ScreenFv	EGG::Screen	Lyt_CommonMessage_setup	801E419C		8034F32C	Sys_Screen
+0x68	__ct__Q23EGG6ScreenFv	EGG::Screen	RP_AvatarScene_setup	801E46F4		8034F32C	Sys_Screen
+0x68	__ct__Q23EGG6ScreenFv	EGG::Screen	Party_Common_ctor	801E7CC8		8034F32C	Sys_Screen
+0x68	__ct__Q23EGG6ScreenFv	EGG::Screen	Fsh_Scene_configure	801FEC04		8034F32C	Sys_Screen
+0x68	__ct__Q23EGG6ScreenFv	EGG::Screen	Duc_Scene_createCameras	8023665C		8034F32C	Sys_Screen
+0x68	__ct__Q23EGG6ScreenFv	EGG::Screen	Tnk_Scene_createCamerasAndScreens	802569B0		8034F32C	Sys_Screen
+0x68	__ct__Q23EGG6ScreenFv	EGG::Screen	Cow_Camera_create	8029E7D8		8034F32C	Sys_Screen
+0x68	__ct__Q23EGG6ScreenFv	EGG::Screen	Bil_Scene_create	802BA354		8034F32C	Sys_Screen
+0x68	__ct__Q23EGG6ScreenFv	EGG::Screen	Bom_Scene_createCameras	802D45C8		8034F32C	Sys_Screen
+0x200	__ct__Q23EGG13ShadowTextureFUsUsUs	EGG::ShadowTexture	Fsh_Stage_create	8020BEE4		80358E18	SceneTexture
+0x200	__ct__Q23EGG13ShadowTextureFUsUsUs	EGG::ShadowTexture	Pnp_Game_load	8022D1CC		80358E18	SceneTexture
+0x200	__ct__Q23EGG13ShadowTextureFUsUsUs	EGG::ShadowTexture	Cow_Player_init	802A1D48		80358E18	SceneTexture
+0x200	__ct__Q23EGG13ShadowTextureFUsUsUs	EGG::ShadowTexture	Bil_Table_load	802BB4A8		80358E18	SceneTexture
+0x4C	__ct__Q23EGG20ShadowTextureManagerFv	EGG::ShadowTextureManager	__ct__Q23EGG9ScnRootExFPQ34nw4r3g3d7ScnRoot	80098674			
+0x44	__ct__Q23EGG6ThreadFP8OSThreadi	EGG::Thread	initialize__11RPSysSystemFv	8018381C			
+0x54	__ct__Q23EGG6ThreadFUliiPQ23EGG4Heap	EGG::Thread	create__Q23EGG10TaskThreadFiiUlPQ23EGG4Heap	800A44E8			
+0x10	__ct__Q23EGG3XfbFPQ23EGG4Heap	EGG::Xfb	initialize__11RPSysSystemFv	8018381C			
+0xC8	Fsh_BonusFish_ctor	Fsh_BonusFish	Fsh_BonusFish_new	80214B00			
+0x28	Fsh_BonusSM_ctor	Fsh_BonusSM	Fsh_BonusFish_ctor	80214930			
+0x8	Fsh_Camera_ctor	Fsh_Camera	Fsh_CameraMgr_create	8020B090	base?		
+0x204	Fsh_Camera_ctor	Fsh_Camera	Fsh_CameraMgr_create	8020B090	base?		
+0x118	Fsh_Fish_ctor	Fsh_Fish	Fsh_FishMgr_create	80206700			
+0x20	Fsh_Msg00SM_ctor	Fsh_Msg00SM	Fsh_Msg00_new	80215DBC	base?		
+0x28	Fsh_Msg00SM_ctor	Fsh_Msg00SM	Fsh_Msg00_new	80215DBC	base?		
+0x20	Fsh_Msg01SM_ctor	Fsh_Msg01SM	Fsh_Msg01_new	80216718	base?		
+0x28	Fsh_Msg01SM_ctor	Fsh_Msg01SM	Fsh_Msg01_new	80216718	base?		
+0x17DC	Fsh_Player_ctor	Fsh_Player	Fsh_PlayerMgr_create	80209084			
+0x78	Fsh_ResultFish_ctor	Fsh_ResultFish	Fsh_ResultLayout_ctor	8020E014			
+0xE84	Fsh_ResultLayout_ctor	Fsh_ResultLayout	Fsh_ResultLayout_new	8020E1A4			
+0x160	Fsh_Rod_ctor	Fsh_Rod	Fsh_Player_ctor	802087B8			
+0x8	Fsh_Scene_ctor	Fsh_Scene	Fsh_Scene_new	80215564			
+0x28	Fsh_SceneSM_ctor	Fsh_SceneSM	Fsh_Scene_ctor	802153DC			
+0xA4	Fsh_ScoreLayout_ctor	Fsh_ScoreLayout	Fsh_ScoreLayout_new	802113D4			
+0x28	Fsh_ScoreSM_ctor	Fsh_ScoreSM	Fsh_ScoreLayout_ctor	80211170			
+0x40	Fsh_StartLayout_ctor	Fsh_StartLayout	Fsh_StartLayout_new	80212320			
+0x28	Fsh_StartSM_ctor	Fsh_StartSM	Fsh_StartLayout_ctor	80212108			
+0x28	Fsh_StateMachine_ctor	Fsh_StateMachine	Fsh_Timer_new	8020ED78	base?		
+0x3C	Fsh_StateMachine_ctor	Fsh_StateMachine	Fsh_Timer_new	8020ED78	base?		
+0x10	Gfx_CapTexture_ctor	Gfx_CapTexture	Tnk_Field_create	80258118			
+0x10	Gfx_CapTexture_ctor	Gfx_CapTexture	Wly_GameMgr_ctor	8027D718			
+0x10	Gfx_CapTexture_ctor	Gfx_CapTexture	Bil_Scene_create	802BA354			
+0x10	Gfx_CapTexture_ctor	Gfx_CapTexture	Bom_ScreenFx_create	802DDE4C			
+0x80	Gfx_Effect_ctor	Gfx_Effect	__ct__18RPSysCursorDrawMgrFPQ23EGG4Heap	8019CBF0			
+0x80	Gfx_Effect_ctor	Gfx_Effect	Party_MedalResult_load	801E6CF0			
+0x80	Gfx_Effect_ctor	Gfx_Effect	Party_VsWinner_load	801EC238			
+0x80	Gfx_Effect_ctor	Gfx_Effect	Party_SelectGameLyt_ctor	801EEBAC			
+0x80	Gfx_Effect_ctor	Gfx_Effect	Party_RankCompleteLyt_ctor	801FA724			
+0x80	Gfx_Effect_ctor	Gfx_Effect	Fsh_Fish_ctor	80203058			
+0x80	Gfx_Effect_ctor	Gfx_Effect	Fsh_Rod_ctor	8020A9B0			
+0x80	Gfx_Effect_ctor	Gfx_Effect	Hky_Puck_create	80218E8C			
+0x80	Gfx_Effect_ctor	Gfx_Effect	Hky_Paddle_ctor	8021FAE4			
+0x80	Gfx_Effect_ctor	Gfx_Effect	Hky_PaddleRound_ctor	80222500			
+0x80	Gfx_Effect_ctor	Gfx_Effect	Pnp_Ball_create	8022679C			
+0x80	Gfx_Effect_ctor	Gfx_Effect	Pnp_Player_load	80228F44			
+0x80	Gfx_Effect_ctor	Gfx_Effect	Pnp_ResultPhase_create	8022B3A8			
+0x80	Gfx_Effect_ctor	Gfx_Effect	Duc_Duck_init	8023A5C8			
+0x80	Gfx_Effect_ctor	Gfx_Effect	Duc_Ufo_init	8023F318			
+0x80	Gfx_Effect_ctor	Gfx_Effect	Duc_Shot_createCursorEffects	80243284			
+0x80	Gfx_Effect_ctor	Gfx_Effect	Tnk_Tank_create	8025BB0C			
+0x80	Gfx_Effect_ctor	Gfx_Effect	Tnk_Cursor_createParts	8025E200			
+0x80	Gfx_Effect_ctor	Gfx_Effect	Tnk_Shell_create	802630CC			
+0x80	Gfx_Effect_ctor	Gfx_Effect	Wly_Avatar_ctor	80277760			
+0x80	Gfx_Effect_ctor	Gfx_Effect	Wly_Cursor_create	8027FF34			
+0x80	Gfx_Effect_ctor	Gfx_Effect	Wly_Field_init	8028FCBC			
+0x80	Gfx_Effect_ctor	Gfx_Effect	Cow_PerfectMsg_init	802B14B0			
+0x80	Gfx_Effect_ctor	Gfx_Effect	Cow_GoalMsg_init	802B33EC			
+0x80	Gfx_Effect_ctor	Gfx_Effect	Cow_PlayerEffects_init	802B6000			
+0x80	Gfx_Effect_ctor	Gfx_Effect	Bil_Player_ctor	802C0BC0			
+0x80	Gfx_Effect_ctor	Gfx_Effect	Bil_Ball_ctor	802C2674			
+0x80	Gfx_Effect_ctor	Gfx_Effect	Bom_StartBg_create	802D5240			
+0x80	Gfx_Effect_ctor	Gfx_Effect	Bom_Player_create	802D7A6C			
+0x80	Gfx_Effect_ctor	Gfx_Effect	Bom_LytPoseSel_ctor	802E7E20			
+0x44	Gfx_EffectGroup_ctor	Gfx_EffectGroup	fn_80182A78	80182A78			
+0x44	Gfx_EffectGroup_ctor	Gfx_EffectGroup	init__10RPSysSceneFv	80184898			
+0x10	Gfx_Flag10Ctrl_ctor	Gfx_Flag10Ctrl	Construct<21RPGrpDrawPathLightMap>__13RPGrpDrawPathFPQ23EGG11ScnRenderer_P21RPGrpDrawPathLightMap	801A74C8			
+0xD4	Gfx_MatEditor_ctor	Gfx_MatEditor	Gfx_Model_createMaterials	801A7BCC			
+0xB0	Gfx_Model_ctor	Gfx_Model	Construct__13RPGrpModelRflF13RFLDataSourceUsP11RFLMiddleDB13RFLResolutionUlUcUl	801B27E0		80350210	Gfx_KokeshiModel
+0xA8	Gfx_ModelScene_ctor	Gfx_ModelScene	Gfx_ModelSceneMgr_createModelScene	801ABF2C			
+0x38	Gfx_ModelSceneMgr_ctor	Gfx_ModelSceneMgr	Construct__13RPGrpRendererFPQ23EGG9AllocatorUs	801AD748			
+0x34	Gfx_ScnProc_ctor	Gfx_ScnProc	Construct__20RPGrpDrawPathManagerFUlP15RPGrpModelScene	801A7548			
+0x50	Hky_Game_ctor	Hky_Game	Hky_createGame	8021B6C4			
+0x1CC	Hky_Paddle_ctor	Hky_Paddle	Hky_Game_ctor	8021B0F8			
+0x50	Hky_PaddleRound_ctor	Hky_PaddleRound	Hky_Game_ctor	8021B0F8		80359430	Hky_IntroPhase
+0x18	__ct__18IRPSysHostIOSocketFv	IRPSysHostIOSocket	CreateInstance__14RPSysEffectMgrFPQ23EGG4Heap	80191C70		8034F4B8	Gfx_EffectMgr
+0xBC	Lyt_AnimButton_ctor	Lyt_AnimButton	Menu_PlayerSettingPanel_createButtons	801DE470			
+0x324	Lyt_AnimButtonTable_ctor	Lyt_AnimButtonTable	Menu_PlayerSettingPanel_createButtons	801DE470			
+0x258	Lyt_CPadCursor_ctor	Lyt_CPadCursor	Lyt_PauseMenu_ctor	8019E610	base?		
+0x258	Lyt_CPadCursor_ctor	Lyt_CPadCursor	Lyt_SystemWindow_ctor	8019FA10	base?		
+0x258	Lyt_CPadCursor_ctor	Lyt_CPadCursor	Menu_MenuScene_configure	801CDC9C	base?		
+0x258	Lyt_CPadCursor_ctor	Lyt_CPadCursor	Menu_PlayerConfirm_ctor	801E268C	base?		
+0x258	Lyt_CPadCursor_ctor	Lyt_CPadCursor	Party_ResultMenu_ctor	801E999C	base?		
+0x258	Lyt_CPadCursor_ctor	Lyt_CPadCursor	Party_SelectScene_ctor	801F1700	base?		
+0x610	Lyt_CPadCursor_ctor	Lyt_CPadCursor	Menu_createPlayerSettingPanel	801DF7F4	base?		
+0x30	Lyt_FrameDown_ctor	Lyt_FrameDown	Menu_SportsMessageScene_configure	801DCB5C			
+0x14	Lyt_LytObjBase_ctor	Lyt_LytObjBase	Bil_Hint_create	802D28E0	base?	8035E608	HintLyt
+0x24	Lyt_LytObjBase_ctor	Lyt_LytObjBase	Bil_MsgWindow_create	802CE884	base?	8035E4D0	MsgWindow
+0x24	Lyt_LytObjBase_ctor	Lyt_LytObjBase	Bil_StrokeGuide_create	802D24E0	base?	8035E628	StrokeGuide
+0x54	Lyt_LytObjBase_ctor	Lyt_LytObjBase	Bil_BallNumberTag_create	802D3538	base?	8035E680	BallNumberTag
+0x284	Lyt_MessageWindow_ctor	Lyt_MessageWindow	Lyt_MessageWindow_createInstance	80198758			
+0x88	Lyt_PauseMenu_ctor	Lyt_PauseMenu	Sys_Pause_createSingleton	8018B460			
+0xE0	Lyt_SystemWindow_ctor	Lyt_SystemWindow	Lyt_createSingleton8043C530	801A22C0			
+0x250	Lyt_WCursor_ctor	Lyt_WCursor	Menu_MenuScene_configure	801CDC9C			
+0x28	Menu_LogoModel_ctor	Menu_LogoModel	Menu_MenuScene_configure	801CDC9C			
+0x28	Menu_MenuBgModel_ctor	Menu_MenuBgModel	Menu_MenuScene_configure	801CDC9C			
+0x3C	Menu_MiiSelect_ctor	Menu_MiiSelect	Menu_MenuScene_configure	801CDC9C		8034F32C	Sys_Screen
+0x90	Menu_MiiSelectLyt_ctor	Menu_MiiSelectLyt	Menu_MiiSelect_ctor	801DB338	base?		
+0x100	Menu_MiiSelectLyt_ctor	Menu_MiiSelectLyt	Menu_MiiSelect_ctor	801DB338	base?		
+0x28	Menu_PlayAdviceLyt_ctor	Menu_PlayAdviceLyt	Menu_PlayerConfirm_ctor	801E268C			
+0x78	Menu_PlayerConfirm_ctor	Menu_PlayerConfirm	Menu_createPlayerConfirm	801E28DC			
+0x70	Menu_PlayerConfirmLyt_ctor	Menu_PlayerConfirmLyt	Menu_PlayerConfirm_ctor	801E268C			
+0x34	Menu_PlayerNameTag_ctor	Menu_PlayerNameTag	Menu_PlayerConfirmLyt_ctor	801E15AC			
+0x7C	Menu_PtMenuBg_ctor	Menu_PtMenuBg	Menu_createPtMenuBg	801DD874			
+0x10C	Menu_RimoconEntryLyt_ctor	Menu_RimoconEntryLyt	Menu_PlayerNumSelect_ctor	801D6568			
+0x288	Menu_TPtGame00_ctor	Menu_TPtGame00	Menu_MenuScene_configure	801CDC9C			
+0x288	Menu_TPtGame00_ctor	Menu_TPtGame00	Party_SelectScene_ctor	801F1700			
+0xF8	Mii_KokeshiHead_ctor	Mii_KokeshiHead	Mii_KokeshiMgr_onRemoteMiiAdded	801D2A18			
+0xF8	Mii_KokeshiHead_ctor	Mii_KokeshiHead	Mii_KokeshiMgr_ctor_801D2BB8	801D2BB8			
+0x58	Party_ChoiceLyt_ctor	Party_ChoiceLyt	Party_ResultMenu_ctor	801E999C			
+0x54	Party_Common_ctor	Party_Common	Party_Common_create	801E8098			
+0x1E0	Party_CrowdMii_ctor	Party_CrowdMii	Party_CrowdMgr_create	801F8594			
+0x28	Party_CrowdMiiSeq_ctor	Party_CrowdMiiSeq	Party_CrowdMii_ctor	801F7D64			
+0x1E8	Party_Doll_ctor	Party_Doll	Party_DollMgr_create	801F51A0			
+0x28	Party_DollSeq_ctor	Party_DollSeq	Party_Doll_ctor	801F453C			
+0x18	Party_FaceCtrl_ctor	Party_FaceCtrl	Party_Common_ctor	801E7CC8			
+0x18	Party_FaceCtrl_ctor	Party_FaceCtrl	Party_Doll_ctor	801F453C			
+0x18	Party_FaceCtrl_ctor	Party_FaceCtrl	Party_CrowdMii_ctor	801F7D64			
+0xA4	Party_GameInfoLyt_ctor	Party_GameInfoLyt	Party_SelectScene_ctor	801F1700			
+0x28	Party_GameInfoSeq_ctor	Party_GameInfoSeq	Party_GameInfoLyt_ctor	801F2760			
+0x28	Party_LeadCursor_ctor	Party_LeadCursor	Party_Common_ctor	801E7CC8			
+0x88	Party_LeadCursorLyt_ctor	Party_LeadCursorLyt	Party_LeadCursor_ctor	801F9A1C			
+0x28	Party_LeadCursorSeq_ctor	Party_LeadCursorSeq	Party_LeadCursorLyt_ctor	801F9400			
+0x154	Party_MedalResult_ctor	Party_MedalResult	Party_Common_ctor	801E7CC8			
+0x28	Party_MedalResultSeq_ctor	Party_MedalResultSeq	Party_MedalResult_ctor	801E6ED4			
+0xC	Party_PauseText_ctor	Party_PauseText	Party_Common_ctor	801E7CC8			
+0x3C	Party_PauseTextLyt_ctor	Party_PauseTextLyt	Party_PauseText_ctor	801FB724			
+0x28	Party_PauseTextSeq_ctor	Party_PauseTextSeq	Party_PauseTextLyt_ctor	801FB2B0			
+0x30	Party_RankCompleteLyt_ctor	Party_RankCompleteLyt	Party_SelectScene_ctor	801F1700			
+0x28	Party_RankCompleteSeq_ctor	Party_RankCompleteSeq	Party_RankCompleteLyt_ctor	801FA724			
+0x24	Party_RankGetLyt_ctor	Party_RankGetLyt	Party_MedalResult_ctor	801E6ED4			
+0x28	Party_RankGetSeq_ctor	Party_RankGetSeq	Party_RankGetLyt_ctor	801E5120			
+0x54	Party_RecordLyt_ctor	Party_RecordLyt	Party_MedalResult_ctor	801E6ED4			
+0x28	Party_RecordSeq_ctor	Party_RecordSeq	Party_RecordLyt_ctor	801E8DB8			
+0x30	Party_ResultMenu_ctor	Party_ResultMenu	Party_Common_ctor	801E7CC8			
+0x28	Party_ResultMenuSeq_ctor	Party_ResultMenuSeq	Party_ResultMenu_ctor	801E999C			
+0x14	Party_ScreenFade_ctor	Party_ScreenFade	Party_Common_ctor	801E7CC8			
+0x53C	Party_SelectGameLyt_ctor	Party_SelectGameLyt	Party_SelectScene_ctor	801F1700			
+0x28	Party_SelectGameSeq_ctor	Party_SelectGameSeq	Party_SelectGameLyt_ctor	801EEBAC			
+0xE0	Party_SelectScene_ctor	Party_SelectScene	Party_SelectScene_create	801F19A0			
+0x28	Party_SelectSceneSeq_ctor	Party_SelectSceneSeq	Party_SelectScene_ctor	801F1700			
+0x248	Party_TitleLyt_ctor	Party_TitleLyt	Lyt_CommonMessage_setup	801E419C			
+0x28	Party_TitleSeq_ctor	Party_TitleSeq	Party_TitleLyt_ctor	801FD05C			
+0x2C	Party_VsResultLyt_ctor	Party_VsResultLyt	Party_ResultMenu_ctor	801E999C			
+0xD0	Party_VsWinner_ctor	Party_VsWinner	Party_Common_ctor	801E7CC8			
+0x24	Party_VsWinnerLyt_ctor	Party_VsWinnerLyt	Party_VsWinner_ctor	801EC42C			
+0x28	Party_VsWinnerLytSeq_ctor	Party_VsWinnerLytSeq	Party_VsWinnerLyt_ctor	801ECE84			
+0x28	Party_VsWinnerSeq_ctor	Party_VsWinnerSeq	Party_VsWinner_ctor	801EC42C			
+0x804	Pnp_Audience_ctor	Pnp_Audience	Pnp_createAudience	8022F9EC			
+0x54	Pnp_Game_ctor	Pnp_Game	Pnp_createGame	8022DC8C			
+0x1C	Pnp_LevelTable_ctor	Pnp_LevelTable	Pnp_createLevelTable	80232ED8			
+0x2C8	Pnp_Player_ctor	Pnp_Player	Pnp_Game_ctor	8022D5E4			
+0xF8	Pnp_Spectator_ctor	Pnp_Spectator	Pnp_Audience_ctor	8022F49C			
+0x178	__ct__11RPGrpCameraFv	RPGrpCamera	Gfx_createDrawModel	801C8598		80357640	ActorList
+0x178	__ct__11RPGrpCameraFv	RPGrpCamera	Menu_MenuBgModel_ctor	801CE460		8034F32C	Sys_Screen
+0x178	__ct__11RPGrpCameraFv	RPGrpCamera	Mii_KokeshiMgr_ctor_801D2BB8	801D2BB8		8034F32C	Sys_Screen
+0x178	__ct__11RPGrpCameraFv	RPGrpCamera	Menu_PtMenuBg_ctor	801DD694		8034F32C	Sys_Screen
+0x178	__ct__11RPGrpCameraFv	RPGrpCamera	Menu_LogoModel_ctor	801E2EFC		8034F32C	Sys_Screen
+0x178	__ct__11RPGrpCameraFv	RPGrpCamera	RP_AvatarScene_setup	801E46F4			
+0x178	__ct__11RPGrpCameraFv	RPGrpCamera	Party_Common_ctor	801E7CC8			
+0x178	__ct__11RPGrpCameraFv	RPGrpCamera	Hky_Game_ctor	8021B0F8			
+0x178	__ct__11RPGrpCameraFv	RPGrpCamera	Pnp_Game_ctor	8022D5E4			
+0x178	__ct__11RPGrpCameraFv	RPGrpCamera	Tnk_Scene_createCamerasAndScreens	802569B0		8034F32C	Sys_Screen
+0x178	__ct__11RPGrpCameraFv	RPGrpCamera	Wly_GameMgr_ctor	8027D718			
+0x10	__ct__26RPGrpDrawPathShadowTextureFPQ23EGG11ScnRenderer	RPGrpDrawPathShadowTexture	Construct<26RPGrpDrawPathShadowTexture>__13RPGrpDrawPathFPQ23EGG11ScnRenderer_P26RPGrpDrawPathShadowTexture	801A7508			
+0x18	__ct__22RPGrpModelBoundingInfoFUlP10RPGrpModel	RPGrpModelBoundingInfo	Gfx_Model_createHelper34	801A7AFC			
+0x50	__ct__13RPGrpModelG3DFUsPCcUcUlUl	RPGrpModelG3D	Construct__10RPGrpModelFUsiUcUlUl	801A7D6C			
+0x50	__ct__13RPGrpModelG3DFUsUcUlUl	RPGrpModelG3D	Construct__10RPGrpModelFUsUcUlUl	801A7E00			
+0xC	__ct__20RPGrpModelResManagerFv	RPGrpModelResManager	Gfx_ModelSceneMgr_ctor	801ABFC8			
+0x1E8	__ct__21RPGrpProjectionObjectFUc	RPGrpProjectionObject	Fsh_Stage_new	8020C358			
+0x1E8	__ct__21RPGrpProjectionObjectFUc	RPGrpProjectionObject	Wly_Field_init	8028FCBC			
+0x20	__ct__17RPGrpViewRender2DFUc	RPGrpViewRender2D	Gfx_Renderer_createView2D	801ACF54			
+0x28	__ct__17RPGrpViewRender3DFUc	RPGrpViewRender3D	Gfx_Renderer_createView3D	801ACFF0			
+0xFAC	__ct__13RPSndAudioMgrFPQ23EGG4Heap	RPSndAudioMgr	CreateInstance__13RPSndAudioMgrFPQ23EGG4Heap	801B4B38			
+0x6AC	__ct__19RPSndHomeMenuArcMgrFv	RPSndHomeMenuArcMgr	__ct__16RPSysHomeMenuMgrFPQ23EGG4Heap	801A2C74			
+0x118	__ct__15RPSndSpeakerMgrFPQ23EGG4Heap	RPSndSpeakerMgr	CreateInstance__15RPSndSpeakerMgrFPQ23EGG4Heap	801B56F4			
+0x8	__ct__17RPSysCommonObjectFv	RPSysCommonObject	init__10RPSysSceneFv	80184898			
+0x2BB0	__ct__19RPSysCoreControllerFl	RPSysCoreController	createCoreController__19RPSysCoreControllerFv	8019A130			
+0xB8	__ct__18RPSysCursorDrawMgrFPQ23EGG4Heap	RPSysCursorDrawMgr	CreateInstance__18RPSysCursorDrawMgrFPQ23EGG4Heap	8019E018			
+0x170	__ct__15RPSysGameConfigFPQ23EGG4Heap	RPSysGameConfig	CreateInstance__15RPSysGameConfigFPQ23EGG4Heap	80185F80			
+0x2B0	__ct__16RPSysHomeMenuMgrFPQ23EGG4Heap	RPSysHomeMenuMgr	CreateInstance__16RPSysHomeMenuMgrFPQ23EGG4Heap	801A30E8			
+0xC	__ct__26RPSysKokeshiCtrlDataLoaderFl	RPSysKokeshiCtrlDataLoader	__ct__19RPSysKokeshiManagerFv	80190AC4			
+0xA8	__ct__16RPSysKokeshiIconFPC19RPSysKokeshiGenInfo	RPSysKokeshiIcon	Mii_MiiIconSet_createIcons	801BFF48			
+0xA8	__ct__16RPSysKokeshiIconFPC19RPSysKokeshiGenInfo	RPSysKokeshiIcon	Menu_SportsMessageScene_configure	801DCB5C			
+0xA8	__ct__16RPSysKokeshiIconFPC19RPSysKokeshiGenInfo	RPSysKokeshiIcon	Fsh_ScoreLayout_ctor	80211170			
+0xA8	__ct__16RPSysKokeshiIconFPC19RPSysKokeshiGenInfo	RPSysKokeshiIcon	Hky_BalloonLyt_create	80222F70			
+0xA8	__ct__16RPSysKokeshiIconFPC19RPSysKokeshiGenInfo	RPSysKokeshiIcon	Pnp_BalloonLyt_create	80233660			
+0xA8	__ct__16RPSysKokeshiIconFPC19RPSysKokeshiGenInfo	RPSysKokeshiIcon	Wly_DisplayLyt_init	80293CCC			
+0xA8	__ct__16RPSysKokeshiIconFPC19RPSysKokeshiGenInfo	RPSysKokeshiIcon	Wly_EndScoreLyt_init	80295350			
+0xA8	__ct__16RPSysKokeshiIconFPC19RPSysKokeshiGenInfo	RPSysKokeshiIcon	Cow_Balloon_create	802B5214			
+0xA8	__ct__16RPSysKokeshiIconFPC19RPSysKokeshiGenInfo	RPSysKokeshiIcon	Bil_BallMgr_ctor	802C4EE8		80358A88	SndPlayerBase
+0xA8	__ct__16RPSysKokeshiIconFPC19RPSysKokeshiGenInfo	RPSysKokeshiIcon	Bil_Hud_ctor	802CDDF4			
+0x10	__ct__20RPSysKokeshiIteraterF13RFLDataSource	RPSysKokeshiIterater	__ct__23RPSysKokeshiCtrlDataMgrFP29IRPSysKokeshiCtrlDataCallbackPQ23EGG4HeapUll	801A38FC			
+0x5C	__ct__19RPSysKokeshiManagerFv	RPSysKokeshiManager	CreateInstance__19RPSysKokeshiManagerFv	80190BF0			
+0x28	__ct__14RPSysLytAnmObjFv	RPSysLytAnmObj	createAnmObj__11RPSysLayoutFPQ23EGG4HeapP19RPSysLytResAccessorPCc	80194D98			
+0x20	__ct__12RPSysMessageFPCvPQ23EGG4Heap	RPSysMessage	initBanner__16RPSysSaveDataMgrFv	80188490			
+0x20	__ct__12RPSysMessageFPCvPQ23EGG4Heap	RPSysMessage	LoadStaticResource__19RPSysKokeshiManagerFv	80190660			
+0x20	__ct__12RPSysMessageFPCvPQ23EGG4Heap	RPSysMessage	Lyt_PauseMenu_load	8019F79C			
+0x20	__ct__12RPSysMessageFPCvPQ23EGG4Heap	RPSysMessage	Lyt_SystemWindow_load	801A14C8			
+0x20	__ct__12RPSysMessageFPCvPQ23EGG4Heap	RPSysMessage	RP_loadMsgRes	801B9544			
+0x20	__ct__12RPSysMessageFPCvPQ23EGG4Heap	RPSysMessage	Lyt_FrameDown_load	801CA10C			
+0x20	__ct__12RPSysMessageFPCvPQ23EGG4Heap	RPSysMessage	Menu_MenuScene_loadResource	801CDAC0			
+0x20	__ct__12RPSysMessageFPCvPQ23EGG4Heap	RPSysMessage	Menu_MenuFrame_load	801D0BF8			
+0x20	__ct__12RPSysMessageFPCvPQ23EGG4Heap	RPSysMessage	Menu_SportsMessageScene_loadResource	801DC96C			
+0x20	__ct__12RPSysMessageFPCvPQ23EGG4Heap	RPSysMessage	Menu_PlayerSettingPanel_load	801DF5F4			
+0x20	__ct__12RPSysMessageFPCvPQ23EGG4Heap	RPSysMessage	Menu_PlayerConfirm_load	801E25A0			
+0x20	__ct__12RPSysMessageFPCvPQ23EGG4Heap	RPSysMessage	Menu_CommonMessage_loadResource	801E4118			
+0x20	__ct__12RPSysMessageFPCvPQ23EGG4Heap	RPSysMessage	Party_Common_loadResources	801E7A0C			
+0x20	__ct__12RPSysMessageFPCvPQ23EGG4Heap	RPSysMessage	Party_SelectScene_load	801F15C0			
+0x20	__ct__12RPSysMessageFPCvPQ23EGG4Heap	RPSysMessage	Party_LeadCursorLyt_load	801F9200			
+0x20	__ct__12RPSysMessageFPCvPQ23EGG4Heap	RPSysMessage	Party_MsgBoard_loadMessages	801FA000			
+0x20	__ct__12RPSysMessageFPCvPQ23EGG4Heap	RPSysMessage	Party_PauseTextLyt_load	801FB154			
+0x20	__ct__12RPSysMessageFPCvPQ23EGG4Heap	RPSysMessage	Party_TitleLyt_load	801FC9F0			
+0x20	__ct__12RPSysMessageFPCvPQ23EGG4Heap	RPSysMessage	Hky_Game_load	8021ACD0			
+0x20	__ct__12RPSysMessageFPCvPQ23EGG4Heap	RPSysMessage	Pnp_Game_load	8022D1CC			
+0x20	__ct__12RPSysMessageFPCvPQ23EGG4Heap	RPSysMessage	Duc_Hud_load	8024B620			
+0x20	__ct__12RPSysMessageFPCvPQ23EGG4Heap	RPSysMessage	Tnk_LayoutManager_load	8026DBE0			
+0x20	__ct__12RPSysMessageFPCvPQ23EGG4Heap	RPSysMessage	Wly_GameMgr_create	8027D2A4			
+0x20	__ct__12RPSysMessageFPCvPQ23EGG4Heap	RPSysMessage	Bom_LayoutMgr_load	802E3B00			
+0x14	__ct__13RPSysMiddleDBFPC20RPSysMiddleDBGenInfo	RPSysMiddleDB	RP_Cls_80358188_vf15	801E49CC			
+0x14	__ct__13RPSysMiddleDBFPC20RPSysMiddleDBGenInfo	RPSysMiddleDB	Mii_createMiiListHolder	801E4B18			
+0x14	__ct__13RPSysMiddleDBFPC20RPSysMiddleDBGenInfo	RPSysMiddleDB	Pnp_Audience_ctor	8022F49C			
+0x14	__ct__13RPSysMiddleDBFPC20RPSysMiddleDBGenInfo	RPSysMiddleDB	Wly_AvatarMgr_createAvatars	8027B6CC			
+0x194	__ct__15RPSysOfficialDBFv	RPSysOfficialDB	__ct__19RPSysKokeshiManagerFv	80190AC4			
+0x8	__ct__15RPSysPairingMgrFv	RPSysPairingMgr	create__22RPSysCoreControllerMgrFv	801A45D4			
+0x30	__ct__16RPSysSaveDataMgrFPQ23EGG4Heap	RPSysSaveDataMgr	Sys_SaveFile_createInstance	80189B5C			
+0x44	__ct__10RPSysSceneFv	RPSysScene	Sys_SceneCreator_createGameScene	80183C38	base?	80358188	RP_Scene80358188
+0x48	__ct__10RPSysSceneFv	RPSysScene	Sys_SceneCreator_createGameScene	80183C38	base?	80358760	FishScene
+0x4C	__ct__10RPSysSceneFv	RPSysScene	Sys_SceneCreator_createGameScene	80183C38	base?	80359140	Hky_Scene
+0x58	__ct__10RPSysSceneFv	RPSysScene	Sys_SceneCreator_createGameScene	80183C38	base?	8035DC48	Scene
+0x58	__ct__10RPSysSceneFv	RPSysScene	create__17RPSysSceneCreatorFl	80184230	base?	80357948	Health_StrapScene
+0x68	__ct__10RPSysSceneFv	RPSysScene	Sys_SceneCreator_createGameScene	80183C38	base?	80358040	CommonMessage
+0x80	__ct__10RPSysSceneFv	RPSysScene	Sys_SceneCreator_createGameScene	80183C38	base?	80359A38	Scene
+0x8C	__ct__10RPSysSceneFv	RPSysScene	Sys_SceneCreator_createGameScene	80183C38	base?	8035B100	Scene
+0x8C	__ct__10RPSysSceneFv	RPSysScene	create__17RPSysSceneCreatorFl	80184230	base?	803579A8	Menu_MenuScene
+0x98	__ct__10RPSysSceneFv	RPSysScene	create__17RPSysSceneCreatorFl	80184230	base?	80357D08	Menu_SportsMessageScene
+0x7C	RP_ActorBase_ctor	RP_ActorBase	Bil_NextBallMarker_create	802CC4FC	base?	8035E3C0	NextBallMarker
+0xB8	RP_ActorBase_ctor	RP_ActorBase	Bil_Table_create	802BB7C4	base?	8035DCA8	Table
+0x44	RP_ActorScene_ctor	RP_ActorScene	Sys_SceneCreator_createGameScene	80183C38		8035CD38	Cow_Scene
+0xB4	RP_Base8034F478_ctor	RP_Base8034F478	Party_Common_ctor	801E7CC8			
+0xB4	RP_Base8034F478_ctor	RP_Base8034F478	Party_Doll_ctor	801F453C			
+0xB4	RP_Base8034F478_ctor	RP_Base8034F478	Party_CrowdMii_ctor	801F7D64			
+0xB4	RP_Base8034F478_ctor	RP_Base8034F478	Duc_Avatar_init	80252D50			
+0xB4	RP_Base8034F478_ctor	RP_Base8034F478	Cow_CowModel_ctor	802B7FC4			
+0xB4	RP_Base8034F478_ctor	RP_Base8034F478	Bom_Player_create	802D7A6C			
+0x8	RP_ButtonSeqHolder_ctor	RP_ButtonSeqHolder	Lyt_CommonMessage_setup	801E419C			
+0xA8	RP_Cls8034F6B0_ctor	RP_Cls8034F6B0	Fsh_Player_ctor	802087B8			
+0xA8	RP_Cls8034F6B0_ctor	RP_Cls8034F6B0	Pnp_Player_create	802291CC			
+0x4	RP_Cls80357918_ctor	RP_Cls80357918	Sys_ResMgr_loadSystemArchives	80186FA4			
+0xA8	RP_CollisionModel_ctor	RP_CollisionModel	Cow_Game_load	80297C24			
+0xD8	RP_CollisionShape_ctor	RP_CollisionShape	Cow_Camera_init	8029E5A0			
+0xD8	RP_CollisionShape_ctor	RP_CollisionShape	Cow_Arrow_init	802A1504			
+0xD8	RP_CollisionShape_ctor	RP_CollisionShape	Cow_Player_init	802A1D48			
+0xD8	RP_CollisionShape_ctor	RP_CollisionShape	Cow_Field_init	802A64E4			
+0xD8	RP_CollisionShape_ctor	RP_CollisionShape	Cow_KakasiGroup_init	802AB1B0			
+0xD8	RP_CollisionShape_ctor	RP_CollisionShape	Cow_Goal_init	802ABC88			
+0xD8	RP_CollisionShape_ctor	RP_CollisionShape	Cow_Kakasi_init	802AC1FC			
+0xD8	RP_CollisionShape_ctor	RP_CollisionShape	Cow_Tree_init	802ACA64			
+0xD8	RP_CollisionShape_ctor	RP_CollisionShape	Cow_Hurdle_init	802AD2A8			
+0xD8	RP_CollisionShape_ctor	RP_CollisionShape	Cow_PointPopup_init	802AE478			
+0xD8	RP_CollisionShape_ctor	RP_CollisionShape	Cow_KakasiKing_init	802AF114			
+0xD8	RP_CollisionShape_ctor	RP_CollisionShape	Cow_Cloud_init	802B86E0			
+0xD8	RP_CollisionShape_ctor	RP_CollisionShape	Cow_KnitCowEx_init	802B8F9C			
+0x28	RP_CursorTrail_ctor	RP_CursorTrail	Duc_Shot_init	80243AA4			
+0x28	RP_CursorTrail_ctor	RP_CursorTrail	Tnk_Cursor_create	8025EEFC			
+0x28	RP_CursorTrail_ctor	RP_CursorTrail	Bom_Cursor_create	802D677C			
+0x24	__ct__15RP_DEBUG_STUB_1Fv	RP_DEBUG_STUB_1	Fsh_Stage_new	8020C358	base?	80358DE8	Stage
+0x30	__ct__15RP_DEBUG_STUB_1Fv	RP_DEBUG_STUB_1	Fsh_PointPopup_new	8020FE48	base?	80358F20	PointPopup
+0x30	__ct__15RP_DEBUG_STUB_1Fv	RP_DEBUG_STUB_1	Bil_PocketCamWindow_create	802CBD04	base?	8035E378	PocketCamWindow
+0x38	__ct__15RP_DEBUG_STUB_1Fv	RP_DEBUG_STUB_1	Bil_BreakLottery_create	802CCB7C	base?	8035E450	BreakLottery
+0x14	RP_JointMtxBuffer_ctor	RP_JointMtxBuffer	Party_DollBase_load	801F6994			
+0x14	RP_JointMtxBuffer_ctor	RP_JointMtxBuffer	Fsh_Fish_create	80202ED8			
+0x14	RP_JointMtxBuffer_ctor	RP_JointMtxBuffer	Fsh_Rod_create	8020A630			
+0x14	RP_JointMtxBuffer_ctor	RP_JointMtxBuffer	Bil_Table_load	802BB4A8			
+0x204	RP_LookAtCam_ctor	RP_LookAtCam	Tnk_Camera_createInstance	80257460	base?	8035B178	Camera
+0x204	RP_LookAtCam_ctor	RP_LookAtCam	Bom_Camera_createInstance	802D5F38	base?	8035E7B8	Camera
+0x234	RP_LookAtCam_ctor	RP_LookAtCam	Duc_Camera_createInstance	802429E4	base?	8035A3F8	Camera
+0x9C	RP_ModelObj_ctor	RP_ModelObj	Bom_StartBg_createInstance	802D5864	base?	8035E728	StartBg
+0x158	RP_ModelObj_ctor	RP_ModelObj	Bom_Border_createInstance	802E34BC	base?	8035F708	Border
+0xC	RP_Nwc24Msg_ctor	RP_Nwc24Msg	Party_MsgBoard_create	801FA0E4			
+0x68	RP_PathFollower_ctor	RP_PathFollower	RP_PathObject_init	801C8880			
+0x108	RP_PhysSphere_ctor	RP_PhysSphere	Bil_Ball_ctor	802C2674			
+0x2C	RP_PlayerMgr_ctor	RP_PlayerMgr	CreateInstance__14RPSysPlayerMgrFPQ23EGG4Heap	8018CBFC			
+0xD0	RP_PlayerRecord_ctor	RP_PlayerRecord	__ct__11RPSysPlayerFv	8018ECB0			
+0x14	RP_Polyline_ctor	RP_Polyline	Duc_Camera_load	80242810			
+0x14	RP_Polyline_ctor	RP_Polyline	Tnk_Camera_create	8025728C			
+0x14	RP_Polyline_ctor	RP_Polyline	Bom_Camera_create	802D5D64			
+0x4	RP_SceneObj_ctor	RP_SceneObj	Tnk_EmptyTask_createInstance	80268B18	base?	8035C068	EmptyTask
+0x8	RP_SceneObj_ctor	RP_SceneObj	Bom_PanelCtrl_createInstance	802DFBA0	base?	8035F0B0	PanelCtrl
+0xC	RP_SceneObj_ctor	RP_SceneObj	Tnk_WeaponManager_createInstance	8026417C	base?	8035B8C8	WeaponManager
+0x10	RP_SceneObj_ctor	RP_SceneObj	RP_ResSlots_createInstance	801B6E94	base?	803571A8	RP_ResSlots
+0x14	RP_SceneObj_ctor	RP_SceneObj	Mii_createMiiIconSet	801C00E4	base?	80357458	MiiIconSet
+0x14	RP_SceneObj_ctor	RP_SceneObj	Tnk_StepTimer_createInstance	80268A1C	base?	8035C040	StepTimer
+0x1C	RP_SceneObj_ctor	RP_SceneObj	Duc_ShotMgr_createInstance	80244B6C	base?	8035A488	ShotMgr
+0x1C	RP_SceneObj_ctor	RP_SceneObj	Tnk_CursorManager_createInstance	8025E1B4	base?	8035B5C0	CursorManager
+0x1C	RP_SceneObj_ctor	RP_SceneObj	Bom_CursorManager_createInstance	802D664C	base?	8035E7D8	CursorManager
+0x1C	RP_SceneObj_ctor	RP_SceneObj	Bom_PlayerManager_createInstance	802D9578	base?	8035ED50	PlayerManager
+0x24	RP_SceneObj_ctor	RP_SceneObj	Duc_TargetRegistry_createInstance	8023EB7C	base?	8035A1D0	TargetRegistry
+0x24	RP_SceneObj_ctor	RP_SceneObj	Duc_AmmoMgr_createInstance	802506A0	base?	8035ADB0	AmmoMgr
+0x30	RP_SceneObj_ctor	RP_SceneObj	Tnk_FootmarkTex_createInstance	80274E1C	base?	8035C410	FootmarkTex
+0x3C	RP_SceneObj_ctor	RP_SceneObj	Tnk_TankManager_createInstance	8025DD0C	base?	8035B598	TankManager
+0x6C	RP_SceneObj_ctor	RP_SceneObj	Tnk_ExGuide_createInstance	802718D4	base?	8035C320	ExGuide
+0x70	RP_SceneObj_ctor	RP_SceneObj	Tnk_LayoutManager_createInstance	8026DF20	base?	8035C1F0	LayoutManager
+0x74	RP_SceneObj_ctor	RP_SceneObj	Bom_LayoutMgr_createInstance	802E3E6C	base?	8035F7A0	LayoutMgr
+0x78	RP_SceneObj_ctor	RP_SceneObj	Duc_Field_createInstance	80237728	base?	80359BE0	Field
+0x84	RP_SceneObj_ctor	RP_SceneObj	Bom_ScreenFx_createInstance	802DE750	base?	8035EF68	ScreenFx
+0x88	RP_SceneObj_ctor	RP_SceneObj	Duc_ScoreMgr_createInstance	80250498	base?	8035AD88	ScoreMgr
+0x9C	RP_SceneObj_ctor	RP_SceneObj	Duc_Hud_createInstance	8024B864	base?	8035AB60	Hud
+0xA8	RP_SceneObj_ctor	RP_SceneObj	Duc_Game_createInstance	8024B0D0	base?	8035AACC	Game
+0xB4	RP_SceneObj_ctor	RP_SceneObj	Tnk_Field_createInstance	80258390	base?	8035B198	Field
+0xB8	RP_SceneObj_ctor	RP_SceneObj	Tnk_StageMap_createInstance	802664BC	base?	8035B9B0	StageMap
+0x2CC	RP_SceneObj_ctor	RP_SceneObj	Bom_Score_createInstance	802DED58	base?	8035EF90	Score
+0x3A8	RP_SceneObj_ctor	RP_SceneObj	Tnk_GameStats_createInstance	8026E304	base?	8035C218	GameStats
+0xDBC	RP_SceneObj_ctor	RP_SceneObj	Bom_QuestionParam_createInstance	802DCE5C	base?	8035EE38	QuestionParam
+0x44	RP_SimpleModel_ctor	RP_SimpleModel	Pnp_Game_ctor	8022D5E4	base?	803595C0	Pnp_Field
+0x4C	RP_SimpleModel_ctor	RP_SimpleModel	Hky_Game_ctor	8021B0F8	base?	803594B0	Hky_GoalPhase
+0x4C	RP_SimpleModel_ctor	RP_SimpleModel	Pnp_Game_ctor	8022D5E4	base?	803599D8	Pnp_IntroPhase
+0x50	RP_SimpleModel_ctor	RP_SimpleModel	Hky_Game_ctor	8021B0F8	base?	80359430	Hky_IntroPhase
+0x50	RP_SimpleModel_ctor	RP_SimpleModel	Wly_GameMgr_ctor	8027D718	base?	8035CA88	Wly_IntroPhase
+0x54	RP_SimpleModel_ctor	RP_SimpleModel	Hky_Game_ctor	8021B0F8	base?	80359470	Hky_ResultPhase
+0x54	RP_SimpleModel_ctor	RP_SimpleModel	Pnp_Game_ctor	8022D5E4	base?	803598A8	Pnp_ServePhase
+0x54	RP_SimpleModel_ctor	RP_SimpleModel	Wly_GameMgr_ctor	8027D718	base?	8035CA6C	Wly_ResultPhase
+0x5C	RP_SimpleModel_ctor	RP_SimpleModel	Pnp_Game_ctor	8022D5E4	base?	80359850	Pnp_PointPhase
+0x60	RP_SimpleModel_ctor	RP_SimpleModel	Pnp_Game_ctor	8022D5E4	base?	8035988C	Pnp_ResultPhase
+0x7C	RP_SimpleModel_ctor	RP_SimpleModel	Wly_GameMgr_ctor	8027D718	base?	8035CB18	Wly_Field
+0xC8	RP_SimpleModel_ctor	RP_SimpleModel	Hky_Game_ctor	8021B0F8	base?	803592A4	Hky_Puck
+0xE0	RP_SimpleModel_ctor	RP_SimpleModel	Pnp_Game_ctor	8022D5E4	base?	803597F0	Pnp_Ball
+0x240	RP_SimpleModel_ctor	RP_SimpleModel	Hky_Game_ctor	8021B0F8	base?	803592D0	Hky_Field
+0x28	RP_StateMachine2_ctor	RP_StateMachine2	Menu_PlayerNameTag_ctor	801DFF20			
+0x28	RP_StateMachine3_ctor	RP_StateMachine3	Menu_PlayerConfirmLyt_ctor	801E15AC			
+0x28	RP_StateMachine4_ctor	RP_StateMachine4	Menu_PlayerConfirm_ctor	801E268C			
+0x28	RP_StateMachine5_ctor	RP_StateMachine5	Menu_PlayAdviceLyt_ctor	801E3850			
+0x28	RP_StateMgr_ctor	RP_StateMgr	Menu_TPtGame00_ctor	801D0D80			
+0x1E4	RP_TnkMapData_ctor	RP_TnkMapData	RP_createTnkMapData	801BFE24			
+0xA0	Sys_CachedArchive_ctor	Sys_CachedArchive	LoadCompressed__20RPSysResourceManagerFPCcPQ23EGG4Heap	80186840			
+0xA0	Sys_CachedArchive_ctor	Sys_CachedArchive	Sys_ResMgr_preloadSceneArchives	80186D54			
+0x28	Sys_SaveData_ctor	Sys_SaveData	__ct__16RPSysSaveDataMgrFPQ23EGG4Heap	80187C7C			
+0x20	Sys_SaveSettings_ctor	Sys_SaveSettings	Sys_SaveData_ctor	8018AE44			
+0x18	Tnk_ActorPool_ctor	Tnk_ActorPool	Tnk_BlockPool_createInstance	80261FA8	base?	8035B748	BlockPool
+0x18	Tnk_ActorPool_ctor	Tnk_ActorPool	Tnk_CheckMarkPool_createInstance	80274F20	base?	8035C438	CheckMarkPool
+0x40	Tnk_ActorPool_ctor	Tnk_ActorPool	Tnk_ShellPool_createInstance	802627CC	base?	8035B7A0	ShellPool
+0x40	Tnk_ActorPool_ctor	Tnk_ActorPool	Tnk_MinePool_createInstance	80266B98	base?	8035B9D8	MinePool
+0x120	Tnk_AiAttack_ctor	Tnk_AiAttack	Tnk_AiController_ctor	80268D34			
+0x18	Tnk_AiController_ctor	Tnk_AiController	Tnk_Tank_create	8025BB0C			
+0x230	Tnk_AiMove_ctor	Tnk_AiMove	Tnk_AiController_ctor	80268D34			
+0x140	Tnk_AiProbe_ctor	Tnk_AiProbe	Tnk_AiMove_ctor	8026AFF8			
+0x140	Tnk_AiProbe_ctor	Tnk_AiProbe	Tnk_AiAttack_ctor	8026D5FC			
+0x180	Tnk_Block_ctor	Tnk_Block	Tnk_BlockPool_createObject	80261FF4			
+0xD0	Tnk_CheckMark_ctor	Tnk_CheckMark	Tnk_CheckMarkPool_createItem	80274F6C			
+0x30	Tnk_ClearMsg_ctor	Tnk_ClearMsg	Tnk_LayoutManager_create	8026DD50			
+0x20	Tnk_CompleteMsg_ctor	Tnk_CompleteMsg	Tnk_LayoutManager_create	8026DD50			
+0x7C	Tnk_Cursor_ctor	Tnk_Cursor	Tnk_CursorManager_createCursors	8025E08C			
+0x28	Tnk_ExMsg_ctor	Tnk_ExMsg	Tnk_LayoutManager_create	8026DD50			
+0x6C	Tnk_Fade_ctor	Tnk_Fade	Tnk_LayoutManager_create	8026DD50			
+0x20	Tnk_FailedMsg_ctor	Tnk_FailedMsg	Tnk_LayoutManager_create	8026DD50			
+0x78	Tnk_FieldModel_ctor	Tnk_FieldModel	Tnk_Field_create	80258118			
+0xE4	Tnk_GameManager_ctor	Tnk_GameManager	Tnk_GameManager_createInstance	802657F0			
+0x1C	Tnk_HitPopup_ctor	Tnk_HitPopup	Tnk_LayoutManager_create	8026DD50			
+0x4C	Tnk_Hud_ctor	Tnk_Hud	Tnk_LayoutManager_create	8026DD50			
+0x104	Tnk_Mine_ctor	Tnk_Mine	Tnk_MinePool_newObject	80266BE4			
+0x5C	Tnk_PlayerController_ctor	Tnk_PlayerController	Tnk_Tank_create	8025BB0C			
+0xE0	Tnk_ResultLyt_ctor	Tnk_ResultLyt	Tnk_LayoutManager_create	8026DD50			
+0xEC	Tnk_Shell_ctor	Tnk_Shell	Tnk_ShellPool_createObject	80262818			
+0x10	Tnk_StartMsg_ctor	Tnk_StartMsg	Tnk_LayoutManager_create	8026DD50			
+0x20C	Tnk_Tank_ctor	Tnk_Tank	Tnk_TankManager_createTanks	8025DB10			
+0x128	Wly_Avatar_ctor	Wly_Avatar	Wly_AvatarMgr_ctor	8027B4C4			
+0x128	Wly_Avatar_ctor	Wly_Avatar	Wly_AvatarMgr_createAvatars	8027B6CC			
+0x128	Wly_Avatar_ctor	Wly_Avatar	Wly_AvatarMgr_createAvatarsSpecial	8027BF30			
+0x291C	Wly_AvatarMgr_ctor	Wly_AvatarMgr	Wly_AvatarMgr_createGlobal	8027C588			
+0x44	Wly_AvatarShadow_ctor	Wly_AvatarShadow	Wly_Avatar_ctor	80277760			
+0x4C	Wly_Cursor_ctor	Wly_Cursor	Wly_GameMgr_ctor	8027D718			
+0x44	Wly_Earth_ctor	Wly_Earth	Wly_Field_init	8028FCBC			
+0xAC	Wly_Field06_ctor	Wly_Field06	Wly_GameMgr_ctor	8027D718		8034F32C	Sys_Screen
+0x70	Wly_GameMgr_ctor	Wly_GameMgr	Wly_GameMgr_createGlobal	8027E3C4			
+0x54	Wly_Ground_ctor	Wly_Ground	Wly_Field_init	8028FCBC			
+0x1C	Wly_LevelTable_ctor	Wly_LevelTable	Wly_LevelTable_createGlobal	8028EB88			
+0xD8	Wly_MiiEntry_ctor	Wly_MiiEntry	RP_Cls_80358188_vf15	801E49CC			
+0xD8	Wly_MiiEntry_ctor	Wly_MiiEntry	Mii_createMiiListHolder	801E4B18			
+0xC78	Wly_Stage_ctor	Wly_Stage	Wly_AvatarMgr_ctor	8027B4C4			
+0x48	Wly_Wipe_ctor	Wly_Wipe	Wly_GameMgr_ctor	8027D718		8035CB18	Wly_Field
+0x4C	__ct__Q34nw4r2ef17MemoryManagerBaseFv	nw4r::ef::MemoryManagerBase	createMemoryManager__14RPSysEffectMgrFPQ214RPSysEffectMgr9EffectArg	80190F64			
+0x4	__ct__Q34nw4r3lyt19ArcResourceAccessorFv	nw4r::lyt::ArcResourceAccessor	create__19RPSysLytResAccessorFPQ23EGG4Heap	80196EFC	base?	8034F688	Lyt_ResAccessor
+0xB0	__ct__Q34nw4r3lyt19ArcResourceAccessorFv	nw4r::lyt::ArcResourceAccessor	create__19RPSysLytResAccessorFPQ23EGG4Heap	80196EFC	base?	8034F688	Lyt_ResAccessor
+0x54	__ct__Q34nw4r3lyt8DrawInfoFv	nw4r::lyt::DrawInfo	create__11RPSysLayoutFPQ23EGG4HeapP19RPSysLytResAccessorPCc	80194F88			
+0x24	__ct__Q34nw4r3lyt6LayoutFv	nw4r::lyt::Layout	create__11RPSysLayoutFPQ23EGG4HeapP19RPSysLytResAccessorPCc	80194F88			
+0xD0	__ct__Q34nw4r3snd8FxChorusFv	nw4r::snd::FxChorus	createFxChorus__Q23EGG7AudioFxFPCQ44nw4r3snd8FxChorus11ChorusParam	800B05AC			
+0x88	__ct__Q34nw4r3snd7FxDelayFv	nw4r::snd::FxDelay	createFxDelay__Q23EGG7AudioFxFPCQ44nw4r3snd7FxDelay10DelayParam	800B0824			
+0x190	__ct__Q34nw4r3snd10FxReverbHiFv	nw4r::snd::FxReverbHi	createFxReverbHi__Q23EGG7AudioFxFPCQ44nw4r3snd10FxReverbHi13ReverbHiParam	800B0094			
+0x1C0	__ct__Q34nw4r3snd14FxReverbHiDpl2Fv	nw4r::snd::FxReverbHiDpl2	createFxReverbHiDpl2__Q23EGG7AudioFxFPCQ44nw4r3snd14FxReverbHiDpl217ReverbHiDpl2Param	800B030C			
+0x18	__ct__Q34nw4r2ut7ResFontFv	nw4r::ut::ResFont	Sys_FontMgr_createInstance	8018A2F4			
+0x1C	__ct__Q34nw4r2ut7RomFontFv	nw4r::ut::RomFont	Sys_FontMgr_createInstance	8018A2F4	base?		
+0x40	__ct__Q34nw4r2ut7RomFontFv	nw4r::ut::RomFont	Sys_FontMgr_createInstance	8018A2F4	base?		

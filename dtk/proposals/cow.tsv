@@ -1,0 +1,408 @@
+address	new_name	confidence	note
+80295DD0	Cow_Game_drawListPass	low	vf06: pass 0/2 calls Lyt_801C5DD0 on static lists 8043A8F4/8043A900
+80295E20	Cow_Game_drawScreenPass	low	vf05: for pass 2/3 and 4 runs RP_80196C50/BA4/B00/BF8 draw setup sequence
+80295EB0	Cow_Game_draw	medium	vf07: per screen sets camera/arrow/object visibility and calls object vf20 drawScreen(screen)
+80296368	Cow_Game_calc	high	vf03: main state machine (intro, countdown, race, time-up/complete, results), updates players
+80297254	Cow_Game_reset	high	vf02: clears state, resets all layout objects via Lyt_801C80F8, picks intro or race start, bgm
+80297C24	Cow_Game_load	high	vf01: loads cow_field pmp/kcl/brres, kakasi/hurdle/tree/knit models, sounds, creates obj arrays
+80299ACC	Cow_Game_dtor	high	vf00: destroys all object arrays (slot14 + dtor), stops bgm, base dtor
+8029AA08	Cow_8029AA08	keep	deleting dtor wrapper around fn_800AC520; no callers/vtable known
+8029AA64	Cow_Balloon_dtor	high	slot12 deleting dtor via Lyt base dtor
+8029AABC	Cow_TreeBatch_dtor	high	slot12 deleting dtor via ModelBatch dtor
+8029AB14	Cow_HurdleBatch_dtor	high	slot12 deleting dtor via ModelBatch dtor
+8029AB6C	Cow_KakasiBatch_dtor	high	slot12 deleting dtor via ModelBatch dtor
+8029ABC4	Cow_Player_dtor	high	slot12: destroys cursor (+0x7288), pos-history array (+0xb0), Lyt base dtor
+8029AC44	Cow_PosHistory_dtor	medium	destroys two 600-entry vec3 arrays (at +0 and +0x1c2c), optional delete
+8029ACD0	Cow_Camera_dtor	high	slot12 deleting dtor via Lyt base dtor
+8029AD28	Cow_Game_ctor	high	stores vtable 8035CE18, player count, creates camera/player/HUD/layout object arrays
+8029C830	Cow_8029C830	keep	if arg==0 writes fixed params (0x20, 1800/100/900) into four entries of *(this+0x14); no callers
+8029C8AC	Cow_Balloon_ctor	high	Lyt base ctor then stores vtable 8035DA88
+8029C900	Cow_Player_ctor	high	Lyt base ctor, vtable 8035D00C, builds pos-history array and cursor
+8029C97C	Cow_PosHistory_ctor	medium	constructs two 600x12-byte vec3 arrays and clears their index/count fields
+8029C9FC	Cow_Camera_ctor	high	Lyt base ctor, vtable 8035CE40, fills 12 camera-state member-function pointers
+8029CAE0	Cow_Game_onTimeUp	medium	during race: sets player flag, shows limit msg, picks 2P winner by score, state 0xf/0x13, sfx
+8029CD6C	Cow_Game_onCourseComplete	medium	during race: shows GoalMsg (complete/not), camera finish, state 9, sfx 0x51, bgm 0x93
+8029CF20	Cow_initStatics	low	sets 8043C990=0x60 and clears the three static object lists 8043A8E8/8043A8F4/8043A900
+8029CF74	Cow_Camera_drawPass	medium	slot21 (drawPass) override, empty
+8029CF78	Cow_Camera_entryDraw	medium	slot19: Lyt_801C86BC(this, +0x28) registers model for drawing
+8029CF80	Cow_Camera_calc	medium	slot18: per-frame light/fog/projection update following the camera state
+8029D448	Cow_Camera_exit	medium	slot17: clears enable bit on both light/screen entries
+8029D48C	Cow_Camera_reset	medium	slot16: resets lights, camera pos (0,1000,-1500) and transform from pmp
+8029E5A0	Cow_Camera_init	high	slot15: loads demo/scene_Light1P/2P.plight and scene_Lm.plmap, creates transform
+8029E7D4	Cow_Camera_destroy	medium	slot14 override, empty
+8029E7D8	Cow_Camera_create	medium	slot13: allocates eggScreen objects and camera for the player's viewport
+8029EA28	Cow_Camera_startResult	medium	sets camera state to +0xb8 (8029FC50) and clears timer
+8029EA3C	Cow_Camera_startFinish	medium	sets camera state to +0xb4 (8029FED0) and clears timer; used on time-up/complete
+8029EA50	Cow_Camera_setFollowState	low	sets camera state to +0xb0 (802A0140); called from player movement
+8029EA5C	Cow_Camera_setFollowNearState	low	sets camera state to +0xac (802A0438); called from player movement
+8029EA68	Cow_Camera_isPullbackDone	medium	returns transform z <= -40
+8029EAB4	Cow_Camera_startStart	low	sets camera state to +0xcc (8029EEA8) after countdown
+8029EAC0	Cow_Camera_setupReady	medium	places camera behind player (z -20,y 14), state +0xc8, applies scene light
+8029EC24	Cow_Camera_isIntroDone	medium	returns true when camera y/z reached target (15, -35 or -20) within tolerance
+8029ED24	Cow_Camera_setupIntro	medium	places camera at z -200 y 20, blend 0.5 in 2P, state +0xc0 (intro)
+8029EE68	Cow_Camera_startIntro	medium	setupIntro then applies demo light (+0x74)
+8029EEA8	Cow_Camera_stateStart	low	camera state +0xcc: eases offsets toward (20,-80) behind player, sets camera eye/target
+8029F120	Cow_Camera_stateReady	low	camera state +0xc8: eases offsets (16/15,-40/-30) behind player, sets eye/target
+8029F350	Cow_Camera_stateIntroBlend	low	camera state +0xc4: blends between both players' positions/yaws
+8029F6B0	Cow_Camera_stateIntro	low	camera state +0xc0: blends player positions by +0x84, eases offsets, sets eye/target
+8029F998	Cow_Camera_stateResultOrbit	low	camera state +0xbc: eases offsets (80,-320) and yaw toward player
+8029FC50	Cow_Camera_stateResult	low	camera state +0xb8: eases toward player, after 30 frames switches to +0xbc
+8029FED0	Cow_Camera_stateFinish	low	camera state +0xb4: follow at height+20, z -100
+802A0140	Cow_Camera_stateFollow	low	camera state +0xb0: follow at z -80 with slow ease, switches when settled
+802A0438	Cow_Camera_stateFollowNear	low	camera state +0xac: follow at z -60
+802A06A8	Cow_Camera_stateFollowSnap	low	camera state +0xa8: follow at z -80 with ease rate 1.0
+802A0918	Cow_Camera_stateFollowEase	low	camera state +0xa4: follow at z -80 rate 0.2, switches when close
+802A0BBC	Cow_Camera_stateOverview	low	camera state +0xa0: fixed eye (0,1000,-1500) looking at player
+802A0C90	Cow_Camera_setModelVisible	low	sets/clears bit0 of +0x28 model flags by arg
+802A0CBC	Cow_Camera_projectToScreenClamped	low	projects pos via Gfx_801A6820; if dist<30 pushes point along camera dir first
+802A0D98	Cow_Camera_projectToScreen	medium	Gfx_801A6820(camera, out, pos, viewport projection)
+802A0DC0	Cow_Camera_getBackDir	medium	returns negated vector at camera+0x100
+802A0E0C	Cow_Camera_getEyePos	medium	returns camera eye (+0xc0..0xc8)
+802A0E2C	Cow_Camera_isInView	medium	dot products of (pos-eye) with two frustum plane normals both > 0
+802A0ED4	Cow_Camera_calcDistance	low	fn_800E8408(arg, camera eye)
+802A0EE8	Cow_Camera_dtorThunk	high	slot9 thunk: this-0x14 -> dtor
+802A0EF0	Cow_Arrow_calc	medium	arrow at player+0x7238: follows player, aims at kakasi group/goal/other player
+802A1444	Cow_Arrow_reset	medium	stores player index, copies player pos, clears state, resets transform
+802A1504	Cow_Arrow_init	medium	creates cow_arrow1P/2P model (0x43/0x44) with anims and transform
+802A1680	Cow_Player_drawShadowTex	low	fn_8009BA0C on +0x88 shadow texture with color (0,0,20,255)
+802A16E0	Cow_Player_drawPass	medium	slot21: if pass != 4 calls Lyt_801C30BC
+802A16F0	Cow_Player_drawScreen	medium	slot20: on own screen (0->2,1->3) runs RP draw setup and draws 2P cursor
+802A17EC	Cow_Player_entryDraw	medium	slot19: updates model matrices and registers cow/rider/arrow models for drawing
+802A1884	Cow_Player_calc	low	slot18: for player 0 passes speed/velocity values to Lyt_801C4230/4340
+802A1900	Cow_Player_exit	medium	slot17: unlinks transform from collision list 8043A8F4
+802A1964	Cow_Player_reset	medium	slot16: resets transform from pmp, clears movement fields, arrow/cursor/effects/model
+802A1CD4	Cow_PosHistory_push	high	writes vec3 at ring index (600 entries), advances index, sets wrapped flag
+802A1D48	Cow_Player_init	medium	slot15: inits cow model, shadow texture, transform, arrow, cursor, effects
+802A2058	Cow_Player_destroy	medium	slot14: deletes sound actor at +0x8c
+802A207C	Cow_PlayerSound_dtor	medium	deleting dtor of sound actor (vtable 8035CF30), releases 3D sound handles
+802A2190	Cow_Player_create	medium	slot13: creates CowModel (CowRoot) and PlayerSound actor
+802A2358	Cow_ObjSound_dtor	medium	deleting dtor of obstacle sound actor (vtable 8035D170)
+802A2468	Cow_Player_onCollide	medium	slot22: returns true when other object is not this
+802A248C	Cow_Player_updateModel	medium	builds model matrix from yaw/transform, updates rider/cow models, shadow, sound flags
+802A2804	Cow_Player_calcProgress	low	2P catch-up scaling by distance, time-up check, arrow/cursor/foot-effect updates
+802A2D90	Cow_PlayerSound_setParam	low	vf16: applies arg to 4 sub-handles via fn_80041370, resets +0x94
+802A2E18	Cow_Player_handleCollisions	medium	collision vs objects: rumble, kakashi_hit/hurdle_crash/tree_clash effects, goal, score
+802A3FE8	Cow_Player_calcMovement	medium	speed decay/accel, jump/land anims, land smoke, camera follow state, sounds
+802A5370	Cow_Player_calcInput	medium	reads Wii remote via eggController, steering/yaw, pushes pos history, angle display
+802A5E54	Cow_copyVec3At68	low	copies vec3 at arg+0x68..0x70 to out
+802A5E70	Cow_Player_addBonusScore	medium	adds arg to +0x72d0 (bonus score)
+802A5E80	Cow_Player_addGroupScore	medium	race only: adds score, spawns point popup, updates HUD and Perfect message
+802A5FA0	Cow_Player_playBonusSound	low	sound actor play id 0x99
+802A5FBC	Cow_Player_addScore	medium	race only: adds score, spawns point popup, updates HUD score
+802A60A4	Cow_Player_getTotalScore	high	returns score+bonus, or 0 if +0xa8==2
+802A60C8	Cow_Player_setTargetGroup	medium	sets +0x7248 (kakasi group index used by arrow/marker)
+802A60D0	Cow_Player_getTargetPos	medium	position of active kakasi group, else goal, else other player
+802A61AC	Cow_Player_getCameraYawVec	low	returns (0, +0x71d8, 0)
+802A61C4	Cow_Player_getRightDir	medium	(cos yaw, 0, -sin yaw) from +0x71c8
+802A622C	Cow_Player_getForwardDir	medium	(sin yaw, 0, cos yaw) from +0x71c8
+802A6290	Cow_Player_getRotation	medium	returns (0, yaw, 0)
+802A62A8	Cow_Player_getVelocity	medium	copies transform vtable+0xc vector (velocity)
+802A62FC	Cow_Player_getForwardMove	medium	forward dir * speed(+0x71ac) * 6
+802A6358	Cow_Player_getMoveDelta	medium	forward move + velocity
+802A63B0	Cow_Player_getPrevPos	medium	position minus transform delta
+802A6414	Cow_Transform_getDelta	medium	vector difference transform+0x1c - transform+0x28
+802A6424	Cow_Player_getPos	high	copies transform position vector
+802A6478	Cow_Player_setArrowVisible	medium	sets/clears bit0 of arrow model (+0x7238) flags
+802A64A4	Cow_Player_onCollideThunk	high	slot6 thunk: this-0x10 -> onCollide
+802A64AC	Cow_Player_dtorThunk	high	slot9 thunk: this-0x14 -> dtor
+802A64B4	Cow_PlayerSound_dtorThunk	high	slot2 thunk: this-0x10 -> dtor
+802A64BC	Cow_Field_entryDraw	medium	slot19: Lyt_801C86BC(this, model)
+802A64C4	Cow_Field_calc	medium	slot18: Lyt_801C86C4 sets model matrix (identity 8043A388)
+802A64D8	Cow_Field_exit	medium	slot17, empty
+802A64DC	Cow_Field_reset	medium	slot16: resets transform
+802A64E4	Cow_Field_init	high	slot15: creates transform and field model (index 2)
+802A653C	Cow_Field_dtor	high	slot12 deleting dtor
+802A6594	Cow_Field_ctor	high	Lyt base ctor, vtable 8035D080
+802A65E8	Cow_Field_dtorThunk	high	slot9 thunk
+802A65F0	Cow_FieldObj_setVisibleForScreen	medium	per current screen hides model if +0x108[screen]==4
+802A6688	Cow_FieldObj_entryDraw	medium	slot19 shared by field objects: registers models +0x28/+0x2c
+802A66D4	Cow_FieldObj_calc	medium	slot18 shared: runs state member fn, shadow alpha, view culling, batch instancing
+802A6BF8	Cow_FieldObj_resetTransform	medium	resets transform from pmp (y=-20), caches matrices, state ptrs
+802A6E14	Cow_FieldObj_setSoundMode	low	sets sound actor +0x84 to 0 (1P) or 1 (2P)
+802A6E44	Cow_FieldObj_destroy	medium	slot14 shared: deletes sound actor +0x70
+802A6E6C	Cow_FieldObj_create	medium	slot13 shared: creates ObjSound actor (vtable 8035D170)
+802A7008	Cow_FieldObj_stateKnockHurdle	low	state +0x14c: gravity 0.1, drag, spin; exits when below ground
+802A7260	Cow_FieldObj_stateKnockFly	low	state +0x148: knocked flying with gravity 0.1 and spin, exits under ground
+802A74B8	Cow_FieldObj_stateKnockSlide	low	state +0x144: knocked with gravity 0.02, exits when y<=-20
+802A7678	Cow_FieldObj_stateFallSpin	low	state +0x140: falls with gravity 0.1 while spinning, exits at y<=-20
+802A774C	Cow_FieldObj_stateKingJump1	low	state +0x13c: lands with kksking_jumpsmk + sfx 0x4f, hops toward players' center
+802A7C44	Cow_FieldObj_stateKingJump2	low	state +0x138: king jump step toward players' center with jumpsmk effect
+802A83B0	Cow_FieldObj_stateKingJump3	low	state +0x134: king jump landing step with jumpsmk effect
+802A87DC	Cow_FieldObj_stateHop	low	state +0x130: small gravity, on landing sets upward vel 0.2
+802A88D4	Cow_FieldObj_stateIdle	low	state +0x12c: empty
+802A88D8	Cow_FieldObj_stateSink	low	state +0x128: sinks with spin, exits at y<=-20
+802A89AC	Cow_FieldObj_stateRise	low	state +0x124: rises from ground then switches to next state
+802A8C48	Cow_FieldObj_stateDrop	low	state +0x120: falls to ground then switches to next state
+802A8D3C	Cow_FieldObj_knockHurdle	medium	sets state +0x14c, clears next state
+802A8D50	Cow_FieldObj_knockFly	medium	sets state +0x148, clears next state
+802A8D64	Cow_FieldObj_knockSlide	medium	sets state +0x144, clears next state
+802A8D78	Cow_FieldObj_startSink	medium	if not in a knock state: vel.y=-1, state +0x128
+802A8E28	Cow_FieldObj_spawnAppear	medium	places at pos y=-20 vel 1.5 random yaw, state rise->king jump, kksking_appear effect
+802A90A8	Cow_FieldObj_spawnDrop	medium	places at pos, vel 1.0, state drop->hop, kksking_jumpsmk effect
+802A932C	Cow_FieldObj_getForwardDir	medium	(sin yaw, 0, cos yaw) from transform yaw
+802A9398	Cow_isSeHandleFree	low	returns fn_80047590(handle 8043C9A4, id)==0
+802A93E0	Cow_stopBgm	medium	stops sound handle 8043C9A0 if active
+802A942C	Cow_playBgm	medium	stops handle 8043C9A0 then starts sound id into it via sound manager
+802A9494	Cow_initSoundHandles	high	static init: clears and registers dtors for handles 8043C9A0/8043C9A4
+802A94F8	Cow_PlayerSound_holdSound	low	vf29 (shared with ObjSound): find/alloc handle for sound id and start it
+802A9AA0	Cow_PlayerSound_playSound	low	vf21 (shared with ObjSound): find or allocate handle and start sound id
+802AA4AC	Cow_PlayerSound_playHit	medium	plays hit sound id (0x4a/0x4b/0x4d) with extra sounds when speed>0.5
+802AA774	Cow_PlayerSound_playSpeedSound	low	speed>=0.35: plays 0x3b-0x3d by cow type, volume from speed
+802AA8D0	Cow_PlayerSound_playRunStep	low	picks sound from speed bucket table 80325B18/80325B30
+802AA9F0	Cow_ObjSound_dtorThunk	high	slot2 thunk: this-0x10 -> dtor
+802AA9F8	Cow_KakasiGroup_drawScreen	medium	slot20 override, empty
+802AA9FC	Cow_KakasiGroup_entryDraw	medium	slot19 override, empty
+802AAA00	Cow_KakasiGroup_calc	medium	slot18: spawns kakasi over time when players approach, sinks them when passed
+802AAF38	Cow_KakasiGroup_exit	medium	slot17: unlinks transform from collision list
+802AAF9C	Cow_KakasiGroup_reset	medium	slot16: transform from pmp, radius, links collision list, clears counters
+802AB1B0	Cow_KakasiGroup_init	high	slot15: creates transform and pmp entry 0x70005
+802AB264	Cow_KakasiGroup_dtor	high	slot12 deleting dtor
+802AB2BC	Cow_KakasiGroup_ctor	high	Lyt base ctor, vtable 8035D250
+802AB310	Cow_KakasiGroup_getPos	high	copies transform position
+802AB364	Cow_KakasiGroup_onKakasiHit	medium	counts hits per player; all hit by one player -> bonus counters, sfx 0x99, sink rest
+802AB4B4	Cow_KakasiGroup_onCollide	medium	slot22: returns 1
+802AB4BC	Cow_KakasiGroup_spawnAll	medium	for groups with +0x34==0 spawns 3 kakasi and sets players' target group
+802AB5CC	Cow_KakasiGroup_spawnKakasi	medium	activates pooled kakasi around group pos via spawnAppear/spawnDrop
+802ABAC0	Cow_KakasiGroup_onCollideThunk	high	slot6 thunk
+802ABAC8	Cow_KakasiGroup_dtorThunk	high	slot9 thunk
+802ABAD0	Cow_Goal_entryDraw	medium	slot19 override, empty
+802ABAD4	Cow_Goal_calc	medium	slot18: sets collision radius 300 (sq 90000)
+802ABAEC	Cow_Goal_exit	medium	slot17: unlinks transform from collision list
+802ABB50	Cow_Goal_reset	medium	slot16: transform from pmp, links collision list (group 0x20)
+802ABC88	Cow_Goal_init	high	slot15: creates transform and pmp entry 0x70002
+802ABD3C	Cow_Goal_dtor	high	slot12 deleting dtor
+802ABD94	Cow_Goal_ctor	high	Lyt base ctor, vtable 8035D2B8
+802ABDE8	Cow_Goal_onCollide	medium	slot22: true when other's prev/current pos lie on opposite sides of goal plane
+802ABF50	Cow_Goal_drawDebugBox	low	draws a box at transform pos offset via eggDrawGX (debug draw)
+802AC0B4	Cow_Goal_getPos	high	copies transform position
+802AC108	Cow_Goal_onCollideThunk	high	slot6 thunk
+802AC110	Cow_Goal_dtorThunk	high	slot9 thunk
+802AC118	Cow_Kakasi_exit	medium	slot17: unlinks transform from collision list
+802AC17C	Cow_Kakasi_reset	medium	slot16: resetTransform, radius 8, clears owning group +0x150
+802AC1FC	Cow_Kakasi_init	high	slot15: cow_kakasi/kakasiL1 models (1P) or batch (2P), cow_maru_kage shadow
+802AC3A8	Cow_Kakasi_dtor	high	slot12 deleting dtor
+802AC404	Cow_Kakasi_ctor	high	Lyt base ctor, state ptrs 8035D0E0.., vtable 8035D320
+802AC4E8	Cow_Kakasi_onCollide	medium	slot22: knocks away by player speed/angle, rumble, group hit + score
+802AC87C	Cow_Kakasi_onCollideThunk	high	slot6 thunk
+802AC884	Cow_Kakasi_dtorThunk	high	slot9 thunk
+802AC88C	Cow_Tree_exit	medium	slot17: unlinks transform from collision list
+802AC8F0	Cow_Tree_reset	medium	slot16: transform from pmp, radius scale*8, links collision list
+802ACA64	Cow_Tree_init	high	slot15: cow_tree model (1P) or TreeBatch (2P), cow_maru_kage shadow, pmp 0x70004
+802ACC40	Cow_Tree_dtor	high	slot12 deleting dtor
+802ACC9C	Cow_Tree_ctor	high	Lyt base ctor, state ptrs, vtable 8035D388
+802ACD80	Cow_Tree_onCollide	medium	slot22: pushes player back based on speed/angle, rumble, knock states
+802AD0CC	Cow_Tree_onCollideThunk	high	slot6 thunk
+802AD0D4	Cow_Tree_dtorThunk	high	slot9 thunk
+802AD0DC	Cow_Hurdle_exit	medium	slot17: unlinks transform from collision list
+802AD140	Cow_Hurdle_reset	medium	slot16: transform from pmp, radius 2, links collision list
+802AD2A8	Cow_Hurdle_init	high	slot15: cow_hurdle/hurdleL1 models, cow_hurdle_kage shadow, pmp 0x70000
+802AD490	Cow_Hurdle_dtor	high	slot12 deleting dtor
+802AD4EC	Cow_Hurdle_ctor	high	Lyt base ctor, state ptrs, vtable 8035D3F0
+802AD5D0	Cow_Hurdle_onCollide	medium	slot22: if player jumping passes, else knock hurdle/push player, rumble
+802ADAD4	Cow_Hurdle_onCollideThunk	high	slot6 thunk
+802ADADC	Cow_Hurdle_dtorThunk	high	slot9 thunk
+802ADAE4	Cow_ModelBatch_entryDraw	medium	slot19 shared by batches: registers batch model
+802ADAEC	Cow_ModelBatch_calc	medium	slot18 shared: if instances queued, sets draw callback and enables draw; resets count
+802ADB98	Cow_ModelBatch_exit	medium	slot17 shared, empty
+802ADB9C	Cow_ModelBatch_reset	medium	slot16 shared: clears instance count
+802ADBA8	Cow_ModelBatch_init	high	slot15: maru_shadow_128 model (0x1b), 128 instance matrices
+802ADC20	Cow_ModelBatch_dtor	high	slot12 deleting dtor
+802ADC78	Cow_ModelBatch_ctor	high	Lyt base ctor, vtable 8035D458, count=0
+802ADCDC	Cow_ModelBatch_getInstanceMtx	medium	slot29 draw callback: returns queued instance matrix or scaled fallback
+802ADDE8	Cow_ModelBatch_addInstance	high	appends 3x4 matrix if count < capacity, returns success
+802ADE7C	Cow_ModelBatch_dtorThunk	high	slot9 thunk
+802ADE84	Cow_ModelBatch_getInstanceMtxThunk	high	slot25 thunk: this-0x24 -> getInstanceMtx
+802ADE8C	Cow_ModelBatch_dtorThunk2	high	slot24 thunk: this-0x24 -> dtor
+802ADE94	Cow_TreeBatch_init	high	slot15: treeL1_many model (0x16), 64 instances
+802ADF04	Cow_TreeBatch_dtorThunk	high	slot9 thunk
+802ADF0C	Cow_TreeBatch_dtorThunk2	high	slot24 thunk
+802ADF14	Cow_HurdleBatch_init	high	slot15: hurdleL1_many model (0x10), 32 instances
+802ADF84	Cow_HurdleBatch_dtorThunk	high	slot9 thunk
+802ADF8C	Cow_HurdleBatch_dtorThunk2	high	slot24 thunk
+802ADF94	Cow_KakasiBatch_init	high	slot15: kakasiL1_many model (8), 32 instances
+802AE004	Cow_KakasiBatch_dtorThunk	high	slot9 thunk
+802AE00C	Cow_KakasiBatch_dtorThunk2	high	slot24 thunk
+802AE014	Cow_PointPopup_drawScreen	medium	slot20: draws layout only on owning player's screen
+802AE044	Cow_PointPopup_entryDraw	low	slot19: Lyt_801C7644 on transform
+802AE04C	Cow_PointPopup_calc	medium	slot18: moves panes to transform pos, animates, exits when anim done
+802AE12C	Cow_PointPopup_exit	medium	slot17: hides all 15 panes
+802AE220	Cow_PointPopup_reset	medium	slot16: resets transform, hides panes, resets anims
+802AE478	Cow_PointPopup_init	high	slot15: cowPoint_00 layout, pointL/S/XL/XS/Perfect anims and panes
+802AE674	Cow_PointPopup_dtor	high	slot12 deleting dtor
+802AE6CC	Cow_PointPopup_ctor	high	Lyt base ctor, vtable 8035D658
+802AE720	Cow_PointPopup_onCollide	medium	slot22: true for another popup of the same player
+802AE754	Cow_spawnPointPopup	medium	finds free popup in pool of 32, sets digits/size by points, projects to screen, starts
+802AF020	Cow_PointPopup_onCollideThunk	high	slot6 thunk
+802AF028	Cow_PointPopup_dtorThunk	high	slot9 thunk
+802AF030	Cow_KakasiKing_exit	medium	slot17: unlinks transform from collision list
+802AF094	Cow_KakasiKing_reset	medium	slot16: resetTransform, radius 8, clears owning group
+802AF114	Cow_KakasiKing_init	high	slot15: cow_kakasi_king model (0xb), cow_maru_kage shadow
+802AF254	Cow_KakasiKing_dtor	high	slot12 deleting dtor
+802AF2B0	Cow_KakasiKing_ctor	high	Lyt base ctor, state ptrs, vtable 8035D6C0
+802AF394	Cow_KakasiKing_onCollide	medium	slot22: knocks away, rumble, group hit, score with popup position
+802AF800	Cow_KakasiKing_onCollideThunk	high	slot6 thunk
+802AF808	Cow_KakasiKing_dtorThunk	high	slot9 thunk
+802AF810	Cow_PlayerCursor_draw	medium	sets active pane pos and draws cursor layout (2P)
+802AF840	Cow_PlayerCursor_calc	medium	projects other player's position to screen, clamps to edges, animates
+802AFC0C	Cow_getHalfScreenHeight	low	returns table 8043AC2C[aspect 8043BBA8] >> 1
+802AFC24	Cow_getHalfScreenWidth	low	returns table 8043AC28[aspect 8043BBA8] >> 1
+802AFC3C	Cow_PlayerCursor_reset	medium	copies player pos (+12 y), hides panes, resets anims
+802AFDA0	Cow_PlayerCursor_dtor	medium	deleting dtor (no members)
+802AFDE0	Cow_PlayerCursor_ctor	medium	empty ctor
+802AFDE4	Cow_PlayerCursor_init	high	loads cowCursor_00 layout, cursor1p/2p anims, panes, message texts
+802AFF64	Cow_MainHud_drawScreen	medium	slot20: draws layout unless pass 4
+802AFF78	Cow_MainHud_calc	medium	slot18: advances HUD anim state machine (+0xc8), animates layout
+802B0114	Cow_MainHud_exit	medium	slot17, empty
+802B0118	Cow_MainHud_reset	medium	slot16: hides panes, shows 2P pane if 2 players, resets anims
+802B032C	Cow_MainHud_init	high	slot15: cowMain_00/01 layout with time/score/timeBonus/total/result anims
+802B06F8	Cow_MainHud_dtor	high	slot12 deleting dtor
+802B0750	Cow_MainHud_ctor	high	Lyt base ctor, vtable 8035D728
+802B07A4	Cow_MainHud_showTimeout	high	clears score text, plays Cow_2d_timeout effect and sfx 0x54
+802B091C	Cow_MainHud_setPlayerScore	high	writes score digits for player 0/1, optionally plays score anim
+802B0ABC	Cow_MainHud_setTimeWarning	medium	toggles time panes +0x5c/+0x60 (normal vs warning)
+802B0B14	Cow_MainHud_setTime	high	writes seconds and hundredths of remaining time
+802B0C60	Cow_MainHud_playTotal	medium	plays outResult/total anims, state 7
+802B0D2C	Cow_MainHud_isAnimIdle	medium	returns false while state is 4 or 5 (time bonus anims)
+802B0D4C	Cow_MainHud_playTimeBonus	medium	shows time-bonus panes, plays timeBonus anim, state 4
+802B0E10	Cow_MainHud_playOutResult	medium	plays outResult anim, state 8
+802B0EA4	Cow_MainHud_playInResult	medium	shows result panes, plays inResult anim, state 3
+802B0F54	Cow_MainHud_playOut1P	medium	plays out1P anim
+802B0FD0	Cow_MainHud_playOut	medium	plays out anim, state 2
+802B1058	Cow_MainHud_show	medium	from state 0 shows panes (2P pane), plays in anim, state 1
+802B1130	Cow_MainHud_dtorThunk	high	slot9 thunk
+802B1138	Cow_PerfectMsg_drawScreen	medium	slot20: draws layout unless pass 4
+802B114C	Cow_PerfectMsg_calc	medium	slot18: animates, positions Perfect effects per player, hides when done
+802B1350	Cow_PerfectMsg_exit	medium	slot17, empty
+802B1354	Cow_PerfectMsg_reset	medium	slot16: hides panes, binds Perfect anims
+802B14B0	Cow_PerfectMsg_init	high	slot15: cowPerfect_00 layout and Cow_2d_perfect_* effects
+802B178C	Cow_PerfectMsg_dtor	high	slot12 deleting dtor
+802B17E4	Cow_PerfectMsg_ctor	high	Lyt base ctor, vtable 8035D788
+802B1838	Cow_PerfectMsg_show	medium	writes points text, shows player's Perfect panes, starts anim and effect
+802B1B70	Cow_PerfectMsg_dtorThunk	high	slot9 thunk
+802B1B78	Cow_ExMsg_drawScreen	medium	slot20: draws layout unless pass 4
+802B1B8C	Cow_ExMsg_calc	medium	slot18: per-player message timers, plays out anim and hides
+802B1D10	Cow_ExMsg_exit	medium	slot17, empty
+802B1D14	Cow_ExMsg_reset	medium	slot16: hides 3 panes, clears timers/state, resets anims
+802B1E68	Cow_ExMsg_init	high	slot15: cowEx_00 layout, in/out anims, T_ex_00..02 texts
+802B1FBC	Cow_ExMsg_dtor	high	slot12 deleting dtor
+802B2014	Cow_ExMsg_ctor	high	Lyt base ctor, vtable 8035D7E8
+802B2068	Cow_ExMsg_hide	medium	plays player's out anim and clears its state
+802B217C	Cow_ExMsg_showCollisionMsg	low	shows message 0xa8f #1 for 180 frames; called from collision handling
+802B2324	Cow_ExMsg_showMoveMsg	low	shows message 0xa8f #2 (no timeout); called from movement
+802B24C8	Cow_ExMsg_showInputMsg	low	shows message 0xa8f #0 for 30 frames; called from input handling
+802B266C	Cow_ExMsg_dtorThunk	high	slot9 thunk
+802B2674	Cow_OrderMsg_drawScreen	medium	slot20: draws layout unless pass 4
+802B2688	Cow_OrderMsg_calc	medium	slot18: after timer plays out anim and restarts target markers
+802B279C	Cow_OrderMsg_exit	medium	slot17, empty
+802B27A0	Cow_OrderMsg_reset	medium	slot16: hides pane, positions for 1P/2P, resets anims
+802B289C	Cow_OrderMsg_init	high	slot15: cowOrder_00 layout, in/out anims, T_order texts
+802B2980	Cow_OrderMsg_dtor	high	slot12 deleting dtor
+802B29D8	Cow_OrderMsg_ctor	high	Lyt base ctor, vtable 8035D848
+802B2A2C	Cow_hideAllBalloons	medium	calls Balloon hide for each player
+802B2A94	Cow_showAllTargetMarkers	medium	calls TargetMarker show for each player
+802B2AF8	Cow_OrderMsg_show	medium	shows pane, in anim, balloons in 2P, message 0xa91 by mode, 180-frame timer
+802B2C7C	Cow_OrderMsg_dtorThunk	high	slot9 thunk
+802B2C84	Cow_StartMsg_drawScreen	medium	slot20: draws layout unless pass 4
+802B2C98	Cow_StartMsg_calc	medium	slots17/18: hides pane when anim done, animates layout
+802B2CD0	Cow_StartMsg_reset	medium	slot16: hides pane, clears state, resets anim
+802B2D50	Cow_StartMsg_init	high	slot15: cowStart_00 layout, T_start texts (msg 0xa92)
+802B2E28	Cow_StartMsg_dtor	high	slot12 deleting dtor
+802B2E80	Cow_StartMsg_ctor	high	Lyt base ctor, vtable 8035D8A8
+802B2ED4	Cow_StartMsg_show	medium	shows pane, plays anim, 150-frame timer
+802B2F7C	Cow_StartMsg_dtorThunk	high	slot9 thunk
+802B2F84	Cow_GoalMsg_drawScreen	medium	slot20: draws layout unless pass 4
+802B2F98	Cow_GoalMsg_calc	medium	slot18: sequences inComplete/out anims, sfx 0x98, Cow_2d_complete effect
+802B3310	Cow_GoalMsg_exit	medium	slot17, empty
+802B3314	Cow_GoalMsg_reset	medium	slot16: hides panes, clears state, resets anims
+802B33EC	Cow_GoalMsg_init	high	slot15: cowGoal_00 layout, complete texts, Cow_2d_complete effect
+802B358C	Cow_GoalMsg_dtor	high	slot12 deleting dtor
+802B35E4	Cow_GoalMsg_ctor	high	Lyt base ctor, vtable 8035D908
+802B3638	Cow_GoalMsg_show	medium	shows goal pane; arg selects plain (180 frames) or complete variant (state 2)
+802B3768	Cow_GoalMsg_dtorThunk	high	slot9 thunk
+802B3770	Cow_LimitCount_drawScreen	medium	slot20: draws layout unless pass 4
+802B3784	Cow_LimitCount_calc	medium	slot18: message timer then out anim, animates layout
+802B3888	Cow_LimitCount_exit	medium	slot17, empty
+802B388C	Cow_LimitCount_reset	medium	slot16: hides 14 panes, clears state, resets anims
+802B3A28	Cow_LimitCount_init	high	slot15: cowLimit_00 layout, count digit panes 0-9, message texts
+802B3C08	Cow_LimitCount_dtor	high	slot12 deleting dtor
+802B3C60	Cow_LimitCount_ctor	high	Lyt base ctor, vtable 8035D968
+802B3CB4	Cow_LimitCount_setCount	medium	shows digit pane for remaining seconds, hides previous one
+802B3DE8	Cow_LimitCount_hideMessage	medium	hides pane +0x40
+802B3DFC	Cow_LimitCount_start	medium	hides panes, shows message+count, plays count anim, state 1
+802B3F88	Cow_LimitCount_showFinish	medium	shows 1P/2P finish message, plays in anim, 180-frame timer
+802B4064	Cow_LimitCount_dtorThunk	high	slot9 thunk
+802B406C	Cow_VsResult_drawScreen	medium	slot20: draws layout unless pass 4
+802B4080	Cow_VsResult_calc	medium	slots17/18: hides result pane after out anim, animates layout
+802B40C8	Cow_VsResult_reset	medium	slot16: hides panes, state 2, resets anims
+802B41D0	Cow_VsResult_init	high	slot15: cowVsResult_00 layout, in/out/win1p/win2p anims, score texts
+802B4374	Cow_VsResult_dtor	high	slot12 deleting dtor
+802B43CC	Cow_VsResult_ctor	high	Lyt base ctor, vtable 8035D9C8
+802B4420	Cow_VsResult_setScore	high	writes score digits for player 0/1
+802B44D4	Cow_VsResult_showWinner	medium	plays win1p/win2p anims, selects frame for winning player
+802B45EC	Cow_VsResult_playOut	medium	plays out anim, state 2
+802B4670	Cow_VsResult_show	medium	shows panes, in anim, resets win anims, state 1
+802B47F4	Cow_VsResult_dtorThunk	high	slot9 thunk
+802B47FC	Cow_TargetMarker_drawScreen	medium	slot20: draws layout only on owning player's screen
+802B4880	Cow_TargetMarker_calc	medium	slot18: projects player's target position to screen, in/cursor anim sequence
+802B4AF4	Cow_TargetMarker_exit	medium	slot17, empty
+802B4AF8	Cow_TargetMarker_reset	medium	slot16: hides pane, clears state, resets anims
+802B4B1C	Cow_TargetMarker_init	high	slot15: cowOrder_01 layout with in/out/cursor anims
+802B4BCC	Cow_TargetMarker_dtor	high	slot12 deleting dtor
+802B4C24	Cow_TargetMarker_ctor	high	Lyt base ctor, vtable 8035DA28
+802B4C78	Cow_TargetMarker_restartAnim	medium	rewinds anim +0x2c and clears state
+802B4CC0	Cow_TargetMarker_show	medium	shows pane, plays in anim, state 1
+802B4D54	Cow_TargetMarker_dtorThunk	high	slot9 thunk
+802B4D5C	Cow_Balloon_drawScreen	medium	slot20: on owner's screen draws layout and balloon texture
+802B4E24	Cow_Balloon_calc	medium	slot18: projects player pos (+11.3) to screen, animates, exits after out anim
+802B4F84	Cow_Balloon_exit	medium	slot17, empty
+802B4F88	Cow_Balloon_reset	medium	slot16: hides panes, clears state, resets anims
+802B506C	Cow_Balloon_init	high	slot15: cowBalloon_00 layout, in/out anims, balloon/player panes, texts 0xa8e
+802B5210	Cow_Balloon_destroy	medium	slot14 override, empty
+802B5214	Cow_Balloon_create	medium	slot13: creates per-player texture/render object (Lyt_8019BDB8)
+802B52D0	Cow_Balloon_hide	medium	plays out anim, state 2
+802B5354	Cow_Balloon_show	medium	shows balloon and player-specific panes, plays in anim, state 1
+802B5474	Cow_Balloon_dtorThunk	high	slot9 thunk
+802B547C	Cow_CowModel_calcAnim	low	large anim/joint update for cow+rider models; called from Player updateModel
+802B5FDC	Cow_PlayerEffects_resetWool	medium	clears wool ring index and active flags
+802B6000	Cow_PlayerEffects_init	high	creates speedsmoke/jump_ok/damage/landsmoke/dashsmk/vs_crash/slip_wool effects
+802B6324	Cow_PlayerEffects_emitWool	medium	ring of 4: sets wool effect pos/scale and starts it
+802B64BC	Cow_spawnLandSmoke	high	spawns Cow_landsmoke or Cow_landsmoke_big at matrix position
+802B6600	Cow_spawnEffectAtMtx	medium	spawns named effect using matrix rotation and given position
+802B66D4	Cow_Player_calcFootEffects	low	reads cow_root/j_L_front/j_R_front/j_R_back joint matrices for foot effects
+802B7684	Cow_CowModel_reset	medium	clears anim state, random start frame for cow and rider anims
+802B7988	Cow_CowModel_init	high	creates cow_knit_1P/2P model, binds knit run/wait anims and avatar anims
+802B7F5C	Cow_CowModel_dtor	high	vf00 deleting dtor, destroys 4-entry vec3 array
+802B7FC4	Cow_CowModel_ctor	high	vtable 8035DAE8, player index, creates rider (Mii) object
+802B8070	Cow_CowModel_calcJoint	medium	vf01 joint callback: adjusts cow_root and second joint matrices
+802B8244	Cow_CowModel_clearLandState	medium	if anim state is 3 (landing) resets to 0
+802B825C	Cow_CowModel_playGoalAnim	medium	plays rider anim slot 9 (cow_goalR), state 4
+802B82E0	Cow_CowModel_playLandAnim	medium	if jumping, plays slot 8 (cow_chakuchiR), state 3
+802B8378	Cow_CowModel_playJumpAnim	medium	unless jumping/goal plays slot 7 (cow_jumpR), state 2
+802B8410	Cow_CowModel_setRunState	low	binds slot 6 anim, state 0
+802B848C	Cow_CowModel_setIntroState	low	binds slot 6 anim, state 1, blend 1.0
+802B8508	Cow_Cloud_exit	medium	slot17: unlinks transform from collision list
+802B856C	Cow_Cloud_reset	medium	slot16: transform from pmp, radius scale*8, links collision list
+802B86E0	Cow_Cloud_init	medium	slot15: cow_cloudA/B model (0x40/0x41) by kind, pmp 0x70009/0x7000a
+802B8928	Cow_Cloud_dtor	high	slot12 deleting dtor
+802B8984	Cow_Cloud_ctor	high	Lyt base ctor, state ptrs, vtable 8035DB08
+802B8A68	Cow_Cloud_onCollide	medium	slot22: push/knock response vs player like tree
+802B8DB4	Cow_Cloud_onCollideThunk	high	slot6 thunk
+802B8DBC	Cow_Cloud_dtorThunk	high	slot9 thunk
+802B8DC4	Cow_KnitCowEx_exit	medium	slot17: unlinks transform from collision list
+802B8E28	Cow_KnitCowEx_reset	medium	slot16: transform from pmp, radius scale*8, links collision list
+802B8F9C	Cow_KnitCowEx_init	medium	slot15: cow_knit_exA/exB model by kind, random ex_wait/ex_eat anim, shadow
+802B9364	Cow_KnitCowEx_dtor	high	slot12 deleting dtor
+802B93C0	Cow_KnitCowEx_ctor	high	Lyt base ctor, state ptrs, vtable 8035DB70
+802B94A4	Cow_KnitCowEx_onCollide	medium	slot22: push/knock response vs player
+802B97F0	Cow_KnitCowEx_onCollideThunk	high	slot6 thunk
+802B97F8	Cow_KnitCowEx_dtorThunk	high	slot9 thunk
+802B9800	Cow_AngleDisp_drawScreen	medium	slot20: draws layout unless pass 4
+802B9814	Cow_AngleDisp_calc	medium	slot18: hides panes after out anim, finishes switch anims
+802B993C	Cow_AngleDisp_exit	medium	slot17, empty
+802B9940	Cow_AngleDisp_reset	medium	slot16: hides panes, resets angle panes, resets anims
+802B9AF0	Cow_AngleDisp_init	high	slot15: cowAngle_00 layout, switchCow anims, angle/rotate panes
+802B9BF8	Cow_AngleDisp_dtor	high	slot12 deleting dtor
+802B9C50	Cow_AngleDisp_ctor	high	Lyt base ctor, vtable 8035DBD8
+802B9CA4	Cow_AngleDisp_setAngle	medium	sets player's angle pane rotation and offset from arg
+802B9D6C	Cow_AngleDisp_playSwitch	medium	once per player plays switchCow anim on its pane
+802BA19C	Cow_AngleDisp_dtorThunk	high	slot9 thunk

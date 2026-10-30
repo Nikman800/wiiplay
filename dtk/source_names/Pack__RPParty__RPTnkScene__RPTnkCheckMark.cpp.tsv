@@ -1,0 +1,5 @@
+address	old_name	new_name	unit	previous
+80274E84	Tnk_CheckMarkPool_dtor	__dt__18RPTnkCheckMarkPoolFv	Pack/RPParty/RPTnkScene/RPTnkCheckMark.cpp	
+80274F6C	Tnk_CheckMarkPool_createItem	CreateObject__18RPTnkCheckMarkPoolFv	Pack/RPParty/RPTnkScene/RPTnkCheckMark.cpp	
+80274F9C	Tnk_CheckMarkPool_destroy	Destroy__18RPTnkCheckMarkPoolFv	Pack/RPParty/RPTnkScene/RPTnkCheckMark.cpp	
+8027534C	Tnk_CheckMark_ctor	__ct__14RPTnkCheckMarkFv	Pack/RPParty/RPTnkScene/RPTnkCheckMark.cpp	

@@ -1,0 +1,12 @@
+address	old_name	new_name	unit	previous
+802583DC	Tnk_FieldModel_editWorldMtx	EditWorldMtx__15RPTnkFieldModelFP10RPGrpModel	Pack/RPParty/RPTnkScene/RPTnkField_2.cpp	
+802583E0	Tnk_FieldModel_setGridSize	SetGridSize__15RPTnkFieldModelFffll	Pack/RPParty/RPTnkScene/RPTnkField_2.cpp	
+80258444	Tnk_FieldModel_updateModel	CalcModelMtx__15RPTnkFieldModelFv	Pack/RPParty/RPTnkScene/RPTnkField_2.cpp	
+80258584	Tnk_FieldModel_reset	Reset__15RPTnkFieldModelFv	Pack/RPParty/RPTnkScene/RPTnkField_2.cpp	
+80258614	Tnk_FieldModel_load	Load__15RPTnkFieldModelFv	Pack/RPParty/RPTnkScene/RPTnkField_2.cpp	
+802587B8	Tnk_FieldModel_create	Create__15RPTnkFieldModelFv	Pack/RPParty/RPTnkScene/RPTnkField_2.cpp	
+802587BC	Tnk_FieldModel_dtor	__dt__15RPTnkFieldModelFv	Pack/RPParty/RPTnkScene/RPTnkField_2.cpp	
+80258814	Tnk_FieldModel_ctor	__ct__15RPTnkFieldModelFv	Pack/RPParty/RPTnkScene/RPTnkField_2.cpp	
+80258858	Tnk_FieldModel_vf27Thunk	@72@EditWorldMtx__15RPTnkFieldModelFP10RPGrpModel	Pack/RPParty/RPTnkScene/RPTnkField_2.cpp	
+80258860	Tnk_FieldModel_dtorThunk	@72@__dt__15RPTnkFieldModelFv	Pack/RPParty/RPTnkScene/RPTnkField_2.cpp	__dt__19IRPGrpModelCallbackFv;Tnk_Field_deadHelper2
+8035B1C0	Tnk_FieldModel_vtable	__vt__15RPTnkFieldModel	Pack/RPParty/RPTnkScene/RPTnkField_2.cpp	

@@ -1,0 +1,237 @@
+# batch tnk: modules Tnk; 584 functions; 46 classes
+
+## classes (ledger class -> suggested C++ name; vtables; allocation sizes; methods)
+Tnk_Actor -> RPTnkActor; vtables 8035B290; sizes -; 20 methods: applySpawnParam, applyVelocity, calc, clearForces, clearForcesStep, collideWithField, create, ctor, dtor, integrate, integrateStep, kill ...
+Tnk_ActorPool -> RPTnkActorPool; vtables 8035B238; sizes -; 14 methods: applyVelocityAll, calcAll, clearForcesAll, collideAllWithField, ctor, dtor, init, integrateAll, killAll, loadAll, resetAll, spawn ...
+Tnk_ActorSound -> RPTnkActorSound; vtables 8035B354; sizes -; 2 methods: dtor, dtorThunk
+Tnk_AiAttack -> RPTnkAiAttack; vtables 8035C1C8; sizes 0x120 via Tnk_AiAttack_ctor in Tnk_AiController_ctor; 14 methods: ctor, decideFire, decideLayMine, dtor, executeActions, loadParams, pathHitsAlly, pathHitsPlayer, pathHitsSelf, pickAimTarget, predictShotPath, reset ...
+Tnk_AiController -> RPTnkAiController; vtables 8035C090; sizes 0x18 via Tnk_AiController_ctor in Tnk_Tank_create; 9 methods: ctor, dtor, reset, setAimDirection, setFlags, setMode, setMoveDirection, updateAttack, updateMove
+Tnk_AiMove -> RPTnkAiMove; vtables 8035C0DC; sizes 0x230 via Tnk_AiMove_ctor in Tnk_AiController_ctor; 15 methods: addMineThreat, addShellThreat, calcVelocity, ctor, dtor, findClearDirection, loadParams, reset, rotateBodyStep, setDirection, stateApproach, stateEvade ...
+Tnk_AiProbe -> RPTnkAiProbe; vtables 8035C100; sizes 0x140 via Tnk_AiProbe_ctor in Tnk_AiAttack_ctor; 0x140 via Tnk_AiProbe_ctor in Tnk_AiMove_ctor; 6 methods: ctor, dtor, onCollide, reset, step, sweep
+Tnk_BgmMix -> RPTnkBgmMix; vtables -; sizes -; 6 methods: applyTrackMask, reset, setParams, startBgm3C, startStageBgm, stop
+Tnk_Block -> RPTnkBlock; vtables 8035B684; sizes 0x180 via Tnk_Block_ctor in Tnk_BlockPool_createObject; 18 methods: applyVelocity, breakIfFlagged, calc, checkBreak, collideObject, create, ctor, draw, dtor, getHeight, getKind, loadModels ...
+Tnk_BlockPool -> RPTnkBlockPool; vtables 8035B748; sizes 0x18 via Tnk_ActorPool_ctor in Tnk_BlockPool_createInstance (derived vtable 8035B748); 10 methods: collideObject, createInstance, createObject, destroy, destroyInstance, dtor, getBlockAt, isKind0BlockNear, isPointInsideBlock, killAllBlocks
+Tnk_Camera -> RPTnkCamera; vtables 8035B178; sizes 0x204 via RP_LookAtCam_ctor in Tnk_Camera_createInstance (derived vtable 8035B178); 10 methods: calc, create, createInstance, destroyInstance, dtor, initView, setMode, stateFixed, stateIntroMove, updateView
+Tnk_CheckMark -> RPTnkCheckMark; vtables 8035C49C; sizes 0xD0 via Tnk_CheckMark_ctor in Tnk_CheckMarkPool_createItem; 10 methods: applySpawnParam, applyVelocity, calc, create, ctor, dtor, load, onSpawn, stateStop, updateModel
+Tnk_CheckMarkPool -> RPTnkCheckMarkPool; vtables 8035C438; sizes 0x18 via Tnk_ActorPool_ctor in Tnk_CheckMarkPool_createInstance (derived vtable 8035C438); 5 methods: createInstance, createItem, destroy, destroyInstance, dtor
+Tnk_ClearMsg -> RPTnkClearMsg; vtables 8035C368; sizes 0x30 via Tnk_ClearMsg_ctor in Tnk_LayoutManager_create; 10 methods: calc, ctor, draw, dtor, exit, hide, load, reset, show, showTotal
+Tnk_Cls -> RPTnkCls; vtables -; sizes -; 14 methods: 8035B290_vf34, 8035B290_vf35, 8035B290_vf36, 8035B290_vf37, 8035B290_vf38, 8035B290_vf39, 8035B290_vf40, 8035B290_vf41, 8035B290_vf42, 8035B290_vf43, 8035B290_vf44, 8035B290_vf45 ...
+Tnk_CompleteMsg -> RPTnkCompleteMsg; vtables 8035C3A8; sizes 0x20 via Tnk_CompleteMsg_ctor in Tnk_LayoutManager_create; 8 methods: calc, ctor, draw, dtor, exit, load, reset, show
+Tnk_Cursor -> RPTnkCursor; vtables 8035B61C; sizes 0x7C via Tnk_Cursor_ctor in Tnk_CursorManager_createCursors; 15 methods: calc, calcWorldPos, create, createParts, ctor, dtor, reset, restartLineEffect, restartMainEffect, restartTailEffect, setDisplayMode, updateLineEffect ...
+Tnk_CursorManager -> RPTnkCursorManager; vtables 8035B5C0; sizes 0x1C via RP_SceneObj_ctor in Tnk_CursorManager_createInstance (derived vtable 8035B5C0); 9 methods: calc, callActiveSlot6, callAllSlot5, createCursors, createInstance, destroyInstance, dtor, reset, vf02
+Tnk_EmptyTask -> RPTnkEmptyTask; vtables 8035C068; sizes 0x4 via RP_SceneObj_ctor in Tnk_EmptyTask_createInstance (derived vtable 8035C068); 8 methods: createInstance, destroyInstance, dtor, nop01, nop02, nop03, nop04, nop05
+Tnk_ExGuide -> RPTnkExGuide; vtables 8035C320; sizes 0x6C via RP_SceneObj_ctor in Tnk_ExGuide_createInstance (derived vtable 8035C320); 12 methods: calc, createInstance, destroyInstance, dtor, reset, start, stateCheckCursorNear, stateCheckMoved, stateShowHint, stateShowHintUntilNear, vf01, vf05
+Tnk_ExMsg -> RPTnkExMsg; vtables 8035C2A0; sizes 0x28 via Tnk_ExMsg_ctor in Tnk_LayoutManager_create; 10 methods: calc, ctor, draw, dtor, exit, load, playOut, playOutAll, reset, show
+Tnk_Fade -> RPTnkFade; vtables 8035C240; sizes 0x6C via Tnk_Fade_ctor in Tnk_LayoutManager_create; 9 methods: calc, ctor, draw, dtor, exit, load, reset, start, updateStates
+Tnk_FailedMsg -> RPTnkFailedMsg; vtables 8035C388; sizes 0x20 via Tnk_FailedMsg_ctor in Tnk_LayoutManager_create; 8 methods: calc, ctor, draw, dtor, exit, load, reset, show
+Tnk_Field -> RPTnkField; vtables 8035B198; sizes 0xB4 via RP_SceneObj_ctor in Tnk_Field_createInstance (derived vtable 8035B198); 17 methods: calc, captureTexture, collideActor, create, createInstance, destroy, destroyInstance, drawCaptureTexture, drawClearQuad, drawPlainQuad, dtor, initWallPlanes ...
+Tnk_FieldModel -> RPTnkFieldModel; vtables 8035B1C0; sizes 0x78 via Tnk_FieldModel_ctor in Tnk_Field_create; 10 methods: create, ctor, dtor, dtorThunk, load, reset, setGridSize, updateModel, vf27, vf27Thunk
+Tnk_FootmarkTex -> RPTnkFootmarkTex; vtables 8035C410; sizes 0x30 via RP_SceneObj_ctor in Tnk_FootmarkTex_createInstance (derived vtable 8035C410); 5 methods: createInstance, destroyInstance, dtor, load, vf01
+Tnk_GameManager -> RPTnkGameManager; vtables 8035B98C; sizes 0xE4 via Tnk_GameManager_ctor in Tnk_GameManager_createInstance; 29 methods: calc, checkStageClear, create, createInstance, ctor, destroy, destroyInstance, dtor, loadParams, pickStageVariant, reportStageResult, resetForMode ...
+Tnk_GameStats -> RPTnkGameStats; vtables 8035C218; sizes 0x3A8 via RP_SceneObj_ctor in Tnk_GameStats_createInstance (derived vtable 8035C218); 10 methods: addKill, addKilledType, addLives, clearCounts, createInstance, destroyInstance, dtor, getWinner, setAllLives, setup
+Tnk_HitPopup -> RPTnkHitPopup; vtables 8035C280; sizes 0x1C via Tnk_HitPopup_ctor in Tnk_LayoutManager_create; 8 methods: calc, ctor, draw, dtor, exit, load, reset, start
+Tnk_Hud -> RPTnkHud; vtables 8035C260; sizes 0x4C via Tnk_Hud_ctor in Tnk_LayoutManager_create; 12 methods: calc, ctor, draw, dtor, exit, load, placeBalloonP1, placeBalloonP2, playIn, playOut, playScoreAnim, reset
+Tnk_LayoutManager -> RPTnkLayoutManager; vtables 8035C1F0; sizes 0x70 via RP_SceneObj_ctor in Tnk_LayoutManager_createInstance (derived vtable 8035C1F0); 10 methods: calc, create, createInstance, destroyInstance, draw, dtor, exit, load, reset, spawnHitPopup
+Tnk_Mine -> RPTnkMine; vtables 8035BA54; sizes 0x104 via Tnk_Mine_ctor in Tnk_MinePool_newObject; 25 methods: accumulatePush, applyVelocity, calc, checkCollisions, clearHitFlags, create, ctor, draw, dtor, explode, getOwner, getUserValue ...
+Tnk_MinePool -> RPTnkMinePool; vtables 8035B9D8; sizes 0x40 via Tnk_ActorPool_ctor in Tnk_MinePool_createInstance (derived vtable 8035B9D8); 11 methods: addTankAvoidance, checkShellHit, countByOwner, createInstance, destroy, destroyInstance, dtor, isInExplosion, isInOtherExplosion, isNearAnyMine, newObject
+Tnk_MineSound -> RPTnkMineSound; vtables 8035BB18; sizes -; 2 methods: dtor, dtorThunk
+Tnk_PlayerController -> RPTnkPlayerController; vtables 8035B650; sizes 0x5C via Tnk_PlayerController_ctor in Tnk_Tank_create; 10 methods: aimAtCursor, calcMoveVelocity, ctor, dtor, getMaxSpeed, getMoveInput, handleFireInput, reset, turnBodyStep, turnBodyTowards
+Tnk_ResultLyt -> RPTnkResultLyt; vtables 8035C3F0; sizes 0xE0 via Tnk_ResultLyt_ctor in Tnk_LayoutManager_create; 17 methods: calc, calcSequence1P, calcSequence2P, closeList1P, closeList2P, ctor, draw, dtor, exit, hideAllPanes, load, playRowSound ...
+Tnk_Scene -> RPTnkScene; vtables 8035B100; sizes 0x8C via __ct__10RPSysSceneFv in Sys_SceneCreator_createGameScene (derived vtable 8035B100); 12 methods: calc, create, createCamerasAndScreens, destroy, draw, drawThunk, dtor, dtorThunk, load, reset, updateGameplay, vf14NotifyChildren
+Tnk_Shell -> RPTnkShell; vtables 8035B804; sizes 0xEC via Tnk_Shell_ctor in Tnk_ShellPool_createObject; 19 methods: applyVelocity, checkCircleHit, checkCollisions, clearHitFlags, create, ctor, deactivate, dtor, getOwnerTank, getShooterSlot, loadModel, playHitSound ...
+Tnk_ShellPool -> RPTnkShellPool; vtables 8035B7A0; sizes 0x40 via Tnk_ActorPool_ctor in Tnk_ShellPool_createInstance (derived vtable 8035B7A0); 9 methods: callActiveSlot42, collideShellWithShells, countShellsPerOwner, createInstance, createObject, destroyInstance, detectIncomingShells, dtor, isObjectHit
+Tnk_StageMap -> RPTnkStageMap; vtables 8035B9B0; sizes 0xB8 via RP_SceneObj_ctor in Tnk_StageMap_createInstance (derived vtable 8035B9B0); 12 methods: create, createInstance, destroy, destroyInstance, dtor, load, loadStage, readPlayerAngles, readSpawnPositions, reloadStage, reset, spawnBlocks
+Tnk_StartMsg -> RPTnkStartMsg; vtables 8035C348; sizes 0x10 via Tnk_StartMsg_ctor in Tnk_LayoutManager_create; 8 methods: calc, ctor, draw, dtor, exit, load, play, reset
+Tnk_StepTimer -> RPTnkStepTimer; vtables 8035C040; sizes 0x14 via RP_SceneObj_ctor in Tnk_StepTimer_createInstance (derived vtable 8035C040); 8 methods: calc, createInstance, destroyInstance, dtor, nop01, nop02, reset, start
+Tnk_Tank -> RPTnkTank; vtables 8035B490; sizes 0x20C via Tnk_Tank_ctor in Tnk_TankManager_createTanks; 39 methods: accumulatePushOut, accumulatePushOutAlt, activate, applyVelocity, calc, calcModelMatrices, calcModelMatrices_thunk, clearHitInfo, create, ctor, deactivate, draw ...
+Tnk_TankManager -> RPTnkTankManager; vtables 8035B598; sizes 0x3C via RP_SceneObj_ctor in Tnk_TankManager_createInstance (derived vtable 8035B598); 31 methods: activateEnemies, activatePlayers, applyVelocities, calc, clearHitInfo, createInstance, createTanks, deactivateAll, destroyInstance, draw, drawTrackMarks, dtor ...
+Tnk_TankSound -> RPTnkTankSound; vtables 8035BF60; sizes -; 5 methods: approachSpeed, create, dtor, dtorThunk, updateTread
+Tnk_WeaponManager -> RPTnkWeaponManager; vtables 8035B8C8; sizes 0xC via RP_SceneObj_ctor in Tnk_WeaponManager_createInstance (derived vtable 8035B8C8); 17 methods: applyVelocity, callPoolSlot16, checkCollisions, clearHitFlags, create, createInstance, deactivateAll, destroyInstance, destroyPools, dtor, fireShell, layMine ...
+
+## globals referenced (address name section size refs)
+800B2214 _savegpr_14 .text 0x0 1
+800B221C _savegpr_16 .text 0x0 1
+800B2234 _savegpr_22 .text 0x0 2
+800B2238 _savegpr_23 .text 0x0 5
+800B223C _savegpr_24 .text 0x0 5
+800B2240 _savegpr_25 .text 0x0 6
+800B2244 _savegpr_26 .text 0x0 1
+800B2248 _savegpr_27 .text 0x0 6
+800B2260 _restgpr_14 .text 0x0 1
+800B2268 _restgpr_16 .text 0x0 1
+800B2280 _restgpr_22 .text 0x0 2
+800B2284 _restgpr_23 .text 0x0 5
+800B2288 _restgpr_24 .text 0x0 5
+800B228C _restgpr_25 .text 0x0 6
+800B2290 _restgpr_26 .text 0x0 1
+800B2294 _restgpr_27 .text 0x0 6
+80322E30 lbl_80322E30 .rodata 0x58 1
+80322E88 lbl_80322E88 .rodata 0x19 1
+80322F08 lbl_80322F08 .rodata 0x2C 1
+80322F34 lbl_80322F34 .rodata 0x2C 1
+80322F60 lbl_80322F60 .rodata 0x24 1
+80322F84 lbl_80322F84 .rodata 0xC 5
+80323068 lbl_80323068 .rodata 0x78 1
+803230E0 lbl_803230E0 .rodata 0xC 1
+803230EC lbl_803230EC .rodata 0xC 1
+803230F8 lbl_803230F8 .rodata 0x20 1
+80323118 lbl_80323118 .rodata 0x20 1
+80323138 lbl_80323138 .rodata 0xC 2
+803231C8 lbl_803231C8 .rodata 0xF 1
+803231D8 lbl_803231D8 .rodata 0x68 3
+80323240 lbl_80323240 .rodata 0x28 2
+80323268 lbl_80323268 .rodata 0x30 2
+80323298 lbl_80323298 .rodata 0x90 1
+80323328 lbl_80323328 .rodata 0x30 1
+80323358 lbl_80323358 .rodata 0x10 1
+80323368 lbl_80323368 .rodata 0x12 1
+80323380 lbl_80323380 .rodata 0x30 1
+803233B0 lbl_803233B0 .rodata 0x14 6
+803235D8 lbl_803235D8 .rodata 0x10 2
+803235E8 lbl_803235E8 .rodata 0x40 1
+80323628 lbl_80323628 .rodata 0x10 1
+80323638 lbl_80323638 .rodata 0x10 1
+80323648 lbl_80323648 .rodata 0x10 1
+80323658 lbl_80323658 .rodata 0xD 5
+80323928 lbl_80323928 .rodata 0x9 3
+803239A0 lbl_803239A0 .rodata 0xC 1
+803239AC lbl_803239AC .rodata 0x15 2
+80323A10 lbl_80323A10 .rodata 0x58 2
+80323A68 lbl_80323A68 .rodata 0x1C 6
+80323B70 lbl_80323B70 .rodata 0x16 2
+80323BD0 lbl_80323BD0 .rodata 0x16 2
+80323C58 lbl_80323C58 .rodata 0x6C 1
+80323CC4 lbl_80323CC4 .rodata 0x24 1
+80323CE8 lbl_80323CE8 .rodata 0x24 1
+80323D0C lbl_80323D0C .rodata 0x24 1
+80323D30 lbl_80323D30 .rodata 0x28 1
+80323D58 lbl_80323D58 .rodata 0x20 1
+80323D78 lbl_80323D78 .rodata 0xA 9
+803241F0 lbl_803241F0 .rodata 0x30 1
+80324368 lbl_80324368 .rodata 0xC 1
+80324374 lbl_80324374 .rodata 0xF 1
+8032D3F8 lbl_8032D3F8 .data 0x11 1
+8032D40C lbl_8032D40C .data 0x12 1
+8034F32C lbl_8034F32C .data 0x14 1
+803587D0 lbl_803587D0 .data 0x10 1
+80358964 lbl_80358964 .data 0xDC 3
+80358A40 lbl_80358A40 .data 0x38 3
+80358A78 lbl_80358A78 .data 0x10 3
+80358A88 lbl_80358A88 .data 0x24 6
+80358AF4 lbl_80358AF4 .data 0x15 3
+80358B0C lbl_80358B0C .data 0xE 3
+80358DA4 lbl_80358DA4 .data 0x15 1
+80358DC0 lbl_80358DC0 .data 0x10 1
+8035B0F0 lbl_8035B0F0 .data 0x10 1
+8035B160 lbl_8035B160 .data 0xC 1
+8035B16C lbl_8035B16C .data 0xC 1
+8035B178 lbl_8035B178 .data 0x20 1
+8035B198 lbl_8035B198 .data 0x28 1
+8035B1C0 lbl_8035B1C0 .data 0x78 1
+8035B238 lbl_8035B238 .data 0x58 1
+8035B290 lbl_8035B290 .data 0xC4 1
+8035B354 lbl_8035B354 .data 0xDC 1
+8035B430 jumptable_8035B430 .data 0x24 2
+8035B490 lbl_8035B490 .data 0x108 1
+8035B598 lbl_8035B598 .data 0x28 1
+8035B5C0 lbl_8035B5C0 .data 0x28 1
+8035B5E8 jumptable_8035B5E8 .data 0x34 1
+8035B61C lbl_8035B61C .data 0x34 1
+8035B650 lbl_8035B650 .data 0x28 1
+8035B678 lbl_8035B678 .data 0xC 1
+8035B684 lbl_8035B684 .data 0xC4 1
+8035B748 lbl_8035B748 .data 0x58 1
+8035B7A0 lbl_8035B7A0 .data 0x58 1
+8035B7F8 lbl_8035B7F8 .data 0xC 1
+8035B804 lbl_8035B804 .data 0xC4 1
+8035B8C8 lbl_8035B8C8 .data 0x28 1
+8035B8F0 lbl_8035B8F0 .data 0x9C 1
+8035B98C lbl_8035B98C .data 0x24 1
+8035B9B0 lbl_8035B9B0 .data 0x28 1
+8035B9D8 lbl_8035B9D8 .data 0x58 1
+8035BA30 lbl_8035BA30 .data 0x24 1
+8035BA54 lbl_8035BA54 .data 0xC4 1
+8035BB18 lbl_8035BB18 .data 0x448 1
+8035BF60 lbl_8035BF60 .data 0xE0 1
+8035C040 lbl_8035C040 .data 0x28 1
+8035C068 lbl_8035C068 .data 0x28 1
+8035C090 lbl_8035C090 .data 0x28 1
+8035C0B8 lbl_8035C0B8 .data 0x24 1
+8035C0DC lbl_8035C0DC .data 0x24 1
+8035C100 lbl_8035C100 .data 0xC8 1
+8035C1C8 lbl_8035C1C8 .data 0x28 1
+8035C1F0 lbl_8035C1F0 .data 0x28 1
+8035C218 lbl_8035C218 .data 0x28 1
+8035C240 lbl_8035C240 .data 0x20 1
+8035C260 lbl_8035C260 .data 0x20 1
+8035C280 lbl_8035C280 .data 0x20 1
+8035C2A0 lbl_8035C2A0 .data 0x20 1
+8035C2C0 lbl_8035C2C0 .data 0x60 1
+8035C320 lbl_8035C320 .data 0x28 1
+8035C348 lbl_8035C348 .data 0x20 1
+8035C368 lbl_8035C368 .data 0x20 2
+8035C388 lbl_8035C388 .data 0x20 1
+8035C3A8 lbl_8035C3A8 .data 0x20 1
+8035C3C8 jumptable_8035C3C8 .data 0x24 1
+8035C3F0 lbl_8035C3F0 .data 0x20 1
+8035C410 lbl_8035C410 .data 0x28 1
+8035C438 lbl_8035C438 .data 0x58 1
+8035C490 lbl_8035C490 .data 0xC 1
+8035C49C lbl_8035C49C .data 0xC4 1
+8039F340 lbl_8039F340 .bss 0x30 4
+804390E0 lbl_804390E0 .bss 0x10 3
+804390F0 lbl_804390F0 .bss 0x10 6
+80439110 lbl_80439110 .bss 0xC 16
+8043911C lbl_8043911C .bss 0xC 1
+80439128 lbl_80439128 .bss 0xC 17
+80439134 lbl_80439134 .bss 0xC 6
+80439140 lbl_80439140 .bss 0xC 7
+8043914C lbl_8043914C .bss 0x24 9
+8043A800 lbl_8043A800 .bss 0x10 2
+8043A810 lbl_8043A810 .bss 0xC 2
+8043A81C lbl_8043A81C .bss 0x3C 1
+8043A858 lbl_8043A858 .bss 0x18 1
+8043A870 lbl_8043A870 .bss 0x24 1
+8043A894 lbl_8043A894 .bss 0x24 4
+8043A8B8 lbl_8043A8B8 .bss 0x30 2
+8043AC28 lbl_8043AC28 .sdata 0x2 4
+8043AC2C lbl_8043AC2C .sdata 0x2 4
+8043B354 lbl_8043B354 .sdata 0x4 1
+8043B750 lbl_8043B750 .sdata 0x4 11
+8043B754 lbl_8043B754 .sdata 0x4 8
+8043BBA8 lbl_8043BBA8 .sbss 0x4 7
+8043BC70 lbl_8043BC70 .sbss 0x4 8
+8043C458 lbl_8043C458 .sbss 0x8 1
+8043C470 lbl_8043C470 .sbss 0x8 4
+8043C4C8 lbl_8043C4C8 .sbss 0x8 1
+8043C588 lbl_8043C588 .sbss 0x8 2
+8043C590 lbl_8043C590 .sbss 0x8 7
+8043C5A0 lbl_8043C5A0 .sbss 0x4 11
+8043C5A5 lbl_8043C5A5 .sbss 0x1 1
+8043C5D4 lbl_8043C5D4 .sbss 0x4 23
+8043C5E8 lbl_8043C5E8 .sbss 0x8 3
+8043C5F0 lbl_8043C5F0 .sbss 0x8 1
+8043C5F8 lbl_8043C5F8 .sbss 0x4 11
+8043C5FC lbl_8043C5FC .sbss 0x4 11
+8043C608 lbl_8043C608 .sbss 0x8 1
+8043C640 lbl_8043C640 .sbss 0x8 1
+8043C648 lbl_8043C648 .sbss 0x8 3
+8043C6C8 lbl_8043C6C8 .sbss 0x8 1
+8043C6D8 lbl_8043C6D8 .sbss 0x8 12
+8043C8D8 lbl_8043C8D8 .sbss 0x8 11
+8043C8E0 lbl_8043C8E0 .sbss 0x8 15
+8043C8E8 lbl_8043C8E8 .sbss 0x8 35
+8043C8F0 lbl_8043C8F0 .sbss 0x8 6
+8043C8F8 lbl_8043C8F8 .sbss 0x8 9
+8043C900 lbl_8043C900 .sbss 0x8 8
+8043C908 lbl_8043C908 .sbss 0x8 8
+8043C910 lbl_8043C910 .sbss 0x8 36
+8043C918 lbl_8043C918 .sbss 0x8 6
+8043C920 lbl_8043C920 .sbss 0x8 8
+8043C928 lbl_8043C928 .sbss 0x8 6
+8043C930 lbl_8043C930 .sbss 0x8 3
+8043C938 lbl_8043C938 .sbss 0x8 36
+8043C940 lbl_8043C940 .sbss 0x8 13
+8043C948 lbl_8043C948 .sbss 0x8 4
+8043C950 lbl_8043C950 .sbss 0x8 4
+8043C958 lbl_8043C958 .sbss 0x8 5

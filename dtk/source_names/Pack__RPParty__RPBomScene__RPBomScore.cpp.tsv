@@ -1,0 +1,14 @@
+address	old_name	new_name	unit	previous
+802DE8C8	Bom_Score_getWinner	GetWinner__10RPBomScoreCFv	Pack/RPParty/RPBomScene/RPBomScore.cpp	
+802DE8F0	Bom_Score_applyMissPenalty	ApplyMissPenalty__10RPBomScoreFl	Pack/RPParty/RPBomScene/RPBomScore.cpp	
+802DE950	Bom_Score_addBubblePoints	AddBubblePoints__10RPBomScoreFlPCQ34nw4r4math4VEC2i	Pack/RPParty/RPBomScene/RPBomScore.cpp	
+802DEAF4	Bom_Score_resetCombos	ResetCombos__10RPBomScoreFv	Pack/RPParty/RPBomScene/RPBomScore.cpp	
+802DEB1C	Bom_Score_resetAll	ResetAll__10RPBomScoreFv	Pack/RPParty/RPBomScene/RPBomScore.cpp	
+802DEBAC	Bom_Score_addTotal	AddTotal__10RPBomScoreFll	Pack/RPParty/RPBomScene/RPBomScore.cpp	
+802DEBE4	Bom_Score_addScore	AddScore__10RPBomScoreFll	Pack/RPParty/RPBomScene/RPBomScore.cpp	
+802DEC18	Bom_Score_clearTotals	ClearTotals__10RPBomScoreFv	Pack/RPParty/RPBomScene/RPBomScore.cpp	
+802DEC40	Bom_Score_reset	Reset__10RPBomScoreFl	Pack/RPParty/RPBomScene/RPBomScore.cpp	
+802DECBC	Bom_Score_dtor	__dt__10RPBomScoreFv	Pack/RPParty/RPBomScene/RPBomScore.cpp	
+802DED14	Bom_Score_destroyInstance	DestroyInstance__10RPBomScoreFv	Pack/RPParty/RPBomScene/RPBomScore.cpp	
+802DED58	Bom_Score_createInstance	CreateInstance__10RPBomScoreFv	Pack/RPParty/RPBomScene/RPBomScore.cpp	
+80441788	lbl_80441788	sComboNum__10RPBomScore	Pack/RPParty/RPBomScene/RPBomScore.cpp	

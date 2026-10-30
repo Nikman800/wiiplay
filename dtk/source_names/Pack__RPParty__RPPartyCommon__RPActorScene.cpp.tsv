@@ -1,0 +1,6 @@
+address	old_name	new_name	unit	previous
+803575D8	lbl_803575D8	__vt__12RPActorScene	Pack/RPParty/RPPartyCommon/RPActorScene.cpp	
+8043C684	RP_actorSceneUnk684	sUnk684__12RPActorScene	Pack/RPParty/RPPartyCommon/RPActorScene.cpp	
+8043C688	RP_actorSceneUnk688	sUnk688__12RPActorScene	Pack/RPParty/RPPartyCommon/RPActorScene.cpp	
+8043C690	RP_actorSceneFrame	sFrame__12RPActorScene	Pack/RPParty/RPPartyCommon/RPActorScene.cpp	
+8043C694	RP_actorSceneUnk694	sUnk694__12RPActorScene	Pack/RPParty/RPPartyCommon/RPActorScene.cpp	

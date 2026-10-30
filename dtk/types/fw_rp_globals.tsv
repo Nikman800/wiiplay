@@ -1,0 +1,53 @@
+# address	name	type	confidence	note
+80318450	RP_tnkMapDataPathFmt	char[0x23]	H	"MapData/TnkMapData_P%d_%02d_%d.bin", RPTnkMapData constructor
+80318818	RP_buttonSeqTable	u16[12]	H	RPButtonSeqHolder sequence (A Up 2 Down B 1 1 B Left A Right, 0-terminated)
+80438830	RP_vec4Array	EGG::Vector3f[4]	L	constructed/destroyed by RP_sinit_80438830 only; no other code reference found
+80439110	RP_vecZero	nw4r::math::VEC3	H	file static of the RPSceneObj/RPModelObj unit (RP_sinit_80439110); mPos default, RPLookAtCam reset
+8043911C	RP_vecEx	nw4r::math::VEC3	H	(1, 0, 0); RPLookAtCam side axis default
+80439128	RP_vecEy	nw4r::math::VEC3	H	(0, 1, 0); RPLookAtCam up default
+80439134	RP_vecEz	nw4r::math::VEC3	H	(0, 0, 1); RPLookAtCam direction default
+80439140	RP_vecOne	nw4r::math::VEC3	H	(1, 1, 1); RPModelObj mScale default
+8043914C	RP_mtx33Identity	nw4r::math::MTX33	H	RPModelObj mRot default
+8043C5F0	RP_vec2Zero	nw4r::math::VEC2	H	(0, 0); same unit as RP_vecZero
+80439170	RP_vecZeroB	nw4r::math::VEC3	H	second copy of the unit statics, RPSimpleModel unit (RP_sinit_80439170)
+8043917C	RP_vecExB	nw4r::math::VEC3	H	(1, 0, 0)
+80439188	RP_vecEyB	nw4r::math::VEC3	H	(0, 1, 0)
+80439194	RP_vecEzB	nw4r::math::VEC3	H	(0, 0, 1)
+804391A0	RP_vecOneB	nw4r::math::VEC3	H	(1, 1, 1); RPSimpleModel mScale default
+804391AC	RP_mtx33IdentityB	nw4r::math::MTX33	H	RPSimpleModel mRot default
+8043C618	RP_vec2ZeroB	nw4r::math::VEC2	H	(0, 0)
+8043A2BC	RP_eggVecZero	EGG::Vector3f	H	file static of the collision unit (RP_initMathConstants); RPCollisionShape reset
+8043A2D4	RP_eggVecOne	EGG::Vector3f	H	(1, 1, 1)
+8043A2EC	RP_eggVecEx	EGG::Vector3f	H	(1, 0, 0); RPCollisionShape box/point tests
+8043A304	RP_eggVecEy	EGG::Vector3f	H	(0, 1, 0)
+8043A31C	RP_eggVecEz	EGG::Vector3f	H	(0, 0, 1)
+8043A334	RP_eggVecMinFlt	EGG::Vector3f	H	(-FLT_MAX, -FLT_MAX, -FLT_MAX)
+8043A34C	RP_eggVecMaxFlt	EGG::Vector3f	H	(FLT_MAX, FLT_MAX, FLT_MAX)
+8043A358	RP_eggMtxZero	EGG::Matrix34f	H	all zero
+8043A388	RP_eggMtxIdentity	EGG::Matrix34f	H	identity; RPCollisionShape reset
+804391F0	RP_rumblePatterns	RPRumblePattern[4][4]	H	RPRumblePattern::sSlots, 4 slots per controller
+80439AB0	RP_kclHitBuffer	u8[0x800]	M	RPCollisionModel::CheckSphere function-local static, 0x40 hits of 0x20 bytes
+8043C678	RP_kclHitBufferInit	u8	M	guard of RP_kclHitBuffer
+8043B360	RP_debugGraphZoom	f32	H	initially 2.5; debug graph x scale, 0.5..20 by D-pad up/down
+8043C670	RP_debugGraphScroll	s32	H	debug graph scroll, 0..600 by D-pad left/right
+8043C660	RP_debugLog	u8*	M	0x200C bytes: 0x2000 text, two s32, bool (RP_allocDebugBuffers)
+8043C664	RP_debugGraphsA	RPDebugGraph*	H	new[] of 6
+8043C668	RP_debugGraphsB	RPDebugGraph*	H	new[] of 3; RP_pushDebugGraphSamples
+8043C66C	RP_debugGraphsC	RPDebugGraph*	H	new[] of 3
+8043C5F8	RP_randSeedX	u32	M	seeded from OSGetTick (never 0) by RP_seedRandomTicks; Bom/Duc random
+8043C5FC	RP_randSeedY	u32	M	seeded from OSGetTick
+8043C600	RP_randSeedZ	u32	M	seeded from OSGetTick
+8043C604	RP_randSeedW	u32	M	seeded from OSGetTick
+8043C620	RP_lcgSeed	u32	H	inline LCG seed = seed * 0x10DCD + 1 (Bil, Cow, Fsh, ...)
+8043C608	RP_resSlotsInstance	RPResSlots*	H	RPResSlots::sInstance
+8043C610	RP_modelObjDrawGroup	u32	H	RPModelObj::sDrawGroup
+8043C628	RP_cls803572E0Instance	RPCls803572E0*	H	RPCls803572E0::sInstance (Fsh, Cow, Bil)
+8043C640	RP_tnkMapDataInstance	RPTnkMapData*	H	RPTnkMapData::sInstance
+8043C680	RP_actorList	RPActorList*	H	RPActorScene::spActorList (Cow game manager)
+8043C684	RP_actorSceneUnk684	u32	L	RPActorScene::sUnk684, from scene manager +0x18 in Configure
+8043C688	RP_actorSceneUnk688	u32	L	RPActorScene::sUnk688, cleared in Configure
+8043C68C	RP_actorSceneFlags	u32	H	RPActorScene::sFlags: bit 0 draw passes, bit 3 paused
+8043C690	RP_actorSceneFrame	u32	H	RPActorScene::sFrame
+8043C694	RP_actorSceneUnk694	u32	L	RPActorScene::sUnk694
+8043C698	RP_actorSceneUnk698	u32	L	RPActorScene::sUnk698
+8043C6C8	RP_sceneInfoInstance	RPSceneInfo*	H	RPSceneInfo::spInstance; 0xD8-byte object (vtable 803581E8) created by RPScene80358188::Configure; player count at +0x4, read by every minigame

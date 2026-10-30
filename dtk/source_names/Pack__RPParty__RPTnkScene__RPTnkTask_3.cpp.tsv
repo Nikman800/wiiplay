@@ -1,0 +1,7 @@
+address	old_name	new_name	unit	previous
+80274CA4	Tnk_FootmarkTex_load	Load__16RPTnkFootmarkTexFv	Pack/RPParty/RPTnkScene/RPTnkTask_3.cpp	
+80274D7C	Tnk_FootmarkTex_create	Create__16RPTnkFootmarkTexFv	Pack/RPParty/RPTnkScene/RPTnkTask_3.cpp	
+80274D80	Tnk_FootmarkTex_dtor	__dt__16RPTnkFootmarkTexFv	Pack/RPParty/RPTnkScene/RPTnkTask_3.cpp	
+80274DD8	Tnk_FootmarkTex_destroyInstance	DestroyInstance__16RPTnkFootmarkTexFv	Pack/RPParty/RPTnkScene/RPTnkTask_3.cpp	
+80274E1C	Tnk_FootmarkTex_createInstance	CreateInstance__16RPTnkFootmarkTexFv	Pack/RPParty/RPTnkScene/RPTnkTask_3.cpp	
+8043C950	Tnk_footmarkTexInstance	sInstance__16RPTnkFootmarkTex	Pack/RPParty/RPTnkScene/RPTnkTask_3.cpp	

@@ -1,0 +1,8 @@
+address	old_name	new_name	unit	previous
+8003FA7C	nw4r_snd_SeqSound_SetTrackMute	SetTrackMute__Q44nw4r3snd6detail8SeqSoundFUlQ34nw4r3snd7SeqMute	Pack/RPParty/RPHkyScene/RPHkyBgmCtrl.cpp	
+8003FA94	nw4r_snd_SeqSound_ReadVariable	ReadVariable__Q44nw4r3snd6detail8SeqSoundCFiPs	Pack/RPParty/RPHkyScene/RPHkyBgmCtrl.cpp	
+8022074C	Hky_BgmCtrl_update	Update__12RPHkyBgmCtrlFl	Pack/RPParty/RPHkyScene/RPHkyBgmCtrl.cpp	
+80220AF4	Hky_BgmCtrl_request	Request__12RPHkyBgmCtrlFl	Pack/RPParty/RPHkyScene/RPHkyBgmCtrl.cpp	
+80220B04	Hky_BgmCtrl_startGameBgm	StartGameBgm__12RPHkyBgmCtrlFv	Pack/RPParty/RPHkyScene/RPHkyBgmCtrl.cpp	
+80220C70	Hky_BgmCtrl_stop	Stop__12RPHkyBgmCtrlFv	Pack/RPParty/RPHkyScene/RPHkyBgmCtrl.cpp	
+80220D00	Hky_BgmCtrl_init	__ct__12RPHkyBgmCtrlFv	Pack/RPParty/RPHkyScene/RPHkyBgmCtrl.cpp	Init__12RPHkyBgmCtrlFv

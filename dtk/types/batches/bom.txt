@@ -1,0 +1,188 @@
+# batch bom: modules Bom; 441 functions; 30 classes
+
+## classes (ledger class -> suggested C++ name; vtables; allocation sizes; methods)
+Bom_Bgm -> RPBomBgm; vtables -; sizes 0x14 via Bom_Bgm_ctor in Bom_GameManager_create; 6 methods: applyTrack, ctor, isSoundIdle, requestTrack, stop, update
+Bom_Border -> RPBomBorder; vtables 8035F708; sizes 0x158 via RP_ModelObj_ctor in Bom_Border_createInstance (derived vtable 8035F708); 19 methods: attachBorderNode, attachBorderNodeThunk, calc, create, createInstance, destroyInstance, dtor, dtorThunk, load, reset, startFlash, startIntro ...
+Bom_Camera -> RPBomCamera; vtables 8035E7B8; sizes 0x204 via RP_LookAtCam_ctor in Bom_Camera_createInstance (derived vtable 8035E7B8); 10 methods: calc, create, createInstance, destroyInstance, dtor, reset, setMode, stateIdle, stateZoomIn, updateMatrix
+Bom_Cursor -> RPBomCursor; vtables 8035E800; sizes 0x60 via Bom_Cursor_ctor in Bom_CursorManager_createCursors; 8 methods: calc, create, ctor, draw, dtor, reset, setControllerIndex, updateFromPointer
+Bom_CursorManager -> RPBomCursorManager; vtables 8035E7D8; sizes 0x1C via RP_SceneObj_ctor in Bom_CursorManager_createInstance (derived vtable 8035E7D8); 9 methods: calc, createCursors, createInstance, destroyInstance, draw, dtor, exit, load, reset
+Bom_GameManager -> RPBomGameManager; vtables 8035EE14; sizes 0x104 via Bom_GameManager_ctor in Bom_GameManager_createInstance; 29 methods: calc, create, createInstance, ctor, destroyInstance, dtor, exit, load, playSpecialJingle, reset, setBubbleResult, setForcedMiss ...
+Bom_LayoutMgr -> RPBomLayoutMgr; vtables 8035F7A0; sizes 0x74 via RP_SceneObj_ctor in Bom_LayoutMgr_createInstance (derived vtable 8035F7A0); 11 methods: calc, create, createInstance, destroyInstance, draw, dtor, exit, load, reset, showScoreMove, spawnScorePopup
+Bom_LytClear -> RPBomLytClear; vtables 8035F8D0; sizes 0x7C via Bom_LytClear_ctor in Bom_LayoutMgr_create; 18 methods: calc, ctor, draw, dtor, exit, load, playOut, playOutScore, playScorePlusEffect, reset, setBonusText2P, setClearText1P ...
+Bom_LytEnd -> RPBomLytEnd; vtables 8035F828; sizes 0x20 via Bom_LytEnd_ctor in Bom_LayoutMgr_create; 8 methods: calc, ctor, draw, dtor, exit, load, reset, show
+Bom_LytLevel -> RPBomLytLevel; vtables 8035F848; sizes 0x28 via Bom_LytLevel_ctor in Bom_LayoutMgr_create; 8 methods: calc, ctor, draw, dtor, exit, load, reset, show
+Bom_LytMiss -> RPBomLytMiss; vtables 8035F8F0; sizes 0x14 via Bom_LytMiss_ctor in Bom_LayoutMgr_create; 9 methods: calc, ctor, draw, dtor, exit, load, reset, setMissText, show
+Bom_LytPoint -> RPBomLytPoint; vtables 8035F808; sizes 0x1C via Bom_LytPoint_ctor in Bom_LayoutMgr_create; 8 methods: calc, ctor, draw, dtor, exit, load, reset, show
+Bom_LytPoseSel -> RPBomLytPoseSel; vtables 8035F888; sizes 0xC8 via Bom_LytPoseSel_ctor in Bom_LayoutMgr_create; 16 methods: calc, changePose, ctor, draw, dtor, exit, load, playBlocked, playOut, playPoseFrameAnim, reset, resetPanes ...
+Bom_LytReady -> RPBomLytReady; vtables 8035F868; sizes 0x20 via Bom_LytReady_ctor in Bom_LayoutMgr_create; 9 methods: calc, ctor, draw, dtor, exit, load, playOut, reset, show
+Bom_LytScore -> RPBomLytScore; vtables 8035F7E8; sizes 0x5C via Bom_LytScore_ctor in Bom_LayoutMgr_create; 13 methods: calc, ctor, draw, dtor, exit, load, playIn, playOut, playScorePlusEffect, reset, showMoveLeft, showMoveRight ...
+Bom_LytStart -> RPBomLytStart; vtables 8035F7C8; sizes 0x24 via Bom_LytStart_ctor in Bom_LayoutMgr_create; 11 methods: calc, ctor, draw, dtor, exit, load, playThemeOut, reset, showTheme, showTitle, updateStates
+Bom_ObjPool -> RPBomObjPool; vtables 8035F058; sizes -; 14 methods: calcItems, createItems, ctor, deactivateAll, dtor, incrementAges, load, moveItems, postCalcItems, preCalcItems, reset, spawn ...
+Bom_Panel -> RPBomPanel; vtables 8035F100; sizes 0x11C via Bom_Panel_ctor in Bom_PanelPool_createItem; 29 methods: attachPanelNode, attachPanelNodeThunk, calc, checkPlayerMatch, clearForcesThunk, create, ctor, deactivate, dtor, dtorThunk, getColorType, getPoseIndex ...
+Bom_PanelCtrl -> RPBomPanelCtrl; vtables 8035F0B0; sizes 0x8 via RP_SceneObj_ctor in Bom_PanelCtrl_createInstance (derived vtable 8035F0B0); 15 methods: calc, create, createInstance, deactivateAll, destroyInstance, dtor, exit, incrementAges, load, move, postCalc, preCalc ...
+Bom_PanelPool -> RPBomPanelPool; vtables 8035F620; sizes 0x18 via Bom_ObjPool_ctor in Bom_PanelPool_createInstance (derived vtable 8035F620); 14 methods: countActiveInRange, countSpecialInRange, createInstance, createItem, destroyInstance, destroyInstance2, dtor, getMaxFallingZ, getPanelTransform, isPositionOccupied, missAll, missFrontPanel ...
+Bom_Player -> RPBomPlayer; vtables 8035ECA4; sizes 0x164 via Bom_Player_ctor in Bom_PlayerManager_createPlayers; 33 methods: attachEffectsToNode, calcMove, calcState, create, ctor, dtor, load, moveAlongBubble2, moveAlongBubble3, moveFollowCursor1, moveFollowCursor5, moveNop0 ...
+Bom_PlayerManager -> RPBomPlayerManager; vtables 8035ED50; sizes 0x1C via RP_SceneObj_ctor in Bom_PlayerManager_createInstance (derived vtable 8035ED50); 17 methods: calcMove, calcState, createInstance, createPlayers, destroyInstance, dtor, load, playResultAnims, reset, restartAllPosing, restartAllPosing2, setAllIdle ...
+Bom_PlayerSound -> RPBomPlayerSound; vtables 8035E8D0; sizes -; 2 methods: dtor, dtorThunk
+Bom_PoolObj -> RPBomPoolObj; vtables 8035EFB8; sizes -; 24 methods: activate, calc, clearForces, create, ctor, deactivate, dtor, getColorType, getPoseIndex, initFields, integrate, isFalling ...
+Bom_QuestionParam -> RPBomQuestionParam; vtables 8035EE38; sizes 0xDBC via RP_SceneObj_ctor in Bom_QuestionParam_createInstance (derived vtable 8035EE38); 19 methods: buildLevelTable, createInstance, destroyInstance, dtor, findSpawnPosition, generateWave, load, nextPattern, pickRandomPose, pickWavePose, randomizeRotSpeed, randomizeSpeedAndSegments ...
+Bom_Scene -> RPBomScene; vtables 8035E6B8; sizes -; 13 methods: calc, calcObjects, create, createCameras, destroy, draw, drawThunk, dtor, dtorThunk, load, loadLightMap, reset ...
+Bom_Score -> RPBomScore; vtables 8035EF90; sizes 0x2CC via RP_SceneObj_ctor in Bom_Score_createInstance (derived vtable 8035EF90); 12 methods: addBubblePoints, addScore, addTotal, applyMissPenalty, clearTotals, createInstance, destroyInstance, dtor, getWinner, reset, resetAll, resetCombos
+Bom_ScreenFx -> RPBomScreenFx; vtables 8035EF68; sizes 0x84 via RP_SceneObj_ctor in Bom_ScreenFx_createInstance (derived vtable 8035EF68); 19 methods: calc, captureState, create, createInstance, destroyInstance, drawCapturedScreen, drawFullMask, drawPlayerSpotlights, drawState, dtor, load, reset ...
+Bom_SoundActorBase -> RPBomSoundActorBase; vtables -; sizes -; 2 methods: dtor, dtorThunk
+Bom_StartBg -> RPBomStartBg; vtables 8035E728; sizes 0x9C via RP_ModelObj_ctor in Bom_StartBg_createInstance (derived vtable 8035E728); 18 methods: attachBgModelNode, attachBgModelNodeThunk, calc, create, createInstance, destroyInstance, dtor, dtorThunk, load, loadBgAccModel, loadBgModel, playWipe ...
+
+## globals referenced (address name section size refs)
+800B221C _savegpr_16 .text 0x0 1
+800B2238 _savegpr_23 .text 0x0 1
+800B223C _savegpr_24 .text 0x0 3
+800B2244 _savegpr_26 .text 0x0 7
+800B2248 _savegpr_27 .text 0x0 3
+800B2268 _restgpr_16 .text 0x0 1
+800B2284 _restgpr_23 .text 0x0 1
+800B2288 _restgpr_24 .text 0x0 3
+800B2290 _restgpr_26 .text 0x0 7
+800B2294 _restgpr_27 .text 0x0 3
+80328300 lbl_80328300 .rodata 0xC8 2
+803283C8 lbl_803283C8 .rodata 0x14 6
+80328488 lbl_80328488 .rodata 0xD8 4
+80328560 lbl_80328560 .rodata 0xE 1
+80328570 lbl_80328570 .rodata 0xC 1
+8032857C lbl_8032857C .rodata 0xC 1
+80328588 lbl_80328588 .rodata 0x1B 1
+803285A8 lbl_803285A8 .rodata 0x48 1
+803285F0 lbl_803285F0 .rodata 0x18 1
+80328608 lbl_80328608 .rodata 0x28 1
+80328630 lbl_80328630 .rodata 0x1B 4
+80328790 lbl_80328790 .rodata 0xC 1
+8032879C lbl_8032879C .rodata 0x64 3
+80328800 lbl_80328800 .rodata 0x12 1
+80328818 lbl_80328818 .rodata 0x10 1
+80328828 lbl_80328828 .rodata 0x1F 5
+80328908 lbl_80328908 .rodata 0x20 1
+80328928 lbl_80328928 .rodata 0x10 1
+80328938 lbl_80328938 .rodata 0x10 1
+80328948 lbl_80328948 .rodata 0xD 5
+80328B80 lbl_80328B80 .rodata 0x10 1
+80328B90 lbl_80328B90 .rodata 0x11 2
+80328C48 lbl_80328C48 .rodata 0x1D 3
+80328CC0 lbl_80328CC0 .rodata 0x1C 3
+80328D70 lbl_80328D70 .rodata 0xC 1
+80328D7C lbl_80328D7C .rodata 0x1C 2
+80328E10 lbl_80328E10 .rodata 0xC 1
+80328E1C lbl_80328E1C .rodata 0xC 1
+80328E28 lbl_80328E28 .rodata 0x50 1
+80328E78 lbl_80328E78 .rodata 0xC 1
+80328E84 lbl_80328E84 .rodata 0xC 1
+80328E90 lbl_80328E90 .rodata 0xB 8
+803291D8 lbl_803291D8 .rodata 0xC 1
+803291E4 lbl_803291E4 .rodata 0x1C 1
+80329200 lbl_80329200 .rodata 0xD 11
+80329458 lbl_80329458 .rodata 0x78 2
+8032D3F8 lbl_8032D3F8 .data 0x11 1
+8032D40C lbl_8032D40C .data 0x12 1
+8034F32C lbl_8034F32C .data 0x14 1
+803587D0 lbl_803587D0 .data 0x10 1
+80358A88 lbl_80358A88 .data 0x24 5
+80358AF4 lbl_80358AF4 .data 0x15 3
+80358B0C lbl_80358B0C .data 0xE 3
+80358DA4 lbl_80358DA4 .data 0x15 1
+80358DC0 lbl_80358DC0 .data 0x10 1
+8035C6BC lbl_8035C6BC .data 0xDC 2
+8035C798 lbl_8035C798 .data 0x38 3
+8035C7D0 lbl_8035C7D0 .data 0x10 3
+8035E718 lbl_8035E718 .data 0x10 1
+8035E728 lbl_8035E728 .data 0x78 1
+8035E7A0 lbl_8035E7A0 .data 0xC 1
+8035E7AC lbl_8035E7AC .data 0xC 1
+8035E7B8 lbl_8035E7B8 .data 0x20 1
+8035E7D8 lbl_8035E7D8 .data 0x28 1
+8035E800 lbl_8035E800 .data 0x28 1
+8035E828 lbl_8035E828 .data 0xA8 1
+8035E8D0 lbl_8035E8D0 .data 0xDC 2
+8035E9AC lbl_8035E9AC .data 0x2F8 1
+8035ECA4 lbl_8035ECA4 .data 0xAC 1
+8035ED50 lbl_8035ED50 .data 0x28 1
+8035ED78 lbl_8035ED78 .data 0x9C 1
+8035EE14 lbl_8035EE14 .data 0x24 1
+8035EE38 lbl_8035EE38 .data 0x28 1
+8035EE60 jumptable_8035EE60 .data 0x30 1
+8035EE90 lbl_8035EE90 .data 0xD8 1
+8035EF68 lbl_8035EF68 .data 0x28 1
+8035EF90 lbl_8035EF90 .data 0x28 1
+8035EFB8 lbl_8035EFB8 .data 0xA0 1
+8035F058 lbl_8035F058 .data 0x58 1
+8035F0B0 lbl_8035F0B0 .data 0x28 1
+8035F0D8 lbl_8035F0D8 .data 0x28 1
+8035F100 lbl_8035F100 .data 0x520 1
+8035F620 lbl_8035F620 .data 0x58 1
+8035F678 lbl_8035F678 .data 0x90 1
+8035F708 lbl_8035F708 .data 0x98 1
+8035F7A0 lbl_8035F7A0 .data 0x28 1
+8035F7C8 lbl_8035F7C8 .data 0x20 1
+8035F7E8 lbl_8035F7E8 .data 0x20 1
+8035F808 lbl_8035F808 .data 0x20 1
+8035F828 lbl_8035F828 .data 0x20 1
+8035F848 lbl_8035F848 .data 0x20 1
+8035F868 lbl_8035F868 .data 0x20 1
+8035F888 lbl_8035F888 .data 0x20 1
+8035F8A8 jumptable_8035F8A8 .data 0x24 1
+8035F8D0 lbl_8035F8D0 .data 0x20 1
+8035F8F0 lbl_8035F8F0 .data 0x20 1
+8039F340 lbl_8039F340 .bss 0x30 3
+804390E0 lbl_804390E0 .bss 0x10 3
+804390F0 lbl_804390F0 .bss 0x10 5
+80439110 lbl_80439110 .bss 0xC 15
+80439128 lbl_80439128 .bss 0xC 6
+80439140 lbl_80439140 .bss 0xC 10
+8043914C lbl_8043914C .bss 0x24 4
+8043A9D8 lbl_8043A9D8 .bss 0x10 2
+8043A9E8 lbl_8043A9E8 .bss 0xC 2
+8043A9F4 lbl_8043A9F4 .bss 0x3C 1
+8043AA30 lbl_8043AA30 .bss 0x18 1
+8043AA48 lbl_8043AA48 .bss 0x24 1
+8043AA6C lbl_8043AA6C .bss 0x24 12
+8043AA90 lbl_8043AA90 .bss 0x10 1
+8043AAA0 lbl_8043AAA0 .bss 0x10 1
+8043AAB0 lbl_8043AAB0 .bss 0xC 2
+8043AC28 lbl_8043AC28 .sdata 0x2 4
+8043AC2C lbl_8043AC2C .sdata 0x2 3
+8043B354 lbl_8043B354 .sdata 0x4 1
+8043B930 lbl_8043B930 .sdata 0x4 2
+8043B934 lbl_8043B934 .sdata 0x4 2
+8043B938 lbl_8043B938 .sdata 0x4 2
+8043B93C lbl_8043B93C .sdata 0x4 2
+8043B940 lbl_8043B940 .sdata 0x6 1
+8043BBA8 lbl_8043BBA8 .sbss 0x4 15
+8043BC70 lbl_8043BC70 .sbss 0x4 6
+8043C458 lbl_8043C458 .sbss 0x8 1
+8043C470 lbl_8043C470 .sbss 0x8 2
+8043C4C8 lbl_8043C4C8 .sbss 0x8 1
+8043C588 lbl_8043C588 .sbss 0x8 3
+8043C590 lbl_8043C590 .sbss 0x8 6
+8043C5A0 lbl_8043C5A0 .sbss 0x4 8
+8043C5A5 lbl_8043C5A5 .sbss 0x1 1
+8043C5D4 lbl_8043C5D4 .sbss 0x4 19
+8043C5E8 lbl_8043C5E8 .sbss 0x8 2
+8043C5F0 lbl_8043C5F0 .sbss 0x8 1
+8043C5F8 lbl_8043C5F8 .sbss 0x4 9
+8043C5FC lbl_8043C5FC .sbss 0x4 9
+8043C608 lbl_8043C608 .sbss 0x8 1
+8043C6C8 lbl_8043C6C8 .sbss 0x8 3
+8043C6D8 lbl_8043C6D8 .sbss 0x8 12
+8043CA70 lbl_8043CA70 .sbss 0x8 16
+8043CA78 lbl_8043CA78 .sbss 0x8 4
+8043CA80 lbl_8043CA80 .sbss 0x4 2
+8043CA84 lbl_8043CA84 .sbss 0x4 1
+8043CA88 lbl_8043CA88 .sbss 0x8 10
+8043CA90 lbl_8043CA90 .sbss 0x8 18
+8043CA98 lbl_8043CA98 .sbss 0x8 41
+8043CAA0 lbl_8043CAA0 .sbss 0x8 15
+8043CAA8 lbl_8043CAA8 .sbss 0x8 1
+8043CAB0 lbl_8043CAB0 .sbss 0x8 2
+8043CAB8 lbl_8043CAB8 .sbss 0x8 3
+8043CAC0 lbl_8043CAC0 .sbss 0x8 18
+8043CAC8 lbl_8043CAC8 .sbss 0x8 6
+8043CAD0 lbl_8043CAD0 .sbss 0x8 22
+8043CAD8 lbl_8043CAD8 .sbss 0x8 9
+8043CAE0 lbl_8043CAE0 .sbss 0x4 36

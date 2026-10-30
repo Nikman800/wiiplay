@@ -1,0 +1,541 @@
+address	new_name	confidence	note
+801B621C	RP_intersectLinePlane	medium	out=p0+(p1-p0)*t, t=-dot(n,p0-q)/dot(n,p1-p0); in RP address range, also called by Tnk (prefix moved from callgraph Duc)
+80235A04	Duc_80235A04	keep	initializes a small param struct (0xcb8f,0x8b80,1.0f); only caller is Pnp SceneBloom; owner unclear
+80235A54	Duc_Scene_setPaused	low	arg!=0: all shot cursors to mode 0; else restores cursor modes from game type/state (scene slot 14)
+80235B10	Duc_Scene_drawHud	low	in a specific draw pass (lbl_8043C5A5==1, lbl_8043B354==5) draws HUD layouts (8024B370 on +0x64)
+80235B3C	Duc_Scene_destroy	medium	calls slot-5 (destroy) on child managers then deletes Duc singletons, party/layout teardown
+80235BE8	Duc_Scene_calc	medium	per-frame: runs 3 substeps, field/target updates, copies fade color, plays bgm 0x12/0x1b by flags
+80235CEC	Duc_Scene_reset	medium	resets camera/managers (slot 3 on children), clears counters, stops controller rumble
+80235F30	Duc_Scene_load	high	loads sceneFile.brres, bloom, light, basic_shooting.breff/breft, rp_Duc_sound.brsar; calls children load
+80236168	Duc_Scene_create	high	creates cameras, field, target managers (7 types w/ counts), shot manager, HUD, game-state objects
+80236430	Duc_80236430	keep	when arg==0 writes fixed values (0x20, 2400,80,1200) into 4 records of a global object; purpose unclear
+802364AC	Duc_Scene_calcSubsteps	medium	loops 3 times updating target manager sub-calcs (+0x78 counter), then calls children calc
+80236594	Duc_Scene_loadLight	high	loads graphic/scene_Light.plight and scene_Lm.plmap
+8023665C	Duc_Scene_createCameras	medium	creates 3D-object manager, two eggScreen cameras (fov 30), binds them to 4 views
+80236810	Duc_Scene_dtor	high	dtor: base dtor then operator delete if flag>0
+8023686C	Duc_8023686C	keep	generic dtor shape (fn_800AC520 + delete) for an unreferenced class
+802368C8	Duc_initSceneLightPos	medium	static init: lbl_8043A760 = (19000,10000,10000), copied into scene light in Scene_load
+802368E8	Duc_Scene_drawHud_thunk	medium	this-adjust (-0x24) thunk to Duc_Scene_drawHud
+802368F0	Duc_Scene_dtor_thunk	high	this-adjust (-0x24) thunk to Duc_Scene_dtor
+802368F8	Duc_ShtGrass_playSound	medium	plays sound 2 or 3 (by +0x4e flag) for player 0/1 via sound actor +0x50
+8023695C	Duc_ShtGrass_spawnHitEffect	high	creates Sht_grass_hit effect at object position
+802369F8	Duc_ShtGrass_startShake	high	switches to anim slot 1 (sht_grass_shake), stores frame count, state=1
+80236A64	Duc_ShtGrass_calc	medium	when shake anim nearly done, returns to wait anim; updates sound actor position
+80236B2C	Duc_ShtGrass_reset	medium	resets matrix to identity defaults, starts wait anim
+80236C24	Duc_ShtGrass_load	high	loads G3D/sht_grass.brres model and sht_grass_wait/shake anims
+80236D7C	Duc_ShtGrass_init	medium	allocates a Duc_SndActor (sound actor) and stores at +0x50, clears state
+80236EFC	Duc_ShtGrass_dtor	high	dtor: base dtor then delete
+80236F54	Duc_ShtGrass_ctor	high	base ctor, sets vtable 80359AA8, clears state
+80236FA0	Duc_SndActor_dtor	medium	dtor: releases sound handles, destroys sub-objects, delete if flag>0
+802370B0	Duc_SndActor_dtor_thunk	medium	this-adjust (-0x10) thunk to Duc_SndActor_dtor
+802370B8	Duc_Field_updateModels	low	calls slot 7 on field, clouds and 27 grass objects
+80237138	Duc_Field_calc	medium	calls calc on field/cloud/27 grass, re-lays out grass rows (x=-91+13i etc)
+802372A4	Duc_Field_reset	medium	resets field objs, lays out 27 grass objects, randomly flags one grass per row (+0x4e)
+80237550	Duc_Field_load	high	calls load (slot 2) on field, cloud and 27 grass objects
+802375D0	Duc_Field_init	high	allocates ShtField, ShtCloud and 27 ShtGrass objects and inits them
+8023768C	Duc_Field_dtor	high	dtor: base dtor then delete
+802376E4	Duc_Field_destroyInstance	high	deletes singleton lbl_8043C838 and clears it
+80237728	Duc_Field_createInstance	high	allocates 0x78 Field, sets vtable 80359BE0, stores singleton lbl_8043C838
+80237774	Duc_ShtField_reset	medium	resets matrix to defaults, starts anims on slots 0 and 3
+80237864	Duc_ShtField_load	high	loads G3D/sht_field.brres model and sht_field anims
+802379F4	Duc_ShtField_init	high	empty
+802379F8	Duc_ShtField_dtor	high	dtor: base dtor then delete
+80237A50	Duc_ShtField_ctor	high	base ctor, sets vtable 80359C08
+80237A8C	Duc_spawnBalloon	low	forwards (a,b) to singleton lbl_8043C840 virtual +0x54
+80237AAC	Duc_BalloonMgr_createInstance	high	allocates 0x1c mgr, sets vtable 80359C60, stores singleton lbl_8043C840, calls setup
+80237B20	Duc_BalloonMgr_load	medium	calls load (slot 2) on every pooled target
+80237B24	Duc_BalloonMgr_dtor	high	dtor: base TargetMgr dtor then delete
+80237B7C	Duc_BalloonMgr_allocTarget	high	allocates 0x208 bytes and constructs a ShtBRed balloon
+80237BAC	Duc_BalloonMgr_destroyInstance	high	deletes singleton lbl_8043C840 and clears it
+80237BF0	Duc_Balloon_calcStringMatrices	medium	builds 5 joint matrices for the string from rope points (scaled by object scale)
+80237DF0	Duc_Balloon_updateModel	medium	writes balloon (by color index) and string model matrices/scale and updates them
+80238050	Duc_Balloon_calc	medium	runs current state member-function, updates sound actor position
+802380A8	Duc_Balloon_applyVelocity	high	pos += velocity (+0x48..+0x50)
+802380DC	Duc_Balloon_load	high	loads DucBalloonParam.bin, sht_b_red/blue/yellow models, string model and rope
+802383F8	Duc_Balloon_init	medium	allocates Duc_SndActor (sound actor) into +0xf8
+802383FC	Duc_Balloon_stateFloat	medium	rise with sway, updates rope, checks shot hit, removes when off-screen (>1.2)
+80238608	Duc_Balloon_stateCheckHit	low	branch-only state function that just runs Duc_Balloon_checkShotHit
+8023860C	Duc_Balloon_playHitSound	medium	plays sound 0xb for player 0/1 via sound actor
+80238648	Duc_Balloon_playSpawnSound	medium	plays sound 0x1b via sound actor (vtable slot 25)
+80238664	Duc_Balloon_spawnHitEffect	high	creates Sht_balloon_hit effect at position/scale
+8023870C	Duc_Balloon_checkShotHit	high	if a shot hits: effect, sound, rumble, add score (x2 if color matches), score popup, remove
+80238870	Duc_Balloon_launch	medium	picks param set (arg&7), scale, rope setup, random sideways drift, color index (arg>>4&3)
+80238B58	Duc_Balloon_resetParams	medium	sets default scale/matrix from params, random phase, color 0, state 1
+80238C20	Duc_Balloon_dtor	high	dtor: Target dtor then delete
+80238C78	Duc_Balloon_ctor	high	Target ctor, vtable 80359CD8, secondary vtable, state member-function table
+80238D28	Duc_Target_asAvatar	low	returns 0; slot 38 returns the object itself only for avatar targets (used by avatar manager)
+80238D30	Duc_Target_canShotPassThrough	low	returns 0; slot 39 queried by shot hit loop, which stops at the first target returning 0
+80238D38	Duc_Balloon_calcStringMatrices_thunk	medium	this-adjust (-0xfc) thunk to Duc_Balloon_calcStringMatrices
+80238D40	Duc_Balloon_dtor_thunk	high	this-adjust (-0xfc) thunk to Duc_Balloon_dtor
+80238D48	Duc_spawnClay	low	forwards (a,b) to singleton lbl_8043C848 virtual +0x54
+80238D68	Duc_ClayMgr_createInstance	high	allocates 0x1c mgr, vtable 80359DA0, singleton lbl_8043C848, calls setup
+80238DDC	Duc_ClayMgr_load	medium	calls load (slot 2) on every pooled target
+80238DE0	Duc_ClayMgr_dtor	high	dtor: TargetMgr dtor then delete
+80238E38	Duc_ClayMgr_allocTarget	high	allocates 0x32c bytes and constructs a clay target
+80238E68	Duc_ClayMgr_destroyInstance	high	deletes singleton lbl_8043C848 and clears it
+80238EAC	Duc_Clay_calc	medium	runs current state member-function, updates sound actor position
+80238F04	Duc_Clay_applyVelocity	high	pos += velocity, rotates orientation axis by spin rate and re-orthonormalizes
+80238FAC	Duc_Clay_load	high	loads param/DucClayParam.bin and G3D/sht_clay.brres
+802390F8	Duc_Clay_stateFall	medium	falling physics with drag; checks shot hit; removes when y<0
+80239248	Duc_Clay_stateSlow	medium	decelerating flight; checks shot hit; switches to state 3 when vertical speed <0
+80239344	Duc_Clay_stateRise	medium	rising flight; checks shot hit; switches to state 2 past apex height
+802393FC	Duc_Clay_stateCheckHit	low	branch-only state function that just runs Duc_Clay_checkShotHit
+80239400	Duc_Clay_playHitSound	high	plays hit sound 0xf/0x10/0x11 by distance from camera (<600,<1200,else)
+8023951C	Duc_Clay_playSpawnSound	medium	stops sound 0x1d and plays launch sound 0x1e (mode-dependent variant)
+802395B0	Duc_Clay_spawnHitEffect	high	creates Sht_clay_hit effect oriented along velocity at position/scale
+802397D0	Duc_Clay_checkShotHit	high	if a shot hits: effect, sound, rumble, add score (bonus above height), score popup, remove
+802398FC	Duc_Clay_setupLaunch	medium	randomizes target point from param set, sets velocity, orientation, spin; state=1
+80239CF4	Duc_Clay_launch	medium	stores param set index (arg&7) and calls Duc_Clay_setupLaunch
+80239D00	Duc_Clay_resetParams	medium	sets default scale/matrix from params, state 0
+80239D84	Duc_Clay_dtor	high	dtor: Target dtor then delete
+80239DDC	Duc_Clay_ctor	high	Target ctor, vtable 80359E30, 4-entry state member-function table
+80239EA4	Duc_Clay_canShotPassThrough	low	returns 1 (overrides Target slot 39), shot hit loop continues past this target
+80239EAC	Duc_spawnDuck	low	spawn-table entry: forwards (a,b) to DuckMgr singleton lbl_8043C850 slot 19 (spawn)
+80239ECC	Duc_DuckMgr_createInstance	high	allocates 0x1c mgr, vtable 80359ED8, singleton lbl_8043C850, calls setup
+80239F40	Duc_DuckMgr_load	medium	calls load (slot 2) on every pooled target
+80239F44	Duc_DuckMgr_dtor	high	dtor: TargetMgr dtor then delete
+80239F9C	Duc_DuckMgr_allocTarget	high	allocates 0x3e0 bytes and constructs a duck
+80239FCC	Duc_DuckMgr_destroyInstance	high	deletes singleton lbl_8043C850 and clears it
+8023A010	Duc_Duck_onCalcWorldMtx	low	branch to Duc_Duck_updateMouthEffect (secondary-interface slot 47, matrix callback)
+8023A014	Duc_Duck_updateModel	medium	writes scaled matrix into current variant model (a/b/c) and updates it
+8023A168	Duc_Duck_calc	medium	runs current state member-function, updates sound actor position
+8023A1C0	Duc_Duck_applyVelocity	high	pos += velocity
+8023A1F4	Duc_Duck_load	high	loads DucDuckParam, sht_duck_a/b/c models and fly/damage/fall anims
+8023A5C8	Duc_Duck_init	high	Target init, stores position, creates Sht_duck_fall effect at +0x370
+8023A638	Duc_Duck_updateMouthEffect	medium	moves Sht_duck_fall effect to current model's mouth_1 joint
+8023A730	Duc_Duck_getAnimEndFrame	medium	returns current variant model's animation end frame as float (slot 18)
+8023A7B8	Duc_Duck_getAnimFrame	medium	forwards to current variant model's anim object +0x58 (slot 17, frame query)
+8023A808	Duc_Duck_setAnimRate	low	forwards to current variant model's anim object +0x5c (slot 16)
+8023A858	Duc_Duck_animSlot15	low	forwards to current variant model's anim object +0x3c (slot 15)
+8023A8A8	Duc_Duck_startAnim	low	forwards to current variant model's anim object +0x40 (slot 13)
+8023A8F8	Duc_Duck_setAnimAll	medium	sets an animation on all three variant models (slot 12)
+8023A9B0	Duc_Duck_initAnimSlotsAll	low	calls Gfx_801A8450 on all three variant models (slot 10)
+8023AA24	Duc_Duck_stateFallDead	medium	gravity+drag fall; when below ground stops fall effect and removes duck
+8023AB24	Duc_Duck_stateDamaged	medium	damage anim with blink counter, starts fall effect, then switches to fall anims/state 8
+8023AE60	Duc_Duck_stateFlyForward	medium	decelerating flight with anim rate scaling; removes off-screen; grass effect once above y=5
+8023B02C	Duc_Duck_stateArc	medium	gravity arc oriented to velocity; checks hit; stops sound 0x20 and removes when off-screen
+8023B260	Duc_Duck_stateBounceExit	medium	bounces inside x/floor bounds, checks hit, removes when leaving screen
+8023B37C	Duc_Duck_stateBounce	medium	bounces inside box; checks hit; after counter expires and rising switches to state 4
+8023B48C	Duc_Duck_stateApproach	medium	flies toward target point; within range switches to bounce state 3; grass effect once
+8023B5FC	Duc_Duck_stateJumpOut	medium	upward flight with variant-scaled gravity, checks hit, removes off-screen, grass effect
+8023B858	Duc_Duck_stateFly	medium	updates orientation and checks shot hit
+8023B88C	Duc_Duck_playHitSound	high	plays sound 0x13 (variant a) or 0x1a for player 0/1
+8023B8F0	Duc_Duck_playSpawnSound	medium	stops sound 0x20 unless mode +0x350 == 2
+8023B91C	Duc_Duck_spawnHitEffect	high	creates Sht_duck_a_hit / b_hit / c_hit effect by variant
+8023BA80	Duc_Duck_updateOrientation	medium	sets rotation matrix from fixed angles chosen by velocity x/y sign
+8023BC4C	Duc_Duck_checkShotHit	high	if hit: effect, sound, rumble, score by mode/variant/height, popup, damage anim, state 7
+8023BEEC	Duc_Duck_setupFlyForward	medium	random target point ahead, sets velocity/orientation, plays Mpe sound, state 6
+8023C2F0	Duc_Duck_setupApproach	medium	chooses reachable target point within screen bounds (alternating side), state 2
+8023C69C	Duc_Duck_setupJumpOut	medium	random target from param set, velocity scaled by variant (1/1.5/2x), state 1
+8023C99C	Duc_Duck_launch	medium	sets param set (arg&7), variant (arg>>4&3), anim rate; dispatches launch mode (arg>>8&3)
+8023CBFC	Duc_Duck_resetParams	medium	sets scale/matrix defaults, clears counters, resets anims on 3 models, state 0
+8023CDF8	Duc_Duck_loadParams	high	loads param/DucDuckParam.bin into object, scales some values (x3, x0.75 by mode)
+8023CFE0	Duc_Duck_dtor	high	dtor: Target dtor then delete
+8023D038	Duc_Duck_ctor	high	Target ctor, vtable 80359FA8, secondary vtable, 9-entry state member-function table
+8023D1B8	Duc_Duck_canShotPassThrough	low	returns 1 (overrides Target slot 39), shot hit loop continues past this target
+8023D1C0	Duc_Duck_onCalcWorldMtx_thunk	medium	this-adjust (-0xfc) thunk to slot 47
+8023D1C8	Duc_Duck_dtor_thunk	high	this-adjust (-0xfc) thunk to Duc_Duck_dtor
+8023D1D0	Duc_TargetMgr_removeAll	high	calls remove (slot 35) on every pooled target, active count = 0
+8023D230	Duc_TargetMgr_spawn	high	finds next free target (age<0) round-robin, activates it (slot 34), returns it
+8023D2FC	Duc_TargetMgr_debugDrawAll	low	calls target slot 33 (debug GX draw) on each active target
+8023D36C	Duc_TargetMgr_updateModelAll	medium	calls target slot 7 (updateModel) on each active target
+8023D3DC	Duc_TargetMgr_incAgeAll	medium	increments +0xec age counter of each active target
+8023D418	Duc_TargetMgr_calcAll	high	calls target calc (slot 4) on each active target
+8023D488	Duc_TargetMgr_applyForcesHookAll	low	calls target slot 31 (forwards to applyForces) on each active target
+8023D4F8	Duc_TargetMgr_slot30All	low	calls target slot 30 (empty in base) on each active target
+8023D568	Duc_TargetMgr_clearForcesHookAll	low	calls target slot 29 (forwards to clearForces) on each active target
+8023D5D8	Duc_TargetMgr_applyVelocityAll	medium	calls target slot 28 (applyVelocity) on each active target
+8023D648	Duc_TargetMgr_clearHitRecords	medium	for active targets resets per-player hit shot ids (-1), flags and hit positions
+8023D6FC	Duc_TargetMgr_reset	high	active count=0, cursor=begin, calls reset (slot 3) on all pooled targets
+8023D760	Duc_TargetMgr_load	medium	calls load (slot 2) on all pooled targets
+8023D7B8	Duc_TargetMgr_createPool	high	allocates pointer array of n, creates targets via slot 7, inits them, sets index and owner
+8023D874	Duc_TargetMgr_dtor	high	dtor: base dtor then delete
+8023D8CC	Duc_TargetMgr_ctor	high	base ctor, sets vtable 8035A090
+8023D908	Duc_Target_getDistanceToCamera	medium	length of (position - camera position from 3D-object manager)
+8023D978	Duc_Target_getHittingPlayer	medium	returns player whose shot has highest id in per-player hit list (-1 none); notifies others
+8023DA20	Duc_Target_slot37Empty	low	empty virtual (slot 37)
+8023DA24	Duc_Target_slot36Empty	low	empty virtual (slot 36)
+8023DA28	Duc_Target_remove	high	age=-999, decrements owner active count, hides object (slot 19, 0)
+8023DA54	Duc_Target_activate	high	resets state, sets position, resetParams, launch(arg), age=0, spawn sound, show
+8023DB18	Duc_Target_debugDrawBox	low	debug draw via eggDrawGX (white quad sized from radius at position)
+8023DC94	Duc_Target_debugDrawSphere	low	debug draw via eggDrawGX (orange shape scaled by +0xa0 at hit offset)
+8023DDB0	Duc_Target_calc	medium	empty base calc
+8023DDB4	Duc_Target_applyForcesHook	low	tail-calls slot 21 (applyForces)
+8023DDC4	Duc_Target_slot30Empty	low	empty virtual (slot 30)
+8023DDC8	Duc_Target_clearForcesHook	low	tail-calls slot 20 (clearForces)
+8023DDD8	Duc_Target_applyVelocity	high	pos += velocity
+8023DE0C	Duc_Target_reset	medium	branch to Duc_Target_resetState
+8023DE10	Duc_Target_load	medium	empty base load
+8023DE14	Duc_Target_init	medium	allocates a Duc_SndActor (sound actor) into +0xf8
+8023DF78	Duc_Target_showScorePopup	medium	projects position to screen and spawns score popup (points, player, bonus flag)
+8023E010	Duc_Target_playHitSound	medium	plays sound 0xb via sound actor
+8023E02C	Duc_Target_playSpawnSound	medium	plays sound 0x1b via sound actor (called from activate)
+8023E048	Duc_Target_spawnHitEffect	medium	empty base
+8023E04C	Duc_Target_launch	medium	empty base
+8023E050	Duc_Target_resetParams	medium	empty base
+8023E054	Duc_Target_applyForces	medium	pos += two offset vectors; vel += two acceleration vectors
+8023E0E8	Duc_Target_clearForces	medium	zeroes the four force/offset vectors (+0x54..+0x80)
+8023E120	Duc_Target_resetState	medium	resets matrix, velocity, forces, hit records, age=-1, hides object
+8023E2DC	Duc_Target_dtor	high	dtor: base dtor then delete
+8023E334	Duc_Target_ctor	high	base ctor, vtable 8035A0F0, clears vectors and owner fields
+8023E440	Duc_TargetRegistry_countActiveExclTypes4And6	medium	sums active counts of registered target managers whose type is not 4 or 6
+8023E494	Duc_TargetRegistry_countActive	medium	sums active-target counts (+0xc) of all registered managers
+8023E4D0	Duc_TargetRegistry_removeAll	medium	calls mgr slot 20 (removeAll) on each registered manager
+8023E544	Duc_spawnTargetByType	medium	calls spawn function table lbl_8035A198[type](a,b)
+8023E564	Duc_TargetRegistry_updateModelAll	medium	calls mgr slot 17 (updateModelAll) on each registered manager
+8023E5D8	Duc_TargetRegistry_incAgeAll	medium	calls mgr slot 16 (incAgeAll) on each registered manager
+8023E64C	Duc_TargetRegistry_calcAll	medium	calls mgr slot 15 (calcAll) on each registered manager
+8023E6C0	Duc_TargetRegistry_applyForcesHookAll	low	calls mgr slot 14 on each registered manager
+8023E734	Duc_TargetRegistry_slot30All	low	calls mgr slot 13 on each registered manager
+8023E7A8	Duc_TargetRegistry_clearForcesHookAll	low	calls mgr slot 12 on each registered manager
+8023E81C	Duc_TargetRegistry_applyVelocityAll	medium	calls mgr slot 11 (applyVelocityAll) on each registered manager
+8023E890	Duc_TargetRegistry_clearHitRecords	medium	calls mgr slot 10 (clearHitRecords) on each registered manager
+8023E904	Duc_TargetRegistry_reset	medium	calls reset (slot 3) on each registered manager
+8023E978	Duc_TargetRegistry_load	medium	calls load (slot 2) on each registered manager
+8023E9EC	Duc_TargetRegistry_destroyManagers	medium	calls mgr slot 9 (destroyInstance) on each registered manager
+8023EA60	Duc_TargetRegistry_addManager	high	creates manager of given type via table lbl_8035A1B4 with pool size, stores type, count++
+8023EAE0	Duc_TargetRegistry_dtor	high	dtor: base dtor then delete
+8023EB38	Duc_TargetRegistry_destroyInstance	high	deletes singleton lbl_8043C860 and clears it
+8023EB7C	Duc_TargetRegistry_createInstance	high	allocates 0x24 registry (7 slots + count), vtable 8035A1D0, singleton lbl_8043C860
+8023EBEC	Duc_spawnUfo	low	spawn-table entry: forwards (a,b) to UfoMgr singleton lbl_8043C868 slot 19 (spawn)
+8023EC0C	Duc_UfoMgr_createInstance	high	allocates 0x1c mgr, vtable 8035A1F8, singleton lbl_8043C868, calls setup
+8023EC80	Duc_UfoMgr_load	medium	calls load (slot 2) on every pooled target
+8023EC84	Duc_UfoMgr_dtor	high	dtor: TargetMgr dtor then delete
+8023ECDC	Duc_UfoMgr_allocTarget	high	allocates 0x6c8 bytes and constructs a UFO
+8023ED0C	Duc_UfoMgr_destroyInstance	high	deletes singleton lbl_8043C868 and clears it
+8023ED50	Duc_Ufo_setTargetAvatar	low	stores object at +0x60c; if in abduct behaviour (3) restarts state 7
+8023ED74	Duc_Ufo_onCalcWorldMtx	medium	for current model, reads a joint position into +0x610 and updates beam effects
+8023EE28	Duc_Ufo_updateModel	medium	writes scaled matrix into current model (a or b) and updates it
+8023EF40	Duc_Ufo_calc	medium	runs current state member-function, updates sound actor position
+8023EF98	Duc_Ufo_applyVelocity	high	pos += velocity
+8023EFCC	Duc_Ufo_load	high	loads DucUfoParam, G3D/sht_ufo_a.brres and sht_ufo_b.brres models and anims
+8023F318	Duc_Ufo_init	high	Target init, creates Sht_ufo_abduct, second and Sht_ufo_glow effects
+8023F3C8	Duc_Ufo_stateFlyAway	medium	rises with drag carrying avatar; checks hit; when off-screen stops effects and removes
+8023F5C8	Duc_Ufo_stateHold	medium	stationary holding avatar; checks hit; after timer calls Duc_Ufo_setupFlee
+8023F6DC	Duc_Ufo_stateLift	medium	rises at fixed speed holding avatar; checks hit; after timer switches to state 11
+8023F84C	Duc_Ufo_stateApproachAvatar	medium	steers toward avatar; on arrival grabs it, starts beam effects, state 10
+8023FB3C	Duc_Ufo_stateCircleBeforeAbduct	medium	sinusoidal circling within screen bounds; after timer heads for avatar (state 9)
+8023FE1C	Duc_Ufo_stateMoveToCircle	medium	moves to target point, then sets circle timers and state 8
+8023FF84	Duc_Ufo_stateCircle	medium	sinusoidal circling within bounds, approaching camera; exit to state 1 after lifetime
+802402B8	Duc_Ufo_stateMoveToCircleStart	medium	moves to target point then enters circling state 6; lifetime timeout to state 1
+80240478	Duc_Ufo_stateWait	medium	stops; after wait timer picks new direction (state 3); lifetime timeout to state 1
+8024050C	Duc_Ufo_stateWanderMove	medium	moves toward point approaching camera; at arrival waits (state 2) or longer wait (state 4)
+802406E0	Duc_Ufo_stateWait2	medium	identical logic to Duc_Ufo_stateWait (separate state slot 2)
+80240774	Duc_Ufo_stateLeave	medium	accelerates away, checks hit, removes when off-screen (>1.3)
+80240814	Duc_Ufo_stateCheckHit	low	branch-only state function that just runs Duc_Ufo_checkShotHit
+80240818	Duc_Ufo_playHitSound	high	plays sound 0x12 (ufo a) or 0x19 (ufo b) for player 0/1
+8024087C	Duc_Ufo_playSpawnSound	medium	plays sound 0x1f via sound actor
+80240898	Duc_Ufo_spawnHitEffect	high	creates Sht_ufo_a_hit or Sht_ufo_b_hit effect by variant
+802409A0	Duc_Ufo_updateBeamEffects	medium	moves/scales the three abduct effects to the stored joint position
+80240ACC	Duc_Ufo_checkShotHit	high	if hit: releases avatar/effects, effect, sound, rumble, score by mode, popup, remove
+80240CB4	Duc_Ufo_setupFlee	medium	random flee target from params, velocity by mode, state 12
+80240EC0	Duc_Ufo_pickWanderTarget	medium	random direction, finds reachable point inside screen bounds by shrinking/rotating
+8024121C	Duc_Ufo_setupAbduct	medium	computes screen bounds, random circle centre/phase, behaviour 3, state 7
+80241560	Duc_Ufo_setupCircle	medium	random circle centre/phase within bounds, lifetime, behaviour 2, state 5
+80241844	Duc_Ufo_launch	medium	param set (arg&7), variant b flag (arg&8), behaviour (arg>>4&3): wander/circle/abduct
+80241B9C	Duc_Ufo_resetParams	medium	sets scale/radius, screen bounds, clears motion fields, states 0
+80241CE8	Duc_Ufo_loadParams	high	loads param/DucUfoParam.bin, multiplies timer fields x3 for 8 param sets
+80241EA4	Duc_Ufo_dtor	high	dtor: Target dtor then delete
+80241EFC	Duc_Ufo_ctor	high	Target ctor, vtable 8035A2F8, 13-entry state member-function table
+802420BC	Duc_Ufo_onCalcWorldMtx_thunk	medium	this-adjust (-0xfc) thunk to Duc_Ufo_onCalcWorldMtx
+802420C4	Duc_Ufo_dtor_thunk	high	this-adjust (-0xfc) thunk to Duc_Ufo_dtor
+802420CC	Duc_Camera_projectToScreen	medium	projects world point to normalized screen coords (divided by half screen size)
+80242170	Duc_Camera_getScreenTopAtDepth	medium	intersects camera top frustum edge with plane z=depth, returns y
+802421CC	Duc_Camera_getScreenRightAtDepth	medium	intersects right frustum edge with plane z=depth, returns x
+80242228	Duc_Camera_getScreenLeftAtDepth	medium	intersects left frustum edge with plane z=depth, returns x
+80242284	Duc_Camera_calcFrustumEdges	medium	computes four frustum edge points from camera pos/dir/fov and aspect
+8024244C	Duc_Camera_setMode	medium	mode 1: game position; mode 0: start interpolated intro path; updates frustum
+802426AC	Duc_Camera_calc	medium	runs state member-function, camera update, copies matrix to sound listener
+80242810	Duc_Camera_load	medium	base load, creates 5-point path interpolator, mode=1
+80242878	Duc_Camera_stateIdle	low	empty state function
+8024287C	Duc_Camera_stateIntro	medium	eases interpolation parameter to 1 along path, then mode=1
+80242948	Duc_Camera_dtor	high	dtor: base dtor then delete
+802429A0	Duc_Camera_destroyInstance	high	deletes singleton lbl_8043C870 via secondary vtable
+802429E4	Duc_Camera_createInstance	high	allocates 0x234 camera, base ctor, vtables, 2-entry state table, singleton lbl_8043C870
+80242A84	Duc_initCameraPathPoints	medium	static init of camera path/position constants at lbl_8043A770..8043A7CC
+80242B40	Duc_Shot_playControllerSound	low	plays Mpe sound 0x36 (player 0) or 0x37 (player 1) via Mpe_801B3338
+80242C14	Duc_Shot_findHitTargets	medium	ray-tests visible targets, sorts hits by distance, records shot id/strength per player
+8024310C	Duc_8024310C	keep	generic delete-if-flag dtor shape with no base call; owner unclear
+8024314C	Duc_Shot_checkGrassHits	high	ray-tests the 27 grass objects; on hit shakes grass, spawns effect, plays sound
+8024321C	Duc_Shot_processHits	medium	while shot frames remain: grass hits, and target hits when round state is 3 or 4
+80243284	Duc_Shot_createCursorEffects	high	sets player index, creates Sht_cursor_1p/2p main/tail effects by player and mode
+80243418	Duc_Shot_updatePointer	low	calls RP_801BA474 on the pointer helper at +0x5c
+80243420	Duc_Shot_vf06Empty	low	empty virtual (slot 6)
+80243424	Duc_Shot_calc	high	on A/B press with ammo: fire (Sht_shot effect, rumble, sound) or empty-click sound; aim update
+802435E8	Duc_Shot_updateCursorEffects	medium	moves/scales the player's cursor main and tail effects to cursor position
+8024376C	Duc_Shot_setCursorMode	medium	stores mode and shows/hides cursor main/tail effects accordingly
+802438A4	Duc_Shot_restartTailEffect	medium	stops and restarts the player's cursor tail effect
+80243938	Duc_Shot_restartMainEffect	medium	stops and restarts the player's cursor main effect
+802439CC	Duc_Shot_reset	medium	resets cursor offsets by player, pointer filters, counters
+80243AA4	Duc_Shot_init	medium	creates pointer filter, helper (8024FF44) and Duc_SndActor (sound actor)
+80243C48	Duc_Shot_playShotSound	medium	plays gun sound chosen by round index (4..9 for P1, 0x28..0x2d for P2)
+80243EF0	Duc_Shot_testRaySphere	medium	tests shot ray against sphere (radius arg + 3.2); outputs hit point and depth
+80244110	Duc_Shot_updateAim	medium	reads pointer position (clamped per aspect), computes cursor world pos and ray direction
+802444D4	Duc_Shot_dtor	high	dtor: base dtor then delete
+8024452C	Duc_Shot_ctor	high	base ctor, vtable 8035A450, identity matrix, cursor defaults, player 0
+80244648	Duc_ShotMgr_playControllerSoundAll	medium	calls Duc_Shot_playControllerSound for each shot
+802446A4	Duc_ShotMgr_processHitsAll	medium	calls Duc_Shot_processHits for each shot
+80244700	Duc_ShotMgr_setCursorModeAll	medium	calls shot slot 9 (setCursorMode) on all shots, last to first
+8024476C	Duc_ShotMgr_setCursorMode	medium	calls slot 9 (setCursorMode) on shot[index]
+80244790	Duc_ShotMgr_slot6All	low	calls shot slot 6 (empty) on all shots
+802447F8	Duc_ShotMgr_slot5All	low	calls shot slot 5 on all shots
+80244860	Duc_ShotMgr_calc	medium	calls calc (slot 4) on active shots
+802448C8	Duc_ShotMgr_reset	medium	resets shots, restarts cursor effects, sets active count by mode, cursor mode 2
+80244A40	Duc_ShotMgr_load	low	empty
+80244A44	Duc_ShotMgr_createShots	high	allocates n Duc_Shot objects, inits them and creates per-player cursor effects
+80244AD0	Duc_ShotMgr_dtor	high	dtor: base dtor then delete
+80244B28	Duc_ShotMgr_destroyInstance	high	deletes singleton lbl_8043C878 and clears it
+80244B6C	Duc_ShotMgr_createInstance	high	allocates 0x1c mgr, vtable 8035A488, singleton lbl_8043C878
+80244BB8	Duc_Spawner_triggerBonusWave	low	once per game in mode 1: schedules delayed special spawn 5 in 40 frames, plays sound
+80244C2C	Duc_Spawner_calc	medium	runs delayed special spawn, then current pattern state while active; stops at count 0
+80244C94	Duc_Spawner_addCount	medium	adds to remaining spawn count, runs current pattern state, sets active
+80244CEC	Duc_Spawner_startPattern	medium	sets pattern state and spawn count, runs it once, sets active
+80244D3C	Duc_Spawner_reset	medium	clears active flag/timers, pattern 3, flags
+80244D78	Duc_Spawner_init	medium	clears active flag/timers, pattern 3
+80244DB0	Duc_Spawner_updateDelayedSpawn	medium	counts down delay and fires Duc_Spawner_spawnSpecialDucks
+80244E04	Duc_Spawner_spawnSpecialDucks	medium	spawns duck (type 4) pairs/groups for special patterns 0..3 and 5 (5 depends on leader)
+80245644	Duc_Spawner_patternCans	low	spawn pattern state that spawns type-5 targets (cans)
+80245BD4	Duc_Spawner_patternDucksA	low	spawn pattern state with 10 sub-steps spawning ducks (type 4)
+8024618C	Duc_Spawner_patternDucksB	low	spawn pattern state spawning ducks (type 4)
+802464A8	Duc_Spawner_patternUfosA	low	spawn pattern state spawning UFOs (type 1)
+80246900	Duc_Spawner_patternUfosB	low	spawn pattern state spawning UFOs (type 1)
+80246CB4	Duc_Spawner_patternClayPairs	low	spawn pattern state spawning two clay targets (type 0)
+80246D80	Duc_Spawner_patternClay	low	spawn pattern state spawning clay targets (type 0)
+80246FB4	Duc_Spawner_patternType3	low	large spawn pattern state spawning type-3 targets with many launch variants
+80247F30	Duc_Spawner_patternBalloonsA	low	spawn pattern state spawning balloons (type 2)
+80248138	Duc_Spawner_patternBalloonsB	low	large spawn pattern state spawning balloons (type 2) in several colours
+80248F14	Duc_Spawner_setup9	low	pattern setup: interval 20, count from table by stage index
+80248F6C	Duc_Spawner_setup8	low	pattern setup: delay 0, interval 15
+80248F80	Duc_Spawner_setup7	low	pattern setup: interval 20, count by stage, plays round sound
+80248FFC	Duc_Spawner_setup6	low	pattern setup: interval 60, count by stage (0 if +0xc of lbl_8043C8C8 is 0)
+80249098	Duc_Spawner_setup5	low	pattern setup: interval 40, count by stage index
+802490F8	Duc_Spawner_setup4	low	pattern setup: delay 0x104, interval 0x122
+8024910C	Duc_Spawner_setup3	low	pattern setup: interval 50, count 22
+80249128	Duc_Spawner_setup2	low	pattern setup by stage: count, interval; may arm timer or delayed special spawn
+8024921C	Duc_Spawner_setup1	low	pattern setup: delay 0, interval 30
+80249230	Duc_Spawner_setup0	low	pattern setup: delay 30, interval 60, count by stage
+802492C8	Duc_Spawner_dtor	high	dtor: base dtor then delete
+80249320	Duc_Spawner_ctor	high	base ctor, vtable 8035A6D4, fills 20-entry pattern member-function table
+80249594	Duc_Spawner_destroyInstance	high	deletes singleton lbl_8043C880 and clears it
+802495D8	Duc_Spawner_createInstance	high	allocates 0x11c spawner and stores singleton lbl_8043C880
+8024960C	Duc_playSoundMissIfNoBgm	low	plays Mpe sound 0x6a unless the current sound entry is a BGM
+8024968C	Duc_playSoundHitIfNoBgm	low	plays Mpe sound 0x69 unless the current sound entry is a BGM
+8024970C	Duc_playRemoteSound2E2F	low	plays Mpe sound 0x2f (arg 0) or 0x2e and routes it to controller speaker(s)
+802497D4	Duc_Game_getRoundCount	medium	returns +0x14 (total rounds)
+802497DC	Duc_Game_getCurrentRound	medium	returns current round +0x10 while state is 1..4, else 0
+80249804	Duc_Game_destroyChildren	medium	destroys spawner, score manager and ammo manager singletons
+8024982C	Duc_Game_drawScreenQuad	low	sets up an RP draw helper sized to half screen and draws it
+802498AC	Duc_Game_calc	medium	runs game state function; P2 B-press handling for shared mode; updates party UI/sound pos
+8024999C	Duc_Game_reset	medium	party UI reset, clears flag, starts the game sequence
+802499E4	Duc_Game_setup	medium	sets player/game type from mode (1..3), clears flags, resets spawner, score and ammo
+80249AA4	Duc_Game_stateNone	low	empty state function
+80249AA8	Duc_Game_init	medium	creates spawner, score and ammo managers and a Duc_SndActor (sound actor) (misnamed as 80359B00 init)
+80249C40	Duc_Game_stateEnd	low	when party result screen reaches state 4 reads choice and sets retry/quit flags
+80249D70	Duc_Game_stateShowResults	low	submits winner/score to party result screens, then state 7
+80249E60	Duc_Game_stateWaitScore	medium	when HUD score anim done hides cursors, opens party result by mode, state 6
+80249F08	Duc_Game_stateRoundEnd	medium	countdown; final round: final score, win/lose bgm, state 5; else next round setup, state 2
+8024A33C	Duc_Game_stateRoundPlay	medium	runs spawner; when spawner idle and no targets left, finishes round (state 4)
+8024A478	Duc_Game_stateRoundStart	medium	countdown with HUD/sound cues; at 0 starts round spawn pattern, state 3
+8024A6C4	Duc_Game_stateIntro	medium	plays bgm, waits for camera intro, enables cursors and HUD, state 2
+8024AA40	Duc_Game_stateNone2	low	empty state function
+8024AA44	Duc_Game_spawnFinalRoundObjects	low	spawns six type-6 objects in a row at fixed x offsets (scaled by aspect)
+8024ADE8	Duc_Game_setRoundParams	medium	per round 1..7 sets spawn pattern, ammo, count, spawner extra; writes ammo to HUD
+8024AF40	Duc_Game_start	medium	camera intro, cursor mode, first pattern, round 1 of 5, resets scores and ammo
+8024B034	Duc_Game_dtor	low	dtor shape (base dtor + delete) without vtable reference; likely game object dtor
+8024B08C	Duc_Game_destroyInstance	high	deletes singleton lbl_8043C890 and clears it
+8024B0D0	Duc_Game_createInstance	high	allocates 0xa8 game object, vtable 8035AACC, copies state table, singleton lbl_8043C890
+8024B20C	Duc_Hud_isEndAnimDone	medium	returns end-layout (+0x10) done flag +0x25, set when its out animation finishes
+8024B218	Duc_Hud_setHitCounterVisible	low	arg!=0: plays score-layout hit counter in-anim (8024DF50), else out-anim (8024DE08)
+8024B230	Duc_Hud_showBonus	low	shows bonus number for a player on the score layout and triggers its score anim (kind 3)
+8024B27C	Duc_Hud_spawnScorePopup	medium	spawns next of 32 point popups at screen pos and updates player score display (bonus flag)
+8024B358	Duc_Hud_setStartBannerVisible	low	arg!=0: round banner in-anim (8024F340), else out-anim (8024F2B4)
+8024B370	Duc_Hud_draw	medium	draws score/start/text layouts and the active point popups (ring buffer)
+8024B428	Duc_Hud_slot4All	low	calls layout slot 4 on all HUD layouts and the 32 popups
+8024B4BC	Duc_Hud_calc	medium	calls calc (slot 2) on HUD layouts and active popups
+8024B574	Duc_Hud_reset	medium	calls reset (slot 1) on all HUD layouts and popups, clears popup ring
+8024B620	Duc_Hud_load	high	loads party_message.bmg message set and loads all HUD layouts from the archive
+8024B70C	Duc_Hud_init	high	creates DuckhuntScore00, DuckhuntStart00, T1pTextSA00 layouts and 32 DuckhuntPoint00 popups
+8024B7C8	Duc_Hud_dtor	high	dtor: base dtor then delete
+8024B820	Duc_Hud_destroyInstance	high	deletes singleton lbl_8043C898 and clears it
+8024B864	Duc_Hud_createInstance	high	allocates 0x9c HUD, vtable 8035AB60, singleton lbl_8043C898
+8024B8B0	Duc_spawnCan	low	spawn-table entry 5: forwards (a,b) to CanMgr singleton lbl_8043C8A0 slot 19 (spawn)
+8024B8D0	Duc_CanMgr_createInstance	high	allocates 0x1c mgr, vtable 8035AB88, singleton lbl_8043C8A0, calls setup
+8024B944	Duc_CanMgr_load	medium	calls load (slot 2) on every pooled target
+8024B948	Duc_CanMgr_dtor	high	dtor: TargetMgr dtor then delete
+8024B9A0	Duc_CanMgr_allocTarget	high	allocates 0x470 bytes and constructs a can
+8024B9D0	Duc_CanMgr_destroyInstance	high	deletes singleton lbl_8043C8A0 and clears it
+8024BA14	Duc_Can_updateModel	medium	writes scaled matrix into the model chosen by hit count (0..4) and updates it
+8024BB30	Duc_Can_calc	medium	runs current state member-function, updates sound actor position
+8024BB88	Duc_Can_applyVelocity	medium	pos += velocity and integrates angular velocity into the rotation matrix
+8024BD54	Duc_Can_load	high	loads param/DucCanParam.bin and sht_can_00..04 models from G3D/sht_can.brres
+8024BF80	Duc_Can_stateKnocked	medium	flight after a hit with gravity/drag/spin decay; checks hit; removed below ground
+8024C194	Duc_Can_stateToss	medium	launch flight with param gravity/drag; checks hit (switches to state 2); removed below ground
+8024C3C8	Duc_Can_stateCheckHit	low	branch-only state function that just runs Duc_Can_checkShotHit
+8024C3CC	Duc_Can_playHitSound	high	plays sound 0x14 or 0x15 (flag +0x430) for player 0/1
+8024C430	Duc_Can_playSpawnSound	medium	plays sound 0x21 via sound actor
+8024C44C	Duc_Can_spawnBreakEffect	high	creates Sht_can_break effect at position/scale (Target slot 24)
+8024C4F4	Duc_Can_calcHitBounce	medium	derives new velocity/spin from hit point relative to can on screen and hit count
+8024C978	Duc_Can_checkShotHit	high	if hit: count hits, sound, rumble, score; Sht_can_hit + bounce, or break and remove at max
+8024CB68	Duc_Can_applyHitSpin	low	transforms impulse by matrix and computes angular velocity terms (+0x414..+0x428)
+8024CD64	Duc_Can_setupLaunch	medium	random launch target from param set, velocity, random tilt; state 1
+8024D010	Duc_Can_launch	medium	arg sign bit: idle state 0; else param set (arg&7) and Duc_Can_setupLaunch
+8024D034	Duc_Can_resetParams	medium	scale/radius from params, identity matrix, clears motion/spin, hit count, state 0
+8024D130	Duc_Can_dtor	high	dtor: Target dtor then delete
+8024D188	Duc_Can_ctor	high	Target ctor, vtable 8035AC10, 3-entry state member-function table, clears hit count
+8024D238	Duc_stopJingleHandle	low	if sound handle lbl_8043C8A8 is active, stops it (virtual +0x18) and returns true
+8024D284	Duc_startJingleHandle	low	stops lbl_8043C8A8 then starts a sound into it via fn_80047524; returns success
+8024D2EC	Duc_sinit_jingleHandle	medium	static init: clears lbl_8043C8A8 and registers its destructor
+8024D30C	Duc_ShtCloud_reset	medium	resets matrix to defaults and starts anim slot 3
+8024D3B4	Duc_ShtCloud_load	high	loads G3D/sht_cloud.brres model and sht_cloud anim
+8024D4F4	Duc_ShtCloud_init	high	empty
+8024D4F8	Duc_ShtCloud_dtor	high	dtor: base dtor then delete
+8024D550	Duc_ShtCloud_ctor	high	base ctor, sets vtable 8035ACB8
+8024D58C	Duc_PointPopup_show	medium	sets number/colour by points and player, clamps screen pos, plays anim; optional Sht_2d_good effect
+8024D930	Duc_PointPopup_slot4Empty	low	empty layout virtual (slot 4)
+8024D934	Duc_PointPopup_draw	medium	draws the layout (RP_80194250)
+8024D93C	Duc_PointPopup_calc	medium	when anim finished frees its HUD popup slot; updates layout
+8024D978	Duc_PointPopup_reset	medium	resets layout and anim, clears active flag
+8024DA34	Duc_PointPopup_load	high	loads duckhuntPoint_00.brlyt and inOutAll anim from duckhunt.arc
+8024DAAC	Duc_PointPopup_dtor	high	delete if flag > 0
+8024DAEC	Duc_PointPopup_ctor	high	base layout ctor, vtable 8035AD10, clears active flag
+8024DB30	Duc_ScoreLayout_showBonus	medium	plays inBonus anim for left/right player and sets bonus number/unit texts
+8024DDE0	Duc_ScoreLayout_playScoreAnim	medium	if hit counter shown: plays score switch anim for player 0 or 1 with kind
+8024DE08	Duc_ScoreLayout_hideHitCounter	medium	state 2: sets pane visibility by mode, plays out anim, state 3
+8024DF50	Duc_ScoreLayout_showHitCounter	medium	state 0: sets pane visibility by mode, plays in anim, state 1
+8024E094	Duc_ScoreLayout_slot4Empty	low	empty layout virtual (slot 4)
+8024E098	Duc_ScoreLayout_draw	medium	draws layout and Mii icons for player panes (2nd only in 2P mode)
+8024E158	Duc_ScoreLayout_calc	high	updates T_1pScore/T_2pScore numbers, hit counters and anim states
+8024E238	Duc_ScoreLayout_reset	high	sets score texts, resets 12 anims, player labels, hides hit/bonus panes
+8024E4CC	Duc_ScoreLayout_load	high	loads duckhuntScore_00.brlyt and its 12 anims from duckhunt.arc
+8024E5C4	Duc_ScoreLayout_updateAnimStates	medium	advances in/out and bonus anim states; shows hit pane per player when done
+8024E880	Duc_ScoreLayout_playScoreAnimP2	medium	plays T_2pScore switch anim and N_hitR hit anim variant by kind
+8024E9E8	Duc_ScoreLayout_playScoreAnimP1	medium	plays T_1pScore switch anim and left hit anim variant by kind
+8024EB50	Duc_ScoreLayout_updateHitCounterP2	medium	shows/hides N_hitR/N_hitNumR/N_bonusR panes by P2 hit count; bonus out timer
+8024EE88	Duc_ScoreLayout_updateHitCounterP1	medium	shows/hides left hit/num/bonus panes by P1 hit count; bonus out timer
+8024F238	Duc_ScoreLayout_dtor	high	delete if flag > 0
+8024F278	Duc_ScoreLayout_ctor	high	base layout ctor, sets vtable 8035AD30
+8024F2B4	Duc_StartLayout_playOut	medium	unless hidden, plays outAll anim, state 3
+8024F340	Duc_StartLayout_playIn	medium	sets round/final text, figure panes and both scores, plays inAll anim, state 2
+8024F698	Duc_StartLayout_slot4Empty	low	empty layout virtual (slot 4)
+8024F69C	Duc_StartLayout_draw	medium	draws layout and, in 2P mode, the Mii icons
+8024F6E4	Duc_StartLayout_calc	medium	advances in/out anim state and updates layout
+8024F734	Duc_StartLayout_reset	high	sets round message, score numbers, player labels, resets anims, state 1
+8024FA64	Duc_StartLayout_load	high	loads duckhuntStart_00.brlyt and in/out anims from duckhunt.arc
+8024FB08	Duc_StartLayout_drawMiiIcons	low	2P: draws both players' Mii icons into panes chosen by max score >= 100
+8024FCC0	Duc_StartLayout_dtor	high	delete if flag > 0
+8024FD00	Duc_StartLayout_ctor	high	base layout ctor, sets vtable 8035AD50
+8024FD3C	Duc_ShotPointer_readController	low	copies the player's controller core status block and passes it to RP_801BAA00
+8024FEEC	Duc_ShotPointer_dtor	medium	dtor: RP_801BAA74 base dtor then delete
+8024FF44	Duc_ShotPointer_ctor	medium	RP_801BAAB4 base ctor, sets secondary vtable 8035AD70 at +0x10
+8024FF80	Duc_ScoreMgr_getLeader	high	returns 0 if P1 score > P2, -1 if tied, 1 if P2 ahead
+8024FFA8	Duc_ScoreMgr_awardStreakBonus	medium	if hit streak > 4: bonus = streak-4 added to score (clamped 999), HUD bonus, sound
+80250088	Duc_ScoreMgr_hasStreakBonus	medium	returns 1 if the player's hit streak exceeds 4
+802500C0	Duc_ScoreMgr_setLastColor	low	stores per-player value at +0x64 (balloon colour matching uses it)
+802500E8	Duc_ScoreMgr_addCounter74	low	adds to per-player counter at +0x74
+80250120	Duc_ScoreMgr_addStreak	medium	adds to hit streak (clamped 0..999), tracks max streak, sound when it reaches 5
+802501E0	Duc_ScoreMgr_addHits	medium	adds to per-player hit count (+0x14)
+80250218	Duc_ScoreMgr_addScore	high	adds points to player score (shared in co-op mode), clamped to 0..999
+80250290	Duc_ScoreMgr_clearCounter74	low	zeroes per-player counter +0x74
+802502B8	Duc_ScoreMgr_clearLastColors	low	sets per-player +0x64 values to -1
+802502E0	Duc_ScoreMgr_clearStreaks	medium	zeroes streak, max streak, bonus and bonus timer per player
+80250334	Duc_ScoreMgr_resetStreak	medium	zeroes the player's hit streak
+80250364	Duc_ScoreMgr_clearHits	medium	zeroes per-player hit counts
+8025038C	Duc_ScoreMgr_clearScores	medium	zeroes per-player scores
+802503B0	Duc_ScoreMgr_setup	medium	sets player count and clears all per-player fields
+802503FC	Duc_ScoreMgr_dtor	high	dtor: base dtor then delete
+80250454	Duc_ScoreMgr_destroyInstance	high	deletes singleton lbl_8043C8B0 and clears it
+80250498	Duc_ScoreMgr_createInstance	high	allocates 0x88 score manager, vtable 8035AD88, singleton lbl_8043C8B0
+802504E4	Duc_AmmoMgr_tryFire	medium	returns 2 (fire) outside play, else 1 if empty or 2 after using a bullet and counting the shot
+80250570	Duc_AmmoMgr_refill	medium	sets each player's bullets to the max (+0x1e)
+80250598	Duc_AmmoMgr_clearShotCounts	medium	zeroes per-player shots-this-round counters
+802505C0	Duc_AmmoMgr_setup	medium	sets player count, clears counters, max bullets 99, limited flag off
+80250604	Duc_AmmoMgr_dtor	high	dtor: base dtor then delete
+8025065C	Duc_AmmoMgr_destroyInstance	high	deletes singleton lbl_8043C8B8 and clears it
+802506A0	Duc_AmmoMgr_createInstance	high	allocates 0x24 ammo manager, vtable 8035ADB0, singleton lbl_8043C8B8
+802506EC	Duc_spawnCircleTarget	low	spawn-table entry 3: forwards (a,b) to CircleTargetMgr singleton lbl_8043C8C0 slot 19 (spawn)
+8025070C	Duc_CircleTargetMgr_createInstance	high	allocates 0x3c mgr, vtable 8035ADD8, singleton lbl_8043C8C0, calls setup
+80250780	Duc_CircleTargetMgr_isGridSlotUsed	medium	returns occupancy byte for grid slot index (+0x1c array)
+8025078C	Duc_CircleTargetMgr_setGridSlotUsed	medium	sets occupancy byte for grid slot index
+80250798	Duc_CircleTargetMgr_clearGridSlots	medium	clears the 32 grid slot occupancy bytes
+802507B8	Duc_CircleTargetMgr_reset	medium	clears grid slot occupancy then TargetMgr reset
+802507D8	Duc_CircleTargetMgr_load	medium	calls load (slot 2) on every pooled target
+802507DC	Duc_CircleTargetMgr_dtor	high	dtor: TargetMgr dtor then delete
+80250834	Duc_CircleTargetMgr_allocTarget	high	allocates 0x2cc bytes and constructs a circle target
+80250864	Duc_CircleTargetMgr_destroyInstance	high	deletes singleton lbl_8043C8C0 and clears it
+802508A8	Duc_CircleTarget_remove	high	frees its grid slot in the manager, then Target remove
+802508E8	Duc_CircleTarget_updateModel	medium	writes scaled matrix into the model of its kind (a..d) and updates it
+802509F8	Duc_CircleTarget_calc	medium	runs current state member-function, updates sound actor position
+80250A50	Duc_CircleTarget_applyVelocity	high	pos += velocity
+80250A84	Duc_CircleTarget_load	high	loads DucCircleMatoParam, sht_target_a..d models, applies Mii faces to face_dummy of c/d
+80250DB0	Duc_CircleTarget_init	medium	branch to Target init (creates Duc_SndActor (sound actor))
+80250DB4	Duc_CircleTarget_stateFall	medium	gravity fall; removes when below y=-20
+80250DF0	Duc_CircleTarget_stateTopple	medium	rotates the board down around its base until max angle, then falls (state 5)
+80250F6C	Duc_CircleTarget_stateShrinkOut	medium	shrinks and spins out over a countdown, checks hit, removes at 0
+802510C0	Duc_CircleTarget_stateStand	medium	upright, checks hit; after stand timer switches to shrink-out (state 3)
+80251198	Duc_CircleTarget_stateGrowIn	medium	grows and spins in over a counter, checks hit; then stand state 2
+80251320	Duc_CircleTarget_stateCheckHit	low	branch-only state function that just runs Duc_CircleTarget_checkShotHit
+80251324	Duc_CircleTarget_playHitSound	medium	plays hit sound by kind (0xc, 0x17, 0xd or 0xe for face targets) for player
+80251470	Duc_CircleTarget_playSpawnSound	medium	plays sound 0x1c via sound actor
+8025148C	Duc_CircleTarget_spawnHitEffects	high	Sht_target_a_hit / b_hit, or smoke+pieces for a face target not owned by the shooter
+80251700	Duc_CircleTarget_checkShotHit	high	if hit: effects, score by kind; own face target costs streak and topples, else removed
+80251A90	Duc_CircleTarget_launch	medium	param set (arg&7), grid slot (arg>>4&0xff) position, kind (arg>>12&3)
+80251CE4	Duc_CircleTarget_resetParams	medium	scale from params, tilted matrix, clears counters, resets b anim, state 1
+80251E10	Duc_CircleTarget_loadParams	high	loads param/DucCircleMatoParam.bin, multiplies timer fields x3
+80251F8C	Duc_CircleTarget_dtor	high	dtor: Target dtor then delete
+80251FE4	Duc_CircleTarget_ctor	high	Target ctor, vtable 8035AE80, 6-entry state member-function table
+802520F8	Duc_spawnAvatar	low	spawn-table entry 6: forwards (a,b) to AvatarMgr singleton lbl_8043C8C8 slot 19 (spawn)
+80252118	Duc_AvatarMgr_createInstance	high	allocates 0x1c mgr, vtable 8035AF28, singleton lbl_8043C8C8, calls setup
+8025218C	Duc_AvatarMgr_areAllGone	medium	returns 1 if every avatar is inactive or in state 10
+80252208	Duc_AvatarMgr_isLowest	low	returns 1 if no other active avatar is lower (y) than the given one
+802522E0	Duc_AvatarMgr_calcLinePosition	medium	counts same-side avatars with lower index and computes a row position (x, 0, -15)
+80252454	Duc_AvatarMgr_pickAny	medium	returns a random free avatar, else a random active one, else 0
+802525AC	Duc_AvatarMgr_pickFree	medium	returns a random active avatar that is not grabbed (+0x158 == 0), else 0
+80252700	Duc_AvatarMgr_reset	medium	clears lbl_8043C8D0 then TargetMgr reset
+8025270C	Duc_AvatarMgr_dtor	high	dtor: TargetMgr dtor then delete
+80252764	Duc_AvatarMgr_allocTarget	high	allocates 0x204 bytes and constructs an avatar
+80252794	Duc_AvatarMgr_destroyInstance	high	deletes singleton lbl_8043C8C8 and clears it
+802527D8	Duc_Avatar_getCarryValue	low	returns constant 1.6 (stored by UFO states into the avatar's +0x144)
+802527E0	Duc_Avatar_remove	medium	tail-calls slot 35 (remove)
+802527F0	Duc_Avatar_release	medium	stops; if being lifted plays sound 0x31; on ground and big -> state 3, else state 6
+802528A4	Duc_Avatar_startAbduct	medium	stops, sets anim (80254914), plays sound 0x30, state 5
+80252918	Duc_Avatar_updateModel	medium	writes scaled matrix into the owner Mii avatar body model and its attached head model
+80252AB0	Duc_Avatar_calc	medium	runs current state member-function, updates sound actor position
+80252B08	Duc_Avatar_applyVelocity	high	pos += velocity
+80252B3C	Duc_Avatar_load	high	for both Mii avatars loads sht_avatar_anim.brres wait/batabata/runaway/happy anims
+80252D50	Duc_Avatar_init	medium	Target init, then creates two Mii avatar models (one per player Mii)
+80252E04	Duc_Avatar_stateRunAway	medium	runs sideways while turning; removes when off-screen (>1.1)
+80252EF4	Duc_Avatar_stateCelebrate	medium	stands for 360 frames then runaway anim, sound 0x34, state 12
+8025300C	Duc_Avatar_stateLinedUp	medium	waits until all avatars are lined up, then 10-point bonus popup/score, sound, bonus wave, state 11
+802531A8	Duc_Avatar_stateWalkToLine	medium	walks to its line slot; on arrival wait anim, sound 0x33, state 10
+802532EC	Duc_Avatar_stateRunToPoint	medium	runs to target point; then idle (state 3); may head to line slot when round is clear
+802534D0	Duc_Avatar_stateEnter	medium	moves toward point while growing to full size and landing; then idle or run to new point
+8025383C	Duc_Avatar_stateDropped	medium	falls with gravity while growing back to full size; then idle or run to new point
+80253AD4	Duc_Avatar_stateCarried	medium	copies position/scale written by the carrying UFO, identity orientation
+80253B6C	Duc_Avatar_stateWander	medium	walks a circular path inside bounds, reverses at edges; may head to line slot
+80253E90	Duc_Avatar_stateIdle	medium	stands; faces danger point or starts wandering (state 4); may head to line slot (state 9)
+80253FE4	Duc_Avatar_stateWalkToX	medium	walks sideways toward target x, then idle (state 3)
+802540FC	Duc_Avatar_stateRiseUp	medium	moves up until above ground, then idle (state 3)
+80254130	Duc_Avatar_stateShootable	medium	if shot: effect, sound, rumble, 10 points, popup, remove
+80254220	Duc_Avatar_playHitSound	medium	plays sound 0x13 via sound actor
+8025423C	Duc_Avatar_playSpawnSound	low	empty (no spawn sound)
+80254240	Duc_Avatar_spawnHitEffect	low	empty (no hit effect)
+80254244	Duc_Avatar_pickWanderCircle	medium	chooses circle radius/centre/phase so the wander path stays inside bounds
+802547B0	Duc_Avatar_turnTowardPoint	medium	while UFOs are active, rotates facing toward fixed point lbl_8043A7F0
+80254914	Duc_Avatar_setAnim	medium	plays avatar anim index (0 wait,1 batabata,2 runaway,3 happy) with rate and face expression
+80254A58	Duc_Avatar_launch	medium	owner from arg&3, facing; arg&0x100 enters tiny at random point (state 7) else rises (state 1)
+80254C78	Duc_Avatar_resetParams	medium	scale 1.6, grass hit effect, clears fields, computes walk bounds, picks wander circle
+80254E2C	Duc_Avatar_dtor	high	dtor: Target dtor then delete
+80254E84	Duc_Avatar_ctor	high	Target ctor, vtable 8035B028, 13-entry state member-function table
+80255040	Duc_Avatar_asAvatar	low	blr returning this (overrides Target slot 38 which returns 0)
+80255044	Duc_initAvatarFacePoint	medium	static init: lbl_8043A7F0 = (0, 0, -150), used by Duc_Avatar_turnTowardPoint
+80255064	Duc_EndLayout_playOut	medium	plays N_score_00 out anim on end layout, state 3
+80255118	Duc_EndLayout_playIn	medium	shows final score panes (2P scores and figure, or single score), plays in anim, state 2
+802553C0	Duc_EndLayout_slot4Empty	low	empty layout virtual (slot 4)
+802553C4	Duc_EndLayout_draw	medium	draws end layout and Mii face icons (both players in 2P)
+80255490	Duc_EndLayout_calc	medium	updates anim states; after 180-frame timer plays out/switch anim
+802555EC	Duc_EndLayout_reset	high	sets score numbers, player labels and messages, resets anims, timer 180
+80255910	Duc_EndLayout_load	high	loads duckhuntEnd_00.brlyt and in/out/switch1p/switch2p anims from duckhunt.arc
+802559E8	Duc_EndLayout_drawMiiIcons	low	2P: draws both players' Mii icons into panes chosen by max score >= 100
+80255B90	Duc_EndLayout_updateAnimStates	medium	after in anim plays winner switch anim (2P); marks done when out anim ends
+80255D10	Duc_EndLayout_dtor	high	delete if flag > 0
+80255D50	Duc_EndLayout_ctor	high	base layout ctor, sets vtable 8035B0D0

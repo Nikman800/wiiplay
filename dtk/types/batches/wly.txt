@@ -1,0 +1,184 @@
+# batch wly: modules Wly; 360 functions; 36 classes
+
+## classes (ledger class -> suggested C++ name; vtables; allocation sizes; methods)
+Wly_Avatar -> RPWlyAvatar; vtables 8035C7E0; sizes 0x128 via Wly_Avatar_ctor in Wly_AvatarMgr_createAvatars; 0x128 via Wly_Avatar_ctor in Wly_AvatarMgr_createAvatarsSpecial; 0x128 via Wly_Avatar_ctor in Wly_AvatarMgr_ctor; 14 methods: calc, calcModelPose, ctor, drawDebugHitArea, dtor, onFound, playHoverSound, resetState, setFound, setModelByte1, setPaused, startExtraAnim ...
+Wly_AvatarMgr -> RPWlyAvatarMgr; vtables 8035C850; sizes 0x291C via Wly_AvatarMgr_ctor in Wly_AvatarMgr_createGlobal; 26 methods: calc, create, createAvatars, createAvatarsSpecial, createGlobal, ctor, destroy, destroyGlobal, draw, dtor, findAvatarNearCursor, findAvatarUnderCursor ...
+Wly_AvatarShadow -> RPWlyAvatarShadow; vtables 8035CBB0; sizes 0x44 via Wly_AvatarShadow_ctor in Wly_Avatar_ctor; 5 methods: calc, ctor, dtor, loadModel, resetTransform
+Wly_ClearPhase -> RPWlyClearPhase; vtables 8035C8B8; sizes -; 9 methods: calc, create, destroy, draw, dtor, init, reset, start, updateSequence
+Wly_CompleteLyt -> RPWlyCompleteLyt; vtables -; sizes -; 8 methods: calc, create, destroy, draw, init, playOut, reset, showAllClear
+Wly_Cursor -> RPWlyCursor; vtables 8035C898; sizes 0x4C via Wly_Cursor_ctor in Wly_GameMgr_ctor; 9 methods: calc, create, ctor, draw, getPos, init, reset, setEffectsVisible, setPos
+Wly_DisplayEndLyt -> RPWlyDisplayEndLyt; vtables -; sizes -; 8 methods: calc, create, destroy, draw, init, playIn, playOut, reset
+Wly_DisplayLyt -> RPWlyDisplayLyt; vtables -; sizes -; 13 methods: calc, create, destroy, draw, init, playEndIn, playLevelIn, playLevelOut, playWinnerScore, reset, setPlayerScore, startScoreResult ...
+Wly_Earth -> RPWlyEarth; vtables 8035CC80; sizes 0x44 via Wly_Earth_ctor in Wly_Field_init; 5 methods: calc, ctor, dtor, loadModel, reset
+Wly_EndScoreLyt -> RPWlyEndScoreLyt; vtables -; sizes -; 8 methods: calc, create, destroy, draw, init, playOut, reset, show
+Wly_Field -> RPWlyField; vtables 8035CB18; sizes 0x48 via Wly_Wipe_ctor in Wly_GameMgr_ctor (derived vtable 8035CB18); 0x7C via RP_SimpleModel_ctor in Wly_GameMgr_ctor (derived vtable 8035CB18); 6 methods: calc, create, destroy, dtor, init, reset
+Wly_Field06 -> RPWlyField06; vtables 8035CCF0; sizes -; 5 methods: calc, ctor, dtor, loadModel, reset
+Wly_GameConfig -> RPWlyGameConfig; vtables -; sizes -; 2 methods: assign, copyCtor
+Wly_GameMgr -> RPWlyGameMgr; vtables 8035C870; sizes 0x70 via Wly_GameMgr_ctor in Wly_GameMgr_createGlobal; 13 methods: calc, calcClearPhase, create, createGlobal, ctor, destroy, draw, dtor, init, is1pTypeAStage, onAvatarPicked, onPickResolved ...
+Wly_Ground -> RPWlyGround; vtables 8035CCC8; sizes 0x54 via Wly_Ground_ctor in Wly_Field_init; 5 methods: calc, ctor, dtor, loadModel, reset
+Wly_IntroPhase -> RPWlyIntroPhase; vtables 8035CA88; sizes 0x50 via RP_SimpleModel_ctor in Wly_GameMgr_ctor (derived vtable 8035CA88); 7 methods: calc, create, destroy, draw, dtor, init, reset
+Wly_LayoutSet -> RPWlyLayoutSet; vtables -; sizes -; 9 methods: calc, create, createGlobal, destroy, destroyGlobal, draw, dtor, init, reset
+Wly_LevelTable -> RPWlyLevelTable; vtables -; sizes 0x1C via Wly_LevelTable_ctor in Wly_LevelTable_createGlobal; 9 methods: createGlobal, ctor, destroyGlobal, dtor, getCurrentLevel, getLevelIndex, hasAltMessage, isSpotlightStage, setup
+Wly_MessageLyt -> RPWlyMessageLyt; vtables -; sizes -; 7 methods: calc, create, destroy, draw, init, reset, show
+Wly_MiiEntry -> RPWlyMiiEntry; vtables -; sizes 0xD8 via Wly_MiiEntry_ctor in Mii_createMiiListHolder; 0xD8 via Wly_MiiEntry_ctor in RP_Cls_80358188_vf15; 2 methods: ctor, dtor
+Wly_PointPopup -> RPWlyPointPopup; vtables -; sizes -; 8 methods: calc, create, destroy, draw, init, reset, show, updatePos
+Wly_PointPopupSet -> RPWlyPointPopupSet; vtables -; sizes -; 8 methods: areAllIdle, calc, create, destroy, draw, init, reset, showNext
+Wly_QuestionLyt -> RPWlyQuestionLyt; vtables -; sizes -; 9 methods: calc, create, destroy, draw, init, isOutDone, reset, showIn, startOut
+Wly_ResultPhase -> RPWlyResultPhase; vtables 8035CA6C; sizes 0x54 via RP_SimpleModel_ctor in Wly_GameMgr_ctor (derived vtable 8035CA6C); 9 methods: calc, calcTally, create, destroy, draw, dtor, init, reset, start
+Wly_Scene -> RPWlyScene; vtables 8035C570; sizes -; 10 methods: calc, create, draw, dtor, exit, loadResources, reset, setPaused, thunk_draw, thunk_dtor
+Wly_SoundActor -> RPWlySoundActor; vtables 8035C5E0; sizes -; 48 methods: dispatchOffsetSoundId, dtor, getOffsetSoundLabel, getPlayerParam, getVolume, holdSound, holdSound2, holdSoundAtIndex, holdSoundAtIndexByLabel, holdSoundByLabel, holdSoundByLabelWithMask, holdSoundImpl ...
+Wly_SoundActorBase -> RPWlySoundActorBase; vtables 8035C6BC; sizes -; 2 methods: dtor, thunk_dtor
+Wly_SoundHolder -> RPWlySoundHolder; vtables -; sizes -; 1 methods: dtor
+Wly_SoundObj -> RPWlySoundObj; vtables 8035CB48; sizes -; 24 methods: calc, calcNoDuck, dtor, duckBgm, getVolume, holdSound, holdSound2, holdSoundByLabel, holdSoundByLabelWithMask, holdSoundWithMask, playBgm, prepareSound ...
+Wly_SoundObj8 -> RPWlySoundObj8; vtables -; sizes -; 1 methods: dtor
+Wly_Stage -> RPWlyStage; vtables -; sizes 0xC78 via Wly_Stage_ctor in Wly_AvatarMgr_ctor; 29 methods: calc, calcMotionCategory4, calcMotionPattern0, calcMotionPattern1, calcMotionPattern2, calcMotionPattern5, checkMultiHoverPick, clampPosition, ctor, getNodePosition, getPointValue, isAllFound ...
+Wly_StartCountLyt -> RPWlyStartCountLyt; vtables -; sizes -; 6 methods: calc, create, destroy, draw, init, reset
+Wly_TargetPhase -> RPWlyTargetPhase; vtables 8035CAA8; sizes -; 8 methods: calc, create, destroy, draw, dtor, init, reset, start
+Wly_TimerLyt -> RPWlyTimerLyt; vtables -; sizes -; 11 methods: calc, create, destroy, draw, init, playIn, playMinus, playOut, playPlus, reset, updateWarnAnim
+Wly_TimerSe -> RPWlyTimerSe; vtables -; sizes -; 5 methods: init, reset, resetAndPlayFound, startRoundSound, update
+Wly_Wipe -> RPWlyWipe; vtables 8035CD18; sizes -; 8 methods: calc, create, ctor, destroy, dtor, init, reset, startClose
+
+## globals referenced (address name section size refs)
+800B2214 _savegpr_14 .text 0x0 3
+800B2218 _savegpr_15 .text 0x0 1
+800B221C _savegpr_16 .text 0x0 1
+800B2224 _savegpr_18 .text 0x0 1
+800B2230 _savegpr_21 .text 0x0 3
+800B2234 _savegpr_22 .text 0x0 4
+800B2238 _savegpr_23 .text 0x0 4
+800B223C _savegpr_24 .text 0x0 3
+800B2240 _savegpr_25 .text 0x0 3
+800B2244 _savegpr_26 .text 0x0 2
+800B2248 _savegpr_27 .text 0x0 18
+800B2260 _restgpr_14 .text 0x0 3
+800B2264 _restgpr_15 .text 0x0 1
+800B2268 _restgpr_16 .text 0x0 1
+800B2270 _restgpr_18 .text 0x0 1
+800B227C _restgpr_21 .text 0x0 3
+800B2280 _restgpr_22 .text 0x0 4
+800B2284 _restgpr_23 .text 0x0 4
+800B2288 _restgpr_24 .text 0x0 3
+800B228C _restgpr_25 .text 0x0 3
+800B2290 _restgpr_26 .text 0x0 2
+800B2294 _restgpr_27 .text 0x0 18
+803243B8 lbl_803243B8 .rodata 0x40 1
+803243F8 lbl_803243F8 .rodata 0x48 2
+80324440 lbl_80324440 .rodata 0x34 1
+80324474 lbl_80324474 .rodata 0xA 1
+80324538 lbl_80324538 .rodata 0x158 1
+80324690 lbl_80324690 .rodata 0x78 1
+80324708 lbl_80324708 .rodata 0xA 2
+80324718 lbl_80324718 .rodata 0xC 1
+80324724 lbl_80324724 .rodata 0x64 1
+80324788 lbl_80324788 .rodata 0x5 1
+803247A0 lbl_803247A0 .rodata 0x28 2
+803247C8 lbl_803247C8 .rodata 0xA0 1
+80324868 lbl_80324868 .rodata 0xA0 1
+80324940 lbl_80324940 .rodata 0xC 1
+8032494C lbl_8032494C .rodata 0xC 1
+80324958 lbl_80324958 .rodata 0x11 3
+80324B20 lbl_80324B20 .rodata 0x28 1
+80324B48 lbl_80324B48 .rodata 0x30 1
+80324B78 lbl_80324B78 .rodata 0xC8 1
+80324C40 lbl_80324C40 .rodata 0xC8 3
+80324D08 lbl_80324D08 .rodata 0x30 1
+80324D38 lbl_80324D38 .rodata 0x110 3
+80324E48 lbl_80324E48 .rodata 0x98 1
+80324EE0 lbl_80324EE0 .rodata 0x130 2
+80325010 lbl_80325010 .rodata 0x1C8 9
+803251D8 lbl_803251D8 .rodata 0x30 1
+80325208 lbl_80325208 .rodata 0x28 2
+80325230 lbl_80325230 .rodata 0xF0 3
+80325320 lbl_80325320 .rodata 0xD0 2
+803253F0 lbl_803253F0 .rodata 0xC 1
+80325430 lbl_80325430 .rodata 0x80 2
+8034F32C lbl_8034F32C .data 0x14 1
+8034F758 lbl_8034F758 .data 0x10 6
+8034F768 lbl_8034F768 .data 0x10 6
+8034F778 lbl_8034F778 .data 0x10 6
+803587D0 lbl_803587D0 .data 0x10 1
+80358A78 lbl_80358A78 .data 0x10 1
+80358A88 lbl_80358A88 .data 0x24 6
+80358AAC lbl_80358AAC .data 0x13 2
+80358AC0 lbl_80358AC0 .data 0xE 2
+80358AF4 lbl_80358AF4 .data 0x15 1
+80358B0C lbl_80358B0C .data 0xE 1
+80358DA4 lbl_80358DA4 .data 0x15 1
+80358DC0 lbl_80358DC0 .data 0x10 1
+8035C560 lbl_8035C560 .data 0x10 1
+8035C5D0 lbl_8035C5D0 .data 0x10 1
+8035C5E0 lbl_8035C5E0 .data 0xDC 1
+8035C6BC lbl_8035C6BC .data 0xDC 2
+8035C798 lbl_8035C798 .data 0x38 1
+8035C7D0 lbl_8035C7D0 .data 0x10 1
+8035C7E0 lbl_8035C7E0 .data 0x28 1
+8035C808 lbl_8035C808 .data 0x13 4
+8035C81C lbl_8035C81C .data 0xE 4
+8035C82C lbl_8035C82C .data 0x13 2
+8035C840 lbl_8035C840 .data 0xE 2
+8035C850 lbl_8035C850 .data 0x20 2
+8035C870 lbl_8035C870 .data 0x28 1
+8035C898 lbl_8035C898 .data 0x20 1
+8035C8B8 lbl_8035C8B8 .data 0x20 1
+8035C8D8 jumptable_8035C8D8 .data 0x20 1
+8035C8F8 jumptable_8035C8F8 .data 0x20 1
+8035C918 jumptable_8035C918 .data 0xD4 1
+8035C9EC jumptable_8035C9EC .data 0x5C 1
+8035CA48 jumptable_8035CA48 .data 0x24 1
+8035CA6C lbl_8035CA6C .data 0x1C 1
+8035CA88 lbl_8035CA88 .data 0x20 1
+8035CAA8 lbl_8035CAA8 .data 0x20 1
+8035CAC8 lbl_8035CAC8 .data 0x40 1
+8035CB08 lbl_8035CB08 .data 0x10 1
+8035CB18 lbl_8035CB18 .data 0x20 1
+8035CB38 lbl_8035CB38 .data 0x10 1
+8035CB48 lbl_8035CB48 .data 0x68 1
+8035CBB0 lbl_8035CBB0 .data 0x28 1
+8035CBD8 jumptable_8035CBD8 .data 0xA4 1
+8035CC80 lbl_8035CC80 .data 0x28 1
+8035CCA8 jumptable_8035CCA8 .data 0x1C 1
+8035CCC8 lbl_8035CCC8 .data 0x28 1
+8035CCF0 lbl_8035CCF0 .data 0x28 1
+8035CD18 lbl_8035CD18 .data 0x20 1
+8039F340 lbl_8039F340 .bss 0x30 1
+804390E0 lbl_804390E0 .bss 0x10 1
+804390F0 lbl_804390F0 .bss 0x10 6
+80439170 lbl_80439170 .bss 0x30 8
+804391A0 lbl_804391A0 .bss 0xC 2
+804391AC lbl_804391AC .bss 0x24 5
+8043AC28 lbl_8043AC28 .sdata 0x2 8
+8043AC2C lbl_8043AC2C .sdata 0x2 6
+8043B354 lbl_8043B354 .sdata 0x4 3
+8043B758 lbl_8043B758 .sdata 0x8 1
+8043B760 lbl_8043B760 .sdata 0x4 2
+8043B764 lbl_8043B764 .sdata 0x4 2
+8043B768 lbl_8043B768 .sdata 0x4 1
+8043B76C lbl_8043B76C .sdata 0x4 1
+8043B770 lbl_8043B770 .sdata 0x8 5
+8043B778 lbl_8043B778 .sdata 0x6 2
+8043B780 lbl_8043B780 .sdata 0x6 1
+8043BBA8 lbl_8043BBA8 .sbss 0x4 7
+8043BC70 lbl_8043BC70 .sbss 0x4 5
+8043C458 lbl_8043C458 .sbss 0x8 2
+8043C468 lbl_8043C468 .sbss 0x8 4
+8043C470 lbl_8043C470 .sbss 0x8 2
+8043C4D0 lbl_8043C4D0 .sbss 0x8 1
+8043C588 lbl_8043C588 .sbss 0x8 3
+8043C590 lbl_8043C590 .sbss 0x8 7
+8043C5A0 lbl_8043C5A0 .sbss 0x4 9
+8043C5A5 lbl_8043C5A5 .sbss 0x1 3
+8043C5D4 lbl_8043C5D4 .sbss 0x4 41
+8043C5E0 lbl_8043C5E0 .sbss 0x8 15
+8043C5E8 lbl_8043C5E8 .sbss 0x8 34
+8043C620 lbl_8043C620 .sbss 0x8 15
+8043C6C8 lbl_8043C6C8 .sbss 0x8 17
+8043C6D8 lbl_8043C6D8 .sbss 0x8 5
+8043C960 lbl_8043C960 .sbss 0x8 20
+8043C968 lbl_8043C968 .sbss 0x8 40
+8043C970 lbl_8043C970 .sbss 0x4 67
+8043C974 lbl_8043C974 .sbss 0x4 1
+8043C978 lbl_8043C978 .sbss 0x8 1
+8043C980 lbl_8043C980 .sbss 0x4 3
+8043C984 lbl_8043C984 .sbss 0x1 5
+8043C988 lbl_8043C988 .sbss 0x4 64
+8043C98C lbl_8043C98C .sbss 0x2 1

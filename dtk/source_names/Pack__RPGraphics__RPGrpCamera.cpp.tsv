@@ -1,0 +1,4 @@
+address	old_name	new_name	unit	previous
+801A65F8	Gfx_Camera_screenToPlane	GetScreenToPlane__11RPGrpCameraCFPQ34nw4r4math4VEC3RCQ34nw4r4math4VEC3RCQ34nw4r4math4VEC3PC11RPGrpScreenff	Pack/RPGraphics/RPGrpCamera.cpp	
+80438CC0	lbl_80438CC0	sDefaultCamera__11RPGrpCamera	Pack/RPGraphics/RPGrpCamera.cpp	
+80438E38	lbl_80438E38	cameraData$17737	Pack/RPGraphics/RPGrpCamera.cpp	

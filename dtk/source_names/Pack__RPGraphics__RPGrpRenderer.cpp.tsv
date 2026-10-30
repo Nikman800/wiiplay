@@ -1,0 +1,10 @@
+address	old_name	new_name	unit	previous
+80183150	Sys_setDisplayClearColor	setDisplayClearColor__11RPSysSystemFQ34nw4r2ut5Color	Pack/RPGraphics/RPGrpRenderer.cpp	
+801831DC	Sys_System_getModifyRatio	getModifyRatio__11RPSysSystemCFv	Pack/RPGraphics/RPGrpRenderer.cpp	
+801AD088	Gfx_Renderer_endFrame	PostDraw__13RPGrpRendererFv	Pack/RPGraphics/RPGrpRenderer.cpp	
+801AD6B0	Gfx_Renderer_beginFrame	PreDraw__13RPGrpRendererFv	Pack/RPGraphics/RPGrpRenderer.cpp	
+801AD9CC	Gfx_setClearColor	SetClearColor__13RPGrpRendererFUcUcUc	Pack/RPGraphics/RPGrpRenderer.cpp	
+801ADA14	Gfx_initEngine	Initialize__13RPGrpRendererFUsUs	Pack/RPGraphics/RPGrpRenderer.cpp	
+801ADB80	Gfx_Renderer_dtor	__dt__13RPGrpRendererFv	Pack/RPGraphics/RPGrpRenderer.cpp	
+8039E1A0	lbl_8039E1A0	s_cacheGX__Q23EGG7StateGX	Pack/RPGraphics/RPGrpRenderer.cpp	
+8043ABC4	lbl_8043ABC4	s_modifyRatio__Q23EGG7StateGX	Pack/RPGraphics/RPGrpRenderer.cpp	

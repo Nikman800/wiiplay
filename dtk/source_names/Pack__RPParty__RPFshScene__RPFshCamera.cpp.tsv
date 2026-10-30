@@ -1,0 +1,9 @@
+address	old_name	new_name	unit	previous
+8020AE5C	Fsh_CameraMgr_calc	Calculate__14RPFshCameraMgrFv	Pack/RPParty/RPFshScene/RPFshCamera.cpp	
+8020AF34	Fsh_CameraMgr_reset	Reset__14RPFshCameraMgrFv	Pack/RPParty/RPFshScene/RPFshCamera.cpp	
+8020B00C	Fsh_CameraMgr_dtor	__dt__14RPFshCameraMgrFv	Pack/RPParty/RPFshScene/RPFshCamera.cpp	
+8020B04C	Fsh_CameraMgr_destroy	DestroyInstance__14RPFshCameraMgrFv	Pack/RPParty/RPFshScene/RPFshCamera.cpp	
+8020B090	Fsh_CameraMgr_create	CreateInstance__14RPFshCameraMgrFv	Pack/RPParty/RPFshScene/RPFshCamera.cpp	
+8020BAD4	Fsh_Camera_ctor	__ct__11RPFshCameraFv	Pack/RPParty/RPFshScene/RPFshCamera.cpp	
+80358D98	lbl_80358D98	__vt__14RPFshCameraMgr	Pack/RPParty/RPFshScene/RPFshCamera.cpp	
+8043C750	Fsh_cameraMgr	sInstance__14RPFshCameraMgr	Pack/RPParty/RPFshScene/RPFshCamera.cpp	

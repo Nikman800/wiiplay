@@ -1,0 +1,6 @@
+address	old_name	new_name	unit	previous
+800E26CC	GXSetColorUpdate	GXSetColorUpdate	Pack/RPKernel/RPSysKokeshiIcon.cpp	GXSetAlphaUpdate
+800E26F8	GXSetAlphaUpdate	GXSetAlphaUpdate	Pack/RPKernel/RPSysKokeshiIcon.cpp	GXSetColorUpdate
+8034F740	lbl_8034F740	__vt__16RPSysKokeshiIcon	Pack/RPKernel/RPSysKokeshiIcon.cpp	
+8043B2E0	Mii_lightMapNames	LIGHT_TEXTURE_NAMES__19RPSysKokeshiManager	Pack/RPKernel/RPSysKokeshiIcon.cpp	
+8043B310	lbl_8043B310	LIGHT_TEXTURE_FILE_NAMES__16RPSysKokeshiIcon	Pack/RPKernel/RPSysKokeshiIcon.cpp	

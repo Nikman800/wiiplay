@@ -1,0 +1,6 @@
+address	old_name	new_name	unit	previous
+80291614	Wly_Earth_calc	Calculate__10RPWlyEarthFv	Pack/RPParty/RPWlyScene/RPWlyField_2.cpp	
+80291704	Wly_Earth_reset	Reset__10RPWlyEarthFv	Pack/RPParty/RPWlyScene/RPWlyField_2.cpp	
+80291708	Wly_Earth_loadModel	Load__10RPWlyEarthFv	Pack/RPParty/RPWlyScene/RPWlyField_2.cpp	
+80291828	Wly_Earth_ctor	__ct__10RPWlyEarthFv	Pack/RPParty/RPWlyScene/RPWlyField_2.cpp	
+8029188C	Wly_Earth_dtor	__dt__10RPWlyEarthFv	Pack/RPParty/RPWlyScene/RPWlyField_2.cpp	

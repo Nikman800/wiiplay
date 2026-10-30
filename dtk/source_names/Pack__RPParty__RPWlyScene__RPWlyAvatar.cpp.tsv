@@ -1,0 +1,7 @@
+address	old_name	new_name	unit	previous
+8028DFC8	Wly_LevelTable_getCurrentLevel	GetCurrentLevel__15RPWlyLevelTableCFv	Pack/RPParty/RPWlyScene/RPWlyAvatar.cpp	
+802902F0	Wly_AvatarShadow_calc	Calculate__17RPWlyAvatarShadowFv	Pack/RPParty/RPWlyScene/RPWlyAvatar.cpp	
+80290418	Wly_AvatarShadow_resetTransform	Reset__17RPWlyAvatarShadowFv	Pack/RPParty/RPWlyScene/RPWlyAvatar.cpp	
+8029045C	Wly_AvatarShadow_loadModel	Load__17RPWlyAvatarShadowFv	Pack/RPParty/RPWlyScene/RPWlyAvatar.cpp	
+802904BC	Wly_AvatarShadow_ctor	__ct__17RPWlyAvatarShadowFv	Pack/RPParty/RPWlyScene/RPWlyAvatar.cpp	
+802904F8	Wly_AvatarShadow_dtor	__dt__17RPWlyAvatarShadowFv	Pack/RPParty/RPWlyScene/RPWlyAvatar.cpp	

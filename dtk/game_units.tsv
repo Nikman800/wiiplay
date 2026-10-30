@@ -1,0 +1,496 @@
+start	end	name	classes	functions	evidence
+801827F4	80183AB8	Pack/RPKernel/RPSysSystem.cpp	RPSysSystem,Display	35	starts with the disk-check/reset callbacks (were in auto_03_801827F4_text)
+80183AB8	80183B1C	Pack/RPKernel/RPSysSystem_2.cpp	RPSysConfigData	8	class change
+80183B1C	80183BA0	main.cpp		2	reference unit
+80183BA0	80184878	Pack/RPSystem/RPSysSceneCreator.cpp	RPSysSceneCreator,RPSysScene	13	class change
+80184878	80184F44	Pack/RPSystem/RPSysScene.cpp	RPSysScene,IRPGrpDrawObject	29	class change
+80184F44	80185000	Pack/RPSystem/RPSysRenderMode.cpp	RPSysRenderMode	1	reference unit
+80185000	80185AD4	Pack/RPSystem/RPSysSceneMgr.cpp	RPSysSceneMgr	31	class change
+80185AD4	80185CD0	Pack/RPSystem/RPSysProjectLocal.cpp	RPSysProjectLocal	5	reference unit
+80185CD0	80185FE0	Pack/RPSystem/RPSysGameConfig.cpp	RPSysGameConfig	3	reference unit
+80185FE0	80186118	Pack/RPSystem/RPSysTagParms.cpp	RPSysTagParm,RPSysTagParameters,RPSysStringTagParm	12	reference unit
+80186118	801865D0	Pack/RPSystem/RPSysLoadScene.cpp	RPSysScene	13	reference unit;matching: ends before Wii Sports' RP_80186E40.cpp;drawTimeStamp moved to RP_80186E40.cpp (its format string follows this file's string pool)
+801865D0	80186754	Pack/RPSystem/RP_80186E40.cpp		2	matching: Wii Sports' RP_80186E40.cpp: Vector3f[4] static init (0x58) and its array dtor
+80186754	8018741C	Pack/RPSystem/RPSysResourceManager.cpp	RPSysResourceManager	18	reference unit
+8018741C	801874CC	Pack/RPSystem/RPSysQueuedScene.cpp	RPSysQueuedScene	2	reference unit
+801874CC	80187820	Pack/RPSystem/RPSysCommonObject.cpp	RPSysCommonObject,RPGrpScreen	7	reference unit
+80187820	80187C24	Pack/RPSystem/RPSysDvdStatus.cpp	RPSysDvdStatus	5	reference unit
+80187C24	80189BBC	Pack/RPSystem/RPSysSaveDataMgr.cpp	RPSysSaveDataMgr	41	reference unit
+80189BBC	80189BC4	Pack/RPKernel/IRPSysHostIOSocket_2.cpp	IRPSysHostIOSocket	2	class change
+80189BC4	8018A088	Pack/RPSystem/RPSportsPlayerData.cpp	RPSportsPlayerData	11	class change
+8018A088	8018A3A4	Pack/RPSystem/RPSysFontManager.cpp	RPSysFontManager	7	class change
+8018A3A4	8018AF1C	Pack/RPSystem/RPSysSaveData.cpp	RPSysSaveData	11	class change
+8018AF1C	8018B6EC	Pack/RPSystem/RPSysPauseMgr.cpp	RPSysPauseMgr	7	class change
+8018B6EC	8018BA94	Pack/RPSystem/RPPartySystemData.cpp	RPPartySystemData	14	class change
+8018BA94	8018BE70	Pack/RPSystem/RPPartyPlayerData.cpp	RPPartyPlayerData,RPPartySystemData	18	class change
+8018BE70	8018CC5C	Pack/RPSystem/RPSysPlayerMgr.cpp	RPSysPlayerMgr	20	reference unit; merged with the former _2/_3/RPSysPlayer_2 ranges (dtor, ctor, weak OldData ctor and RPSysPlayer dtor from new T[n])
+8018CC5C	8018ED50	Pack/RPSystem/RPSysPlayer.cpp	RPSysPlayer	6	reference unit
+8018ED50	8018EDFC	Pack/RPKernel/IRPSysHostIOSocket.cpp	IRPSysHostIOSocket	3	reference unit
+8018EDFC	8018EE80	Pack/RPKernel/RPSysHostIOSocketManager.cpp	RPSysHostIOSocketManager	4	reference unit
+8018EE80	8018EE88	Pack/RPKernel/RP_DEBUG_STUB_0.cpp	RP_DEBUG_STUB_0	2	reference unit
+8018EE88	8018F2E0	Pack/RPKernel/RPSysTextWriter.cpp	RPSysTextWriter	7	reference unit
+8018F2E0	8018F3E4	Pack/RPKernel/RPSysMessage.cpp	RPSysMessage	6	reference unit
+8018F3E4	8018FA34	Pack/RPKernel/RPSysKokeshi.cpp	RPSysKokeshi	7	matching: one file with the Kokeshi head methods and ctor/dtor (ogws port)
+8018FA34	80190C24	Pack/RPKernel/RPSysKokeshiManager.cpp	RPSysKokeshiManager	28	reference unit
+80190C24	80190C74	Pack/RPKernel/RP_DEBUG_STUB_1.cpp	RP_DEBUG_STUB_1	2	reference unit
+80190C74	801926CC	Pack/RPKernel/RPSysEffectMgr.cpp	RPSysEffectMgr,RPSysEffectMemoryManager	48	reference unit
+801926CC	80193DB8	Pack/RPKernel/RPSysEffectBase.cpp	RPSysEffect	39	reference unit
+80193DB8	80195CE0	Pack/RPKernel/RPSysLayout.cpp	RPSysLayout,RPSysLytAnmObj	61	class change
+80195CE0	80195F78	Pack/RPKernel/RPSysFrameCtrl.cpp	RPSysFrameCtrl	2	reference unit
+80195F78	80196A20	Pack/RPKernel/RPSysEffectCreator.cpp	RPSysEffectCreator	8	reference unit
+80196A20	80196CAC	Pack/RPParty/RPPartyCommon/RPTextWriter.cpp	RPTextWriter	6	class change
+80196CAC	80196CD4	Pack/RPKernel/RPSysWideTextWriter.cpp	RPSysWideTextWriter	1	reference unit
+80196CD4	80196EB0	Pack/RPKernel/RPSysLytAnmObj.cpp	RPSysLytAnmObj	5	reference unit
+80196EB0	8019702C	Pack/RPKernel/RPSysLytResAccessor.cpp	RPSysLytResAccessor	4	reference unit
+8019702C	801976A0	Pack/RPKernel/RPSysLytTextBox.cpp	RPSysLytTextBox	5	reference unit;matching: ends before isInsideBounding
+801976A0	801978B0	Pack/RPKernel/RPSysLytBounding.cpp	RPSysLytBounding	1	matching: split from RPSysLytTextBox (ogws port)
+801978B0	80197998	Pack/RPKernel/RPSysFile.cpp	RPSysFile	2	class change;matching: ends before another class
+80197998	80197A2C	Pack/RPParty/RPPartyCommon/RPBase8034F6B0_2.cpp	RPBase8034F6B0	2	matching: ctor/dtor of a class on RPBase8034F6B0 (vtable 8034F6B0), used by Fishing
+80197A2C	80197D98	Pack/RPKernel/RPSysAvatar.cpp	RPSysAvatar	6	reference unit
+80197D98	80198824	Pack/RPParty/RPPartyCommon/RPMessageWindow.cpp	RPMessageWindow	8	class change
+80198824	8019922C	Pack/RPKernel/RPSysTagProcessor.cpp	RPSysTagProcessor	9	value conflict
+8019922C	8019A6D0	Pack/RPKernel/RPSysController.cpp	RPSysCoreController,RPSysCoreInfo,RPSysCoreAddress	39	reference unit
+8019A6D0	8019BDFC	Pack/RPKernel/RPSysKokeshiIcon.cpp	RPSysKokeshiIcon,RPGrpTexture	12	reference unit
+8019BDFC	8019BF0C	Pack/RPKernel/RPSysKokeshiGenInfo.cpp	RPSysKokeshiGenInfo	2	reference unit
+8019BF0C	8019BF6C	Pack/RPKernel/RPSysKokeshiLocation.cpp	RPSysKokeshiLocation	2	reference unit
+8019BF6C	8019BFC8	Pack/RPKernel/RPSysKokeshiOverloadInfo.cpp	RPSysKokeshiOverloadInfo	2	reference unit
+8019BFC8	8019C03C	Pack/RPKernel/RPSysMiddleDBGenInfo.cpp	RPSysMiddleDBGenInfo	2	reference unit
+8019C03C	8019C368	Pack/RPKernel/RPSysMiddleDB.cpp	RPSysMiddleDB	5	reference unit
+8019C368	8019C420	Pack/RPKernel/RPSysLytAllocator.cpp	RPSysLytAllocator	3	reference unit
+8019C420	8019C94C	Pack/RPKernel/RPSysLytDynamicAnm.cpp	RPSysLytDynamicAnm	3	reference unit
+8019C94C	8019CB7C	Pack/RPKernel/RPSysKokeshiIterater.cpp	RPSysKokeshiIterater	5	reference unit
+8019CB7C	8019E0A4	Pack/RPKernel/RPSysCursorDrawMgr.cpp	RPSysCursorDrawMgr	25	class change;matching: ends before the string utilities
+8019E0A4	8019E450	Pack/RPKernel/RPSysStringUtility.cpp	RPSysStringUtility	6	matching: ChangeToFullSize and friends start at 8019E0A4 (ogws port)
+8019E450	8019E5D0	Pack/RPKernel/RPSysKokeshiCtrlDataLoader.cpp	RPSysKokeshiCtrlDataLoader	6	reference unit
+8019E5D0	8019F9D0	Pack/RPKernel/RPSysPauseMenu.cpp	RPSysPauseMenu	9	reference unit
+8019F9D0	801A2320	Pack/RPKernel/RPSysSystemWinMgr.cpp	RPSysSystemWinMgr	21	class change
+801A2320	801A3148	Pack/RPKernel/RPSysHomeMenuMgr.cpp	RPSysHomeMenuMgr	14	reference unit
+801A3148	801A33DC	Pack/RPKernel/RPSysOfficialDB.cpp	RPSysOfficialDB	5	reference unit
+801A33DC	801A348C	Pack/RPKernel/RPSysLytWindow.cpp	RPSysLytWindow	1	reference unit
+801A348C	801A39F0	Pack/RPKernel/RPSysKokeshiCtrlDataMgr.cpp	RPSysKokeshiCtrlDataMgr	11	reference unit
+801A39F0	801A3CA4	Pack/RPKernel/RPSysKokeshiCtrlMgr.cpp	RPSysKokeshiCtrlMgr	12	reference unit
+801A3CA4	801A3DD4	Pack/RPKernel/RPSysPairingMgr.cpp	RPSysPairingMgr	3	reference unit
+801A3DD4	801A4780	Pack/RPKernel/RPSysControllerMgr.cpp	RPSysCoreControllerMgr	10	reference unit
+801A4780	801A4F44	Pack/RPKernel/RPSysNWC24Manager.cpp	RPSysNWC24Manager	6	reference unit
+801A4F44	801A5420	Pack/RPParty/RPPartyCommon/RPBase8034F6B0.cpp	RPBase8034F6B0	6	class change
+801A5420	801A567C	Pack/RPKernel/RPSysParticleManager.cpp	RPSysParticleManager	8	reference unit;matching: ends before nw4r g3d ScnRfl
+801A567C	801A6228	nw4r/g3d/g3d_scnrfl.cpp	ScnRfl	12	matching: nw4r::g3d::ScnRfl, library code placed among the game units
+801A6228	801A6DDC	Pack/RPGraphics/RPGrpCamera.cpp	RPGrpCamera	14	class change
+801A6DDC	801A7758	Pack/RPGraphics/RPGrpDrawPathManager.cpp	RPGrpDrawPathManager,RPGrpDrawPath	19	reference unit;matching: ends with the weak draw-path dtors it emits
+801A7758	801A77D8	Pack/RPGraphics/RPGrpLightManager.cpp	RPGrpLightManager	1	reference unit
+801A77D8	801A7FA8	Pack/RPGraphics/RPGrpModel.cpp	RPGrpModel	26	class change
+801A7FA8	801A881C	Pack/RPGraphics/RPGrpModelAnm.cpp	RPGrpModelAnm	14	reference unit
+801A881C	801AA9C0	Pack/RPGraphics/RPGrpModelAnmImplement.cpp		34	reference unit
+801AA9C0	801ABBF8	Pack/RPGraphics/RPGrpModelImplement.cpp	RPGrpModelG3D,IRPGrpModelCallback	52	reference unit
+801ABBF8	801ABC08	Pack/RPGraphics/RPGrpModelMisc.cpp	RPGrpModelMisc	1	reference unit
+801ABC08	801AC10C	Pack/RPGraphics/RPGrpModelManager.cpp	RPGrpModelManager	18	matching: one file as in Wii Sports: IBinary weak copies inside, dtor last
+801AC10C	801ACBC0	Pack/RPGraphics/RPGrpModelResManager.cpp	RPGrpModelResManager	12	reference unit;matching: starts 6 functions earlier (ogws port)
+801ACBC0	801ACDF4	Pack/RPParty/RPPartyCommon/RPScnProcDrawHook.cpp	RPScnProcDrawHook	2	class change
+801ACDF4	801ACDF8	Pack/RPGraphics/RPGrpView_2.cpp	RPGrpView	1	class change
+801ACDF8	801ADBC0	Pack/RPGraphics/RPGrpRenderer.cpp	RPGrpRenderer	19	class change
+801ADBC0	801ADC30	Pack/RPParty/RPPartyCommon/RPScnProcDrawHook_2.cpp	RPScnProcDrawHook	2	class change
+801ADC30	801ADDA8	Pack/RPGraphics/RPGrpScreen.cpp	RPGrpScreen	4	reference unit
+801ADDA8	801AEDDC	Pack/RPGraphics/RPGrpView.cpp	RPGrpView	20	reference unit
+801AEDDC	801AEEB8	Pack/RPGraphics/RPGrpViewRender2D.cpp	RPGrpViewRender2D	6	reference unit
+801AEEB8	801AF110	Pack/RPGraphics/RPGrpViewRender3D.cpp	RPGrpViewRender3D	9	reference unit
+801AF110	801AFC04	Pack/RPGraphics/RPGrpModelScene.cpp	RPGrpModelScene	16	reference unit;matching: ends with the weak Light/Fog manager dtors it emits
+801AFC04	801AFD98	Pack/RPGraphics/RPGrpDrawPathLightMap.cpp	RPGrpDrawPathLightMap	6	reference unit
+801AFD98	801AFE30	Pack/RPGraphics/RPGrpModelBoundingInfo.cpp	RPGrpModelBoundingInfo	2	reference unit
+801AFE30	801AFEDC	Pack/RPGraphics/RPGrpDrawPathShadowTexture.cpp	RPGrpDrawPathShadowTexture	7	reference unit
+801AFEDC	801AFFA0	Pack/RPGraphics/RPGrpShadowTexture.cpp	RPGrpShadowTexture	2	class change
+801AFFA0	801B1224	Pack/RPGraphics/RPGrpModelMaterial.cpp	RPGrpModelMaterial	5	class change
+801B1224	801B1418	Pack/RPGraphics/RPGrpModelRecord.cpp	RPGrpModelRecord	1	class change
+801B1418	801B1574	Pack/RPGraphics/RPGrpTexture.cpp	RPGrpTexture	4	class change
+801B1574	801B1820	Pack/RPGraphics/RPGrpCaptureTexture.cpp	RPGrpCaptureTexture	4	class change
+801B1820	801B19E8	Pack/RPGraphics/RPGrpProjectionObject.cpp	RPGrpProjectionObject	4	reference unit
+801B19E8	801B2B34	Pack/RPGraphics/RPGrpModelRfl.cpp	RPGrpModelRfl	39	reference unit
+801B2B34	801B4BE0	Pack/RPAudio/RPSndAudioMgr.cpp	RPSndAudioMgr	46	reference unit
+801B4BE0	801B5754	Pack/RPAudio/RPSndSpeakerMgr.cpp	RPSndSpeakerMgr	16	reference unit;matching: ends before the RPSndUtility functions
+801B5754	801B597C	Pack/RPAudio/RPSndUtility.cpp	RPSndRangeTable	4	matching: starts with three utility functions placed after RPSndSpeakerMgr
+801B597C	801B5CAC	Pack/RPAudio/RPSndMoveParam.cpp	RPSndMoveParamMgr,RPSndMoveParam,RPSndMoveValueF32	7	reference unit
+801B5CAC	801B5E54	Pack/RPAudio/RPSndHomeMenuArcMgr.cpp	RPSndHomeMenuArcMgr	6	reference unit
+801B5E54	801B621C	Pack/RPAudio/RPSndStaticMgr.cpp	RPSndStaticMgr	5	reference unit;matching: 5 functions, 0x3C8 as in Wii Sports
+801B621C	801B6A7C	Pack/RPUtility/RPUtlDohMath.cpp		8	RP_intersectLinePlane ... RP_seedRandomTicks
+801B6A7C	801B6B60	Pack/RPUtility/RPUtlDohMath_2.cpp		8	split: static init of the vector constants (own .sdata2 pool)
+801B6B60	801B6C0C	Pack/RPParty/RPPartyCommon/RPSceneObj.cpp	RPSceneObj	8	class change
+801B6C0C	801B6EF0	Pack/RPParty/RPPartyCommon/RPResSlots.cpp	RPResSlots	5	class change
+801B6EF0	801B73BC	Pack/RPParty/RPPartyCommon/RPModelObj.cpp	RPModelObj	18	class change
+801B73BC	801B7748	Pack/RPParty/RPPartyCommon/RPLookAtCam.cpp	RPLookAtCam	6	class change
+801B7748	801B83A8	Pack/RPParty/RPPartyCommon/RPKcl.cpp	RPKcl	7	value conflict
+801B83A8	801B84F0	Pack/RPParty/RPPartyCommon/RPKcl_2.cpp	RPSimpleModel	2	split: RP_makeMtxFromRotPos and the static init of RPSimpleModel vector/matrix statics (own .sdata2 pool)
+801B84F0	801B85B0	Pack/RPParty/RPPartyCommon/RPKcl_3.cpp		1	split: RP_drawShadowVolume follows the static init
+801B85B0	801B8888	Pack/RPParty/RPPartyCommon/RPSimpleModel.cpp	RPSimpleModel	9	class change
+801B8888	801B897C	Pack/RPParty/RPPartyCommon/RPResFile_2.cpp	RPResTable	2	class change
+801B897C	801B8CF8	Pack/RPParty/RPPartyCommon/RPResFile_3.cpp	RPResFile	3	class change
+801B8CF8	801B90B0	Pack/RPParty/RPPartyCommon/RPActorBase.cpp	RPActorBase	22	class change
+801B90B0	801B93B0	Pack/RPParty/RPPartyCommon/RPActorBase_2.cpp		3	split from RPActorBase: after its thunks, own 8-aligned .sdata2 (2.0)
+801B93B0	801B9660	Pack/RPParty/RPPartyCommon/RPSceneInfo.cpp	RPKclHolder,RPBBox	8	class change
+801B9660	801B9D74	Pack/RPParty/RPPartyCommon/RPCurve.cpp	RPCurve	8	class change
+801B9D74	801B9F84	Pack/RPParty/RPPartyCommon/RPInterpCamera.cpp	RPRange	5	value conflict
+801B9F84	801B9FC8	Pack/RPParty/RPPartyCommon/RPCPadCursor.cpp	RPCPadCursor	2	class change
+801B9FC8	801BA018	Pack/RPParty/RPPartyCommon/RPLytObjBase.cpp	RPLytObjBase	4	class change
+801BA018	801BA474	Pack/RPParty/RPPartyCommon/RPPolyline.cpp	RPPolyline	8	class change
+801BA474	801BAB3C	Pack/RPParty/RPPartyCommon/RPPosHistory.cpp	RPPosHistory	9	value conflict
+801BAB3C	801BAFC0	Pack/RPParty/RPPartyCommon/RPCursorTrail.cpp	RPCursorTrail	4	split from RPPosHistory (two .sdata2 pools in the old RPPolyline range)
+801BAFC0	801BB30C	Pack/RPParty/RPPartyCommon/RPJointMtxBuffer.cpp	RPJointMtxBuffer	6	class change
+801BB30C	801BDB38	Pack/RPParty/RPPartyCommon/RPPhysSphere.cpp	RPPhysSphere	15	class change
+801BDB38	801BE0E8	Pack/RPParty/RPPartyCommon/RPInterpCamera_2.cpp	RPInterpCamera	6	moved: starts at RPInterpCamera::CalcUpVector (own .sdata2 pool)
+801BE0E8	801BFC34	Pack/RPParty/RPPartyCommon/RPCPadCursor_2.cpp	RPCPadCursor	13	moved: starts at RP_getPointerScreenPos (last-defined function of the file)
+801BFC34	801BFEDC	Pack/RPParty/RPPartyCommon/RPTnkMapData.cpp	RPTnkMapData	8	class change
+801BFEDC	801C013C	Pack/RPParty/RPPartyCommon/RPMiiIconSet.cpp	RPMiiIconSet	6	value conflict
+801C013C	801C17C0	Pack/RPParty/RPPartyCommon/RPCPadCursor_3.cpp	RPWCursor	10	class change
+801C17C0	801C1E28	Pack/RPParty/RPPartyCommon/RPAnimButton.cpp	RPAnimButton	14	value conflict
+801C1E28	801C28DC	Pack/RPParty/RPPartyCommon/RPCommonMessage.cpp	RPCommonMessage	40	class change
+801C28DC	801C2954	Pack/RPParty/RPPartyCommon/RPAnimButton_2.cpp	RPFrameOverrideTable	3	class change
+801C2954	801C2EE0	Pack/RPParty/RPPartyCommon/RPAnimButton_3.cpp	RPAnimButtonTable	7	class change
+801C2EE0	801C30BC	Pack/RPParty/RPPartyCommon/RPBBox.cpp	RPBBox	10	split: RPBBox (own pool 0, -FLT_MAX, FLT_MAX)
+801C30BC	801C45B0	Pack/RPParty/RPPartyCommon/RPDebugLog.cpp		10	split: debug log/graph code (own .sdata2 pool from 8043EC10)
+801C45B0	801C4818	Pack/RPParty/RPPartyCommon/RPDebugGraph.cpp	RPDebugGraph	4	class change
+801C4818	801C49B4	Pack/RPParty/RPPartyCommon/RPRumblePattern.cpp	RPRumblePattern	4	class change
+801C49B4	801C50B8	Pack/RPParty/RPPartyCommon/RPPathSegment.cpp	RPBezierSegment,RPLinearSegment	6	value conflict;pool overlap
+801C50B8	801C5204	Pack/RPParty/RPPartyCommon/RPResFile_4.cpp	RPResTable	3	class change
+801C5204	801C5DD0	Pack/RPParty/RPPartyCommon/RPPathFollower.cpp	RPPathFollower,RPLinearSegment,RPBezierSegment,RPLinearSegmentArray,RPBezierSegmentArray	15	merged with RPPathSegment_2..5: the weak __vt__13RPPathSegment (80357568) comes last in this file's .data
+801C5DD0	801C6084	Pack/RPParty/RPPartyCommon/RPColliderList.cpp	RPColliderList,RPCollider	3	class change
+801C6084	801C608C	Pack/RPParty/RPPartyCommon/RPActor.cpp	RPActor	1	class change
+801C608C	801C6704	Pack/RPParty/RPPartyCommon/RPCollisionModel.cpp	RPCollisionModel	12	class change
+801C6704	801C7D54	Pack/RPParty/RPPartyCommon/RPCollisionShape.cpp	RPCollisionShape	25	value conflict
+801C7D54	801C8058	Pack/RPParty/RPPartyCommon/RPActorScene.cpp	RPActorScene,RPCowGame	17	class change
+801C8058	801C8740	Pack/RPParty/RPPartyCommon/RPActorList.cpp	RPActorList,RPActor	24	class change
+801C8740	801C884C	Pack/RPParty/RPPartyCommon/RPActor_2.cpp	RPActor	10	class change
+801C884C	801C8A18	Pack/RPParty/RPPartyCommon/RPPathFollower_2.cpp	RPPathObject	1	class change
+801C8A18	801C8D28	Pack/RPParty/RPPartyCommon/RPPathFollower_3.cpp	RPPathFollower	2	value conflict
+801C8D28	801C91C8	Pack/RPParty/RPPartyCommon/RPAButtonPrompt.cpp	RPAButtonPrompt	9	value conflict
+801C91C8	801CA29C	Pack/RPParty/RPPartyCommon/RPFrameDown.cpp	RPFrameDown	18	value conflict
+801CA29C	801CAEE4	Pack/RPParty/RPPartyCommon/RPABPress.cpp	RPABPress	10	value conflict
+801CAEE4	801CAF90	Pack/RPParty/RPPartyCommon/RPButtonSeq.cpp	RPButtonSeqHolder	4	class change
+801CAF90	801CB288	Pack/RPParty/RPPartyCommon/RPBodyJoints.cpp	RPBodyJoints	11	class change
+801CB288	801CB9F0	Pack/RPParty/RPPartyCommon/RPSysBootScene.cpp	RPSysBootScene	34	split: boot (strap) scene, ends with its draw/dtor thunks
+801CB9F0	801CE094	Pack/RPParty/RPPartyCommon/RPMenuScene.cpp	RPSysPlayerSelectScene	34	split: menu scene (from Menu_playControllerChangeSe)
+801CE094	801CE684	Pack/RPParty/RPPartyCommon/RPMenuBgModel.cpp	RPMenuBgModel	5	value conflict
+801CE684	801D151C	Pack/RPParty/RPPartyCommon/RPMenuFrame.cpp	RPMenuFrame,RPStateMachine	90	value conflict;pool overlap
+801D151C	801D17A4	Pack/RPParty/RPPartyCommon/RPKokeshiMgr_2.cpp	RPKokeshiHead	6	class change
+801D17A4	801D3450	Pack/RPParty/RPPartyCommon/RPKokeshiMgr_3.cpp	RPKokeshiMgr,IBinary	35	class change
+801D3450	801D4AA8	Pack/RPParty/RPPartyCommon/RPPlayerNumSelect.cpp	RPRimoconEntryLyt	18	value conflict
+801D4AA8	801D660C	Pack/RPParty/RPPartyCommon/RPPlayerNumSelect_2.cpp	RPPlayerNumSelect	12	class change
+801D660C	801D80B0	Pack/RPParty/RPPartyCommon/RPMiiSelect.cpp	RPMiiSelectLyt	28	class change
+801D80B0	801DB3B8	Pack/RPParty/RPPartyCommon/RPMiiSelect_2.cpp	RPMiiSelect	26	class change
+801DB3B8	801DCF54	Pack/RPParty/RPPartyCommon/RPSportsMessageScene.cpp	RPSportsMsgPanel,RPSportsMessageScene	20	merged: RPSportsMessageScene + _2 share one string pool (8031ABB8-8031AEB8)
+801DCF54	801DD8E8	Pack/RPParty/RPPartyCommon/RPPtMenuBg.cpp	RPPtMenuBg	11	value conflict
+801DD8E8	801DF84C	Pack/RPParty/RPPartyCommon/RPPlayerSettingPanel.cpp	RPPlayerSettingPanel	35	value conflict
+801DF84C	801DF9C4	Pack/RPParty/RPPartyCommon/RPPlayerSettingPanel_2.cpp		2	split: Menu_gameIdToSlot/Menu_slotToGameId and their table (after the panel string pool)
+801DF9C4	801E037C	Pack/RPParty/RPPartyCommon/RPPlayerNameTag.cpp	RPPlayerNameTag	17	value conflict
+801E037C	801E1B18	Pack/RPParty/RPPartyCommon/RPPlayerConfirmLyt.cpp	RPPlayerConfirmLyt	78	split: RPPlayerConfirmLyt file (ends with its state-machine instances)
+801E1B18	801E2C94	Pack/RPParty/RPPartyCommon/RPPlayerConfirm.cpp	RPPlayerConfirm	78	split: RPPlayerConfirm file (own string pool at 8031BA80)
+801E2C94	801E30BC	Pack/RPParty/RPPartyCommon/RPLogoModel.cpp	RPLogoModel	31	split: RPLogoModel file (own strings and padded vtable)
+801E30BC	801E3C68	Pack/RPParty/RPPartyCommon/RPPlayAdviceLyt.cpp	RPPlayAdviceLyt	31	split: RPPlayAdviceLyt file
+801E3C68	801E4360	Pack/RPParty/RPPartyCommon/RPCommonMessage_2.cpp	RPCommonMessage	12	class change
+801E4360	801E4994	Pack/RPParty/RPPartyCommon/RPAvatarScene.cpp	RPAvatarScene,RPStateMachine	12	class change
+801E4994	801E4A34	Pack/RPParty/RPPartyCommon/RPScene80358188.cpp	RPPartyRootScene	4	starts with RPPartyRootScene::Exit (emitted first: last defined)
+801E4A34	801E4BD8	Pack/RPParty/RPPartyCommon/RPSceneInfo_2.cpp	RPSceneInfo	6	class change
+801E4BD8	801E556C	Pack/RPParty/RPPartyCommon/RPMedalResult.cpp	RPRankGetLyt	23	class change
+801E556C	801E747C	Pack/RPParty/RPPartyCommon/RPMedalResult_2.cpp	RPMedalResult	29	value conflict
+801E747C	801E80EC	Pack/RPParty/RPPartyCommon/RPMedalResult_3.cpp	RPCommon	73	split: RPCommon file (starts with Party_getNextGameId, ends with its dtor thunks)
+801E80EC	801E9204	Pack/RPParty/RPPartyCommon/RPMedalResult_4.cpp	RPRecordLyt	73	split: RPRecordLyt file (ends with its state-machine instantiations)
+801E9204	801E9E54	Pack/RPParty/RPPartyCommon/RPMedalResult_5.cpp	RPResultMenu	73	split: RPResultMenu file (from GetChoice)
+801E9E54	801EA4A8	Pack/RPParty/RPPartyCommon/RPResultMenu.cpp	RPVsResultLyt	12	value conflict
+801EA4A8	801EB2CC	Pack/RPParty/RPPartyCommon/RPResultMenu_2.cpp	RPChoiceLyt	18	value conflict
+801EB2CC	801ECA34	Pack/RPParty/RPPartyCommon/RPVsWinner.cpp	RPVsWinner	26	value conflict
+801ECA34	801ED2D0	Pack/RPParty/RPPartyCommon/RPVsWinner_2.cpp	RPVsWinnerLyt	25	value conflict
+801ED2D0	801EF328	Pack/RPParty/RPPartyCommon/RPSelectGameLyt.cpp	RPSelectGameLyt	35	value conflict
+801EF328	801F1D14	Pack/RPParty/RPPartyCommon/RPSelectScene.cpp	RPSelectScene	51	starts at Party_gameIndexToMsgIndex (its table is the first .rodata object, 8031D5B8)
+801F1D14	801F2BBC	Pack/RPParty/RPPartyCommon/RPGameInfoLyt.cpp	RPGameInfoLyt	25	value conflict
+801F2BBC	801F4C24	Pack/RPParty/RPPartyCommon/RPDoll.cpp	RPDoll,RPDollBase	53	value conflict
+801F4C24	801F4C2C	Pack/RPParty/RPPartyCommon/RPDoll_3.cpp		1	split: Party_getConst12b follows RPDoll's adjustment thunks (end of that file)
+801F4C2C	801F527C	Pack/RPParty/RPPartyCommon/RPDoll_2.cpp	RPDollMgr	18	class change
+801F527C	801F6C14	Pack/RPParty/RPPartyCommon/RPDollBase.cpp	RPDollBase	20	class change
+801F6C14	801F82A0	Pack/RPParty/RPPartyCommon/RPCrowdMii.cpp	RPCrowdMii	34	value conflict
+801F82A0	801F82A8	Pack/RPParty/RPPartyCommon/RPCrowdMii_3.cpp		1	split: Party_getConst60 follows RPCrowdMii's dtor thunks (end of that file)
+801F82A8	801F8650	Pack/RPParty/RPPartyCommon/RPCrowdMii_2.cpp	RPCrowdMgr	7	value conflict
+801F8650	801F97D4	Pack/RPParty/RPPartyCommon/RPLeadCursor.cpp	RPFaceCtrl,RPLeadCursorLyt	26	value conflict;pool overlap
+801F97D4	801F9ADC	Pack/RPParty/RPPartyCommon/RPLeadCursor_2.cpp	RPLeadCursor	10	class change
+801F9ADC	801F9CC8	Pack/RPParty/RPPartyCommon/RPScreenFade.cpp	RPScreenFade	4	class change
+801F9CC8	801FA150	Pack/RPParty/RPPartyCommon/RPMsgBoard.cpp	RPMsgBoard	9	split: RPMsgBoard file (own gameIds table, "party_message.bmg" pool, padded vtable)
+801FA150	801FAC1C	Pack/RPParty/RPPartyCommon/RPRankCompleteLyt.cpp	RPRankCompleteLyt	23	split: RPRankCompleteLyt file
+801FAC1C	801FB680	Pack/RPParty/RPPartyCommon/RPPauseText.cpp	RPPauseTextLyt	23	value conflict
+801FB680	801FB7D0	Pack/RPParty/RPPartyCommon/RPPauseText_2.cpp	RPPauseText	7	class change
+801FB7D0	801FD6D4	Pack/RPParty/RPPartyCommon/RPTitleLyt.cpp	RPTitleLyt	33	class change
+801FD6D4	801FE3A8	Pack/RPParty/RPPartyCommon/RPSelectGameLyt_2.cpp	RPSelectGameLyt	31	value conflict
+801FE3A8	801FE73C	Pack/RPParty/RPPartyCommon/RPSelectGameLyt_3.cpp	RPSelectGameLyt	31	split: locked balloons
+801FE73C	801FE978	Pack/RPParty/RPPartyCommon/RPSelectGameLyt_4.cpp	RPSelectGameLyt	31	split: record text
+801FE978	801FF03C	Pack/RPParty/RPFshScene/RPFshScene.cpp	RPFshScene	10	value conflict
+801FF03C	80205A84	Pack/RPParty/RPFshScene/RPFshFish.cpp	RPFshFish		class change;matching: one file with its sound actor
+80205A84	802067E4	Pack/RPParty/RPFshScene/RPFshFishMgr.cpp	RPFshFishMgr		class change
+802067E4	80208BA4	Pack/RPParty/RPFshScene/RPFshPlayer.cpp	RPFshPlayer		value conflict;matching: includes Player_2 (IdleEnter blr at 80207154)
+80208BA4	80209118	Pack/RPParty/RPFshScene/RPFshPlayerMgr.cpp	RPFshPlayerMgr		class change
+80209118	8020AE5C	Pack/RPParty/RPFshScene/RPFshRod.cpp	RPFshRod,RPFshRodSnd		class change;matching: includes the RodSnd dtor thunk and Rod_2
+8020AE5C	8020B0F0	Pack/RPParty/RPFshScene/RPFshCamera.cpp	RPFshCameraMgr		class change
+8020B0F0	8020BD7C	Pack/RPParty/RPFshScene/RPFshCamera_2.cpp	RPFshCamera		class change;matching: ends before RPFshStage::IsInPond
+8020BD7C	8020C478	Pack/RPParty/RPFshScene/RPFshStage.cpp	RPFshStage,RPGrpShadowTexture		value conflict;matching: starts with IsInPond
+8020C478	8020E1F0	Pack/RPParty/RPFshScene/RPFshResultLayout.cpp	RPFshResultLayout,RPFshResultFish		class change
+8020E1F0	8020F1A8	Pack/RPParty/RPFshScene/RPFshTimer.cpp	RPFshTimer		value conflict
+8020F1A8	8020F668	Pack/RPParty/RPFshScene/RPFshResultFish.cpp			split from a neighbour;matching: split from the PointPopup range;its destructor thunks (8020F658, 8020F660) end it
+8020F668	8020FEE8	Pack/RPParty/RPFshScene/RPFshPointPopup.cpp	RPFshResultFish,RPFshPointPopup		class change;pool overlap;matching: starts after ResultFish
+8020FEE8	8021172C	Pack/RPParty/RPFshScene/RPFshScoreLayout.cpp	RPFshScoreLayout		value conflict
+8021172C	802126DC	Pack/RPParty/RPFshScene/RPFshStartLayout.cpp	RPFshStartLayout		value conflict
+802126DC	80212DF8	Pack/RPParty/RPFshScene/RPFshSound_3.cpp	RPFshRodSnd		class change;matching: one file with Sound_4
+80212DF8	80213248	Pack/RPParty/RPFshScene/RPFshPrompt.cpp	RPFshYankPrompt		class change
+80213248	802136D4	Pack/RPParty/RPFshScene/RPFshPrompt_2.cpp	RPFshAimArrow		value conflict;matching: ends before Fsh_getStartSoundTable
+802136D4	80214E78	Pack/RPParty/RPFshScene/RPFshBonusFish.cpp	RPFshBonusFish		value conflict;matching: starts at Fsh_getStartSoundTable, includes the BonusFish_2 thunks
+80214E78	8021588C	Pack/RPParty/RPFshScene/RPFshGame.cpp			split from a neighbour;matching: starts with Fsh_getFishTypeParams
+8021588C	802161E8	Pack/RPParty/RPFshScene/RPFshMsg.cpp	RPFshScene,RPFshMsg00		class change;pool overlap;matching: Msg00 proper
+802161E8	80216B44	Pack/RPParty/RPFshScene/RPFshMsg_2.cpp	RPFshMsg01		value conflict
+80216B44	80216E8C	Pack/RPParty/RPHkyScene/RPHkyScene.cpp	RPHkyScene	11	class change
+80216E8C	802191DC	Pack/RPParty/RPHkyScene/RPHkyPuck.cpp	RPHkyPuck	18	class change
+802191DC	8021A4B4	Pack/RPParty/RPHkyScene/RPHkyField.cpp	RPHkyField	12	value conflict
+8021A4B4	8021B844	Pack/RPParty/RPHkyScene/RPHkyGame.cpp	RPHkyGame	12	value conflict
+8021B844	8021FE14	Pack/RPParty/RPHkyScene/RPHkyPaddle.cpp	RPHkyPaddle	30	value conflict
+8021FE14	8021FF3C	Pack/RPParty/RPHkyScene/RPHkyPhase.cpp	RPHkyIntroPhase	7	class change
+8021FF3C	80220034	Pack/RPParty/RPHkyScene/RPHkyPhase_2.cpp	RPHkyWaitPhase	8	class change
+80220034	802202BC	Pack/RPParty/RPHkyScene/RPHkyPhase_3.cpp	RPHkyResultPhase	8	class change
+802202BC	80220438	Pack/RPParty/RPHkyScene/RPHkyPhase_4.cpp	RPHkyTimeUpPhase	8	class change
+80220438	8022061C	Pack/RPParty/RPHkyScene/RPHkyPhase_5.cpp	RPHkyGoalPhase	8	class change;matching: own .sdata2 pool before the trail constants
+8022061C	8022074C	Pack/RPParty/RPHkyScene/RPHkySound.cpp	RPHkyPuckTrail,RPHkyPaddleTrail	2	matching: .sdata2 pool padded apart from the goal phase
+8022074C	80220D1C	Pack/RPParty/RPHkyScene/RPHkyBgmCtrl.cpp	RPHkyBgmCtrl	5	class change
+80220D1C	8022150C	Pack/RPParty/RPHkyScene/RPHkyLyt.cpp	RPHkyScoreLyt	10	class change
+8022150C	80221D6C	Pack/RPParty/RPHkyScene/RPHkyLyt_2.cpp	RPHkyTimeLyt	9	value conflict
+80221D6C	80222118	Pack/RPParty/RPHkyScene/RPHkyHud.cpp	RPHkyHud	9	class change
+80222118	802225F0	Pack/RPParty/RPHkyScene/RPHkyPaddle_2.cpp	RPHkyPaddleRound	8	class change
+802225F0	802228D8	Pack/RPParty/RPHkyScene/RPHkyLyt_3.cpp	RPHkyTimeUpMsgLyt	8	class change
+802228D8	80223060	Pack/RPParty/RPHkyScene/RPHkyLyt_4.cpp	RPHkyBalloonLyt	8	value conflict
+80223060	80223670	Pack/RPParty/RPHkyScene/RPHkyLyt_5.cpp	RPHkyStartMsgLyt	8	value conflict
+80223670	802240E4	Pack/RPParty/RPHkyScene/RPHkyLyt_6.cpp	RPHkyGoalMsgLyt	12	value conflict
+802240E4	802244D0	Pack/RPParty/RPHkyScene/RPHkyLyt_7.cpp	RPHkyMsg03Lyt	7	value conflict
+802244D0	80224868	Pack/RPParty/RPPnpScene/RPPnpScene.cpp	RPPnpScene	11	class change
+80224868	80225240	Pack/RPParty/RPPnpScene/RPPnpField.cpp	RPPnpField	7	class change
+80225240	80226D04	Pack/RPParty/RPPnpScene/RPPnpBall.cpp	RPPnpBall	21	value conflict
+80226D04	802274C0	Pack/RPParty/RPPnpScene/RPPnpField_2.cpp	RPPnpTable	9	value conflict
+802274C0	8022AA04	Pack/RPParty/RPPnpScene/RPPnpPlayer.cpp	RPPnpPlayer	18	value conflict
+8022AA04	8022B074	Pack/RPParty/RPPnpScene/RPPnpPhase.cpp	RPPnpPointPhase	15	class change
+8022B074	8022BC8C	Pack/RPParty/RPPnpScene/RPPnpPhase_2.cpp	RPPnpResultPhase	8	class change
+8022BC8C	8022C478	Pack/RPParty/RPPnpScene/RPPnpPhase_3.cpp	RPPnpServePhase	11	value conflict;matching: ends before RPPnpSound.cpp
+8022C478	8022C6A0	Pack/RPParty/RPPnpScene/RPPnpSound.cpp	RPPnpBallTrail	1	matching: .sdata2 pool padded apart from the serve phase (as RPHkySound.cpp)
+8022C6A0	8022C8D0	Pack/RPParty/RPPnpScene/RPPnpPhase_4.cpp	RPPnpReadyPhase	10	class change
+8022C8D0	8022DE10	Pack/RPParty/RPPnpScene/RPPnpGame.cpp	RPPnpGame	14	class change
+8022DE10	8022E67C	Pack/RPParty/RPPnpScene/RPPnpAudience.cpp	RPPnpSpectator	7	value conflict
+8022E67C	8022FA20	Pack/RPParty/RPPnpScene/RPPnpAudience_2.cpp	RPPnpAudience	13	value conflict
+8022FA20	80230878	Pack/RPParty/RPPnpScene/RPPnpLyt.cpp	RPPnpScoreLyt	11	value conflict
+80230878	80230F84	Pack/RPParty/RPPnpScene/RPPnpLyt_2.cpp	RPPnpServerLyt	9	value conflict
+80230F84	802313D0	Pack/RPParty/RPPnpScene/RPPnpLyt_3.cpp	RPPnpArrowLyt	7	value conflict
+802313D0	802317BC	Pack/RPParty/RPPnpScene/RPPnpPhase_5.cpp	RPPnpIntroPhase	8	class change
+802317BC	80231F54	Pack/RPParty/RPPnpScene/RPPnpLyt_4.cpp	RPPnpResultLyt	9	class change
+80231F54	802327AC	Pack/RPParty/RPPnpScene/RPPnpLyt_5.cpp	RPPnpCountLyt	10	value conflict
+802327AC	80232C74	Pack/RPParty/RPPnpScene/RPPnpHud.cpp	RPPnpHud	9	class change
+80232C74	80232F0C	Pack/RPParty/RPPnpScene/RPPnpLevelTable.cpp	RPPnpLevelTable	6	class change
+80232F0C	80233788	Pack/RPParty/RPPnpScene/RPPnpLyt_6.cpp	RPPnpBalloonLyt	7	class change
+80233788	80233B70	Pack/RPParty/RPPnpScene/RPPnpLyt_7.cpp	RPPnpStartMsgLyt	8	value conflict
+80233B70	80234098	Pack/RPParty/RPPnpScene/RPPnpLyt_8.cpp	RPPnpFaultMsgLyt	8	value conflict
+80234098	80234654	Pack/RPParty/RPPnpScene/RPPnpLyt_9.cpp	RPPnpPointMsgLyt	8	value conflict
+80234654	80234AC8	Pack/RPParty/RPPnpScene/RPPnpLyt_10.cpp	RPPnpServeMsgLyt	8	value conflict
+80234AC8	802350F4	Pack/RPParty/RPPnpScene/RPPnpLyt_11.cpp	RPPnpHelpMsgLyt	9	value conflict
+802350F4	802352C8	Pack/RPParty/RPPnpScene/RPPnpField_3.cpp	RPPnpNetShadow	7	class change
+802352C8	80235A54	Pack/RPParty/RPPnpScene/RPPnpBgmCtrl.cpp	RPPnpBgmCtrl	6	value conflict
+80235A54	802368F8	Pack/RPParty/RPDucScene/RPDucScene.cpp	RPDucScene	16	value conflict
+802368F8	80236FA0	Pack/RPParty/RPDucScene/RPDucField.cpp	RPDucShtGrass	9	value conflict
+80236FA0	802370B8	Pack/RPParty/RPDucScene/RPDucSound.cpp	RPDucSndActor	2	class change
+802370B8	80237774	Pack/RPParty/RPDucScene/RPDucField_2.cpp	RPDucField	8	class change
+80237774	80237A8C	Pack/RPParty/RPDucScene/RPDucField_3.cpp	RPDucShtField	6	class change;matching: SpawnTarget is the last function of its manager file
+80237A8C	80237BF0	Pack/RPParty/RPDucScene/RPDucTargetMgr.cpp	RPDucBalloonMgr	5	class change;matching: SpawnTarget is the last function of its manager file
+80237BF0	80238D48	Pack/RPParty/RPDucScene/RPDucBalloon.cpp	RPDucBalloon,RPDucTarget	21	class change;matching: SpawnTarget is the last function of its manager file
+80238D48	80238EAC	Pack/RPParty/RPDucScene/RPDucTargetMgr_2.cpp	RPDucClayMgr	5	class change;matching: SpawnTarget is the last function of its manager file
+80238EAC	80239EAC	Pack/RPParty/RPDucScene/RPDucClay.cpp	RPDucClay	18	class change;matching: SpawnTarget is the last function of its manager file
+80239EAC	8023A010	Pack/RPParty/RPDucScene/RPDucTargetMgr_3.cpp	RPDucDuckMgr	5	class change;matching: SpawnTarget is the last function of its manager file
+8023A010	8023D1D0	Pack/RPParty/RPDucScene/RPDucDuck.cpp	RPDucDuck	39	class change
+8023D1D0	8023D908	Pack/RPParty/RPDucScene/RPDucTargetMgr_4.cpp	RPDucTargetMgr	16	class change
+8023D908	8023E440	Pack/RPParty/RPDucScene/RPDucTarget.cpp	RPDucTarget	27	class change
+8023E440	8023EBEC	Pack/RPParty/RPDucScene/RPDucTargetMgr_5.cpp	RPDucTargetRegistry	20	class change;matching: SpawnTarget is the last function of its manager file
+8023EBEC	8023ED50	Pack/RPParty/RPDucScene/RPDucTargetMgr_6.cpp	RPDucUfoMgr	5	class change;matching: SpawnTarget is the last function of its manager file
+8023ED50	802420CC	Pack/RPParty/RPDucScene/RPDucUfo.cpp	RPDucUfo	36	class change
+802420CC	80242B40	Pack/RPParty/RPDucScene/RPDucCamera.cpp	RPDucCamera	14	value conflict
+80242B40	80244648	Pack/RPParty/RPDucScene/RPDucShot.cpp	RPDucShot	20	value conflict
+80244648	80244BB8	Pack/RPParty/RPDucScene/RPDucShot_2.cpp	RPDucShotMgr	13	class change
+80244BB8	8024960C	Pack/RPParty/RPDucScene/RPDucSpawner.cpp	RPDucSpawner	32	class change
+8024960C	8024B20C	Pack/RPParty/RPDucScene/RPDucGame.cpp	RPDucGame	26	value conflict
+8024B20C	8024B8B0	Pack/RPParty/RPDucScene/RPDucHud.cpp	RPDucHud	15	class change;matching: SpawnTarget is the last function of its manager file
+8024B8B0	8024BA14	Pack/RPParty/RPDucScene/RPDucTargetMgr_7.cpp	RPDucCanMgr	5	class change;matching: SpawnTarget is the last function of its manager file
+8024BA14	8024D30C	Pack/RPParty/RPDucScene/RPDucCan.cpp	RPDucCan	21	class change
+8024D30C	8024D58C	Pack/RPParty/RPDucScene/RPDucField_4.cpp	RPDucShtCloud	5	class change
+8024D58C	8024DB30	Pack/RPParty/RPDucScene/RPDucHud_2.cpp	RPDucPointPopup	8	class change
+8024DB30	8024F2B4	Pack/RPParty/RPDucScene/RPDucHud_3.cpp	RPDucScoreLayout	16	value conflict
+8024F2B4	8024FD3C	Pack/RPParty/RPDucScene/RPDucHud_4.cpp	RPDucStartLayout	10	value conflict
+8024FD3C	8024FF80	Pack/RPParty/RPDucScene/RPDucShot_3.cpp	RPDucShotPointer	3	class change
+8024FF80	802504E4	Pack/RPParty/RPDucScene/RPDucGame_2.cpp	RPDucScoreMgr	18	class change
+802504E4	802506EC	Pack/RPParty/RPDucScene/RPDucGame_3.cpp	RPDucAmmoMgr	8	class change;matching: SpawnTarget is the last function of its manager file
+802506EC	802508A8	Pack/RPParty/RPDucScene/RPDucTargetMgr_8.cpp	RPDucCircleTargetMgr	9	class change;matching: SpawnTarget is the last function of its manager file
+802508A8	802520F8	Pack/RPParty/RPDucScene/RPDucCircleTarget.cpp	RPDucCircleTarget	22	class change;matching: SpawnTarget is the last function of its manager file
+802520F8	802527D8	Pack/RPParty/RPDucScene/RPDucTargetMgr_9.cpp	RPDucAvatarMgr	10	value conflict;matching: SpawnTarget is the last function of its manager file
+802527D8	80255064	Pack/RPParty/RPDucScene/RPDucAvatar.cpp	RPDucAvatar	34	value conflict
+80255064	80255D8C	Pack/RPParty/RPDucScene/RPDucHud_5.cpp	RPDucEndLayout	11	value conflict
+80255D8C	80256DE4	Pack/RPParty/RPTnkScene/RPTnkScene.cpp	RPTnkScene	16	class change
+80256DE4	802575BC	Pack/RPParty/RPTnkScene/RPTnkCamera.cpp	RPTnkCamera	11	value conflict
+802575BC	802583DC	Pack/RPParty/RPTnkScene/RPTnkField.cpp	RPTnkField,RPTnkBlockPool		matching: the field manager (own cell-size .sdata and sInstance)
+802583DC	80258868	Pack/RPParty/RPTnkScene/RPTnkField_2.cpp	RPTnkFieldModel		split from the field manager (ends with its IRPGrpModelCallback thunks)
+80258868	80258ADC	Pack/RPParty/RPTnkScene/RPTnkField_3.cpp			third file: wall test and basis statics (thunks always end a file)
+80258ADC	80259114	Pack/RPParty/RPTnkScene/RPTnkActorPool.cpp	RPTnkActorPool	20	class change
+80259114	80259A88	Pack/RPParty/RPTnkScene/RPTnkActor.cpp	RPTnkActor	20	class change;matching: ends with Actor's weak copies
+80259A88	8025C914	Pack/RPParty/RPTnkScene/RPTnkTank.cpp	RPTnkActorSound,RPTnkTank	52	value conflict;pool overlap;matching: starts with Tnk_drawTreadMark
+8025C914	8025DD58	Pack/RPParty/RPTnkScene/RPTnkTankManager.cpp	RPTnkTankManager	32	value conflict
+8025DD58	8025E200	Pack/RPParty/RPTnkScene/RPTnkCursor.cpp	RPTnkCursorManager	10	class change
+8025E200	8025F6DC	Pack/RPParty/RPTnkScene/RPTnkCursor_2.cpp	RPTnkCursor	15	class change
+8025F6DC	802604E8	Pack/RPParty/RPTnkScene/RPTnkPlayerController.cpp	RPTnkPlayerController	10	value conflict
+802604E8	80261A38	Pack/RPParty/RPTnkScene/RPTnkBlock.cpp	RPTnkBlock	18	value conflict
+80261A38	80262024	Pack/RPParty/RPTnkScene/RPTnkBlock_2.cpp	RPTnkBlockPool	9	value conflict
+80262024	8026288C	Pack/RPParty/RPTnkScene/RPTnkShell.cpp	RPTnkShellPool	9	value conflict
+8026288C	802638A4	Pack/RPParty/RPTnkScene/RPTnkShell_2.cpp	RPTnkShell	20	value conflict
+802638A4	802641C8	Pack/RPParty/RPTnkScene/RPTnkWeaponManager.cpp	RPTnkWeaponManager,RPTnkMinePool	19	value conflict
+802641C8	80265824	Pack/RPParty/RPTnkScene/RPTnkGameManager.cpp	RPTnkGameManager	29	value conflict
+80265824	80266508	Pack/RPParty/RPTnkScene/RPTnkStageMap.cpp	RPTnkStageMap	12	value conflict
+80266508	80266C14	Pack/RPParty/RPTnkScene/RPTnkMine.cpp	RPTnkMinePool		matching: the pool is its own file (padding after its vtable, its own 0.0f literal)
+80266C14	80267F4C	Pack/RPParty/RPTnkScene/RPTnkMine_2.cpp	RPTnkMine,RPTnkMineSound		split from the pool;matching: ends with the MineSound dtor thunk
+80267F4C	80268488	Pack/RPParty/RPTnkScene/RPTnkBgmMix.cpp	RPTnkBgmMix	6	class change
+80268488	802688E8	Pack/RPParty/RPTnkScene/RPTnkSound_2.cpp	RPTnkTankSound	5	class change
+802688E8	80268A68	Pack/RPParty/RPTnkScene/RPTnkTask.cpp	RPTnkStepTimer	8	class change
+80268A68	80268B64	Pack/RPParty/RPTnkScene/RPTnkTask_2.cpp	RPTnkEmptyTask	8	class change
+80268B64	80268DB8	Pack/RPParty/RPTnkScene/RPTnkAi.cpp	RPTnkAiController	9	class change
+80268DB8	8026B0D0	Pack/RPParty/RPTnkScene/RPTnkAi_2.cpp	RPTnkAiMove	15	class change
+8026B0D0	8026BA2C	Pack/RPParty/RPTnkScene/RPTnkAi_3.cpp	RPTnkAiProbe	6	value conflict
+8026BA2C	8026D670	Pack/RPParty/RPTnkScene/RPTnkAi_4.cpp	RPTnkAiAttack	14	value conflict
+8026D670	8026DF6C	Pack/RPParty/RPTnkScene/RPTnkLyt.cpp	RPTnkLayoutManager	10	class change
+8026DF6C	8026E350	Pack/RPParty/RPTnkScene/RPTnkGameManager_2.cpp	RPTnkGameStats	10	class change
+8026E350	8026F418	Pack/RPParty/RPTnkScene/RPTnkLyt_2.cpp	RPTnkFade	9	value conflict
+8026F418	80270470	Pack/RPParty/RPTnkScene/RPTnkLyt_3.cpp	RPTnkHud	12	value conflict
+80270470	80270940	Pack/RPParty/RPTnkScene/RPTnkLyt_4.cpp	RPTnkHitPopup	8	value conflict
+80270940	80270E38	Pack/RPParty/RPTnkScene/RPTnkLyt_5.cpp	RPTnkExMsg	11	value conflict
+80270E38	802719A8	Pack/RPParty/RPTnkScene/RPTnkExGuide.cpp	RPTnkExGuide	12	class change
+802719A8	80271D2C	Pack/RPParty/RPTnkScene/RPTnkLyt_6.cpp	RPTnkStartMsg	8	class change
+80271D2C	80272624	Pack/RPParty/RPTnkScene/RPTnkLyt_7.cpp	RPTnkClearMsg	10	value conflict
+80272624	80272A68	Pack/RPParty/RPTnkScene/RPTnkLyt_8.cpp	RPTnkFailedMsg	8	value conflict
+80272A68	80272EF4	Pack/RPParty/RPTnkScene/RPTnkLyt_9.cpp	RPTnkCompleteMsg	8	value conflict
+80272EF4	80274CA4	Pack/RPParty/RPTnkScene/RPTnkLyt_10.cpp	RPTnkResultLyt	17	value conflict
+80274CA4	80274E84	Pack/RPParty/RPTnkScene/RPTnkTask_3.cpp	RPTnkFootmarkTex	5	class change
+80274E84	80274FE0	Pack/RPParty/RPTnkScene/RPTnkCheckMark.cpp	RPTnkCheckMarkPool	5	class change
+80274FE0	802753A4	Pack/RPParty/RPTnkScene/RPTnkCheckMark_2.cpp	RPTnkCheckMark	10	class change
+802753A4	80275E74	Pack/RPParty/RPWlyScene/RPWlyScene.cpp	RPWlyScene,RPWlyGameConfig	14	class change
+80275E74	802762AC	Pack/RPParty/RPWlyScene/RPWlyLyt.cpp	RPWlyLayoutSet	9	class change
+802762AC	8027A3EC	Pack/RPParty/RPWlyScene/RPWlySound.cpp	RPWlyAvatar,RPWlySoundActor,TRPSndAudioActorBaseWithHandles	68	class change;pool overlap
+8027A3EC	8027C5BC	Pack/RPParty/RPWlyScene/RPWlyAvatarMgr.cpp	RPWlyAvatarMgr,RPWlyCursor	25	value conflict
+8027C5BC	8027FA8C	Pack/RPParty/RPWlyScene/RPWlySound_2.cpp	RPWlyGameMgr,RPWlyCursor,RPWlySoundObj	33	value conflict;pool overlap
+8027FA8C	80280070	Pack/RPParty/RPWlyScene/RPWlyCursor.cpp	RPWlyCursor	7	value conflict
+80280070	8028070C	Pack/RPParty/RPWlyScene/RPWlyClearPhase.cpp	RPWlyClearPhase	8	split from the stage code (own vtable before the stage jump tables, own 1.0f)
+8028070C	8028CC58	Pack/RPParty/RPWlyScene/RPWlyAvatarMgr_2.cpp	RPWlyStage,RPWlyAvatarMgr	32	stage code (second .sdata2 pool)
+8028CC58	8028D210	Pack/RPParty/RPWlyScene/RPWlyPhase.cpp	RPWlyResultPhase	9	class change
+8028D210	8028D2E8	Pack/RPParty/RPWlyScene/RPWlyPhase_2.cpp	RPWlyIntroPhase	7	class change
+8028D2E8	8028D5B8	Pack/RPParty/RPWlyScene/RPWlyPhase_3.cpp	RPWlyTargetPhase	8	class change
+8028D5B8	8028DEF0	Pack/RPParty/RPWlyScene/RPWlyTimerSe.cpp	RPWlyTimerSe,RPWlySoundActor	5	split from the level table (own .sdata2 pool)
+8028DEF0	8028EBBC	Pack/RPParty/RPWlyScene/RPWlyLevelTable.cpp	RPWlyLevelTable	10	matching: the level table (second .sdata2 pool)
+8028EBBC	8028FE40	Pack/RPParty/RPWlyScene/RPWlyField.cpp	RPWlyField	6	value conflict
+8028FE40	8028FF78	Pack/RPParty/RPWlyScene/RPWlyGameConfig.cpp	RPWlyMiiEntry	2	class change
+8028FF78	802902F0	Pack/RPParty/RPWlyScene/RPWlySound_3.cpp	RPWlySoundObj	5	class change
+802902F0	80290550	Pack/RPParty/RPWlyScene/RPWlyAvatar.cpp	RPWlyAvatarShadow	5	class change
+80290550	80290A60	Pack/RPParty/RPWlyScene/RPWlyLyt_2.cpp	RPWlyStartCountLyt	6	class change
+80290A60	80290DC4	Pack/RPParty/RPWlyScene/RPWlyLyt_3.cpp	RPWlyPointPopupSet	8	class change
+80290DC4	80291614	Pack/RPParty/RPWlyScene/RPWlyLyt_4.cpp	RPWlyPointPopup	8	class change
+80291614	802918E4	Pack/RPParty/RPWlyScene/RPWlyField_2.cpp	RPWlyEarth	5	class change
+802918E4	802922B4	Pack/RPParty/RPWlyScene/RPWlyLyt_5.cpp	RPWlyTimerLyt	11	value conflict
+802922B4	8029277C	Pack/RPParty/RPWlyScene/RPWlyLyt_6.cpp	RPWlyMessageLyt	7	value conflict
+8029277C	802930B4	Pack/RPParty/RPWlyScene/RPWlyLyt_7.cpp	RPWlyQuestionLyt	9	value conflict
+802930B4	802940B8	Pack/RPParty/RPWlyScene/RPWlyLyt_8.cpp	RPWlyDisplayLyt	13	value conflict
+802940B8	802942E4	Pack/RPParty/RPWlyScene/RPWlyField_3.cpp	RPWlyGround	5	class change
+802942E4	80294A4C	Pack/RPParty/RPWlyScene/RPWlyField_4.cpp	RPWlyField06	5	value conflict
+80294A4C	80294EC8	Pack/RPParty/RPWlyScene/RPWlyLyt_9.cpp	RPWlyDisplayEndLyt	8	class change
+80294EC8	80295418	Pack/RPParty/RPWlyScene/RPWlyLyt_10.cpp	RPWlyEndScoreLyt	8	value conflict
+80295418	802959AC	Pack/RPParty/RPWlyScene/RPWlyField_5.cpp	RPWlyWipe	8	value conflict
+802959AC	80295D3C	Pack/RPParty/RPWlyScene/RPWlyLyt_11.cpp	RPWlyCompleteLyt	8	value conflict
+80295D3C	80295DD0	Pack/RPParty/RPCowScene/RPCowScene.cpp	RPCowScene	3	class change
+80295DD0	8029CF74	Pack/RPParty/RPCowScene/RPCowGame.cpp	RPCowGame,RPCowSceneSound	60	merged: RPCowGame_2, the head of RPCowCamera_2 and ten weak-copy units (Hud, ModelBatch 1-3, Player 1-4, Camera, Hud_2); __sinit ends it
+8029CF74	802A0EF0	Pack/RPParty/RPCowScene/RPCowCamera_2.cpp	RPCowCamera	40	camera file; its dtor thunk ends it
+802A0EF0	802A64BC	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	RPCowArrow,RPCowPlayer,RPCowPosHistory,RPCowPlayerSound,RPCowObjSound	41	value conflict;merged RPCowSound (PlayerSound dtor thunk ends this file);merged RPCowPlayer_5 (shared .sdata2 pool; the arrow is defined last)
+802A64BC	802A65F0	Pack/RPParty/RPCowScene/RPCowField.cpp	RPCowField	8	split from RPCowFieldObj (its dtor thunk ends the file)
+802A65F0	802A94F8	Pack/RPParty/RPCowScene/RPCowFieldObj.cpp	RPCowFieldObj	30	class change;pool overlap
+802A94F8	802AA9F8	Pack/RPParty/RPCowScene/RPCowSound_2.cpp	RPCowPlayerSound	5	value conflict;merged RPCowSound_3 (ObjSound dtor thunk ends this file)
+802AA9F8	802ABAD0	Pack/RPParty/RPCowScene/RPCowKakasiGroup.cpp	RPCowKakasiGroup	15	class change
+802ABAD0	802AC118	Pack/RPParty/RPCowScene/RPCowGoal.cpp	RPCowGoal	12	value conflict
+802AC118	802AC88C	Pack/RPParty/RPCowScene/RPCowFieldObj_2.cpp	RPCowKakasi	8	value conflict
+802AC88C	802AD0DC	Pack/RPParty/RPCowScene/RPCowFieldObj_3.cpp	RPCowTree	8	value conflict
+802AD0DC	802ADAE4	Pack/RPParty/RPCowScene/RPCowFieldObj_4.cpp	RPCowHurdle	8	value conflict
+802ADAE4	802ADE94	Pack/RPParty/RPCowScene/RPCowModelBatch_4.cpp	RPCowModelBatch	12	value conflict
+802ADE94	802ADF14	Pack/RPParty/RPCowScene/RPCowModelBatch_5.cpp	RPCowTreeBatch	3	class change
+802ADF14	802ADF94	Pack/RPParty/RPCowScene/RPCowModelBatch_6.cpp	RPCowHurdleBatch	3	class change
+802ADF94	802AE014	Pack/RPParty/RPCowScene/RPCowModelBatch_7.cpp	RPCowKakasiBatch	3	class change
+802AE014	802AF030	Pack/RPParty/RPCowScene/RPCowPointPopup.cpp	RPCowPointPopup	12	class change
+802AF030	802AF810	Pack/RPParty/RPCowScene/RPCowFieldObj_5.cpp	RPCowKakasiKing	8	value conflict
+802AF810	802AFF64	Pack/RPParty/RPCowScene/RPCowPlayer_7.cpp	RPCowPlayerCursor	8	value conflict
+802AFF64	802B1138	Pack/RPParty/RPCowScene/RPCowHud_3.cpp	RPCowMainHud	20	value conflict
+802B1138	802B1B78	Pack/RPParty/RPCowScene/RPCowHud_4.cpp	RPCowPerfectMsg	9	value conflict
+802B1B78	802B2674	Pack/RPParty/RPCowScene/RPCowHud_5.cpp	RPCowExMsg	12	value conflict
+802B2674	802B2C84	Pack/RPParty/RPCowScene/RPCowHud_6.cpp	RPCowOrderMsg	11	value conflict
+802B2C84	802B2F84	Pack/RPParty/RPCowScene/RPCowHud_7.cpp	RPCowStartMsg	8	value conflict
+802B2F84	802B3770	Pack/RPParty/RPCowScene/RPCowHud_8.cpp	RPCowGoalMsg	9	value conflict
+802B3770	802B406C	Pack/RPParty/RPCowScene/RPCowHud_9.cpp	RPCowLimitCount	12	value conflict
+802B406C	802B47FC	Pack/RPParty/RPCowScene/RPCowHud_10.cpp	RPCowVsResult	11	value conflict
+802B47FC	802B4D5C	Pack/RPParty/RPCowScene/RPCowHud_11.cpp	RPCowTargetMarker	10	value conflict
+802B4D5C	802B547C	Pack/RPParty/RPCowScene/RPCowHud_12.cpp	RPCowBalloon	10	value conflict
+802B547C	802B66D4	Pack/RPParty/RPCowScene/RPCowPlayer_8.cpp	RPCowCowModel,RPCowPlayerEffects	6	value conflict;pool overlap
+802B66D4	802B8508	Pack/RPParty/RPCowScene/RPCowCowModel.cpp	RPCowPlayer,RPCowCowModel	12	value conflict;merged RPCowPlayer_9 (calcFootEffects shares the cow model's .sdata2 and string pool)
+802B8508	802B8DC4	Pack/RPParty/RPCowScene/RPCowFieldObj_6.cpp	RPCowCloud	8	value conflict
+802B8DC4	802B9800	Pack/RPParty/RPCowScene/RPCowFieldObj_7.cpp	RPCowKnitCowEx	8	value conflict
+802B9800	802BA1A4	Pack/RPParty/RPCowScene/RPCowHud_13.cpp	RPCowAngleDisp	12	value conflict
+802BA1A4	802BAB30	Pack/RPParty/RPBilScene/RPBilScene.cpp	RPBilScene,RPBilSceneSound	10	value conflict
+802BAB30	802BB950	Pack/RPParty/RPBilScene/RPBilTable.cpp	RPBilTable	22	value conflict
+802BB950	802BBCD0	Pack/RPParty/RPBilScene/RPBilCamera.cpp	RPBilCameraMgr	5	class change
+802BBCD0	802BCC5C	Pack/RPParty/RPBilScene/RPBilCamera_2.cpp	RPBilCamera,RPBilSoundActor	16	class change;pool overlap
+802BCC5C	802C1138	Pack/RPParty/RPBilScene/RPBilPlayer.cpp	RPBilPlayer,RPBilBall,RPBilSound3D	51	value conflict
+802C1138	802C16F4	Pack/RPParty/RPBilScene/RPBilPlayer_2.cpp	RPBilPlayerMgr	14	class change
+802C16F4	802C2CA4	Pack/RPParty/RPBilScene/RPBilBall.cpp	RPBilBall	50	class change
+802C2CA4	802C52F0	Pack/RPParty/RPBilScene/RPBilBallMgr.cpp	RPBilBallMgr,RPBilContactResult,RPBilContactInput	40	value conflict;merged RPBilBallMgr_2/_3/_4 (one .sdata block, inlined GetLowestBall, weak contact copies mid-file)
+802C52F0	802C65A0	Pack/RPParty/RPBilScene/RPBilGameMgr.cpp	RPBilGameMgr,RPBilScorePopup	31	value conflict
+802C65A0	802C6CB8	Pack/RPParty/RPBilScene/RPBilGameMgr_2.cpp	RPBilMusicState,RPBilMusic	4	value conflict
+802C6CB8	802C9BA0	Pack/RPParty/RPBilScene/RPBilSound.cpp	RPBilSound3D	56	value conflict
+802C9BA0	802C9E18	Pack/RPParty/RPBilScene/RPBilAimMarker.cpp	RPBilAimMarker	10	split from RPBilResult (the marker thunks end the file)
+802C9E18	802CABDC	Pack/RPParty/RPBilScene/RPBilResult.cpp	RPBilResult	35	class change;pool overlap
+802CABDC	802CACF0	Pack/RPParty/RPBilScene/RPBilSound_2.cpp	RPBilSoundActor	2	class change
+802CACF0	802CAF50	Pack/RPParty/RPBilScene/RPBilMarker.cpp	RPBilCueGhost	10	class change
+802CAF50	802CB0A4	Pack/RPParty/RPBilScene/RPBilCamera_3.cpp	RPBilAuxCamera	4	class change
+802CB0A4	802CB464	Pack/RPParty/RPBilScene/RPBilCamera_4.cpp	RPBilPocketCam	5	value conflict
+802CB464	802CBE88	Pack/RPParty/RPBilScene/RPBilPocketCamWindow.cpp	RPBilPocketCamWindow	16	value conflict
+802CBE88	802CC57C	Pack/RPParty/RPBilScene/RPBilMarker_2.cpp	RPBilNextBallMarker	13	value conflict
+802CC57C	802CCC18	Pack/RPParty/RPBilScene/RPBilBreakLottery.cpp	RPBilBreakLottery	19	value conflict
+802CCC18	802CE3B8	Pack/RPParty/RPBilScene/RPBilHud.cpp	RPBilHud	41	value conflict
+802CE3B8	802CED28	Pack/RPParty/RPBilScene/RPBilLyt.cpp	RPBilMsgWindow	27	value conflict
+802CED28	802D032C	Pack/RPParty/RPBilScene/RPBilResult_2.cpp	RPBilResultLyt	25	value conflict
+802D032C	802D0434	Pack/RPParty/RPBilScene/RPBilGameMgr_3.cpp	RPBilMusic	3	class change;starts with ~RPBilMusic (only the RPBilMusic vtable points to it)
+802D0434	802D0EC8	Pack/RPParty/RPBilScene/RPBilBallIcon.cpp	RPBilBallIcon	25	class change
+802D0EC8	802D17A4	Pack/RPParty/RPBilScene/RPBilLyt_2.cpp	RPBilScorePopupLyt	24	split (the popup calls the layout ctor/Show/Hide out of line)
+802D17A4	802D1FE4	Pack/RPParty/RPBilScene/RPBilScorePopup.cpp	RPBilScorePopup	21	second file of the old RPBilLyt_2 range
+802D1FE4	802D20CC	Pack/RPParty/RPBilScene/RPBilLyt_3.cpp	RPBilHintLyt	4	class change
+802D20CC	802D2558	Pack/RPParty/RPBilScene/RPBilLyt_4.cpp	RPBilStrokeGuide	14	split (StrokeGuide thunks end the first file)
+802D2558	802D2D28	Pack/RPParty/RPBilScene/RPBilHint.cpp	RPBilHint	22	second file of the old RPBilLyt_4 range
+802D2D28	802D3940	Pack/RPParty/RPBilScene/RPBilLyt_5.cpp	RPBilBallNumberTag	27	value conflict
+802D3940	802D4914	Pack/RPParty/RPBomScene/RPBomScene.cpp	RPBomScene	16	value conflict
+802D4914	802D58C8	Pack/RPParty/RPBomScene/RPBomStartBg.cpp	RPBomStartBg	18	value conflict
+802D58C8	802D6090	Pack/RPParty/RPBomScene/RPBomCamera.cpp	RPBomCamera	11	value conflict;split (two .ctors entries)
+802D6090	802D6354	Pack/RPParty/RPBomScene/RPBomCamera_2.cpp		9	second file of the old camera range (own __sinit)
+802D6354	802D6698	Pack/RPParty/RPBomScene/RPBomCursor.cpp	RPBomCursorManager	9	class change
+802D6698	802D6BAC	Pack/RPParty/RPBomScene/RPBomCursor_2.cpp	RPBomCursor	8	class change
+802D6BAC	802D8F3C	Pack/RPParty/RPBomScene/RPBomPlayer.cpp	RPBomPlayer,RPBomSoundActorBase,RPBomPlayerSound	38	value conflict;pool overlap
+802D8F3C	802D95C4	Pack/RPParty/RPBomScene/RPBomPlayer_2.cpp	RPBomPlayerManager	17	class change
+802D95C4	802DB4DC	Pack/RPParty/RPBomScene/RPBomGameManager.cpp	RPBomGameManager	31	class change
+802DB4DC	802DCEB0	Pack/RPParty/RPBomScene/RPBomQuestionParam.cpp	RPBomQuestionParam	19	value conflict
+802DCEB0	802DDCEC	Pack/RPParty/RPBomScene/RPBomScreenFx.cpp	RPBomBgm	7	split (two .ctors entries)
+802DDCEC	802DE8C8	Pack/RPParty/RPBomScene/RPBomScreenFx_2.cpp	RPBomScreenFx	20	second file of the old range (own __sinit)
+802DE8C8	802DEDA4	Pack/RPParty/RPBomScene/RPBomScore.cpp	RPBomScore	12	value conflict
+802DEDA4	802DF3B4	Pack/RPParty/RPBomScene/RPBomObjPool.cpp	RPBomPoolObj	24	value conflict
+802DF3B4	802DF9C8	Pack/RPParty/RPBomScene/RPBomObjPool_2.cpp	RPBomObjPool	14	class change
+802DF9C8	802DFBEC	Pack/RPParty/RPBomScene/RPBomPanel.cpp	RPBomPanelCtrl,RPBomPanelPool	16	class change
+802DFBEC	802E18F8	Pack/RPParty/RPBomScene/RPBomPanel_2.cpp	RPBomPanel	29	class change
+802E18F8	802E2160	Pack/RPParty/RPBomScene/RPBomPanel_3.cpp	RPBomPanelPool	13	class change
+802E2160	802E35D8	Pack/RPParty/RPBomScene/RPBomBorder.cpp	RPBomBorder	19	value conflict
+802E35D8	802E3EB8	Pack/RPParty/RPBomScene/RPBomLyt.cpp	RPBomLayoutMgr	11	class change
+802E3EB8	802E4714	Pack/RPParty/RPBomScene/RPBomLyt_2.cpp	RPBomLytStart	11	class change
+802E4714	802E563C	Pack/RPParty/RPBomScene/RPBomLyt_3.cpp	RPBomLytScore	13	value conflict
+802E563C	802E5B8C	Pack/RPParty/RPBomScene/RPBomLyt_4.cpp	RPBomLytPoint	8	value conflict
+802E5B8C	802E6080	Pack/RPParty/RPBomScene/RPBomLyt_5.cpp	RPBomLytEnd	8	value conflict
+802E6080	802E6648	Pack/RPParty/RPBomScene/RPBomLyt_6.cpp	RPBomLytLevel	8	value conflict
+802E6648	802E6B0C	Pack/RPParty/RPBomScene/RPBomLyt_7.cpp	RPBomLytReady	9	value conflict
+802E6B0C	802E7F28	Pack/RPParty/RPBomScene/RPBomLyt_8.cpp	RPBomLytPoseSel	16	value conflict
+802E7F28	802E9674	Pack/RPParty/RPBomScene/RPBomLyt_9.cpp	RPBomLytClear	18	value conflict
+802E9674	802E9CAC	Pack/RPParty/RPBomScene/RPBomLyt_10.cpp	RPBomLytMiss	9	value conflict

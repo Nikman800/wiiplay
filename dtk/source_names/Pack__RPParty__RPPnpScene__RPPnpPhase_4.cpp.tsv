@@ -1,0 +1,14 @@
+address	old_name	new_name	unit	previous
+8022C6A0	Pnp_ReadyPhase_draw	Draw__15RPPnpReadyPhaseFv	Pack/RPParty/RPPnpScene/RPPnpPhase_4.cpp	
+8022C6A4	Pnp_ReadyPhase_exit	Exit__15RPPnpReadyPhaseFv	Pack/RPParty/RPPnpScene/RPPnpPhase_4.cpp	
+8022C6A8	Pnp_ReadyPhase_calc	Calculate__15RPPnpReadyPhaseFv	Pack/RPParty/RPPnpScene/RPPnpPhase_4.cpp	
+8022C77C	Pnp_ReadyPhase_reset	Reset__15RPPnpReadyPhaseFv	Pack/RPParty/RPPnpScene/RPPnpPhase_4.cpp	
+8022C788	Pnp_ReadyPhase_load	Load__15RPPnpReadyPhaseFv	Pack/RPParty/RPPnpScene/RPPnpPhase_4.cpp	
+8022C78C	Pnp_ReadyPhase_create	Create__15RPPnpReadyPhaseFv	Pack/RPParty/RPPnpScene/RPPnpPhase_4.cpp	
+8022C798	Pnp_ReadyPhase_dtor	__dt__15RPPnpReadyPhaseFv	Pack/RPParty/RPPnpScene/RPPnpPhase_4.cpp	
+8022C7F0	Pnp_fadeOutBgm	FadeOutBgm__15RPPnpReadyPhaseFv	Pack/RPParty/RPPnpScene/RPPnpPhase_4.cpp	
+8022C83C	Pnp_startBgm	StartBgm__15RPPnpReadyPhaseFi	Pack/RPParty/RPPnpScene/RPPnpPhase_4.cpp	
+8022C8B0	Pnp_sinitBgmHandle	__sinit_\RPPnpPhase_4_cpp	Pack/RPParty/RPPnpScene/RPPnpPhase_4.cpp	
+80359938	Pnp_ReadyPhase_vtable	__vt__15RPPnpReadyPhase	Pack/RPParty/RPPnpScene/RPPnpPhase_4.cpp	
+8043C810	Pnp_bgmHandle	sBgmHandle__15RPPnpReadyPhase	Pack/RPParty/RPPnpScene/RPPnpPhase_4.cpp	
+8043C81C	Pnp_gameInstance	sInstance__9RPPnpGame	Pack/RPParty/RPPnpScene/RPPnpPhase_4.cpp	

@@ -1,0 +1,24 @@
+vtable	class_name	evidence
+80358290	Party_Common	ctor 801E7CC8 stores vtable; singleton lbl_8043C6D8 created/calc/reset/destroyed by every minigame; owns result sub-objects
+80358218	Party_MedalResult	ctor 801E6ED4; loads G3D/medal_model.brres, top-5 records, medal BGM RP_COM_BGM_GET_*; start(score) called by minigames
+803581F8	Party_RankGetLyt	ctor 801E5120; vf00 loads myRecord.arc ptRankGet_00 layout (T_rankGet, T_congrats)
+803582E8	Party_RecordLyt	ctor 801E8DB8; vf00 loads myRecord_00 layout with in/newRec/outRec/blink anims
+80358308	Party_ResultMenu	ctor 801E999C; owns choice layout, CPadCursor, vs-result layout; getChoice/start called by minigames
+80358320	Party_VsResultLyt	ctor 801EA46C; vf00 loads ptVsResult_00 layout, shows both players' win counts
+80358340	Party_ChoiceLyt	ctor 801EB284; vf00 loads ptGOMenu_00 layout with two choice buttons (T_choicesF/S)
+80358360	Party_VsWinner	ctor 801EC42C; loads win_1P/win_2P/tie models and Bcm_win effects; start(winner) called by minigames
+80358378	Party_VsWinnerLyt	ctor 801ECE84; vf00 loads ptVsWinner_00 layout with player/trophy position panes
+803583B8	Party_SelectScene	ctor 801F1700, singleton lbl_8043C6E8; game-select scene with 16-state machine, select layout, dolls, back button
+80358398	Party_SelectGameLyt	ctor 801EEBAC; vf00 loads ptSelectGame_00 with 9 game icons, medals, unlock state
+80358440	Party_GameInfoLyt	ctor 801F2760; vf00 loads ptSelectGame_01 and per-game ptG*Remote layouts (remote-hold demo, T_start)
+80358490	Party_Doll	ctor 801F453C; clickable player Mii doll on menu, 18-state reaction machine, DOLL_CLICK/WakUp SE
+80358558	Party_DollBase	ctor 801F6B78; base of Party_Doll/Party_CrowdMii; vf35 resolves head/hip/arm/leg joints, anim blending
+80358608	Party_CrowdMii	ctor 801F7D64; background Mii walker with cmn_waitR/runawayR/swimR/batabataR anims, 8-state machine
+80358540	Party_DollMgr	create 801F51A0, singleton lbl_8043C6F8; holds one Party_Doll per player, fade alpha
+803586B8	Party_CrowdMgr	create 801F8594, singleton lbl_8043C708; holds 10 Party_CrowdMii and spawns them randomly
+803586D0	Party_LeadCursor	ctor 801F9A1C (Common+0x24); leadCursor.arc off-screen pointer guide per player
+803586E8	Party_ScreenFade	ctor 801F9C34 (Common+0x2c); calc steps fade color toward target
+80358700	Party_MsgBoard	create 801FA0E4, singleton lbl_8043C720; loads party_message.bmg, posts medal messages with daily limit 15
+80358710	Party_RankCompleteLyt	ctor 801FA724; rankComplete_00 layout, Bsm_com_fireworks effects, RP_COMMON_BGM_RANK_COMPLETE
+80358730	Party_PauseText	ctor 801FB724 (Common+0x28); owns ptPauseText layout shown per player while paused
+80358748	Party_TitleLyt	ctor 801FD05C; vf loads ptTitle.arc bg/logo/info/bubble layouts, RP_COMMON_BGM_PARTY_01

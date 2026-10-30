@@ -1,0 +1,6 @@
+address	old_name	new_name	unit	previous
+802942E4	Wly_Field06_calc	Calculate__12RPWlyField06Fv	Pack/RPParty/RPWlyScene/RPWlyField_4.cpp	
+802947D8	Wly_Field06_reset	Reset__12RPWlyField06Fv	Pack/RPParty/RPWlyScene/RPWlyField_4.cpp	
+802947DC	Wly_Field06_loadModel	Load__12RPWlyField06Fv	Pack/RPParty/RPWlyScene/RPWlyField_4.cpp	
+80294908	Wly_Field06_ctor	__ct__12RPWlyField06Fv	Pack/RPParty/RPWlyScene/RPWlyField_4.cpp	
+802949F4	Wly_Field06_dtor	__dt__12RPWlyField06Fv	Pack/RPParty/RPWlyScene/RPWlyField_4.cpp	

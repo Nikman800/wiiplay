@@ -1,0 +1,43 @@
+address	name	type	confidence	note
+80325AA0	Cow_playerNodeNames	char[0x50]	L	joint name strings of the rider model; Cow_Player_updateModel looks one up (cached in Cow_playerNodeCache)
+80325B18	Cow_runStepSoundIds	u32[6]	M	run step sound per step type in single-player mode; RPCowPlayerSound playRunStep
+80325B30	Cow_runStepSoundIdsByMode	u32[4][6]	M	run step sound per sound mode (RPCowPlayerSound +0x84) and step type; playRunStep in multi-player mode
+80325FB8	Cow_mainHud1PInAnmName	char[0x17]	M	first animation name of RPCowMainHud::LoadResource (4:3 layout); the others are inline literals
+8032683C	Cow_goalMsgAnmName	char[0x17]	M	first animation name of RPCowGoalMsg::LoadResource
+80326EB8	Cow_angleDispAnmName	char[0x18]	M	first animation name of RPCowAngleDisp::LoadResource
+8035CEA0	Cow_cameraStateStart	RPCowCamera::StateFunc	H	RPCowCamera::mpStates[11]
+8035CEAC	Cow_cameraStateReady	RPCowCamera::StateFunc	H	RPCowCamera::mpStates[10]
+8035CEB8	Cow_cameraStateIntroBlend	RPCowCamera::StateFunc	H	RPCowCamera::mpStates[9]
+8035CEC4	Cow_cameraStateIntro	RPCowCamera::StateFunc	H	RPCowCamera::mpStates[8]
+8035CED0	Cow_cameraStateResultOrbit	RPCowCamera::StateFunc	H	RPCowCamera::mpStates[7]
+8035CEDC	Cow_cameraStateResult	RPCowCamera::StateFunc	H	RPCowCamera::mpStates[6]
+8035CEE8	Cow_cameraStateFinish	RPCowCamera::StateFunc	H	RPCowCamera::mpStates[5]
+8035CEF4	Cow_cameraStateFollow	RPCowCamera::StateFunc	H	RPCowCamera::mpStates[4]
+8035CF00	Cow_cameraStateFollowNear	RPCowCamera::StateFunc	H	RPCowCamera::mpStates[3]
+8035CF0C	Cow_cameraStateFollowSnap	RPCowCamera::StateFunc	H	RPCowCamera::mpStates[2]
+8035CF18	Cow_cameraStateFollowEase	RPCowCamera::StateFunc	H	RPCowCamera::mpStates[1]
+8035CF24	Cow_cameraStateOverview	RPCowCamera::StateFunc	H	RPCowCamera::mpStates[0]
+8035D0E0	Cow_fieldObjStateKnockHurdle	RPCowFieldObj::StateFunc	H	RPCowFieldObj::mpStates[11] (KnockHurdle)
+8035D0EC	Cow_fieldObjStateKnockFly	RPCowFieldObj::StateFunc	H	RPCowFieldObj::mpStates[10] (KnockFly)
+8035D0F8	Cow_fieldObjStateKnockSlide	RPCowFieldObj::StateFunc	H	RPCowFieldObj::mpStates[9] (KnockSlide)
+8035D104	Cow_fieldObjStateFallSpin	RPCowFieldObj::StateFunc	H	RPCowFieldObj::mpStates[8]
+8035D110	Cow_fieldObjStateKingJump1	RPCowFieldObj::StateFunc	H	RPCowFieldObj::mpStates[7]
+8035D11C	Cow_fieldObjStateKingJump2	RPCowFieldObj::StateFunc	H	RPCowFieldObj::mpStates[6]
+8035D128	Cow_fieldObjStateKingJump3	RPCowFieldObj::StateFunc	H	RPCowFieldObj::mpStates[5]
+8035D134	Cow_fieldObjStateHop	RPCowFieldObj::StateFunc	H	RPCowFieldObj::mpStates[4]
+8035D140	Cow_fieldObjStateIdle	RPCowFieldObj::StateFunc	H	RPCowFieldObj::mpStates[3]
+8035D14C	Cow_fieldObjStateSink	RPCowFieldObj::StateFunc	H	RPCowFieldObj::mpStates[2] (StartSink)
+8035D158	Cow_fieldObjStateRise	RPCowFieldObj::StateFunc	H	RPCowFieldObj::mpStates[1] (SpawnAppear)
+8035D164	Cow_fieldObjStateDrop	RPCowFieldObj::StateFunc	H	RPCowFieldObj::mpStates[0] (SpawnDrop)
+8043A8E8	Cow_colliderListA	RPColliderList	M	0xC bytes (head, tail, two u16); cleared by Cow_initStatics and RPCowGame::Reset
+8043A8F4	Cow_objectColliders	RPColliderList	H	0xC bytes; collision shapes of the goals, course objects, scarecrow groups and popups link in on OnStart (masks such as 0x20) and out on OnStop; RPCowPlayer::HandleCollisions tests against it
+8043A900	Cow_colliderListB	RPColliderList	M	0xC bytes; cleared by RPCowGame::Reset, drawn by RPCowGame::DrawPass (RP_ColliderList_callAll)
+8043A910	Cow_bgmHandleDtorLink	u8[0xC]	H	__register_global_object chain entry for Cow_bgmHandle
+8043A91C	Cow_seHandleDtorLink	u8[0xC]	H	__register_global_object chain entry for Cow_seHandle
+8043A928	Cow_footNodeCache	u16[8]	M	function static of RPCowPlayer::CalcFootEffects: init flag, then node indices of cow_root, two more joints, j_L_front ...
+8043C990	Cow_drawPriorityBase	s32	M	0x60 (Cow_initStatics); added to the party constant passed to Gfx_callGfx801AC978 by the RPCowGame constructor
+8043C998	Cow_playerNodeCache	u16[4]	M	function static of RPCowPlayer::UpdateModel: init flag at 0x0, node index at 0x2
+8043C9A0	Cow_bgmHandle	nw4r::snd::SoundHandle	H	Cow_playBgm / Cow_stopBgm; static object (Cow_initSoundHandles)
+8043C9A4	Cow_seHandle	nw4r::snd::SoundHandle	H	tested by Cow_isSeHandleFree; static object (Cow_initSoundHandles)
+8043C9A8	Cow_kakasiSpawnCounter	s32	L	5 on RPCowKakasiGroup::OnStart; counted down in OnActivate and reloaded with a random value + 3
+8043C9B0	Cow_cowJointNodeCache	u16[4]	M	function static of RPCowCowModel::EditJointLocalMtx: init flag, node indices of cow_root and one more joint

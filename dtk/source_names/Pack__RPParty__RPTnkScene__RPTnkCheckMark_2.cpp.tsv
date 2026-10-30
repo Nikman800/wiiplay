@@ -1,0 +1,12 @@
+address	old_name	new_name	unit	previous
+80274FE0	Tnk_CheckMark_updateModel	CalcModelMtx__14RPTnkCheckMarkFv	Pack/RPParty/RPTnkScene/RPTnkCheckMark_2.cpp	
+80275104	Tnk_CheckMark_calc	Calculate__14RPTnkCheckMarkFv	Pack/RPParty/RPTnkScene/RPTnkCheckMark_2.cpp	
+80275138	Tnk_CheckMark_applyVelocity	ApplyVelocity__14RPTnkCheckMarkFv	Pack/RPParty/RPTnkScene/RPTnkCheckMark_2.cpp	
+8027516C	Tnk_CheckMark_load	Load__14RPTnkCheckMarkFv	Pack/RPParty/RPTnkScene/RPTnkCheckMark_2.cpp	
+80275260	Tnk_CheckMark_create	Create__14RPTnkCheckMarkFv	Pack/RPParty/RPTnkScene/RPTnkCheckMark_2.cpp	
+80275264	Tnk_CheckMark_stateStop	StateStop__14RPTnkCheckMarkFv	Pack/RPParty/RPTnkScene/RPTnkCheckMark_2.cpp	
+80275278	Tnk_CheckMark_applySpawnParam	ApplySpawnParam__14RPTnkCheckMarkFUl	Pack/RPParty/RPTnkScene/RPTnkCheckMark_2.cpp	
+80275284	Tnk_CheckMark_onSpawn	OnSpawn__14RPTnkCheckMarkFv	Pack/RPParty/RPTnkScene/RPTnkCheckMark_2.cpp	
+802752F4	Tnk_CheckMark_dtor	__dt__14RPTnkCheckMarkFv	Pack/RPParty/RPTnkScene/RPTnkCheckMark_2.cpp	
+8035C490	Tnk_CheckMark_stateFuncs	sCheckMarkStateFuncs	Pack/RPParty/RPTnkScene/RPTnkCheckMark_2.cpp	
+8035C49C	Tnk_CheckMark_vtable	__vt__14RPTnkCheckMark	Pack/RPParty/RPTnkScene/RPTnkCheckMark_2.cpp	

@@ -1,0 +1,5 @@
+address	old_name	new_name	unit	previous
+8028D5B8	Wly_TimerSe_reset	Reset__12RPWlyTimerSeFv	Pack/RPParty/RPWlyScene/RPWlyTimerSe.cpp	
+8028DC30	Wly_TimerSe_resetAndPlayFound	ResetAndPlayFound__12RPWlyTimerSeFv	Pack/RPParty/RPWlyScene/RPWlyTimerSe.cpp	
+8028DD30	Wly_TimerSe_init	__ct__12RPWlyTimerSeFv	Pack/RPParty/RPWlyScene/RPWlyTimerSe.cpp	
+8028DD70	Wly_playAvatarVoice	PlayVoice__15RPWlySoundActorFll	Pack/RPParty/RPWlyScene/RPWlyTimerSe.cpp	

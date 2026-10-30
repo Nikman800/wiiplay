@@ -1,0 +1,8 @@
+address	old_name	new_name	unit	previous
+80235160	Pnp_NetShadow_exit	Exit__14RPPnpNetShadowFv	Pack/RPParty/RPPnpScene/RPPnpField_3.cpp	
+80235164	Pnp_NetShadow_calc	Calculate__14RPPnpNetShadowFv	Pack/RPParty/RPPnpScene/RPPnpField_3.cpp	
+80235168	Pnp_NetShadow_reset	Reset__14RPPnpNetShadowFv	Pack/RPParty/RPPnpScene/RPPnpField_3.cpp	
+8023516C	Pnp_NetShadow_load	Load__14RPPnpNetShadowFv	Pack/RPParty/RPPnpScene/RPPnpField_3.cpp	
+8023524C	Pnp_NetShadow_create	Create__14RPPnpNetShadowFv	Pack/RPParty/RPPnpScene/RPPnpField_3.cpp	
+80235270	Pnp_NetShadow_dtor	__dt__14RPPnpNetShadowFv	Pack/RPParty/RPPnpScene/RPPnpField_3.cpp	
+80359A18	Pnp_NetShadow_vtable	__vt__14RPPnpNetShadow	Pack/RPParty/RPPnpScene/RPPnpField_3.cpp	

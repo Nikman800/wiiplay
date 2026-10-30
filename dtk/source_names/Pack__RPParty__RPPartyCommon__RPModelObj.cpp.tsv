@@ -1,0 +1,4 @@
+address	old_name	new_name	unit	previous
+801B6FDC	LoadAnm__10RPModelObjFPCcPCcQ213RPGrpModelAnm3AnmUs	LoadAnm__10RPModelObjFPCcUsQ213RPGrpModelAnm3AnmUs	Pack/RPParty/RPPartyCommon/RPModelObj.cpp	
+801B70F4	LoadModel__10RPModelObjFPCcPCcUl	LoadModel__10RPModelObjFPCcUsUl	Pack/RPParty/RPPartyCommon/RPModelObj.cpp	
+803571D0	lbl_803571D0	__vt__10RPModelObj	Pack/RPParty/RPPartyCommon/RPModelObj.cpp	

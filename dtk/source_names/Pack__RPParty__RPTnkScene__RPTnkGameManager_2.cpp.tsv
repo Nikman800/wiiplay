@@ -1,0 +1,3 @@
+address	old_name	new_name	unit	previous
+8026E078	Tnk_GameStats_addKilledType	AddKilledType__14RPTnkGameStatsFl	Pack/RPParty/RPTnkScene/RPTnkGameManager_2.cpp	
+8026E268	Tnk_GameStats_dtor	__dt__14RPTnkGameStatsFv	Pack/RPParty/RPTnkScene/RPTnkGameManager_2.cpp	

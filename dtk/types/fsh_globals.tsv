@@ -1,0 +1,155 @@
+address	name	type	confidence	note
+8031EEA0	Fsh_brresNames	const char*[16]	H	sceneFile, fsh_rod_B/R, fsh_rope, fsh_lake/tree/cloud/waterface, fsh_fish_A..rareB, fsh_fish_anim, fsh_hand_R_anim; RPFshScene::LoadResource registers G3D/%s.brres as resources 0..15 (function-local table)
+8031F000	Fsh_fishEffectNames	const char*[10]	H	Fsh_run_a/b/c, Fsh_get_back/glow/kira, Fsh_exmark, Fsh_run02_a/b (NULL-terminated); RPFshFish constructor (function-local table)
+8031F028	Fsh_fishModelNames	const char*[6]	H	fsh_fish_A..rareB by RPFshFish::EType; RPFshFish::Create (function-local table)
+8031F040	Fsh_fishAnmNames	const char*[4]	H	appearanim_scl, swimanim, pullanim (NULL-terminated); RPFshFish::Create
+8031F050	Fsh_fishStateFuncs	RPFshStateFuncsEx<RPFshFish>[10]	H	RPFshFish::sStateFuncs, enter/calc/exit per state (copied to the stack by Calculate); FADE_OUT enter is an empty function shared with Mpe_AudioMgr_checkBgmHeader
+8031F2D0	Fsh_spawnPatternThresholds	s32[4]	M	40, 60, 90, 100: random percentage thresholds choosing the spawn pattern (RPFshFishMgr::Reset)
+8031F2E0	Fsh_spawnPatterns	RPFshSpawnPattern[4]	M	RPFshFishMgr::sSpawnPatterns
+8031F320	Fsh_playerStateFuncs	RPFshStateFuncs<RPFshPlayer>[7]	H	RPFshPlayer::sStateFuncs (copied to the stack by Calculate)
+8031F438	Fsh_rodEffectNames	const char*[6]	H	Fsh_hook_drop, Fsh_hook_tail_blue/red, Fsh_hook_bubble, Fsh_rope_ripple/trail; RPFshRod constructor
+8031F450	Fsh_ropeCurveInit	u32[6]	L	{8, 0, ...}: point-count template for the rope RPCurve (RPFshRod::Create)
+8031F5B8	Fsh_resultAnmNames	const char*[4]	H	fishingResult_00 inAll/switchScore/outAll (NULL-terminated); RPFshResultLayout::Create
+8031F5C8	Fsh_resultFacePaneNames	const char*[4]	H	N_playerFaceL_00/01, N_playerFaceR_00/01; RPFshResultLayout::Create
+8031F5D8	Fsh_resultStateFuncs	RPFshStateFuncs<RPFshResultLayout>[9]	H	RPFshResultLayout::sStateFuncs (copied to the stack by Calculate)
+8031F830	Fsh_timerStateFuncs	RPFshStateFuncs<RPFshTimer>[7]	H	RPFshTimer::sStateFuncs (copied to the stack by the constructor)
+8031F9C0	Fsh_pointPopupStateFuncs	RPFshStateFuncs<RPFshPointPopup>[4]	H	RPFshPointPopup::sStateFuncs (copied to the stack by Calculate)
+8031FB58	Fsh_scoreParams	s32[0x40]	L	score/points constants (clamps -999..9999, per-size point steps); RPFshScoreLayout::Create/UpdateTexts, Fsh_calcFishPoints
+8031FC58	Fsh_scoreStateFuncs	RPFshStateFuncs<RPFshScoreLayout>[5]	H	RPFshScoreLayout::sStateFuncs; dtk object also holds the panel pane-name pointers at 8031FCD0
+8031FE48	Fsh_startStateFuncs	RPFshStateFuncs<RPFshStartLayout>[5]	H	RPFshStartLayout::sStateFuncs (PLAY has no calc)
+8031FEC0	Fsh_startAnmNames	const char*[4]	H	fishingStart_00 count_00/01/02, star_00; RPFshStartLayout::Create
+8031FED0	Fsh_startCountTextNames	const char*[6]	H	T_countdown1_00 .. T_countdown3_01; RPFshStartLayout::Create
+80320008	Fsh_yankTextNames	const char*[4]	M	fishingYank_00 text boxes given message 0x7D1; RPFshYankPrompt::Create
+80320098	Fsh_aimArrowAnmNames	const char*[3]	H	arrowUpDown_00, arrowBlue_00, arrowRed_00; RPFshAimArrow::Create
+80320140	Fsh_bonusStateFuncs	RPFshStateFuncs<RPFshBonusFish>[6]	H	RPFshBonusFish::sStateFuncs (copied to the stack by the constructor)
+803201D0	Fsh_bonusModelNames	const char*[6]	H	fsh_fish_A..rareB; RPFshBonusFish::Create
+803201E8	Fsh_bonusAnmNames	const char*[3]	H	fishingBonus_00 inAll/changeAll/outAll; RPFshBonusFish::Create
+80320330	Fsh_fishTypeParams	RPFshFishTypeParam[6]	H	Fsh_getFishTypeParams(type)
+80320480	Fsh_gameStateFuncs	RPFshStateFuncs<RPFshGame>[1]	H	RPFshGame::sStateFuncs (play)
+80320498	Fsh_msg00StateFuncs	RPFshStateFuncs<RPFshMsg00>[4]	H	RPFshMsg00::sStateFuncs
+803204F8	Fsh_msg00AnmNames	const char*[3]	H	fishingMsg_00 inAll/waitAll/outAll; RPFshMsg00::Create
+80320598	Fsh_msg01StateFuncs	RPFshStateFuncs<RPFshMsg01>[4]	H	RPFshMsg01::sStateFuncs
+803205F8	Fsh_msg01AnmNames	const char*[3]	H	fishingMsg_01 inAll/waitAll/outAll; RPFshMsg01::Create
+80358B20	Fsh_spawnIntervals	s32[4]	L	10, 30, 50, 90; RPFshFishMgr::Calculate
+80358B30	Fsh_spawnWeights	f32[4]	L	25, 25, 25, 100; RPFshFishMgr::Calculate
+80358BF0	Fsh_ropeJointNames	const char*[8]	H	rope_joint_01..06, rope_joint_end, hook; RPFshRod::Create (mRopeJoints)
+80359048	Fsh_startSoundTable	u32[6]	L	{2, 0, 0x2C, 3, 0x2B, 0}; stored in RPFshStartLayout+0x3C by the constructor (Fsh_getStartStateTable)
+8043A4DC	Fsh_catchViewPos	EGG::Vector3f	M	(0, 280, 250); RPFshFish::CatchViewCalc target position (Fsh_sinit_catchViewPos)
+8043A4F4	Fsh_aimBasePos	EGG::Vector3f	L	(0, -80, 100); RPFshPlayer::CalcAimPos (Fsh_sinit_playerConsts)
+8043A518	Fsh_landOffset	EGG::Vector3f	L	(0, -6, 5); RPFshPlayer::LandCalc
+8043A530	Fsh_landScale	EGG::Vector3f	L	(10, 10, 3); RPFshPlayer::LandCalc
+8043A558	Fsh_playerVec2A	EGG::Vector2f	L	(-0.25, -0.4); only its static initialiser references it
+8043A560	Fsh_playerVec2B	EGG::Vector2f	L	(0.25, -0.4); only its static initialiser references it
+8043A574	Fsh_rodGripPos	EGG::Vector3f	M	(0, 40, 40); RPFshRod::Reset grip position (x shifted per player)
+8043A58C	Fsh_rodRestDir	EGG::Vector3f	M	(0, 1, -1); RPFshRod::CalcRestDir
+8043A5A4	Fsh_cameraDefaultEye	EGG::Vector3f	H	(0, 210, 430); RPFshCamera::sDefaultEye
+8043A5BC	Fsh_cameraDefaultTarget	EGG::Vector3f	H	(0, 10, 0); RPFshCamera::sDefaultTarget
+8043A5D4	Fsh_cameraCatchEye	EGG::Vector3f	H	(0, 280, 430); RPFshCamera::sCatchEye
+8043A5EC	Fsh_cameraCatchTarget	EGG::Vector3f	H	(0, 280, 0); RPFshCamera::sCatchTarget
+8043A604	Fsh_cameraResultEye	EGG::Vector3f	H	(0, 280, 430); RPFshCamera::sResultEye
+8043A61C	Fsh_cameraResultTarget	EGG::Vector3f	H	(0, 280, 0); RPFshCamera::sResultTarget
+8043A634	Fsh_cameraIntroEye	EGG::Vector3f	M	default eye + (0, 150, 130); RPFshCamera::CalcIntroMove start
+8043A64C	Fsh_cameraIntroTarget	EGG::Vector3f	M	copy of the default target; CalcIntroMove start
+8043A664	Fsh_cameraIntroEndEye	EGG::Vector3f	M	copy of the default eye; CalcIntroMove end
+8043A67C	Fsh_cameraIntroEndTarget	EGG::Vector3f	M	copy of the default target; CalcIntroMove end
+8043A694	Fsh_pondCenter	EGG::Vector3f	H	(0, 0, 0); Fsh_isInPond (radius 210, y <= -15)
+8043B498	Fsh_fishSwimTurnRate	f32	L	0.2; RPFshFish::SwimCalc
+8043B49C	Fsh_fishSwimAccel	f32	L	0.08; RPFshFish::SwimCalc
+8043B4A0	Fsh_fishApproachSpeed	f32	L	2; RPFshFish::ApproachCalc
+8043B4A4	Fsh_fishApproachRate	f32	L	0.8; RPFshFish::ApproachCalc
+8043B4A8	Fsh_fishApproachFrames	s32	L	60; RPFshFish::ApproachCalc
+8043B4AC	Fsh_fishMouthRadiusScale	f32	L	0.65; RPFshFish::IsMouthNearPoint
+8043B4B0	Fsh_fishMouthRadiusAdd	f32	L	25; RPFshFish::IsMouthNearPoint
+8043B4B4	Fsh_fishNearRadiusScale	f32	L	1; RPFshFish::IsNearPoint
+8043B4B8	Fsh_fishNearRadiusAdd	f32	L	25; RPFshFish::IsNearPoint
+8043B4BC	Fsh_fishHookViewAngle	f32	L	2.1991148 (0.7 pi); RPFshFish::IsNearHook
+8043B4C0	Fsh_fishHookViewDist	f32	L	100; RPFshFish::IsNearHook
+8043B4C4	Fsh_catchViewFrames	s32	M	12; RPFshFish::CatchViewEnter/Calc ease length
+8043B4C8	Fsh_catchViewHoldFrames	s32	L	10; RPFshFish::CatchViewCalc
+8043B4CC	Fsh_showPointsFrames	s32	L	85; RPFshFish::ShowPointsCalc
+8043B4D0	Fsh_showPointsEndFrames	s32	L	120; RPFshFish::ShowPointsCalc
+8043B4D4	Fsh_fishPopScale	f32	M	0.2; RPFshFish::Calculate scale bump (mPopScale)
+8043B4D8	Fsh_fishPopFrames	s32	M	20; RPFshFish::Calculate (mPopTimer length)
+8043B4DC	Fsh_fishJumpFrames	s32	L	20; RPFshFish::JumpEnter/Calc
+8043B4E0	Fsh_fishJumpHeight	f32	L	4; RPFshFish::JumpEnter/Calc
+8043B4E4	Fsh_fishEscapeFrames	s32	L	180; RPFshFish::EscapeCalc
+8043B4E8	Fsh_fishEscapeTurnFrames	s32	L	40; RPFshFish::EscapeCalc
+8043B4EC	Fsh_fishEscapeSpeed	f32	L	4; RPFshFish::EscapeCalc
+8043B4F0	Fsh_fishEscapeDamp	f32	L	0.85; RPFshFish::EscapeEnter
+8043B4F4	Fsh_fishEscapeAccel	f32	L	1.6; RPFshFish::EscapeCalc
+8043B4F8	Fsh_getEffectScaleA	f32	L	1; RPFshFish::UpdateGetEffects
+8043B4FC	Fsh_getEffectFrames	f32	L	7; RPFshFish::UpdateGetEffects
+8043B500	Fsh_getEffectScaleB	f32	L	2.5; RPFshFish::UpdateGetEffects
+8043B504	Fsh_showPointsFlag	u8	L	1; RPFshFish::ShowPointsCalc
+8043B508	Fsh_steadyAccelMin	f32	L	-1.4; RPFshPlayer::IsRemoteSteady
+8043B50C	Fsh_steadyAccelMax	f32	L	-0.5; RPFshPlayer::IsRemoteSteady
+8043B510	Fsh_aimCastAccel	f32	L	30; RPFshPlayer::AimCalc
+8043B514	Fsh_playerMoveRate	f32	L	0.1; RPFshPlayer Aim/Land/Return/Wait calc
+8043B518	Fsh_aimBaseY	f32	L	-80; RPFshPlayer::CalcAimPos, Fsh_aimBasePos.y
+8043B51C	Fsh_aimDistScale	f32	L	2500; RPFshPlayer::CalcAimPos
+8043B520	Fsh_aimBaseZ	f32	L	100; Fsh_aimBasePos.z, RPFshPlayer::WaitCalc
+8043B524	Fsh_aimRangeZ	f32	L	110; Fsh_aimRangeMin/Max, RPFshPlayer::WaitCalc
+8043B528	Fsh_playerSpacing	f32	M	200; RPFshPlayer::Reset x offset per player index
+8043B52C	Fsh_landRate	f32	L	0.5; RPFshPlayer::LandCalc
+8043B530	Fsh_waitRate	f32	L	0.4; RPFshPlayer::WaitCalc
+8043B534	Fsh_aimMinY	f32	L	-50; RPFshPlayer::CalcAimPos
+8043B538	Fsh_ctrlParamA	f32	L	0.005; RPFshPlayer::Calculate controller setting
+8043B53C	Fsh_ctrlRangeMin	f32	L	0.05; RPFshPlayer::Calculate, mapped from the remote distance
+8043B540	Fsh_ctrlRangeMax	f32	L	0.2; RPFshPlayer::Calculate
+8043B544	Fsh_remoteDistNear	f32	L	1; RPFshPlayer::Calculate distance range
+8043B548	Fsh_remoteDistFar	f32	L	2.5; RPFshPlayer::Calculate distance range
+8043B54C	Fsh_idleParam	f32	L	500; RPFshPlayer::IdleCalc
+8043B550	Fsh_landFrames	s32	L	100; RPFshPlayer::LandCalc
+8043B558	Fsh_msg01OpenDist	f32	M	2.7; RPFshPlayerMgr::Calculate opens RPFshMsg01 above this remote distance
+8043B55C	Fsh_msg01CloseDist	f32	M	2.5; RPFshPlayerMgr::Calculate keeps it open above this
+8043B560	Fsh_rodModelScale	f32	M	1; RPFshRod::Create/CalcModelMtx joint scale
+8043B564	Fsh_rodSpacing	f32	M	200; RPFshRod::Reset x offset per player index
+8043B568	Fsh_ropeGravity	f32	L	-2.3; RPFshRod rope curve
+8043B56C	Fsh_ropeDamping	f32	L	0.5; RPFshRod rope curve
+8043B570	Fsh_ropeStiffness	f32	L	1; RPFshRod::Create rope curve
+8043B574	Fsh_ropeLength	f32	L	10; RPFshRod::Create/Calculate, hook shadow size
+8043B578	Fsh_rodRestRate	f32	L	0.4; RPFshRod::CalcRestDir
+8043B57C	Fsh_rodFollowRate	f32	L	0.1; RPFshRod::Calculate
+8043B580	Fsh_rodMaxBend	f32	M	6; RPFshRod::GetBendRatio divisor, CalcHookWater
+8043B584	Fsh_hookShadowParam	f32	L	300; RPFshRod::UserDraw (debug quad)
+8043B588	Fsh_rodTipJointName	const char*	H	"rod_end"; RPFshRod::Create mTipJoint
+8043B58C	Fsh_rodGripJointName	const char*	H	"grip"; RPFshRod::Create mGripJoint
+8043B590	Fsh_cameraFovy	f32	M	37.5; RPFshCamera::Reset/Calculate
+8043B594	Fsh_cameraCatchFrames	s32	H	20; RPFshCamera::MoveToCatchView
+8043B598	Fsh_cameraDefaultFrames	s32	H	40; RPFshCamera::MoveToDefault
+8043B59C	Fsh_cameraResultFrames	s32	H	120; RPFshCamera::MoveToResultView
+8043B5A0	Fsh_cameraIntroFrames	s32	H	180; RPFshCamera::StartIntroMove
+8043B5A8	Fsh_resultScrollRange	f32[2]	L	(-0.2, 0.2); RPFshResultLayout::CountPointsEnter
+8043B5B0	Fsh_resultLabelMinX	f32	L	-0.7; RPFshResultLayout count/labels
+8043B5B4	Fsh_resultLabelMaxX	f32	L	0.7; RPFshResultLayout count/labels
+8043B5B8	Fsh_resultScrollStart	f32	L	0.25; RPFshResultLayout::CountPointsEnter
+8043B5C0	Fsh_scoreCountStep	s32	M	2; RPFshScoreLayout::UpdateTexts displayed-score step
+8043B5C4	Fsh_pointsUnit	s32	L	10; RPFshScoreLayout::UpdateTexts, Fsh_calcFishPoints, Fsh_calcPlayerTotalPoints
+8043B5C8	Fsh_readyDistFar	f32	L	2.7; RPFshStartLayout::WaitReadyCalc
+8043B5CC	Fsh_readyDistNear	f32	L	2.5; RPFshStartLayout::WaitReadyCalc
+8043C728	Fsh_fishMgr	RPFshFishMgr*	H	singleton (Fsh_FishMgr_create)
+8043C730	Fsh_aimRangeMin	f32	L	Fsh_aimBaseZ - Fsh_aimRangeZ; RPFshPlayer::CalcAimPos
+8043C734	Fsh_aimRangeMax	f32	L	Fsh_aimBaseZ + Fsh_aimRangeZ; RPFshPlayer::CalcAimPos
+8043C738	Fsh_playerBasePos	EGG::Vector2f	M	(0, -80); RPFshPlayer::Reset mBasePos
+8043C740	Fsh_playerMgr	RPFshPlayerMgr*	H	singleton (Fsh_PlayerMgr_create)
+8043C748	Fsh_rodSplashBend	f32	L	Fsh_rodMaxBend * 0.1; RPFshRod::CalcHookWater
+8043C750	Fsh_cameraMgr	RPFshCameraMgr*	H	singleton (Fsh_CameraMgr_create)
+8043C758	Fsh_stage	RPFshStage*	H	singleton (Fsh_Stage_new)
+8043C760	Fsh_resultLayout	RPFshResultLayout*	H	singleton (Fsh_ResultLayout_new)
+8043C768	Fsh_timer	RPFshTimer*	H	singleton (Fsh_Timer_new)
+8043C770	Fsh_pointPopup	RPFshPointPopup*	H	singleton (Fsh_PointPopup_new)
+8043C778	Fsh_scoreLayout	RPFshScoreLayout*	H	singleton (Fsh_ScoreLayout_new)
+8043C780	Fsh_startLayout	RPFshStartLayout*	H	singleton (Fsh_StartLayout_new)
+8043C788	Fsh_ambientSoundHandle	nw4r::snd::SoundHandle	M	Fsh_startAmbientSound/Fsh_stopAmbientSound, RPFshTimer::LastSecondEnter
+8043C78C	Fsh_globalSoundHandle	nw4r::snd::SoundHandle	L	Fsh_holdGlobalSound
+8043C790	Fsh_yankPrompt	RPFshYankPrompt*	H	singleton (Fsh_YankPrompt_new)
+8043C798	Fsh_aimArrow	RPFshAimArrow*	H	singleton (Fsh_AimArrow_new)
+8043C7A0	Fsh_bonusSpinStart	f32	L	0.1745 (10 deg); RPFshBonusFish::SpinUpEnter
+8043C7A4	Fsh_bonusSpinMin	f32	L	0.0349 (2 deg); RPFshBonusFish::Calculate
+8043C7A8	Fsh_bonusSpinStep	f32	L	0.0873 (5 deg); RPFshBonusFish::Calculate/SpinDownCalc
+8043C7AC	Fsh_bonusSpinMax	f32	L	1.745 (100 deg); RPFshBonusFish::Calculate/SpinUpCalc
+8043C7B0	Fsh_bonusFish	RPFshBonusFish*	H	singleton (Fsh_BonusFish_new)
+8043C7B8	Fsh_gameInstance	RPFshGame*	H	singleton (Fsh_Scene_new)
+8043C7BC	Fsh_playerNum	s32	H	RPFshGame::sPlayerNum, copied from the scene info (+0x4) by the RPFshGame constructor
+8043C7C0	Fsh_msg00	RPFshMsg00*	H	singleton (Fsh_Msg00_new)
+8043C7C8	Fsh_msg01	RPFshMsg01*	H	singleton (Fsh_Msg01_new)

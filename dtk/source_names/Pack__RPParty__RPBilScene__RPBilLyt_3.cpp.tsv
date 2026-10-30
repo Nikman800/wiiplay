@@ -1,0 +1,7 @@
+address	old_name	new_name	unit	previous
+802D1FE4	Bil_HintLyt_draw	Draw__12RPBilHintLytFv	Pack/RPParty/RPBilScene/RPBilLyt_3.cpp	
+802D1FEC	Bil_HintLyt_calc	Calculate__12RPBilHintLytFv	Pack/RPParty/RPBilScene/RPBilLyt_3.cpp	
+802D2000	Bil_HintLyt_reset	Reset__12RPBilHintLytFv	Pack/RPParty/RPBilScene/RPBilLyt_3.cpp	
+802D200C	Bil_HintLyt_load	Load__12RPBilHintLytFPQ23EGG7Archive	Pack/RPParty/RPBilScene/RPBilLyt_3.cpp	
+8035E608	lbl_8035E608	__vt__12RPBilHintLyt	Pack/RPParty/RPBilScene/RPBilLyt_3.cpp	
+801B9F84	RP_CPadCursor_80357428_vf04	VF_0x18__12RPLytObjBaseFv	Pack/RPParty/RPBilScene/RPBilLyt_3.cpp	

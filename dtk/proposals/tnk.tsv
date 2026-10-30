@@ -1,0 +1,588 @@
+address	new_name	confidence	note
+801B6390	RP_calcPerpendicularDistance	medium	dot of (p2-p1) with RP_calcPerpendicularDir result; shared by Tnk/Duc, sits in RP code range (module was callgraph)
+801B6410	RP_calcPerpendicularDir	medium	normalize(p2-p3), cross twice with normalized axis -> perpendicular unit dir; used by Duc+Tnk, RP range
+801B69A0	RP_selectMoreAlignedVec	medium	copies whichever of v3/v4 has larger dot with v2, returns 1 if v4; used by Duc+Tnk, RP range
+80255D8C	Tnk_Scene_vf14NotifyChildren	low	if arg!=0 calls Tnk_8025DD58(child@0x58,0) which calls slot10 on each element
+80255DA4	Tnk_Scene_draw	medium	per-mode draw: field capture texture/clear quad, tread marks, capture copy; reached via -0x24 thunk
+80255E7C	Tnk_Scene_destroy	high	calls exit/free on child managers 0x4c..0x60 and deletes their singletons
+80255F4C	Tnk_Scene_calc	high	per-frame: controllers, gameplay update, cameras, child calc, bg color, plays sound 0x17/0x1b
+80256060	Tnk_Scene_reset	medium	resets game param, camera mode 1, children reset (slot3), counters, bg color, controller rumble
+80256324	Tnk_Scene_load	high	loads sceneFile.brres, basic_tank.breff/breft, rp_Tnk_sound.brsar; calls children load
+8025652C	Tnk_Scene_create	high	allocates cameras, Field, managers, GameParam singletons and stores them at 0x44..0x7c
+802567BC	Tnk_802567BC	keep	empty body in decomp (76 bytes)
+80256808	Tnk_Scene_updateGameplay	medium	unless paused flag, runs staged update/collision calls on mgr 0x50, 0x54 and field blocks; counts frames
+802569B0	Tnk_Scene_createCamerasAndScreens	high	allocs Gfx camera + Tnk camera, creates eggScreen views (aspect dependent) and binds them
+80256C84	Tnk_Scene_dtor	high	base dtor + operator delete when flag>0
+80256CE0	Tnk_80256CE0	keep	deleting dtor of unidentified object (base fn_800AC520)
+80256D3C	Tnk_initLightPosConst	medium	static init of lbl_8043A800 = (0,10000,0) used as light position in Scene_load
+80256D5C	Tnk_Scene_drawThunk	high	this-0x24 adjustor thunk to Tnk_Scene_draw
+80256D64	Tnk_Scene_dtorThunk	high	this-0x24 adjustor thunk to Tnk_Scene_dtor
+80256D6C	Tnk_projectToScreen	medium	transforms world pos by camera matrix and divides by screen width/height -> 2D coords
+80256DE4	Tnk_Camera_updateView	medium	builds look dir/up from pos 0x178, target 0x190, up 0x184 and copies to base camera fields
+80256EAC	Tnk_Camera_setMode	high	mode 1: fixed overhead pos (dist 2000); mode 0: init intro spline path; stores mode at 0x1e8
+80257160	Tnk_Camera_calc	medium	invokes per-mode state member fn (table at 0x1ec) then slot5 updateView
+802571C4	Tnk_Camera_initView	medium	same look-at matrix build as updateView (slot 3)
+8025728C	Tnk_Camera_create	medium	base create, allocates 5-point spline at 0x1d8, init param/speed, mode 1
+802572F4	Tnk_Camera_stateFixed	low	empty camera state function (state table entry for mode 1)
+802572F8	Tnk_Camera_stateIntroMove	medium	eases spline param to 1.0, evaluates spline into pos, lerps target y, switches to mode 1 at end
+802573C4	Tnk_Camera_dtor	high	base camera dtor + delete
+8025741C	Tnk_Camera_destroyInstance	high	deletes lbl_8043C8D8 singleton and clears it
+80257460	Tnk_Camera_createInstance	high	allocs 0x204, base ctor, vtable 8035B178, state table, stores singleton lbl_8043C8D8
+80257500	Tnk_initCameraPathConsts	medium	static init of camera spline points/target constants lbl_8043A810..
+802575BC	Tnk_Field_isBlockAtPos	medium	forwards pos to block pool test (Tnk_80261C44: any active block cell containing x/z)
+802575FC	Tnk_Field_drawPlainQuad	low	draws a 1000-scaled white quad via eggDrawGX (mode 1, state 2)
+80257784	Tnk_Field_drawCaptureTexture	medium	draws capture texture 0xac as screen quad with fade alpha arg
+80257AFC	Tnk_Field_drawClearQuad	low	draws screen-sized white quad with blend setup, bracketed by GX state save/restore
+80257CCC	Tnk_Field_captureTexture	medium	RP_801B15B8(capTex 0xac, 0x2b): copy framebuffer into capture texture
+80257CD8	Tnk_Field_setWorldScale	medium	stores float at 0xa8 (scale used for tread mark/world draw)
+80257CE0	Tnk_Field_destroy	medium	slot 5: frees block pool, child 0xa4, deletes singletons 8043C918/8043C928
+80257D38	Tnk_BlockPool_destroy	low	4-byte tail branch to Tnk_80261F64 (delete block pool singleton); vtable 8035B748 slot 9
+80257D3C	Tnk_Field_updateModels	medium	calls field model slot7 and block pool updateModelAll
+80257D8C	Tnk_Field_calc	medium	slot 4: calls calc on field model 0x9c and child 0xb0
+80257DDC	Tnk_Field_collideActor	medium	tests actor circle vs 4 wall planes (calls actor slot33 on hit) and vs blocks pool
+80257F48	Tnk_Field_reset	high	sets field size/grid by aspect flag, cell size globals, wall planes, resets children
+802580A0	Tnk_Field_load	high	calls load (slot 2) on field model, block pool, 0xa4, 0xb0
+80258118	Tnk_Field_create	high	creates field model, block pool (cap 0x100), 8035B9B0 obj, capture texture, 8035C040 obj
+802581F8	Tnk_Field_initWallPlanes	high	fills 4 wall plane records (pos, normal, length) from field width/height
+802582F4	Tnk_Field_dtor	high	base dtor + delete
+8025834C	Tnk_Field_destroyInstance	high	deletes lbl_8043C8E0 singleton
+80258390	Tnk_Field_createInstance	high	allocs 0xb4, base ctor, vtable 8035B198, stores singleton lbl_8043C8E0
+802583DC	Tnk_FieldModel_vf27	low	empty
+802583E0	Tnk_FieldModel_setGridSize	medium	stores field width/height, cell counts and cell sizes into field model
+80258444	Tnk_FieldModel_updateModel	medium	scales base matrix and applies to field + outer models, updates them
+80258584	Tnk_FieldModel_reset	medium	resets position and matrix to identity constants
+80258614	Tnk_FieldModel_load	high	loads tnk_field_16_9/4_3 brres (+_out) models, binds caterpillar texture to capture texture
+802587B8	Tnk_FieldModel_create	low	empty create slot
+802587BC	Tnk_FieldModel_dtor	high	base dtor + delete
+80258814	Tnk_FieldModel_ctor	high	base ctor, sets vtable 8035B1C0 and secondary vtable
+80258858	Tnk_FieldModel_vf27Thunk	high	this-0x48 thunk to vf27
+80258860	Tnk_FieldModel_dtorThunk	high	this-0x48 thunk to dtor
+80258868	Tnk_testCircleVsWall	medium	circle radius vs wall plane segment test, outputs normal, penetration, wall id
+80258A38	Tnk_initAxisConsts	medium	static init of axis/identity matrix constants lbl_8043A870/lbl_8043A894
+80258ADC	Tnk_ActorPool_killAll	high	calls kill (slot30) on every element, active count = 0
+80258B3C	Tnk_ActorPool_spawn	high	finds inactive element (state<0) from cursor, calls slot29 spawn, count++, returns it
+80258C08	Tnk_ActorPool_updateModelAll	high	calls slot7 on every active element
+80258C78	Tnk_ActorPool_tickTimers	high	increments state counter 0xa0 of every active element
+80258CB4	Tnk_ActorPool_calcAll	high	calls calc (slot4) on every active element
+80258D24	Tnk_ActorPool_integrateAll	medium	calls slot28 (integrate step) on every active element
+80258D94	Tnk_ActorPool_collideAllWithField	medium	calls slot27 on active elements (subclasses route it to Tnk_Field_collideActor)
+80258E04	Tnk_ActorPool_clearForcesAll	medium	calls slot26 (clear force accumulators) on active elements
+80258E74	Tnk_ActorPool_applyVelocityAll	medium	calls slot25 (pos += vel) on active elements
+80258EE4	Tnk_ActorPool_resetAll	high	count=0, cursor=begin, calls reset (slot3) on each element
+80258F48	Tnk_ActorPool_loadAll	high	calls load (slot2) on each element
+80258FA0	Tnk_ActorPool_init	high	allocs pointer array of capacity, creates each element via slot7, sets index/owner
+8025905C	Tnk_ActorPool_dtor	high	base dtor + delete
+802590B4	Tnk_ActorPool_ctor	high	base ctor, vtable 8035B238; used by all pool subclasses
+802590F0	Tnk_Cls_8035B290_vf45	keep	empty default
+802590F4	Tnk_Cls_8035B290_vf41	keep	returns 0
+802590FC	Tnk_Cls_8035B290_vf40	keep	returns 0
+80259104	Tnk_Cls_8035B290_vf39	keep	empty default
+80259108	Tnk_Cls_8035B290_vf35	keep	returns 0
+80259110	Tnk_Cls_8035B290_vf34	keep	empty default
+80259114	Tnk_Actor_onHitWall	medium	empty default; slot33 called by Tnk_Field_collideActor on wall contact
+80259118	Tnk_Actor_testHitAlt	medium	circle overlap vs other actor using own alt offset 0x94/0x9c; outputs distance
+8025922C	Tnk_Actor_testHit	medium	circle overlap (radius sum at 0x90, offsets 0x84) vs other actor; outputs distance
+80259340	Tnk_Actor_kill	high	state=-999, decrements owner pool count, slot19(0)
+80259374	Tnk_Actor_spawn	high	reset, set pos, slot23, slot24(arg), state=0, slot19(1)
+80259428	Tnk_Actor_calc	low	empty default calc slot
+8025942C	Tnk_Actor_integrateStep	medium	calls slot22 integrate
+8025943C	Tnk_Actor_collideWithField	low	empty default; overridden by subclasses to call Tnk_Field_collideActor
+80259440	Tnk_Actor_clearForcesStep	medium	calls slot21 clearForces
+80259450	Tnk_Actor_applyVelocity	high	pos += velocity (0x48)
+80259484	Tnk_Actor_reset	medium	calls slot20 resetState
+80259494	Tnk_Actor_load	low	empty default load slot
+80259498	Tnk_Actor_create	medium	allocates sound emitter (vtable 8035B354) with 4 sound handles into 0xac
+802595FC	Tnk_Actor_applySpawnParam	low	empty default; slot24 receives spawn arg
+80259600	Tnk_Actor_onSpawn	low	empty default; slot23 called after spawn position set
+80259604	Tnk_Actor_integrate	high	pos += 0x54+0x60, velocity += 0x6c+0x78
+80259698	Tnk_Actor_clearForces	high	zeroes force/accel accumulators 0x54..0x80
+802596D0	Tnk_Actor_resetState	high	resets pos, matrix, velocity, collision data, state=-1, slot19(0)
+802597FC	Tnk_Actor_dtor	high	base dtor + delete
+80259854	Tnk_Actor_ctor	high	base ctor, vtable 8035B290, zeroes motion/collision fields
+80259940	Tnk_ActorSound_dtor	medium	releases sound handles, destroys lists/disposer, delete if flag>0
+80259A50	Tnk_Cls_8035B290_vf36	keep	returns 0
+80259A58	Tnk_Cls_8035B290_vf37	keep	returns 0
+80259A60	Tnk_Cls_8035B290_vf38	keep	returns 0
+80259A68	Tnk_Cls_8035B290_vf42	keep	empty default
+80259A6C	Tnk_Cls_8035B290_vf43	keep	empty default
+80259A70	Tnk_Cls_8035B290_vf44	keep	returns 0
+80259A78	Tnk_Cls_8035B290_vf46	keep	returns 0
+80259A80	Tnk_ActorSound_dtorThunk	high	this-0x10 thunk to ActorSound dtor
+80259A88	Tnk_drawTreadMark	medium	every lbl_80322F08[type] distance along path, draws textured quad (lbl_8043C950[type]) scaled by field
+80259D20	Tnk_keepNearestF8	low	stores (id,dist) pair at 0xf8 if dist smaller than current
+80259D44	Tnk_keepNearestF0	low	stores (id,dist) pair at 0xf0 if dist smaller than current
+80259D68	Tnk_Tank_accumulatePushOut	medium	vf55 (called via +0xe4 by tank-tank separation): accumulates min/max correction vectors at 0x54..0x80 along normal
+80259F08	Tnk_Tank_accumulatePushOutAlt	low	vf33: identical body to vf55 (extra arg) accumulating min/max push-out vectors at 0x54..0x80
+8025A0A8	Tnk_Tank_pushApartFrom	medium	if tanks within 32 units, calls other tank vf55 with normalized separation dir and overlap depth
+8025A21C	Tnk_Tank_hitTestShell	medium	vf32: circle test vs other (radius+15) at this+0x94 offset; outputs distance; used by shell hit search
+8025A360	Tnk_Tank_hitTestMine	medium	vf31: circle test vs other (radius+14) at this+0x84 offset; outputs distance; used by mine hit search
+8025A474	Tnk_Tank_playMineSe	low	if player tank (0x100==0), calls sound actor 0x1cc method +0x80 with id 0x17; caller is mine code
+8025A4A0	Tnk_Tank_playFireSe	low	plays sound ids 0x14 and (players only) 0x13 on sound actor 0x1cc; called from fire paths
+8025A50C	Tnk_Tank_playFireSeByType	low	plays sound id chosen by player index (1/2) or enemy type 0x104 on sound actor 0x1cc; called on fire
+8025A674	Tnk_Tank_setSePlayerId	medium	sets sound actor 0x1cc field 0x70 to 1/2 for player 0/1, 0 for enemy tanks
+8025A6C0	Tnk_Tank_playShotEffect	high	creates "Tnk_shot" effect at cannon matrix (this+0x13c)
+8025A72C	Tnk_Tank_explode	medium	on destruction: player -> notify/rumble; enemy -> award kill to shooter; spawns bomb piece effect, sounds, deactivates
+8025ADA0	Tnk_Tank_activate	medium	state 0xec 0->1 (player) or 2 (enemy); stealth enemies play Tnk_stealth_change effect and sound 0x12
+8025AE9C	Tnk_Tank_deactivate	medium	vf30: base vf30, enemy decrements manager active-enemy count, clears sound actor fields
+8025AF00	Tnk_Tank_spawnEnemy	medium	sets isEnemy, enemy type, AI params from type table (0xa8-byte entries), stealth flag, orientation, sound variant
+8025B2B4	Tnk_Tank_spawnPlayer	medium	vf29 init, clears isEnemy, sets orientation, model index = player index, state flag, sound variant
+8025B324	Tnk_Tank_calcModelMatrices	medium	vf54: builds scaled/rotated model matrix, fetches body node and "cannon" node matrices into 0x10c/0x13c
+8025B4EC	Tnk_Tank_draw	medium	vf07: picks model 0x19c[0xe8], hides it when stealth-active, sets matrix/scale and draws
+8025B644	Tnk_Tank_calc	medium	vf04: calls state member-fn ptr indexed by 0xec, updates sound actor positions (0xac, 0x1cc)
+8025B6B4	Tnk_Tank_updateTreadDistance	medium	vf28: adds max movement of two track points to distance accumulator 0x190 (track marks)
+8025B7C4	Tnk_Tank_resolveCollisions	medium	vf27: radius 16, pushes apart from other tanks via manager, then field/wall collision (80257DDC)
+8025B81C	Tnk_Tank_clearHitInfo	medium	vf26: base vf26 then resets nearest shell/mine hit records 0xf0..0xfc (dist 1000)
+8025B864	Tnk_Tank_applyVelocity	high	vf25: saves previous position to 0x184 and adds velocity 0x48 to position
+8025B8B0	Tnk_Tank_reset	medium	vf03: base reset, default orientation/fields, clears hit info and sound fields, resets controllers 0x194/0x198
+8025B9B0	Tnk_Tank_loadModels	high	vf02: loads G3D/tnk_tank.brres and creates 11 models tnk_tank_1p/2p/e_1..e_9 into 0x19c[]
+8025BB0C	Tnk_Tank_create	high	vf01: allocates player controller (0x194), AI (0x198), Tnk_stealth_change effect (0x1c8), sound actor (0x1cc)
+8025BBB4	Tnk_Tank_stateEnemyStop	medium	state 4 handler: zeroes velocity to constant, speed from velocity length, max speed from AI
+8025BC44	Tnk_Tank_statePlayerStop	medium	state 3 handler: updates player aim (8025FFA0), zero velocity, speed values from controller
+8025BCB8	Tnk_Tank_stateEnemyControl	medium	state 2 handler: AI movement update, engine sound by speed ratio, explode when hit countdown ends, stealth fx
+8025BE58	Tnk_Tank_statePlayerControl	medium	state 1 handler: player aim/fire/move via controller 0x194, engine sound by speed, explode when hit
+8025BF98	Tnk_Tank_stateIdle	medium	state 0 handler: player tanks only update aim cursor via controller (8025FFA0)
+8025BFC0	Tnk_Tank_setSeVariant	medium	sets sound actor 0x1cc field 0x98: 0/1 for players, enemy type+1 (2..10) for enemies
+8025C0DC	Tnk_Tank_spawnBombPieceEffect	high	creates "Tnk_bomb01_piece" effect colored per model index plus second effect at tank position
+8025C358	Tnk_Tank_initOrientation	low	chooses facing from 4 cardinal vectors by position vs field size, builds orientation basis into 0x1c/0xb8
+8025C4F8	Tnk_Tank_setField108	low	vf24: stores (arg & 0xf) into 0x108
+8025C504	Tnk_Tank_initParams	medium	vf23: radius 16, scale 1.6, default basis, collision offsets, node matrices, track points, clears fields
+8025C76C	Tnk_Tank_dtor	high	vf00: base dtor then operator delete when flag > 0
+8025C7C4	Tnk_Tank_ctor	high	base ctor, stores Tank vtable, fills state member-fn ptr table (5 state handlers)
+8025C8AC	Tnk_initCardinalDirections	medium	static init of 4 direction vectors (0,0,-1),(0,0,1),(-1,0,0),(1,0,0) used by initOrientation
+8025C904	Tnk_Tank_calcModelMatrices_thunk	medium	vf52: this-0xb0 adjustor thunk to calcModelMatrices
+8025C90C	Tnk_Tank_dtor_thunk	medium	vf49: this-0xb0 adjustor thunk to dtor
+8025C914	Tnk_TankManager_getMaxActiveEnemyType	medium	returns highest enemy type 0x104 among active enemy tanks (min 1)
+8025C954	Tnk_TankManager_limitAiFlag118	low	from random start, allows only one active enemy AI with field 0x118==1; extras set to 2
+8025CA10	Tnk_TankManager_limitAiFlag110	low	from random start, allows only two active enemy AIs with field 0x110==1; extras set to 2
+8025CACC	Tnk_TankManager_getNearestEnemyDistance	medium	returns min XZ distance from given tank to other active enemy tanks (default 10000)
+8025CBC8	Tnk_TankManager_recordMineHit	medium	if arg==0 records mine hit (id,dist) on player and enemy tank idx when nearer (0xf8/0xfc)
+8025CC38	Tnk_TankManager_recordShellHit	medium	if arg==0 records shell hit (id,dist) on player and enemy tank idx when nearer (0xf0/0xf4)
+8025CCA8	Tnk_TankManager_drawTrackMarks	low	calls 80259A88 (track mark drawing by tread distance) for all active player and enemy tanks
+8025CD38	Tnk_TankManager_getPlayersDeadState	low	returns code from player tanks 0xe4 (zero = destroyed): 2p mode -> 0..3, 1p mode -> 1 or 3
+8025CDB0	Tnk_TankManager_separateTank	medium	pushes given tank apart from all other active tanks (and vice versa) via Tank_pushApartFrom
+8025CEE0	Tnk_TankManager_findShellHit	medium	tests shell vs all active tanks via vf32, returns nearest tank, isEnemy, index, found, distance
+8025D030	Tnk_TankManager_findMineHit	medium	tests mine vs all active tanks via vf31, returns nearest tank, isEnemy, index, found, distance
+8025D180	Tnk_TankManager_testMineHitTank	medium	calls vf31 mine hit test on player or enemy tank idx if active
+8025D1F4	Tnk_8025D1F4	keep	empty function
+8025D1F8	Tnk_TankManager_activateEnemies	medium	calls Tank_activate on all active enemy tanks
+8025D250	Tnk_TankManager_activatePlayers	medium	calls Tank_activate on all active player tanks
+8025D2B8	Tnk_TankManager_deactivateAll	medium	calls vf30 deactivate on all tanks, resets active-enemy count and spawn cursor, notifies 0x34 object
+8025D36C	Tnk_TankManager_spawnNextEnemy	medium	if active enemies < max, finds next inactive enemy slot round-robin and spawns it
+8025D41C	Tnk_TankManager_spawnPlayer	medium	forwards to Tank_spawnPlayer for player tank index
+8025D438	Tnk_TankManager_unload	low	vf05: calls slot 5 on all tanks, destroys singletons via 80274EDC/80274DD8
+8025D4D0	Tnk_TankManager_draw	medium	calls vf07 draw on active tanks and 0x34 object draw
+8025D58C	Tnk_TankManager_incrementTimers	medium	increments 0xa0 frame counter of active tanks, then 0x34 object method +0x44
+8025D600	Tnk_TankManager_calc	medium	calls vf04 calc on active tanks and 0x34 object method +0x40
+8025D6BC	Tnk_TankManager_updateTreadDistances	medium	calls vf28 on all active tanks
+8025D764	Tnk_TankManager_resolveCollisions	medium	calls vf27 on all active tanks
+8025D80C	Tnk_TankManager_clearHitInfo	medium	calls vf26 on all active tanks
+8025D8B4	Tnk_TankManager_applyVelocities	medium	calls vf25 on all active tanks and 0x34 object method +0x30
+8025D970	Tnk_TankManager_reset	medium	vf03: resets all tanks, active player count from game mode (1p/2p), resets spawn counters
+8025DA58	Tnk_TankManager_loadResources	medium	vf02: calls vf02 load on 0x38 object, all tanks and 0x34 object
+8025DB10	Tnk_TankManager_createTanks	high	allocates player and enemy Tank objects (0x20c each), sets isEnemy/index, gets 0x34/0x38 singletons
+8025DC70	Tnk_TankManager_dtor	high	vf00: base dtor then operator delete when flag > 0
+8025DCC8	Tnk_TankManager_destroyInstance	high	deletes singleton lbl_8043C8E8 and clears it
+8025DD0C	Tnk_TankManager_createInstance	high	allocates 0x3c bytes, base ctor, sets TankManager vtable, stores singleton lbl_8043C8E8
+8025DD58	Tnk_callSlot10OnListReverse	low	iterates object list (count +8, array +0xc) backwards calling virtual +0x30 with arg
+8025DDC4	Tnk_CursorManager_callActiveSlot6	low	calls cursor vtable slot 6 on each active cursor (count at +8)
+8025DE2C	Tnk_CursorManager_callAllSlot5	low	calls cursor vtable slot 5 on every cursor (count at +4)
+8025DE94	Tnk_CursorManager_calc	medium	calls Cursor_calc (slot 4) on each active cursor
+8025DEFC	Tnk_CursorManager_reset	medium	resets all cursors and restarts effects, active count from player mode, sets display modes
+8025E088	Tnk_CursorManager_vf02	low	empty virtual
+8025E08C	Tnk_CursorManager_createCursors	high	allocates N Cursor objects (0x7c), calls create and Cursor_createParts with player index
+8025E118	Tnk_CursorManager_dtor	high	destructor; base dtor then delete when flag > 0
+8025E170	Tnk_CursorManager_destroyInstance	high	deletes singleton lbl_8043C8F0 and clears it
+8025E1B4	Tnk_CursorManager_createInstance	high	allocates 0x1c, base ctor, sets vtable, stores singleton lbl_8043C8F0
+8025E200	Tnk_Cursor_createParts	high	creates Tnk_cursor_{1p,2p}_{main,tail,line} effects for player index
+8025E34C	Tnk_Cursor_vf06	low	empty virtual
+8025E350	Tnk_Cursor_calc	medium	gets controller, calcs world pos, moves main/tail effects to cursor position
+8025E478	Tnk_Cursor_updateLineEffect	medium	scales/orients line effect from player tank to cursor position
+8025E7C8	Tnk_Cursor_setDisplayMode	medium	mode 0-3 toggles visibility/alpha of line, tail, main effects; repositions them
+8025EAF0	Tnk_Cursor_restartLineEffect	medium	restarts line effect (slots 0x18/0xc) and updates its transform
+8025EB78	Tnk_Cursor_restartTailEffect	medium	restarts tail effect (slots 0x18/0xc) and repositions main/tail
+8025ECE0	Tnk_Cursor_restartMainEffect	medium	restarts main effect (slots 0x18/0xc) and repositions main/tail
+8025EE48	Tnk_Cursor_reset	medium	sets initial pointer pos per player side, updates display, resets pointer helper
+8025EEFC	Tnk_Cursor_create	medium	allocates pointer helper object (RP_801BAF00) into +0x40
+8025EF44	Tnk_Cursor_calcWorldPos	medium	updates pointer, builds camera ray from screen pos, intersects ground plane (Duc_801B621C)
+8025F15C	Tnk_Cursor_updateScreenPosAndMode	medium	computes screen pos, clamps to 480 from tank, picks display mode from game state
+8025F3DC	Tnk_Cursor_updatePointerPos	medium	reads pointer xy, clamps to screen-dependent bounds, clears onscreen flag at edges
+8025F5A0	Tnk_Cursor_dtor	high	destructor; base dtor then delete when flag > 0
+8025F5F8	Tnk_Cursor_ctor	high	base ctor, sets vtable 8035B61C, inits matrix/default fields, player index 0
+8025F6DC	Tnk_PlayerController_getMaxSpeed	low	returns float +0x14 (max move speed scale used in calcMoveVelocity)
+8025F6E4	Tnk_PlayerController_handleFireInput	medium	button 0x400 fires shell (80263A94) with rumble, 0x800 lays mine (802638A4); cooldowns
+8025F974	Tnk_PlayerController_calcMoveVelocity	medium	reads stick, turns body, accelerates/decays speed, writes velocity vector
+8025FC44	Tnk_PlayerController_turnBodyTowards	low	rotates tank basis toward input direction, falls back to turnBodyStep; sets dir sign
+8025FE3C	Tnk_PlayerController_turnBodyStep	low	rotates tank basis by one step of turn rate and rebuilds orthonormal axes
+8025FFA0	Tnk_PlayerController_aimAtCursor	medium	orients matrix horizontally toward cursor[idx] position from CursorManager
+80260088	Tnk_PlayerController_reset	medium	copies tuning values from game param table, clears speed/cooldowns/flags
+80260334	Tnk_PlayerController_getMoveInput	high	returns nunchuk stick xy (ret 1) or normalized d-pad vector (ret 0)
+80260444	Tnk_PlayerController_dtor	high	destructor; base dtor then delete when flag > 0
+8026049C	Tnk_PlayerController_ctor	high	base ctor, stores owner tank at +0x58, sets vtable 8035B650
+802604E8	Tnk_Block_collideObject	medium	tests object circle vs block's 4 edges, calls object's hit handler (slot 0x8c)
+802606A8	Tnk_Block_draw	high	sets model matrix for height-specific block model and draws it plus shadow
+802609B4	Tnk_Block_calc	medium	updates matrix, refreshes shadow from neighbours, updates sound position
+80260A14	Tnk_Block_checkBreak	low	kind 0 only: checks overlap via lbl_8043C920 query, sets break flag +0x148
+80260A74	Tnk_Block_refreshNeighbors	medium	base vf26 then caches neighbour block states at 4 adjacent cells
+80260BB4	Tnk_Block_applyVelocity	high	position += velocity (+0x48..0x50)
+80260BE8	Tnk_Block_loadModels	high	loads tnk_block_1/7/8 models from tnk_block.brres and shadow model/animation
+80260E78	Tnk_Block_create	medium	tail-calls base create: allocates sound/effect holder into +0xac
+80260E7C	Tnk_Block_breakIfFlagged	medium	callback: if break flag set, spawns block-break effect and kills block (slot 0x80)
+80260EC8	Tnk_Block_spawnBreakEffect	high	spawns Tnk_blockbreak01 effect at each stacked level of the block
+80260FB4	Tnk_Block_updateShadow	medium	checks 4 neighbours for tall blocks, sets shadow animation frame and direction
+802614A8	Tnk_Block_setupEdges	high	builds 4 edge segments (start, normal, length) around block bounds
+80261598	Tnk_Block_setup	medium	sets kind (arg&3) and height ((arg>>4&7)+1), edges, neighbours, model frames
+80261840	Tnk_Block_reset	medium	sets scale/matrix defaults, clears kind, neighbour flags, shadow state
+80261978	Tnk_Block_dtor	high	destructor; base dtor then delete when flag > 0
+802619D0	Tnk_Block_ctor	high	base object ctor, sets vtable 8035B684 and breakIfFlagged callback
+80261A28	Tnk_Block_getKind	high	returns +0xb0 (kind, set from arg&3 in setup)
+80261A30	Tnk_Block_getHeight	high	returns +0x14c (stack height)
+80261A38	Tnk_BlockPool_getBlockAt	high	finds active block at exact x/z: 0 none, 1 height-1 block, 2 taller block
+80261B04	Tnk_BlockPool_isKind0BlockNear	medium	true if any active kind-0 block centre within half-size + radius of point
+80261C44	Tnk_BlockPool_isPointInsideBlock	medium	true if point inside any active block that is not kind 2 and not height 1
+80261DCC	Tnk_BlockPool_killAllBlocks	medium	kills (slot 0x80) every active block except kind 2
+80261E58	Tnk_BlockPool_collideObject	medium	runs Block_collideObject (slot 0x94) on all non-kind-2 blocks, ORs results
+80261F0C	Tnk_BlockPool_dtor	high	destructor; pool base dtor then delete when flag > 0
+80261F64	Tnk_BlockPool_destroyInstance	high	deletes singleton lbl_8043C8F8 and clears it
+80261FA8	Tnk_BlockPool_createInstance	high	allocates 0x18, pool base ctor, vtable 8035B748, stores singleton lbl_8043C8F8
+80261FF4	Tnk_BlockPool_createObject	high	pool factory: allocates 0x180 and constructs a Block
+80262024	Tnk_ShellPool_detectIncomingShells	medium	for AI tank: finds active shells within radius moving toward it, records approach
+8026238C	Tnk_ShellPool_collideShellWithShells	high	tests shell vs other shells, spawns Tnk_shell_bomb at midpoint, plays sound
+80262584	Tnk_ShellPool_isObjectHit	medium	true if any active shell hits object; mode 1 ignores owner's own young shells
+80262660	Tnk_ShellPool_callActiveSlot42	low	calls Shell vtable slot 42 on all active shells (used on stage clear)
+802626D0	Tnk_ShellPool_countShellsPerOwner	high	clears 10 counters at +0x18, counts active shells by owner id (slot 0x98)
+80262774	Tnk_ShellPool_dtor	high	destructor; pool base dtor then delete when flag > 0
+802627CC	Tnk_ShellPool_createInstance	high	allocates 0x40, pool base ctor, vtable 8035B7A0, stores singleton lbl_8043C900
+80262818	Tnk_ShellPool_createObject	high	pool factory: allocates 0xec and constructs a Shell
+80262848	Tnk_ShellPool_destroyInstance	high	deletes singleton lbl_8043C900 and clears it
+8026288C	Tnk_Shell_playHitSound	medium	plays sound id 0x11 on shell's sound object (+0xac); called on shell-vs-shell hit
+802628A8	Tnk_Shell_reflectOffWall	medium	slot33: dot(vel,normal); accumulates push-out/reflect bounds; sets hit flag 0xc4, 0xc5 if age<7
+80262C48	Tnk_Shell_checkCircleHit	medium	slot31: XZ circle overlap with other object (radius 0x90+6); optional out distance
+80262D5C	Tnk_Shell_stopSmokeEffects	low	slot42: calls effect vslot (0x10) on its 4 smoke effects; ShellPool calls it when stage ends
+80262DB4	Tnk_Shell_deactivate	medium	slot30: base deactivate (age=-999, pool count--) then same effect call on 4 smoke effects
+80262E10	Tnk_Shell_updateModelMtx	low	slot4: fn_800B20F8 on member at 0xc8 index, then model vcall 0x48 with this+4 matrix/pos
+80262E68	Tnk_Shell_checkCollisions	high	slot27: tests blocks, tanks (not own tank early), mines, other shells; sets hit flags c1/c3/c2
+80262F80	Tnk_Shell_clearHitFlags	high	slot26: base call then clears hit flags 0xc1..0xc5
+80262FC4	Tnk_Shell_applyVelocity	high	slot25: pos(+4..+c) += vel(+48..+50)
+80262FF8	Tnk_Shell_loadModel	high	slot2: loads G3D/shell.brres, model 'shell', stores model at 0x44
+802630CC	Tnk_Shell_create	high	slot1: base create then allocs Tnk_shellsmoke01/02/03 effects at 0xcc..0xd8
+802631A8	Tnk_Shell_resolveHits	medium	state fn in ctor table: orients by velocity, moves smoke; bounces--, Tnk_shell_bomb/crash, deactivates
+802636BC	Tnk_Shell_setParams	medium	slot24: unpacks shooter(0xb4), bounces(0xb0), smoke index(0xb8, starts effect), 0xbc from packed word
+80263744	Tnk_Shell_reset	high	slot23: sets scale 1.5238, radius 1.0, identity rot, clears hit flags, bounces=1, owner=0
+802637D4	Tnk_Shell_dtor	high	calls base dtor, operator delete when flag>0
+8026382C	Tnk_Shell_ctor	high	base ctor, sets vtable 8035B804 and state fn ptmf (resolveHits) at 0xe0
+80263884	Tnk_getShellRadius	medium	returns 6.0 (shell radius written to 0x90 in Shell_checkCollisions)
+8026388C	Tnk_Shell_setOwnerTank	medium	slot45: sets 0xdc (tank id compared to skip own tank in collisions)
+80263894	Tnk_Shell_getShooterSlot	medium	slot36: returns 0xb4 (shooter index, used to count shells per shooter)
+8026389C	Tnk_Shell_getOwnerTank	medium	slot46: returns 0xdc
+802638A4	Tnk_WeaponManager_layMine	medium	if pos inside field, spawns from MinePool (+8), sets pos, velocity toward target, owner
+80263A94	Tnk_WeaponManager_fireShell	medium	if pos in field and not in block, spawns from ShellPool (+4) with packed params, sets dir/vel/owner
+80263D00	Tnk_WeaponManager_deactivateAll	medium	calls pool vslot18 (deactivate all objects) on shell and mine pools
+80263D50	Tnk_WeaponManager_destroyPools	medium	vf05: calls pool vslot9 (static destroy) on shell and mine pools
+80263DA0	Tnk_MinePool_destroy	medium	vf09: deletes global MinePool instance 8043C920 and clears it
+80263DA4	Tnk_WeaponManager_callPoolSlot16	low	calls pool vslot16 (each active object vslot7) on shell and mine pools
+80263DF4	Tnk_WeaponManager_tickAge	medium	calls pool vslot15 (increments age 0xa0 of active objects) on both pools
+80263E44	Tnk_WeaponManager_updateModelMtx	medium	calls pool vslot14 (each active object vslot4, Shell_updateModelMtx) on both pools
+80263E94	Tnk_WeaponManager_resolveHits	low	calls pool vslot13 (each object vslot28 -> state fn, e.g. Shell_resolveHits) on both pools
+80263EE4	Tnk_WeaponManager_checkCollisions	medium	calls pool vslot12 (each object vslot27, e.g. Shell_checkCollisions) on both pools
+80263F34	Tnk_WeaponManager_clearHitFlags	medium	calls pool vslot11 (each object vslot26, e.g. Shell_clearHitFlags) on both pools
+80263F84	Tnk_WeaponManager_applyVelocity	medium	calls pool vslot10 (each object vslot25 pos+=vel) on both pools
+80263FD4	Tnk_Cls_8035B8C8_vf04	keep	empty virtual
+80263FD8	Tnk_WeaponManager_reset	medium	vf03: calls pool vslot3 (reset all objects) on both pools
+80264028	Tnk_WeaponManager_load	medium	vf02: calls pool vslot2 (load all objects, e.g. Shell_loadModel) on both pools
+80264078	Tnk_WeaponManager_create	high	vf01: creates ShellPool (32 objects) at +4 and MinePool (16 objects) at +8
+802640E0	Tnk_WeaponManager_dtor	high	base dtor, operator delete when flag>0
+80264138	Tnk_WeaponManager_destroyInstance	high	deletes global instance 8043C908 and clears it
+8026417C	Tnk_WeaponManager_createInstance	high	allocs 0xc, base ctor, vtable 8035B8C8, stores global 8043C908
+802641C8	Tnk_GameManager_startBgm	medium	if sound 0x41 (BGM) not already playing, starts it via sound mgr 8043C5D4
+80264248	Tnk_GameManager_reportStageResult	low	passes stage+1 and tank counts to object at 0x44 (fn 802682D0); called by NLoop layout
+802642AC	Tnk_GameManager_setStageReady	medium	sets flag 0x22 (polled by stateNextStage); called by NLoop layout
+802642B4	Tnk_GameManager_destroy	medium	vf05: destroys layout/sub-objects (8026E2C0, 80271890, 80268AD4, child vcall)
+802642FC	Tnk_GameManager_calc	high	vf04: dispatches state ptmf by state 0x2c, updates Party controller info, updates 0x44 object
+80264418	Tnk_GameManager_start	medium	Party call, clears flag 0x20, sets up first stage
+80264460	Tnk_GameManager_resetForMode	medium	stores mode, sets 2P flag (0x28) when mode 2, clears counters/flags, resets sub-objects
+8026452C	Tnk_GameManager_loadParams	high	vf02: loads param/TnkGameParam.bin to 0x34; child load vcall
+80264590	Tnk_GameManager_create	high	vf01: creates sub-objects 8035C218, 8035C320, 8035C068 and 0x14-byte object at 0x44
+80264604	Tnk_GameManager_stateEndMenu	low	state 12: on Party menu result sets retry (0x23, count++) or quit (0x24) flag
+802646F4	Tnk_GameManager_stateResultMenu	low	state 11: waits Party layout, submits score / shows NTotal02, goes to state 12
+802647DC	Tnk_GameManager_stateResultWait	low	state 10: when result layout done, submits stage/score to Party, goes to state 11
+80264874	Tnk_GameManager_stateFailedWait	low	state 9: when failed layout done, shows hit and TScore0002 result, state 10
+802648CC	Tnk_GameManager_stateCompleteWait	low	state 8: when complete layout done, shows TScore0002 result, state 10
+80264918	Tnk_GameManager_stateNextStage	medium	state 7: on ready flag clears tanks/weapons/blocks, advances stage, loads stage map, state 2
+80264A64	Tnk_GameManager_stateStageClearWait	low	state 6: when NClear done, shows NLifeNo (bonus life from params), state 7
+80264B18	Tnk_GameManager_stateMissWait	medium	state 5: timer countdown, then shows NLifeNo and goes to state 7
+80264B88	Tnk_GameManager_statePlay	medium	state 4: polls tank mgr; on player loss decrements lives -> miss/failed; else checks stage clear
+80264EA8	Tnk_GameManager_stateCountdown	low	state 3: timer countdown then starts tanks (8025D250/8025D1F8), state 4
+80264F00	Tnk_GameManager_stateStageStart	medium	state 2: timer countdown, starts tanks, shows TStart02/NScore01 layouts, state 4
+80264F94	Tnk_GameManager_stateWaitLifeNo	low	state 1: when NLifeNo layout flag set, timer=165 and state 2
+80264FE4	Tnk_GameManager_stateIdle	medium	state 0: empty
+80264FE8	Tnk_GameManager_checkStageClear	high	if no enemies left: all-clear (Tnk_all_clear effect, BGM, state 8) or stage clear (state 6)
+80265318	Tnk_GameManager_pickStageVariant	medium	reads [min,max] from param table per stage, picks random value not equal to previous
+80265434	Tnk_GameManager_setupFirstStage	medium	resets stage to 0, sets last stage (19 or 99), picks variant, loads stage map, state 1
+8026559C	Tnk_GameManager_dtor	high	base dtor, operator delete when flag>0
+802655F4	Tnk_GameManager_ctor	high	base ctor, vtable 8035B98C, fills 13-entry state ptmf table
+802657AC	Tnk_GameManager_destroyInstance	high	deletes global instance 8043C910 and clears it
+802657F0	Tnk_GameManager_createInstance	high	allocs 0xe4, constructs GameManager, stores global 8043C910
+80265824	Tnk_StageMap_reloadStage	medium	reads positions/blocks, places player tank(s) and recorded enemy tanks again
+80265964	Tnk_StageMap_loadStage	medium	reads map, random P1/P2 side swap, places players with NBalloon03/04, rolls enemy tank types
+80265C94	Tnk_StageMap_destroy	medium	vf05: deletes stage-data object 8043C640
+80265C98	Tnk_StageMap_reset	high	vf03: clears player/enemy spawn positions, enemy types and flags
+80265D20	Tnk_StageMap_load	medium	vf02: Lyt_801BFE24 loads stage data, stores pointer 8043C640 at +4
+80265D54	Tnk_StageMap_create	low	vf01: empty
+80265D58	Tnk_StageMap_spawnBlocks	high	scans map grid cells; codes 100-107/200-207 spawn blocks from block pool at grid position
+80265FE0	Tnk_StageMap_readPlayerAngles	medium	reads player facing codes 0-3 -> 0/90/180/270 deg into 0xb0/0xb4
+8026614C	Tnk_StageMap_readSpawnPositions	high	scans grid: code 300/301 player spawns, 400-407 enemy spawns -> world XZ positions
+80266420	Tnk_StageMap_dtor	high	base dtor, operator delete when flag>0
+80266478	Tnk_StageMap_destroyInstance	high	deletes global instance 8043C918 and clears it
+802664BC	Tnk_StageMap_createInstance	high	allocs 0xb8, base ctor, vtable 8035B9B0, stores global 8043C918
+80266508	Tnk_MinePool_isNearAnyMine	medium	true if any active mine's vslot41 (within 80 units) is true for given object
+802665A4	Tnk_MinePool_addTankAvoidance	low	for active mines within tank's radius (by owner), calls 80268DB8 with distance/direction
+8026682C	Tnk_MinePool_isInOtherExplosion	medium	true if any other active mine's vslot40 (exploding radius overlap) hits given mine
+802668D0	Tnk_MinePool_isInExplosion	medium	true if any active mine's vslot40 (exploding radius overlap) hits given object
+8026696C	Tnk_MinePool_checkShellHit	medium	true if shell overlaps an active mine (and shell old or different owner)
+80266A3C	Tnk_MinePool_countByOwner	medium	counts active, non-exploded mines per vslot36 owner index into 10 counters at +0x18
+80266AFC	Tnk_MinePool_dtor	high	calls pool base dtor, operator delete when flag>0
+80266B54	Tnk_MinePool_destroyInstance	high	deletes global instance 8043C920 and clears it
+80266B98	Tnk_MinePool_createInstance	high	allocs 0x40, pool base ctor, vtable 8035B9D8, stores global 8043C920
+80266BE4	Tnk_MinePool_newObject	high	vf07: allocates and constructs one TnkMine (0x104 bytes)
+80266C14	Tnk_getMineProximityRadius	medium	returns 80.0 (same constant as mine vslot41 proximity test)
+80266C1C	Tnk_Mine_accumulatePush	low	expands min/max bounds at +0x54..0x80 from scaled vector and its projection; sets flag 0xd0
+80266D8C	Tnk_Mine_explode	high	spawns Tnk_mine_bomb effect at position, plays sound 0x16, sets state 2 (exploding), timer 0
+80266E5C	Tnk_Mine_isInTriggerRange	medium	true if other object's XZ center within its radius+80 of mine center
+80266F08	Tnk_Mine_isInBlastRadius	high	only in state 2: true if other object within blast radius (+0xc8)+its radius in XZ
+80266FC8	Tnk_Mine_hitTestCircleAlt	medium	XZ circle overlap with other (its radius+12) using offset +0x94; optional distance out
+802670DC	Tnk_Mine_hitTestCircle	medium	XZ circle overlap with other (its radius+12) using offset +0x84; optional distance out
+802671F0	Tnk_Mine_draw	medium	unless exploding: builds scaled model matrix, copies scale, flash-draws when fuse lit (0xd3)
+8026731C	Tnk_Mine_calc	medium	runs current state member-fn (state*0xc table), then updates sound actor position
+80267374	Tnk_Mine_checkCollisions	medium	queries tank/block/shell/mine managers by state; sets hit flags 0xcd/0xce/0xcf
+8026751C	Tnk_Mine_clearHitFlags	high	calls base clear, then zeroes hit flags 0xcd..0xd1
+80267560	Tnk_Mine_applyVelocity	high	position += velocity (+0x48..0x50)
+80267594	Tnk_Mine_loadModel	high	loads G3D/tnk_mine.brres, creates tnk_mine model and anim
+802676DC	Tnk_Mine_create	medium	calls base create, allocates sound actor (vtable 8035BB18) into +0xd8
+80267844	Tnk_Mine_stateExplode	high	grows blast radius 8..80 over 6 frames; after 40 frames calls vslot 30 (remove)
+802678E8	Tnk_Mine_stateArmed	medium	fuse: lit on proximity (20f) or after 480f (120f); explodes when timer ends or hit by shell/mine
+80267A0C	Tnk_Mine_stateMoveToTarget	medium	moves toward target pos (+0xb0) clamped by speed; on arrive/blocked sets done flag
+80267BB0	Tnk_Mine_setOwner	medium	stores owner index (&0xf) at +0xbc, enemy flag if >1, sets model anim frame
+80267C3C	Tnk_Mine_reset	medium	initializes radius, position, scale, matrix, timers, flags, state 0
+80267CF0	Tnk_Mine_dtor	high	calls base dtor, deletes when flag>0
+80267D48	Tnk_Mine_ctor	high	base ctor, sets vtable 8035BA54, fills 3-entry state member-fn table
+80267DE8	Tnk_MineSound_dtor	medium	sound actor dtor (base 80358964 vtables), clears sound handles, deletes when flag>0
+80267EFC	Tnk_Mine_setTargetPos	high	copies vec3 into +0xb0 (target used by move state)
+80267F18	Tnk_Mine_setUserValue	low	stores arg at +0xdc
+80267F20	Tnk_Mine_getOwner	high	returns +0xbc owner index
+80267F28	Tnk_Mine_isExploding	high	returns state == 2
+80267F3C	Tnk_Mine_getUserValue	low	returns +0xdc
+80267F44	Tnk_MineSound_dtorThunk	medium	adjusts this by -0x10 and calls Tnk_MineSound_dtor
+80267F4C	Tnk_BgmMix_stop	medium	stops sound handle (fade 10), sets track mask 0xffff, clears params
+80267FBC	Tnk_BgmMix_startBgm3C	low	stops current, starts sound id 0x3c if not playing, mask 0x411, clears params
+80268108	Tnk_BgmMix_applyTrackMask	medium	clamps params, picks track mask from table 80323298 by (p3,p2), mutes all then unmutes mask
+80268234	Tnk_BgmMix_setParams	medium	clamps (1..8,1..9) and reapplies track mask when either changes
+802682D0	Tnk_BgmMix_startStageBgm	medium	sets params, starts sound id 0x3b if not playing, applies track mask
+80268468	Tnk_BgmMix_reset	high	mask=0x411, params and active flag cleared
+80268488	Tnk_TankSound_approachSpeed	medium	moves current value (+0x84) toward target with accel/decel rates, clamps to [0,max]
+8026855C	Tnk_TankSound_updateTread	medium	replays tread sound from table every N frames, N=25-30*speed clamped 4..25
+80268628	Tnk_TankSound_create	medium	allocates sound actor with vtable 8035BF60, inits speed params; called by Cannon create
+802687CC	Tnk_TankSound_dtor	medium	sound actor dtor restoring base 80358964 vtables, deletes when flag>0
+802688E0	Tnk_TankSound_dtorThunk	medium	adjusts this by -0x10 and calls Tnk_TankSound_dtor
+802688E8	Tnk_StepTimer_calc	high	accumulates rate into fraction; integer part to +0xc, keeps remainder
+80268938	Tnk_StepTimer_start	high	sets rate (+4), zeroes accumulators, sets active flag
+80268958	Tnk_StepTimer_reset	high	zeroes rate and accumulators, sets active flag
+80268978	Tnk_StepTimer_nop02	low	empty virtual
+8026897C	Tnk_StepTimer_nop01	low	empty virtual
+80268980	Tnk_StepTimer_dtor	high	base dtor, deletes when flag>0
+802689D8	Tnk_StepTimer_destroyInstance	high	deletes singleton lbl_8043C928 and clears it
+80268A1C	Tnk_StepTimer_createInstance	high	allocates 0x14-byte StepTimer into singleton lbl_8043C928
+80268A68	Tnk_EmptyTask_nop05	low	empty virtual
+80268A6C	Tnk_EmptyTask_nop04	low	empty virtual
+80268A70	Tnk_EmptyTask_nop03	low	empty virtual
+80268A74	Tnk_EmptyTask_nop02	low	empty virtual
+80268A78	Tnk_EmptyTask_nop01	low	empty virtual
+80268A7C	Tnk_EmptyTask_dtor	high	base dtor, deletes when flag>0
+80268AD4	Tnk_EmptyTask_destroyInstance	high	deletes singleton lbl_8043C930 and clears it
+80268B18	Tnk_EmptyTask_createInstance	high	allocates 4-byte object (all-empty vtable) into singleton lbl_8043C930
+80268B64	Tnk_AiController_updateAttack	medium	forwards to Tnk_AiAttack_update on +4 (AiAttack 8035C1C8)
+80268B6C	Tnk_AiController_updateMove	medium	forwards to Tnk_AiMove_update on +8 (AiMove 8035C0DC)
+80268B74	Tnk_AiController_setAimDirection	medium	passes vec3 to AiAttack_setAimDirection on +4
+80268BB4	Tnk_AiController_setMoveDirection	medium	passes vec3 to AiMove_setDirection on +8
+80268BF4	Tnk_AiController_setFlags	medium	sets or clears bits in +0x10 according to bool arg
+80268C1C	Tnk_AiController_setMode	medium	stores mode at +0xc and reinitialises AiAttack/AiMove params with it
+80268C78	Tnk_AiController_reset	medium	mode 0, reinitialises both sub-objects, clears flags
+80268CDC	Tnk_AiController_dtor	high	base dtor, deletes when flag>0
+80268D34	Tnk_AiController_ctor	medium	stores owner, creates sub-objects 8035C1C8 (0x120) and 8035C0DC (0x230); built by Cannon create
+80268DB8	Tnk_AiMove_addMineThreat	medium	called by mine scan with AiMove; inserts 0x1c-byte entry into 4-slot list sorted by distance (0x104), count at 0x168
+80268F58	Tnk_AiMove_addShellThreat	medium	called by shell scan with AiMove; inserts 0x2c-byte entry into 4-slot list sorted by distance, count at 0xF4
+80269178	Tnk_AiMove_findClearDirection	medium	probes 4 directions (fwd, back, two perpendiculars) via AiProbe sweep; picks one clear beyond range, sets move dir
+80269800	Tnk_AiMove_update	high	on random timer rescans shells/mines into threat lists, picks state 0/1/2, calls state via ptmf table, then calcVelocity
+80269AA0	Tnk_AiMove_setDirection	high	normalizes given vector, fills 8-entry direction history and move dir 0x1DC, computes side vector by cross product
+80269B6C	Tnk_AiMove_reset	high	resets speed, direction history and move dir to default, clears state/flags/timer, calls probe vfunc 0x14
+80269C74	Tnk_AiMove_loadParams	medium	copies 0xA8-byte param record (index from arg) from lbl_8043C910 table into move-AI fields 4..0x40
+80269F00	Tnk_AiMove_calcVelocity	medium	accelerates/decays speed 0x16C (cap 0xC) depending on facing vs move dir; writes velocity = forward*speed*sign
+8026A0B8	Tnk_AiMove_stateKeepDirection	low	state 2 handler: averages direction history into move dir; clears mine-escape flag 0x1F9 when no mine within 16
+8026A1F0	Tnk_AiMove_stateEvade	medium	state 1 handler: weights (1,.8,.6,.4) shell velocities/offsets and mine offsets into avoidance dir, pushes history
+8026A64C	Tnk_AiMove_stateApproach	medium	state 0 handler: steers toward nearest live player tank with random angle jitter, probe sweep to slide off walls
+8026AC44	Tnk_AiMove_turnTowardDirection	medium	rotates body matrix toward move dir (or its reverse); outputs drive sign +1 forward / -1 reverse
+8026AE3C	Tnk_AiMove_rotateBodyStep	medium	rotates body forward vector a step (rate 0x14) toward target dir and rebuilds side vector via cross product
+8026AFA0	Tnk_AiMove_dtor	high	vtable 8035C0DC slot 0; calls base dtor, deletes when flag > 0
+8026AFF8	Tnk_AiMove_ctor	high	sets vtable 8035C0DC, allocates AiProbe (0x140), stores owner, fills ptmf state table (8026A64C/A1F0/A0B8)
+8026B0D0	Tnk_AiProbe_onCollide	medium	vtable 8035C100 slot 33; sets hit flag 0x12C, accumulates contact normal into 0x130 and min/max extents
+8026B4D4	Tnk_AiProbe_sweep	medium	steps probe along its ray up to max steps, stopping on collision; copies hit position/normal/step/flags to out
+8026B7D0	Tnk_AiProbe_reset	medium	vtable 8035C100 slot 3; calls base reset, sets ray start = position, default dir, step params
+8026B884	Tnk_AiProbe_step	medium	advances probe position by dir*speed*stepIndex; tests field collision (flag 1) and mine overlap (flag 8)
+8026B998	Tnk_AiProbe_dtor	high	vtable 8035C100 slot 0; calls base 8035B290 dtor, deletes when flag > 0
+8026B9F0	Tnk_AiProbe_ctor	high	calls 8035B290 base ctor then sets vtable 8035C100
+8026BA2C	Tnk_AiAttack_update	high	rotates turret aim toward target dir; random timers trigger fire and mine decisions; then executeActions
+8026BCBC	Tnk_AiAttack_setAimDirection	high	sets target and current aim dir 0x80/0x8C to given vector, normalizes, computes side vector
+8026BD40	Tnk_AiAttack_reset	high	resets aim dirs to default, clears fire/mine flags and cooldowns, randomizes fire/mine timers, resets probe
+8026BEC4	Tnk_AiAttack_loadParams	medium	stores param index at 0x7C and copies 0xA8-byte record from lbl_8043C910 table into attack-AI fields
+8026C170	Tnk_AiAttack_executeActions	medium	writes turret dir to owner; lays mine if flagged; fires shell along aim if flagged; updates cooldowns/flags
+8026C49C	Tnk_AiAttack_decideLayMine	medium	if mine count below max and player far enough, random chance, needs escape dir from AiMove; sets flag 0x114
+8026C620	Tnk_AiAttack_decideFire	high	if shells below max: predict path; fire only if it misses self, misses allies, and hits player; sets 0x108
+8026C6C4	Tnk_AiAttack_pickAimTarget	medium	picks nearest live player tank, adds random angle jitter, sets target aim dir 0x80
+8026CA14	Tnk_AiAttack_pathHitsAlly	medium	tests predicted shot segments against other enemy tanks (distance/angle); returns 1 if one is endangered
+8026CCA0	Tnk_AiAttack_pathHitsPlayer	medium	tests predicted shot segments against player tank position; returns 1 if path reaches it
+8026CF98	Tnk_AiAttack_pathHitsSelf	medium	tests ricochet segments (after first) against own tank position; returns 1 if shot would come back
+8026D1C4	Tnk_AiAttack_predictShotPath	medium	sweeps AiProbe from muzzle along aim, recording up to bounce-count+1 segments (pos, dir, step range)
+8026D5A4	Tnk_AiAttack_dtor	high	vtable 8035C1C8 slot 0; calls base dtor, deletes when flag > 0
+8026D5FC	Tnk_AiAttack_ctor	high	sets vtable 8035C1C8, allocates AiProbe (0x140) at +4, stores owner at 0x11C
+8026D670	Tnk_LayoutManager_spawnHitPopup	high	if popups enabled and <16 active, starts next HitPopup in 16-entry ring at given pos, bumps count/index
+8026D6F8	Tnk_LayoutManager_draw	high	calls draw slot on Hud, Ex00In00, active hit popups, and state-dependent Start/Clear/Failed/Complete/Result/Fade
+8026D860	Tnk_LayoutManager_exit	low	calls child vtable slot 4 (empty in children) on every layout part
+8026D964	Tnk_LayoutManager_calc	high	calls calc slot on each layout part, gated by game state (lbl_8043C910+0x2c) and active popup ring
+8026DAD0	Tnk_LayoutManager_reset	high	calls reset slot on all layout parts, clears hit popup count/index
+8026DBE0	Tnk_LayoutManager_load	high	loads party_message.bmg message table, then calls load(carc) on all layout parts
+8026DD50	Tnk_LayoutManager_create	high	allocates Hud, Ex00In00, Start, Clear, Failed, Complete, 16 HitPopups, Result and Fade layout objects
+8026DE84	Tnk_LayoutManager_dtor	high	base dtor + operator delete when flag > 0
+8026DEDC	Tnk_LayoutManager_destroyInstance	high	deletes global instance lbl_8043C938 and nulls it
+8026DF20	Tnk_LayoutManager_createInstance	high	allocates 0x70 object, base ctor, sets vtable 8035C1F0, stores in lbl_8043C938
+8026DF6C	Tnk_GameStats_getWinner	medium	compares score[0] (+0x18) vs score[1] (+0x1c): 0 if P1 higher, 1 if P2 higher, -1 tie
+8026DF94	Tnk_GameStats_clearCounts	high	zeroes per-player scores, per-type kill tables, killed-type list and counters; keeps lives
+8026E078	Tnk_GameStats_addKilledType	high	if type flag unset, sets it and appends type to ordered list (+0xe4), increments list count
+8026E0B0	Tnk_GameStats_addLives	high	adds delta to player lives (+0x114), clamps 0..99, returns 1 if lives <= 0
+8026E0F8	Tnk_GameStats_addKill	high	adds amount to player score and player/type kill count, triggers Hud score animation
+8026E134	Tnk_GameStats_setAllLives	high	sets lives (+0x114) of every player to given value
+8026E158	Tnk_GameStats_setup	high	stores player count (+4), clears all stats, sets each player's lives to 1
+8026E268	Tnk_GameStats_dtor	high	base dtor + operator delete when flag > 0
+8026E2C0	Tnk_GameStats_destroyInstance	high	deletes global instance lbl_8043C940 and nulls it
+8026E304	Tnk_GameStats_createInstance	high	allocates 0x3a8 object, base ctor, sets vtable 8035C218, stores in lbl_8043C940
+8026E350	Tnk_Fade_start	high	if idle: sets flags, shows 1P/2P life panes, plays fade-in and P_loop_00 anims, state=1
+8026E558	Tnk_Fade_exit	low	empty; layout slot 4
+8026E55C	Tnk_Fade_draw	medium	draws layout; while active draws Mii heads on N_player00_00 / N_player00_01 / N_player01_01 panes
+8026E668	Tnk_Fade_calc	high	updates lives/mission/enemy text, timer-driven states (bonus life grant, mission intro), runs updateStates
+8026EB9C	Tnk_Fade_reset	high	clears state/counters and anims, sets message text, plays fade-in frame 0
+8026ED64	Tnk_Fade_load	high	loads tank.arc, tnkfade.brlyt and 11 tnkfade_* brlan animations
+8026EE70	Tnk_Fade_updateStates	high	state machine advancing on anim completion: life, bonus, mission, enemy, loop; ends with done flag
+8026F39C	Tnk_Fade_dtor	high	operator delete when flag > 0
+8026F3DC	Tnk_Fade_ctor	high	layout base ctor, sets vtable 8035C240
+8026F418	Tnk_Hud_placeBalloonP2	high	stores angle (+0x44), picks N_balloon_04..07 by angle/90, positions it at P2 tank screen pos
+8026F5EC	Tnk_Hud_placeBalloonP1	high	stores angle (+0x40), picks N_balloon_00..03 by angle/90, positions it at P1 tank screen pos
+8026F7C0	Tnk_Hud_playScoreAnim	high	if Hud idle, plays N_score_00 or N_score_01 anim for given player
+8026F8C0	Tnk_Hud_playOut	high	plays out animation (anim slot +0x18), state=3
+8026F93C	Tnk_Hud_playIn	high	shows 1P/2P score panes, plays in animation, state=2
+8026FA5C	Tnk_Hud_exit	low	empty; layout slot 4
+8026FA60	Tnk_Hud_draw	high	draws layout; when balloons shown draws Mii heads on N_player_xx pane chosen by balloon angle
+8026FC24	Tnk_Hud_calc	high	updates mission/enemy count/score texts, shows balloon panes by angle, advances in/out state
+8026FF5C	Tnk_Hud_reset	high	clears texts/anims, sets player and balloon message texts, plays in anim frame 0
+8027033C	Tnk_Hud_load	high	loads tank.arc, tnkUI_00 layout and in/point1P/point2P/out brlan animations
+802703F4	Tnk_Hud_dtor	high	operator delete when flag > 0
+80270434	Tnk_Hud_ctor	high	layout base ctor, sets vtable 8035C260
+80270470	Tnk_HitPopup_start	high	sets number text, picks variant pane, clamps pos to +-0.9 and places pane, plays hit anim, active=1
+80270690	Tnk_HitPopup_exit	low	empty; layout slot 4
+80270694	Tnk_HitPopup_draw	high	draws layout
+8027069C	Tnk_HitPopup_calc	high	when active and anim finished, decrements LayoutManager popup count and deactivates; updates layout
+802706D8	Tnk_HitPopup_reset	high	resets layout/anim, sets message texts (0xb5c), clears number buffer and active flag
+80270844	Tnk_HitPopup_load	high	loads tank.arc, tnkHit_00.brlyt and tnkHit_00_hit_00.brlan
+802708BC	Tnk_HitPopup_dtor	high	operator delete when flag > 0
+802708FC	Tnk_HitPopup_ctor	high	layout base ctor, clears active flag, sets vtable 8035C280
+80270940	Tnk_ExMsg_playOutAll	medium	binds anim[2] (tnkEx_00_outAll_00) and sets state 3; called when result score layout starts
+802709BC	Tnk_ExMsg_playOut	high	unless state is 1/3, binds anim[1] (tnkEx_00_out_00) and sets state 3
+80270A50	Tnk_ExMsg_show	high	sets text pane to message 0xb7c index param, then (if not already in) binds anim[0] in-anim, state 2
+80270BD8	Tnk_ExMsg_exit	low	empty layout slot 4
+80270BDC	Tnk_ExMsg_draw	high	draws layout (RP layout draw)
+80270BE4	Tnk_ExMsg_calc	high	animates layout (RP layout calc)
+80270BEC	Tnk_ExMsg_reset	high	state=1, resets anims, rebinds in-anim at frame 0
+80270D00	Tnk_ExMsg_load	high	loads tank.arc layout and tnkEx_00_in/out/outAll brlan anims
+80270DB0	Tnk_ExMsg_dtor	high	deleting destructor (frees when flag > 0)
+80270DF0	Tnk_ExMsg_ctor	high	base layout ctor then stores vtable 8035C2A0
+80270E2C	Tnk_hideExMsg	medium	calls Tnk_ExMsg_playOut on LayoutManager (lbl_8043C938) +0xc
+80270E38	Tnk_ExGuide_start	medium	copies player tank positions (lbl_8043C8E8 +0x18/+0x1c) into start slots, clears state fields
+80270EE0	Tnk_ExGuide_vf05	low	empty virtual slot 5
+80270EE4	Tnk_ExGuide_calc	medium	runs ptmf state at +0x2c unless disabled; projects target pos to screen into +0x1c/+0x20
+80270F98	Tnk_ExGuide_reset	high	resets start positions to defaults and clears screen pos, state, counters
+80270FF8	Tnk_ExGuide_vf01	low	empty virtual slot 1
+80270FFC	Tnk_ExGuide_stateCheckCursorNear	low	if a tank value>=10 and its cursor is within 30 of guide point shows hint by state; else state 2/1
+80271284	Tnk_ExGuide_stateShowHintUntilNear	low	shows hint by state while tank value>=10; cursor within 30 of guide point -> state 3; else state 1
+80271508	Tnk_ExGuide_stateShowHint	low	sets state 2 when a tank field +4 >= 10, then shows ExMsg hint selected by state
+80271638	Tnk_ExGuide_stateCheckMoved	low	measures moving tanks distance from start pos; >40 -> state 1, idle counter shows hint
+80271838	Tnk_ExGuide_dtor	high	deleting destructor calling RP_Cls_80357180 base dtor
+80271890	Tnk_ExGuide_destroyInstance	high	deletes singleton lbl_8043C948 via virtual dtor and clears it
+802718D4	Tnk_ExGuide_createInstance	high	allocs 0x6c, base ctor, vtable 8035C320, copies state table; stores singleton lbl_8043C948
+802719A8	Tnk_StartMsg_play	high	rebinds tnkMsg_01_start anim from frame 0 and plays sound 0x23
+80271A7C	Tnk_StartMsg_exit	low	empty layout slot 4
+80271A80	Tnk_StartMsg_draw	high	draws layout
+80271A88	Tnk_StartMsg_calc	high	animates layout
+80271A90	Tnk_StartMsg_reset	high	resets anim, sets T_start_00..02 text to message 0xb5b, binds start anim
+80271C14	Tnk_StartMsg_load	high	loads tank.arc layout and tnkMsg_01_start_00.brlan
+80271CB0	Tnk_StartMsg_dtor	high	deleting destructor
+80271CF0	Tnk_StartMsg_ctor	high	base layout ctor then vtable 8035C348
+80271D2C	Tnk_ClearMsg_hide	high	when state 3, hides N_clear_00/N_total_00/N_total_01 panes and sets state 0
+80271DC0	Tnk_ClearMsg_showTotal	high	state 1: shows N_total_00 (1P) or N_total_01 (2P), plays inTotal anim, sound 0x24, state 2
+80271F9C	Tnk_ClearMsg_show	high	state 0: writes score numbers to text panes, shows N_clear_00, plays inCleare anim, timer 120
+802721B8	Tnk_ClearMsg_exit	low	empty layout slot 4
+802721BC	Tnk_ClearMsg_draw	high	draws layout
+802721C4	Tnk_ClearMsg_calc	high	advances clear->total->done states on anim end, counts down timer, sets done flag, animates
+8027225C	Tnk_ClearMsg_reset	high	state 0, timer 120, sets T_clear/T_total/T_player texts (msgs 0xb55/0xb56/0xb62/0xb63), hides panes
+80272488	Tnk_ClearMsg_load	high	loads tank.arc layout with tnkMsg_02_inCleare/inTotal brlan anims
+8027252C	Tnk_ClearMsg_dtor	high	deleting destructor; rewrites score text panes before freeing
+802725E8	Tnk_ClearMsg_ctor	high	base layout ctor then vtable 8035C368
+80272624	Tnk_FailedMsg_show	high	if idle, timer 120, binds tnkMsg_03_in anim, state 2
+802726C4	Tnk_FailedMsg_exit	low	empty layout slot 4
+802726C8	Tnk_FailedMsg_draw	high	draws layout
+802726D0	Tnk_FailedMsg_calc	high	in-anim end -> shown; timer expiry plays out anim; out-anim end -> idle + done flag; animates
+802727D4	Tnk_FailedMsg_reset	high	state 1 (idle), timer 120, sets T_failed_00/01 to message 0xb55 index 1
+80272948	Tnk_FailedMsg_load	high	loads tank.arc layout with tnkMsg_03_in/out brlan anims
+802729EC	Tnk_FailedMsg_dtor	high	deleting destructor
+80272A2C	Tnk_FailedMsg_ctor	high	base layout ctor then vtable 8035C388
+80272A68	Tnk_CompleteMsg_show	high	if idle, timer 180, binds tnkMsg_04_in anim, state 2
+80272B08	Tnk_CompleteMsg_exit	low	empty layout slot 4
+80272B0C	Tnk_CompleteMsg_draw	high	draws layout
+80272B14	Tnk_CompleteMsg_calc	high	in-anim end -> shown; timer expiry plays out anim; out-anim end -> idle + done flag; animates
+80272C18	Tnk_CompleteMsg_reset	high	state 1, timer 180, sets T_complete00_00..02/T_complete01_00 to message 0xb58
+80272DD4	Tnk_CompleteMsg_load	high	loads tank.arc layout with tnkMsg_04_in/out brlan anims
+80272E78	Tnk_CompleteMsg_dtor	high	deleting destructor
+80272EB8	Tnk_CompleteMsg_ctor	high	base layout ctor then vtable 8035C3A8
+80272EF4	Tnk_ResultLyt_showTotals	medium	plays N_totalAll_00/01 anim, then N_total_01/02 by GameStats winner; state 6
+80273028	Tnk_ResultLyt_closeList2P	medium	state 4: plays outList anim on N_list_00/01; in 2P also upTotal on N_totalAll_01 (state 5) else 6
+8027317C	Tnk_ResultLyt_closeList1P	medium	1P: plays outList on N_list_00, outTotal on N_totalAll_00 and N_total_00; 2P variant; state 6
+802732D8	Tnk_ResultLyt_start	high	state 0: fills per-row kill counts and score text (1P/2P), shows N_list_00/01, plays inList, sound 0
+80273788	Tnk_ResultLyt_exit	low	empty layout slot 4
+8027378C	Tnk_ResultLyt_draw	high	draws layout
+80273794	Tnk_ResultLyt_calc	high	runs 1P/2P result sequence; in state 4 waits 20 frames or A/B press, then closes list; animates
+802738A4	Tnk_ResultLyt_reset	high	clears state/counters/number buffers, sets T_result/T_player texts (msgs 0xb64-0xb68), hides panes
+80273B1C	Tnk_ResultLyt_load	high	loads tnkResult_00.brlyt with inList/inScore/inTotal/win1P/win2P/outList/outTotal/upTotal anims
+80273C14	Tnk_ResultLyt_playRowSound	medium	switch on row 0..8 plays sound id 0x34 down to 0x2c
+80273FB4	Tnk_ResultLyt_calcSequence2P	medium	2P result state machine: reveals rows every 20 frames, totals (sound 0x2b), winner anims, done flag
+80274340	Tnk_ResultLyt_calcSequence1P	medium	1P result state machine: reveals rows every 20 frames, totalAll (sound 0x2b), N_total_00, done flag
+80274630	Tnk_ResultLyt_revealRow2P	medium	shows 2P row pane for enemy type, aligns to row slot, plays inScore anim, row sound; state 2
+80274808	Tnk_ResultLyt_revealRow1P	medium	shows 1P row pane for enemy type, aligns to row slot, plays inScore anim, row sound; state 2
+802749E0	Tnk_ResultLyt_hideAllPanes	high	hides N_list_00/01, all 18 row panes and N_totalAll_00/01
+80274C28	Tnk_ResultLyt_dtor	high	deleting destructor
+80274C68	Tnk_ResultLyt_ctor	high	base layout ctor then vtable 8035C3F0
+80274CA4	Tnk_FootmarkTex_load	high	loads 11 tnk_footmark/*.bti textures (1p, 2p, enemy e_1..e_9) into +4..
+80274D7C	Tnk_FootmarkTex_vf01	low	empty virtual slot 1
+80274D80	Tnk_FootmarkTex_dtor	high	deleting destructor calling RP_Cls_80357180 base dtor
+80274DD8	Tnk_FootmarkTex_destroyInstance	high	deletes singleton lbl_8043C950 and clears it
+80274E1C	Tnk_FootmarkTex_createInstance	high	allocs 0x30, base ctor, vtable 8035C410, zeroes 11 texture slots; singleton lbl_8043C950
+80274E84	Tnk_CheckMarkPool_dtor	high	deleting destructor calling 8035B238 base dtor
+80274EDC	Tnk_CheckMarkPool_destroyInstance	high	deletes singleton lbl_8043C958 and clears it
+80274F20	Tnk_CheckMarkPool_createInstance	high	allocs 0x18, 8035B238 base ctor, vtable 8035C438; singleton lbl_8043C958
+80274F6C	Tnk_CheckMarkPool_createItem	high	allocates 0xd0 and constructs a CheckMark (8035C49C)
+80274F9C	Tnk_CheckMarkPool_destroy	medium	virtual slot 9: deletes singleton lbl_8043C958 and clears it
+80274FE0	Tnk_CheckMark_updateModel	medium	builds scaled matrix from basis*scale+pos, applies to model chosen by color index, updates model
+80275104	Tnk_CheckMark_calc	high	runs ptmf state table entry at +0xb4
+80275138	Tnk_CheckMark_applyVelocity	high	slot 25 override: adds velocity (+0x48..) to position (+4..)
+8027516C	Tnk_CheckMark_load	high	loads G3D/tnk_check.brres models tnk_check_blue/red/white into +0xb8..
+80275260	Tnk_CheckMark_create	low	4-byte tail call to Tnk_Actor_create (slot 1)
+80275264	Tnk_CheckMark_stateStop	medium	state function from table 8035C490: zeroes velocity
+80275278	Tnk_CheckMark_applySpawnParam	medium	slot 24 override: stores color/model index (param & 0xf) at +0xb0
+80275284	Tnk_CheckMark_onSpawn	medium	slot 23 override: sets default scale, height 0.2, basis vectors, state index 0
+802752F4	Tnk_CheckMark_dtor	high	deleting destructor calling 8035B290 base dtor
+8027534C	Tnk_CheckMark_ctor	high	8035B290 base ctor, vtable 8035C49C, copies state ptmf from 8035C490

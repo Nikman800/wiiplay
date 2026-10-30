@@ -1,0 +1,7 @@
+address	old_name	new_name	unit	previous
+802ADBA8	Cow_ModelBatch_init	LoadResource__15RPCowModelBatchFv	Pack/RPParty/RPCowScene/RPCowModelBatch_4.cpp	
+802ADC78	Cow_ModelBatch_ctor	__ct__15RPCowModelBatchFv	Pack/RPParty/RPCowScene/RPCowModelBatch_4.cpp	
+802ADDE8	Cow_ModelBatch_addInstance	AddInstance__15RPCowModelBatchFRCQ23EGG9Matrix34f	Pack/RPParty/RPCowScene/RPCowModelBatch_4.cpp	
+802ADE7C	Cow_ModelBatch_dtorThunk	@20@__dt__15RPCowModelBatchFv	Pack/RPParty/RPCowScene/RPCowModelBatch_4.cpp	
+802ADE8C	Cow_ModelBatch_dtorThunk2	@36@__dt__15RPCowModelBatchFv	Pack/RPParty/RPCowScene/RPCowModelBatch_4.cpp	
+8035D458	lbl_8035D458	__vt__15RPCowModelBatch	Pack/RPParty/RPCowScene/RPCowModelBatch_4.cpp	

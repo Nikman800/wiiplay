@@ -1,0 +1,8 @@
+address	old_name	new_name	unit	previous
+802DCEB0	Bom_Bgm_holdJingle	HoldJingle__8RPBomBgmFUl	Pack/RPParty/RPBomScene/RPBomScreenFx.cpp	
+802DCEF8	Bom_Bgm_update	Update__8RPBomBgmFll	Pack/RPParty/RPBomScene/RPBomScreenFx.cpp	
+802DD084	Bom_Bgm_applyTrack	ApplyTrack__8RPBomBgmFv	Pack/RPParty/RPBomScene/RPBomScreenFx.cpp	
+802DDAA8	Bom_Bgm_requestTrack	RequestTrack__8RPBomBgmFl	Pack/RPParty/RPBomScene/RPBomScreenFx.cpp	
+802DDC28	Bom_Bgm_stop	Stop__8RPBomBgmFv	Pack/RPParty/RPBomScene/RPBomScreenFx.cpp	
+802DDCA0	Bom_Bgm_ctor	__ct__8RPBomBgmFv	Pack/RPParty/RPBomScene/RPBomScreenFx.cpp	
+802DDCCC	Bom_initSoundHandle	__sinit_\RPBomScreenFx_cpp	Pack/RPParty/RPBomScene/RPBomScreenFx.cpp	

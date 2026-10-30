@@ -1,0 +1,5 @@
+address	old_name	new_name	unit	previous
+801AFD20	Gfx_Flag10Ctrl_dtor	__dt__13RPGrpDrawPathFv	Pack/RPGraphics/RPGrpDrawPathLightMap.cpp	__dt__13RPGrpDrawPathFv;Gfx_Flag10Ctrl_dtor
+801AFD60	Gfx_Flag10Ctrl_on	On__21RPGrpDrawPathLightMapFv	Pack/RPGraphics/RPGrpDrawPathLightMap.cpp	
+801AFD74	Gfx_Flag10Ctrl_off	Off__21RPGrpDrawPathLightMapFv	Pack/RPGraphics/RPGrpDrawPathLightMap.cpp	
+801AFD88	Gfx_Flag10Ctrl_isEnable	IsEnable__21RPGrpDrawPathLightMapCFv	Pack/RPGraphics/RPGrpDrawPathLightMap.cpp	

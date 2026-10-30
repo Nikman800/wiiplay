@@ -1,0 +1,5 @@
+address	old_name	new_name	unit	previous
+8026B0D0	Tnk_AiProbe_onCollide	OnHitWall__12RPTnkAiProbeFfPCQ34nw4r4math4VEC3lRCQ34nw4r4math4VEC3	Pack/RPParty/RPTnkScene/RPTnkAi_3.cpp	
+8026B7D0	Tnk_AiProbe_reset	Reset__12RPTnkAiProbeFv	Pack/RPParty/RPTnkScene/RPTnkAi_3.cpp	
+8026B884	Tnk_AiProbe_step	Step__12RPTnkAiProbeFv	Pack/RPParty/RPTnkScene/RPTnkAi_3.cpp	
+8026B998	Tnk_AiProbe_dtor	__dt__12RPTnkAiProbeFv	Pack/RPParty/RPTnkScene/RPTnkAi_3.cpp	

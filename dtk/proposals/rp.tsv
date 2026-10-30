@@ -1,0 +1,570 @@
+address	new_name	confidence	note
+80182E90	Sys_getTimeStampText	low	returns obj+0x58 of lbl_8043C440; used as build date string split into %s fields; next to Sys_TimeStampTxt (Sys)
+80185F80	RP_createParamGroupSingleton	medium	allocs 0x170 and runs Sys_RPPrint_80185D10 ctor once into lbl_8043C478
+80185FE0	RP_Cls_8034F2D4_vf02	keep	empty virtual of base parameter class
+80185FE4	RP_ParamBase_write	low	empty base slot1; derived slot1 writes value to stream
+80185FE8	RP_ParamBase_read	low	empty base slot0; derived slot0 reads value from stream
+80185FEC	RP_ParamList_init	medium	sets owner and clears list head (head at +4 used by param ctors)
+80185FFC	RP_Cls_8034F2C0_vf02	keep	empty slot 2
+80186000	RP_ParamString_write	medium	writes +0xc to stream via eggStream_800A8894 (string write, inferred)
+80186010	RP_ParamString_read	medium	reads value via eggStream_800A9000(stream,0,0) into +0xc
+8018604C	RP_ParamString_ctor	medium	base ctor (links into list at owner+4) then sets vtable 8034F2C0, clears value
+80186098	RP_RPPrint_8034F2AC_vf02	keep	empty slot 2
+8018609C	RP_ParamF32_write	medium	writes +0xc via eggStream_800A87DC (f32 write, inferred from record I/O)
+801860AC	RP_ParamF32_read	medium	reads +0xc via eggStream_800A86CC (f32 read)
+801860E0	RP_ParamBase_ctor	medium	sets vtable 8034F2D4, name/owner field, pushes onto owner's list at +4
+80186118	RP_callVirtual58	low	tail-calls this->vtable[0x58/4]
+8018658C	RP_setFlag3cBit0	low	sets bit 0 of flags at +0x3c
+8018659C	RP_isFlag3cBit1NotBit2	low	returns 1 if flags+0x3c has bit 1 set and bit 2 clear
+801865BC	RP_setFlag3cBits12	low	ORs 6 into flags at +0x3c
+801865CC	RP_801865CC	keep	empty function
+801865D0	RP_drawBuildDate	medium	splits timestamp string into 4 fields and prints "%s %s %s %s" with debug text writer
+801866E0	RP_sinit_80438830	medium	static init: constructs 4 objects of 0xc at 80438830 and registers array dtor
+80186738	RP_sdtor_80438830	medium	static dtor: destroys 4-element array at 80438830
+8018B0E0	Sys_Pause_calcLayout	low	if flag bit0 at +8, calls Lyt_8019F05C on layout obj at +0x1f0
+8018B260	Sys_Pause_clearData	low	zeroes fields +0x8..+0x1ec of the 500-byte object
+8018B458	Sys_Pause_callPauseLyt	low	calls Lyt_Pause_8019F79C on layout object at +0x1f0
+8018B460	Sys_Pause_createSingleton	low	allocs 500 bytes once (lbl_8043C4A8), vtable 8034F410, Lyt obj at +0x1f0, zeroes data
+8018B6EC	RP_RankEntry_write	medium	streams 3 bytes + 3x6 bytes, byte 0x15, u16 0x16, u32 0x18/0x1c (save serialization)
+8018B798	RP_RankEntry_read	medium	reads same 0x20 layout from stream (inverse of RP_RankEntry_write)
+8018B860	RP_RankEntry_setFlagBit	medium	sets/clears bit n of u32 at +0x1c
+8018B8F0	RP_RankEntry_setU16At16	low	stores u16 at +0x16
+8018B900	RP_RankEntry_setByteAt15	low	stores byte at +0x15
+8018B908	RP_RankEntry_setSlot	medium	writes byte + 6-byte data into slot (base by player count 1/2 + index)
+8018B974	RP_RankEntry_getSlot	medium	reads byte + 6-byte data from slot (inverse of setSlot)
+8018BA94	RP_PlayerRecord_write	medium	streams u32, 8-byte id, u32, 9x(5 f32 + byte), byte 0xcd
+8018BB50	RP_PlayerRecord_read	medium	reads 0xd0 record from stream (inverse of write)
+8018BC0C	RP_PlayerRecord_setField0C	low	stores u32 at +0xc
+8018BC14	RP_PlayerRecord_getField0C	low	returns u32 at +0xc
+8018BC1C	RP_PlayerRecord_setMiiId	medium	copies 8 bytes into +4 (8-byte id, used with Mii code)
+8018BC60	RP_PlayerRecord_getMiiId	medium	copies 8 bytes out of +4
+8018BCA4	RP_PlayerRecord_setFlag2	low	sets/clears bit 1 of flags at +0
+8018BCCC	RP_PlayerRecord_getFlag2	low	returns bit 1 of flags at +0
+8018BCD8	RP_PlayerRecord_setGameBit	medium	sets bit n of byte +0xcd (per-game bit, used by party menu)
+8018BCF4	RP_PlayerRecord_testGameBit	medium	tests bit n of byte +0xcd
+8018BD18	RP_PlayerRecord_setFlag4	low	sets bit 2 of flags at +0
+8018BD28	RP_PlayerRecord_isFlag4Clear	low	returns 1 if bit 2 of flags is clear
+8018BD3C	RP_PlayerRecord_setGameByte	medium	stores byte at +0xc4+game (9 games)
+8018BD54	RP_PlayerRecord_setScore	medium	stores u32 at +0x10 + game*0x14 + i*4 (9 games x 5 values)
+8018BD6C	RP_PlayerRecord_getScore	medium	reads u32 at +0x10 + game*0x14 + i*4
+8018BE34	RP_PlayerRecord_ctor	medium	clears flags and +0xcd, calls Sys_8018BD84 reset; used as array ctor for 0xd0 records
+8018BE70	RP_dtor_8018BE70	low	empty destructor body; deletes when flag>0
+8018BEB0	RP_PlayerMgr_ctor	medium	vtable 8034F420; builds 2 slot (0x18), 3 saved (0x12), 6 and 4x10 PlayerRecord arrays
+8018C070	RP_SavedSlot_ctor	low	constructs member at +0xc via Lyt_8019A438; array ctor for 0x12 entries
+8018C0A4	RP_PlayerSlot_dtor	medium	array dtor for 0x18 player slots; deletes when flag>0
+8018C1D0	RP_PlayerMgr_storeToSave	medium	for 1P/2P saved slots, copies 6 values into rank entry of save lbl_8043C498
+8018C34C	RP_PlayerMgr_loadFromSave	medium	reads rank entries from save lbl_8043C498 into empty saved slots
+8018C46C	RP_PlayerMgr_copyActiveToSaved	medium	when count+8==+0xc copies active player slots and controller data to saved slots
+8018C634	RP_PlayerMgr_getSavedSlot	medium	returns byte and u16 of saved slot for index (based on player count)
+8018C9A8	RP_PlayerMgr_reset	medium	clears player count and resets both player slots
+8018CA10	RP_8018CA10	keep	empty function
+8018CB08	RP_PlayerMgr_getSlotByte	medium	returns first byte of player slot n (stride 0x18 at +0x14)
+8018CB18	RP_PlayerMgr_getSlot	medium	returns pointer to player slot n (stride 0x18 at +0x14)
+8018CBFC	RP_PlayerMgr_createSingleton	medium	allocs 0x2c once into lbl_8043C4B0 and runs RP_PlayerMgr_ctor
+8018EC0C	RP_PlayerSlot_set	medium	stores byte at +1, u16 at +2, 8-byte id at +4
+8018EC68	RP_PlayerSlot_reset	medium	clears slot (0, 0xff, 0xffff, id 0) and resets its PlayerRecord
+8018ECB0	RP_PlayerSlot_ctor	medium	clears fields, allocs 0xd0 PlayerRecord into +0x14
+8018ED00	RP_8018ED00	keep	decompiler shows empty body
+8018ED50	RP_Base8034F430_dtor	medium	base dtor called by many class dtors; deletes when flag>0
+8018ED90	RP_Base8034F430_ctor	medium	sets vtable 8034F430; called by many class ctors
+8018EDA0	RP_Base8034F430_ctor2	low	also sets vtable 8034F430 (92 bytes, decomp partial); called by manager ctors
+8018EDFC	RP_8018EDFC	keep	empty function
+8018EE00	RP_8018EE00	keep	empty function
+8018EE04	RP_dtor_8018EE04	low	empty destructor body; deletes when flag>0
+8018EE44	RP_createObj8034F448	low	allocs 4-byte object with vtable 8034F448 into lbl_8043C4B8
+8018EE80	RP_8018EE80	keep	empty function
+8018EE84	RP_8018EE84	keep	empty function
+8018EE88	RP_DbgTextWriter_end	medium	clears active flag +0x68; paired with begin around debug text prints
+8018EE94	RP_DbgTextWriter_begin	medium	sets +0x68=1, sets up GX ortho projection for screen text
+8018EF1C	RP_DbgTextWriter_printfAt	medium	varargs print; maps normalized (-1..1) x/y to screen by viewport mode, stores pos at +0x2c, calls fn_8000C89C
+8018F0B4	RP_DbgTextWriter_printf	medium	varargs print at raw x/y (flips y per mode), calls fn_8000C89C
+8018F228	RP_DbgTextWriter_dtor	medium	calls base dtor fn_8000C7C8, deletes when flag>0
+8018F280	RP_DbgTextWriter_create	medium	allocs 0x6c writer, base ctor, vtable 8034F458, font from lbl_8043C4A0, stores lbl_8043C4C8
+8018F2E0	RP_MsgRes_getEntryByteA	low	looks up message entry (eggMsgRes_800B1A04) and returns byte +0xa (attribute)
+8018F304	RP_MsgRes_getEntryU16At8	low	looks up message entry and returns u16 +8 (attribute)
+8018F328	RP_MsgRes_getEntryU32At4	low	looks up message entry and returns u32 +4
+8018F34C	RP_MsgRes_getMsgText	medium	asserts mMsgDataBlk, finds message (group,id), returns pointer into data block (eggMsgRes.cpp)
+8018F350	RP_MsgRes_dtor	low	calls eggMsgRes_800B17FC base dtor, deletes when flag>0
+8018F3A8	RP_MsgRes_ctor	medium	calls eggMsgRes_800B14F0 base ctor with message data, vtable 8034F468 at +0x1c
+8018F4F0	Mii_KokeshiHead_callDbVf20	low	calls Mii db (lbl_8043C4D0+0x58) vfunc 0x20 with head index +0x1c, texture +0xa8, arg (Mii module)
+8018F518	Mii_KokeshiHead_registerLightTex	medium	vf02: for 2 light-texture slots registers head textures +0xa4..+0xb0 via eggLightTextureManager (Mii module)
+8018F5F4	Mii_KokeshiHead_build	low	vf01: queries Mii db for head data, creates face/head textures via Gfx_80190510 into +0xa8..+0xb0 (Mii module)
+8018F990	RP_Base8034F478_dtor	low	calls Lyt_80197BE4 base dtor, deletes when flag>0; used by KokeshiHead and minigame dtors
+8018F9E8	RP_Base8034F478_ctor	low	base ctor Lyt_80197C58, sets vtable 8034F478, then Lyt_8018F3E4 init
+8018FA34	Mii_Mgr_calcHeadLoaders	low	if Mii mgr +0x54 (head loader set) non-null runs its calc (Mii module)
+8018FA48	Mii_Mgr_clearHeadLoaderSet	low	clears Mii mgr +0x54 (called from head loader set dtor) (Mii module)
+8018FA54	Mii_Mgr_setHeadLoaderSet	low	stores head loader set into Mii mgr +0x54 (Mii module)
+8018FA5C	RP_markEntryState2	low	if *entry==0 sets this->+0x3c[entry u16 index] = 2
+8018FFA4	RP_getNameTable8043B2F8	low	returns lbl_8043B2F8[i]
+80190114	Gfx_setMaterialParams	low	looks up material lbl_8043B2E8 on model, sets u16 +0x46 and bytes +0x20..; flags|=0x10 (Gfx helper)
+8019018C	Gfx_setMaterialTevColors	medium	looks up material lbl_8043B2E8, writes two RGBA byte sets as u16 colors, flags|=0x10 (Gfx helper)
+8019025C	Gfx_replaceModelTextures	low	calls model vfunc 0x20 twice binding textures to names lbl_8043B2D8/8043B2DC (Gfx helper)
+801902D0	RP_801902D0	keep	returns second argument
+801907F8	Gfx_setModelColorIfType2	low	if model type (vf 0x14)==2 copies 4 bytes to +0x8c (Gfx helper)
+80190868	Gfx_setModelField94IfType2	low	if model type==2 stores arg at +0x94 (Gfx helper)
+801908BC	Mii_refreshDbSlotFlags	low	rescans Mii database slot flags into +0x3c (Mii_scanDbSlots) and sets +0x34=0x80 (Mii module)
+80190910	Gfx_getMiiModelExpression	low	if model type 2 and RFL model present, gets expression via Gfx_RflModel_getExpression (Gfx)
+80190980	Gfx_setMiiModelExpression	low	if model type 2 and expression n allowed (+0xec mask), sets it via Gfx_RflModel_setExpression (Gfx)
+80190A04	Gfx_resetLightTextures	low	for 2 light-texture slots of scene calls eggLightTextureManager_800927F0 (Gfx)
+80190A6C	RP_dtor_80190A6C	low	calls RP_Base8034F430_dtor, deletes when flag>0
+80191AF8	Gfx_EffectMgr_calc	medium	for 3 effect groups at +8 runs group calc (group 1 always, others when arg==0)
+80191C70	Gfx_EffectMgr_createSingleton	medium	allocs 0x18 once (lbl_8043C4D8), vtable 8034F4B8, sets effect system flag +0x5064
+80191D0C	RP_incHiWord_80191D0C	low	adds 0x10000 to arg2+8 (unreferenced)
+80191D1C	RP_incHiWord_80191D1C	low	adds 0x10000 to arg2+8 (unreferenced)
+80191D2C	RP_incHiWord_80191D2C	low	adds 0x10000 to arg2+8 (unreferenced)
+80191D3C	RP_incHiWord_80191D3C	low	adds 0x10000 to arg2+8 (unreferenced)
+801926CC	Gfx_Effect_reset	medium	vf35: clears transform flags/values, identity matrix +0x48, nulls emitter handle +0x78 (Gfx effect wrapper)
+80192730	Gfx_Effect_getResByte94	low	vf34: returns byte at emitter resource +0x94+(n^1)
+801927E4	Gfx_Effect_testResFlag96	low	vf33: tests bit n of u16 at emitter resource +0x96
+801928C8	Gfx_Effect_updateMatrix	medium	vf32: if handle alive builds mtx from flags (matrix/scale/translate) and sets it on emitter; else nulls handle
+80192A40	Gfx_Effect_setResAnimEnable	low	vf31: for one or all entries in resource table calls fn_8002F868(entry, enable)
+80192C00	Gfx_Effect_setMatrix	medium	vf30: copies 3x4 matrix into +0x48, flags|=2
+80192C98	Gfx_Effect_setTranslate	medium	vf29: copies vec3 into +0x3c, flags|=1
+80192CC0	Gfx_Effect_setScale	medium	vf28: copies vec3 into +0x30, flags|=4
+80192CE8	Gfx_Effect_setScaleUniform	medium	vf27: stores float into +0x30/+0x34/+0x38, flags|=4
+80192D04	Gfx_Effect_setInvScale2D	low	vf26: computes reciprocal of 2D vector (or uses given), then calls two virtuals with it
+80192E00	Gfx_Effect_setEmitterVec9C	low	vf25: for each emitter writes vec3 to +0x9c and calls fn_80013D24
+80192EAC	Gfx_Effect_forEachEmitterB1BA4	low	vf24: applies callback fn_800B1BA4(arg) to all emitters
+80192F0C	Gfx_Effect_forEachPtclMgrVf2C	low	vf23: for each emitter/particle manager calls its vfunc 0x2c(arg)
+80192FCC	Gfx_Effect_forEachEmitterB1B90	low	vf22: applies callback fn_800B1B90(arg) to all emitters
+8019302C	Gfx_Effect_forEachPtclMgrVf28	low	vf21: for each emitter/particle manager calls its vfunc 0x28(arg)
+801930EC	Gfx_Effect_setAlpha	medium	vf20: calls setColor virtual with (0xff,0xff,0xff,alpha)
+8019310C	Gfx_Effect_setColorThunk	low	vf19: forwards to setColor virtual (slot 18)
+80193120	Gfx_Effect_setColor	medium	vf18: enables color override and sets RGBA on all emitters via callbacks fn_800B1B64/fn_800B1B6C
+801931B0	Gfx_Effect_setEmitterSetPos	low	vf17: writes vec3 to emitter set +0x84..+0x8c
+80193214	Gfx_Effect_setEmitterRotationEx	low	vf16: per-emitter rotation from matrices (paired-single heavy)
+801933C4	Gfx_Effect_setEmitterRotation	low	vf15: per emitter computes angles (fn_800C1380/1388) into +0x84/+0x88
+801934BC	Gfx_Effect_addEmitterField7C	low	vf14: sets emitter +0x7c = resource +0x54 + value
+80193574	Gfx_Effect_setEmitterField7C	low	vf13: sets float +0x7c on all emitters
+80193608	Gfx_Effect_setEmitterField68	low	vf12: sets float +0x68 on all emitters
+8019369C	Gfx_Effect_setEmitterField32	low	vf11: sets u16 +0x32 on all emitters
+80193730	Gfx_Effect_setEmitterField30	low	vf10: sets u16 +0x30 on all emitters
+801937C4	Gfx_Effect_setEmitterField28	low	vf09: sets float +0x28 on all emitters
+80193858	Gfx_Effect_forEachPtclMgrVf24	low	vf08: for each emitter/particle manager calls its vfunc 0x24(arg)
+80193918	Gfx_Effect_setEmitFlags01	low	vf07: sets/clears bits 0 and 1 of emitter set flags +0x50
+801939B4	Gfx_Effect_setEmitFlag1	low	vf06: sets/clears bit 1 of emitter set flags +0x50
+80193A24	Gfx_Effect_setEmitFlag0	low	vf05: sets/clears bit 0 of emitter set flags +0x50
+80193A94	Gfx_Effect_kill	low	vf04: calls fn_80010E10 and fn_80010EE8 on emitter set, then nulls handle
+80193AF0	Gfx_Effect_stopKeepHandle	low	vf03: calls fn_80010E10 on emitter set, keeps handle
+80193B34	Gfx_Effect_stop	low	vf02: calls fn_80010E10 on emitter set and nulls handle
+80193B84	Gfx_Effect_create	medium	vf01: drops dead handle; if none, resets and creates emitter via Gfx_801917EC(effect mgr, name, ids)
+80193C58	Gfx_Effect_dtor	medium	vf00: deletes when flag>0
+80193C98	Gfx_Effect_ctorFromDesc	medium	vtable 8034F5D0, inits handle, copies name from desc+4 and ids desc+0x24/+0x28, reset
+80193D1C	Gfx_Effect_ctor	medium	vtable 8034F5D0, inits handle, strcpy name, stores two ids, reset; used by all minigame effects
+80193DB0	Gfx_Effect_sinitNullHandle	low	initialises global null emitter handle lbl_8043C4E0
+80193DB8	Lyt_getTableEntry80317890	low	returns &lbl_80317890[i*4]; callers Lyt/Menu
+80193DCC	Lyt_drawPaneQuad	low	builds quad from pane size +0x4c/+0x50 and mtx +0x84, draws with color via Gfx_801ADC30 (Lyt)
+80193ECC	RP_80193ECC	keep	calls fn_800792E8 and fn_80079298 with obj+0xc and obj
+80193F24	Lyt_Layout_isPointInPane	medium	if layout built, tests point against pane with drawInfo (RP_801976A0)
+80193F68	Lyt_setTextBoxNumber	medium	finds TextBox, formats number with swprintf (fmt lbl_803178A0), copies text style, sets string
+8019417C	Lyt_Layout_setPaneNumber	medium	finds pane by name, casts to TextBox, calls Lyt_setTextBoxNumber
+80194250	Lyt_Layout_draw	medium	if built (flag bit0) calls Layout vfunc 0x28 (Draw) with drawInfo
+8019427C	Gfx_resetGXState	low	calls fn_800DF364(0), fn_800E2724(0,0,0), fn_800E3414(0)
+801942B8	Lyt_Layout_calc	medium	steps anims, Layout Animate, frame-rate scale, CalculateMtx with drawInfo, sets built flag
+801943F4	Lyt_Layout_resetAnims	low	resets anim frames to start, Animate and CalculateMtx
+801944E0	Lyt_appendNavNode	low	appends node to list at +0x30 (fn_80007818)
+801944E8	Lyt_lookupResource	low	calls fn_8007A1F0 on layout resource +0x14
+801944F4	Lyt_Layout_findPaneBB28	low	FindPaneByName then dynamic cast to type lbl_8043BB28
+80194704	Lyt_Layout_findTextBox	medium	FindPaneByName then dynamic cast to TextBox type lbl_8043BB18
+801947B4	Lyt_Layout_findPane	medium	calls root pane FindPaneByName (vfunc 0x3c, recursive)
+801947D0	Lyt_castPaneBB28	low	dynamic cast of pane to type lbl_8043BB28 via typeinfo chain
+8019485C	Lyt_Pane_unbindAnim	medium	calls pane vfunc 0x48 (UnbindAnimation) with anim transform
+80194878	Lyt_bindTexturePatterns	low	walks anim resource entries comparing names with pane name, binds matching via fn_80079BDC
+80194B6C	Lyt_Pane_childrenUnbindAll	low	for each child pane calls vfunc 0x4c with arg
+80194CC4	Lyt_Pane_bindAnim	medium	calls pane vfunc 0x44 (BindAnimation) with anim transform
+80194CE0	Lyt_Layout_bindAnimToPane	medium	finds pane by name and calls BindAnimation(anim, recursive flag)
+80194D54	Lyt_Layout_unbindAllAnims	medium	calls Layout vfunc 0x1c (UnbindAllAnimation)
+80194D68	Lyt_Layout_unbindAnim	medium	calls Layout vfunc 0x18 (UnbindAnimation)
+80194D80	Lyt_Layout_bindAnim	medium	calls Layout vfunc 0x14 (BindAnimation)
+80194D98	Lyt_Layout_createAnim	medium	allocs 0x28 anim, CreateAnimTransform from resource, inits frame ctrl and per-entry array, adds to list
+80194F2C	Lyt_dtor_80194F2C	low	array element dtor (deletes when flag>0) used by createAnim
+80194F6C	Lyt_AnimEntry_ctor	low	zeroes 0x10 anim entry; array ctor used by createAnim
+80194F88	Lyt_createLayout	medium	allocs 0x3c holder, DrawInfo and Layout, Build from resource, inits text boxes and nav links, tag processor
+801951C0	Lyt_initTextBoxes	low	walks pane tree, for each TextBox calls vf 0x64(0x1ff) and vf 0x6c with its +0xd4
+801956EC	Lyt_ListIter_isEqualA	low	iterator equality (list helper inlined from template)
+80195704	Lyt_ListIter_isEqualB	low	iterator equality (list helper)
+8019571C	Lyt_List_endA	low	returns list+4 (end node)
+80195724	Lyt_ListIter_nextA	low	it = it->next
+80195734	Lyt_ListIter_notEqual	low	returns iterators differ
+80195750	Lyt_List_endB	low	returns list+4 (end node)
+80195758	Lyt_ListIter_nextB	low	it = it->next
+80195768	Lyt_ListIter_derefA	low	returns node-4 (owning pane)
+80195774	Lyt_ListIter_copyA	low	copies iterator
+80195780	Lyt_List_beginA	low	returns list->+4 (first node)
+80195788	Lyt_Pane_getChildList	low	returns pane+0x10 (child list)
+80195790	Lyt_TextBox_getField0D4	low	returns +0xd4
+80195798	Lyt_castTextBox	low	dynamic cast to TextBox type lbl_8043BB18
+80195814	Lyt_ListIter_derefB	low	returns node-4
+80195820	Lyt_ListIter_copyB	low	copies iterator
+8019582C	Lyt_List_beginB	low	returns list->+4
+80195834	Lyt_TypeInfo_isDerived	low	walks typeinfo parent chain looking for target
+8019585C	Lyt_TextBox_getTypeInfo	low	returns &lbl_8043BB18
+80195864	Lyt_nodeToPane	low	returns node-4
+8019586C	Lyt_TypeInfo_getParent	low	returns *p
+80195874	Lyt_ListIter_copyC	low	copies iterator
+80195880	Lyt_ListIter_set	low	*it = node
+80195888	Lyt_ListIter_get	low	returns *it
+80195890	Lyt_buildCursorNavLinks	medium	parses nav tags on pane tree and creates 0x38 nav nodes (Lyt_FEELMIE_8019C7B8) into list +0x30
+80195AE8	Lyt_parsePaneNavTag	medium	scans pane user string for u/d/l/r + 2 digits, returns direction and number
+80195C08	Lyt_parse2Digits	medium	parses 2 decimal digits into short
+80195CDC	Lyt_registerVersion	low	OSRegisterVersion(lbl_8043ABB0), returns 0x70007
+80195CE0	Lyt_FrameCtrl_calc	medium	advances frame by rate, handles one-shot/loop/reverse modes, sets end flag
+80195F48	Lyt_FrameCtrl_init	medium	zeroes frame ctrl, stores end frame
+80195F78	Gfx_EffectGroup_setFlags	low	calls fn_80011C40 on effect system (and sub system +0x2c) with group base | flags
+80195FFC	Gfx_EffectGroup_calc	low	per-frame update of 64 effect slots in group, copies emitter data (memcpy 0x94/0xa8)
+80196694	Gfx_EffectGroup_createEmitter	low	looks up effect resource by name, chooses flags from res bits, creates emitter in group
+80196768	Gfx_EffectGroup_killAll	medium	for 64 slots in group calls fn_80011A8C/fn_80011B18 (also on sub system)
+8019681C	Gfx_EffectGroup_hasSubSystem	low	returns +0x2c != 0
+80196830	Gfx_EffectGroup_loadResources	medium	if not loaded, registers effect and texture resources (+0x14/+0x18)
+801968BC	Gfx_EffectGroup_dtor	medium	vtable 8034F668; kills all, releases effect/texture resources, deletes when flag>0
+80196990	Gfx_EffectGroup_ctor	medium	base ctor fn_800AC4CC, vtable 8034F668, group base id = arg<<7, clears fields
+80196B00	RP_TextWriter_end	medium	clears active flag +100
+80196B0C	RP_TextWriter_beginWithFont	medium	sets font +0x48, GX ortho setup, active flag +100 = 1
+80196BA4	RP_TextWriter_begin	medium	picks font from Sys font mgr (default or by index) then beginWithFont
+80196BF8	RP_TextWriter_dtor	medium	calls base dtor fn_8000E6B8, deletes when flag>0
+80196C50	RP_TextWriter_ctor	medium	base ctor fn_8000E65C, vtable 8034F678 at +0x68, sets format buffer and tag processor
+80196CAC	RP_TextWriter_allocFormatBuffer	medium	allocates 0x200 buffer into lbl_8043C4E8
+80196CD4	Lyt_Anim_getFrameSize	medium	returns anim transform frame size as float
+80196D90	Lyt_Anim_setFrame	medium	sets frame (current if <0), clears end flag, rate 1
+80196DF8	Lyt_Anim_calc	medium	steps frame ctrl and copies frame into anim transform (order depends on mode)
+80196E68	Lyt_Anim_ctor	medium	inits frame ctrl (1 frame), clears transform and entries
+80196EB0	Lyt_ResAccessor_attach	low	if not attached calls fn_800828A4(accessor, arc, root or default lbl_803178A8)
+80196EFC	Lyt_createResAccessor	medium	allocs holder and 0xb0 archive accessor with vtable 8034F688
+80196F98	Lyt_ResAccessor_getResource	medium	for resource type font returns font from Sys font mgr, else base lookup fn_80082920
+80196FBC	Lyt_ResAccessor_dtor	medium	clears font list +0x24, base dtor fn_800825E4, deletes when flag>0
+8019702C	Lyt_copyTextBoxStyle	low	copies colors/font params (+0xd8.., material +0x10..+0x22) from one TextBox to another
+801973F4	Lyt_setTextBoxMessage	medium	fetches message (group,id), expands tags into buffer, SetString, applies msg attributes
+801975C8	Lyt_setTextBoxMessageF	medium	varargs: formats message into buffer via Lyt_80198EDC and calls TextBox SetString (vf 0x70)
+801976A0	Lyt_isPointInPane	medium	builds pane quad from global mtx (fn_80079324) and tests whether point lies inside
+801978B0	RP_Cls8034F6A0_dtor	low	vtable 8034F6A0, unregisters from lbl_8043C480 (Sys_8018713C), base dtor, delete
+80197998	RP_Cls8034F6B0_ctor	low	base ctor Lyt_801A53DC then vtable 8034F6B0; used by Fsh/Pnp ctors
+801979D4	RP_Cls8034F6B0_dtor	low	calls base dtor RP_801A5384, deletes when flag>0
+80197BC4	Mii_MiiData_getFavColor	low	passes bits 18-21 of +0x9c (Mii data color field) to fn_8016CD9C
+80197BD0	Mii_MiiData_setField60	low	if ptr non-null copies u16 to +0x60
+80197D98	RP_dtor_80197D98	low	empty destructor body; deletes when flag>0
+80197E94	RP_PageLayout_draw	low	if visible and has pages, draws current page layout and cursor (Lyt_801C8EF4)
+801A22C0	Lyt_createSingleton8043C530	low	allocs 0xe0 once into lbl_8043C530 via Lyt_8019FA10 ctor
+801A2344	HomeMenu_draw	low	if active/ready flags (+8,+0xb,+0xc) calls fn_80177318 (HBM draw, inferred) (HomeMenu module)
+801A2370	HomeMenu_calc	low	feeds 4 controllers' data into HBM controller structs, calls update, handles result (HomeMenu module)
+801A2700	HomeMenu_finish	low	if active and not done calls fn_80177460, sets done flag; returns active (HomeMenu module)
+801A2758	HomeMenu_handleResult	low	reads selected button (fn_801772C8); resumes game/pause layout or triggers reset/menu (HomeMenu module)
+801A2BCC	HomeMenu_reset	low	clears state flags, fn_800FBDE4(0), clears fade struct (HomeMenu module)
+801A2C34	RP_dtor_801A2C34	low	empty destructor body; deletes when flag>0
+801A2C74	HomeMenu_ctor	medium	vtable 8034F908; fade struct, 0x80000 work buffer, sound callback, scale per aspect mode (HomeMenu module)
+801A2E20	HomeMenu_soundCallback	low	on event 5 forwards sound id to sound manager lbl_8043C53C (HomeMenu module)
+801A2FCC	HomeMenu_calcFade	medium	15-frame fade in/out state machine updating alpha (0..255) at +0xa (HomeMenu module)
+801A30E8	HomeMenu_createSingleton	medium	allocs 0x2b0 once into lbl_8043C538 and runs ctor (HomeMenu module)
+801A3148	Mii_countValidDbSlots	low	counts entries ==1 in 100-entry flag array (filled by Mii_scanDbSlots) (Mii module)
+801A31F0	Mii_scanDbSlots	low	for 100 Mii database slots stores fn_80172FA8(i)!=0 (RFL availability, inferred) (Mii module)
+801A326C	Mii_findDbIndex	low	calls fn_801732DC(id,&idx) and returns index or -1 (Mii module)
+801A32B0	RP_dtor_801A32B0	low	empty destructor body; deletes when flag>0
+801A32F0	RP_Cls8034F918_init	low	sets vtable 8034F918 at +0x190 and zeroes 3x32-word tables; called by Gfx_KokeshiManager ctor
+801A3680	Mii_HeadLoader_queueU32	low	allocs 0xc node from own heap with u32 payload, appends to list +0x2c (Mii module)
+801A36D4	Mii_HeadLoader_queueU16	low	allocs 0xc node from own heap with u16 payload, appends to list +0x20 (Mii module)
+801A3728	Mii_HeadLoader_calc	low	in state 4 switches heap, polls Lyt_8019C9EC; when done notifies owner vf 8 else resets state (Mii module)
+801A37D4	Mii_HeadLoader_callLyt8019E55C	low	calls Lyt_8019E55C on +8 (Mii module)
+801A37DC	Mii_HeadLoader_isIdle	low	returns state (+0)==0 (Mii module)
+801A3848	Mii_HeadLoader_start	low	if idle sets state 1 and calls owner vf 0xc for 10 items (Mii module)
+801A38BC	RP_dtor_801A38BC	low	empty destructor body; deletes when flag>0
+801A38FC	Mii_HeadLoader_ctor	low	vtable 8034F928 at +0x38; Mii slot from lbl_8043C4D0, creates own expanded heap and lists (Mii module)
+801A39F0	Mii_HeadLoaderSet_forEachLyt801A35D0	low	calls Lyt_801A35D0 on each of 4 loaders (Mii module)
+801A3A40	Mii_HeadLoaderSet_queueU32	low	forwards to loader[idx] queueU32 (Mii module)
+801A3A84	Mii_HeadLoaderSet_calc	low	runs calc on each of the 4 loaders at +0x14 (Mii module)
+801A3AD4	Mii_HeadLoaderSet_callLyt8019E55C	low	forwards to loader[idx] (Mii module)
+801A3AE4	Mii_HeadLoaderSet_isIdle	low	forwards isIdle to loader[idx] (Mii module)
+801A3AF4	Mii_HeadLoaderSet_callLyt801A37EC	low	forwards Lyt_801A37EC to loader[idx] (Mii module)
+801A3B04	Mii_HeadLoaderSet_start	low	forwards start to loader[idx] (Mii module)
+801A3B14	Mii_HeadLoaderSet_dtor	low	vtable 8034F944; unregisters from Mii mgr +0x54, base dtor, delete
+801A3B88	Mii_HeadLoaderSet_ctor	low	vtable 8034F944; creates 4 head loaders, registers itself with Mii mgr lbl_8043C4D0 (Mii module)
+801A3C34	Mii_HeadLoaderSet_dtor2	low	second dtor copy: unregisters from Mii mgr, base dtor, delete
+801A3CA4	RP_WpadAsyncTask_calc	low	state machine over fn_800CC8F4/fn_800CC8FC requests with completion flag lbl_8043C540
+801A3D54	RP_WpadAsyncTask_ctor	low	clears state, registers callback RP_801A3D98 via fn_800CC904
+801A3D98	RP_WpadAsyncTask_callback	low	clears completion flag lbl_8043C540 for results -1..1
+801A3DD4	RP_CtrlMgr_clearRequest	low	clears byte +4 of sub-object +100
+801A3DE4	RP_CtrlMgr_setRequest	low	sets byte +4 of sub-object +100
+801A3DF4	RP_801A3DF4	keep	4-byte function (decompiler output spills into eggController code)
+801A450C	RP_CtrlMgr_getByChannel	medium	searches controller array for entry whose +4 channel equals arg
+801A45D4	RP_CtrlMgr_create	medium	creates 0x68 controller manager (lbl_8043C550), installs WPAD callbacks for 4 channels
+801A469C	RP_onWpadConnectCheck	low	WPAD channel callback: on reason 1 updates connected bitmask lbl_8043C54C via fn_800D0538
+801A4700	RP_onWpadPowerEvent	low	callback: 0 -> fn_800CC900, 1 -> sets flag lbl_8043C54E
+801A4728	RP_onWpadConnectChange	medium	connect callback: updates bitmask lbl_8043C548 and queues speaker setup/shutdown
+801A4780	RP_Nwc24_checkError	low	maps fn_80144270 result code; clears enable flag lbl_8043B348 on fatal codes
+801A47E8	RP_Nwc24_postMessage	low	formats text and creates/commits WiiConnect24 message (fn_8014xxxx), disables on error
+801A4E3C	RP_dtor_801A4E3C	low	empty destructor body; deletes when flag>0
+801A4E7C	RP_Nwc24Msg_ctor	low	vtable 8034F9FC at +8, allocs 0x4000 (32-aligned) and 0x800 work buffers
+801A4EE4	RP_Nwc24_suspendScheduler	medium	calls NWC24SuspendScheduler, clears enable flag lbl_8043B348 on error -1
+801A5030	RP_setHeadMaterial	low	looks up material lbl_803181A0 on model +0xa4, sets it, calls Mii_8018FFB4
+801A50C0	Gfx_registerLightTexA4	low	registers model +0xa4 with 2 light-texture slots (like KokeshiHead version)
+801A5384	RP_Base8034F6B0_dtorBase	low	calls Lyt_80197BE4 base dtor, deletes when flag>0
+801A5420	RP_ChildOverride_reset	low	vf10: clears override flags +0xbc and values
+801A544C	RP_ChildOverride_setVec3	low	vf09: stores vec3 at +0xcc, flags|=4
+801A5474	RP_ChildOverride_setVec2	low	vf08: stores vec2 at +0xc4, flags|=2
+801A5494	RP_ChildOverride_setU16	low	vf07: stores u16 at +0xc0, flags|=1
+801A54A8	RP_ChildOverride_calc	low	vf04: base calc then applies flagged overrides to children of type 1 in list +0x38
+801A557C	RP_ChildOverride_vf02	low	vf02: base fn_80019618 then reset virtual
+801A55CC	RP_ChildOverride_dtor	low	vf06: base dtor fn_80019750, deletes when flag>0
+801A5624	RP_ChildOverride_ctor	low	base ctor fn_80019464, vtable 8034FA20 at +0x1c, reset
+801A567C	Gfx_RflModel_ctor	low	base fn_8006F860, vtable 8034FA58, stores RFL params, default colors (Gfx class)
+801A5F08	Gfx_RflModel_create	low	computes RFL model buffer size (fn_8016C884), allocs and constructs Gfx_RflModel
+801A5FC8	Gfx_RflModel_initCharModel	medium	calls fn_8016C960 (RFL char model init) on +0x110, sets ready flag +0xf3
+801A6044	Gfx_RflModel_getExpression	low	if ready, returns fn_8016CD94(+0x110) (RFL expression get, inferred)
+801A6098	Gfx_RflModel_setExpression	low	if ready, calls fn_8016CD8C(+0x110) (RFL expression set, inferred)
+801A60D4	Gfx_RflModel_setField0F1	low	stores 0..127 at +0xf1, else 0xff
+801A60F8	Gfx_RflModel_setField0F0	low	stores 0..127 at +0xf0, else 0xff
+801AFB80	RP_801AFB80	keep	empty function
+801AFB84	RP_Cls80350118_dtor	low	vf05 of 80350118: deletes when flag>0
+801AFBC4	RP_dtor_801AFBC4	low	empty destructor body; deletes when flag>0
+801AFC04	Gfx_applyLightTexToModel	low	for RFL models binds light texture by name (vf 0x20), else eggLightTextureManager_800928E4
+801AFCF8	Gfx_Flag10Ctrl_ctor	low	stores owner, vtable 80350160, target = owner+4->+0x20 (Gfx class)
+801AFD20	Gfx_Flag10Ctrl_dtor	low	deletes when flag>0
+801AFD60	Gfx_Flag10Ctrl_set	low	sets bit 4 of target byte +4
+801AFD74	Gfx_Flag10Ctrl_clear	low	clears bit 4 of target byte +4
+801AFD88	Gfx_Flag10Ctrl_isSet	low	returns bit 4 of target byte +4
+801AFD98	Gfx_BoundingInfo_ctor	low	eggModelBoundingInfo ctor on model+0x40, vtable 803501A8 at +0x14
+801AFDD8	Gfx_BoundingInfo_dtor	low	base dtor fn_800939D4, deletes when flag>0
+801AFE30	Gfx_ShadowTexMgr_call835FC	low	calls eggShadowTextureManager_800835FC on +0xc
+801AFE38	Gfx_ShadowTexMgr_call83590	low	calls eggShadowTextureManager_80083590 on +0xc
+801AFE40	Gfx_Flag01Ctrl_ctor	low	stores owner, vtable 803501B8, target = owner+0xc (Gfx class)
+801AFE64	Gfx_Flag01Ctrl_dtor	low	deletes when flag>0
+801AFEA4	Gfx_Flag01Ctrl_set	low	sets bit 0 of *target
+801AFEB8	Gfx_Flag01Ctrl_clear	low	clears bit 0 of *target
+801AFECC	Gfx_Flag01Ctrl_isSet	low	returns bit 0 of *target
+801AFEDC	Gfx_ModelSnapshot_capture	low	calls eggModelSnapshot_80095F78 with model+0x40
+801AFEE4	Gfx_ShadowTexture_attachF	low	varargs: formats name then eggShadowTexture_8009AB30(obj, model+0x40, name)
+801AFFA0	Gfx_MatEditor_readTevColor	low	reads TEV/konst colors (fn_80055D44/7C) for index into RGBA bytes
+801B0144	Gfx_MatEditor_readPixelModes	low	reads material blend/alpha/z modes (fn_80055064..80055300) into byte array
+801B02E8	Gfx_MatEditor_apply	low	writes edited material params (channel ctrl, TEV colors, modes) back to resource
+801B09DC	Gfx_MatEditor_ctor	low	vtable 803501D0 at +0xd0, captures current material settings of model
+801B11E4	RP_dtor_801B11E4	low	empty destructor body; deletes when flag>0
+801B1224	Gfx_JointMtx_apply	low	copies or interpolates joint matrices between model and buffer depending on flags
+801B1418	Gfx_TexObj_ctorFromResIdx	low	vtable 803501E0 at +0x20, loads texture from resource slot table lbl_8043C590
+801B1498	Gfx_TexObj_ctorFromObj	low	vtable 803501E0, fills via source object vfunc 0x10
+801B14E8	Gfx_TexObj_ctor	low	vtable 803501E0 at +0x20, eggGXUtility_800A1218 init
+801B1524	Gfx_TexObj_ctorFromTex	low	vtable 803501E0, fills via texture vfunc 0x10
+801B1574	RP_setByte9ByMode	low	mode 0 sets byte +9 (and neighbour) to 1, mode 1 clears
+801B15B8	Gfx_CapTexture_capture	low	updates flag bits, captures screen-sized region via eggCapTexture_800859E0
+801B16C4	Gfx_CapTexture_ctor	medium	vtable 803501F0, creates CPU texture sized to screen (half if flag) and inits it
+801B17E0	RP_dtor_801B17E0	low	empty destructor body; deletes when flag>0
+801B1820	Gfx_calcProjTexture	low	gets texture from slot table, sets up projection (Gfx_801A6228) and frustum
+801B192C	Gfx_ProjScreen_ctor	low	vtable 80350200 at +0x1e4, inits camera +4 and screen +0x17c
+801B19A8	RP_dtor_801B19A8	low	empty destructor body; deletes when flag>0
+801B1A00	Gfx_RflModel_draw	low	sets GX state and draws RFL char model opa/xlu (fn_8016D178/D0D8)
+801B22FC	Gfx_RflModel_setField9C	low	stores arg to model wrapper +0x9c (via +0x10c)
+801B230C	Gfx_RflModel_drawCallback	low	draw callback: calls Gfx_RflModel_draw on wrapper +0x10c
+801B27E0	Gfx_MiiModel_create	low	allocs 0xb0 (vtable 80350210), creates RFL model, inits char model (fallback 6), sets callbacks
+801B2AC0	RP_sinit_80439088	low	static init of identity/scale constants at 80439088
+801B2B34	Snd_setOutputMode	low	maps SC sound mode to output mode via fn_800312E0/fn_80031A94 (and remote mode) (Snd module)
+801B2BF8	Snd_callFunc41F14	low	forwards (a2,a3) to fn_80041F14 (Snd module)
+801B2EC0	Snd_startIfResolved	low	resolves fn_80041EDC(+0x100); if valid calls Party_801B2C04 (Snd module)
+801B2F0C	Mpe_AudioMgr_setField96C	low	calls Snd_801B5C2C on +0x94c, stores +0x96c, refreshes speaker volume (module Mpe: same class as Mpe_* methods)
+801B2F58	Mpe_AudioMgr_setOutputVolume	low	sets +0x938=1 and calls fn_80031B1C(0, mgr, value) (module Mpe: same class as Mpe_* methods)
+801B49B4	RP_801B49B4	keep	empty function
+801B4A5C	Mpe_AudioMgr_ctor	medium	base fn_800AF808, vtables 803502E0/8034F2F0/80350304, sub-objects, flags (module Mpe: same class as Mpe_* methods)
+801B4B38	Mpe_AudioMgr_createSingleton	medium	allocs 0xfac once into lbl_8043C5D4 and runs ctor (module Mpe: same class as Mpe_* methods)
+801B4BE0	Snd_RmtSpkMgr_isIdle	low	returns 1 when shutdown flag +0x1a set and request queue empty (Snd module)
+801B4C0C	Snd_RmtSpkMgr_shutdownAll	low	shuts down 4 remote speakers (fn_8003D23C), sets flag +0x1a (Snd module)
+801B4C8C	Snd_RmtSpkMgr_setupAll	low	for connected channels sets up speaker or queues request, clears +0x1a (Snd module)
+801B4D84	Snd_RmtSpkMgr_onShutdown	low	speaker callback: clears enabled byte, marks request done (Snd module)
+801B4DB8	Snd_RmtSpkMgr_onSetup	low	speaker callback: on success sets enabled byte, marks done (Snd module)
+801B4DE8	Snd_RmtSpkMgr_onDisconnect	low	queues shutdown request for channel (ring of 20) (Snd module)
+801B4EB8	Snd_RmtSpkMgr_onConnect	low	queues setup request for channel (ring of 20) (Snd module)
+801B4F8C	Snd_RmtSpkMgr_dtor	low	base dtor fn_800AC520, deletes when flag>0 (Snd module)
+801B4FE4	Snd_RmtSpkMgr_ctor	low	base fn_800AC4CC, vtable 803504C0, clears per-channel state, volume 0x7f (Snd module)
+801B50C8	Snd_RmtSpkMgr_startSound	low	plays sound on remote speakers of players in mask, enabling speakers (Snd module)
+801B5258	Snd_RmtSpkMgr_setSpeakerEnable	low	enables/disables channel speaker (fn_8003D2E8), tracks counters (Snd module)
+801B5344	Snd_RmtSpkMgr_readVolume	low	stores fn_800D0088() (speaker volume) to +0x1b (Snd module)
+801B5374	Snd_RmtSpkMgr_shutdownAll2	low	same as shutdownAll (second copy) (Snd module)
+801B53F4	Snd_RmtSpkMgr_calc	low	tracks speaker state changes, processes one queued setup/shutdown request (Snd module)
+801B56F4	Snd_RmtSpkMgr_createSingleton	medium	allocs 0x118 once into lbl_8043C5E0 and runs ctor (Snd module)
+801B5754	Snd_setHandleVolumePitch	low	clamps value*scale to [-1,1], calls handle vf 0x40, extra vf 0x44 above 0.8 (Snd module)
+801B61C4	Snd_Cls80357120_ctor	low	base fn_800AE6D0, vtable 80357120, clears fields (Snd module)
+801B6568	RP_calcVecProjection	low	normalizes direction and projects/reflects vectors (used by Duc)
+801B67EC	RP_orthonormalizeBasis	low	iteratively re-orthonormalizes 3 basis vectors until error below threshold
+801B6A20	RP_seedRandomTicks	medium	seeds 4 globals (lbl_8043C5F8..) with non-zero OSGetTick values
+801B6A7C	RP_sinit_80439110	low	static init of identity/scale constants at 80439110
+801B6B60	RP_SceneObj_nop06	low	empty virtual shared by SceneObj-derived classes (slot 6)
+801B6B64	RP_SceneObj_nop05	low	empty virtual (slot 5)
+801B6B68	RP_SceneObj_nop04	low	empty virtual (slot 4)
+801B6B6C	RP_SceneObj_nop03	low	empty virtual (slot 3)
+801B6B70	RP_SceneObj_nop02	low	empty virtual (slot 2)
+801B6B74	RP_SceneObj_nop01	low	empty virtual (slot 1)
+801B6B78	RP_SceneObj_dtor	medium	vtable 80357180 dtor: base Gfx_80190C24, deletes when flag>0; used by many Duc/Tnk classes
+801B6BD0	RP_SceneObj_ctor	medium	base ctor Gfx_80190C64, sets vtable 80357180
+801B6D5C	RP_ResSlots_init	low	stores slot table lbl_8043C590, resizes it (Gfx_801AC978), allocs and clears n x 16 entries
+801B6DF8	RP_ResSlots_dtor	low	vtable 803571A8 dtor via SceneObj dtor, delete
+801B6E50	RP_ResSlots_destroyInstance	low	deletes lbl_8043C608 and clears it
+801B6E94	RP_ResSlots_createInstance	low	allocs 0x10 (vtable 803571A8) into lbl_8043C608
+801B6EF0	RP_ModelObj_nop06	low	empty virtual (slot 6)
+801B6EF4	RP_ModelObj_nop04	low	empty virtual (slot 4)
+801B6EF8	RP_ModelObj_getAnimFrame	low	vf18: returns model anim controller vfunc 0x4c as float
+801B6F48	RP_ModelObj_animVf58	low	vf17: forwards to model anim controller vfunc 0x58
+801B6F60	RP_ModelObj_animVf5C	low	vf16: forwards to anim controller vfunc 0x5c
+801B6F78	RP_ModelObj_animVf3C	low	vf15: forwards to anim controller vfunc 0x3c
+801B6F90	RP_ModelObj_animVf38	low	vf14: forwards to anim controller vfunc 0x38
+801B6FA8	RP_ModelObj_animVf40	low	vf13: forwards to anim controller vfunc 0x40
+801B6FC0	RP_ModelObj_animVf0C	low	vf12: forwards to anim controller vfunc 0x0c
+801B6FDC	RP_ModelObj_loadAnim	low	vf11: maps anim kind to resource type, fetches via ResSlots, then binds via virtual
+801B7094	RP_ModelObj_calcModel	low	vf10: calls Gfx_801A8450 on model
+801B70A0	RP_ModelObj_createModel	low	vf09: creates model from resource (Gfx_801A7E00), sets draw layer lbl_8043C610
+801B70F4	RP_ModelObj_loadModel	low	vf08: fetches resource via ResSlots and creates model, sets draw layer
+801B726C	RP_ModelObj_dtor	medium	vtable 803571D0 dtor via SceneObj dtor, delete
+801B72C4	RP_ModelObj_ctor	medium	SceneObj ctor, vtable 803571D0, copies identity transform defaults, clears model
+801B7394	RP_ModelObj_setDefaultLayer	low	stores global lbl_8043C610 used when creating models
+801B739C	RP_ModelObj_setField40	low	vf19: stores byte +0x40 and sets model dirty flag
+801B73BC	RP_LookAtCam_calcBasisB	low	vf05: computes forward/right/up from pos +0x178, target +0x190, up +0x184
+801B74B0	RP_LookAtCam_vf04	low	vf04: eggController_800A6F50(ctrl,0) then virtual 0x1c
+801B74F8	RP_LookAtCam_calcBasis	low	vf03: computes view basis from pos/target/up, copies to camera fields
+801B75EC	RP_LookAtCam_reset	low	vf02: resets pos/target/up/basis to default constants
+801B76CC	RP_LookAtCam_dtor	low	deletes when flag>0
+801B770C	RP_LookAtCam_ctor	low	base camera ctor Gfx_801A6CA0, vtable 80357228 at +0x174
+801B7748	RP_Kcl_checkSphereTri	low	tests sphere against collision triangles (prism data), returns hit info (used by Bil)
+801B8048	RP_Kcl_checkPoint	low	octree lookup of point in collision data and per-triangle plane tests
+801B83A8	RP_makeMtxFromRotPos	low	builds 3x4 matrix from 3x3 rotation and translation
+801B840C	RP_sinit_80439170	low	static init of identity/scale constants at 80439170
+801B84F0	RP_drawDebugShapeRed	low	draws shape twice (both cull modes) in red via eggDrawGX
+801B85B0	RP_SimpleModel_nop04	low	empty virtual (slot 4)
+801B85B4	RP_SimpleModel_nop03	low	empty virtual (slot 3)
+801B85B8	RP_SimpleModel_load	low	vf02: registers resource (kind 0xd) in slot table and creates model into +0x40
+801B862C	RP_SimpleModel_loadRes	low	vf01: loads file from common archive into slot table kind 0xc
+801B8680	RP_SimpleModel_calcMtx	medium	builds mtx from rot/pos, sets on model, copies scale, runs model calc helpers
+801B870C	RP_SimpleModel_dtor	medium	vtable 80357248 dtor: base Gfx_80190C24, delete
+801B8764	RP_SimpleModel_ctor	medium	base Gfx_80190C64, vtable 80357248, copies identity transform defaults
+801B882C	RP_seedRandomFromTime	medium	builds seed lbl_8043C620 from OSGetTime calendar fields
+801B8880	RP_setRandomSeed	medium	stores seed into lbl_8043C620
+801B897C	RP_ResFile_create	low	allocs 8-byte wrapper (res ptr, u16 0) and relocates resource
+801B89DC	RP_ResFile_relocate	low	converts section offsets in resource header/tables into pointers
+801B8CF8	RP_initScale4C	low	stores 1.0 and defaults in +0x4c..
+801B8E3C	RP_ActorBase_ctor	medium	base Gfx_80190C64 + secondary base 8034F430 at +4, vtable 80357268, zero vectors, scale 1
+801B8F40	RP_ActorBase_dtor	medium	destroys secondary base and primary base, deletes when flag>0
+801B8FA8	RP_ActorBase_getVec10	low	vf11: returns &+0x10
+801B8FB0	RP_ActorBase_setVec10	low	vf12: copies vec3 to +0x10
+801B8FCC	RP_ActorBase_getVec1C	low	vf13: returns &+0x1c
+801B8FD4	RP_ActorBase_setVec1C	low	vf14: copies vec3 to +0x1c
+801B8FF0	RP_ActorBase_getVec28	low	vf15: returns &+0x28
+801B8FF8	RP_ActorBase_setVec28	low	vf16: copies vec3 to +0x28
+801B9014	RP_ActorBase_getVec34	low	vf17: returns &+0x34
+801B901C	RP_ActorBase_setVec34	low	vf18: copies vec3 to +0x34
+801B9038	RP_ActorBase_getVec40	low	vf19: returns &+0x40
+801B9040	RP_ActorBase_setVec40	low	vf20: copies vec3 to +0x40
+801B905C	RP_ActorBase_getVec4C	low	vf21: returns &+0x4c
+801B9064	RP_ActorBase_setVec4C	low	vf22: copies vec3 to +0x4c
+801B9080	RP_ActorBase_getF58	low	vf23: returns float +0x58
+801B9088	RP_ActorBase_setF58	low	vf24: stores float +0x58
+801B9090	RP_ActorBase_getU5C	low	vf25: returns +0x5c
+801B9098	RP_ActorBase_setU5C	low	vf26: stores +0x5c
+801B90A0	RP_ActorBase_dtorThunk4	low	vf03: this-4 adjustor thunk to dtor
+801B90A8	RP_ActorBase_dtorThunk8	low	vf08: this-8 adjustor thunk to dtor
+801B9254	RP_mtx33MultVec	medium	multiplies vec3 by upper 3x3 of matrix
+801B92B8	RP_drawDebugQuadWhite	low	builds ortho quad and draws white shape twice via eggDrawGX
+801B93B0	RP_calcHitBoundingBox	low	collects up to 32 collision hits and computes their min/max box
+801B94EC	RP_setBoxMinMax	low	fn_800A1628(dst, min, max)
+801B94F4	RP_callLyt801B82DC	low	calls Lyt_801B82DC(*p)
+801B94FC	RP_allocBuffer40	low	allocs 0x40 into *p, clears first word
+801B9544	RP_loadMsgRes	medium	loads message file (Sys_801871A4) and constructs 0x20 MsgRes into +4
+801B95A0	RP_dtor_801B95A0	low	empty destructor body; deletes when flag>0
+801B95E0	RP_Cls803572E0_destroyInstance	low	deletes lbl_8043C628 and clears it
+801B9624	RP_Cls803572E0_createInstance	low	allocs 8-byte object with vtable 803572E0 into lbl_8043C628
+801B9694	RP_PointArray_setPoint	low	copies vec3 into array +0x14 at index
+801B96C8	RP_Curve_build	low	builds curve/segment data from points, bounding box (paired-single heavy)
+801B9B18	RP_Curve_samplePoints	low	samples points along curve into array +0x14
+801B9C34	RP_Curve_copy	low	copies counts and allocates/copies knot and point arrays from another curve
+801B9D74	RP_calcEase	medium	clamps t to 0..1 and applies easing type (linear, sin, quad, sqrt, cosine)
+801B9E2C	RP_Range_isEmpty	low	returns end==begin
+801B9F70	RP_Range_init	low	zeroes 3 words
+801B9F84	RP_CPadCursor_80357428_vf04	keep	empty virtual shared by layout classes
+801B9F88	Lyt_attachArcFile	medium	gets file from archive (Sys_801871E0) and attaches it to res accessor
+801B9FC8	Lyt_LytObjBase_ctor	low	vtable 803572F0, creates res accessor holder into +4; base of many layout classes
+801BA00C	RP_801BA00C	keep	empty function
+801BA010	RP_801BA010	keep	empty function
+801BA014	RP_NRPosition00_803581F8_vf03	keep	empty virtual shared by layout classes
+801BA018	RP_Polyline_calc	low	iterates polyline points computing segment data (Duc/Tnk/Bom)
+801BA150	RP_Polyline_setPoints	low	copies n vec3 points into +4 array
+801BA194	RP_dtor_801BA194	low	empty destructor body; deletes when flag>0
+801BA1D4	RP_Polyline_ctor	low	vtable 80357310 at +0x10, allocs n points and two n-1 vec arrays
+801BA3FC	Lyt_createLayoutDefault	medium	calls Lyt_createLayout with default heap
+801BA40C	Lyt_createLocalResAccessor	medium	creates res accessor and attaches named file from local archive
+801BA474	RP_drawDebugShape	low	draws shapes via eggDrawGX (used by Duc shot)
+801BA75C	RP_PosHistory_pullFromController	low	copies controller history samples into newest-first ring array
+801BA9B4	RP_PosHistory_clear	low	zeroes all entries, count=0
+801BAA00	RP_PosHistory_push	low	shifts entries and inserts vec3 at front, count++ (capped)
+801BAA74	RP_PosHistory_dtor	low	deletes when flag>0
+801BAAB4	RP_PosHistory_ctor	low	vtable 80357320 at +0x10, allocs n vec3 entries, calls clear
+801BAB3C	RP_CursorTrail_update	low	copies controller pointer samples into trail arrays
+801BAE54	RP_CursorTrail_reset	low	resets per-entry bytes to 0xff and vectors to defaults
+801BAEC0	RP_dtor_801BAEC0	low	empty destructor body; deletes when flag>0
+801BAF00	RP_CursorTrail_ctor	low	vtable 80357338 at +0x24, allocs n bytes, two n vec2 arrays and n floats
+801BAFC0	RP_JointMtxBuffer_getMtx	low	returns +0x10 + i*0x30
+801BAFE0	RP_JointMtxBuffer_captureAll	low	vf03: copies all model joint matrices into +0x10 buffer
+801BB098	RP_JointMtxBuffer_onJointCalc	low	vf01: stores 3x4 matrix for joint and advances to next joint
+801BB190	RP_JointMtxBuffer_ctor	low	vtable 80357348, allocs 2 joint mtx arrays, registers as model callback, primes
+801BB2CC	RP_JointMtxBuffer_dtor	low	deletes when flag>0
+801BB30C	RP_PhysSphere_calcWorldOffset	low	rotates local vector by body matrix and adds (used by Bil)
+801BB3C8	RP_PhysSphere_calcImpulse	low	computes linear/angular impulse from contact (used by Bil)
+801BB740	RP_vecDivScalar	medium	dst = src * (1/scalar)
+801BB770	RP_PhysSphere_applyImpulse	low	computes impulse and adds to velocity +0x1c and angular +0xe0
+801BB8FC	RP_PhysSphere_checkContact	low	classifies contact velocity vs threshold +0x74, returns 0/1/2
+801BBAC0	RP_PhysSphere_collideA	low	large collision response routine between spheres (used by Bil)
+801BC6B8	RP_PhysSphere_collideB	low	large collision response routine (used by Bil)
+801BD284	RP_PhysSphere_update	low	stops slow bodies, applies damping, integrates position and rotation
+801BD7E4	RP_PhysSphere_ctor	medium	ActorBase ctor, vtable 80357368, stores mass/radius params, inertia 0.4*m*r^2
+801BDABC	RP_PhysSphere_dtor	medium	destroys bases, deletes when flag>0
+801BDB28	RP_PhysSphere_dtorThunk4	low	vf03: this-4 adjustor thunk to dtor
+801BDB30	RP_PhysSphere_dtorThunk8	low	vf08: this-8 adjustor thunk to dtor
+801BDC60	RP_InterpCamera_start	low	stores start/end pos+target, distances and directions, starts timer, sets active
+801BDE04	RP_InterpCamera_calc	low	vf03: while timer runs interpolates camera pos/target, then base camera calc
+801BDFC0	RP_InterpCamera_ctor	low	base camera ctor, vtable 803573E0 at +0x174, vec arrays, timer
+801BE064	RP_InterpCamera_dtor	low	destroys vec arrays, deletes when flag>0
+801BE0E8	RP_getPointerScreenPos	low	if pointer valid returns controller pos +0x120/+0x124 divided by half screen size
+801CAE30	RP_ButtonSeq_isComplete	low	returns 1 when current sequence entry is 0 (end)
+801CAE4C	RP_ButtonSeq_update	low	advances index when controller trigger matches expected button, else resets
+801CAED0	RP_ButtonSeq_init	low	stores channel and button table, index 0
+801CAEE4	RP_ButtonSeqHolder_update	low	forwards to RP_ButtonSeq_update
+801CAEEC	RP_ButtonSeqHolder_isComplete	low	forwards to RP_ButtonSeq_isComplete
+801CAEF4	RP_dtor_801CAEF4	low	empty destructor body; deletes when flag>0
+801CAF34	RP_ButtonSeqHolder_ctor	low	vtable 80357738 at +4, creates sequence with table lbl_80318818
+801CB250	RP_Cls80357918_ctor	low	sets vtable 80357918
+801D0D80	Menu_TPtGame00_ctor	medium	layout base ctor, vtable 80357A50, creates several state machines (Menu module)
+801D11AC	RP_StateMgr_ctor	medium	stores owner and state count, allocs enter/calc/exit member-fn tables
+801D128C	RP_StateMgr_setStateFuncs	medium	stores enter and calc member-function pointers for state index
+801D12D0	RP_StateMgr_init	medium	sets cur/prev/next to state, change pending, counter 0
+801D1308	RP_StateMgr_calc	medium	on pending change calls exit (if flagged) and enter, then calc; increments counter
+801D13FC	RP_StateMgr_callEnter	medium	calls enter member function of current state if set
+801D145C	RP_StateMgr_callCalc	medium	calls calc member function of current state if set
+801D14BC	RP_StateMgr_callExit	medium	calls exit member function of current state if set
+801D151C	RP_setMtxAndPos	low	copies 3x4 matrix to +0xc8 and vec3 to +0xbc
+801D3450	Menu_updateRemoteLamps	medium	updates P_rimocon_xx / P_lamp_xx panes and anims per controller (Menu module)
+801D3904	Menu_updateRemoteIconAnim	low	finds remote icon pane and rebinds anim per state (Menu module)
+801E4360	RP_AvatarScene_cleanup	low	vf19: calls Menu_801DD7C4 and Party_801F195C
+801E4384	RP_AvatarScene_nop21	low	vf21: empty
+801E4504	RP_AvatarScene_loadResources	medium	vf16: loads avatar_anim brres, scene lights, select-menu effects
+801E46F4	RP_AvatarScene_setup	low	vf15: sets up scene layers, slot table, camera and screens
+801E48E0	RP_AvatarScene_dtor	low	base dtor fn_800AB4F8, deletes when flag>0
+801E493C	RP_StateMgr_isInState	medium	returns 1 if state==cur and (state==next or no change pending)
+801E4984	RP_AvatarScene_thunkNop21	low	vf11: this-0x24 adjustor thunk to vf21
+801E498C	RP_AvatarScene_dtorThunk	low	vf10: this-0x24 adjustor thunk to dtor
+801E4994	RP_Cls_80358188_vf19	keep	4-byte virtual (decompiler output belongs to neighbour)
+801E4998	RP_Scene80358188_resetAndNotify	low	vf17: resets singleton lbl_8043C6C8 and calls Sys_8018459C(...,0x1b,0)
+801E49CC	RP_Cls_80358188_vf15	keep	4-byte virtual (decompiler output belongs to neighbour)
+801E49D0	RP_Scene80358188_dtor	low	base dtor fn_800AB4F8, deletes when flag>0
+801E4A2C	RP_Scene80358188_dtorThunk	low	vf10: this-0x24 adjustor thunk to dtor
+801E4A34	RP_dtor_801E4A34	low	destroys member +0x30 (Wly_8028FE40), deletes when flag>0
+801E4A90	RP_resetFromPlayerCount	low	copies PlayerMgr player count to +4 and clears fields
+801E4AD4	RP_destroyInstance_8043C6C8	low	deletes lbl_8043C6C8 and clears it
+801E4BA8	RP_getPairFromField20	low	copies +0x90/+0xa0 of obj+0x20 into out pair
+801E4BC0	RP_getPairFromField1C	low	copies +0x90/+0xa0 of obj+0x1c into out pair
+801FE6F0	Party_activateCurrentIfFlag	low	if flag for current index set calls Party_801EF100(item,1) (Party caller/callee)
+801FE71C	Party_clearCurrentFlagB7	low	clears bit 0 of +0xb7 on current indexed object (Party)
+801FE73C	Party_requestSelection	low	if selection differs stores it at +0x1a4 and marks pending (Party)
+801FE78C	Party_updateSelectionMessage	low	at anim midpoint sets message for selected game record from PlayerMgr (Party)
+801FE8D0	Party_restartPaneAnim	low	unbinds and rebinds anim on layout, resets frame (Party)
+801FE958	Party_activateIfPending	low	if pending flag calls Party_801EF100(+0x198,1) (Party)
+801FE974	RP_801FE974	keep	empty function
+801FE9AC	Fsh_Scene_vf18	low	vf18: calls Fsh_80214FFC on fishing manager lbl_8043C7B8 (Fsh module)
+801FE9B4	Fsh_Scene_vf17	low	vf17: calls Fsh_8021515C on fishing manager lbl_8043C7B8 (Fsh module)
+801FE9BC	Fsh_Scene_loadResources	medium	vf16: loads fishing brres, effects, rp_Fsh_sound.brsar, party_message.bmg (Fsh module)
+801FEEF4	RP_dtor_801FEEF4	low	base dtor fn_800AC520, deletes when flag>0
+801FEF4C	RP_801FEF4C	keep	decompiler shows empty body
+801FEF7C	Fsh_Scene_dtor	low	base dtor fn_800AB4F8, deletes when flag>0 (Fsh module)
+801FEFD8	RP_dtor_801FEFD8	low	base dtor fn_800AC520, deletes when flag>0
+801FF034	Fsh_Scene_dtorThunk	low	vf10: this-0x24 adjustor thunk to dtor (Fsh module)
+802003EC	Mpe_AudioMgr_checkBgmHeader	low	if flag set and resource header lacks BGM tag, calls vfunc 0xb8 (module Mpe: same class as Mpe_* methods)

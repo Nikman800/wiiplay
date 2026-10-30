@@ -1,0 +1,2 @@
+address	old_name	new_name	unit	previous
+800A23B0	EGG_Matrix34f_toQuat	toQuat__Q23EGG9Matrix34fCFRQ23EGG5Quatf	egg/math/eggMatrix.cpp	

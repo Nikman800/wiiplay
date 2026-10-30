@@ -1,0 +1,7 @@
+address	old_name	new_name	unit	previous
+801A4DB0	RP_Nwc24Msg_commitMail	commitMail__17RPSysNWC24ManagerFPCwPCwUsPC11RPSysAvatarie	Pack/RPKernel/RPSysNWC24Manager.cpp	
+801A4E3C	RP_Nwc24Msg_dtor	__dt__17RPSysNWC24ManagerFv	Pack/RPKernel/RPSysNWC24Manager.cpp	
+801A4E7C	RP_Nwc24Msg_ctor	__ct__17RPSysNWC24ManagerFPQ23EGG4Heap	Pack/RPKernel/RPSysNWC24Manager.cpp	
+801A4EE4	RP_Nwc24_suspendScheduler	initialize__17RPSysNWC24ManagerFv	Pack/RPKernel/RPSysNWC24Manager.cpp	
+8034F9FC	lbl_8034F9FC	__vt__17RPSysNWC24Manager	Pack/RPKernel/RPSysNWC24Manager.cpp	
+8043B348	lbl_8043B348	sSuccess__17RPSysNWC24Manager	Pack/RPKernel/RPSysNWC24Manager.cpp	

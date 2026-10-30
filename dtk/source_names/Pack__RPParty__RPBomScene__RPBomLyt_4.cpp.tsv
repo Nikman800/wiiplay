@@ -1,0 +1,10 @@
+address	old_name	new_name	unit	previous
+802E563C	Bom_LytPoint_show	Show__13RPBomLytPointFPCQ34nw4r4math4VEC2lli	Pack/RPParty/RPBomScene/RPBomLyt_4.cpp	
+802E58FC	Bom_LytPoint_exit	VF_0x18__13RPBomLytPointFv	Pack/RPParty/RPBomScene/RPBomLyt_4.cpp	
+802E5900	Bom_LytPoint_draw	Draw__13RPBomLytPointFv	Pack/RPParty/RPBomScene/RPBomLyt_4.cpp	
+802E5908	Bom_LytPoint_calc	Calculate__13RPBomLytPointFv	Pack/RPParty/RPBomScene/RPBomLyt_4.cpp	
+802E596C	Bom_LytPoint_reset	Reset__13RPBomLytPointFv	Pack/RPParty/RPBomScene/RPBomLyt_4.cpp	
+802E5A90	Bom_LytPoint_load	Load__13RPBomLytPointFPQ23EGG7Archive	Pack/RPParty/RPBomScene/RPBomLyt_4.cpp	
+802E5B08	Bom_LytPoint_dtor	__dt__13RPBomLytPointFv	Pack/RPParty/RPBomScene/RPBomLyt_4.cpp	
+802E5B48	Bom_LytPoint_ctor	__ct__13RPBomLytPointFv	Pack/RPParty/RPBomScene/RPBomLyt_4.cpp	
+8035F808	lbl_8035F808	__vt__13RPBomLytPoint	Pack/RPParty/RPBomScene/RPBomLyt_4.cpp	

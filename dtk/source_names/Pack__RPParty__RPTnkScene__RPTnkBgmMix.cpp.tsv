@@ -1,0 +1,7 @@
+address	old_name	new_name	unit	previous
+80267F4C	Tnk_BgmMix_stop	Stop__11RPTnkBgmMixFv	Pack/RPParty/RPTnkScene/RPTnkBgmMix.cpp	
+80267FBC	Tnk_BgmMix_playStageClearBgm	PlayStageClearBgm__11RPTnkBgmMixFv	Pack/RPParty/RPTnkScene/RPTnkBgmMix.cpp	
+80268108	Tnk_BgmMix_applyTrackMask	ApplyTrackMask__11RPTnkBgmMixFv	Pack/RPParty/RPTnkScene/RPTnkBgmMix.cpp	
+80268234	Tnk_BgmMix_setParams	SetParams__11RPTnkBgmMixFll	Pack/RPParty/RPTnkScene/RPTnkBgmMix.cpp	
+802682D0	Tnk_BgmMix_startStageBgm	StartStageBgm__11RPTnkBgmMixFlll	Pack/RPParty/RPTnkScene/RPTnkBgmMix.cpp	
+80268468	Tnk_BgmMix_reset	__ct__11RPTnkBgmMixFv	Pack/RPParty/RPTnkScene/RPTnkBgmMix.cpp	

@@ -1,0 +1,3 @@
+address	old_name	new_name	unit	previous
+8028DF5C	Wly_LevelTable_hasAltMessage	HasAltMessage__15RPWlyLevelTableCFv	Pack/RPParty/RPWlyScene/RPWlyLyt_6.cpp	
+802922B4	Wly_MessageLyt_show	Show__15RPWlyMessageLytFv	Pack/RPParty/RPWlyScene/RPWlyLyt_6.cpp	

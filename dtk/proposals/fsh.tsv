@@ -1,0 +1,494 @@
+address	new_name	confidence	note
+80193F18	Fsh_getLayoutRootPane	low	returns *(*(p+0x20)+0x10); used on layouts to toggle pane visibility bit 0xb7
+801B584C	Fsh_startSoundByName	low	looks up sound id (Snd_MInfo_801B58B8), starts it via fn_80047524 on global player; returns success
+801B90B0	Fsh_slerpBasis	medium	packs two basis triplets into matrices, converts to quats, slerps by t, writes back 3 axis vectors
+801B9660	Fsh_Rope_setTargetPoint	low	writes vec3 into array at +0x18 index i (rope of 8 points used by Rod)
+801B9684	Fsh_Rope_getTargetPoint	low	returns &array(+0x18)[i] vec3
+801B96B8	Fsh_Rope_getPoint	low	returns &array(+0x14)[i] vec3; index 7 used as hook end of rope
+801B9E44	Fsh_Ease_getValue	medium	t=cur/max clamped 0..1, eased by type: 0 linear,1 sin,2 quad,3 sqrt,4 cosine
+801B9F3C	Fsh_Ease_step	medium	increments counter, clamps to max
+801B9F5C	Fsh_Ease_init	medium	sets ease type, max frames, counter=0
+801BAFD0	Fsh_getNodeMtx	medium	returns *(p+0xc)+i*0x30 (node matrix array); used for mouth_loc lookups
+801BDB38	Fsh_calcUpVector	medium	from eye/target computes orthonormal up vector (fallback with -Y)
+801FE978	Fsh_Scene_exit	low	slot19 of scene class: calls Fsh scene teardown 80215068, 80215520 and RP/Mpe cleanup
+801FF03C	Fsh_Fish_updateModel	medium	vf27: builds model matrix from basis+pos, scale=size*fade, updates model
+801FF148	Fsh_Fish_drawShadow	low	vf39 (via vf09 thunk): empty
+801FF14C	Fsh_Fish_getScale	medium	scale vec = size(+0x58)*typeTable[type].scale/typeTable[1].scale, x0.9 for types 4,5
+801FF1E4	Fsh_Fish_getPullSpeed	low	returns fish type table +0x18 float; used by player fight state
+801FF20C	Fsh_randomDirXZ	high	random unit vector in XZ plane via LCG lbl_8043C620
+801FF328	Fsh_Fish_updateGetEffects	medium	positions effects 3..5 (get_back/glow/kira) around fish facing camera
+801FF614	Fsh_Fish_resolveCollision	low	RP_801B93B0 pushout; if displaced, moves fish and turns forward vector
+801FF740	Fsh_Fish_isNearHook	medium	checks fish mouth vs hook (rope pt 7) of given player within radius/angle
+801FF978	Fsh_Fish_isMouthNearPoint	medium	mouth position (mouth_loc offset) within radius of point and depth band
+801FFB84	Fsh_Fish_isNearPoint	low	fish pos within radius(+size factor) of point, height band check
+801FFC7C	Fsh_Fish_spawn	medium	sets state 1, random speed/depth/direction, resets fields; type 5 placed deeper
+802001E4	Fsh_Fish_calcFadeOut	medium	state9 calc: fades alpha over point-popup out anim; then hides fish, respawns, camera back
+8020046C	Fsh_Fish_calcShowPoints	medium	state8 calc: records catch to player, after timer closes point popup, updates effects
+80200588	Fsh_Fish_enterShowPoints	medium	state8 enter: shows bonus/points popup (NBonusOya), starts get effects
+80200668	Fsh_Fish_calcCatchView	medium	state7 calc: Fsh_catch02 effect, eases fish toward catch view pos, then state 8
+80200894	Fsh_Fish_enterCatchView	medium	state7 enter: camera to catch view, timer state 5, plays catch fanfare per player/target fish
+80200BB8	Fsh_Fish_calcJump	medium	state6 calc: arcs fish out of water with gravity, Fsh_catch01 effect, then state 7
+80200E08	Fsh_Fish_enterJump	medium	state6 enter: sets random jump dir, upward speed, ease timer, sound 0x22
+80200F50	Fsh_SndActor_startSoundB	low	vf22: picks handle slot (same id/free/lowest prio) then vf45 start
+80201150	Fsh_SndActor_detailStartSound	low	vf45: stops old handle, fn_80047524 start, applies remote speaker params
+8020126C	Fsh_Fish_exitHooked	medium	state5 exit: resets anim frames, stops run effects 0..2
+8020130C	Fsh_Fish_calcHooked	medium	state5 calc: struggles forward, after timer or time-up -> state 6, rope sound
+80201494	Fsh_Fish_enterHooked	medium	state5 enter: random struggle duration from type table, starts run effects
+802015F8	Fsh_Fish_calcApproach	medium	state4 calc: steers to player hook, nibbles with rumble; counts nibbles at +0xd0
+80201B00	Fsh_Fish_enterApproach	medium	state4 enter: clears nibble count/flags
+80201B18	Fsh_Fish_calcVanish	medium	state3 calc: when appear anim reaches 0, state 0 and respawn a fish
+80201B9C	Fsh_Fish_enterVanish	medium	state3 enter: plays appear anim backwards from last frame
+80201C54	Fsh_Fish_exitEscape	medium	state2 exit: stops effects 7..8
+80201CAC	Fsh_Fish_calcEscape	medium	state2 calc: darts away with zigzag and decaying speed, then state 1
+80202034	Fsh_SndActor_holdSoundB	low	vf30: find handle slot by id/free, then vf46
+80202144	Fsh_SndActor_detailHoldSound	low	vf46: fn_80047590 on handle, applies remote speaker params
+8020222C	Fsh_Fish_enterEscape	medium	state2 enter: resets anim, starts effect at +0x108
+802022F0	Fsh_Fish_calcSwim	medium	state1 calc: wanders with random turns, checks hooks, may enter approach
+80202A40	Fsh_Fish_enterSwim	medium	state1 enter: target player=-1, clears turn timer and flags
+80202A5C	Fsh_Fish_calc	high	vf37: state machine dispatch (enter/calc/exit table 8031F050), then model/effects update
+80202E60	Fsh_SndActor_setParamAllRemotes	low	vf16: fn_80041370 on 4 per-remote players
+80202EBC	Fsh_MouthLoc_803587E0_vf38	keep	vf38: empty
+80202EC0	Fsh_Fish_reset	medium	vf36: clears state, next state, flag, timer
+80202ED8	Fsh_Fish_create	high	vf35: loads fsh_fish_* model by type, anims appear/swim/pull, mouth_loc offset
+80203058	Fsh_Fish_ctor	high	stores Fish vtables, creates 9 effects (Fsh_run_a..exmark) and sound actor
+802032C8	Fsh_SndActorBase_dtor	low	vf14 of base vtable: stops all sounds, destroys handle array, base dtor
+802033D4	Fsh_SndHandleArray_dtor	low	destroys handle array at +0x48 then 80358A88 base, optional delete
+80203480	Fsh_SndPlayerBase_dtor	low	sets vtable 80358A88, unregisters from list, optional delete
+802034F8	Fsh_clearHandle	low	*p = 0
+80203504	Fsh_SndActor_dtor	low	vf14: stops all players, destroys handle array and bases
+80203618	Fsh_SndActor_getDefaultRatio	low	slot12 of sound actor vtables: returns 1.0
+80203620	Fsh_SndPlayerBase_getDefaultRatio	low	returns 1.0 (vtable 80358A6C/80358A80)
+80203628	Fsh_Cls8035CB48_returnZero	low	slot11 of 8035CB48/8035DD60: returns 0
+80203630	Fsh_SndActor_detailHoldSoundEx	low	vf49: fn_80047590 with extra param, remote speaker params
+80203718	Fsh_SndActor_detailStartSoundEx	low	vf48: stops old handle, fn_80047524 with extra param
+80203828	Fsh_SndActor_detailPrepareSound	low	vf47: stops old handle, fn_8004765C, remote speaker params
+80203944	Fsh_SndActor_getVolume	low	vf44: returns float +0x44
+8020394C	Fsh_SndActor_updateSub	low	vf43: Snd_801B5C2C(this+0x30)
+80203954	Fsh_SndActor_stopAllSounds	high	vf42: for each handle call stop(fade)
+802039DC	Fsh_SndActor_stopSoundByLabel	medium	vf41: label->id, stops handles with that id
+80203A8C	Fsh_SndActor_stopSoundB	medium	vf40: stops handles whose id matches
+80203B1C	Fsh_SndActor_stopSoundA	medium	vf39: stops handles whose id matches
+80203BAC	Fsh_SndActor_prepareSoundInSlot	low	vf36: asserts slot<count, stops slot, vf47
+80203CAC	Fsh_SndActor_prepareSoundByLabelInSlot	low	vf38: label->id, slot, vf47
+80203DCC	Fsh_SndActor_prepareSoundByLabel	low	vf37: label->id, choose slot, vf47
+80203FE0	Fsh_SndActor_prepareSoundB	low	vf35: choose slot by id/free/priority, vf47
+802041D4	Fsh_SndActor_prepareSoundA	low	vf34: choose slot by id/free/priority, vf47
+802043C8	Fsh_SndActor_holdSoundByLabelInSlot	low	vf33: label->id, slot, vf46
+802044B0	Fsh_SndActor_holdSoundInSlot	low	vf31: slot index, vf46
+80204578	Fsh_SndActor_holdSoundByLabel	low	vf32: label->id, find slot, vf46
+802046C0	Fsh_SndActor_holdSoundA	low	vf29: find slot by id/free, vf46
+802047D0	Fsh_SndActor_holdSoundExByLabel	low	vf28: label->id, find slot, vf49
+80204928	Fsh_SndActor_holdSoundExB	low	vf27: find slot, vf49
+80204A40	Fsh_SndActor_holdSoundExA	low	vf26: find slot, vf49
+80204B58	Fsh_SndActor_startSoundByLabelInSlot	low	vf25: label->id, slot, vf45
+80204C84	Fsh_SndActor_startSoundInSlot	low	vf23: slot index, stop slot, vf45
+80204D90	Fsh_SndActor_startSoundByLabel	low	vf24: label->id, choose slot, vf45
+80204FB0	Fsh_SndActor_startSoundA	low	vf21: choose slot by id/free/priority, vf45
+802051B0	Fsh_SndActor_startSoundExByLabel	low	vf20: label->id, choose slot, vf48
+802053D8	Fsh_SndActor_startSoundExB	low	vf19: choose slot, vf48
+802055E0	Fsh_SndActor_startSoundExA	low	vf18: choose slot, vf48
+802057E8	Fsh_SndActor_applyVolume	low	vf17: if enabled, applies volume +0x44 to every handle
+80205898	Fsh_SndActor_getPlayerParam	low	vf15: returns *(this+i*4)+0xb8
+802058A8	Fsh_SndActor_callVf50	low	vf52: tail-calls vtable +0xd0
+802058B8	Fsh_SndActor_getSoundInfoByLabel	low	vf51: label->id, returns archive entry for id+offset
+80205924	Fsh_SndActor_addIndex	low	vf50: returns a+b
+8020592C	Fsh_StateMachine_isStateOrPending	medium	true if current==s or (next==s and change pending)
+80205960	Fsh_StateMachine_requestState	medium	sets next state and pending flags
+80205974	Fsh_Fish_dtor	medium	vf00: base dtors, optional delete
+802059E0	Fsh_sinit_catchViewPos	medium	static init vec (0,280,250) used as catch view target
+80205A14	Fsh_SndActorBase_dtorThunk	low	vf02: this-0x10 -> base dtor
+80205A1C	Fsh_SndActor_applyVolumeThunk	low	vf08 thunk to vf17
+80205A24	Fsh_SndActor_updateSubThunk	low	vf07 thunk to vf43
+80205A2C	Fsh_SndActor_stopAllSoundsThunk	low	vf06 thunk to vf42
+80205A34	Fsh_SndActor_stopSoundAThunk	low	vf03 thunk to vf39
+80205A3C	Fsh_SndActor_stopSoundBThunk	low	vf04 thunk to vf40
+80205A44	Fsh_SndActor_stopSoundByLabelThunk	low	vf05 thunk to vf41
+80205A4C	Fsh_SndActor_getVolumeThunk	low	vf11 thunk (this-0x4c) to vf44
+80205A54	Fsh_SndActor_dtorThunk	low	vf02 thunk to dtor
+80205A5C	Fsh_SndActor_getPlayerParamThunk	low	vf13 thunk to vf15
+80205A64	Fsh_Fish_dtorThunk04	medium	vf03: this-4 -> dtor
+80205A6C	Fsh_Fish_drawShadowThunk	low	vf09: this-8 -> vf39
+80205A74	Fsh_Fish_dtorThunk08	medium	vf08: this-8 -> dtor
+80205A7C	Fsh_Fish_dtorThunk60	medium	vf30: this-0x60 -> dtor
+80205A84	Fsh_FishMgr_countFishOfType	medium	counts active fish (state or pending) of given type among 30
+80205B38	Fsh_FishMgr_spawnFishOfType	medium	if below per-level cap, picks random inactive fish of type and spawns it
+80205D58	Fsh_FishMgr_spawnRandomFish	medium	weighted random fish type from level table 8031F2E0, spawns it
+80205F24	Fsh_FishMgr_spawnInitialFish	medium	spawns level-table count of random fish
+80205F8C	Fsh_FishMgr_setFishToSwim	low	fish not in states 0/2/3/6 forced to state 1 (swim)
+802060BC	Fsh_FishMgr_calc	medium	calcs 30 fish, spawns rare/bonus fish depending on timer state
+80206484	Fsh_FishMgr_callVf38All	low	calls vf38 on all 30 fish (from scene exit)
+802064DC	Fsh_FishMgr_reset	medium	random lake layout level (2P), resets all fish
+80206624	Fsh_FishMgr_createAll	medium	calls create (vf35) on all 30 fish
+8020667C	Fsh_FishMgr_dtor	medium	vtable 80358B40 dtor
+802066BC	Fsh_FishMgr_destroy	medium	deletes global lbl_8043C728
+80206700	Fsh_FishMgr_create	high	allocates manager and 30 Fish (type i%6)
+802067B0	Fsh_StateMachine_isStateSettled	medium	true if current==s and (next==s or no change pending)
+802067E4	Fsh_Player_drawShadow	low	vf32 (via vf09 thunk): no effective work
+8020680C	Fsh_Player_isRemoteSteady	low	checks remote accel and stored accel history differences below thresholds
+802068F4	Fsh_Player_calcAimPos	low	computes rod aim target from camera and pointer data
+80206C08	Fsh_Player_rumble	medium	starts remote rumble pattern (min 4 frames) unless player state 6
+80206C7C	Fsh_Player_addCaughtFish	medium	appends caught fish (type, size, bonus multiplier) to player catch list
+80206D24	Fsh_Player_init	low	sets player index, controller channel, requests state 1
+80206D3C	Fsh_Player_isHookWaiting	low	state 2, no pending change, rod flag +0xb9 set
+80206D74	Fsh_Player_updateRod	low	moves rod/rope with hooked fish, updates rod pose, hook water check
+802070F0	Fsh_Player_calcIdle	low	state6 calc: pushes x outward and clamps, sets rod position
+80207158	Fsh_Player_calcReturn	low	state5 calc: lerps rod to rest; when free, back to state 1/2, resets rope
+80207274	Fsh_Player_enterReturn	low	state5 enter: clears fish index, stops reel sounds
+802072BC	Fsh_Player_calcLand	low	state4 calc: lifts caught fish out, rumble, rod sway
+80207670	Fsh_Player_enterLand	low	state4 enter: Party_801FB680 on party object
+80207680	Fsh_Player_calcFight	low	state3 calc: fish pulls rod; escape or catch returns to state 2
+80207A8C	Fsh_Player_enterFight	low	state3 enter: starts reel sound unless type 3, clears rod flag
+80207AEC	Fsh_Player_calcWait	low	state2 calc: rod follows aim, detects bite, time-up -> state 6
+80207D00	Fsh_Player_enterWait	low	state2 enter: sets rod flag +0xd8, clears +0x17d8
+80207D18	Fsh_Player_calcAim	low	state1 calc: rod follows pointer, detects cast, time-up -> state 6
+80207F00	Fsh_Player_enterAim	low	state1 enter: sets +0x17d8
+80207F0C	Fsh_Player_calc	medium	vf30: controller speaker/rumble, accel history, state dispatch
+80208484	Fsh_Player_exit	low	vf31: rod vf38, fn_800CA884(channel,0)
+802084CC	Fsh_Player_reset	medium	vf29: clears state, sets position from player index
+80208658	Fsh_Player_create	medium	vf28: loads scene light/lightmap, hand model with fsh_hand_R_grip anim, creates rod
+802087B8	Fsh_Player_ctor	high	stores vtables, creates Rod, layout and sound actor
+802089EC	Fsh_Player_dtor	medium	vf00
+80208A58	Fsh_sinit_playerConsts	low	static init of player/rod position constants
+80208B8C	Fsh_Player_dtorThunk04	medium	vf03 thunk
+80208B94	Fsh_Player_drawShadowThunk	low	vf09 thunk to vf32
+80208B9C	Fsh_Player_dtorThunk08	medium	vf08 thunk
+80208BA4	Fsh_PlayerMgr_setCatchingPlayer	medium	given player -> state 4 (land), other active players -> state 5 (return)
+80208C08	Fsh_PlayerMgr_initPlayers	medium	Player_init(0, i) for each player
+80208C70	Fsh_PlayerMgr_calcRods	low	vtable 80358BE0 slot: updates each player rod; if all idle (state 6) notifies 8043C778
+80208D7C	Fsh_PlayerMgr_calc	medium	calls each player calc (vf30), checks tension/start of result
+80208ED0	Fsh_PlayerMgr_exitAll	low	calls vf31 on each player (from scene exit)
+80208F3C	Fsh_PlayerMgr_reset	medium	clears hooked player, flags, calls vf29 reset on both players
+80208FA8	Fsh_PlayerMgr_createAll	medium	calls vf28 create on both players
+80209000	Fsh_PlayerMgr_dtor	medium	vtable 80358BE0 dtor
+80209040	Fsh_PlayerMgr_destroy	medium	deletes global lbl_8043C740
+80209084	Fsh_PlayerMgr_create	high	allocates manager and 2 Player objects
+80209118	Fsh_Rod_drawHookShadow	low	vf39: if game active and fish state, draws circle at hook (rope pt 7) above water
+802091BC	Fsh_Rod_calcRopeJoints	low	vf40 (via vf33 thunk): orients rope joints along rope points
+80209488	Fsh_Rod_updateModel	medium	vf27: builds rod matrix from basis/pos and scale, updates rod model
+80209724	Fsh_Rod_getBendRatio	low	returns +0x110 / const
+80209734	Fsh_Rod_setFrontDir	medium	sets forward vector +0x94 and rebuilds orthonormal basis
+802097EC	Fsh_Rod_calcRestDir	low	default rod direction offset by player index/count
+802098B4	Fsh_Rod_setRopeTargetPoint	low	forwards to Rope_setTargetPoint on rope +0x114
+802098BC	Fsh_Rod_setAllRopeTargets	low	sets all 8 rope target points to vec
+80209918	Fsh_Rod_getRopePoint	low	forwards to Rope_getPoint on rope +0x114
+80209920	Fsh_Rod_translate	medium	adds delta to rod position and all 8 rope points
+80209A00	Fsh_Rod_setPosFromGrip	low	position = grip point minus basis-scaled grip offset
+80209ABC	Fsh_Rod_getGripPos	low	rod pos + basis-scaled offset (+0x7c..0x84)
+80209B60	Fsh_Rod_getTipPos	low	rod pos + basis-scaled offset (+0x88..0x90)
+80209C04	Fsh_Rod_calcHookWater	medium	finds rope/water intersection, in-pond check, plays Fsh_hook_water effect
+8020A1D4	Fsh_Rod_calc	medium	vf37: updates rope params, eases rod direction, rope tip, effects
+8020A3B8	Fsh_FshHookDrop_80358C10_vf38	keep	vf38: empty
+8020A3BC	Fsh_Rod_reset	medium	vf36: resets flags, direction and rest position by player index
+8020A630	Fsh_Rod_create	high	vf35: loads fsh_rod_B/R per player and fsh_rope models, node lookups
+8020A9B0	Fsh_Rod_ctor	high	stores Rod vtables, creates effects Fsh_hook_drop..Fsh_rope_trail and sound actor
+8020AC18	Fsh_RodSndActor_dtor	low	vf14 of 80358CBC: same teardown as sound actor dtor
+8020AD2C	Fsh_Rod_dtor	medium	vf00
+8020AD98	Fsh_sinit_rodConsts	low	static init of rod vectors and constant
+8020AE2C	Fsh_RodSndActor_dtorThunk	low	vf02 thunk
+8020AE34	Fsh_Rod_dtorThunk04	medium	vf03 thunk
+8020AE3C	Fsh_Rod_drawHookShadowThunk	low	vf09 thunk to vf39
+8020AE44	Fsh_Rod_dtorThunk08	medium	vf08 thunk
+8020AE4C	Fsh_Rod_calcRopeJointsThunk	low	vf33 thunk (this-0x60) to vf40
+8020AE54	Fsh_Rod_dtorThunk60	medium	vf30 thunk
+8020AE5C	Fsh_CameraMgr_calc	low	calls camera vtable +0x14, copies camera matrix to global view
+8020AF34	Fsh_CameraMgr_reset	low	calls camera vtable +0x10, copies camera matrix to global view
+8020B00C	Fsh_CameraMgr_dtor	medium	vtable 80358D98 dtor
+8020B04C	Fsh_CameraMgr_destroy	medium	deletes global lbl_8043C750
+8020B090	Fsh_CameraMgr_create	high	allocates manager and Camera
+8020B0F0	Fsh_Camera_isOffPreset	low	returns 0 if eye/target equal catch-view or result-view preset, else 1
+8020B218	Fsh_Camera_setDefault	medium	sets default eye/target preset and up vector
+8020B2D4	Fsh_Camera_moveToResultView	medium	starts camera move to result preset
+8020B340	Fsh_Camera_moveToDefault	medium	starts camera move to default preset
+8020B3AC	Fsh_Camera_moveToCatchView	medium	starts camera move to catch preset
+8020B418	Fsh_Camera_startIntroMove	low	once: sets flag +0x1fd, starts ease of preset curve
+8020B448	Fsh_Camera_calcIntroMove	low	eases eye/target along preset curve, then ends move
+8020B680	Fsh_Camera_calc	medium	vf03: sets fov, runs preset move or base camera calc
+8020B870	Fsh_Camera_reset	medium	vf02: base reset, default eye/target, fov
+8020BAD4	Fsh_Camera_ctor	high	base camera ctor, stores vtable 80358DD0
+8020BB10	Fsh_Camera_dtor	medium	vf00: destroys vec arrays, optional delete
+8020BB98	Fsh_sinit_cameraPresets	medium	static init of camera eye/target preset vectors
+8020BD7C	Fsh_isInPond	medium	y <= -15 and XZ distance from pond center <= 210
+8020BDFC	Fsh_Stage_calc	low	vf08: updates lake/tree/cloud/waterface model matrices
+8020BEE0	Fsh_ShadowDummy_80358DE8_vf07	keep	vf07: empty
+8020BEE4	Fsh_Stage_create	high	vf06: loads fsh_lake, fsh_tree, fsh_cloud, fsh_waterface models/anims, shadow
+8020C2AC	Fsh_Stage_dtor	medium	vf00
+8020C314	Fsh_Stage_destroy	medium	deletes global lbl_8043C758
+8020C358	Fsh_Stage_new	high	allocates Stage (vtable 80358DE8) into global lbl_8043C758
+8020C3E8	Fsh_getPondRadius	low	returns 210.0
+8020C3F0	Fsh_getPondBottomY	low	returns -100.0
+8020C3F8	Fsh_getWaterSurfaceY	low	returns -15.0
+8020C400	Fsh_SceneTexture_dtor	low	vtable 80358E18 dtor
+8020C440	Fsh_ShadowDummy_80358DE8_vf09	keep	vf09: empty
+8020C444	Fsh_sinit_pondCenter	low	static init vec (0,0,0) used as pond center
+8020C470	Fsh_Stage_dtorThunk04	medium	vf03 thunk
+8020C478	Fsh_ResultLayout_drawFishLabels	low	draws per-catch panes for result fish within vertical range
+8020C54C	Fsh_ResultFish_getScreenPos	medium	returns +0x70/+0x74
+8020C560	Fsh_ResultLayout_draw	medium	vf15: draws result layout, labels and player Miis faces
+8020C64C	Fsh_ResultLayout_start	medium	requests result state 1
+8020C65C	Fsh_ResultLayout_getScrollSpeed	low	returns speed depending on remote buttons 0x800/0x400
+8020C720	Fsh_ResultLayout_calcFinish	low	state7 calc: when party menu done, stores retry choice, state 8
+8020C790	Fsh_ResultLayout_enterFinish	low	state7 enter: Party_801E9224 with 1P or winner index
+8020C7C8	Fsh_ResultLayout_calcVersusEnd	low	state6 calc: plays out animations; party state 5 -> state 7
+8020C8D8	Fsh_ResultLayout_enterVersusEnd	low	state6 enter: determines winner (or draw), reports to party, sound 0x3a
+8020C9D4	Fsh_ResultLayout_calcSingleEnd	low	state5 calc: party state 4 -> state 7
+8020CA00	Fsh_ResultLayout_enterSingleEnd	low	state5 enter: reports 1P score to party, plays out animations
+8020CAD4	Fsh_ResultLayout_calcJudge	low	state4 calc: after 120 frames -> state 5 (1P) or 6 (2P)
+8020CB24	Fsh_ResultLayout_enterJudge	low	state4 enter: finds top score, plays highlight anim for leader
+8020CC48	Fsh_ResultLayout_calcCountPoints	low	state3 calc: scrolls caught fish icons and counts points
+8020CFE0	Fsh_ResultLayout_enterCountPoints	low	state3 enter: sets T_score/T_fishPoint texts, places result fish icons
+8020D3AC	Fsh_ResultLayout_calcIntro	low	state2 calc: inAll anim finished -> state 3
+8020D3D0	Fsh_ResultLayout_enterIntro	low	state2 enter: starts inAll animations
+8020D4B4	Fsh_ResultLayout_calcCameraMove	low	state1 calc: plays result music 0x71, camera arrived -> state 2
+8020D618	Fsh_ResultLayout_enterCameraMove	low	state1 enter: camera to result view
+8020D624	Fsh_ResultLayout_calc	high	vf13: state dispatch via table 8031F5D8 (enter/calc per state)
+8020D7F8	Fsh_NPointL00_80358E38_vf14	keep	vf14: empty
+8020D7FC	Fsh_ResultLayout_reset	medium	vf12: resets state and all result fish, rewinds animations
+8020D9B0	Fsh_ResultLayout_create	high	vf11: loads fishing.arc fishingResult_00/01 layouts, anims, panes
+8020E014	Fsh_ResultLayout_ctor	high	stores vtables, creates 2x6x50 ResultFish
+8020E0F8	Fsh_ResultLayout_dtor	medium	vf00
+8020E160	Fsh_ResultLayout_destroy	medium	deletes global lbl_8043C760
+8020E1A4	Fsh_ResultLayout_new	high	allocates ResultLayout into global lbl_8043C760
+8020E1D8	Fsh_ResultLayout_dtorThunk04	medium	vf03 thunk
+8020E1E0	Fsh_ResultLayout_drawThunk	medium	vf09 thunk to vf15
+8020E1E8	Fsh_ResultLayout_dtorThunk08	medium	vf08 thunk
+8020E1F0	Fsh_Timer_draw	medium	vtable 80358E80: draws time-up layout unless state 0/6
+8020E22C	Fsh_getTimeLimitSec	low	returns 60
+8020E234	Fsh_Timer_start	medium	resets state machine, sets frame limit, writes seconds text, requests state 1
+8020E304	Fsh_Timer_calcEnd	low	state5 calc: elapsed >= limit -> state 6
+8020E324	Fsh_Timer_enterEnd	low	state5 enter: hides layout root pane
+8020E354	Fsh_Timer_calcLastSecond	low	state4 calc: counts down, plays count anim and sound 0x37
+8020E578	Fsh_Timer_enterLastSecond	low	state4 enter: stops sound handle lbl_8043C788
+8020E57C	Fsh_Timer_calcCountdown	low	state3 calc: per-second count anim; under 61 frames -> state 4
+8020E980	Fsh_Timer_enterCountdown	low	state3 enter: empty
+8020E984	Fsh_Timer_calcCount	low	state2 calc: counts frames, <361 -> state 3, <61 -> state 4, window flags
+8020EADC	Fsh_Timer_enterCount	low	state2 enter: hides layout root pane
+8020EB0C	Fsh_Timer_calcIdle	low	state1 calc: requests state 2
+8020EB18	Fsh_Timer_enterIdle	low	state1 enter: hides layout root pane
+8020EB48	Fsh_Timer_calc	medium	updates state machine, animates layout when active
+8020EBAC	Fsh_Timer_reset	medium	state machine to 0, clears flags/window
+8020EBF8	Fsh_Timer_loadLayout	high	loads fishing.arc fishingTimeUp_00 layout, count anims, T_number panes
+8020ECF4	Fsh_Timer_dtor	medium	vtable 80358E80 dtor
+8020ED34	Fsh_Timer_destroy	medium	deletes global lbl_8043C768
+8020ED78	Fsh_Timer_new	high	allocates timer, 7-state machine, registers state funcs from table 8031F82C
+8020EEB4	Fsh_StateMachine_ctor	high	allocates enter/calc/exit PMF arrays for n states
+8020EF94	Fsh_StateMachine_setStateFuncs	medium	stores enter and calc PMFs for state index
+8020EFD8	Fsh_StateMachine_init	medium	current=prev=next=s, pending, counter 0
+8020EFFC	Fsh_StateMachine_update	high	on pending change: exit old, switch, enter new; then calc; counter++
+8020F088	Fsh_StateMachine_callExit	medium	invokes exit PMF of current state if set
+8020F0E8	Fsh_StateMachine_callCalc	medium	invokes calc PMF of current state if set
+8020F148	Fsh_StateMachine_callEnter	medium	invokes enter PMF of current state if set
+8020F1A8	Fsh_ResultFish_setScreenPos	medium	stores screen pos and computes world pos from camera
+8020F37C	Fsh_ResultFish_calc	low	vf30: applies pending visibility, places model relative to camera
+8020F494	Fsh_FshFishA_80358E98_vf31	keep	vf31: empty
+8020F498	Fsh_ResultFish_reset	medium	vf29: clears visibility fields
+8020F4AC	Fsh_ResultFish_create	high	vf28: loads fsh_fish_* model by type
+8020F53C	Fsh_ResultFish_ctor	high	stores vtables, type, identity basis
+8020F5EC	Fsh_ResultFish_dtor	medium	vf00
+8020F658	Fsh_ResultFish_dtorThunk04	medium	vf03 thunk
+8020F660	Fsh_ResultFish_dtorThunk08	medium	vf08 thunk
+8020F668	Fsh_PointPopup_draw	medium	vf15: draws fishingPoint layout when state != 0
+8020F698	Fsh_PointPopup_close	medium	requests state 3 (out anim)
+8020F6AC	Fsh_PointPopup_getOutAnimLength	low	returns frame count of anim +0x28 (outAll) as int
+8020F6DC	Fsh_PointPopup_show	medium	state 1; fills fish name/points/bonus panes for caught fish
+8020F9E8	Fsh_PointPopup_calcOut	medium	state3 calc: out anim done -> state 0
+8020FA0C	Fsh_PointPopup_enterOut	medium	state3 enter: starts outAll anim
+8020FA80	Fsh_PointPopup_calcShow	medium	state2 calc: counts frames
+8020FA90	Fsh_PointPopup_enterShow	low	state2 enter: empty
+8020FA94	Fsh_PointPopup_calcIn	medium	state1 calc: in anim done -> state 2
+8020FAB8	Fsh_PointPopup_enterIn	medium	state1 enter: starts inAll anim
+8020FB2C	Fsh_PointPopup_calc	high	vf13: state dispatch (enter/calc table)
+8020FC74	Fsh_PointPopup_reset	medium	vf12: clears state fields
+8020FC8C	Fsh_PointPopup_create	high	vf11: loads fishing.arc fishingPoint_00 layout and anims
+8020FD9C	Fsh_PointPopup_dtor	medium	vf00
+8020FE04	Fsh_PointPopup_destroy	medium	deletes global lbl_8043C770
+8020FE48	Fsh_PointPopup_new	high	allocates PointPopup (vtable 80358F20) into global lbl_8043C770
+8020FECC	Fsh_FishingPoint00_80358F20_vf14	keep	vf14: empty
+8020FED0	Fsh_PointPopup_dtorThunk04	medium	vf03 thunk
+8020FED8	Fsh_PointPopup_drawThunk	medium	vf09 thunk to vf15
+8020FEE0	Fsh_PointPopup_dtorThunk08	medium	vf08 thunk
+8020FEE8	Fsh_ScoreLayout_draw	medium	vf15: draws fishingScore layout and player Mii faces when a player panel is active
+8020FFF8	Fsh_ScoreLayout_addFishCount	medium	increments pending caught count for player (+0x3c[p])
+80210010	Fsh_ScoreLayout_requestHide	medium	sets hide flag, clears show flag for player panel
+80210028	Fsh_ScoreLayout_requestHideAll	medium	sets hide flag for every player panel
+80210058	Fsh_ScoreLayout_requestShow	medium	sets show flag, clears hide flag for player panel
+80210070	Fsh_calcPlayerTotalPoints	medium	sums points of all catches of a player (type 3 fixed, others from size)
+8021023C	Fsh_calcFishPoints	medium	points for a catch: type 3 fixed table value, else size-scaled and rounded to step
+802102E0	Fsh_ScoreLayout_updateTexts	low	recomputes totals per player, updates score texts and count sound
+80210768	Fsh_ScoreLayout_calcOut	medium	panel state4 calc: out anim done -> state 0
+8021079C	Fsh_ScoreLayout_enterOut	medium	panel state4 enter: clears hide flag, starts outAll anim
+80210864	Fsh_ScoreLayout_calcGet	medium	panel state3 calc: at anim frame 21 updates displayed count; done -> state 2
+80210954	Fsh_ScoreLayout_enterGet	medium	panel state3 enter: starts Get anim
+80210A08	Fsh_ScoreLayout_calcShown	medium	panel state2 calc: hide flag -> state 4; count changed -> state 3
+80210A58	Fsh_ScoreLayout_enterShown	low	panel state2 enter: empty
+80210A5C	Fsh_ScoreLayout_calcIn	medium	panel state1 calc: in anim done -> state 2
+80210A90	Fsh_ScoreLayout_enterIn	medium	panel state1 enter: clears show flag, starts inAll anim
+80210B58	Fsh_ScoreLayout_calcHidden	medium	panel state0 calc: show flag -> state 1
+80210B84	Fsh_ScoreLayout_enterHidden	low	panel state0 enter: empty
+80210B88	Fsh_ScoreLayout_calc	medium	vf13: updates both player panel state machines and texts, animates layout
+80210C28	Fsh_ScoreLayout_reset	medium	vf12: panels to state 0, clears counts and texts
+80210E00	Fsh_ScoreLayout_create	high	vf11: loads fishing.arc fishingScore_00 layout, in/out/Get anims, panes
+80211170	Fsh_ScoreLayout_ctor	high	stores vtables, creates 2 panel state machines from table 8031FC58
+80211328	Fsh_ScoreLayout_dtor	medium	vf00
+80211390	Fsh_ScoreLayout_destroy	medium	deletes global lbl_8043C778
+802113D4	Fsh_ScoreLayout_new	high	allocates ScoreLayout into global lbl_8043C778
+80211408	Fsh_ScoreSM_ctor	medium	state machine ctor copy: enter/calc/exit PMF arrays for n states
+802114E8	Fsh_ScoreSM_setStateFuncs	medium	stores enter and calc PMFs for state index
+8021152C	Fsh_ScoreSM_init	medium	current=prev=next=s, pending, counter 0
+80211550	Fsh_ScoreSM_requestState	medium	sets next state and pending flags
+80211564	Fsh_ScoreSM_update	medium	exit/switch/enter on pending change, then calc
+802115F0	Fsh_ScoreSM_callEnter	medium	invokes enter PMF of current state
+80211650	Fsh_ScoreSM_callCalc	medium	invokes calc PMF of current state
+802116B0	Fsh_ScoreSM_callExit	medium	invokes exit PMF of current state
+80211710	Fsh_TFishL00_80358F68_vf14	keep	vf14: empty
+80211714	Fsh_ScoreLayout_dtorThunk04	medium	vf03 thunk
+8021171C	Fsh_ScoreLayout_drawThunk	medium	vf09 thunk to vf15
+80211724	Fsh_ScoreLayout_dtorThunk08	medium	vf08 thunk
+8021172C	Fsh_StartLayout_draw	medium	vf15: draws fishingStart layout while in count state (3)
+80211760	Fsh_StartLayout_enterPlay	low	state4 enter: starts game BGM 0x68
+8021185C	Fsh_StartLayout_calcCount	medium	state3 calc: steps 3-2-1 anims with voice; at end starts timer, shows scores, state 4
+802119B0	Fsh_StartLayout_enterCount	medium	state3 enter: starts first count anim and voice
+80211A58	Fsh_StartLayout_calcWaitReady	low	state2 calc: waits players ready, closes messages, then state 3
+80211C58	Fsh_StartLayout_enterWaitReady	low	state2 enter: clears flag +0x1c
+80211C64	Fsh_StartLayout_calcIntro	medium	state1 calc: when camera intro done -> state 2, default camera, init players, ambience
+80211CB8	Fsh_StartLayout_enterIntro	medium	state1 enter: BGM 0x67, spawns initial fish, starts camera intro move
+80211DC8	Fsh_StartLayout_calc	medium	vf13: updates state machine, animates layout
+80211E10	Fsh_TCountdown100_80358FB0_vf14	keep	vf14: empty
+80211E14	Fsh_StartLayout_reset	medium	vf12: state 1, frame windows from time limit, rewinds anims
+80211F54	Fsh_StartLayout_create	high	vf11: loads fishing.arc fishingStart_00 layout, count/star anims, countdown texts
+80212108	Fsh_StartLayout_ctor	high	stores vtables, 5-state machine from table, sound setup
+80212274	Fsh_StartLayout_dtor	medium	vf00
+802122DC	Fsh_StartLayout_destroy	medium	deletes global lbl_8043C780
+80212320	Fsh_StartLayout_new	high	allocates StartLayout into global lbl_8043C780
+80212354	Fsh_StartSM_update	medium	exit/switch/enter on pending change, then calc
+802123E0	Fsh_StartSM_requestState	medium	sets next state and pending flags
+802123F4	Fsh_StartSM_init	medium	current=prev=next=s, pending, counter 0
+80212418	Fsh_StartSM_setStateFuncs	medium	stores enter and calc PMFs for state index
+8021245C	Fsh_StartSM_ctor	medium	state machine ctor copy
+8021253C	Fsh_SM_isStateSettledA	medium	current==s and (next==s or no change pending); used on Msg00 machine
+80212570	Fsh_SM_isStateSettledB	medium	current==s and (next==s or no change pending); used on Msg01 machine
+802125A4	Fsh_StartSM_callEnter	medium	invokes enter PMF of current state
+80212604	Fsh_StartSM_callCalc	medium	invokes calc PMF of current state
+80212664	Fsh_StartSM_callExit	medium	invokes exit PMF of current state
+802126C4	Fsh_StartLayout_dtorThunk04	medium	vf03 thunk
+802126CC	Fsh_StartLayout_drawThunk	medium	vf09 thunk to vf15
+802126D4	Fsh_StartLayout_dtorThunk08	medium	vf08 thunk
+802126DC	Fsh_RodSnd_holdSplash	low	holds sound 6 on actor, volume/pitch scaled by speed (>=1), used at hook water entry
+80212800	Fsh_FishSnd_startBite	low	starts size-class sound (7..10) on fish sound actor
+802128F0	Fsh_FishSnd_holdStruggle	low	holds size-class sounds (0x10..0x13, 0xc..0xf) during hooked state
+80212A60	Fsh_FishSnd_startCatch	low	starts size-class catch sounds (0x14..0x1d) on catch view
+80212C1C	Fsh_FishSnd_setSizeClass	medium	+0x74 = 4 rare, 0 special, else 1/2/3 by size ratio thresholds 0.3/0.7
+80212C80	Fsh_holdGlobalSound	low	holds sound id on global handle lbl_8043C78C, returns success
+80212CC8	Fsh_getBgmLeadFrames	low	returns 2 for 0x68, 10 for 0x71, else 0
+80212CF0	Fsh_stopAmbientSound	low	stops global handle lbl_8043C788
+80212D3C	Fsh_startAmbientSound	low	restarts global handle lbl_8043C788 with sound 0x28
+80212D94	Fsh_sinit_soundHandles	medium	static init of global sound handles 8043C788/8043C78C
+80212DF8	Fsh_YankPrompt_draw	medium	vtable 80358FF8 slot1: draws yank layout if any player prompt active
+80212E58	Fsh_YankPrompt_hide	medium	clears player prompt flag, hides pane
+80212E88	Fsh_YankPrompt_show	medium	sets player prompt flag, shows pane, restarts wait anim
+80212EF8	Fsh_YankPrompt_calc	medium	slot5: animates layout when any prompt active
+80212F40	Fsh_YankPrompt_reset	medium	slot4: clears flags, rewinds anims, hides panes
+80212FEC	Fsh_YankPrompt_create	high	slot3: loads fishing.arc fishingYank_00 layout and waitAll anims
+80213158	Fsh_YankPrompt_dtor	medium	slot0 dtor
+80213198	Fsh_YankPrompt_destroy	medium	deletes global lbl_8043C790
+802131DC	Fsh_YankPrompt_new	high	allocates YankPrompt into global lbl_8043C790
+80213244	Fsh_FishingYank00_80358FF8_vf06	keep	slot6: empty
+80213248	Fsh_AimArrow_draw	medium	slot1: draws arrow layout per player in aim state
+8021330C	Fsh_AimArrow_calc	medium	slot5: projects rod grip to screen, positions arrow root pane
+80213408	Fsh_AimArrow_reset	medium	slot4: starts updown and blue/red anims per player
+802134FC	Fsh_AimArrow_create	high	slot3: loads fishing.arc fishingArrow_00 layouts and anims for 2 players
+802135E4	Fsh_AimArrow_dtor	medium	slot0 dtor
+80213624	Fsh_AimArrow_destroy	medium	deletes global lbl_8043C798
+80213668	Fsh_AimArrow_new	high	allocates AimArrow into global lbl_8043C798
+802136D0	Fsh_FishingArrow00_80359020_vf06	keep	slot6: empty
+802136D4	Fsh_getStartStateTable	low	returns lbl_80359048 (used by StartLayout ctor)
+802136E0	Fsh_BonusFish_draw	medium	vf28: draws bonus layout, choosing above/under pane by draw pass
+80213778	Fsh_BonusFish_setNextType	medium	+0x70 = type, timer = max (forces change)
+80213788	Fsh_BonusFish_hide	medium	requests state 5 unless already 0 or 5
+802137AC	Fsh_BonusFish_show	medium	optionally picks random type (not 3/4), requests state 1
+80213898	Fsh_BonusFish_calcFadeOut	medium	state5 calc: alpha from out anim; done -> state 0
+8021394C	Fsh_BonusFish_enterFadeOut	medium	state5 enter: starts outAll anim
+80213990	Fsh_BonusFish_calcSpinUp	medium	state4 calc: at max spin swaps to next type, state 3
+80213A0C	Fsh_BonusFish_enterSpinUp	medium	state4 enter: min spin speed, accel on, sound 0x38
+80213AA8	Fsh_BonusFish_calcSpinDown	medium	state3 calc: when slow and aligned, state 2, changeAll anim, sound 0x39
+80213C28	Fsh_BonusFish_enterSpinDown	medium	state3 enter: spin accel -1
+80213C34	Fsh_BonusFish_calcShow	medium	state2 calc: timer; picks new random type present in lake, state 4
+80213E3C	Fsh_BonusFish_enterShow	low	state2 enter: empty
+80213E40	Fsh_BonusFish_calcFadeIn	medium	state1 calc: alpha from in anim; done -> state 2
+80213EF0	Fsh_BonusFish_enterFadeIn	medium	state1 enter: starts inAll anim, clears spin
+80213F44	Fsh_BonusFish_calc	medium	updates state machine, spin angle, fish model and layout
+8021442C	Fsh_BonusFish_reset	medium	random initial type (not 3/4/5), timer 900, spin params
+80214700	Fsh_BonusFish_create	high	loads 6 fish models with swim anim and fishingBonus_00 layout/anims
+80214930	Fsh_BonusFish_ctor	high	stores vtables, 6-state machine from table 8032013C
+80214A50	Fsh_BonusFish_dtor	medium	vf00
+80214ABC	Fsh_BonusFish_destroy	medium	deletes global lbl_8043C7B0
+80214B00	Fsh_BonusFish_new	high	allocates BonusFish into global lbl_8043C7B0
+80214B34	Fsh_BonusSM_ctor	medium	state machine ctor copy
+80214C14	Fsh_BonusSM_setStateFuncs	medium	stores enter and calc PMFs for state index
+80214C58	Fsh_BonusSM_init	medium	current=prev=next=s, pending, counter 0
+80214C7C	Fsh_BonusSM_requestState	medium	sets next state and pending flags
+80214C90	Fsh_BonusSM_update	medium	exit/switch/enter on pending change, then calc
+80214D1C	Fsh_BonusSM_callEnter	medium	invokes enter PMF of current state
+80214D7C	Fsh_BonusSM_callCalc	medium	invokes calc PMF of current state
+80214DDC	Fsh_BonusSM_callExit	medium	invokes exit PMF of current state
+80214E3C	Fsh_sinit_bonusSpinConsts	medium	static init of bonus spin speed/limit floats
+80214E60	Fsh_BonusFish_dtorThunk04	medium	vf03 thunk
+80214E68	Fsh_BonusFish_drawThunk	medium	vf09 thunk to vf28
+80214E70	Fsh_BonusFish_dtorThunk08	medium	vf08 thunk
+80214E78	Fsh_getFishTypeParams	high	returns &table_80320330[type] (0x38 bytes per fish type)
+80214E8C	Fsh_Scene_calcPlay	medium	scene state calc: calcs all Fsh objects, party; after result asks retry/quit
+80214FF8	Fsh_Scene_enterPlay	low	scene state enter: empty
+80214FFC	Fsh_Scene_update	medium	updates scene state machine, copies fade color from party
+80215068	Fsh_Scene_destroyObjects	medium	exits and deletes all Fsh global objects and party
+8021515C	Fsh_Scene_resetObjects	medium	resets all Fsh objects, party, fade color
+802152E4	Fsh_Scene_createObjects	medium	loads/creates resources of all Fsh objects
+802153DC	Fsh_Scene_ctor	high	stores vtable, scene state machine, allocates all Fsh global objects
+802154E0	Fsh_Scene_dtor	medium	vtable 803590E0 dtor
+80215520	Fsh_Scene_destroy	medium	deletes global lbl_8043C7B8
+80215564	Fsh_Scene_new	high	allocates Scene into global lbl_8043C7B8
+80215598	Fsh_SceneSM_ctor	medium	state machine ctor copy
+80215678	Fsh_SceneSM_setStateFuncs	medium	stores enter and calc PMFs for state index
+802156BC	Fsh_SceneSM_init	medium	current=prev=next=s, pending, counter 0
+802156E0	Fsh_SceneSM_update	medium	exit/switch/enter on pending change, then calc
+8021576C	Fsh_SceneSM_callEnter	medium	invokes enter PMF of current state
+802157CC	Fsh_SceneSM_callCalc	medium	invokes calc PMF of current state
+8021582C	Fsh_SceneSM_callExit	medium	invokes exit PMF of current state
+8021588C	Fsh_Msg00_close	medium	if shown (state 2) requests state 3 (out)
+802158D4	Fsh_Msg00_open	medium	if hidden (state 0) requests state 1 (in)
+8021591C	Fsh_Msg00_draw	medium	slot1: draws fishingMsg_00 layout when state != 0
+80215950	Fsh_Msg00_calcOut	medium	state3 calc: out anim done -> state 0
+80215970	Fsh_Msg00_enterOut	medium	state3 enter: starts outAll anim
+802159DC	Fsh_Msg00_calcWait	low	state2 calc: empty
+802159E0	Fsh_Msg00_enterWait	medium	state2 enter: starts waitAll anim
+80215A54	Fsh_Msg00_calcIn	medium	state1 calc: in anim done -> state 2
+80215A74	Fsh_Msg00_enterIn	medium	state1 enter: starts in anim
+80215AE8	Fsh_Msg00_calc	medium	slot5: updates state machine, animates layout
+80215B30	Fsh_Msg00_reset	medium	slot4: state 0, rewinds anims
+80215C18	Fsh_Msg00_create	high	slot3: loads fishing.arc fishingMsg_00 layout, anims, message texts
+80215D38	Fsh_Msg00_dtor	medium	slot0 dtor
+80215D78	Fsh_Msg00_destroy	medium	deletes global lbl_8043C7C0
+80215DBC	Fsh_Msg00_new	high	allocates Msg00 with 4-state machine into global lbl_8043C7C0
+80215EE0	Fsh_Msg00SM_ctor	medium	state machine ctor copy
+80215FC0	Fsh_Msg00SM_setStateFuncs	medium	stores enter and calc PMFs for state index
+80216004	Fsh_Msg00SM_init	medium	current=prev=next=s, pending, counter 0
+80216028	Fsh_Msg00SM_requestState	medium	sets next state and pending flags
+8021603C	Fsh_Msg00SM_update	medium	exit/switch/enter on pending change, then calc
+802160C8	Fsh_Msg00SM_callExit	medium	invokes exit PMF of current state
+80216128	Fsh_Msg00SM_callCalc	medium	invokes calc PMF of current state
+80216188	Fsh_Msg00SM_callEnter	medium	invokes enter PMF of current state
+802161E8	Fsh_Msg01_close	medium	if shown (state 2) requests state 3 (out)
+80216230	Fsh_Msg01_open	medium	if hidden (state 0) requests state 1 (in)
+80216278	Fsh_Msg01_draw	medium	slot1: draws fishingMsg_01 layout when state != 0
+802162AC	Fsh_Msg01_calcOut	medium	state3 calc: out anim done -> state 0
+802162CC	Fsh_Msg01_enterOut	medium	state3 enter: starts outAll anim
+80216338	Fsh_Msg01_calcWait	low	state2 calc: empty
+8021633C	Fsh_Msg01_enterWait	medium	state2 enter: starts waitAll anim
+802163B0	Fsh_Msg01_calcIn	medium	state1 calc: in anim done -> state 2
+802163D0	Fsh_Msg01_enterIn	medium	state1 enter: starts in anim
+80216444	Fsh_Msg01_calc	medium	slot5: updates state machine (Hky_80216998), animates layout
+8021648C	Fsh_Msg01_reset	medium	slot4: state 0, rewinds anims
+80216574	Fsh_Msg01_create	high	slot3: loads fishing.arc fishingMsg_01 layout, anims, message texts
+80216694	Fsh_Msg01_dtor	medium	slot0 dtor
+802166D4	Fsh_Msg01_destroy	medium	deletes global lbl_8043C7C8
+80216718	Fsh_Msg01_new	high	allocates Msg01 with 4-state machine into global lbl_8043C7C8
+8021683C	Fsh_Msg01SM_ctor	medium	state machine ctor copy
+80216984	Fsh_Msg01SM_requestState	medium	sets next state and pending flags

@@ -1,0 +1,609 @@
+address	new_name	confidence	note
+80182E98	Sys_System_getDiskDoneMsg	medium	returns &this->0x44 ('disk' token); compared to message from disk task thread queue to detect load done
+80182EA0	Sys_System_getNandDoneMsg	medium	returns &this->0x40 ('nand' token); compared to message from NAND task thread queue
+80182EA8	Sys_System_getWc24Thread	medium	returns +0x3c task thread (prio 0x14, paired with 'wc24' token); busy-checked before scene change
+80182EB0	Sys_System_getDiskThread	medium	returns +0x38 task thread (prio 0x13, 'disk' token); runs scene resource-load callbacks
+80182EB8	Sys_System_getNandThread	medium	returns +0x34 task thread (prio 0x12, 'nand' token); busy-checked before scene change
+80182EC0	Sys_System_setFlag	low	thin wrapper forwarding param to fn_800FC224 (SDK call); called with 1 after scene enter/reinit
+80182EC8	Sys_System_waitForTasksAndShutdown	medium	waits up to 300 frames for save/task threads to idle, then reset or return-to-menu via OS (fn_800F2EAC/2D98)
+80182FA0	Sys_loadTimeStampTxt	high	loads "timeStamp.txt" via DVD ripper into buffer at this+0x58
+80182FC8	Sys_System_isFrameCount300	medium	returns 1 if counter at +0x54 == 300
+80182FE0	Sys_System_resetFrameCount	medium	zeroes counter at +0x54
+80182FEC	Sys_decodeDate	high	unpacks year/month/day from packed u16 date ((y-2000)<<9|m<<5|d) or from OSGetTime if null
+8018308C	Sys_getPackedDate	high	OSGetTime -> calendar; returns ((year-2000)<<9 | month<<5 | day) as u16
+801830D8	Sys_getPackedDateTime	high	OSGetTime -> calendar; packs sec/min/hour/day/month bitfields into u32
+80183134	Sys_System_callVf1C	low	tail-calls virtual slot at +0x1c of object; called from scene exit when scene flag set
+80183148	Sys_getConst25	low	returns constant 0x19 (scene id 25 used by changeScene default)
+80183150	Sys_setDisplayClearColor	medium	copies RGBA and writes it to display (DAT_80438810) +0x14 via Sys_801831A0
+801831A0	Sys_Display_setClearColor	medium	stores 4 colour bytes at display object +0x14..+0x17
+801831C4	Sys_getRenderModeEfbHeight	medium	returns u16 at current render-mode (lbl_8043C444)+6 (efbHeight); used for fader size
+801831D0	Sys_getRenderModeFbWidth	medium	returns u16 at render-mode+4 (fbWidth); used for fader/screen size
+801831DC	Sys_Display_getFloat64	low	returns float at display object +0x64
+801831F0	Sys_System_getByte4D	low	returns byte at +0x4d (frame step added to counter each Now Loading frame)
+801831F8	Sys_initRenderMode	high	picks progressive/interlaced GXRenderModeObj by VI/SC settings, sets viWidth/xOrigin, seeds random from OSGetTime
+80183328	Sys_initScreenAspect	medium	waits for SC (SCCheckStatus) up to 60 frames then sets EGG screen 16:9/4:3 from SC aspect setting
+80183394	Sys_System_drawNowLoading	high	renders one loading frame; when not warm draws "Now Loading" text; advances counter; checks reset request
+80183514	Sys_System_mainLoop	high	infinite frame loop: display begin/end frame, scene manager calc/draw, perf meter, audio, xfb
+80183680	Sys_System_initGame	medium	creates game heaps, managers, sound/RP subsystems, sets clear color white, changes to first scene, power/reset callbacks
+801837D8	Sys_createSystem	medium	allocates 0x5c-byte main system object (fn_80182D70) into lbl_8043C440
+8018381C	Sys_initEgg	high	EGG system init: arenas, root heaps, GX fifo, render mode, Video/XfbManager/Display/thread/ProcessMeter creation
+80183AB8	Sys_ConfigData_sinit	medium	static init: sets global config object vtable to 8034F01C (EGG system configuration)
+80183AE4	Sys_ConfigData_getSysHeap	medium	vtable slot 1 returns +0x24 (0x600000 system heap created in Sys_initEgg)
+80183AEC	Sys_ConfigData_getVideo	medium	vtable slot 0 returns +0x38 (Video object created in Sys_initEgg)
+80183AF4	Sys_ConfigData_getDisplay	medium	vtable slot 2 returns +0x40 (Display object; begin/end frame vcalls in main loop)
+80183AFC	Sys_ConfigData_getXfbMgr	medium	vtable slot 3 returns +0x3c (XFB manager holding 2 Xfb objects)
+80183B04	Sys_ConfigData_getPerfView	medium	vtable slot 4 returns +0x44 (ProcessMeter created in Sys_initEgg)
+80183B0C	Sys_ConfigData_getSceneMgr	low	vtable slot 5 returns +0x48 (EGG TSystem layout: scene manager slot)
+80183B14	Sys_ConfigData_getAudioMgr	low	vtable slot 6 returns +0x4c (EGG TSystem layout: audio manager slot)
+80183B1C	Sys_main	high	called from __start: initEgg, create system, init game, run main loop
+80183B50	Sys_nullDebugPrint	medium	empty function called by OSReport-style sites across SDK (stubbed print)
+80183BA0	Sys_SceneCreator_dtor	medium	vtable 8034F080 slot 2: frees scene creator when flag > 0
+80183BE0	Sys_Scene_dtor	high	vtable 8034F098 slot 0: calls egg::Scene dtor (fn_800AB4F8) and frees when flag > 0
+80183C38	Sys_SceneCreator_createGameScene	high	switch on scene id 0x10..0x1b: allocates and constructs each minigame scene (Sys_Scene subclasses, vtables 80358760 etc.
+80183EF4	Sys_SceneCreator_getSoundType	medium	looks up scene id in scene table 80316CE8 and returns field +0x14; ==1 loads common party sound archive
+80183F90	Sys_SceneCreator_getSceneKind	medium	scene table lookup returning field +0x10 (0/1/2/4 select pause/home handling and scene-change mode)
+8018402C	Sys_SceneCreator_getChangeMode	medium	scene table lookup returning field +0x08; selects egg SceneManager change method in changeScene
+801840C8	Sys_SceneCreator_mapIndexToSceneId	low	maps menu index 0..4 to scene ids (0->3, 1->6, 2->5, 3->7, 4->4), else -1
+80184124	Sys_SceneCreator_getResourceDir	medium	scene table lookup returning directory string (+0x18); id<0 uses current scene id; used to build Common/ and local paths
+801841D0	Sys_SceneCreator_destroy	low	vtable 8034F080 slot 1: when manager in reset/shutdown state (or no tasks) waits for tasks and shuts down
+80184230	Sys_SceneCreator_create	high	vtable 8034F080 slot 0: creates scene by id via scene table (game scenes, strap/menu/system scenes), sets flags, stores 
+80184590	Sys_SceneCreator_changeToScene25	medium	changeScene(this, 0x19, 0)
+8018459C	Sys_SceneCreator_changeScene	high	if all task threads idle, requests SceneManager scene change (id or reload current), switches sound archive when it diff
+80184808	Sys_SceneCreator_createInstance	high	singleton create: allocates 0xc object with vtable 8034F080 into lbl_8043C458
+80184878	Sys_Scene_setNoFadeFlag	medium	sets bit 8 in scene flags (+0x3c); bit 8 skips fader/resource-load steps on enter
+80184888	Sys_Scene_getCreator	medium	returns +0x40 (scene creator / owner set at creation)
+80184890	Sys_Scene_setCreator	medium	stores +0x40; set from creator in SceneCreator_create
+80184898	Sys_Scene_setupCommon	high	common scene setup: creates heap wrapper, Gfx object (+0x2c), system drawer (+0x30), +0x34 object, sound setup by scene 
+80184988	Sys_Scene_exit	high	vtable slot 4 (egg::Scene::exit): resets layout/pad state, calls user exit (slot 19), frees Gfx object, optional callbac
+801849FC	Sys_Scene_emptySlot19	medium	vtable slot 19 base implementation (user exit): empty
+80184A00	Sys_Scene_outgoingChildCreate	medium	vtable slot 7 (egg::Scene::outgoing_childCreate): resets layout state and controller binding
+80184A40	Sys_Scene_draw	high	vtable slot 2 (egg::Scene::draw): draws Gfx object (+0x2c), screens and system layers
+80184A8C	Sys_Scene_calc	high	vtable slot 1 (egg::Scene::calc): pause/home handling, calls user calculate (slot 18) unless paused, updates Gfx object
+80184B5C	Sys_Scene_emptySlot18	medium	vtable slot 18 base implementation (user calculate): empty
+80184B60	Sys_Scene_incomingChildDestroy	medium	vtable slot 6 (egg::Scene::incoming_childDestroy): re-inits faders/layout and calls reset (slot 17)
+80184C20	Sys_Scene_emptySlot17	medium	vtable slot 17 base implementation (user reset): empty
+80184C24	Sys_Scene_reinit	medium	vtable slot 5 (egg::Scene::reinit): re-binds controller, restarts faders and calls reset (slot 17)
+80184CFC	Sys_Scene_enter	high	vtable slot 3 (egg::Scene::enter): setupCommon, configure (slot 15), loads resources with Now Loading, reset (slot 17), 
+80184DF8	Sys_Scene_emptySlot15	medium	vtable slot 15 base implementation (configure, called at start of enter): empty
+80184DFC	Sys_Scene_ctor	high	constructs egg::Scene base, sets vtable 8034F098 and secondary vtable, zeroes +0x2c..+0x3c, +0x40=-1
+80184E64	Sys_setFaderColor	medium	copies RGBA and sets it on both scene-manager faders (Sys_SceneMgr_setFaderColor)
+80184EAC	Sys_fadeOutFaders	low	calls Sys_SceneMgr_fadeOutBoth on scene manager (eggColorFader fade with param)
+80184EB4	Sys_isSceneChangeAllowed	medium	true if no fader is fading out (status 3) and all task threads are idle
+80184F04	Sys_isFadeDoneAndIdle	medium	wraps Sys_SceneMgr_isFadedInAndIdle on scene manager
+80184F0C	Sys_isFadedIn	medium	wraps Sys_SceneMgr_areFadersFadedIn: both faders have status 1
+80184F14	Sys_Scene_getStatic8043C460	low	vtable slot 13: returns address of static lbl_8043C460
+80184F1C	Sys_Scene_emptySlot14	medium	vtable slot 14 base implementation: empty
+80184F20	Sys_Scene_emptySlot16	medium	vtable slot 16 base implementation (loadResource, called from disk task): empty
+80184F24	Sys_Scene_emptySlot20	medium	vtable slot 20 base implementation (async resource load task): empty
+80184F28	Sys_Scene_emptyDrawSlot	medium	vtable slot 11 (secondary drawer interface draw); empty, shared by many layout/actor vtables
+80184F2C	Sys_emptyVirtual	medium	empty function shared by ~60 vtables (drawer interface slot after draw); no behaviour
+80184F30	Sys_clearStatic8043C460	low	static init: sets lbl_8043C460 = 0 (object returned by Sys_Scene slot 13)
+80184F3C	Sys_Scene_dtorThunk	high	vtable slot 10: adjusts this by -0x24 (secondary base) and calls Sys_Scene_dtor
+80184F44	Sys_calcViWidthAndOrigin	high	sets viWidth (0x29a..0x2ae by tv format/aspect) and xOrigin = (720 - viWidth)/2
+80185000	Sys_SceneMgr_dtor	high	vtable 8034F248 slot 7: calls egg::SceneManager dtor and frees when flag > 0
+80185058	Sys_SceneMgr_calcFadeRequest	medium	handles pending request (+0x30): when idle, changes to scene 25 or reinits, sets fader colour/status
+801851F0	Sys_SceneMgr_calc	medium	vtable 8034F248 slot 2: processes fade request then egg::SceneManager::calc
+80185224	Sys_SceneMgr_drawCurrentFader	medium	calls current fader (+0x24) vtable +0x1c (egg::Fader::draw)
+80185238	Sys_SceneMgr_drawSubFader	medium	calls second fader (+0x34) vtable +0x1c (draw); drawn from system drawer layer 0x1d
+8018524C	Sys_SceneMgr_calcSubFader	medium	calls second fader (+0x34) vtable +0x18 (egg::Fader::calc); returns its result
+80185260	Sys_SceneMgr_isFadedInAndIdle	medium	true if current fader status 1 and no NAND/disk/wc24 task busy
+801852F0	Sys_SceneMgr_areTasksIdle	medium	true if save-system ready and NAND, disk and wc24 task threads not busy
+80185364	Sys_SceneMgr_isFadingOut	medium	true if either fader status == 3 (fade out in progress)
+801853D8	Sys_SceneMgr_areFadersFadedIn	medium	true if both faders report status 1
+8018544C	Sys_SceneMgr_fadeOutSubFader	medium	calls second fader vtable +0x14 (egg::Fader::fadeOut)
+80185460	Sys_SceneMgr_fadeInSubFader	medium	calls second fader vtable +0x10 (egg::Fader::fadeIn)
+80185474	Sys_SceneMgr_fadeIn	medium	tail call to egg::SceneManager current-fader fadeIn (asserts mCurrentFader)
+80185478	Sys_SceneMgr_setSubFaderStatus	medium	calls second fader vtable +0x8 (egg::Fader::setStatus) with arg
+8018548C	Sys_SceneMgr_getSubFaderStatus	medium	calls second fader vtable +0xc (egg::Fader::getStatus)
+801854A0	Sys_SceneMgr_setFaderColor	medium	sets same RGBA colour on second (+0x34) and current (+0x24) faders via fn_800A4E0C
+8018552C	Sys_SceneMgr_resetFaderColor	medium	sets colour 0x000000FF (opaque black) on both faders
+80185580	Sys_SceneMgr_setFadeFramesBoth	low	calls eggColorFader_800A4DB4 (set fade frames) on both faders with given value
+801855C8	Sys_SceneMgr_getSubFaderFrame	low	returns u16 at second fader +0xa (passed to sound fade on scene change)
+801855D4	Sys_SceneMgr_resetFadeFrames	medium	sets fade duration 20 frames on both faders
+80185614	Sys_SceneMgr_changeScene	high	chooses egg::SceneManager change/reinit/create-child/destroy-to method by scene table mode and current scene
+801857A4	Sys_SceneMgr_hasRequest	medium	returns request state (+0x30) != 0
+801857B8	Sys_SceneMgr_isResetRequested	medium	true if request state is 3 or 4 (reset / power-off)
+801857D8	Sys_SceneMgr_clearRequest1	medium	clears request state when it equals 1
+801857F0	Sys_SceneMgr_isPowerOffRequested	low	true if request state == 4 (set by power callback path)
+80185804	Sys_SceneMgr_isIdle	medium	true if request state == 0; gates pause/home menu processing
+80185814	Sys_SceneMgr_requestPowerOff	medium	if idle: notifies save system, sets request 4, optionally calls fn_800FBDE4(1)
+80185884	Sys_SceneMgr_requestReset	medium	if idle: notifies save system, sets request 3, optionally calls fn_800FBDE4(1)
+801858F4	Sys_SceneMgr_requestScene25	medium	if idle: sets request 2 (handled by changing to scene 25) and optionally starts opaque fade out
+801859A0	Sys_SceneMgr_getCurrentScene	high	returns +0xc (egg::SceneManager current scene); callers read scene fields (+0x2c Gfx object)
+801859A8	Sys_SceneMgr_createInstance	high	singleton create of scene manager (vtable 8034F248) with heap and a screen-sized color fader at +0x34
+80185AD4	Sys_Language_setField14	low	stores +0x14 of language/region config object
+80185ADC	Sys_Language_setLanguage	medium	stores +0x10 language index used to pick EN/, FR/... directory
+80185AE4	Sys_Language_appendDir	high	appends language directory string (EN/, FR/, ... by +0x10 index) then optional suffix to path
+80185C04	Sys_Language_dtor	medium	vtable 8034F290 slot 0: frees object when flag > 0
+80185C44	Sys_Language_createInstance	high	singleton create of language/region config (vtable 8034F290, 0x20 bytes) into lbl_8043C470
+80185CD0	Sys_GameConfig_dtor	medium	vtable 8034F2A0 slot 0: frees object when flag > 0
+80185D10	Sys_GameConfig_ctor	high	builds "GameConfig" tree with RootScene/Language and RP*Print debug-print category nodes
+80186200	Sys_Scene_calcSaveTask	medium	per-frame: detects NAND task completion, then feeds fade state to save system
+801862BC	Sys_Scene_pollAsyncLoad	medium	when async-load flags set, clears flag 4 once disk task posts its done message
+80186348	Sys_Scene_startAsyncLoad	medium	if flags 2 and 4 set, queues scene slot 20 (async load) on disk task thread
+801863C0	Sys_Scene_loadResourceWithFade	medium	flag 1: queues loadResource on disk thread, shows Now Loading and fades sub fader until done
+801864D4	Sys_Scene_loadResource	medium	queues loadResource (sound group + slot 16) on disk thread and draws Now Loading until done
+80186754	Sys_ResMgr_readFile	high	opens DVD file, allocates aligned buffer from heap and reads it via egg::DvdRipper; returns size
+80186840	Sys_ResMgr_loadArchive	high	returns cached archive data by path; else reads file, decompresses if needed, caches in list
+80186A94	Sys_ResMgr_loadLocalCarc	high	builds <lang>/<dir>local.carc path and mounts archive
+80186B30	Snd_getSoundLocalPath	medium	builds "Sound/<scene dir>" then appends language directory; moved from Sys
+80186BA0	Snd_getSoundPath	medium	builds "Sound/<scene dir>" path; moved from Sys
+80186C0C	Snd_getSoundLangPath	medium	builds "Sound/<region dir>" + language directory; moved from Sys
+80186C88	Snd_getSoundRegionPath	medium	builds "Sound/<region dir>" path; moved from Sys
+80186CEC	Sys_ResMgr_loadArchiveFromPath	medium	copies global path, loads and mounts archive, stores handle at param +0x20
+80186D54	Sys_ResMgr_preloadSceneArchives	high	for 13 scene dirs, reads Common/<dir>common.carc and <lang><dir>local.carc into cache
+80186FA4	Sys_ResMgr_loadSystemArchives	high	mounts Common common.carc, local.carc, Message/message.carc, Font/font.carc; creates font helper
+8018713C	Sys_ResMgr_clearCache	low	calls list function on cache list (+0x10), presumably clearing cached archives
+80187144	Sys_ResMgr_fileExists	medium	tries to open DVD file and closes it; returns open result
+801871A4	Sys_getMessageResource	medium	looks up a resource by name in the message archive (ResMgr +0x24) via fn_800AC7EC
+801871E0	Sys_getArchiveResource	high	fn_800AC7EC(archive, name, out) wrapper; optionally returns resource size
+8018722C	Sys_ResMgr_loadSceneLocalCarc	high	builds <lang><scene dir>local.carc and mounts it into heap (default heap if null)
+801872D4	Sys_ResMgr_loadSceneCommonCarc	high	builds Common/<scene dir>common.carc and mounts it into heap (default heap if null)
+80187370	Sys_ResMgr_dtor	medium	vtable 8034F2F8 slot 0: frees object when flag > 0
+801873B0	Sys_ResMgr_createInstance	high	allocates resource manager (vtable 8034F2F8, two lists, 0x80-byte path buffer) into lbl_8043C480
+8018741C	Sys_Cls8034F308_dtor	low	vtable 8034F308 slot 0: frees object when flag > 0
+8018745C	Sys_Cls8034F308_createInstance	low	singleton create (0xc bytes, vtable 8034F308, heap, -1) into lbl_8043C488
+801874CC	Sys_SystemDrawer_draw	medium	vtable 8034F318 slot 1: on layer 0x1d draws sub fader or pause overlays; on layer 0x1f draws home-button overlay
+80187548	Sys_Scene_calcPauseOverlays	medium	when idle and not in Home menu: updates pause cursor layouts and sub fader calc
+801875D0	Sys_Scene_calcPauseInput	medium	when idle and not paused: checks pause request (Sys_Pause_calc), updates home button handler
+80187634	Sys_Scene_resetOverlays	low	resets pause/cursor/message layouts and home/pause controllers on scene enter
+80187678	Sys_SystemDrawer_ctor	high	creates two screens registered as draw layers 0x1d and 0x1f in graphics manager, registers itself
+801877A0	Sys_Screen_dtor	medium	vtable 8034F32C (egg::Screen subclass used by all modules) slot 0: frees when flag > 0
+801877E0	Sys_SystemDrawer_dtor	medium	vtable 8034F318 slot 0: frees when flag > 0
+80187820	Sys_trivialDtor_80187820	low	unreferenced dtor stub: frees param_1 when flag > 0
+80187860	Sys_DvdErrorChecker_draw	medium	if error state >= 0: draws fader and localized DVD error message text (table 8034F340 by language)
+80187A48	Sys_DvdErrorChecker_calc	medium	maps DVD drive status (fn_8013D6BC) to error state; returns 1 when no error; handles reset during error
+80187B1C	Sys_DvdErrorChecker_hasError	medium	returns 1 if error state (+0x8) >= 0
+80187B3C	Sys_DvdErrorChecker_createInstance	high	singleton create (vtable 8034F3C0): state -2, 0x100 text buffer, 640x456 color fader; into lbl_8043C490
+80187C24	Sys_SaveFile_dtor	medium	vtable 8034F3D0 slot 0: named-base dtor (RP_8018ED50) and free when flag > 0
+80187C7C	Sys_SaveFile_ctor	high	"Save File" object: NAND heap, save data (+0x2c), banner size 0x72A0, save/banner buffers
+80187DAC	Sys_SaveFile_taskWriteSaveAndBanner	medium	NAND task callback: writes save data file then banner file
+80187DDC	Sys_SaveFile_taskRead	medium	NAND task callback: reads and deserializes save data file
+80187DE4	Sys_SaveFile_taskCreate	medium	NAND task callback: creates save file (NANDCreate), writes save data and creates banner
+80187E7C	Sys_SaveFile_taskCheckSpace	medium	NAND task callback: checks free NAND blocks/inodes
+80187E84	Sys_SaveFile_taskCheckFiles	medium	NAND task callback: checks banner and save files exist (sets flags 2 and 4)
+80187F68	Sys_SaveFile_writeBanner	medium	opens banner path (index arg), writes banner buffer (+0x24, size +0x1c), closes; error flag 0x1000
+80188038	Sys_SaveFile_readSaveData	medium	opens save file for read, reads into buffer, deserializes into save data (+0x2c)
+80188124	Sys_SaveFile_writeSaveData	medium	serializes save data into buffer and writes it to save file via NAND
+80188218	Sys_SaveFile_createBanner	medium	creates temp banner file, writes banner, moves it into home directory (sets flag 2)
+8018831C	Sys_SaveFile_checkFreeSpace	medium	NANDCheck for required blocks; sets flag 1 when enough space
+801883C0	Sys_SaveFile_handleErrorMessage	low	shows NAND error message layout; on answer disables saving (flag 0x10) or requests reset
+80188490	Sys_SaveFile_loadBanner	high	sets banner title/subtitle from party_message.bmg (0x3e9/0x3ea) and copies banner.tpl images
+8018861C	Sys_SaveFile_calcError	medium	per-frame: when a save task failed shows error message (corrupt -3 or generic) and clears state
+80188710	Sys_SaveFile_clearBusy	medium	clears busy flag 0x100 after NAND task completes
+80188720	Sys_SaveFile_getConst2	low	returns constant 2
+80188728	Sys_SaveFile_getRequiredBlocks	medium	returns ceil(+0x20 / 0x20000) (size in NAND blocks)
+80188748	Sys_SaveFile_getLastResult	medium	returns +0xc (last NAND result code)
+80188750	Sys_SaveFile_getCheckAnswer	medium	returns +0x14 (NANDCheck answer)
+80188758	Sys_SaveFile_setDisabled	medium	sets/clears flag 0x10 (saving disabled)
+80188780	Sys_SaveFile_hasError	medium	true if not disabled and error flag 0x1000 or 0x2000 set
+801887B8	Sys_SaveFile_isDataInvalid	medium	returns save data status != 0 (bad magic/version/checksum)
+801887C0	Sys_SaveFile_hasFreeSpace	medium	returns flag 1 (space check passed)
+801887CC	Sys_SaveFile_filesExist	medium	true if banner (flag 2) and save file (flag 4) both exist
+801887EC	Sys_SaveFile_isIdle	medium	true if busy flag 0x100 clear
+80188800	Sys_SaveFile_canSave	medium	true if neither busy (0x100) nor write-pending (0x200)
+80188820	Sys_SaveFile_requestWrite	medium	if scene change allowed: queues write save+banner task on NAND thread, sets busy/pending
+801888FC	Sys_SaveFile_requestRead	medium	if allowed: queues read task on NAND thread
+8018899C	Sys_SaveFile_deleteFiles	medium	deletes banner and save files (NANDDelete); clears exist flags
+80188A74	Sys_SaveFile_requestCreate	medium	if allowed: queues create task on NAND thread
+80188B14	Sys_SaveFile_requestCheckSpace	medium	if allowed: queues free-space check task on NAND thread
+80188BB4	Sys_SaveFile_requestCheckFiles	medium	if allowed: queues file-existence check task on NAND thread
+80188C54	Sys_SaveFile_checkFiles	medium	synchronously checks banner/save file existence (flags 2 and 4)
+80188D74	Sys_SaveFile_setSettings	medium	copies 0x20-byte settings struct into save data (+0xc)
+80188E6C	Sys_SaveFile_getSettings	medium	copies 0x20-byte settings struct out of save data
+80188F64	Sys_SaveFile_setRecord	medium	copies 0xd0-byte record into save data record slot
+80189058	Sys_SaveFile_getRecord	medium	copies 0xd0-byte record from save data slot index
+80189158	Sys_SaveFile_setPlayerData	low	copies 0x45c-byte player data struct into save data slot
+80189654	Sys_SaveFile_getPlayerData	low	copies 0x45c-byte player data struct out of save data slot index
+80189B5C	Sys_SaveFile_createInstance	high	singleton create of Save File object (0x30 bytes) into lbl_8043C498
+80189BBC	Sys_NamedBase_emptySlot1	low	empty virtual shared by named-object base (vtable 8034F430 slot 1) and many actor/layout vtables
+80189BC0	Sys_NamedBase_emptySlot2	low	empty virtual shared by named-object base (vtable 8034F430 slot 2) and many actor/layout vtables
+80189BC4	Sys_PlayerData_setField0C	low	stores +0xc
+80189BCC	Sys_PlayerData_getField0C	low	returns +0xc
+80189BD4	Sys_PlayerData_setBytes4	low	copies 8 bytes into +0x4..+0xb
+80189C18	Sys_PlayerData_getBytes4	low	copies 8 bytes out of +0x4..+0xb
+80189C5C	Sys_PlayerData_setFlag2	low	sets/clears bit 2 of first word
+80189C84	Sys_PlayerData_getFlag2	low	returns bit 2 of first word
+80189C90	Sys_PlayerData_setBitHigh	low	sets/clears bit (n+5) of byte +0x10
+80189CE0	Sys_PlayerData_setBit	low	sets/clears bit n of byte +0x10
+80189D28	Sys_PlayerData_testBitHigh	low	tests bit (n+5) of byte +0x10
+80189D54	Sys_PlayerData_testBit	low	tests bit n of byte +0x10
+80189D7C	Sys_PlayerData_init	medium	initializes 0x45c-byte player data struct (zeros, 0.1f, 99 bytes, 30000, 0xffff tables)
+8018A088	Sys_FontMgr_getFirstFont	low	returns first font slot whose resource (+0x24..) is loaded
+8018A11C	Sys_FontMgr_getFontByName	medium	matches name against 7 font names (8034F3E8), returns its resource
+8018A1A4	Sys_FontMgr_getFont	medium	returns font object at +0x8 + idx*4
+8018A1B4	Sys_FontMgr_loadFonts	medium	loads the 7 named font resources from font archive and binds them to font objects
+8018A260	Sys_FontMgr_loadRomFont	medium	allocates required buffer and loads system ROM font into +0x4 font
+8018A2B4	Sys_FontMgr_dtor	medium	vtable 8034F404 slot 0: frees when flag > 0
+8018A2F4	Sys_FontMgr_createInstance	medium	allocates font manager (ROM font + 7 res fonts) into lbl_8043C4A0
+8018A3A4	Sys_SaveData_getSize	medium	returns 0x8000 (save data buffer size)
+8018A3B0	Sys_SaveData_serialize	high	writes "RPPT" "0000", settings and 100 records to stream, then 16-bit sum/complement checksum
+8018A534	Sys_SaveData_deserialize	high	checks "RPPT"/"0000" magic and checksum; reads data or resets to defaults with error bits
+8018A780	Sys_SaveData_setSettings	medium	copies 0x20-byte settings into +0xc block
+8018A850	Sys_SaveData_getSettings	medium	returns settings block pointer (+0xc)
+8018A858	Sys_SaveData_setRecord	medium	copies 0xd0-byte record into records array (+0x10) at index
+8018A930	Sys_SaveData_getRecord	medium	returns records (+0x10) + idx*0xd0
+8018A940	Sys_SaveData_setPlayerData	low	copies 0x45c-byte struct into array at +0x8 index
+8018AE20	Sys_SaveData_getPlayerData	low	returns +0x8 array + idx*0x45c
+8018AE30	Sys_SaveData_isInvalid	medium	returns status word != 0
+8018AE44	Sys_SaveData_ctor	high	allocates settings block and 100 x 0xd0 records, resets them to defaults
+8018AF1C	Sys_Pause_dtor	medium	vtable 8034F410 slot 0: releases pause layout and frees when flag > 0
+8018AF84	Sys_Pause_checkStart	high	finds controller pressing pause, pauses current scene (vslot +0x40), opens pause menu, plays pause SE
+8018B0F8	Sys_Pause_calc	high	if not paused checks start; else handles pause menu result: resume, retry scene or quit to scene 0x1b
+8018B9E4	Sys_SaveSettings_reset	medium	resets 0x20-byte settings block to defaults (0xff ids, 1 at +0x18)
+8018BA58	Sys_SaveSettings_ctor	medium	zeroes +0x18/+0x1c then resets settings
+8018BD84	Sys_SaveRecord_reset	medium	zeroes a 0xd0-byte record
+8018C0F8	Sys_resetPlayerSlots	low	copies 16-byte template from +0x1c and applies it to each player slot entry via Sys_8018D8E0
+8018CC5C	Sys_savePlayerEntry	low	copies player record/data from entry into save file (or into local array when kind 6)
+8018D8E0	Sys_loadPlayerEntry	low	fills player entry (record/data) from save file slot, or from local array when kind 6; inverse of Sys_savePlayerEntry
+8018F158	Sys_resetTextWriter	medium	resets debug text writer (lbl_8043C4C8): colors white, scale 1.0, cursor 0, fixed width, tab 4
+801902D8	Mii_KokeshiMgr_createAnmObj	low	registers ResFile and anim (res type 0xc/0xf) in current res table, allocates anim object (RP_801B1418), tracks in heap 
+80190510	Mii_KokeshiMgr_createModel	low	registers ResFile/model (type 0xc/0xd) in res table, creates model via Gfx_801A7E00, tracks in matching heap slot; moved
+80190660	Health_loadHealthAndSafetyData	low	loads archive, runs SDK check loop (fn_80167B28) until counter, stores result +0x40, loads 6 message blocks from bmg; mo
+80190AC4	Mii_KokeshiMgr_ctor	high	"KokeshiManager" named object (vtable 8034F490): Mii data buffer, 100 count, Mii model manager, 4 slot helpers; moved fr
+80190BF0	Mii_KokeshiMgr_createInstance	high	allocates 0x5c KokeshiManager into lbl_8043C4D0; moved from Gfx
+80190C24	Gfx_deleteIfFlag	medium	generic dtor body shared by many vtable slot 0s: frees this when flag > 0
+80190C64	Gfx_setVtable8034F4A8	low	stores vtable 8034F4A8 into object (base interface ctor used by many actor/layout ctors)
+80190C74	Gfx_EffectMgr_dtor	medium	vtable 8034F4B8 dtor: kills effects, destroys 3 effect handles, frees heap, named-base dtor
+80190D40	Gfx_EffectMgr_loadCommonEffects	high	loads cursor effect pack (by region) and sports/basic/music common breff/breft into effect slots
+80190F64	Gfx_EffectMemMgr_create	high	allocates heap and nw4r ef memory manager (vtable 8034F4D0) with pools sized for effects/emitters/particle mgrs/particle
+80191394	Gfx_EffectMemMgr_dtorBody	low	generic delete-when-flag dtor next to effect memory manager
+801913D4	Gfx_ParticlePool_ctor	medium	activity list (vtable 8034F538) over N 0xe4-byte particles, indexes each and links into free list
+80191478	Gfx_ParticleMgrPool_ctor	medium	activity list (vtable 8034F544) over N 0xd8-byte particle managers
+8019151C	Gfx_EmitterPool_ctor	medium	activity list (vtable 8034F550) over N 0x138-byte emitters
+801915C0	Gfx_EffectPool_ctor	medium	activity list (vtable 8034F55C) over N 0xa0-byte effects
+80191664	Gfx_placementNewA	medium	placement new helper: returns the given buffer
+8019166C	Gfx_placementNewB	medium	placement new helper: returns the given buffer (array variant)
+80191674	Gfx_EffectMemMgr_alloc	high	vtable slot 22: first-fit allocation from free block list, splitting blocks, 32-byte aligned
+801917C4	Gfx_alignUp	high	rounds value up to alignment
+801917DC	Gfx_EffectMemMgrBase_ctor	medium	stores base vtable 8034F568 (nw4r ef MemoryManagerBase)
+801917EC	Gfx_EffectMgr_calcSlot	low	calls RP_80196694 on effect handle slot param_4
+801917FC	Gfx_EffectMgr_draw	medium	builds view and ortho/persp projection matrices from current screen, draws the 3 effect handles for a phase
+80191A28	Gfx_EffectMgr_setDummyTexture	medium	for each loaded effect slot replaces "dummy_tex" texture with given texture/format
+80191B74	Gfx_EffectMgr_killAll	medium	kills all 0x180 emitter groups in EffectSystem and releases the 3 effect handles; moved from Sys
+80191C10	Gfx_EffectMgr_removeHandle	medium	clears effect slot whose handle equals arg; moved from Sys
+80191C58	Gfx_EffectMgr_setHandle	medium	stores effect handle in slot index (non-null); moved from Sys
+80191D4C	Gfx_EffectMemMgr_dtor	medium	vtable 8034F4D0 slot 0: frees when flag > 0
+80191D8C	Gfx_EffectMemMgr_gc	medium	vtable slot 1: returns finished particles/particle managers/emitters/effects to their free lists
+80192008	Gfx_EffectMemMgr_allocEffect	medium	vtable slot 2: pops free effect (+0xc pool), runs its init, moves to active list
+8019209C	Gfx_EffectMemMgr_freeEffect	medium	vtable slot 3: moves effect from active to free list
+801920EC	Gfx_EffectMemMgr_getNumEffects	medium	vtable slot 4: free + active effect count
+80192110	Gfx_EffectMemMgr_getNumActiveEffects	low	vtable slot 5: returns effect pool +0x18 count
+8019212C	Gfx_EffectMemMgr_getNumFreeEffects	low	vtable slot 6: returns effect pool +0xc count
+80192148	Gfx_EffectMemMgr_allocEmitter	medium	vtable slot 7: pops free emitter (+0x18 pool), inits, moves to active
+801921DC	Gfx_EffectMemMgr_freeEmitter	medium	vtable slot 8: returns emitter to free list
+8019222C	Gfx_EffectMemMgr_getNumEmitters	medium	vtable slot 9: total emitter count
+80192250	Gfx_EffectMemMgr_getNumActiveEmitters	low	vtable slot 10: emitter pool +0x18 count
+8019226C	Gfx_EffectMemMgr_getNumFreeEmitters	low	vtable slot 11: emitter pool +0xc count
+80192288	Gfx_EffectMemMgr_allocParticleMgr	medium	vtable slot 12: pops free particle manager (+0x24 pool)
+8019231C	Gfx_EffectMemMgr_freeParticleMgr	medium	vtable slot 13: returns particle manager to free list
+8019236C	Gfx_EffectMemMgr_getNumParticleMgrs	medium	vtable slot 14: total particle manager count
+80192390	Gfx_EffectMemMgr_getNumActiveParticleMgrs	low	vtable slot 15
+801923AC	Gfx_EffectMemMgr_getNumFreeParticleMgrs	low	vtable slot 16
+801923C8	Gfx_EffectMemMgr_allocParticle	medium	vtable slot 17: pops free particle (+0x30 pool)
+8019245C	Gfx_EffectMemMgr_freeParticle	medium	vtable slot 18: returns particle to free list
+801924AC	Gfx_EffectMemMgr_getNumParticles	medium	vtable slot 19: total particle count
+801924D0	Gfx_EffectMemMgr_getNumActiveParticles	low	vtable slot 20
+801924EC	Gfx_EffectMemMgr_getNumFreeParticles	low	vtable slot 21
+80192508	Gfx_EffectMemMgr_free	high	vtable slot 23: frees heap block and coalesces with free neighbours
+80197924	Sys_CachedArchive_ctor	medium	archive cache entry (vtable 8034F6A0): stores path name, size +0x98, data +0x9c
+801A2320	HomeMenu_drawDisabledIcon	low	if enabled and icon active, draws the home-button-disabled overlay quad; moved from Sys
+801A287C	HomeMenu_checkHomePress	medium	on HOME press: if scene allows opens Home menu (pause SE), else shows disabled icon; moved from Sys
+801A2E74	HomeMenu_drawDisabledIconQuad	low	sets ortho screen and draws a 56x56 textured quad at top of screen with alpha from object; moved from Gfx
+801A348C	Gfx_ResHeap_reset	low	releases res-table entries and anim objects of a heap slot, recreates its expanded heap
+801A3A58	Gfx_HeapSlots_addResource	low	forwards resource to heap slot object at +0x14 + idx*4 (RP_801A36D4)
+801A3A70	Gfx_HeapSlots_getHeap	low	returns heap (+0x18) of slot object idx
+801A5130	Gfx_createMiiModelCallback	low	task: loads Mii model/anim resources via KokeshiMgr, picks animation index, binds model and colour
+801A5738	Gfx_ScnUserDraw_g3dProc	medium	vtable 8034FA58 slot 1 (g3d ScnObj G3dProc): handles calc/opa/xlu phases with user callback or default draw
+801A611C	Gfx_ScnUserDraw_dtor	medium	vtable 8034FA58 slot 2: resets vtable/flag and calls g3d ScnLeaf dtor
+801A6184	Gfx_ScnUserDraw_getTypeObj	medium	vtable slot 3: returns type object 803181A8
+801A6190	Gfx_ScnUserDraw_getTypeName	medium	vtable slot 4: returns GetTypeObj()+4 (type name)
+801A61C0	Gfx_ScnUserDraw_isDerivedFrom	medium	vtable slot 0: true if type object matches this or g3d base types
+801A6228	Gfx_Camera_applyScnCamera	low	reads g3d camera (anm) data into camera pos/target/up or matrix and updates camera
+801A63B4	Gfx_Camera_syncDerived	medium	by flag mask derives inverse matrices, position/target/up, angles and distance from matrix
+801A65F8	Gfx_Camera_screenToPlane	medium	unprojects screen point to ray via frustum and intersects with plane; returns hit flag
+801A6788	Gfx_Camera_screenToViewToWorld	low	frustum conversion (eggFrustum_800A0F64) then transform by inverse view matrix
+801A67D4	Gfx_Camera_screenToWorld	low	frustum unproject (eggFrustum_800A0D50) then transform by inverse view matrix
+801A6820	Gfx_Camera_worldToScreen	medium	transforms point by view matrix then projects with frustum (eggFrustum_800A0B30)
+801A6870	Gfx_Camera_savePrevMatrix	medium	copies view matrix to +0x144 (previous frame)
+801A6878	Gfx_Camera_update	high	builds view matrix by mode (matrix, inverse, lookAt, orbit angles, euler) and syncs derived values
+801A6AE4	Gfx_Camera_reset	medium	identity matrices, pos 0, target (0,0,-1), up (0,1,0), then update
+801A6B74	Gfx_Camera_copyFrom	medium	vtable slot 1 shared by camera subclasses: copies all matrices and parameters from other camera
+801A6CA0	Gfx_Camera_ctor	high	sets vtable 8034FA90 at +0x174, lookAt mode, default pos/target/up, update
+801A6D50	Gfx_emptyInitHook	low	empty function called from Gfx_initEngine
+801A6D54	Gfx_Camera_dtor	medium	global dtor registered for default camera; frees when flag > 0
+801A6D94	Gfx_initDefaultCamera	high	static init: constructs default camera 80438CC0 and registers its dtor
+801A6DDC	Gfx_ScnProc_drawStage	low	if stage object present (and phase 4 allowed) calls stage +0x14 vslot 0xc with phase
+801A6E64	Gfx_ScnRendererStage_isEnabled	medium	shared vtable slot 3: returns enable bit of wrapped egg renderer stage
+801A6E74	Gfx_ScnProc_ctor	medium	egg IScnProc (vtable 8034FB18): creates renderer stage wrappers per flag and registers 6 draw procs
+801A7088	Gfx_ScnRendererStage1_ctor	medium	wraps ScnRenderer stage table entry 1 (vtable 8034FB00)
+801A7170	Gfx_ScnRendererStage2_ctor	medium	wraps ScnRenderer stage table entry 2 (vtable 8034FAE8)
+801A7210	Gfx_ScnRendererStage4_ctor	medium	wraps ScnRenderer stage table entry 4 (vtable 8034FAD0), clears its +0x80
+801A7300	Gfx_ScnRendererStage3_ctor	medium	wraps ScnRenderer stage table entry 3 (vtable 8034FAB8)
+801A73E8	Gfx_ScnRendererStage0_ctor	medium	wraps ScnRenderer stage table entry 0 (vtable 8034FAA0)
+801A74C8	Gfx_ScnProc_createShadowHelper	low	allocates 0x10 object RP_Cls_80350160 for ScnProc flag 1
+801A7508	Gfx_ScnProc_createHelper2	low	allocates 0x10 object RP_Cls_803501B8 for ScnProc flag 2
+801A7548	Gfx_ScnProc_create	medium	allocates 0x34 ScnProc and constructs it (called from ModelScene ctor)
+801A7598	Gfx_ScnProc_dtor	medium	egg IScnProc dtor and free when flag > 0
+801A75F0	Gfx_ScnRendererStage1_dtor	medium	vtable 8034FB00 slot 0: frees when flag > 0
+801A7630	Gfx_ScnRendererStage2_dtor	medium	vtable 8034FAE8 slot 0: frees when flag > 0
+801A7670	Gfx_ScnRendererStage4_dtor	medium	vtable 8034FAD0 slot 0: frees when flag > 0
+801A76B0	Gfx_ScnRendererStage3_dtor	medium	vtable 8034FAB8 slot 0: frees when flag > 0
+801A76F0	Gfx_ScnRendererStage0_dtor	medium	vtable 8034FAA0 slot 0: frees when flag > 0
+801A7730	Gfx_ScnRendererStage_enable	medium	shared vtable slot 1: sets enable bit of wrapped stage
+801A7744	Gfx_ScnRendererStage_disable	medium	shared vtable slot 2: clears enable bit of wrapped stage
+801A7758	Gfx_loadLightFromRes	low	gets ResFile from res-table entry, looks up light resource (fn_8005160C) and loads it into egg LightManager
+801A77D8	Gfx_Model_unlinkFromList	medium	removes model from global model list (8043C56C) linked via +0x18
+801A781C	Gfx_ModelG3d_setMatColor	low	vtable 8034FDB8 slot 6: copies 8-word colour arg and calls eggModelEx_800956C4 on +0x40
+801A78B0	Gfx_Model_setMirrorMode	low	shared slot 5: when mode (+0x3c) switches zero/non-zero flips material cull mode 1<->2 and dirties materials
+801A7974	Gfx_Model_getNumMats	low	shared slot 21: eggModelEx_800948A0 on +0x40 (count getter in node/mat/shp triplet)
+801A797C	Gfx_Model_updateMaterials	low	shared slot 29: calls RP_801B02E8 for each material wrapper (+0x30)
+801A79F4	Gfx_Model_addToDrawList	medium	appends model to frame draw list (8043C564/8043C568, link +0x14), sets flag 2
+801A7A20	Gfx_Model_calc	medium	sets current model global, calcs anim controller (+0x2c), calls vslot 0x94, updates helper +0x34
+801A7A88	Gfx_Model_updateAnm	low	calls anim controller vslot 0x6c and ScnObj vslot 0xc(8) on egg model's scene object
+801A7AFC	Gfx_Model_createHelper34	low	converts flags and allocates 0x18 helper (RP_801AFD98) stored at +0x34; used by pinball/billiards/cow balls
+801A7BBC	Gfx_KokeshiModel_setCallback	low	vtable 80350210 slot 4: swaps +0x1c pointer, returns old
+801A7BCC	Gfx_Model_createMaterials	medium	allocates array of per-material 0xd4 wrappers (RP_801B09DC) for each material, stores at +0x30
+801A7CAC	Gfx_Model_baseDtor	medium	base dtor body: frees when flag > 0 (called by derived dtors with 0)
+801A7CEC	Gfx_Model_ctor	high	base model ctor: vtable 8034FB28 at +0x44, defaults (scale 1.0), links into global model list
+801A7D6C	Gfx_createModelByName	medium	allocates 0x50 G3D model from ResMdl looked up by name in res entry, runs setup slots 0x8c/0x90
+801A7E00	Gfx_createModelByIndex	medium	if res entry is type 0xd (ResMdl), allocates 0x50 G3D model and runs setup slots
+801A7EB4	Gfx_KokeshiModel_setNodeVisible	low	vtable 80350210 slot 9: sets/clears own visibility flag bit 1
+801A7EDC	Gfx_KokeshiModel_isNodeVisible	low	vtable 80350210 slot 10: returns visibility flag bit 1
+801A7EE8	Gfx_KokeshiModel_setMatVisible	low	vtable 80350210 slot 11: sets/clears visibility flag bit 1
+801A7F10	Gfx_KokeshiModel_isMatVisible	low	vtable 80350210 slot 12: returns visibility flag bit 1
+801A7F1C	Gfx_Model_getNumNodes	low	shared slot 18: eggModelEx_80094954 on +0x40
+801A7F24	Gfx_Model_getNumShps	low	shared slot 24: eggModelEx_80094814 on +0x40
+801A7F2C	Gfx_Model_slot27	low	shared slot 27: eggModelEx_800949E0 on +0x40
+801A7F34	Gfx_Model_slot28	low	shared slot 28: eggModelEx_80095228(model, a, 1, 1, b)
+801A7F48	Gfx_Model_applyVisibility	low	unreferenced: eggModelEx_80094EA4 with visible flag (+0x8 bit 1)
+801A7F5C	Gfx_Model_slot31	low	shared slot 31: if flag eggModelEx_80095094 else ScnObj vslot 0xc(4,0,arg)
+801A7F9C	Gfx_Model_slot36	low	shared slot 36: eggModelEx_80094A44 on +0x40
+801A7FA8	Gfx_ModelAnm_markSlotLoaded	medium	sets bit 4 in per-type anim flag array (+0x34[type])[idx]
+801A7FC4	Gfx_ModelAnm_findBlendSlot	medium	returns blend slot 0..7 whose anim index (vslot 0x24) equals arg, else -1
+801A8040	Gfx_ModelAnm_bindToSlot	low	if anim not current: unbinds its old slot, binds new one (vslot 0x1c), sets playing bit 1
+801A8150	Gfx_ModelAnm_clearStartBit	low	clears bit 2 in anim flag array, returns previous bit
+801A8170	Gfx_ModelAnm_setBlendFrames	low	vtable 8034FCB0 slot 12: sets blend frame counters (+0x60/+0x64) and starts cross-fade for chr anims
+801A8264	Gfx_ModelAnm_slot11	low	vtable slot 11: calls vslot 0x40, for type 0 rebinds slot 1 from +0x58 table
+801A82F0	Gfx_ModelAnm_startAnmInternal	low	records previous/current anim index per type, resets frame/rate, sets weights for chr/shp
+801A8440	Gfx_ModelAnm_callSlot33	low	tail-calls anim controller vslot 0x84 (per-frame update) from Gfx_Model_calc
+801A8450	Gfx_ModelAnm_allocType	medium	allocates anim pointer array and flag array for a type with count, registers via vslot 0x80
+801A86CC	Gfx_ModelAnm_resetTables	medium	zeroes per-type counts, sets current/previous anim indices to -1, clears flag arrays
+801A8758	Gfx_ModelAnm_baseCtor	medium	base ctor: vtable 8034FBC8 at +0x68, defaults
+801A878C	Gfx_ModelAnm_setFlag1	low	sets/clears bit 1 of first byte
+801A87B4	Gfx_ModelAnm_setFlag2Inverted	low	clears bit 2 when arg nonzero, sets it when zero
+801A87DC	Gfx_ModelAnm_baseDtor	low	unreferenced generic delete-when-flag dtor next to anim controller
+801A881C	Gfx_ModelAnm_slot22	low	vtable slot 22: gets anim object via vslot 0x78 and calls its vslot 0x2c
+801A8858	Gfx_ModelAnm_getAnmObjAlt	low	vtable slot 28: returns anim object pointer for (type, index) from +0x70..+0x8c arrays
+801A885C	Gfx_ModelAnm_slot21	low	vtable slot 21: forwards float arg to anim object vslot 0x28
+801A88A8	Gfx_ModelAnm_slot20	low	vtable slot 20: forwards to anim object vslot 0x20
+801A88E4	Gfx_ModelAnm_slot19	low	vtable slot 19: forwards float arg to anim object vslot 0x1c
+801A8930	Gfx_ModelAnm_getPlayPolicy	low	vtable slot 18: maps anim resource policy field via table 80318200 per type
+801A8A20	Gfx_ModelAnm_getFrameCount	low	vtable slot 17: returns u16 frame count from anim resource per type
+801A8B08	Gfx_ModelAnm_returnZeroA	low	vtable slot 16: returns 0
+801A8B10	Gfx_ModelAnm_returnZeroB	low	vtable slot 15: returns 0
+801A8B18	Gfx_ModelAnm_emptySlot26	low	vtable slot 26: empty
+801A8B1C	Gfx_ModelAnm_setChrEnabled	low	vtable slot 24: toggles flag 2 and attaches/detaches chr anim object to model
+801A8BE4	Gfx_ModelAnm_setVisFlag	low	vtable slot 23: toggles flag 1 and applies it via fn_80063398 on chr blend
+801A8C20	Gfx_ModelAnm_emptySlot31	low	vtable slot 31: empty
+801A8C24	Gfx_ModelAnm_calcBlend	medium	vtable slot 25: advances chr cross-fade, updating weights of slots 0/1 until blend ends
+801A8DC0	Gfx_ModelAnm_setAnmRate	low	vtable slot 10: calls chr anim vslot 0x54 with model ResMdl and policy table entry
+801A8E14	Gfx_ModelAnm_setAnmFrame	low	vtable slot 9: calls chr anim vslot 0x34 then 0x50 with ResMdl and policy entry
+801A8EB0	Gfx_ModelAnm_getBlendWeight	low	vtable slot 8: chr/shp blend object vslot 0x4c (get weight)
+801A8F10	Gfx_ModelAnm_getSlotAnmIndex	medium	vtable slot 7: returns anim index bound to blend slot (chr/shp), else -1
+801A8F68	Gfx_ModelAnm_unbindSlot	medium	vtable slot 5: clears playing bit, detaches blend slot (vslot 0x40), marks slot -1
+801A9068	Gfx_ModelAnm_setBlendWeight	low	vtable slot 6: chr/shp blend object vslot 0x48 (set weight)
+801A90C0	Gfx_ModelAnm_bindAnm	medium	vtable slot 4: binds anim index to blend slot (vslot 0x3c), records it, attaches chr blend to model
+801A91D0	Gfx_ModelAnm_stopAnm	low	vtable slot 13: unbinds anim from blend slot or detaches single-anim object per type
+801A93A0	Gfx_ModelAnm_playAnm	medium	vtable slot 14: marks anim playing, rebuilds clr/pat/srt/vis anim lists, then starts it
+801A96A4	Gfx_ModelAnm_createFromRes	medium	vtable slot 1: constructs nw4r anim object (chr/clr/pat/srt/vis/shp) from res entry and binds to model
+801A9A84	Gfx_ModelAnm_createBlendObjects	medium	allocates per-type slot map and blend/result objects (chr/shp blend, clr/pat/srt/vis) for model
+801A9E6C	Gfx_ModelAnm_ctor	high	anim controller ctor (vtable 8034FCB0): takes model's ScnMdl, clears anim arrays and slot maps
+801A9F18	Gfx_ModelAnm_reset	medium	vtable slot 0: resets tables and clears anim arrays
+801A9F8C	Gfx_ModelAnm_emptySlot27	low	vtable slot 27: empty
+801A9F90	Gfx_ModelAnm_getAnmObj	medium	returns anim object pointer for (type, index) from +0x70..+0x8c arrays
+801AA038	Gfx_ModelAnm_setAnmArray	medium	vtable slot 30: stores anim pointer array for type then creates blend objects
+801AA098	Gfx_ModelAnm_clearArrays	medium	zeroes anim arrays +0x70..+0xac and +0xe0/+0xe4
+801AA0E8	Gfx_ModelAnm_dtor	medium	vtable slot 29: frees when flag > 0
+801AA128	Gfx_ModelAnm_createByIndex	medium	vtable slot 3: gets anim resource by index from ResFile per type, constructs anim object and binds it
+801AA574	Gfx_ModelAnm_createByName	medium	vtable slot 2: gets anim resource by name from ResFile per type, constructs anim object and binds it
+801AA9C0	Gfx_ModelG3d_calcWorldCallbackC	low	vtable slot 58 (ICalcWorldCallback C target): sets current model/mtx stack, calls callback +0x1c and helper +0x38
+801AAA30	Gfx_emptyVirtualA	low	empty function shared by several actor vtables (slots 3/27/33)
+801AAA34	Gfx_ModelG3d_calcWorldCallbackB	low	vtable slot 57: lets callback +0x1c modify node world matrix, restores priority
+801AAB58	Gfx_emptyVirtualB	low	empty function shared by several actor vtables (slots 2/24/26/32/44/51)
+801AAB5C	Gfx_ModelG3d_calcWorldCallbackA	low	vtable slot 56: lets callback +0x1c modify chr anim result (S/R/T) for node
+801AAC60	Gfx_emptyVirtualC	low	empty function shared by several actor vtables (slots 23/31/43/50)
+801AAC64	Gfx_ModelG3d_onDrawXlu	low	vtable slot 55 (scn callback DRAW_XLU target): fn_800670B8(4) GX state reset
+801AAC6C	Gfx_ModelG3d_onDrawOpa	low	vtable slot 54 (scn callback DRAW_OPA target): fn_800670B8(4) GX state reset
+801AAC74	Gfx_ModelG3d_onCalcMat	low	vtable slot 52: on timing flags calls model vslot 0x7c
+801AACB4	Gfx_ModelG3d_onCalcWorld	low	vtable slot 51: empty
+801AACB8	Gfx_ModelG3d_isNodeVisible	low	vtable slot 10: returns node visibility from ResNode flags or ScnMdlSimple visibility
+801AAD7C	Gfx_ModelG3d_setNodeVisible	low	vtable slot 9: sets node visibility flag (0x100) or ScnMdl node visibility
+801AAE68	Gfx_ModelG3d_calc	low	vtable slot 30: applies visibility, then calls callback +0x1c vslot 0x18 with world matrices
+801AAF10	Gfx_emptyVirtualD	low	empty function shared by several actor vtables (slots 4/26/28/34/46/53)
+801AAF14	Gfx_ModelG3d_applyScale	medium	vtable slot 35: writes scale (times mirror table if mode) into ScnObj, updates callback timing
+801AB048	Gfx_ModelG3d_setCallback	medium	vtable slot 4: swaps callback (+0x1c); null clears ScnObj callback timing
+801AB0FC	Gfx_ModelG3d_createAnmCtrl	medium	vtable slot 34: creates anim controller and stores at +0x2c
+801AB12C	Gfx_ModelG3d_setup	medium	vtable slot 33: creates materials, installs scn-obj and calc-world callbacks on ScnMdl
+801AB274	Gfx_ModelG3d_ctorByName	high	G3D model ctor (vtable 8034FDB8): ResMdl by name, builds ScnMdl via nw4r and egg ModelEx (+0x40)
+801AB36C	Gfx_ModelG3d_ctorByIndex	high	G3D model ctor (vtable 8034FDB8) from res-table ResMdl entry; builds ScnMdl and egg ModelEx
+801AB450	Gfx_ModelAnm_create	medium	allocates 0xe8 anim controller for model and calls its reset slot
+801AB4B8	Gfx_ModelG3d_getType	medium	vtable slot 3: returns 1 (Kokeshi model returns 2)
+801AB4C0	Gfx_ModelG3d_setPriority	medium	vtable slot 7: sets ScnObj draw priority (+0x122)
+801AB4FC	Gfx_ModelG3d_getPriority	medium	vtable slot 8: returns ScnObj draw priority (+0x122)
+801AB538	Gfx_ModelG3d_emptySlot0	low	vtable slot 0: empty
+801AB53C	Gfx_ModelG3d_emptySlot2	low	vtable slot 2: empty
+801AB540	Gfx_ModelG3d_emptySlot1	low	vtable slot 1: empty
+801AB544	Gfx_ModelG3d_setNodeMtx	low	vtable slot 13: fn_800739D0(scnmdl, mtx, 1, node) sets node matrix
+801AB588	Gfx_ModelG3d_getNodeCalcMtx	low	vtable slot 15: returns current calc matrix array (8043C574) entry for node
+801AB608	Gfx_ModelG3d_getNodeWorldMtx	medium	vtable slot 14: returns ScnMdl world matrix array (+0xec) entry for node
+801AB6C8	Gfx_ModelG3d_setNodeCalcMtx	low	vtable slot 16: copies matrix into current calc matrix array (8043C578) for node
+801AB75C	Gfx_ModelG3d_getMtx	low	vtable slot 17: ScnObj GetMtx(type 2) into out
+801AB79C	Gfx_ModelG3d_getNodeName	low	vtable slot 19: returns ResNode name (Kokeshi returns "dummy")
+801AB814	Gfx_ModelG3d_getNodeId	low	vtable slot 20: returns ResNode id
+801AB88C	Gfx_ModelG3d_getMatName	low	vtable slot 22: returns ResMat name
+801AB904	Gfx_ModelG3d_getMatId	low	vtable slot 23: returns ResMat id
+801AB96C	Gfx_ModelG3d_getShpName	low	vtable slot 25: returns third resource name (+0x38 offset)
+801AB9E4	Gfx_ModelG3d_getShpId	low	vtable slot 26: returns third resource id (+0x3c)
+801ABA4C	Gfx_ModelG3d_setShpVisible	low	vtable slot 11: sets/clears resource flag bit 2 (visibility)
+801ABADC	Gfx_ModelG3d_isShpVisible	low	vtable slot 12: returns resource flag bit 2 clear
+801ABB4C	Gfx_ModelG3d_onCalcView	low	vtable slot 53: empty
+801ABB50	Gfx_ModelG3d_dtor	medium	vtable slot 32: base dtor body then free when flag > 0
+801ABBA8	Gfx_ModelG3d_thunkDrawXlu	medium	vtable slot 44: this-0x48 thunk to onDrawXlu
+801ABBB0	Gfx_ModelG3d_thunkDrawOpa	medium	vtable slot 43: this-0x48 thunk to onDrawOpa
+801ABBB8	Gfx_ModelG3d_thunkCalcView	medium	vtable slot 42: this-0x48 thunk to onCalcView
+801ABBC0	Gfx_ModelG3d_thunkCalcMat	medium	vtable slot 41: this-0x48 thunk to onCalcMat
+801ABBC8	Gfx_ModelG3d_thunkCalcWorld	medium	vtable slot 40: this-0x48 thunk to onCalcWorld
+801ABBD0	Gfx_ModelG3d_thunkDtor48	medium	vtable slot 39: this-0x48 thunk to dtor
+801ABBD8	Gfx_ModelG3d_thunkCalcWorldC	medium	vtable slot 50: this-0x4c thunk to calcWorldCallbackC
+801ABBE0	Gfx_ModelG3d_thunkCalcWorldB	medium	vtable slot 49: this-0x4c thunk to calcWorldCallbackB
+801ABBE8	Gfx_ModelG3d_thunkCalcWorldA	medium	vtable slot 48: this-0x4c thunk to calcWorldCallbackA
+801ABBF0	Gfx_ModelG3d_thunkDtor4C	medium	vtable slot 47: this-0x4c thunk to dtor
+801ABBF8	Gfx_ModelSceneMgrCb_getName	low	returns constant string ptr 0x8031821F; tiny 4-byte object created by ModelSceneMgr ctor
+801ABC08	Gfx_ModelSceneMgr_getLightMgr	medium	returns modelScene[idx]+0xC (egg LightManager created in ModelScene ctor)
+801ABC18	Gfx_ModelSceneMgr_getScnProc	medium	returns modelScene[idx]+0x14 (object from Gfx_801A7548 in ModelScene ctor)
+801ABC28	Gfx_ModelSceneMgr_clearCurrent	medium	zeroes current-model-scene-manager globals 8043C560/5C0/590/588
+801ABC40	Gfx_ModelSceneMgr_clearResources	medium	clears resource table at +0x20; clears current globals if this is current
+801ABC90	Gfx_ModelSceneMgr_drawPostAll	low	calls ModelScene vslot 4 on each of 8 model scenes; end of Renderer_draw
+801ABCF0	Gfx_ModelSceneMgr_resetViewsAll	medium	RP_801AFB80 then ModelScene_resetViews on each of 8 model scenes
+801ABD48	Gfx_ModelSceneMgr_calcWorldAll	low	for each model scene: toggles ScnRoot flag 2 around eggScnRootEx_800988A8 (calc world)
+801ABDE8	Gfx_ModelSceneMgr_calcAll	medium	unless disabled: ModelScene slot1 on all, flush pending draw entries, ModelScene slot2 on all
+801ABED8	Gfx_ModelSceneMgr_clearEntriesAll	medium	ModelScene_clearEntries on each of 8 model scenes
+801ABF2C	Gfx_ModelSceneMgr_createModelScene	high	allocs 0xA8 ModelScene (RPGrpModelScene ctor) and stores in slot idx
+801ABF94	Gfx_ModelSceneMgr_setCurrent	medium	sets current globals from this and its +0x20/+0x24/+0x28 (res table, heaps)
+801ABFC8	Gfx_ModelSceneMgr_ctor	medium	0x38 obj: heaps +0x24/+0x28, res table +0x20, 8 null model scene slots, cb obj 8034FEC0
+801AC074	Gfx_ModelSceneMgrCb_vf04	low	returns 0
+801AC07C	Gfx_ModelSceneMgrCb_dtor	medium	(this, short) delete when flag>0
+801AC0BC	Gfx_ModelSceneMgrCb_vf00Empty	low	empty virtual
+801AC0C0	Gfx_ModelSceneMgrCb_vf01Empty	low	empty virtual
+801AC0C4	Gfx_ModelSceneMgrCb_vf03	low	returns 0x14
+801AC0CC	Gfx_deleteObj_801AC0CC	low	generic dtor shape: delete this when flag>0; no vtable reference
+801AC10C	Gfx_ResTable_setEntry	medium	fills 16-byte entry {type,res,ptr,extra}; type 0xC binds g3d ResFile, 0xD-0x16 anim handles
+801AC37C	Gfx_ResTable_getAnmByIndex	low	switch on anim type 0xD-0x16 calling nw4r ResFile getters on entry ResFile
+801AC550	Gfx_ResTable_getAnmByName	low	same shape as getAnmByIndex with a different nw4r getter family (likely by name)
+801AC724	Gfx_ResTable_findOrAdd	medium	returns index of entry with res==arg, else fills last free slot via setEntry
+801AC7C4	Gfx_ResTable_addIfAbsent	medium	setEntry only if no entry has res==arg
+801AC7FC	Gfx_ResTable_findIndex	high	linear search entries for res pointer, returns index or -1
+801AC844	Gfx_ResTable_clearAll	medium	releases ResFile entries (type 0xC) and zeroes all entries
+801AC8F4	Gfx_ResTable_clearEntry	medium	releases ResFile if type 0xC and zeroes one entry
+801AC978	Gfx_ResTable_alloc	medium	if empty, allocs count*16 bytes and zeroes all entries
+801ACB60	Gfx_ResTable_init	medium	zeroes entry pointer and count
+801ACB70	Gfx_ResTable_ctor	low	stores vtable 8034FF60 at +8 of 0xC object
+801ACB80	Gfx_ResTable_dtor	low	generic delete-when-flag dtor shape following ResTable ctor
+801ACBC0	Gfx_ScnProcDrawHook_vf02Empty	low	empty virtual
+801ACBC4	Gfx_ScnProcDrawHook_draw	low	maps phase via table, calls view slot8 and renderer drawers; optional capture via 8043C4D8
+801ACDF4	Gfx_View_setProjection	medium	tail-calls Gfx_801AE834 (load camera matrix + set screen projection)
+801ACDF8	Gfx_Renderer_addDrawer	high	appends node to singly linked list head +0xC/tail +0x10; scenes pass their +0x24 drawer
+801ACE1C	Gfx_Renderer_linkViews	medium	hooks scnprocs, chains non-null views +0x14..+0x93 into list at +0x94, sets flag 1
+801ACF54	Gfx_Renderer_createView2D	high	allocs 0x20 View2D(idx), inits, sets screen, stores at view slot idx
+801ACFF0	Gfx_Renderer_createView3D	high	allocs 0x28 View3D(idx), inits, setCamera, sets screen, stores at view slot idx
+801AD088	Gfx_Renderer_endFrame	low	sets draw phase 4 and calls every registered drawer; main loop
+801AD0DC	Gfx_Renderer_calcPaused	low	calc world of model scenes then view calc; used when scene user calc is skipped
+801AD134	Gfx_Renderer_postCalc	medium	model scene calc/entry flush, clears tail drawer, view calc; after scene user calc
+801AD1B8	Gfx_Renderer_preCalc	medium	clears model scene entry lists before scene user calc
+801AD1C0	Gfx_Renderer_draw	high	sets current, iterates enabled views: setProjection, phases 1-3 drawers, view draw, capture
+801AD6B0	Gfx_Renderer_beginFrame	low	resets model scene view counts, phase 0 drawer pass; main loop
+801AD710	Gfx_Renderer_setCurrent	high	sets current renderer global 8043C5A0 and current model scene mgr
+801AD740	Gfx_Renderer_clearResources	medium	ModelSceneMgr_clearResources on +0x98; called on scene exit
+801AD748	Gfx_Renderer_create	high	allocs 0xA0 renderer (scene id, flags, 32 view slots, ModelSceneMgr +0x98), makes current
+801AD8A8	Gfx_setDrawPhaseIdle	medium	sets draw phase global 8043B354 = 0xC
+801AD8B4	Gfx_resetDefaultProjection	low	loads default screen with identity depth range and resets matrices
+801AD934	Gfx_beginDraw	medium	resets draw counters/phase, default screen, reads System fade alpha (asserts 0..1)
+801AD9CC	Gfx_setClearColor	medium	packs r,g,b into global and passes to System clear color setter
+801ADA14	Gfx_initEngine	medium	eggGfxEngine init, sets light/texture name strings, default screen size, clears current
+801ADB80	Gfx_deleteObj_801ADB80	low	generic delete-when-flag dtor shape
+801ADBC0	Gfx_ScnProcDrawHook_dtor	medium	(this, short) delete when flag>0; vtable 8034FF70 slot 0
+801ADC00	Gfx_ScnProcDrawHook_initGlobal	high	static init: vtable into 8043C598, registers global destructor
+801ADC30	Gfx_drawFillRect	medium	builds ortho screen and draws colored quad via eggDrawGX
+801ADD24	Gfx_setZModeFromFlag	low	eggDrawGX z-mode with compare=(field4==1)
+801ADD40	Gfx_initScreenSize	low	eggScreen init with two size pairs on default screen 80438FC8
+801ADD4C	Gfx_initDefaultScreen	high	static init of default egg Screen 80438FC8 and registers its dtor
+801ADDA8	Gfx_ScreenEffect_draw	medium	draws view effect: blurred capture textures and colored overlay quads via eggDrawGX
+801AE4DC	Gfx_calcFrustumCorners	low	computes 4 corner points from screen dims/near into 4 vec3s and normalizes
+801AE62C	Gfx_View_getCamera	medium	base/2D: returns 0 (view vslot 3)
+801AE634	Gfx_View_getCameraOrDefault	medium	camera via vslot3, else default camera 80438CC0
+801AE694	Gfx_View_getScreenOrDefault	high	returns +0x10 screen or default screen 80438FC8
+801AE6AC	Gfx_View_projectPoint	low	uses camera+screen (or screen frustum) to convert a point between spaces
+801AE770	Gfx_View_unprojectPoint	low	counterpart of projectPoint using the other egg frustum helper
+801AE834	Gfx_View_loadProjection	medium	copies camera view matrix to global, sets screen projection (ortho/persp by type)
+801AE980	Gfx_View_setScreen	high	swaps +0x10 screen pointer, returns old
+801AE990	Gfx_View_clearAndDrawEffect	medium	clears color/alpha/z per flags with +0xC color, then draws screen effect at +0x18
+801AEB4C	Gfx_View_draw	low	if enabled and type 0, calc frustum corners into 8043903C (vslot 6)
+801AEB8C	Gfx_View_calc	low	if enabled and type 0, calc frustum corners (vslot 5, called each frame)
+801AEBCC	Gfx_View_createScreenEffect	medium	allocs 0x18 effect (vtable 8035008C) with colors/scale, stores at view+0x18
+801AEC90	Gfx_View_init	low	empty; vslot 4 called right after view construction
+801AEC94	Gfx_View_ctor	high	sets vtable at +0x1C, index, flags 0x211, type 2, clear color, null screen/next/effect
+801AECEC	Gfx_ScreenEffect_dtor	low	generic delete-when-flag dtor next to view code
+801AED2C	Gfx_View_dtor	medium	(this, short) delete when flag>0
+801AED6C	Gfx_View_setCamera	low	base: returns 0 (vslot 2; View3D overrides to swap camera)
+801AED74	Gfx_initFrustumCornersGlobal	medium	static init of 8043903C object (vtable 80350098), registers dtor
+801AED9C	Gfx_FrustumCorners_dtor	medium	global dtor registered for 8043903C
+801AEDDC	Gfx_View2D_drawPost	medium	if enabled: clear+effect, loadProjection, reset GX state
+801AEE24	Gfx_View2D_draw	low	thunk into View_draw body
+801AEE28	Gfx_View2D_init	low	empty
+801AEE2C	Gfx_View2D_ctor	high	View ctor then type 1 and vtable 803500A8
+801AEE70	Gfx_View2D_dtor	medium	(this, short) delete when flag>0
+801AEEB0	Gfx_View2D_getType	medium	returns 1 (2D)
+801AEEB8	Gfx_View3D_setCamera	high	swaps +0x20 camera, returns old
+801AEEC8	Gfx_View3D_setProjection	medium	if model-scene flag: calls model scene vslot via +0xA4, else loadProjection
+801AEEF8	Gfx_View3D_drawPost	medium	if enabled with model scene flag: calls model scene draw slot
+801AEF30	Gfx_View3D_draw	medium	frustum, clear+effect, then ModelScene_addView with camera and screen
+801AF008	Gfx_View3D_calc	medium	base calc then updates camera (Gfx_801A6870) if present
+801AF074	Gfx_View3D_getCamera	high	returns +0x20 camera
+801AF07C	Gfx_View3D_ctor	high	View ctor then null camera, vtable 803500D8, type 0
+801AF0C8	Gfx_View3D_dtor	medium	(this, short) delete when flag>0
+801AF108	Gfx_View3D_getType	medium	returns 0 (3D)
+801AF110	Gfx_ModelScene_setupLights	medium	asserts tmpScreen, calls light manager calc/load and fog
+801AF1A8	Gfx_ModelScene_appendDrawEntry	medium	appends entry to list pair at +0xA0
+801AF1CC	Gfx_ModelScene_applyEntryLightSet	medium	sets entry light/ambient set indices from per-scene tables
+801AF24C	Gfx_ModelScene_setLightHook	low	stores object at +0x18 slot indexed by its first byte (32 slots)
+801AF260	Gfx_ModelScene_drawShadow	low	forwards to ScnRoot vtable slot (+0x10)
+801AF274	Gfx_ModelScene_draw	medium	per entry calc + light set, then eggScnRootEx draw opa/xlu passes
+801AF394	Gfx_ModelScene_addView	medium	increments view count, sets ScnRootEx camera from camera matrix and screen
+801AF3E4	Gfx_ModelScene_resetViews	medium	zeroes view count and resets ScnRootEx state
+801AF424	Gfx_ModelScene_calcEntries	medium	registers entry models, applies 32 light hooks, ScnRenderer calc and IScnProc
+801AF524	Gfx_ModelScene_calc	medium	eggScnRootEx calc anim + calc world
+801AF55C	Gfx_ModelScene_clearEntries	medium	clears entry lists and removes all scene children, sets flag 0x10
+801AF620	Gfx_ModelScene_dtor	high	destroys ScnRoot, delete when flag>0
+801AF6A0	Gfx_ModelScene_ctor	high	RPGrpModelScene.cpp asserts: creates ScnRoot, light mgr, fog, ScnRenderer, entry lists
+801B18BC	Gfx_updateCameraAndLightTarget	low	updates camera at +4, saves previous matrix, copies a matrix and calls +0x1b4 vslot 0x10
+801B19E8	Gfx_KokeshiModel_getShpName	low	vtable 80350210 slot 25: returns "dummy"
+801B19F0	Gfx_KokeshiModel_getMatName	low	vtable slot 22: returns "dummy"
+801B19F8	Gfx_KokeshiModel_getNodeName	low	vtable slot 19: returns "dummy"
+801B235C	Gfx_KokeshiModel_calc	low	vtable slot 30: applies visibility, hides model when +0x90 flag 0x100 set
+801B23C8	Gfx_KokeshiModel_applyScale	medium	vtable slot 35: writes scale times Kokeshi scale (8043B358) and mirror table into ScnObj, runs helper
+801B256C	Gfx_KokeshiModel_setMatColor	low	vtable slot 6: stores 8-word colour into one of two slots chosen by name string, sets flag
+801B2690	Gfx_KokeshiModel_emptySlot34	low	vtable slot 34: empty
+801B2694	Gfx_KokeshiModel_setup	low	vtable slot 33: creates materials, sets global draw settings, initializes Mii model colours
+801B29C8	Gfx_KokeshiModel_getType	medium	vtable slot 3: returns 2
+801B29D0	Gfx_KokeshiModel_emptySlot7	low	vtable slot 7: empty (no priority)
+801B29D4	Gfx_KokeshiModel_getPriority	low	vtable slot 8: returns 0
+801B29DC	Gfx_KokeshiModel_setNodeMtx	low	vtable slot 13: copies matrix into ScnObj matrix (+0xc)
+801B29F0	Gfx_KokeshiModel_getNodeCalcMtx	low	vtable slot 15: returns current calc matrix global
+801B29F8	Gfx_KokeshiModel_getNodeWorldMtx	low	vtable slot 14: returns ScnObj matrix (+0xc)
+801B2A08	Gfx_KokeshiModel_setNodeCalcMtx	low	vtable slot 16: forwards to vslot 0x4c
+801B2A1C	Gfx_KokeshiModel_getMtx	low	vtable slot 17: ScnObj GetMtx(type 2)
+801B2A30	Gfx_KokeshiModel_getNodeId	low	vtable slot 20: returns 0
+801B2A38	Gfx_KokeshiModel_getMatId	low	vtable slot 23: returns 0
+801B2A40	Gfx_KokeshiModel_getShpId	low	vtable slot 26: returns 0
+801B2A48	Gfx_KokeshiModel_emptySlot0	low	vtable slot 0: empty
+801B2A4C	Gfx_KokeshiModel_emptySlot2	low	vtable slot 2: empty
+801B2A50	Gfx_KokeshiModel_emptySlot1	low	vtable slot 1: empty
+801B2A54	Gfx_KokeshiModel_onDrawXlu	low	vtable slot 49: empty callback target
+801B2A58	Gfx_KokeshiModel_onDrawOpa	low	vtable slot 48: empty callback target
+801B2A5C	Gfx_KokeshiModel_onCalcView	low	vtable slot 47: empty callback target
+801B2A60	Gfx_KokeshiModel_onCalcMat	low	vtable slot 46: empty callback target
+801B2A64	Gfx_KokeshiModel_onCalcWorld	low	vtable slot 45: empty callback target
+801B2A68	Gfx_KokeshiModel_dtor	medium	vtable slot 32: base dtor body then free when flag > 0
+801B2B04	Gfx_KokeshiModel_thunkDrawXlu	medium	vtable slot 44: this-0x48 thunk
+801B2B0C	Gfx_KokeshiModel_thunkDrawOpa	medium	vtable slot 43: this-0x48 thunk
+801B2B14	Gfx_KokeshiModel_thunkCalcView	medium	vtable slot 42: this-0x48 thunk
+801B2B1C	Gfx_KokeshiModel_thunkCalcMat	medium	vtable slot 41: this-0x48 thunk
+801B2B24	Gfx_KokeshiModel_thunkCalcWorld	medium	vtable slot 40: this-0x48 thunk
+801B2B2C	Gfx_KokeshiModel_thunkDtor	medium	vtable slot 39: this-0x48 thunk to dtor
+801B6C0C	Sys_ResSlots_findOrLoad	low	finds named resource in slot table or loads it from common archive into a free slot and registers it
+801B7158	RP_ModelActor_applyTransform	medium	shared actor slot 7: builds SRT matrix, sets model matrix and scale, update/calc/add to draw list; moved from Gfx
+801B8D54	RP_ModelActor2_applyTransform	medium	shared actor slot 27: builds matrix from axes/position, uniform scale (min 0.001), update/calc/draw; moved from Gfx
+801D1598	Mii_MiiModel_applyTransform	low	sets head/body model matrices and scale, calcs both, sets visibility and adds to draw list; moved from Gfx
+801E4388	Sys_AvatarAnimScene_calculate	low	scene slot 18 override: when menu done and fade idle changes to chosen game scene (0x10-0x18) or scene 1
+801FEC04	Fsh_Scene_configure	low	Fishing scene slot 15 override: sets up res table, model scenes, 3D/2D views, screen effect, sound; moved from Gfx

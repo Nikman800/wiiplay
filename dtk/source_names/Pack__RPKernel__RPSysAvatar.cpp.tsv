@@ -1,0 +1,7 @@
+address	old_name	new_name	unit	previous
+80197A2C	Mii_MiiIconBase_setup	Setup__11RPSysAvatarFv	Pack/RPKernel/RPSysAvatar.cpp	
+8034F6C8	lbl_8034F6C8	__vt__11RPSysAvatar	Pack/RPKernel/RPSysAvatar.cpp	
+8043C620	RP_lcgSeed	sRandom__11RPUtlRandom	Pack/RPKernel/RPSysAvatar.cpp	
+8043EAB0	lbl_8043EAB0	RANDF_MAX__11RPUtlRandom	Pack/RPKernel/RPSysAvatar.cpp	
+8043EAB4	lbl_8043EAB4	RANDF_SHIFT__11RPUtlRandom	Pack/RPKernel/RPSysAvatar.cpp	
+8043EAB8	lbl_8043EAB8	MULT__11RPUtlRandom	Pack/RPKernel/RPSysAvatar.cpp	

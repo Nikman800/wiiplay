@@ -1,0 +1,15 @@
+address	old_name	new_name	unit	previous
+802E35D8	Bom_LayoutMgr_showScoreMove	ShowScoreMove__14RPBomLayoutMgrFll	Pack/RPParty/RPBomScene/RPBomLyt.cpp	
+802E35F8	Bom_LayoutMgr_spawnScorePopup	SpawnScorePopup__14RPBomLayoutMgrFPCQ34nw4r4math4VEC2lli	Pack/RPParty/RPBomScene/RPBomLyt.cpp	
+802E3670	Bom_LayoutMgr_draw	DrawLayouts__14RPBomLayoutMgrFv	Pack/RPParty/RPBomScene/RPBomLyt.cpp	
+802E37A0	Bom_LayoutMgr_exit	Exit__14RPBomLayoutMgrFv	Pack/RPParty/RPBomScene/RPBomLyt.cpp	
+802E38AC	Bom_LayoutMgr_calc	Calculate__14RPBomLayoutMgrFv	Pack/RPParty/RPBomScene/RPBomLyt.cpp	
+802E39DC	Bom_LayoutMgr_reset	Reset__14RPBomLayoutMgrFv	Pack/RPParty/RPBomScene/RPBomLyt.cpp	
+802E3B00	Bom_LayoutMgr_load	Load__14RPBomLayoutMgrFv	Pack/RPParty/RPBomScene/RPBomLyt.cpp	
+802E3C7C	Bom_LayoutMgr_create	Create__14RPBomLayoutMgrFv	Pack/RPParty/RPBomScene/RPBomLyt.cpp	
+802E3DD0	Bom_LayoutMgr_dtor	__dt__14RPBomLayoutMgrFv	Pack/RPParty/RPBomScene/RPBomLyt.cpp	
+802E3E28	Bom_LayoutMgr_destroyInstance	DestroyInstance__14RPBomLayoutMgrFv	Pack/RPParty/RPBomScene/RPBomLyt.cpp	
+802E3E6C	Bom_LayoutMgr_createInstance	CreateInstance__14RPBomLayoutMgrFv	Pack/RPParty/RPBomScene/RPBomLyt.cpp	
+802E660C	Bom_LytLevel_ctor	__ct__13RPBomLytLevelFv	Pack/RPParty/RPBomScene/RPBomLyt.cpp	
+802E9638	Bom_LytClear_ctor	__ct__13RPBomLytClearFv	Pack/RPParty/RPBomScene/RPBomLyt.cpp	
+8035F7A0	lbl_8035F7A0	__vt__14RPBomLayoutMgr	Pack/RPParty/RPBomScene/RPBomLyt.cpp	

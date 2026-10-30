@@ -1,0 +1,5 @@
+address	old_name	new_name	unit	previous
+801B5CA4	Snd_VolumeFader_thunk_update	@8@update__14RPSndMoveParamFv	Pack/RPAudio/RPSndMoveParam.cpp	
+803504D0	lbl_803504D0	__vt__14RPSndMoveParam	Pack/RPAudio/RPSndMoveParam.cpp	
+803504E8	lbl_803504E8	__vt__17RPSndMoveValueF32	Pack/RPAudio/RPSndMoveParam.cpp	
+80439100	lbl_80439100	sMoveParamList__17RPSndMoveParamMgr	Pack/RPAudio/RPSndMoveParam.cpp	

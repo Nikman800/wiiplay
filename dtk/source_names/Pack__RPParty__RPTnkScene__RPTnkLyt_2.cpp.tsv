@@ -1,0 +1,15 @@
+address	old_name	new_name	unit	previous
+802641C8	Tnk_GameManager_startBgm	StartBgm__16RPTnkGameManagerFv	Pack/RPParty/RPTnkScene/RPTnkLyt_2.cpp	
+80264248	Tnk_GameManager_startStageBgm	StartStageBgm__16RPTnkGameManagerFv	Pack/RPParty/RPTnkScene/RPTnkLyt_2.cpp	
+802642AC	Tnk_GameManager_setStageReady	SetStageReady__16RPTnkGameManagerFb	Pack/RPParty/RPTnkScene/RPTnkLyt_2.cpp	
+8026E0B0	Tnk_GameStats_addLives	AddLives__14RPTnkGameStatsFll	Pack/RPParty/RPTnkScene/RPTnkLyt_2.cpp	
+8026E350	Tnk_Fade_start	Start__9RPTnkFadeFbb	Pack/RPParty/RPTnkScene/RPTnkLyt_2.cpp	
+8026E558	Tnk_Fade_exit	VF_0x18__9RPTnkFadeFv	Pack/RPParty/RPTnkScene/RPTnkLyt_2.cpp	
+8026E55C	Tnk_Fade_draw	Draw__9RPTnkFadeFv	Pack/RPParty/RPTnkScene/RPTnkLyt_2.cpp	
+8026E668	Tnk_Fade_calc	Calculate__9RPTnkFadeFv	Pack/RPParty/RPTnkScene/RPTnkLyt_2.cpp	
+8026EB9C	Tnk_Fade_reset	Reset__9RPTnkFadeFv	Pack/RPParty/RPTnkScene/RPTnkLyt_2.cpp	
+8026ED64	Tnk_Fade_load	Load__9RPTnkFadeFPQ23EGG7Archive	Pack/RPParty/RPTnkScene/RPTnkLyt_2.cpp	
+8026EE70	Tnk_Fade_updateStates	UpdateStates__9RPTnkFadeFv	Pack/RPParty/RPTnkScene/RPTnkLyt_2.cpp	
+8026F39C	Tnk_Fade_dtor	__dt__9RPTnkFadeFv	Pack/RPParty/RPTnkScene/RPTnkLyt_2.cpp	
+8035C240	Tnk_Fade_vtable	__vt__9RPTnkFade	Pack/RPParty/RPTnkScene/RPTnkLyt_2.cpp	
+8043C8E8	Tnk_tankManagerInstance	sInstance__16RPTnkTankManager	Pack/RPParty/RPTnkScene/RPTnkLyt_2.cpp	

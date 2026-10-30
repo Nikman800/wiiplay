@@ -1,0 +1,4 @@
+address	old_name	new_name	unit	previous
+801B5E44	Snd_HomeButtonSndMgr_thunk_calc	@240@calc__19RPSndHomeMenuArcMgrFv	Pack/RPAudio/RPSndHomeMenuArcMgr.cpp	
+801B5E4C	Snd_HomeButtonSndMgr_thunk_dtor	@240@__dt__19RPSndHomeMenuArcMgrFv	Pack/RPAudio/RPSndHomeMenuArcMgr.cpp	
+8032E1A8	lbl_8032E1A8	__vt__Q23EGG12SoundHeapMgr	Pack/RPAudio/RPSndHomeMenuArcMgr.cpp	

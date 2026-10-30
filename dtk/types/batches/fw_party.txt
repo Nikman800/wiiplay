@@ -1,0 +1,243 @@
+# batch fw_party: modules Party; 616 functions; 42 classes
+
+## classes (ledger class -> suggested C++ name; vtables; allocation sizes; methods)
+Party_ChoiceLyt -> RPChoiceLyt; vtables 80358340; sizes 0x58 via Party_ChoiceLyt_ctor in Party_ResultMenu_ctor; 18 methods: calc, calcIn, calcOut, calcPush, ctor, decide, draw, drawOther, enterIn, enterOut, enterPush, getButtonPane ...
+Party_Common -> RPCommon; vtables 80358290; sizes 0x54 via Party_Common_ctor in Party_Common_create; 14 methods: calc, create, ctor, destroy, draw, drawThunk, dtor, dtorThunk, getGameMsgIndex, loadResources, playAvatarAnim, reset ...
+Party_CommonParam -> RPCommonParam; vtables -; sizes -; 1 methods: setDefault
+Party_CrowdMgr -> RPCrowdMgr; vtables 803586B8; sizes -; 6 methods: calc, create, destroy, dtor, load, reset
+Party_CrowdMii -> RPCrowdMii; vtables 80358608; sizes 0x1E0 via Party_CrowdMii_ctor in Party_CrowdMgr_create; 24 methods: calc, calcFlail, calcIdle, calcLook6, calcMove1, calcMove2, calcRunaway, calcSwim, ctor, dtor, dtorThunk4, dtorThunk60 ...
+Party_CrowdMiiSeq -> RPCrowdMiiSeq; vtables -; sizes 0x28 via Party_CrowdMiiSeq_ctor in Party_CrowdMii_ctor; 9 methods: callCalc, callEnter, callExit, changeState, ctor, init, isState, setStateFuncs, update
+Party_Doll -> RPDoll; vtables 80358490; sizes 0x1E8 via Party_Doll_ctor in Party_DollMgr_create; 41 methods: adjustBillboardMatrix, adjustMatrixThunk, calc, calcAnim1Loop, calcAnim2Loop, calcAnim5, calcAnim6, calcDoze7, calcIdle, calcLookAtOther, calcPairAnim, calcPairReact ...
+Party_DollBase -> RPDollBase; vtables 80358558; sizes -; 21 methods: cacheJointPositions, calc, clampLookDir, ctor, dtor, dtorThunk4, dtorThunk60, dtorThunk8, getTurnSpeed, hitTestPart, isAnimDone, load ...
+Party_DollMgr -> RPDollMgr; vtables 80358540; sizes -; 17 methods: areAllInState7, calc, clearLookFlag, create, destroy, dtor, getAvatar, getDollPos, hitTestDoll, load, lookAt, requestReaction ...
+Party_DollSeq -> RPDollSeq; vtables -; sizes 0x28 via Party_DollSeq_ctor in Party_Doll_ctor; 10 methods: callCalc, callEnter, callExit, changeState, ctor, init, isState, isStateOrPending, setStateFuncs, update
+Party_FaceCtrl -> RPFaceCtrl; vtables -; sizes 0x18 via Party_FaceCtrl_ctor in Party_Common_ctor; 0x18 via Party_FaceCtrl_ctor in Party_CrowdMii_ctor; 0x18 via Party_FaceCtrl_ctor in Party_Doll_ctor; 3 methods: calc, ctor, reset
+Party_GameInfoLyt -> RPGameInfoLyt; vtables 80358440; sizes 0xA4 via Party_GameInfoLyt_ctor in Party_SelectScene_ctor; 16 methods: calc, calcIdle, calcIn, calcOut, calcPushA, close, confirm, ctor, draw, enterIn, enterOut, enterPushA ...
+Party_GameInfoSeq -> RPGameInfoSeq; vtables -; sizes 0x28 via Party_GameInfoSeq_ctor in Party_GameInfoLyt_ctor; 10 methods: callCalc, callEnter, callExit, changeState, ctor, init, isState, isStateOrPending, setStateFuncs, update
+Party_LeadCursor -> RPLeadCursor; vtables 803586D0; sizes 0x28 via Party_LeadCursor_ctor in Party_Common_ctor; 10 methods: calc, ctor, draw, dtor, load, reset, setAllDisabled, setPlayerDisabled, setPlayerTimer, setTimers
+Party_LeadCursorLyt -> RPLeadCursorLyt; vtables -; sizes 0x88 via Party_LeadCursorLyt_ctor in Party_LeadCursor_ctor; 15 methods: calc, calcIdle, calcIn, calcLoop, calcOut, ctor, draw, enterIdle, enterIn, enterLoop, enterOut, hide ...
+Party_LeadCursorSeq -> RPLeadCursorSeq; vtables -; sizes 0x28 via Party_LeadCursorSeq_ctor in Party_LeadCursorLyt_ctor; 8 methods: callCalc, callEnter, callExit, changeState, ctor, init, setStateFuncs, update
+Party_MedalResult -> RPMedalResult; vtables 80358218; sizes 0x154 via Party_MedalResult_ctor in Party_Common_ctor; 18 methods: calc, calcMedal, calcRecord, calcSave, ctor, drawLayer1A, drawLayer1C, dtor, dtorThunk4, dtorThunk8, enterMedal, enterRecord ...
+Party_MedalResultSeq -> RPMedalResultSeq; vtables -; sizes 0x28 via Party_MedalResultSeq_ctor in Party_MedalResult_ctor; 8 methods: callCalc, callEnter, callExit, changeState, ctor, init, setStateFuncs, update
+Party_MsgBoard -> RPMsgBoard; vtables 80358700; sizes -; 9 methods: canPost, create, destroy, dtor, loadMessages, postAllMedalsMessage, postMedalMessage, postUnlockMessage, recordPost
+Party_PauseText -> RPPauseText; vtables 80358730; sizes 0xC via Party_PauseText_ctor in Party_Common_ctor; 7 methods: calc, ctor, draw, dtor, load, reset, setDisabled
+Party_PauseTextLyt -> RPPauseTextLyt; vtables -; sizes 0x3C via Party_PauseTextLyt_ctor in Party_PauseText_ctor; 15 methods: calc, calcIdle, calcIn, calcOut, calcShown, ctor, draw, enterIdle, enterIn, enterOut, enterShown, hide ...
+Party_PauseTextSeq -> RPPauseTextSeq; vtables -; sizes 0x28 via Party_PauseTextSeq_ctor in Party_PauseTextLyt_ctor; 8 methods: callCalc, callEnter, callExit, changeState, ctor, init, setStateFuncs, update
+Party_RankCompleteLyt -> RPRankCompleteLyt; vtables 80358710; sizes 0x30 via Party_RankCompleteLyt_ctor in Party_SelectScene_ctor; 13 methods: calc, calcIn, calcOut, close, ctor, draw, enterIn, enterOut, enterShow, load, open, reset ...
+Party_RankCompleteSeq -> RPRankCompleteSeq; vtables -; sizes 0x28 via Party_RankCompleteSeq_ctor in Party_RankCompleteLyt_ctor; 10 methods: callCalc, callEnter, callExit, changeState, ctor, init, isState, isStateOrPending, setStateFuncs, update
+Party_RankGetLyt -> RPRankGetLyt; vtables 803581F8; sizes 0x24 via Party_RankGetLyt_ctor in Party_MedalResult_ctor; 14 methods: calc, calcIn, calcOut, close, ctor, draw, drawOther, enterIn, enterOut, load, open, reset ...
+Party_RankGetSeq -> RPRankGetSeq; vtables -; sizes 0x28 via Party_RankGetSeq_ctor in Party_RankGetLyt_ctor; 9 methods: callCalc, callEnter, callExit, changeState, ctor, init, isStateOrPending, setStateFuncs, update
+Party_RecordLyt -> RPRecordLyt; vtables 803582E8; sizes 0x54 via Party_RecordLyt_ctor in Party_MedalResult_ctor; 20 methods: calc, calcBlink, calcIn, calcNewRec, calcOut, close, ctor, drawLayer1A, drawLayer1C, enterBlink, enterIn, enterNewRec ...
+Party_RecordSeq -> RPRecordSeq; vtables -; sizes 0x28 via Party_RecordSeq_ctor in Party_RecordLyt_ctor; 9 methods: callCalc, callEnter, callExit, changeState, ctor, init, isState, setStateFuncs, update
+Party_ResultMenu -> RPResultMenu; vtables 80358308; sizes 0x30 via Party_ResultMenu_ctor in Party_Common_ctor; 15 methods: calc, calcDecide, calcSelect, calcShow, ctor, drawLayer1A, drawLayer1C, dtor, enterDecide, enterSelect, enterShow, getChoice ...
+Party_ResultMenuSeq -> RPResultMenuSeq; vtables -; sizes 0x28 via Party_ResultMenuSeq_ctor in Party_ResultMenu_ctor; 8 methods: callCalc, callEnter, callExit, changeState, ctor, init, setStateFuncs, update
+Party_ScreenFade -> RPScreenFade; vtables 803586E8; sizes 0x14 via Party_ScreenFade_ctor in Party_Common_ctor; 4 methods: calc, ctor, dtor, reset
+Party_SelectGameLyt -> RPSelectGameLyt; vtables 80358398; sizes 0x53C via Party_SelectGameLyt_ctor in Party_SelectScene_ctor; 48 methods: animateIcons, calc, calcDecide, calcIn, calcLockedEnd, calcLockedLoop, calcLockedStart, calcOut, calcSlotDecide, calcSlotHighlight, calcSlotHighlighted, calcSlotIdle ...
+Party_SelectGameSeq -> RPSelectGameSeq; vtables -; sizes 0x28 via Party_SelectGameSeq_ctor in Party_SelectGameLyt_ctor; 10 methods: callCalc, callEnter, callExit, changeState, ctor, init, isState, isStateOrPending, setStateFuncs, update
+Party_SelectScene -> RPSelectScene; vtables 803583B8; sizes 0xE0 via Party_SelectScene_ctor in Party_SelectScene_create; 42 methods: calc, calcBackHighlight, calcDecideGame, calcGameInfo, calcGotoSelect, calcGotoState10, calcRankComplete, calcSelect, calcWaitBackButton, calcWaitDialog, calcWaitInfoConfirm, calcWaitInfoOpen ...
+Party_SelectSceneSeq -> RPSelectSceneSeq; vtables -; sizes 0x28 via Party_SelectSceneSeq_ctor in Party_SelectScene_ctor; 8 methods: callCalc, callEnter, callExit, changeState, ctor, init, setStateFuncs, update
+Party_TitleLyt -> RPTitleLyt; vtables 80358748; sizes 0x248 via Party_TitleLyt_ctor in Lyt_CommonMessage_setup; 24 methods: calc, calcBubble, calcButtonPress, calcClosed, calcIn, calcOut, calcWaitPress, calcWaitReady, ctor, draw, dtor, enterBubble ...
+Party_TitleSeq -> RPTitleSeq; vtables -; sizes 0x28 via Party_TitleSeq_ctor in Party_TitleLyt_ctor; 10 methods: callCalc, callEnter, callExit, changeState, ctor, init, isState, isStateOrPending, setStateFuncs, update
+Party_VsResultLyt -> RPVsResultLyt; vtables 80358320; sizes 0x2C via Party_VsResultLyt_ctor in Party_ResultMenu_ctor; 12 methods: calc, calcIn, calcOut, close, ctor, draw, drawOther, enterIn, enterOut, load, open, reset
+Party_VsWinner -> RPVsWinner; vtables 80358360; sizes 0xD0 via Party_VsWinner_ctor in Party_Common_ctor; 17 methods: calc, calcClose, calcIn, calcSave, calcShow, ctor, drawLayer1A, drawLayer1C, dtor, enterClose, enterIn, enterSave ...
+Party_VsWinnerLyt -> RPVsWinnerLyt; vtables 80358378; sizes 0x24 via Party_VsWinnerLyt_ctor in Party_VsWinner_ctor; 16 methods: calc, calcIn, calcOut, close, ctor, draw, drawOther, enterIn, enterOut, getPlayerPanePos, getTrophyPanePos, load ...
+Party_VsWinnerLytSeq -> RPVsWinnerLytSeq; vtables -; sizes 0x28 via Party_VsWinnerLytSeq_ctor in Party_VsWinnerLyt_ctor; 9 methods: callCalc, callEnter, callExit, changeState, ctor, init, isStateOrPending, setStateFuncs, update
+Party_VsWinnerSeq -> RPVsWinnerSeq; vtables -; sizes 0x28 via Party_VsWinnerSeq_ctor in Party_VsWinner_ctor; 8 methods: callCalc, callEnter, callExit, changeState, ctor, init, setStateFuncs, update
+
+## globals referenced (address name section size refs)
+800B221C _savegpr_16 .text 0x0 2
+800B222C _savegpr_20 .text 0x0 1
+800B2230 _savegpr_21 .text 0x0 2
+800B2234 _savegpr_22 .text 0x0 2
+800B2238 _savegpr_23 .text 0x0 2
+800B223C _savegpr_24 .text 0x0 3
+800B2240 _savegpr_25 .text 0x0 4
+800B2244 _savegpr_26 .text 0x0 5
+800B2248 _savegpr_27 .text 0x0 10
+800B2268 _restgpr_16 .text 0x0 2
+800B2278 _restgpr_20 .text 0x0 1
+800B227C _restgpr_21 .text 0x0 2
+800B2280 _restgpr_22 .text 0x0 2
+800B2284 _restgpr_23 .text 0x0 2
+800B2288 _restgpr_24 .text 0x0 3
+800B228C _restgpr_25 .text 0x0 4
+800B2290 _restgpr_26 .text 0x0 5
+800B2294 _restgpr_27 .text 0x0 10
+8030FE48 lbl_8030FE48 .rodata 0x10 29
+8031BD98 lbl_8031BD98 .rodata 0x28 1
+8031BDC0 lbl_8031BDC0 .rodata 0x78 1
+8031BE38 lbl_8031BE38 .rodata 0x19 2
+8031BEF0 lbl_8031BEF0 .rodata 0x90 1
+8031BF80 lbl_8031BF80 .rodata 0x78 1
+8031BFF8 lbl_8031BFF8 .rodata 0x10 1
+8031C008 lbl_8031C008 .rodata 0x58 1
+8031C060 lbl_8031C060 .rodata 0xD 3
+8031C2D8 lbl_8031C2D8 .rodata 0x28 2
+8031C300 lbl_8031C300 .rodata 0x18 1
+8031C318 lbl_8031C318 .rodata 0xA 1
+8031C3F8 lbl_8031C3F8 .rodata 0xA8 1
+8031C4A0 lbl_8031C4A0 .rodata 0x14 1
+8031C4B4 lbl_8031C4B4 .rodata 0x14 1
+8031C4C8 lbl_8031C4C8 .rodata 0x14 1
+8031C4DC lbl_8031C4DC .rodata 0xC 4
+8031C730 lbl_8031C730 .rodata 0x78 1
+8031C7A8 lbl_8031C7A8 .rodata 0x78 1
+8031C820 lbl_8031C820 .rodata 0x10 1
+8031C830 lbl_8031C830 .rodata 0x1A 1
+8031C8D8 lbl_8031C8D8 .rodata 0x90 1
+8031C968 lbl_8031C968 .rodata 0x18 3
+8031CB18 lbl_8031CB18 .rodata 0x100 1
+8031CC18 lbl_8031CC18 .rodata 0xC0 1
+8031CD80 lbl_8031CD80 .rodata 0x78 1
+8031CDF8 lbl_8031CDF8 .rodata 0x1A 2
+8031CEA0 lbl_8031CEA0 .rodata 0x330 2
+8031D1D0 lbl_8031D1D0 .rodata 0x90 1
+8031D260 lbl_8031D260 .rodata 0x13 2
+8031D5B8 lbl_8031D5B8 .rodata 0x28 2
+8031D5E0 lbl_8031D5E0 .rodata 0x180 1
+8031D760 lbl_8031D760 .rodata 0x10 1
+8031D770 lbl_8031D770 .rodata 0x250 5
+8031D9C0 lbl_8031D9C0 .rodata 0x100 1
+8031DAC0 lbl_8031DAC0 .rodata 0xE4 1
+8031DBA4 lbl_8031DBA4 .rodata 0x24 1
+8031DBC8 lbl_8031DBC8 .rodata 0x15 4
+8031DEB0 lbl_8031DEB0 .rodata 0x60 3
+8031DF10 lbl_8031DF10 .rodata 0x1B0 1
+8031E0C0 lbl_8031E0C0 .rodata 0x50 1
+8031E110 lbl_8031E110 .rodata 0x50 1
+8031E160 lbl_8031E160 .rodata 0xA 2
+8031E280 lbl_8031E280 .rodata 0x38 1
+8031E2B8 lbl_8031E2B8 .rodata 0x10 1
+8031E2C8 lbl_8031E2C8 .rodata 0x30 1
+8031E2F8 lbl_8031E2F8 .rodata 0x10 1
+8031E370 lbl_8031E370 .rodata 0xC0 1
+8031E430 lbl_8031E430 .rodata 0x20 1
+8031E450 lbl_8031E450 .rodata 0x18 1
+8031E468 lbl_8031E468 .rodata 0x18 1
+8031E480 lbl_8031E480 .rodata 0x10 1
+8031E490 lbl_8031E490 .rodata 0x10 1
+8031E4F0 lbl_8031E4F0 .rodata 0x20 2
+8031E510 lbl_8031E510 .rodata 0x38 2
+8031E548 lbl_8031E548 .rodata 0x60 1
+8031E5A8 lbl_8031E5A8 .rodata 0x10 1
+8031E5B8 lbl_8031E5B8 .rodata 0x30 1
+8031E5E8 lbl_8031E5E8 .rodata 0x1A 1
+8031E728 lbl_8031E728 .rodata 0x24 1
+8031E74C lbl_8031E74C .rodata 0x12 1
+8031E760 lbl_8031E760 .rodata 0x78 1
+8031E7D8 lbl_8031E7D8 .rodata 0x14 1
+8031E7EC lbl_8031E7EC .rodata 0xF 3
+8031E8F8 lbl_8031E8F8 .rodata 0x60 1
+8031E958 lbl_8031E958 .rodata 0x1B 1
+8031E9F8 lbl_8031E9F8 .rodata 0x178 2
+8031EB70 lbl_8031EB70 .rodata 0x13 3
+8031EE48 lbl_8031EE48 .rodata 0x38 1
+8031EE80 lbl_8031EE80 .rodata 0x1D 1
+8034F32C lbl_8034F32C .data 0x14 1
+8034F8D8 lbl_8034F8D8 .data 0x19 9
+8034F8F8 lbl_8034F8F8 .data 0x10 9
+803581F8 lbl_803581F8 .data 0x20 1
+80358218 lbl_80358218 .data 0x78 1
+80358290 lbl_80358290 .data 0x30 1
+803582C0 lbl_803582C0 .data 0x14 1
+803582D4 lbl_803582D4 .data 0x14 4
+803582E8 lbl_803582E8 .data 0x20 1
+80358308 lbl_80358308 .data 0x18 1
+80358320 lbl_80358320 .data 0x20 1
+80358340 lbl_80358340 .data 0x20 1
+80358360 lbl_80358360 .data 0x18 1
+80358378 lbl_80358378 .data 0x20 1
+80358398 lbl_80358398 .data 0x20 1
+803583B8 lbl_803583B8 .data 0x88 2
+80358440 lbl_80358440 .data 0x20 1
+80358460 lbl_80358460 .data 0x10 1
+80358470 jumptable_80358470 .data 0x20 1
+80358490 lbl_80358490 .data 0xB0 1
+80358540 lbl_80358540 .data 0x18 1
+80358558 lbl_80358558 .data 0xB0 1
+80358608 lbl_80358608 .data 0xB0 1
+803586B8 lbl_803586B8 .data 0x18 1
+803586D0 lbl_803586D0 .data 0x18 1
+803586E8 lbl_803586E8 .data 0x18 1
+80358700 lbl_80358700 .data 0x10 1
+80358710 lbl_80358710 .data 0x20 1
+80358730 lbl_80358730 .data 0x18 1
+80358748 lbl_80358748 .data 0x18 1
+8039F540 lbl_8039F540 .bss 0x58 6
+8043A3B8 lbl_8043A3B8 .bss 0x18 1
+8043A3D0 lbl_8043A3D0 .bss 0x28 2
+8043A3F8 lbl_8043A3F8 .bss 0x10 1
+8043A408 lbl_8043A408 .bss 0x18 1
+8043A420 lbl_8043A420 .bss 0x1C 1
+8043A43C lbl_8043A43C .bss 0x1C 2
+8043A458 lbl_8043A458 .bss 0x18 1
+8043A470 lbl_8043A470 .bss 0x40 1
+8043A4B0 lbl_8043A4B0 .bss 0x20 1
+8043AC28 lbl_8043AC28 .sdata 0x2 6
+8043AC2C lbl_8043AC2C .sdata 0x2 1
+8043B354 lbl_8043B354 .sdata 0x4 2
+8043B3E8 lbl_8043B3E8 .sdata 0x8 3
+8043B3F0 lbl_8043B3F0 .sdata 0x8 1
+8043B3F8 lbl_8043B3F8 .sdata 0x8 2
+8043B400 lbl_8043B400 .sdata 0x8 2
+8043B408 lbl_8043B408 .sdata 0x8 3
+8043B410 lbl_8043B410 .sdata 0x8 2
+8043B418 lbl_8043B418 .sdata 0x8 1
+8043B420 lbl_8043B420 .sdata 0x8 1
+8043B428 lbl_8043B428 .sdata 0x8 2
+8043B430 lbl_8043B430 .sdata 0x4 1
+8043B434 lbl_8043B434 .sdata 0x4 1
+8043B438 lbl_8043B438 .sdata 0x4 1
+8043B43C lbl_8043B43C .sdata 0x4 1
+8043B440 lbl_8043B440 .sdata 0x4 2
+8043B444 lbl_8043B444 .sdata 0x4 2
+8043B448 lbl_8043B448 .sdata 0x4 1
+8043B44C lbl_8043B44C .sdata 0x4 1
+8043B450 lbl_8043B450 .sdata 0x4 1
+8043B454 lbl_8043B454 .sdata 0x4 1
+8043B458 lbl_8043B458 .sdata 0x4 2
+8043B45C lbl_8043B45C .sdata 0x4 2
+8043B460 lbl_8043B460 .sdata 0x4 3
+8043B464 lbl_8043B464 .sdata 0x4 6
+8043B468 lbl_8043B468 .sdata 0x4 2
+8043B46C lbl_8043B46C .sdata 0x4 1
+8043B470 lbl_8043B470 .sdata 0x4 1
+8043B474 lbl_8043B474 .sdata 0x4 1
+8043B478 lbl_8043B478 .sdata 0x8 1
+8043B480 lbl_8043B480 .sdata 0x8 1
+8043B488 lbl_8043B488 .sdata 0x4 1
+8043B48C lbl_8043B48C .sdata 0x1 2
+8043B490 lbl_8043B490 .sdata 0x4 2
+8043B494 lbl_8043B494 .sdata 0x4 1
+8043BBA8 lbl_8043BBA8 .sbss 0x4 10
+8043BC18 lbl_8043BC18 .sbss 0x4 6
+8043BC70 lbl_8043BC70 .sbss 0x4 3
+8043C440 lbl_8043C440 .sbss 0x4 5
+8043C468 lbl_8043C468 .sbss 0x8 2
+8043C470 lbl_8043C470 .sbss 0x8 4
+8043C480 lbl_8043C480 .sbss 0x8 7
+8043C498 lbl_8043C498 .sbss 0x8 13
+8043C4B0 lbl_8043C4B0 .sbss 0x8 9
+8043C504 lbl_8043C504 .sbss 0x4 7
+8043C528 lbl_8043C528 .sbss 0x8 5
+8043C530 lbl_8043C530 .sbss 0x8 4
+8043C588 lbl_8043C588 .sbss 0x8 3
+8043C590 lbl_8043C590 .sbss 0x8 3
+8043C5A0 lbl_8043C5A0 .sbss 0x4 10
+8043C5A5 lbl_8043C5A5 .sbss 0x1 2
+8043C5D4 lbl_8043C5D4 .sbss 0x4 20
+8043C620 lbl_8043C620 .sbss 0x8 23
+8043C6A8 lbl_8043C6A8 .sbss 0x8 1
+8043C6C8 lbl_8043C6C8 .sbss 0x8 12
+8043C6D0 lbl_8043C6D0 .sbss 0x8 1
+8043C6D8 lbl_8043C6D8 .sbss 0x8 24
+8043C6E0 lbl_8043C6E0 .sbss 0x8 2
+8043C6E8 lbl_8043C6E8 .sbss 0x8 9
+8043C6F0 lbl_8043C6F0 .sbss 0x8 3
+8043C6F8 lbl_8043C6F8 .sbss 0x8 17
+8043C700 lbl_8043C700 .sbss 0x4 5
+8043C704 lbl_8043C704 .sbss 0x4 5
+8043C708 lbl_8043C708 .sbss 0x8 5
+8043C710 lbl_8043C710 .sbss 0x8 1
+8043C718 lbl_8043C718 .sbss 0x8 1
+8043C720 lbl_8043C720 .sbss 0x8 7

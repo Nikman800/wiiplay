@@ -1,0 +1,13 @@
+address	old_name	new_name	unit	previous
+80270940	Tnk_ExMsg_playOutAll	PlayOutAll__10RPTnkExMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_5.cpp	
+802709BC	Tnk_ExMsg_playOut	PlayOut__10RPTnkExMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_5.cpp	
+80270A50	Tnk_ExMsg_show	Show__10RPTnkExMsgFlf	Pack/RPParty/RPTnkScene/RPTnkLyt_5.cpp	
+80270BD8	Tnk_ExMsg_exit	VF_0x18__10RPTnkExMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_5.cpp	
+80270BDC	Tnk_ExMsg_draw	Draw__10RPTnkExMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_5.cpp	
+80270BE4	Tnk_ExMsg_calc	Calculate__10RPTnkExMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_5.cpp	
+80270BEC	Tnk_ExMsg_reset	Reset__10RPTnkExMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_5.cpp	
+80270D00	Tnk_ExMsg_load	Load__10RPTnkExMsgFPQ23EGG7Archive	Pack/RPParty/RPTnkScene/RPTnkLyt_5.cpp	
+80270DB0	Tnk_ExMsg_dtor	__dt__10RPTnkExMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_5.cpp	
+80270DF0	Tnk_ExMsg_ctor	__ct__10RPTnkExMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_5.cpp	
+80270E2C	Tnk_hideExMsg	RPTnkHideExMsg__Fv	Pack/RPParty/RPTnkScene/RPTnkLyt_5.cpp	
+8035C2A0	Tnk_ExMsg_vtable	__vt__10RPTnkExMsg	Pack/RPParty/RPTnkScene/RPTnkLyt_5.cpp	

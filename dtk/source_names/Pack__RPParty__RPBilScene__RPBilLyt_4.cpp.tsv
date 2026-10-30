@@ -1,0 +1,12 @@
+address	old_name	new_name	unit	previous
+802D20CC	Bil_StrokeGuide_setMode	SetMode__16RPBilStrokeGuideFl	Pack/RPParty/RPBilScene/RPBilLyt_4.cpp	
+802D21AC	Bil_StrokeGuide_draw	UserDraw__16RPBilStrokeGuideFv	Pack/RPParty/RPBilScene/RPBilLyt_4.cpp	
+802D21DC	Bil_StrokeGuide_calc	Calculate__16RPBilStrokeGuideFv	Pack/RPParty/RPBilScene/RPBilLyt_4.cpp	
+802D21F4	Bil_StrokeGuide_reset	Reset__16RPBilStrokeGuideFv	Pack/RPParty/RPBilScene/RPBilLyt_4.cpp	
+802D229C	Bil_StrokeGuide_load	Load__16RPBilStrokeGuideFPQ23EGG7Archive	Pack/RPParty/RPBilScene/RPBilLyt_4.cpp	
+802D245C	Bil_StrokeGuide_dtor	__dt__16RPBilStrokeGuideFv	Pack/RPParty/RPBilScene/RPBilLyt_4.cpp	
+802D249C	Bil_StrokeGuide_destroy	DestroyInstance__16RPBilStrokeGuideFv	Pack/RPParty/RPBilScene/RPBilLyt_4.cpp	
+802D24E0	Bil_StrokeGuide_create	CreateInstance__16RPBilStrokeGuideFv	Pack/RPParty/RPBilScene/RPBilLyt_4.cpp	
+802D2548	Bil_StrokeGuide_drawThunk	@8@UserDraw__16RPBilStrokeGuideFv	Pack/RPParty/RPBilScene/RPBilLyt_4.cpp	__dt__16IRPGrpDrawObjectFv;Bil_StrokeGuide_tmpThunkDraw
+802D2550	Bil_StrokeGuide_dtorThunk	@8@__dt__16RPBilStrokeGuideFv	Pack/RPParty/RPBilScene/RPBilLyt_4.cpp	Hide__9RPBilHintFv;Bil_StrokeGuide_tmpThunkDtor
+8035E628	lbl_8035E628	__vt__16RPBilStrokeGuide	Pack/RPParty/RPBilScene/RPBilLyt_4.cpp	

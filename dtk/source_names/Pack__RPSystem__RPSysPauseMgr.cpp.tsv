@@ -1,0 +1,13 @@
+address	old_name	new_name	unit	previous
+8018AF1C	Sys_Pause_dtor	__dt__13RPSysPauseMgrFv	Pack/RPSystem/RPSysPauseMgr.cpp	
+8018AF84	Sys_Pause_checkStart	checkStart__13RPSysPauseMgrFv	Pack/RPSystem/RPSysPauseMgr.cpp	
+8018B0E0	Sys_Pause_draw	draw__13RPSysPauseMgrFv	Pack/RPSystem/RPSysPauseMgr.cpp	
+8018B0F8	Sys_Pause_calc	calc__13RPSysPauseMgrFv	Pack/RPSystem/RPSysPauseMgr.cpp	
+8018B260	Sys_Pause_init	init__13RPSysPauseMgrFv	Pack/RPSystem/RPSysPauseMgr.cpp	
+8018B458	Sys_Pause_loadMenu	loadMenu__13RPSysPauseMgrFv	Pack/RPSystem/RPSysPauseMgr.cpp	
+8018B460	Sys_Pause_createInstance	CreateInstance__13RPSysPauseMgrFPQ23EGG4Heap	Pack/RPSystem/RPSysPauseMgr.cpp	
+8019E5D0	Lyt_PauseMenu_dtor	__dt__14RPSysPauseMenuFv	Pack/RPSystem/RPSysPauseMgr.cpp	
+8019E610	Lyt_PauseMenu_ctor	__ct__14RPSysPauseMenuFv	Pack/RPSystem/RPSysPauseMgr.cpp	
+8019F0AC	Lyt_PauseMenu_calc	calc__14RPSysPauseMenuFv	Pack/RPSystem/RPSysPauseMgr.cpp	
+8019F44C	Lyt_PauseMenu_open	open__14RPSysPauseMenuFv	Pack/RPSystem/RPSysPauseMgr.cpp	
+8019F79C	Lyt_PauseMenu_load	load__14RPSysPauseMenuFv	Pack/RPSystem/RPSysPauseMgr.cpp	

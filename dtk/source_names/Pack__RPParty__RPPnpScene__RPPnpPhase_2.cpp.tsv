@@ -1,0 +1,16 @@
+address	old_name	new_name	unit	previous
+801BA2A4	Pnp_interpolateEased	RPInterpolate__Ffflll	Pack/RPParty/RPPnpScene/RPPnpPhase_2.cpp	
+801E56D8	Party_MedalResult_getRankForScore	GetRankForScore__13RPMedalResultCFl	Pack/RPParty/RPPnpScene/RPPnpPhase_2.cpp	
+8022B074	Pnp_ResultPhase_draw	Draw__16RPPnpResultPhaseFv	Pack/RPParty/RPPnpScene/RPPnpPhase_2.cpp	
+8022B078	Pnp_ResultPhase_exit	Exit__16RPPnpResultPhaseFv	Pack/RPParty/RPPnpScene/RPPnpPhase_2.cpp	
+8022B07C	Pnp_ResultPhase_calc	Calculate__16RPPnpResultPhaseFv	Pack/RPParty/RPPnpScene/RPPnpPhase_2.cpp	
+8022B384	Pnp_ResultPhase_reset	Reset__16RPPnpResultPhaseFv	Pack/RPParty/RPPnpScene/RPPnpPhase_2.cpp	
+8022B3A4	Pnp_ResultPhase_load	Load__16RPPnpResultPhaseFv	Pack/RPParty/RPPnpScene/RPPnpPhase_2.cpp	
+8022B3A8	Pnp_ResultPhase_create	Create__16RPPnpResultPhaseFv	Pack/RPParty/RPPnpScene/RPPnpPhase_2.cpp	
+8022B420	Pnp_ResultPhase_start	Start__16RPPnpResultPhaseFv	Pack/RPParty/RPPnpScene/RPPnpPhase_2.cpp	
+8022BC34	Pnp_ResultPhase_dtor	__dt__16RPPnpResultPhaseFv	Pack/RPParty/RPPnpScene/RPPnpPhase_2.cpp	
+8022E67C	Pnp_Audience_playLoopAnimA	PlayLoopAnimA__13RPPnpAudienceFl	Pack/RPParty/RPPnpScene/RPPnpPhase_2.cpp	
+8022E820	Pnp_Audience_playLoopAnimB	PlayLoopAnimB__13RPPnpAudienceFl	Pack/RPParty/RPPnpScene/RPPnpPhase_2.cpp	
+8035988C	Pnp_ResultPhase_vtable	__vt__16RPPnpResultPhase	Pack/RPParty/RPPnpScene/RPPnpPhase_2.cpp	
+8043B718	Pnp_resultFrames	sResultFrames__16RPPnpResultPhase	Pack/RPParty/RPPnpScene/RPPnpPhase_2.cpp	
+8043B71C	Pnp_resultCameraValue	sCameraDistance__16RPPnpResultPhase	Pack/RPParty/RPPnpScene/RPPnpPhase_2.cpp	

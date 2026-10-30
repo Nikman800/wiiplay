@@ -1,0 +1,148 @@
+#ifndef RP_SYSTEM_PLAYER_H
+#define RP_SYSTEM_PLAYER_H
+#include <Pack/types_pack.h>
+
+#include <Pack/RPSystem/RPPartyPlayerData.h>
+#include <Pack/RPSystem/RPSportsPlayerData.h>
+
+#include <RVLFaceLib.h>
+
+//! @addtogroup rp_system
+//! @{
+
+/**
+ * @brief Player function parameter set
+ */
+struct RPSysPlayerArg {
+    //! Sports Pack player data for default Miis
+    RPSportsPlayerData* pDefaultSportsPlayerData; // at 0x0
+    //! Sports Pack player data for controller Miis
+    RPSportsPlayerData** ppCtrlSportsPlayerData; // at 0x4
+
+    //! Party Pack player data for default Miis
+    RPPartyPlayerData* pDefaultPartyPlayerData; // at 0x8
+    //! Party Pack player data for controller Miis
+    RPPartyPlayerData** ppCtrlPartyPlayerData; // at 0xC
+};
+
+/**
+ * @brief Player object
+ */
+class RPSysPlayer {
+public:
+    /**
+     * @brief Constructor
+     */
+    RPSysPlayer();
+
+    /**
+     * @brief Destructor
+     */
+    ~RPSysPlayer() {
+        // @bug Memory leak
+#if defined(BUG_FIX)
+        delete mpSportsPlayerData;
+        mpSportsPlayerData = NULL;
+
+        delete mpPartyPlayerData;
+        mpPartyPlayerData = NULL;
+#endif
+    }
+
+    /**
+     * @brief Resets the data to a default state
+     */
+    void reset();
+
+    /**
+     * @brief Sets the Mii avatar associated with this player
+     *
+     * @param dataSrc Mii data source
+     * @param index Mii database index
+     * @param rCreateID Mii create ID
+     */
+    void setAvatar(s8 dataSrc, u16 index, const RFLCreateID& rCreateID);
+
+    /**
+     * @brief Loads this player's data
+     *
+     * @param rArg Parameter set
+     */
+    void loadData(const RPSysPlayerArg& rArg);
+
+    /**
+     * @brief Saves this player's data
+     *
+     * @param rArg Parameter set
+     */
+    void saveData(const RPSysPlayerArg& rArg);
+
+    /**
+     * @brief Gets the controller channel used by this player
+     */
+    u8 getChannel() const {
+        return mChannel;
+    }
+    /**
+     * @brief Sets the controller channel used by this player
+     *
+     * @param chan Controller channel
+     */
+    void setChannel(u8 chan) {
+        mChannel = chan;
+    }
+
+    /**
+     * @brief Gets the RFL data source where this player's avatar can be found
+     * @details If the data source was never configured, this value will be -1.
+     */
+    s8 getDataSource() const {
+        return mDataSource;
+    }
+
+    /**
+     * @brief Gets the database index where this player's avatar can be found
+     */
+    u16 getIndex() const {
+        return mIndex;
+    }
+
+    /**
+     * @brief Accesses the Mii create ID of this player's avatar
+     */
+    const RFLCreateID& getCreateID() const {
+        return mCreateID;
+    }
+
+private:
+    //! Controller channel
+    u8 mChannel; // at 0x0
+
+    //! Mii data source
+    s8 mDataSource; // at 0x1
+    //! Mii database index
+    u16 mIndex; // at 0x2
+    //! Mii create ID
+    RFLCreateID mCreateID; // at 0x4
+
+    //! Player data list index
+    s32 mPlayerDataIndex; // at 0xC
+
+public:
+    //! Sports Pack player data
+    RPSportsPlayerData* mpSportsPlayerData; // at 0x10
+    //! Party Pack player datya
+    RPPartyPlayerData* mpPartyPlayerData; // at 0x14
+};
+
+/**
+ * @brief Stubbed (release build) formatted print into a buffer
+ * @details Wii Play: a variadic no-op defined first in RPSysPlayer.cpp (it is the last function of
+ * that unit), called with (buffer, format, ...) by RPPnpAudience and RPWlySound. The name is a
+ * project convention; the original name is unknown.
+ */
+void RPSysPlayer_DebugSprintf(char* pBuffer, const char* pFmt, ...);
+
+//! @}
+
+#endif

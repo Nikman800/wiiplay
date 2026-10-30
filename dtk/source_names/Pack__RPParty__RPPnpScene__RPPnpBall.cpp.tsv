@@ -1,0 +1,22 @@
+address	old_name	new_name	unit	previous
+80225240	Pnp_Ball_predictTableLanding	PredictTableLanding__9RPPnpBallFPQ34nw4r4math4VEC3	Pack/RPParty/RPPnpScene/RPPnpBall.cpp	PredictTableLanding__9RPPnpBallCFPQ34nw4r4math4VEC3
+80225A78	Pnp_Ball_tossServe	TossServe__9RPPnpBallFRCQ34nw4r4math4VEC3	Pack/RPParty/RPPnpScene/RPPnpBall.cpp	TossServe__9RPPnpBallFQ34nw4r4math4VEC3
+80225CAC	Pnp_Ball_onEventState7	OnEventState8__9RPPnpBallFll	Pack/RPParty/RPPnpScene/RPPnpBall.cpp	
+80225DAC	Pnp_Ball_onEventState8	OnEventState7__9RPPnpBallFll	Pack/RPParty/RPPnpScene/RPPnpBall.cpp	
+80225EAC	Pnp_Ball_onEventState4	OnEventState4__9RPPnpBallFll	Pack/RPParty/RPPnpScene/RPPnpBall.cpp	
+8022632C	Pnp_Ball_calc	Calculate__9RPPnpBallFv	Pack/RPParty/RPPnpScene/RPPnpBall.cpp	
+80226720	Pnp_Ball_load	Load__9RPPnpBallFv	Pack/RPParty/RPPnpScene/RPPnpBall.cpp	
+80226A24	Pnp_RacketTrail_dtor	__dt__16RPPnpRacketTrailFv	Pack/RPParty/RPPnpScene/RPPnpBall.cpp	get3DPosition__15TRPSndObject<0>Fi
+80226B34	Pnp_BallTrail_dtor	__dt__14RPPnpBallTrailFv	Pack/RPParty/RPPnpScene/RPPnpBall.cpp	__dt__16RPPnpRacketTrailFv
+80226C48	Pnp_Ball_dtor	__dt__9RPPnpBallFv	Pack/RPParty/RPPnpScene/RPPnpBall.cpp	
+80226CA0	Pnp_sinitBallDefaults	__sinit_\RPPnpBall_cpp	Pack/RPParty/RPPnpScene/RPPnpBall.cpp	
+80226CF4	Pnp_RacketTrail_dtorThunk	@16@__dt__16RPPnpRacketTrailFv	Pack/RPParty/RPPnpScene/RPPnpBall.cpp	@16@get3DPosition__15TRPSndObject<0>Fi;@16@__dt__19TRPSndGameObject<0>Fv
+80226CFC	Pnp_BallTrail_dtorThunk	@16@__dt__14RPPnpBallTrailFv	Pack/RPParty/RPPnpScene/RPPnpBall.cpp	@16@__dt__16RPPnpRacketTrailFv
+80359638	Pnp_BallTrail_vtable	__vt__14RPPnpBallTrail	Pack/RPParty/RPPnpScene/RPPnpBall.cpp	
+80359714	Pnp_RacketTrail_vtable	__vt__16RPPnpRacketTrail	Pack/RPParty/RPPnpScene/RPPnpBall.cpp	
+803597F0	Pnp_Ball_vtable	__vt__9RPPnpBall	Pack/RPParty/RPPnpScene/RPPnpBall.cpp	
+8043A6D8	Pnp_ballStartPos	sStartPos__9RPPnpBall	Pack/RPParty/RPPnpScene/RPPnpBall.cpp	
+8043A6E4	Pnp_ballServeVelocity	sServeVelocity__9RPPnpBall	Pack/RPParty/RPPnpScene/RPPnpBall.cpp	
+8043A6F0	Pnp_ballGravity	sGravity__9RPPnpBall	Pack/RPParty/RPPnpScene/RPPnpBall.cpp	
+8043B6B8	Pnp_ballDrag	sDrag__9RPPnpBall	Pack/RPParty/RPPnpScene/RPPnpBall.cpp	
+8043C7F8	Pnp_debugStartRally	sDebugStartRally__9RPPnpBall	Pack/RPParty/RPPnpScene/RPPnpBall.cpp	

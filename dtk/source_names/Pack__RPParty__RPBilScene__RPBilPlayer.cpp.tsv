@@ -1,0 +1,5 @@
+address	old_name	new_name	unit	previous
+802BD62C	Bil_updateAimMarker	UpdateAimMarker__11RPBilPlayerFv	Pack/RPParty/RPBilScene/RPBilPlayer.cpp	
+802C1120	Bil_Player_dtorThunk4	@4@__dt__11RPBilPlayerFv	Pack/RPParty/RPBilScene/RPBilPlayer.cpp	
+802C1128	Bil_Player_drawThunk	@8@UserDraw__11RPBilPlayerFv	Pack/RPParty/RPBilScene/RPBilPlayer.cpp	
+802C1130	Bil_Player_dtorThunk8	@8@__dt__11RPBilPlayerFv	Pack/RPParty/RPBilScene/RPBilPlayer.cpp	

@@ -1,0 +1,61 @@
+address	name	type	confidence	note
+80321F80	Duc_grassRow2X	f32[6]	H	x positions of the six grass tufts at z 72 (RPDucField::Reset/Calculate)
+80321F98	Duc_grassRow3X	f32[6]	H	x positions of the six grass tufts at z 84 (RPDucField::Reset/Calculate)
+80321FD0	Duc_balloonModelNames	const char*[4]	H	"sht_b_red", "sht_b_blue", "sht_b_yellow", NULL; RPDucBalloon::Load
+80321FE0	Duc_balloonStringCurveInit	s32[6]	M	initializer of the RPCurve description built in RPDucBalloon::Load (point count 6)
+803220C0	Duc_duckOrientationTable	f32[12]	L	local table of Duc_Duck_updateOrientation (15, -7, 15, -7, -110, -110, 110, 110, -10, -10, 10, 10)
+803222F0	Duc_spawnerSetup0Table	s32[4]	M	local initializer in Duc_Spawner_setup0/patternBalloonsB (0, 15, 5, 3)
+80322300	Duc_spawnerSetup2Counts	s32[6]	H	spawn counts per RPDucGame::mWaves in Duc_Spawner_setup2 (0, 3, 9, 300, 18, 300)
+80322318	Duc_spawnerSetup5Table	s32[5]	M	local initializer in Duc_Spawner_setup5
+8032232C	Duc_spawnerSetup6Table	s32[5]	M	local initializer in Duc_Spawner_setup6
+80322340	Duc_spawnerSetup7Table	s32[6]	M	local initializer in Duc_Spawner_setup7
+80322358	Duc_spawnerSetup9Table	s32[64]	M	local initializer in Duc_Spawner_setup9 (counts, timers, positions per wave)
+80322458	Duc_spawnerUfosBTable	s32[6]	M	local initializer in Duc_Spawner_patternUfosB
+80322488	Duc_canModelNames	const char*[5]	H	"sht_can_00" .. "sht_can_04"; RPDucCan::Load
+80322538	Duc_pointPopupTextBoxNames	const char*[4]	H	"T_numberU_00", "T_numberU_01", "T_numberD_00", "T_numberD_01"; RPDucPointPopup::Show
+803225F0	Duc_scoreLayoutAnmNames	const char*[12]	H	duckhuntScore_00_*.brlan names; RPDucScoreLayout::Load
+80322C38	Duc_endLayoutAnmNames	const char*[4]	H	duckhuntEnd_00_*.brlan names; RPDucEndLayout::Load
+80359CC0	Duc_balloonStateCheckHit	RPDucBalloon::StateFunc	H	PTMF initializer copied by the RPDucBalloon constructor (state 0)
+80359CCC	Duc_balloonStateFloat	RPDucBalloon::StateFunc	H	PTMF initializer copied by the RPDucBalloon constructor (state 1)
+80359E00	Duc_clayStateFuncs	RPDucClay::StateFunc[4]	H	check hit, rise, slow, fall; copied by the RPDucClay constructor
+80359F38	Duc_duckStateFuncs	RPDucDuck::StateFunc[9]	H	fly .. fall dead; copied by the RPDucDuck constructor (0x70 with padding)
+8035A198	Duc_spawnFuncs	RPDucTarget* (*[7])(const nw4r::math::VEC3&, u32)	H	spawn function per target type (clay, UFO, balloon, round target, duck, can, avatar); Duc_spawnTargetByType
+8035A1B4	Duc_mgrCreateFuncs	RPDucTargetMgr* (*[7])(s32)	H	manager CreateInstance per target type; RPDucTargetRegistry::AddManager
+8035A258	Duc_ufoStateFuncs	RPDucUfo::StateFunc[13]	H	copied by the RPDucUfo constructor (0xA0 with padding)
+8035A3E0	Duc_cameraStateIntro	RPDucCamera::StateFunc	H	PTMF initializer copied by Duc_Camera_createInstance (mode 0)
+8035A3EC	Duc_cameraStateIdle	RPDucCamera::StateFunc	H	PTMF initializer copied by Duc_Camera_createInstance (mode 1)
+8035A4B0	Duc_clayPatternTable	s32[66]	M	per-step timing/side table of Duc_Spawner_patternClay (indexed by RPDucSpawner::mStep; side flags at +0xAC)
+8035A5E4	Duc_spawnerPatternFuncs	RPDucSpawner::PatternFunc[20]	H	copied by the RPDucSpawner constructor
+8035A718	Duc_gameStateFuncTables	u8[0x3B4]	M	dtk symbol covering two copies of the RPDucGame state table (8 PTMFs each, the second at +0x60 is copied by Duc_Game_createInstance) and following data
+8035ABE8	Duc_canStateFuncs	RPDucCan::StateFunc[3]	H	check hit, toss, knocked; copied by the RPDucCan constructor
+8035AE38	Duc_circleTargetStateFuncs	RPDucCircleTarget::StateFunc[6]	H	copied by the RPDucCircleTarget constructor
+8035AF88	Duc_avatarStateFuncs	RPDucAvatar::StateFunc[13]	H	copied by the RPDucAvatar constructor (0xA0 with padding)
+8043A760	Duc_sceneLightPos	nw4r::math::VEC3	H	(19000, 10000, 10000), set by Duc_initSceneLightPos; copied to the scene light in RPDucScene::LoadResource
+8043A770	Duc_introCamPos	nw4r::math::VEC3	H	(0, 5, 120): intro camera start and first path point (Duc_initCameraPathPoints)
+8043A77C	Duc_introCamPath	nw4r::math::VEC3[5]	M	intro target (0, 15, 0) then path points 2-5; the last (0, 15, 200) is also the play camera position
+8043A7B8	Duc_playCamTargetUp	nw4r::math::VEC3[2]	H	play camera target (0, 35, 0) and up (0, 1, 0); RPDucCamera::SetMode(1)
+8043A7D0	Duc_type3History	u16[8]	L	recent pattern choices of Duc_Spawner_patternType3 (bytes 0x0-0xB used)
+8043A7E0	Duc_jingleHandleDtorLink	u8[0xC]	H	__register_global_object chain entry for Duc_jingleHandle
+8043A7F0	Duc_avatarFacePoint	nw4r::math::VEC3	H	(0, 0, -150), set by Duc_initAvatarFacePoint; RPDucAvatar turn target
+8043C838	Duc_fieldInstance	RPDucField*	H	RPDucField::CreateInstance
+8043C840	Duc_balloonMgrInstance	RPDucBalloonMgr*	H	Duc_BalloonMgr_createInstance
+8043C848	Duc_clayMgrInstance	RPDucClayMgr*	H	Duc_ClayMgr_createInstance
+8043C850	Duc_duckMgrInstance	RPDucDuckMgr*	H	Duc_DuckMgr_createInstance
+8043C858	Duc_duckApproachSide	u32	M	toggled 0/1 by Duc_Duck_setupApproach
+8043C860	Duc_targetRegistryInstance	RPDucTargetRegistry*	H	RPDucTargetRegistry::CreateInstance
+8043C868	Duc_ufoMgrInstance	RPDucUfoMgr*	H	Duc_UfoMgr_createInstance
+8043C870	Duc_cameraInstance	RPDucCamera*	H	RPDucCamera::CreateInstance
+8043C878	Duc_shotMgrInstance	RPDucShotMgr*	H	RPDucShotMgr::CreateInstance
+8043C880	Duc_spawnerInstance	RPDucSpawner*	H	RPDucSpawner::CreateInstance
+8043C884	Duc_balloonPatternToggle	u32	M	alternates 0/1 in Duc_Spawner_patternBalloonsA
+8043C888	Duc_clayPatternSide	u32	L	side flag of Duc_Spawner_patternClay
+8043C88C	Duc_canPatternLast	s16	L	last random choice of Duc_Spawner_patternCans
+8043C890	Duc_gameInstance	RPDucGame*	H	RPDucGame::CreateInstance
+8043C898	Duc_hudInstance	RPDucHud*	H	RPDucHud::CreateInstance
+8043C8A0	Duc_canMgrInstance	RPDucCanMgr*	H	Duc_CanMgr_createInstance
+8043C8A8	Duc_jingleHandle	nw4r::snd::SoundHandle	H	Duc_startJingleHandle / Duc_stopJingleHandle; static object (Duc_sinit_jingleHandle)
+8043C8B0	Duc_scoreMgrInstance	RPDucScoreMgr*	H	RPDucScoreMgr::CreateInstance
+8043C8B8	Duc_ammoMgrInstance	RPDucAmmoMgr*	H	RPDucAmmoMgr::CreateInstance
+8043C8C0	Duc_circleTargetMgrInstance	RPDucCircleTargetMgr*	H	Duc_CircleTargetMgr_createInstance
+8043C8C8	Duc_avatarMgrInstance	RPDucAvatarMgr*	H	Duc_AvatarMgr_createInstance
+8043C8D0	Duc_finalRoundAvatarFlag	bool	L	cleared by RPDucGame::SpawnFinalRoundObjects and Duc_AvatarMgr_reset, set by Duc_Spawner_setup6

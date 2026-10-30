@@ -1,0 +1,5 @@
+# class	wii_play_alloc_size	header (relative to include/Pack)
+RPSndAudioActorBase	3C	RPAudio/RPSndObject.h
+RPSndObject	84	RPAudio/RPSndObject.h
+RPSndObject2D	5C	RPAudio/RPSndObject2D.h
+RPSndSceneSound	18	RPAudio/RPSndSceneSound.h

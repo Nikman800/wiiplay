@@ -1,0 +1,4 @@
+address	old_name	new_name	unit
+80220F58	Hky_ScoreLyt_playIn	PlayIn__13RPHkyScoreLytFv	Pack/RPParty/RPHkyScene/RPHkyLyt_5.cpp
+802215A4	Hky_TimeLyt_playIn	PlayIn__12RPHkyTimeLytFv	Pack/RPParty/RPHkyScene/RPHkyLyt_5.cpp
+802228D8	Hky_BalloonLyt_requestOut	RequestOut__15RPHkyBalloonLytFv	Pack/RPParty/RPHkyScene/RPHkyLyt_5.cpp

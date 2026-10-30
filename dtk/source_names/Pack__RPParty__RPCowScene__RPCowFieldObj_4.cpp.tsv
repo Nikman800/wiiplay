@@ -1,0 +1,26 @@
+address	old_name	new_name	unit	previous
+802A8D3C	Cow_FieldObj_knockHurdle	KnockHurdle__13RPCowFieldObjFv	Pack/RPParty/RPCowScene/RPCowFieldObj_4.cpp	
+802A932C	Cow_FieldObj_getForwardDir	GetForwardDir__13RPCowFieldObjFv	Pack/RPParty/RPCowScene/RPCowFieldObj_4.cpp	GetForwardDir__13RPCowFieldObjCFv
+802AD0DC	Cow_Hurdle_exit	OnStop__11RPCowHurdleFv	Pack/RPParty/RPCowScene/RPCowFieldObj_4.cpp	
+802AD140	Cow_Hurdle_reset	OnStart__11RPCowHurdleFv	Pack/RPParty/RPCowScene/RPCowFieldObj_4.cpp	
+802AD2A8	Cow_Hurdle_init	LoadResource__11RPCowHurdleFv	Pack/RPParty/RPCowScene/RPCowFieldObj_4.cpp	
+802AD490	Cow_Hurdle_dtor	__dt__11RPCowHurdleFv	Pack/RPParty/RPCowScene/RPCowFieldObj_4.cpp	
+802AD4EC	Cow_Hurdle_ctor	__ct__11RPCowHurdleFv	Pack/RPParty/RPCowScene/RPCowFieldObj_4.cpp	
+802AD5D0	Cow_Hurdle_onCollide	IsEnabled__11RPCowHurdleFP16IRPActorPriority	Pack/RPParty/RPCowScene/RPCowFieldObj_4.cpp	
+802ADAD4	Cow_Hurdle_onCollideThunk	@16@IsEnabled__11RPCowHurdleFP16IRPActorPriority	Pack/RPParty/RPCowScene/RPCowFieldObj_4.cpp	
+802ADADC	Cow_Hurdle_dtorThunk	@20@__dt__11RPCowHurdleFv	Pack/RPParty/RPCowScene/RPCowFieldObj_4.cpp	
+80440E00	lbl_80440E00	sRadius__11RPCowHurdle	Pack/RPParty/RPCowScene/RPCowFieldObj_4.cpp	
+80440E04	lbl_80440E04	sOfsZ__11RPCowHurdle	Pack/RPParty/RPCowScene/RPCowFieldObj_4.cpp	
+80440E08	lbl_80440E08	sSlideHeight__11RPCowHurdle	Pack/RPParty/RPCowScene/RPCowFieldObj_4.cpp	
+80440E0C	lbl_80440E0C	sSlideSpeedMin__11RPCowHurdle	Pack/RPParty/RPCowScene/RPCowFieldObj_4.cpp	
+80440E10	lbl_80440E10	sSlideSpeedMax__11RPCowHurdle	Pack/RPParty/RPCowScene/RPCowFieldObj_4.cpp	
+80440E14	lbl_80440E14	sFlyHeightMin__11RPCowHurdle	Pack/RPParty/RPCowScene/RPCowFieldObj_4.cpp	
+80440E18	lbl_80440E18	sFlyHeightMax__11RPCowHurdle	Pack/RPParty/RPCowScene/RPCowFieldObj_4.cpp	
+80440E1C	lbl_80440E1C	sFlySpeedMax__11RPCowHurdle	Pack/RPParty/RPCowScene/RPCowFieldObj_4.cpp	
+80440E20	lbl_80440E20	sHurdleSpeed__11RPCowHurdle	Pack/RPParty/RPCowScene/RPCowFieldObj_4.cpp	
+80440E24	lbl_80440E24	sHurdleHeight__11RPCowHurdle	Pack/RPParty/RPCowScene/RPCowFieldObj_4.cpp	
+804419E8	lbl_804419E8	sOfsX__11RPCowHurdle	Pack/RPParty/RPCowScene/RPCowFieldObj_4.cpp	
+804419EC	lbl_804419EC	sOfsY__11RPCowHurdle	Pack/RPParty/RPCowScene/RPCowFieldObj_4.cpp	
+804419F0	lbl_804419F0	sSlideSide__11RPCowHurdle	Pack/RPParty/RPCowScene/RPCowFieldObj_4.cpp	
+804419F4	lbl_804419F4	sFlySpeedMin__11RPCowHurdle	Pack/RPParty/RPCowScene/RPCowFieldObj_4.cpp	
+8035D3F0	lbl_8035D3F0	__vt__11RPCowHurdle	Pack/RPParty/RPCowScene/RPCowFieldObj_4.cpp	

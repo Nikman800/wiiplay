@@ -1,0 +1,4 @@
+address	old_name	new_name	unit	previous
+8029341C	Wly_DisplayLyt_playEndIn	PlayEndIn__15RPWlyDisplayLytFv	Pack/RPParty/RPWlyScene/RPWlyLyt_8.cpp	
+80293DB4	Wly_DisplayLyt_setPlayerScore	SetPlayerScore__15RPWlyDisplayLytFll	Pack/RPParty/RPWlyScene/RPWlyLyt_8.cpp	
+80293EEC	Wly_DisplayLyt_updateScoreResult	UpdateScoreResult__15RPWlyDisplayLytFv	Pack/RPParty/RPWlyScene/RPWlyLyt_8.cpp	

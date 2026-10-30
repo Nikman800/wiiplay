@@ -1,0 +1,11 @@
+address	old_name	new_name	unit	previous
+80268A68	Tnk_EmptyTask_exit	Exit__14RPTnkEmptyTaskFv	Pack/RPParty/RPTnkScene/RPTnkTask_2.cpp	
+80268A6C	Tnk_EmptyTask_calculate	Calculate__14RPTnkEmptyTaskFv	Pack/RPParty/RPTnkScene/RPTnkTask_2.cpp	
+80268A70	Tnk_EmptyTask_reset	Reset__14RPTnkEmptyTaskFv	Pack/RPParty/RPTnkScene/RPTnkTask_2.cpp	
+80268A74	Tnk_EmptyTask_load	Load__14RPTnkEmptyTaskFv	Pack/RPParty/RPTnkScene/RPTnkTask_2.cpp	
+80268A78	Tnk_EmptyTask_create	Create__14RPTnkEmptyTaskFv	Pack/RPParty/RPTnkScene/RPTnkTask_2.cpp	
+80268A7C	Tnk_EmptyTask_dtor	__dt__14RPTnkEmptyTaskFv	Pack/RPParty/RPTnkScene/RPTnkTask_2.cpp	
+80268AD4	Tnk_EmptyTask_destroyInstance	DestroyInstance__14RPTnkEmptyTaskFv	Pack/RPParty/RPTnkScene/RPTnkTask_2.cpp	
+80268B18	Tnk_EmptyTask_createInstance	CreateInstance__14RPTnkEmptyTaskFv	Pack/RPParty/RPTnkScene/RPTnkTask_2.cpp	
+8035C068	Tnk_EmptyTask_vtable	__vt__14RPTnkEmptyTask	Pack/RPParty/RPTnkScene/RPTnkTask_2.cpp	
+8043C930	Tnk_emptyTaskInstance	sInstance__14RPTnkEmptyTask	Pack/RPParty/RPTnkScene/RPTnkTask_2.cpp	

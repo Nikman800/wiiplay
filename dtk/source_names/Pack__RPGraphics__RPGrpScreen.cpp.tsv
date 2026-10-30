@@ -1,0 +1,4 @@
+address	old_name	new_name	unit	previous
+801ADD40	Gfx_GrpScreen_initialize	Initialize__11RPGrpScreenFPCUsPCUs	Pack/RPGraphics/RPGrpScreen.cpp	
+801ADD4C	Gfx_initDefaultScreen	__sinit_\RPGrpScreen_cpp	Pack/RPGraphics/RPGrpScreen.cpp	
+801B14E8	Gfx_TexObj_ctorFromResTIMG	__ct__12RPGrpTextureFPCQ23EGG7ResTIMG	Pack/RPGraphics/RPGrpScreen.cpp	

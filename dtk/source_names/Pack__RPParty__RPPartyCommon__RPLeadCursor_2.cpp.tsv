@@ -1,0 +1,11 @@
+address	old_name	new_name	unit	previous
+801F8BA4	Party_LeadCursorLyt_draw	Draw__15RPLeadCursorLytFv	Pack/RPParty/RPPartyCommon/RPLeadCursor_2.cpp	
+801F909C	Party_LeadCursorLyt_reset	Reset__15RPLeadCursorLytFv	Pack/RPParty/RPPartyCommon/RPLeadCursor_2.cpp	
+801F9200	Party_LeadCursorLyt_load	Load__15RPLeadCursorLytFv	Pack/RPParty/RPPartyCommon/RPLeadCursor_2.cpp	
+801F9400	Party_LeadCursorLyt_ctor	__ct__15RPLeadCursorLytFl	Pack/RPParty/RPPartyCommon/RPLeadCursor_2.cpp	
+801F9820	Party_LeadCursor_draw	Draw__12RPLeadCursorFv	Pack/RPParty/RPPartyCommon/RPLeadCursor_2.cpp	
+801F9828	Party_LeadCursor_calc	Calculate__12RPLeadCursorFv	Pack/RPParty/RPPartyCommon/RPLeadCursor_2.cpp	
+801F99E4	Party_LeadCursor_reset	Reset__12RPLeadCursorFv	Pack/RPParty/RPPartyCommon/RPLeadCursor_2.cpp	
+801F9A14	Party_LeadCursor_load	Load__12RPLeadCursorFv	Pack/RPParty/RPPartyCommon/RPLeadCursor_2.cpp	
+801F9A1C	Party_LeadCursor_ctor	__ct__12RPLeadCursorFl	Pack/RPParty/RPPartyCommon/RPLeadCursor_2.cpp	
+801F9A84	Party_LeadCursor_dtor	__dt__12RPLeadCursorFv	Pack/RPParty/RPPartyCommon/RPLeadCursor_2.cpp	

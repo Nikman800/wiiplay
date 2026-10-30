@@ -1,0 +1,40 @@
+address	name	type	confidence	note
+8043C4F0	Lyt_messageWindowInstance	RPMessageWindow*	H	set by Lyt_MessageWindow_createInstance
+8043C4F8	Lyt_tagProcessorInstance	RPSysTagProcessor*	H	RPSysTagProcessor::spInstance, set by Lyt_createTagProcessor; passed to every layout
+8043C530	Lyt_systemWindowInstance	RPSysSystemWinMgr*	H	RPSysSystemWinMgr::spInstance (Lyt_createSingleton8043C530)
+8043C528	Lyt_cursorDrawMgrInstance	RPSysCursorDrawMgr*	H	RPSysCursorDrawMgr::spInstance
+8043C520	Lyt_cursorOutOfScreenPos	EGG::Vector2f	H	RPSysCursorDrawMgr::OUT_OF_SCREEN_POS
+8043C648	Mii_miiIconSetInstance	RPMiiIconSet*	H	Mii_createMiiIconSet / Mii_destroyMiiIconSet
+8043C6A8	Menu_ptMenuBgInstance	RPPtMenuBg*	H	Menu_createPtMenuBg
+8043C6B0	Menu_playerSettingPanelInstance	RPPlayerSettingPanel*	H	Menu_createPlayerSettingPanel
+8043C6C0	Menu_playerConfirmInstance	RPPlayerConfirm*	H	Menu_createPlayerConfirm; its message (+0x74) is used by the name tags and list layout
+8043C630	Lyt_cpadCursorDefaultSize	nw4r::math::VEC2	H	Lyt_initCPadCursorDefaultRect; RPCPadCursor::Reset draw-target size
+8043C638	Lyt_cpadCursorDefaultScale	nw4r::math::VEC2	H	Lyt_initCPadCursorDefaultRect; draw-target scale
+804391D0	Lyt_cpadCursorDefaultTrans	nw4r::math::VEC3	H	Lyt_initCPadCursorDefaultRect; draw-target translation
+8043C650	Lyt_wCursorDefaultSize	nw4r::math::VEC2	H	Lyt_initWCursorDefaultRect (x = 1000); RPWCursor::Reset
+8043C658	Lyt_wCursorDefaultScale	nw4r::math::VEC2	H	Lyt_initWCursorDefaultRect (1.0)
+804391E0	Lyt_wCursorDefaultTrans	nw4r::math::VEC3	H	Lyt_initWCursorDefaultRect (x = 100)
+80438C90	Lyt_tagColorTable	nw4r::ut::Color[4]	H	Lyt_initTagColorTable: (0,0,0,255), red, green, blue; RPSysTagProcessor colour tags
+80438C60	Lyt_tagColorTableDtorChain	u8[0x30]	M	__register_global_object chain entries for Lyt_tagColorTable
+80438860	Lyt_messageExpandBuffer	wchar_t[0x200]	M	Lyt_expandMessageTags output buffer for text boxes
+803576E8	Lyt_frameDownAnimNames	const char*[4]	H	backCommon_00 outFrame / inFrame / activeBack / pushBack; RPFrameDown::Load
+8043B368	Lyt_frameDownBackButtonNames	const char*[2]	H	B_backButton_00/01; RPFrameDown::HitTestBackButton
+8043B370	Lyt_frameDownArcName	const char*	H	"backCommon.arc"
+8043B374	Lyt_frameDownLayoutName	const char*	H	"backCommon_00.brlyt"
+8043B378	Lyt_frameDownCaptionName	const char*	H	"T_caption_01"
+8034F8C0	Lyt_systemWindowButtonAnimNames	const char*[3]	H	systemWindow_00 activeButton (twice) / pushButton
+8043B318	Lyt_systemWindowAButtonAnimNames	const char*[2]	H	systemWindow_00 inAButton / blinkAButton
+8043B320	Lyt_systemWindowButtonPaneNames	const char*[2]	H	N_choicesL_00 / N_choicesR_00
+8043B328	Lyt_systemWindowButtonBoundingNames	const char*[2]	H	B_choicesL_00 / B_choicesR_00
+8043B330	Lyt_systemWindowButtonTextNames	const char*[2]	H	T_choicesL_00 / T_choicesR_00
+8034F880	Lyt_pauseMenuNameTable	const char*[16]	M	pause_00 anim names (0x0-0x14) and button pane / bounding / text names (0x18, 0x24, 0x30)
+80317B90	Lyt_pauseMenuButtonMessages	u32[3][2]	M	common_message.bmg {group, id} per pause button
+8043B390	Menu_menuFrameAnchorPaneNames	const char*[2]	H	N_frameUp_00 / N_frameDown_00; RPMenuFrame anchor positions
+8043B39C	Menu_menuFramePaneNames	const char*[6]	M	N_backButton_00, T_caption_01, N_caption_00, N_name_00, N_training_00, N_ptGame_00
+8043B2E0	Mii_lightMapNames	const char*[2]	H	"lm_0", "lm_1"; RPSysKokeshi::ApplyLightTexture
+803578C8	Mii_bodyFileNames	const char*[10][2]	M	RPBodyJoints::GetBodyFileName, per body type and sex
+80357748	Mii_clothesNames	const char*[24][2][2]	M	RPBodyJoints::GetClothesName
+8043B380	Mii_clothesFileName	const char*	H	"G3D/clothes.brres"; RPBodyJoints::GetClothesFileName
+80357B20	Menu_sportsMsgPanelNames	const char*[0x34]	M	RPSportsMsgPanel::Init pane/anim/text name table (0x1C per player, anims at 0x70)
+8043B3E0	Menu_settingRowAnimName	const char*	H	"playerSelect_01_activeBar_00.brlan"
+8043B3E4	Menu_settingSportsAnimName	const char*	H	"playerSelect_01_onOffSports_00.brlan"

@@ -1,0 +1,9 @@
+address	old_name	new_name	unit	previous
+8027FA8C	Wly_Cursor_draw	Draw__11RPWlyCursorFv	Pack/RPParty/RPWlyScene/RPWlyCursor.cpp	
+8027FA90	Wly_Cursor_calc	Calculate__11RPWlyCursorFv	Pack/RPParty/RPWlyScene/RPWlyCursor.cpp	
+8027FE3C	Wly_Cursor_setEffectsVisible	SetEffectsVisible__11RPWlyCursorFv	Pack/RPParty/RPWlyScene/RPWlyCursor.cpp	
+8027FEC4	Wly_Cursor_reset	Reset__11RPWlyCursorFv	Pack/RPParty/RPWlyScene/RPWlyCursor.cpp	
+8027FF30	Wly_Cursor_init	Init__11RPWlyCursorFv	Pack/RPParty/RPWlyScene/RPWlyCursor.cpp	
+8027FF34	Wly_Cursor_create	Create__11RPWlyCursorFv	Pack/RPParty/RPWlyScene/RPWlyCursor.cpp	
+80280000	Wly_Cursor_ctor	__ct__11RPWlyCursorFl	Pack/RPParty/RPWlyScene/RPWlyCursor.cpp	
+8035C898	lbl_8035C898	__vt__11RPWlyCursor	Pack/RPParty/RPWlyScene/RPWlyCursor.cpp	

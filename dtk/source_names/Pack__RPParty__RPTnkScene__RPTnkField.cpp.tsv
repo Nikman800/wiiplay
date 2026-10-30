@@ -1,0 +1,16 @@
+address	old_name	new_name	unit	previous
+802575BC	Tnk_Field_isBlockAtPos	IsBlockAtPos__10RPTnkFieldCFQ34nw4r4math4VEC3	Pack/RPParty/RPTnkScene/RPTnkField.cpp	
+80257CD8	Tnk_Field_setWorldScale	SetWorldScale__10RPTnkFieldFf	Pack/RPParty/RPTnkScene/RPTnkField.cpp	
+80257CE0	Tnk_Field_destroy	Exit__10RPTnkFieldFv	Pack/RPParty/RPTnkScene/RPTnkField.cpp	
+80257D38	Tnk_BlockPool_destroy	Destroy__14RPTnkBlockPoolFv	Pack/RPParty/RPTnkScene/RPTnkField.cpp	
+80257D8C	Tnk_Field_calc	Calculate__10RPTnkFieldFv	Pack/RPParty/RPTnkScene/RPTnkField.cpp	
+80257F48	Tnk_Field_reset	Reset__10RPTnkFieldFv	Pack/RPParty/RPTnkScene/RPTnkField.cpp	
+802580A0	Tnk_Field_load	Load__10RPTnkFieldFv	Pack/RPParty/RPTnkScene/RPTnkField.cpp	
+80258118	Tnk_Field_create	Create__10RPTnkFieldFv	Pack/RPParty/RPTnkScene/RPTnkField.cpp	
+802581F8	Tnk_Field_initWallPlanes	InitWalls__10RPTnkFieldFv	Pack/RPParty/RPTnkScene/RPTnkField.cpp	
+802582F4	Tnk_Field_dtor	__dt__10RPTnkFieldFv	Pack/RPParty/RPTnkScene/RPTnkField.cpp	
+80261C44	Tnk_BlockPool_isPointInsideBlock	IsPointInsideBlock__14RPTnkBlockPoolFRCQ34nw4r4math4VEC3	Pack/RPParty/RPTnkScene/RPTnkField.cpp	
+80261E58	Tnk_BlockPool_collideObject	CollideObject__14RPTnkBlockPoolFP10RPTnkActorl	Pack/RPParty/RPTnkScene/RPTnkField.cpp	
+80261F64	Tnk_BlockPool_destroyInstance	DestroyInstance__14RPTnkBlockPoolFv	Pack/RPParty/RPTnkScene/RPTnkField.cpp	
+80261FA8	Tnk_BlockPool_createInstance	CreateInstance__14RPTnkBlockPoolFv	Pack/RPParty/RPTnkScene/RPTnkField.cpp	
+80440268	lbl_80440268	sWallHalf	Pack/RPParty/RPTnkScene/RPTnkField.cpp	

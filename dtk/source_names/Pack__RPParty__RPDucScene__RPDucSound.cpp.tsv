@@ -1,0 +1,3 @@
+address	old_name	new_name	unit	previous
+80236FA0	Duc_SndActor_dtor	__dt__13RPDucSndActorFv	Pack/RPParty/RPDucScene/RPDucSound.cpp	
+802370B0	Duc_SndActor_dtor_thunk	@16@__dt__13RPDucSndActorFv	Pack/RPParty/RPDucScene/RPDucSound.cpp	

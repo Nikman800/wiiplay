@@ -1,0 +1,11 @@
+address	old_name	new_name	unit	previous
+802A94F8	Cow_PlayerSound_holdSound	holdSound__13RPCowObjSoundFUlUl	Pack/RPParty/RPCowScene/RPCowSound_2.cpp	
+802A9AA0	Cow_PlayerSound_startSound	startSound__13RPCowObjSoundFUlUl	Pack/RPParty/RPCowScene/RPCowSound_2.cpp	
+802AA4AC	Cow_PlayerSound_playHit	PlayHit__16RPCowPlayerSoundFUlf	Pack/RPParty/RPCowScene/RPCowSound_2.cpp	
+802AA774	Cow_PlayerSound_holdSpeedSound	HoldSpeedSound__16RPCowPlayerSoundFf	Pack/RPParty/RPCowScene/RPCowSound_2.cpp	
+802AA8D0	Cow_PlayerSound_holdRunStepSound	HoldRunStepSound__16RPCowPlayerSoundFlf	Pack/RPParty/RPCowScene/RPCowSound_2.cpp	
+80325B18	Cow_runStepSoundIds	sRunStepSoundIds	Pack/RPParty/RPCowScene/RPCowSound_2.cpp	
+80325B30	Cow_runStepSoundIdsByMode	sRunStepSoundIdsByMode	Pack/RPParty/RPCowScene/RPCowSound_2.cpp	
+8035D170	lbl_8035D170	__vt__13RPCowObjSound	Pack/RPParty/RPCowScene/RPCowSound_2.cpp	
+802AA9F0	Cow_ObjSound_dtorThunk	@16@__dt__13RPCowObjSoundFv	Pack/RPParty/RPCowScene/RPCowSound_2.cpp	
+802A2358	Cow_ObjSound_dtor	__dt__13RPCowObjSoundFv	Pack/RPParty/RPCowScene/RPCowSound_2.cpp	

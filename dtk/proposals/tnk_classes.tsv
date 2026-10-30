@@ -1,0 +1,45 @@
+vtable	class_name	evidence
+8035B100	Scene	Tnk minigame scene (Sys scene base 8034F098); load uses basic_tank.breff/rp_Tnk_sound.brsar, owns all managers
+8035B178	Camera	RP camera subclass singleton lbl_8043C8D8; pos/target/up, intro spline + fixed overhead modes
+8035B198	Field	singleton lbl_8043C8E0; field size/grid by aspect, wall planes, owns field model, block pool, capture texture
+8035B1C0	FieldModel	loads tnk_field_16_9/4_3 models, binds caterpillar texture to field capture texture
+8035B238	ActorPool	fixed-size pool of actors (capacity, active count, cursor); spawn/killAll/calcAll; base of B748/B7A0/B9D8/C438
+8035B290	Actor	base actor: pos, matrix, velocity, force accumulators, collision circle, state 0xa0, owner pool 0xa8
+8035B354	ActorSound	sound emitter object allocated by Actor_create into 0xac (4 sound handles)
+8035B490	Tank	loads tnk_tank_1p/2p/e_1..9 models; isEnemy 0x100, player idx 0xa4, enemy type 0x104; 0x20c objects made by TankManager
+8035B598	TankManager	singleton lbl_8043C8E8; owns player and enemy Tank arrays, spawns/updates/draws them
+8035B5C0	CursorManager	singleton lbl_8043C8F0 holding array of Cursor objects; forwards reset/calc to them
+8035B61C	Cursor	creates Tnk_cursor_{1p,2p}_{main,tail,line} effects, tracks pointer and projects to field
+8035B650	PlayerController	owned by tank (+0x58); reads stick/d-pad and fire buttons, spawns shells/mines
+8035B684	Block	loads tnk_block_1/7/8 models; kind/height, edges, shadow, break effect Tnk_blockbreak01
+8035B748	BlockPool	object pool (base 8035B238) singleton lbl_8043C8F8 whose factory constructs Block
+8035B7A0	ShellPool	object pool (base 8035B238) singleton lbl_8043C900 whose factory constructs Shell
+8035B804	Shell	loads G3D/shell.brres and Tnk_shellsmoke effects; derives from 8035B290 object base; spawned by ShellPool 8035B7A0 vf07
+8035B8C8	WeaponManager	global 8043C908; owns ShellPool (8035B7A0, 32) at +4 and MinePool (8035B9D8, 16) at +8; forwards pool calls to both
+8035B98C	GameManager	global 8043C910; loads param/TnkGameParam.bin; 13-state ptmf machine (play, stage clear, miss, results)
+8035B9B0	StageMap	global 8043C918; reads stage grid via Lyt_801BFC34: player/enemy spawns, block placement, facing angles
+8035B9D8	MinePool	global 8043C920; object pool (8035B238 base) whose vf07 constructs TnkMine 8035BA54
+8035BA54	Mine	loads G3D/tnk_mine.brres, Tnk_mine_bomb effect, 3-state machine (move/armed/explode); derives from 8035B290
+8035BB18	MineSound	sound actor allocated in Mine create (+0xd8); 80358964-derived; dtor 80267DE8 (vtable dump unavailable)
+8035BF60	TankSound	sound actor created by Cannon create; speed smoothing and periodic tread sound from table
+8035C040	StepTimer	singleton 0x14 object; per-frame fractional accumulator yielding integer steps
+8035C068	EmptyTask	singleton 4-byte object whose virtuals are all empty
+8035C090	AiController	created by Tank create; owns AiAttack (8035C1C8) at +4 and AiMove (8035C0DC) at +8, forwards update/direction/mode
+8035C0DC	AiMove	ctor 8026AFF8 owned by 8035C090 at +8; threat lists of shells/mines, ptmf state table, body steering
+8035C100	AiProbe	ctor 8026B9F0 derives from 8035B290; stepped ray sweep with collision callback, used by AI path prediction
+8035C1C8	AiAttack	ctor 8026D5FC owned by 8035C090 at +4; turret aiming, fire/mine decisions via predicted shot path
+8035C1F0	LayoutManager	singleton lbl_8043C938; creates/loads/calcs/draws all Tnk 2D layout parts incl. 16-entry hit popup ring
+8035C218	GameStats	singleton lbl_8043C940; player count, scores, per-type kill counts, killed-type list, lives (cap 99)
+8035C240	Fade	tnkfade.brlyt layout: lives / mission / enemy intro screen state machine
+8035C260	Hud	tnkUI_00 layout: mission number, enemy count, player scores, player balloons
+8035C280	HitPopup	tnkHit_00.brlyt layout: positioned number popup with hit animation
+8035C2A0	ExMsg	tnkEx layout (tank.arc): in/out/outAll anims, shows message 0xb7c index n; slots load/reset/calc/draw/exit/dtor
+8035C320	ExGuide	singleton lbl_8043C948 (RP_Cls_80357180 base); ptmf state machine watching player tanks/cursors, drives ExMsg hints
+8035C348	StartMsg	tnkMsg_01_start layout; T_start_00..02 text msg 0xb5b; play rebinds anim + sound 0x23
+8035C368	ClearMsg	tnkMsg_02 inCleare/inTotal layout; N_clear_00/N_total_00/01 panes, score text
+8035C388	FailedMsg	tnkMsg_03 in/out layout; T_failed_00/01 msg 0xb55 idx 1; timed show/hide
+8035C3A8	CompleteMsg	tnkMsg_04 in/out layout; T_complete* msg 0xb58; timed show/hide (180 frames)
+8035C3F0	ResultLyt	tnkResult_00.brlyt with 8 anims; 1P/2P per-enemy-type kill list and totals sequence
+8035C410	FootmarkTex	singleton lbl_8043C950; loads 11 tnk_footmark/*.bti textures
+8035C438	CheckMarkPool	singleton lbl_8043C958 derived from 8035B238; slot 7 allocates CheckMark (8035C49C) items
+8035C49C	CheckMark	derived from 8035B290; G3D/tnk_check.brres blue/red/white models, color index, velocity

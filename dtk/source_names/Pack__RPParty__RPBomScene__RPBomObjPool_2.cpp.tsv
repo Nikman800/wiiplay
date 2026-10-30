@@ -1,0 +1,15 @@
+address	old_name	new_name	unit	previous
+802DF3B4	Bom_ObjPool_deactivateAll	DeactivateAll__12RPBomObjPoolFv	Pack/RPParty/RPBomScene/RPBomObjPool_2.cpp	
+802DF414	Bom_ObjPool_spawn	Spawn__12RPBomObjPoolFRCQ34nw4r4math4VEC3Ul	Pack/RPParty/RPBomScene/RPBomObjPool_2.cpp	
+802DF4E0	Bom_ObjPool_updateModels	CalcModelMtxItems__12RPBomObjPoolFv	Pack/RPParty/RPBomScene/RPBomObjPool_2.cpp	
+802DF550	Bom_ObjPool_incrementAges	IncrementAges__12RPBomObjPoolFv	Pack/RPParty/RPBomScene/RPBomObjPool_2.cpp	
+802DF58C	Bom_ObjPool_calcItems	CalcItems__12RPBomObjPoolFv	Pack/RPParty/RPBomScene/RPBomObjPool_2.cpp	
+802DF5FC	Bom_ObjPool_postCalcItems	PostCalcItems__12RPBomObjPoolFv	Pack/RPParty/RPBomScene/RPBomObjPool_2.cpp	
+802DF66C	Bom_ObjPool_calcHitItems	CalcHitItems__12RPBomObjPoolFv	Pack/RPParty/RPBomScene/RPBomObjPool_2.cpp	
+802DF6DC	Bom_ObjPool_preCalcItems	PreCalcItems__12RPBomObjPoolFv	Pack/RPParty/RPBomScene/RPBomObjPool_2.cpp	
+802DF74C	Bom_ObjPool_moveItems	MoveItems__12RPBomObjPoolFv	Pack/RPParty/RPBomScene/RPBomObjPool_2.cpp	
+802DF7BC	Bom_ObjPool_reset	Reset__12RPBomObjPoolFv	Pack/RPParty/RPBomScene/RPBomObjPool_2.cpp	
+802DF820	Bom_ObjPool_load	Load__12RPBomObjPoolFv	Pack/RPParty/RPBomScene/RPBomObjPool_2.cpp	
+802DF878	Bom_ObjPool_createItems	CreateItems__12RPBomObjPoolFl	Pack/RPParty/RPBomScene/RPBomObjPool_2.cpp	
+802DF934	Bom_ObjPool_dtor	__dt__12RPBomObjPoolFv	Pack/RPParty/RPBomScene/RPBomObjPool_2.cpp	
+802DF98C	Bom_ObjPool_ctor	__ct__12RPBomObjPoolFv	Pack/RPParty/RPBomScene/RPBomObjPool_2.cpp	

@@ -1,0 +1,8 @@
+address	old_name	new_name	unit	previous
+80206D24	Fsh_Player_init	Init__11RPFshPlayerFUll	Pack/RPParty/RPFshScene/RPFshPlayerMgr.cpp	
+80206D74	Fsh_Player_updateRod	UpdateRod__11RPFshPlayerFv	Pack/RPParty/RPFshScene/RPFshPlayerMgr.cpp	
+802087B8	Fsh_Player_ctor	__ct__11RPFshPlayerFl	Pack/RPParty/RPFshScene/RPFshPlayerMgr.cpp	
+80208BA4	Fsh_PlayerMgr_setCatchingPlayer	SetCatchingPlayer__14RPFshPlayerMgrFl	Pack/RPParty/RPFshScene/RPFshPlayerMgr.cpp	
+80208C70	Fsh_PlayerMgr_calcRods	CalculateRods__14RPFshPlayerMgrFv	Pack/RPParty/RPFshScene/RPFshPlayerMgr.cpp	
+80209000	Fsh_PlayerMgr_dtor	__dt__14RPFshPlayerMgrFv	Pack/RPParty/RPFshScene/RPFshPlayerMgr.cpp	
+80358BE0	lbl_80358BE0	__vt__14RPFshPlayerMgr	Pack/RPParty/RPFshScene/RPFshPlayerMgr.cpp	

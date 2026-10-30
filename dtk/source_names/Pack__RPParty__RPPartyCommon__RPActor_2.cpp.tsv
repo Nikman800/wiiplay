@@ -1,0 +1,9 @@
+address	old_name	new_name	unit	previous
+801C8084	RP_Actor_onStop	OnStop__7RPActorFv	Pack/RPParty/RPPartyCommon/RPActor_2.cpp	
+801C812C	RP_Actor_onStart	OnStart__7RPActorFv	Pack/RPParty/RPPartyCommon/RPActor_2.cpp	
+801C8378	RP_Actor_onActivate	OnActivate__7RPActorFv	Pack/RPParty/RPPartyCommon/RPActor_2.cpp	
+801C83D0	RP_Actor_loadResource	LoadResource__7RPActorFv	Pack/RPParty/RPPartyCommon/RPActor_2.cpp	
+801C8844	RP_Actor_dtorThunk	@20@__dt__7RPActorFv	Pack/RPParty/RPPartyCommon/RPActor_2.cpp	
+80357668	lbl_80357668	__vt__7RPActor	Pack/RPParty/RPPartyCommon/RPActor_2.cpp	
+803576C8	lbl_803576C8	__vt__14IRPActorEnable	Pack/RPParty/RPPartyCommon/RPActor_2.cpp	
+803576D8	lbl_803576D8	__vt__16IRPActorPriority	Pack/RPParty/RPPartyCommon/RPActor_2.cpp	

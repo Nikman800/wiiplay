@@ -1,0 +1,85 @@
+address	name	type	confidence	note
+8043C8D8	Tnk_cameraInstance	RPTnkCamera*	H	RPTnkCamera::CreateInstance / DestroyInstance; view 1 camera, read by the cursors and screen projection
+8043C8E0	Tnk_fieldInstance	RPTnkField*	H	RPTnkField::CreateInstance; grid and cell size read by stage map, blocks and weapons
+8043C8E8	Tnk_tankManagerInstance	RPTnkTankManager*	H	RPTnkTankManager::CreateInstance
+8043C8F0	Tnk_cursorManagerInstance	RPTnkCursorManager*	H	RPTnkCursorManager::CreateInstance
+8043C8F8	Tnk_blockPoolInstance	RPTnkBlockPool*	H	RPTnkBlockPool::CreateInstance (from RPTnkField::Create)
+8043C900	Tnk_shellPoolInstance	RPTnkShellPool*	H	RPTnkShellPool::CreateInstance (from RPTnkWeaponManager::Create)
+8043C908	Tnk_weaponManagerInstance	RPTnkWeaponManager*	H	RPTnkWeaponManager::CreateInstance
+8043C910	Tnk_gameManagerInstance	RPTnkGameManager*	H	RPTnkGameManager::CreateInstance; mode, stage and parameter file read everywhere
+8043C918	Tnk_stageMapInstance	RPTnkStageMap*	H	RPTnkStageMap::CreateInstance (from RPTnkField::Create)
+8043C920	Tnk_minePoolInstance	RPTnkMinePool*	H	RPTnkMinePool::CreateInstance (from RPTnkWeaponManager::Create)
+8043C928	Tnk_stepTimerInstance	RPTnkStepTimer*	H	RPTnkStepTimer::CreateInstance; the scene's draw reads mSteps / mClear
+8043C930	Tnk_emptyTaskInstance	RPTnkEmptyTask*	H	RPTnkEmptyTask::CreateInstance (from RPTnkGameManager::Create)
+8043C938	Tnk_layoutManagerInstance	RPTnkLayoutManager*	H	RPTnkLayoutManager::CreateInstance
+8043C940	Tnk_gameStatsInstance	RPTnkGameStats*	H	RPTnkGameStats::CreateInstance
+8043C948	Tnk_exGuideInstance	RPTnkExGuide*	H	RPTnkExGuide::CreateInstance (from RPTnkGameManager::Create)
+8043C950	Tnk_footmarkTexInstance	RPTnkFootmarkTex*	H	RPTnkFootmarkTex::CreateInstance (from RPTnkTankManager::CreateTanks); indexed by the tank model index
+8043C958	Tnk_checkMarkPoolInstance	RPTnkCheckMarkPool*	H	RPTnkCheckMarkPool::CreateInstance (from RPTnkTankManager::CreateTanks)
+8043B750	Tnk_cellWidth	f32	H	field width / columns, written by RPTnkField::Reset; block size and grid placement
+8043B754	Tnk_cellDepth	f32	H	field depth / rows, written by RPTnkField::Reset
+8043A800	Tnk_lightPos	nw4r::math::VEC3	H	(0, 10000, 0), Tnk_initLightPosConst; copied into light 0 by RPTnkScene::LoadResource
+8043A810	Tnk_cameraIntroStartPos	nw4r::math::VEC3	H	(0, 5, 120); intro start position and first path point (RPTnkCamera::SetMode 0)
+8043A81C	Tnk_cameraIntroTarget	nw4r::math::VEC3	H	(0, 15, 0); intro look-at target, its Y is blended to the fixed target's in StateIntroMove
+8043A828	Tnk_cameraIntroPath	nw4r::math::VEC3[4]	H	path points 2-5: (0,5,155), (0,8,175), (0,10,190), (0,1000,0)
+8043A858	Tnk_cameraFixedTarget	nw4r::math::VEC3	H	(0, 0, -14); fixed view target (SetMode 1)
+8043A864	Tnk_cameraFixedUp	nw4r::math::VEC3	L	(0, 0, -1); initialised with the path constants, no reader found
+8043A870	Tnk_basisXDown	nw4r::math::MTX33	M	rows (1,0,0), (0,0,-1), (0,1,0); Tnk_initAxisConsts
+8043A894	Tnk_floorQuadBasis	nw4r::math::MTX33	M	same values; scaled into the floor quad matrices by RPTnkField's Draw* methods
+8043A8B8	Tnk_cardinalDirs	nw4r::math::VEC3[4]	M	-z, +z, -x, +x; Tnk_initCardinalDirections
+80323298	Tnk_bgmTrackMasks	u32[36]	M	RPTnkBgmMix::ApplyTrackMask: indexed by (enemy count - 1) * 4 + strongest type - 1
+80323328	Tnk_treadSoundIds	u32[12]	M	tread sound ids indexed by the tank sound's variant (Tnk_TankSound_updateTread)
+8035B160	Tnk_Camera_stateFuncs	RPTnkCamera::StateFunc[2]	H	StateIntroMove, StateFixed; copied by RPTnkCamera::CreateInstance
+8035B454	Tnk_Tank_stateFuncs	RPTnkTank::StateFunc[5]	H	idle, player control, enemy control, player stop, enemy stop; copied by the constructor
+8035B678	Tnk_Block_stateFuncs	RPTnkBlock::StateFunc[1]	H	StateBreakIfFlagged
+8035B7F8	Tnk_Shell_stateFuncs	RPTnkShell::StateFunc[1]	H	StateResolveHits
+8035B8F0	Tnk_GameManager_stateFuncs	RPTnkGameManager::StateFunc[13]	H	idle .. end menu, see RPTnkGameManager
+8035BA30	Tnk_Mine_stateFuncs	RPTnkMine::StateFunc[3]	H	move to target, armed, explode
+8035C0B8	Tnk_AiMove_stateFuncs	RPTnkAiMove::StateFunc[3]	H	approach, evade, keep direction
+8035C2F0	Tnk_ExGuide_stateFuncs	RPTnkExGuide::StateFunc[4]	M	inside the 0x60-byte object 8035C2C0 (+0x30); copied by RPTnkExGuide::CreateInstance; first 0x30 bytes unknown
+8035C490	Tnk_CheckMark_stateFuncs	RPTnkCheckMark::StateFunc[1]	H	StateStop
+8035B0F0	Tnk_SceneSound_vtable	void*[4]	H	scene sound object (derived from the shared scene sound base, vtable 803587D0)
+8035B100	Tnk_Scene_vtable	void*[24]	H	RPTnkScene
+8035B178	Tnk_Camera_vtable	void*[8]	H	RPTnkCamera
+8035B198	Tnk_Field_vtable	void*[10]	H	RPTnkField
+8035B1C0	Tnk_FieldModel_vtable	void*[30]	H	RPTnkFieldModel (callback part at 8035B218)
+8035B238	Tnk_ActorPool_vtable	void*[22]	H	RPTnkActorPool
+8035B290	Tnk_Actor_vtable	void*[49]	H	RPTnkActor
+8035B354	Tnk_ActorSound_vtable	void*[55]	H	actor sound actor (derived from the shared sound actor, vtable 80358964)
+8035B490	Tnk_Tank_vtable	void*[66]	H	RPTnkTank (callback part at 8035B554)
+8035B598	Tnk_TankManager_vtable	void*[10]	H	RPTnkTankManager
+8035B5C0	Tnk_CursorManager_vtable	void*[10]	H	RPTnkCursorManager
+8035B61C	Tnk_Cursor_vtable	void*[13]	H	RPTnkCursor
+8035B650	Tnk_PlayerController_vtable	void*[10]	H	RPTnkPlayerController
+8035B684	Tnk_Block_vtable	void*[49]	H	RPTnkBlock
+8035B748	Tnk_BlockPool_vtable	void*[22]	H	RPTnkBlockPool
+8035B7A0	Tnk_ShellPool_vtable	void*[22]	H	RPTnkShellPool
+8035B804	Tnk_Shell_vtable	void*[49]	H	RPTnkShell
+8035B8C8	Tnk_WeaponManager_vtable	void*[10]	H	RPTnkWeaponManager
+8035B98C	Tnk_GameManager_vtable	void*[9]	H	RPTnkGameManager
+8035B9B0	Tnk_StageMap_vtable	void*[10]	H	RPTnkStageMap
+8035B9D8	Tnk_MinePool_vtable	void*[22]	H	RPTnkMinePool
+8035BA54	Tnk_Mine_vtable	void*[49]	H	RPTnkMine
+8035BB18	Tnk_MineSound_vtable	void*[55]	M	mine sound actor (derived from the shared sound actor, vtable 80358964); dtk label is 0x448 bytes (vtable plus following data)
+8035BF60	Tnk_TankSound_vtable	void*[56]	M	tank sound actor (derived from the shared sound actor); 0xE0-byte label
+8035C040	Tnk_StepTimer_vtable	void*[10]	H	RPTnkStepTimer
+8035C068	Tnk_EmptyTask_vtable	void*[10]	H	RPTnkEmptyTask
+8035C090	Tnk_AiController_vtable	void*[10]	H	RPTnkAiController
+8035C0DC	Tnk_AiMove_vtable	void*[9]	H	RPTnkAiMove
+8035C100	Tnk_AiProbe_vtable	void*[50]	H	RPTnkAiProbe
+8035C1C8	Tnk_AiAttack_vtable	void*[10]	H	RPTnkAiAttack
+8035C1F0	Tnk_LayoutManager_vtable	void*[10]	H	RPTnkLayoutManager
+8035C218	Tnk_GameStats_vtable	void*[10]	H	RPTnkGameStats
+8035C240	Tnk_Fade_vtable	void*[8]	H	RPTnkFade
+8035C260	Tnk_Hud_vtable	void*[8]	H	RPTnkHud
+8035C280	Tnk_HitPopup_vtable	void*[8]	H	RPTnkHitPopup
+8035C2A0	Tnk_ExMsg_vtable	void*[8]	H	RPTnkExMsg
+8035C320	Tnk_ExGuide_vtable	void*[10]	H	RPTnkExGuide
+8035C348	Tnk_StartMsg_vtable	void*[8]	H	RPTnkStartMsg
+8035C368	Tnk_ClearMsg_vtable	void*[8]	H	RPTnkClearMsg
+8035C388	Tnk_FailedMsg_vtable	void*[8]	H	RPTnkFailedMsg
+8035C3A8	Tnk_CompleteMsg_vtable	void*[8]	H	RPTnkCompleteMsg
+8035C3F0	Tnk_ResultLyt_vtable	void*[8]	H	RPTnkResultLyt
+8035C410	Tnk_FootmarkTex_vtable	void*[10]	H	RPTnkFootmarkTex
+8035C438	Tnk_CheckMarkPool_vtable	void*[22]	H	RPTnkCheckMarkPool
+8035C49C	Tnk_CheckMark_vtable	void*[49]	H	RPTnkCheckMark

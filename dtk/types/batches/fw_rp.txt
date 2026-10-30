@@ -1,0 +1,206 @@
+# batch fw_rp: modules RP; 433 functions; 74 classes
+
+## classes (ledger class -> suggested C++ name; vtables; allocation sizes; methods)
+RP_Actor -> RPActor; vtables -; sizes -; 17 methods: ctor, dtor, dtorThunk, getField1A, getPriority, returnTrue, thunkGetField1A, thunkGetPriority, vf13, vf14, vf15, vf16 ...
+RP_ActorBase -> RPActorBase; vtables 80357268; sizes -; 20 methods: ctor, dtor, dtorThunk4, dtorThunk8, getF58, getU5C, getVec10, getVec1C, getVec28, getVec34, getVec40, getVec4C ...
+RP_ActorList -> RPActorList; vtables -; sizes -; 10 methods: allocTables, broadcast, calcActive, ctor, drawAll, dtor, sortAndActivate, startActor, stopActor, stopFlaggedActors
+RP_ActorScene -> RPActorScene; vtables -; sizes -; 12 methods: broadcastControllerEvent, calc, callListVf24, ctor, destroyActorList, draw, dtor, dtorThunk, reset, setup, thunkBroadcast, thunkCallListVf24
+RP_AvatarScene -> RPAvatarScene; vtables 80358128; sizes -; 7 methods: cleanup, dtor, dtorThunk, loadResources, nop21, setup, thunkNop21
+RP_BBox -> RPBBox; vtables -; sizes -; 4 methods: extend, reset, reset2, sumMinMax
+RP_Base8034F478 -> RPBase8034F478; vtables 8034F478; sizes 0xB4 via RP_Base8034F478_ctor in Bom_Player_create; 0xB4 via RP_Base8034F478_ctor in Cow_CowModel_ctor; 0xB4 via RP_Base8034F478_ctor in Duc_Avatar_init; 0xB4 via RP_Base8034F478_ctor in Party_Common_ctor; 2 methods: ctor, dtor
+RP_Base8034F6B0 -> RPBase8034F6B0; vtables -; sizes -; 1 methods: dtorBase
+RP_BezierSegment -> RPBezierSegment; vtables -; sizes -; 5 methods: ctor, dtor, evalPos, evalPosAndTangent, init
+RP_BezierSegmentArray -> RPBezierSegmentArray; vtables -; sizes -; 3 methods: dtor, getCount, getSegment
+RP_ButtonSeq -> RPButtonSeq; vtables -; sizes -; 3 methods: init, isComplete, update
+RP_ButtonSeqHolder -> RPButtonSeqHolder; vtables 80357738; sizes 0x8 via RP_ButtonSeqHolder_ctor in Lyt_CommonMessage_setup; 3 methods: ctor, isComplete, update
+RP_CPadCursor -> RPCPadCursor; vtables -; sizes -; 1 methods: 80357428_vf04
+RP_Camera -> RPCamera; vtables 803573E0; sizes -; 1 methods: clearLock
+RP_Cls -> RPCls; vtables -; sizes -; 2 methods: 80358188_vf15, 80358188_vf19
+RP_Cls8034F6A0 -> RPCls8034F6A0; vtables -; sizes -; 1 methods: dtor
+RP_Cls8034F6B0 -> RPCls8034F6B0; vtables -; sizes 0xA8 via RP_Cls8034F6B0_ctor in Fsh_Player_ctor; 0xA8 via RP_Cls8034F6B0_ctor in Pnp_Player_create; 2 methods: ctor, dtor
+RP_Cls80350118 -> RPCls80350118; vtables -; sizes -; 1 methods: dtor
+RP_Cls803572E0 -> RPCls803572E0; vtables -; sizes -; 2 methods: createInstance, destroyInstance
+RP_Cls80357918 -> RPCls80357918; vtables -; sizes 0x4 via RP_Cls80357918_ctor in Sys_ResMgr_loadSystemArchives; 1 methods: ctor
+RP_ColliderList -> RPColliderList; vtables -; sizes -; 2 methods: callAll, checkHit
+RP_CollisionModel -> RPCollisionModel; vtables -; sizes 0xA8 via RP_CollisionModel_ctor in Cow_Game_load; 12 methods: checkSphere, ctor, getPos, getRadius, getRot, reset, sweepSphere, thunkGetPos, thunkGetRadius, thunkGetRot, thunkSweepSphere, vf06
+RP_CollisionShape -> RPCollisionShape; vtables -; sizes 0xD8 via RP_CollisionShape_ctor in Cow_Arrow_init; 0xD8 via RP_CollisionShape_ctor in Cow_Camera_init; 0xD8 via RP_CollisionShape_ctor in Cow_Cloud_init; 0xD8 via RP_CollisionShape_ctor in Cow_Field_init; 13 methods: accumPosOffset, accumRotOffset, applyOffsets, checkSphere, checkSphereVsBox, checkSphereVsPoint, ctor, debugDraw, getMtx, getPos, getRadius, getRot ...
+RP_Controller -> RPController; vtables -; sizes -; 1 methods: dtorThunk
+RP_CursorTrail -> RPCursorTrail; vtables 80357338; sizes 0x28 via RP_CursorTrail_ctor in Bom_Cursor_create; 0x28 via RP_CursorTrail_ctor in Duc_Shot_init; 0x28 via RP_CursorTrail_ctor in Tnk_Cursor_create; 3 methods: ctor, reset, update
+RP_Curve -> RPCurve; vtables -; sizes -; 3 methods: build, copy, samplePoints
+RP_DebugGraph -> RPDebugGraph; vtables -; sizes -; 1 methods: ctor
+RP_IBinaryLightMap -> RPIBinaryLightMap; vtables -; sizes -; 1 methods: setBinary
+RP_IBinaryLightMgr -> RPIBinaryLightMgr; vtables -; sizes -; 1 methods: setBinary
+RP_InterpCamera -> RPInterpCamera; vtables -; sizes -; 4 methods: calc, ctor, dtor, start
+RP_JointMtxBuffer -> RPJointMtxBuffer; vtables 80357348; sizes 0x14 via RP_JointMtxBuffer_ctor in Bil_Table_load; 0x14 via RP_JointMtxBuffer_ctor in Fsh_Fish_create; 0x14 via RP_JointMtxBuffer_ctor in Fsh_Rod_create; 0x14 via RP_JointMtxBuffer_ctor in Party_DollBase_load; 5 methods: captureAll, ctor, dtor, getMtx, onJointCalc
+RP_Kcl -> RPKcl; vtables -; sizes -; 3 methods: checkPoint, checkSphereTri, searchSphereOctree
+RP_LinearSegment -> RPLinearSegment; vtables -; sizes -; 5 methods: ctor, dtor, evalPos, evalPosAndTangent, init
+RP_LinearSegmentArray -> RPLinearSegmentArray; vtables -; sizes -; 3 methods: dtor, getCount, getSegment
+RP_LookAtCam -> RPLookAtCam; vtables 80357228; sizes -; 6 methods: calcBasis, calcBasisB, ctor, dtor, reset, vf04
+RP_LytGroup -> RPLytGroup; vtables -; sizes -; 2 methods: bindAnim, unbindAnim
+RP_ModelActor -> RPModelActor; vtables -; sizes -; 1 methods: applyTransform
+RP_ModelActor2 -> RPModelActor2; vtables -; sizes -; 1 methods: applyTransform
+RP_ModelObj -> RPModelObj; vtables 803571D0; sizes -; 17 methods: animVf0C, animVf38, animVf3C, animVf40, animVf58, animVf5C, calcModel, createModel, ctor, dtor, getAnimFrame, loadAnim ...
+RP_Mtx34 -> RPMtx34; vtables -; sizes -; 1 methods: getColumn
+RP_NRPosition00 -> RPNRPosition00; vtables -; sizes -; 1 methods: 803581F8_vf03
+RP_Nwc24 -> RPNwc24; vtables -; sizes -; 1 methods: suspendScheduler
+RP_Nwc24Msg -> RPNwc24Msg; vtables 8034F9FC; sizes 0xC via RP_Nwc24Msg_ctor in Party_MsgBoard_create; 1 methods: ctor
+RP_PageLayout -> RPPageLayout; vtables -; sizes -; 1 methods: draw
+RP_PathFollower -> RPPathFollower; vtables -; sizes 0x68 via RP_PathFollower_ctor in RP_PathObject_init; 7 methods: advance, applyPointParams, ctor, getPointAhead, getPointBehind, initFromRes, setSegment
+RP_PathObject -> RPPathObject; vtables -; sizes -; 1 methods: init
+RP_PhysSphere -> RPPhysSphere; vtables 80357368; sizes 0x108 via RP_PhysSphere_ctor in Bil_Ball_ctor; 11 methods: applyImpulse, calcImpulse, calcWorldOffset, checkContact, collideA, collideB, ctor, dtor, dtorThunk4, dtorThunk8, update
+RP_PlayerData -> RPPlayerData; vtables -; sizes -; 5 methods: assignChannels, isEntryValid, setEntryMii, setEntryMiiInfo, setPlayerCount
+RP_PlayerMgr -> RPPlayerMgr; vtables 8034F420; sizes 0x2C via RP_PlayerMgr_ctor in CreateInstance__14RPSysPlayerMgrFPQ23EGG4Heap; 6 methods: copyActiveToSaved, ctor, getSavedSlot, loadFromSave, reset, storeToSave
+RP_PlayerRecord -> RPPlayerRecord; vtables -; sizes 0xD0 via RP_PlayerRecord_ctor in __ct__11RPSysPlayerFv; 16 methods: ctor, getField0C, getFlag2, getMiiId, getScore, isFlag4Clear, read, setField0C, setFlag2, setFlag4, setGameBit, setGameByte ...
+RP_PlayerSlot -> RPPlayerSlot; vtables -; sizes -; 1 methods: dtor
+RP_PointArray -> RPPointArray; vtables -; sizes -; 1 methods: setPoint
+RP_Polyline -> RPPolyline; vtables 80357310; sizes 0x14 via RP_Polyline_ctor in Bom_Camera_create; 0x14 via RP_Polyline_ctor in Duc_Camera_load; 0x14 via RP_Polyline_ctor in Tnk_Camera_create; 3 methods: calc, ctor, setPoints
+RP_PosHistory -> RPPosHistory; vtables 80357320; sizes -; 5 methods: clear, ctor, dtor, pullFromController, push
+RP_Range -> RPRange; vtables -; sizes -; 2 methods: init, isEmpty
+RP_RankEntry -> RPRankEntry; vtables -; sizes -; 7 methods: getSlot, read, setByteAt15, setFlagBit, setSlot, setU16At16, write
+RP_ResFile -> RPResFile; vtables -; sizes -; 2 methods: create, relocate
+RP_ResSlots -> RPResSlots; vtables 803571A8; sizes 0x10 via RP_SceneObj_ctor in RP_ResSlots_createInstance (derived vtable 803571A8); 4 methods: createInstance, destroyInstance, dtor, init
+RP_ResTable -> RPResTable; vtables -; sizes -; 5 methods: countEntriesOfType, countFilteredEntries, findNthEntryOfType, getFilteredEntry, load
+RP_RigidBody -> RPRigidBody; vtables -; sizes -; 2 methods: isAtRest, resetMatrices
+RP_RumblePattern -> RPRumblePattern; vtables -; sizes -; 3 methods: build, ctor, ctorDefault
+RP_SaveData -> RPSaveData; vtables -; sizes -; 6 methods: getMedal, getU16At16, getU8At15, isGameUnlocked, setGameUnlocked, testFlag1C
+RP_SavedSlot -> RPSavedSlot; vtables -; sizes -; 1 methods: ctor
+RP_Scene80358188 -> RPScene80358188; vtables 80358188; sizes 0x44 via __ct__10RPSysSceneFv in Sys_SceneCreator_createGameScene (derived vtable 80358188); 3 methods: dtor, dtorThunk, resetAndNotify
+RP_SceneObj -> RPSceneObj; vtables 80357180; sizes -; 8 methods: ctor, dtor, nop01, nop02, nop03, nop04, nop05, nop06
+RP_SimpleModel -> RPSimpleModel; vtables 80357248; sizes -; 7 methods: calcMtx, ctor, dtor, load, loadRes, nop03, nop04
+RP_StateMachine -> RPStateMachine; vtables -; sizes -; 3 methods: changeState, isStateOrNext, isStateSettled
+RP_StateMachine2 -> RPStateMachine2; vtables -; sizes 0x28 via RP_StateMachine2_ctor in Menu_PlayerNameTag_ctor; 9 methods: calc, callCalc, callEnter, callExit, changeState, ctor, isStateSettled, reset, setStateFuncs
+RP_StateMachine3 -> RPStateMachine3; vtables -; sizes 0x28 via RP_StateMachine3_ctor in Menu_PlayerConfirmLyt_ctor; 10 methods: calc, callCalc, callEnter, callExit, changeState, ctor, isStateOrNext, isStateSettled, reset, setStateFuncs
+RP_StateMachine4 -> RPStateMachine4; vtables -; sizes 0x28 via RP_StateMachine4_ctor in Menu_PlayerConfirm_ctor; 9 methods: calc, callCalc, callEnter, callExit, changeState, ctor, isStateSettled, reset, setStateFuncs
+RP_StateMachine5 -> RPStateMachine5; vtables -; sizes 0x28 via RP_StateMachine5_ctor in Menu_PlayAdviceLyt_ctor; 8 methods: calc, callCalc, callEnter, callExit, changeState, ctor, reset, setStateFuncs
+RP_StateMgr -> RPStateMgr; vtables -; sizes 0x28 via RP_StateMgr_ctor in Menu_TPtGame00_ctor; 8 methods: calc, callCalc, callEnter, callExit, ctor, init, isInState, setStateFuncs
+RP_TextWriter -> RPTextWriter; vtables 8034F678; sizes -; 5 methods: begin, beginWithFont, ctor, dtor, end
+RP_TnkMapData -> RPTnkMapData; vtables -; sizes 0x1E4 via RP_TnkMapData_ctor in RP_createTnkMapData; 5 methods: ctor, dtor, getCell, getField08, getField0C
+
+## globals referenced (address name section size refs)
+800B2214 _savegpr_14 .text 0x0 2
+800B2224 _savegpr_18 .text 0x0 1
+800B2228 _savegpr_19 .text 0x0 1
+800B2234 _savegpr_22 .text 0x0 1
+800B2238 _savegpr_23 .text 0x0 1
+800B223C _savegpr_24 .text 0x0 2
+800B2240 _savegpr_25 .text 0x0 2
+800B2244 _savegpr_26 .text 0x0 5
+800B2248 _savegpr_27 .text 0x0 6
+800B2260 _restgpr_14 .text 0x0 2
+800B2270 _restgpr_18 .text 0x0 1
+800B2274 _restgpr_19 .text 0x0 1
+800B2280 _restgpr_22 .text 0x0 1
+800B2284 _restgpr_23 .text 0x0 1
+800B2288 _restgpr_24 .text 0x0 2
+800B228C _restgpr_25 .text 0x0 2
+800B2290 _restgpr_26 .text 0x0 5
+800B2294 _restgpr_27 .text 0x0 6
+8030FE48 lbl_8030FE48 .rodata 0x10 5
+803181A0 lbl_803181A0 .rodata 0x5 1
+80318450 lbl_80318450 .rodata 0x23 1
+80318818 lbl_80318818 .rodata 0x18 1
+803195D0 lbl_803195D0 .rodata 0x70 2
+8031BCE0 lbl_8031BCE0 .rodata 0xA 1
+8034F32C lbl_8034F32C .data 0x14 1
+8034F420 lbl_8034F420 .data 0x10 1
+8034F478 lbl_8034F478 .data 0x18 1
+8034F678 lbl_8034F678 .data 0x10 1
+8034F6A0 lbl_8034F6A0 .data 0x10 1
+8034F6B0 lbl_8034F6B0 .data 0x18 1
+8034F9FC lbl_8034F9FC .data 0xC 1
+80357180 lbl_80357180 .data 0x28 1
+803571A8 lbl_803571A8 .data 0x28 1
+803571D0 lbl_803571D0 .data 0x58 1
+80357228 lbl_80357228 .data 0x20 1
+80357248 lbl_80357248 .data 0x20 1
+80357268 lbl_80357268 .data 0x78 1
+803572E0 lbl_803572E0 .data 0x10 1
+80357310 lbl_80357310 .data 0x10 1
+80357320 lbl_80357320 .data 0x18 1
+80357338 lbl_80357338 .data 0x10 1
+80357348 lbl_80357348 .data 0x20 1
+80357368 lbl_80357368 .data 0x78 1
+803573E0 lbl_803573E0 .data 0x18 1
+80357448 lbl_80357448 .data 0x10 1
+80357518 lbl_80357518 .data 0x14 1
+8035752C lbl_8035752C .data 0x14 1
+80357540 lbl_80357540 .data 0x14 2
+80357554 lbl_80357554 .data 0x14 2
+80357568 lbl_80357568 .data 0x18 2
+80357580 lbl_80357580 .data 0x38 1
+803575B8 lbl_803575B8 .data 0x20 1
+803575D8 lbl_803575D8 .data 0x68 2
+80357640 lbl_80357640 .data 0x28 2
+80357668 lbl_80357668 .data 0x60 1
+803576C8 lbl_803576C8 .data 0x10 1
+803576D8 lbl_803576D8 .data 0x10 1
+80357738 lbl_80357738 .data 0x10 1
+80357918 lbl_80357918 .data 0x30 1
+8039F340 lbl_8039F340 .bss 0x30 1
+8039F540 lbl_8039F540 .bss 0x58 11
+80438820 lbl_80438820 .bss 0x10 1
+80438830 lbl_80438830 .bss 0x30 2
+80439110 lbl_80439110 .bss 0xC 5
+8043911C lbl_8043911C .bss 0xC 1
+80439128 lbl_80439128 .bss 0xC 1
+80439134 lbl_80439134 .bss 0xC 1
+80439140 lbl_80439140 .bss 0xC 2
+8043914C lbl_8043914C .bss 0x24 2
+80439170 lbl_80439170 .bss 0x30 2
+804391A0 lbl_804391A0 .bss 0xC 1
+804391AC lbl_804391AC .bss 0x24 1
+804391F0 lbl_804391F0 .bss 0x8C0 4
+80439AB0 lbl_80439AB0 .bss 0x800 1
+8043A2B0 lbl_8043A2B0 .bss 0xC 2
+8043A2BC lbl_8043A2BC .bss 0x30 2
+8043A2EC lbl_8043A2EC .bss 0x18 1
+8043A388 lbl_8043A388 .bss 0x30 2
+8043AACC lbl_8043AACC .sdata 0x4 1
+8043AC28 lbl_8043AC28 .sdata 0x2 2
+8043AC2C lbl_8043AC2C .sdata 0x2 2
+8043B348 lbl_8043B348 .sdata 0x8 1
+8043B360 lbl_8043B360 .sdata 0x8 1
+8043B998 lbl_8043B998 .sbss 0x4 1
+8043BBA8 lbl_8043BBA8 .sbss 0x4 5
+8043BC30 lbl_8043BC30 .sbss 0x4 1
+8043BC70 lbl_8043BC70 .sbss 0x4 7
+8043C458 lbl_8043C458 .sbss 0x8 1
+8043C468 lbl_8043C468 .sbss 0x8 1
+8043C480 lbl_8043C480 .sbss 0x8 1
+8043C498 lbl_8043C498 .sbss 0x8 2
+8043C4A0 lbl_8043C4A0 .sbss 0x8 1
+8043C4B0 lbl_8043C4B0 .sbss 0x8 1
+8043C4D0 lbl_8043C4D0 .sbss 0x8 1
+8043C4E8 lbl_8043C4E8 .sbss 0x8 1
+8043C4F8 lbl_8043C4F8 .sbss 0x8 1
+8043C588 lbl_8043C588 .sbss 0x8 2
+8043C590 lbl_8043C590 .sbss 0x8 5
+8043C5A0 lbl_8043C5A0 .sbss 0x4 1
+8043C5AC lbl_8043C5AC .sbss 0x4 1
+8043C5F0 lbl_8043C5F0 .sbss 0x8 1
+8043C5F8 lbl_8043C5F8 .sbss 0x4 1
+8043C5FC lbl_8043C5FC .sbss 0x4 1
+8043C600 lbl_8043C600 .sbss 0x4 1
+8043C604 lbl_8043C604 .sbss 0x4 1
+8043C608 lbl_8043C608 .sbss 0x8 4
+8043C610 lbl_8043C610 .sbss 0x8 3
+8043C618 lbl_8043C618 .sbss 0x8 1
+8043C620 lbl_8043C620 .sbss 0x8 2
+8043C628 lbl_8043C628 .sbss 0x8 2
+8043C640 lbl_8043C640 .sbss 0x8 2
+8043C660 lbl_8043C660 .sbss 0x4 5
+8043C664 lbl_8043C664 .sbss 0x4 4
+8043C668 lbl_8043C668 .sbss 0x4 5
+8043C66C lbl_8043C66C .sbss 0x4 4
+8043C670 lbl_8043C670 .sbss 0x8 1
+8043C678 lbl_8043C678 .sbss 0x8 1
+8043C680 lbl_8043C680 .sbss 0x4 7
+8043C684 lbl_8043C684 .sbss 0x4 1
+8043C688 lbl_8043C688 .sbss 0x4 1
+8043C68C lbl_8043C68C .sbss 0x4 5
+8043C690 lbl_8043C690 .sbss 0x4 3
+8043C694 lbl_8043C694 .sbss 0x4 2
+8043C698 lbl_8043C698 .sbss 0x8 2
+8043C6A8 lbl_8043C6A8 .sbss 0x8 1
+8043C6C8 lbl_8043C6C8 .sbss 0x8 2
+8043C6E8 lbl_8043C6E8 .sbss 0x8 1

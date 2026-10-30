@@ -1,0 +1,7 @@
+address	old_name	new_name	unit	previous
+802CB0A4	Bil_PocketCam_lookAtPocket	LookAtPocket__14RPBilPocketCamFl	Pack/RPParty/RPBilScene/RPBilCamera_4.cpp	
+802CB2C8	Bil_PocketCam_calc	Calculate__14RPBilPocketCamFv	Pack/RPParty/RPBilScene/RPBilCamera_4.cpp	
+802CB304	Bil_PocketCam_reset	Reset__14RPBilPocketCamFv	Pack/RPParty/RPBilScene/RPBilCamera_4.cpp	
+802CB390	Bil_PocketCam_ctor	__ct__14RPBilPocketCamFl	Pack/RPParty/RPBilScene/RPBilCamera_4.cpp	
+802CB3DC	Bil_PocketCam_dtor	__dt__14RPBilPocketCamFv	Pack/RPParty/RPBilScene/RPBilCamera_4.cpp	
+8035E360	lbl_8035E360	__vt__14RPBilPocketCam	Pack/RPParty/RPBilScene/RPBilCamera_4.cpp	

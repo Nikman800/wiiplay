@@ -1,0 +1,277 @@
+# batch fw_ui: modules Lyt, Menu, Mii; 617 functions; 45 classes
+
+## classes (ledger class -> suggested C++ name; vtables; allocation sizes; methods)
+Lyt_ABPress -> RPABPress; vtables -; sizes -; 7 methods: calc, draw, isDone, isNeeded, load, reset, start
+Lyt_AButtonPrompt -> RPAButtonPrompt; vtables -; sizes -; 8 methods: calc, draw, isHidden, isShown, load, playOut, reset, show
+Lyt_AnimButton -> RPAnimButton; vtables 803574A0; sizes 0xBC via Lyt_AnimButton_ctor in Menu_PlayerSettingPanel_createButtons; 14 methods: ctor, getCurrentAnimLength, getPane, hitTest, playAnim, playDefaultAnim, setAnim, setLayout, setPane, vf00, vf01, vf02 ...
+Lyt_AnimButtonTable -> RPAnimButtonTable; vtables 80357508; sizes 0x324 via Lyt_AnimButtonTable_ctor in Menu_PlayerSettingPanel_createButtons; 6 methods: add, ctor, getAnimLengthById, getPaneById, hitTest, playAnimById
+Lyt_AvatarAnim -> RPAvatarAnim; vtables -; sizes -; 1 methods: resetSelection
+Lyt_CPadCursor -> RPCPadCursor; vtables 80357428; sizes -; 12 methods: calc, calcFadeAlpha, ctor, draw, isActive, load, loadWithParent, reset, selectStyle, setActive, setTarget, updateCorners
+Lyt_CommonMessage -> RPCommonMessage; vtables 80358040; sizes 0x68 via __ct__10RPSysSceneFv in Sys_SceneCreator_createGameScene (derived vtable 80358040); 40 methods: bindSystems, callEnterState0, dtor, dtorThunk, enterState0, enterState1, enterState10, enterState11, enterState12, enterState13, enterState14, enterState15 ...
+Lyt_Cow -> RPCow; vtables -; sizes -; 1 methods: 8035CE18_vf04
+Lyt_CursorManager -> RPCursorManager; vtables 8034F810; sizes -; 1 methods: getCurrentPlayerCursorPos
+Lyt_FrameDown -> RPFrameDown; vtables 80357718; sizes 0x30 via Lyt_FrameDown_ctor in Menu_SportsMessageScene_configure; 17 methods: calc, ctor, draw, dtor, hitTestBackButton, isIdle, isIdleOrHovered, load, playHover, playPressed, playUnhover, requestHover ...
+Lyt_FrameOverrideTable -> RPFrameOverrideTable; vtables -; sizes -; 3 methods: clear, get, has
+Lyt_Layout -> RPLayout; vtables -; sizes -; 2 methods: isPointInPane, setPaneNumber
+Lyt_LytObjBase -> RPLytObjBase; vtables -; sizes -; 1 methods: ctor
+Lyt_MessageWindow -> RPMessageWindow; vtables 8034F6E0; sizes 0x284 via Lyt_MessageWindow_ctor in Lyt_MessageWindow_createInstance; 5 methods: calc, createInstance, ctor, load, reset
+Lyt_Pane -> RPPane; vtables -; sizes -; 2 methods: childrenUnbindAll, unbindAnim
+Lyt_PauseMenu -> RPPauseMenu; vtables -; sizes 0x88 via Lyt_PauseMenu_ctor in Sys_Pause_createSingleton; 8 methods: calc, ctor, dtor, load, open, resetButtonAnims, updateButtonHighlight, updateSelect
+Lyt_ResTexObj -> RPResTexObj; vtables 8034FA08; sizes -; 2 methods: ctor, resolveSource
+Lyt_SystemWindow -> RPSystemWindow; vtables 8034F8CC; sizes 0xE0 via Lyt_SystemWindow_ctor in Lyt_createSingleton8043C530; 20 methods: calc, checkAPress, checkDpadInput, close, ctor, decideButton, draw, dtor, enableCursors, hitTestPointer, load, open ...
+Lyt_TagProcessor -> RPTagProcessor; vtables 8034F6F0; sizes -; 5 methods: calcRect, drawRuby, dtor, process, processCommon
+Lyt_WCursor -> RPWCursor; vtables 80357480; sizes 0x250 via Lyt_WCursor_ctor in Menu_MenuScene_configure; 9 methods: calc, calcFadeAlpha, ctor, draw, load, reset, setActive, setTarget, updateWindow
+Menu_CommonMessage -> RPCommonMessage; vtables -; sizes -; 7 methods: calc, calcWaitInput, changeToScene1, draw, exit, loadResource, reset
+Menu_LogoModel -> RPLogoModel; vtables 80358010; sizes 0x28 via Menu_LogoModel_ctor in Menu_MenuScene_configure; 6 methods: calc, ctor, dtor, load, reset, setPosFromScreen
+Menu_MenuBgModel -> RPMenuBgModel; vtables 80357A08; sizes 0x28 via Menu_MenuBgModel_ctor in Menu_MenuScene_configure; 5 methods: calc, ctor, dtor, load, reset
+Menu_MenuFrame -> RPMenuFrame; vtables 80357A50; sizes -; 79 methods: backActivate_calc, backActivate_enter, backDeactivate_calc, backDeactivate_enter, backIdle_calc, backIdle_enter, backIn_calc, backIn_enter, backOut_calc, backOut_enter, backPush_calc, backPush_enter ...
+Menu_MenuScene -> RPMenuScene; vtables 803579A8; sizes 0x8C via __ct__10RPSysSceneFv in create__17RPSysSceneCreatorFl (derived vtable 803579A8); 21 methods: calc, calcConfirm, calcMiiSelect, calcPaused, calcPlayerCountSelect, calcPlayerSettings, calcStartGame, calcWaitMiiLoad, commitPlayerMii, configure, draw, drawThunk ...
+Menu_MiiSelect -> RPMiiSelect; vtables -; sizes -; 26 methods: attachPageKokeshi, calc, calcEnter, calcFadeIn, calcFadeOut, calcInput, calcPointer, calcTabChange, ctor, drawLayout, drawOverlay, getFirstFreeFace ...
+Menu_MiiSelectLyt -> RPMiiSelectLyt; vtables 80357B00; sizes -; 28 methods: areDecideAnimsDone, areSelectAnimsDone, calc, ctor, draw, drawBackLayer, getFacePane, getFacePanePos, getItemPane, getModelPane, isFaceAllAnimPlaying, isMessageAnimPlaying ...
+Menu_PlayAdviceLyt -> RPPlayAdviceLyt; vtables 80358020; sizes 0x28 via Menu_PlayAdviceLyt_ctor in Menu_PlayerConfirm_ctor; 17 methods: aButtonIn_calc, aButtonIn_enter, blink_calc, blink_enter, calc, ctor, decide_calc, decide_enter, draw, in_calc, in_enter, load ...
+Menu_PlayerConfirm -> RPPlayerConfirm; vtables 80357FF8; sizes 0x78 via Menu_PlayerConfirm_ctor in Menu_createPlayerConfirm; 26 methods: advice_calc, advice_enter, back_calc, back_enter, calc, ctor, decide_calc, decide_enter, done_enter, drawCursor, drawLayout, drawOverlay ...
+Menu_PlayerConfirmLyt -> RPPlayerConfirmLyt; vtables 80357FD8; sizes 0x70 via Menu_PlayerConfirmLyt_ctor in Menu_PlayerConfirm_ctor; 31 methods: activateButton, buttonActivate_calc, buttonActivate_enter, buttonActive_calc, buttonActive_enter, buttonDeactivate_calc, buttonDeactivate_enter, buttonInactive_calc, buttonInactive_enter, buttonPush_calc, buttonPush_enter, calc ...
+Menu_PlayerNameTag -> RPPlayerNameTag; vtables 80357FB8; sizes 0x34 via Menu_PlayerNameTag_ctor in Menu_PlayerConfirmLyt_ctor; 8 methods: calc, ctor, draw, load, reset, show, shownCalc, shownEnter
+Menu_PlayerNumSelect -> RPPlayerNumSelect; vtables -; sizes -; 12 methods: calc, calcCountInput, calcEntryButtons, calcEntryPointer, calcPointer, ctor, drawCursor, drawLayout, load, reset, setTitle, startCountSelect
+Menu_PlayerSettingPanel -> RPPlayerSettingPanel; vtables 80357F98; sizes -; 31 methods: applyRowMode, bindButtons, calc, calcMain, calcSelect, clampRowForMode, createButtons, draw, drawCursors, dtor, exit, filterButtonForMode ...
+Menu_PtMenuBg -> RPPtMenuBg; vtables 80357DE8; sizes 0x7C via Menu_PtMenuBg_ctor in Menu_createPtMenuBg; 9 methods: calc, calcTvModel, ctor, dtor, dtorThunk, dtorThunk2, load, reset, setMode
+Menu_RimoconEntryLyt -> RPRimoconEntryLyt; vtables 80357AE0; sizes 0x10C via Menu_RimoconEntryLyt_ctor in Menu_PlayerNumSelect_ctor; 17 methods: areButtonAnimsDone, bindSceneAnims, calc, ctor, draw, getButtonPane, isEntryAnimPlaying, isPointOnButton, isSceneAnimPlaying, load, playEntryOutAnim, playSceneAnim ...
+Menu_SportsMessageScene -> RPSportsMessageScene; vtables 80357D08; sizes 0x98 via __ct__10RPSysSceneFv in create__17RPSysSceneCreatorFl (derived vtable 80357D08); 18 methods: calc, calcOkButton, checkPlayersReady, configure, draw, drawThunk, dtor, dtorThunk, dtorThunk2, exit, goNext, isGameIndex3 ...
+Menu_SportsMsgPanel -> RPSportsMsgPanel; vtables -; sizes -; 1 methods: init
+Menu_TPtGame00 -> RPTPtGame00; vtables -; sizes 0x288 via Menu_TPtGame00_ctor in Menu_MenuScene_configure; 0x288 via Menu_TPtGame00_ctor in Party_SelectScene_ctor; 1 methods: ctor
+Mii_BodyJoints -> RPBodyJoints; vtables 80357918; sizes -; 10 methods: dtor, getCount, getCount2, getDefaultData, getHeadMtx, getLeftHandMtx, getRightHandMtx, getTableEntry, getTablePair, vf03
+Mii_KokeshiHead -> RPKokeshiHead; vtables 80357A70; sizes 0xF8 via Mii_KokeshiHead_ctor in Mii_KokeshiMgr_ctor_801D2BB8; 0xF8 via Mii_KokeshiHead_ctor in Mii_KokeshiMgr_onRemoteMiiAdded; 6 methods: build, ctor, dtor, dtorThunk, registerLightTex, resetTransform
+Mii_KokeshiMgr -> RPKokeshiMgr; vtables 8034F490, 80357AB4; sizes -; 31 methods: applyPlayerHighlights, attachKokeshi, calc, calcPaneMtx, calcPaneScale, clearRecordsChanged, ctor_801D2BB8, detachKokeshi, detachSource, dtor, fixPartyMiiIndices, fixPlayerMiiIndices ...
+Mii_MiiDataSource -> RPMiiDataSource; vtables -; sizes -; 1 methods: querySecondary
+Mii_MiiIconBase -> RPMiiIconBase; vtables -; sizes -; 1 methods: refreshMiiInfo
+Mii_MiiIconSet -> RPMiiIconSet; vtables -; sizes -; 4 methods: calcAll, createIcons, dtor, getTexture
+Mii_MiiModel -> RPMiiModel; vtables -; sizes -; 1 methods: applyTransform
+
+## globals referenced (address name section size refs)
+800B221C _savegpr_16 .text 0x0 1
+800B2224 _savegpr_18 .text 0x0 1
+800B222C _savegpr_20 .text 0x0 1
+800B2230 _savegpr_21 .text 0x0 1
+800B2234 _savegpr_22 .text 0x0 2
+800B2238 _savegpr_23 .text 0x0 4
+800B223C _savegpr_24 .text 0x0 2
+800B2240 _savegpr_25 .text 0x0 5
+800B2244 _savegpr_26 .text 0x0 8
+800B2248 _savegpr_27 .text 0x0 16
+800B2268 _restgpr_16 .text 0x0 1
+800B2270 _restgpr_18 .text 0x0 1
+800B2278 _restgpr_20 .text 0x0 1
+800B227C _restgpr_21 .text 0x0 1
+800B2280 _restgpr_22 .text 0x0 2
+800B2284 _restgpr_23 .text 0x0 4
+800B2288 _restgpr_24 .text 0x0 2
+800B228C _restgpr_25 .text 0x0 5
+800B2290 _restgpr_26 .text 0x0 8
+800B2294 _restgpr_27 .text 0x0 16
+8030FE48 lbl_8030FE48 .rodata 0x10 5
+80317890 lbl_80317890 .rodata 0x10 1
+803178A0 lbl_803178A0 .rodata 0x5 1
+803178B0 lbl_803178B0 .rodata 0x118 2
+80317B90 lbl_80317B90 .rodata 0x18 1
+80317BA8 lbl_80317BA8 .rodata 0x18 3
+80317DD0 lbl_80317DD0 .rodata 0x3D 4
+80318338 lbl_80318338 .rodata 0xE 4
+80318478 lbl_80318478 .rodata 0x48 3
+803184C0 lbl_803184C0 .rodata 0x70 1
+80318530 lbl_80318530 .rodata 0x10 6
+803186D0 lbl_803186D0 .rodata 0x10 1
+803186E0 lbl_803186E0 .rodata 0x138 2
+80318830 lbl_80318830 .rodata 0x12 3
+80318D30 lbl_80318D30 .rodata 0xD0 3
+80318E00 lbl_80318E00 .rodata 0x28 1
+80318E28 lbl_80318E28 .rodata 0x330 1
+80319158 lbl_80319158 .rodata 0x48 1
+803191A0 lbl_803191A0 .rodata 0xD 7
+80319580 lbl_80319580 .rodata 0xD 1
+80319590 lbl_80319590 .rodata 0x18 1
+803195A8 lbl_803195A8 .rodata 0x28 1
+803195D0 lbl_803195D0 .rodata 0x70 2
+80319640 lbl_80319640 .rodata 0xC8 2
+80319708 lbl_80319708 .rodata 0x18 1
+80319720 lbl_80319720 .rodata 0x18 1
+80319738 lbl_80319738 .rodata 0x18 1
+80319750 lbl_80319750 .rodata 0x18 1
+80319768 lbl_80319768 .rodata 0x18 1
+80319780 lbl_80319780 .rodata 0x18 1
+80319798 lbl_80319798 .rodata 0x10 1
+803197A8 lbl_803197A8 .rodata 0xB0 1
+80319858 lbl_80319858 .rodata 0x21 6
+80319D78 lbl_80319D78 .rodata 0xC0 1
+80319E38 lbl_80319E38 .rodata 0x10 1
+80319E48 lbl_80319E48 .rodata 0x10 1
+80319E58 lbl_80319E58 .rodata 0xF0 5
+80319F48 lbl_80319F48 .rodata 0xB8 1
+8031A000 lbl_8031A000 .rodata 0x3C 1
+8031A03C lbl_8031A03C .rodata 0x3C 1
+8031A078 lbl_8031A078 .rodata 0x50 1
+8031A0C8 lbl_8031A0C8 .rodata 0x50 1
+8031A118 lbl_8031A118 .rodata 0x28 1
+8031A140 lbl_8031A140 .rodata 0x30 1
+8031A170 lbl_8031A170 .rodata 0xC 1
+8031A17C lbl_8031A17C .rodata 0xC 1
+8031A188 lbl_8031A188 .rodata 0x21 7
+8031A760 lbl_8031A760 .rodata 0x2D0 1
+8031AA30 lbl_8031AA30 .rodata 0x10 1
+8031AA40 lbl_8031AA40 .rodata 0x10 1
+8031AA50 lbl_8031AA50 .rodata 0x14 3
+8031ABB8 lbl_8031ABB8 .rodata 0x11 3
+8031AF88 lbl_8031AF88 .rodata 0x78 1
+8031B000 lbl_8031B000 .rodata 0x18 1
+8031B018 lbl_8031B018 .rodata 0x60 1
+8031B078 lbl_8031B078 .rodata 0x8 4
+8031B540 lbl_8031B540 .rodata 0x28 2
+8031B568 lbl_8031B568 .rodata 0x30 1
+8031B598 lbl_8031B598 .rodata 0x10 1
+8031B5A8 lbl_8031B5A8 .rodata 0xA 2
+8031B668 lbl_8031B668 .rodata 0x90 1
+8031B6F8 lbl_8031B6F8 .rodata 0x90 1
+8031B788 lbl_8031B788 .rodata 0x40 1
+8031B7C8 lbl_8031B7C8 .rodata 0x21 5
+8031B9A8 lbl_8031B9A8 .rodata 0xD8 1
+8031BA80 lbl_8031BA80 .rodata 0x13 1
+8031BA98 lbl_8031BA98 .rodata 0x20 1
+8031BAB8 lbl_8031BAB8 .rodata 0xA8 1
+8031BB60 lbl_8031BB60 .rodata 0x10 1
+8031BB70 lbl_8031BB70 .rodata 0x1A 3
+8031BC68 lbl_8031BC68 .rodata 0x50 2
+8032D89C lbl_8032D89C .data 0xD 1
+8032D8AC lbl_8032D8AC .data 0xD 1
+8034F32C lbl_8034F32C .data 0x14 7
+8034F6E0 lbl_8034F6E0 .data 0x10 1
+8034F6F0 lbl_8034F6F0 .data 0x18 1
+8034F768 lbl_8034F768 .data 0x10 1
+8034F828 lbl_8034F828 .data 0x18 2
+8034F880 lbl_8034F880 .data 0x40 1
+8034F8C0 lbl_8034F8C0 .data 0xC 1
+8034F8CC lbl_8034F8CC .data 0xC 1
+8034F8D8 lbl_8034F8D8 .data 0x19 16
+8034F8F8 lbl_8034F8F8 .data 0x10 16
+8034FA08 lbl_8034FA08 .data 0x18 1
+803572F0 lbl_803572F0 .data 0x20 1
+803573F8 lbl_803573F8 .data 0x30 1
+80357428 lbl_80357428 .data 0x20 1
+80357458 lbl_80357458 .data 0x28 1
+80357480 lbl_80357480 .data 0x20 1
+803574A0 lbl_803574A0 .data 0x20 1
+803574C0 jumptable_803574C0 .data 0x44 1
+80357508 lbl_80357508 .data 0x10 1
+803576E8 lbl_803576E8 .data 0x10 1
+803576F8 jumptable_803576F8 .data 0x1C 1
+80357718 lbl_80357718 .data 0x20 1
+80357748 lbl_80357748 .data 0x180 1
+803578C8 lbl_803578C8 .data 0x50 1
+80357A08 lbl_80357A08 .data 0xC 1
+80357A14 lbl_80357A14 .data 0x22 1
+80357A38 lbl_80357A38 .data 0x12 1
+80357A50 lbl_80357A50 .data 0x20 1
+80357A70 lbl_80357A70 .data 0x28 1
+80357A98 jumptable_80357A98 .data 0x1C 1
+80357AB4 lbl_80357AB4 .data 0x2C 1
+80357AE0 lbl_80357AE0 .data 0x20 1
+80357B00 lbl_80357B00 .data 0x20 1
+80357B20 lbl_80357B20 .data 0xD0 1
+80357BF0 jumptable_80357BF0 .data 0x28 1
+80357C18 jumptable_80357C18 .data 0x30 1
+80357C48 jumptable_80357C48 .data 0x30 1
+80357C78 jumptable_80357C78 .data 0x30 1
+80357CA8 jumptable_80357CA8 .data 0x30 1
+80357CD8 jumptable_80357CD8 .data 0x30 1
+80357DE8 lbl_80357DE8 .data 0x78 1
+80357E60 lbl_80357E60 .data 0xB8 2
+80357F18 lbl_80357F18 .data 0x20 1
+80357F38 lbl_80357F38 .data 0x30 1
+80357F68 lbl_80357F68 .data 0x30 1
+80357F98 lbl_80357F98 .data 0x20 1
+80357FB8 lbl_80357FB8 .data 0x20 1
+80357FD8 lbl_80357FD8 .data 0x20 1
+80357FF8 lbl_80357FF8 .data 0x18 1
+80358010 lbl_80358010 .data 0x10 1
+80358020 lbl_80358020 .data 0x20 1
+803581E8 lbl_803581E8 .data 0x10 1
+8039F540 lbl_8039F540 .bss 0x58 1
+80438860 lbl_80438860 .bss 0x400 3
+80438C60 lbl_80438C60 .bss 0x30 1
+80438C90 lbl_80438C90 .bss 0x10 1
+804391D0 lbl_804391D0 .bss 0x10 2
+804391E0 lbl_804391E0 .bss 0x10 2
+8043AC28 lbl_8043AC28 .sdata 0x2 10
+8043AC2C lbl_8043AC2C .sdata 0x2 9
+8043B2E0 lbl_8043B2E0 .sdata 0x8 1
+8043B300 lbl_8043B300 .sdata 0x8 1
+8043B318 lbl_8043B318 .sdata 0x8 1
+8043B320 lbl_8043B320 .sdata 0x8 1
+8043B328 lbl_8043B328 .sdata 0x8 1
+8043B330 lbl_8043B330 .sdata 0x8 1
+8043B338 lbl_8043B338 .sdata 0x8 1
+8043B354 lbl_8043B354 .sdata 0x4 3
+8043B368 lbl_8043B368 .sdata 0x8 1
+8043B370 lbl_8043B370 .sdata 0x4 1
+8043B374 lbl_8043B374 .sdata 0x4 1
+8043B378 lbl_8043B378 .sdata 0x4 1
+8043B37C lbl_8043B37C .sdata 0x4 1
+8043B380 lbl_8043B380 .sdata 0x8 1
+8043B390 lbl_8043B390 .sdata 0x8 7
+8043B398 lbl_8043B398 .sdata 0x4 3
+8043B39C lbl_8043B39C .sdata 0x4 7
+8043B3A0 lbl_8043B3A0 .sdata 0x4 2
+8043B3A4 lbl_8043B3A4 .sdata 0x4 2
+8043B3A8 lbl_8043B3A8 .sdata 0x4 4
+8043B3AC lbl_8043B3AC .sdata 0x4 5
+8043B3B0 lbl_8043B3B0 .sdata 0x4 5
+8043B3B4 lbl_8043B3B4 .sdata 0x4 1
+8043B3B8 lbl_8043B3B8 .sdata 0x8 1
+8043B3C0 lbl_8043B3C0 .sdata 0x4 1
+8043B3C4 lbl_8043B3C4 .sdata 0x4 1
+8043B3C8 lbl_8043B3C8 .sdata 0x8 1
+8043B3D0 lbl_8043B3D0 .sdata 0x8 1
+8043B3D8 lbl_8043B3D8 .sdata 0x4 2
+8043B3DC lbl_8043B3DC .sdata 0x4 1
+8043B3E0 lbl_8043B3E0 .sdata 0x4 1
+8043B3E4 lbl_8043B3E4 .sdata 0x4 1
+8043B998 lbl_8043B998 .sbss 0x4 1
+8043BB18 lbl_8043BB18 .sbss 0x8 2
+8043BBA8 lbl_8043BBA8 .sbss 0x4 11
+8043BC18 lbl_8043BC18 .sbss 0x4 2
+8043BC30 lbl_8043BC30 .sbss 0x4 1
+8043BC70 lbl_8043BC70 .sbss 0x4 39
+8043C440 lbl_8043C440 .sbss 0x4 5
+8043C458 lbl_8043C458 .sbss 0x8 7
+8043C468 lbl_8043C468 .sbss 0x8 3
+8043C470 lbl_8043C470 .sbss 0x8 23
+8043C480 lbl_8043C480 .sbss 0x8 7
+8043C488 lbl_8043C488 .sbss 0x8 22
+8043C498 lbl_8043C498 .sbss 0x8 7
+8043C4B0 lbl_8043C4B0 .sbss 0x8 30
+8043C4D0 lbl_8043C4D0 .sbss 0x8 8
+8043C4F0 lbl_8043C4F0 .sbss 0x8 1
+8043C4F8 lbl_8043C4F8 .sbss 0x8 6
+8043C504 lbl_8043C504 .sbss 0x4 8
+8043C50E lbl_8043C50E .sbss 0x1 2
+8043C520 lbl_8043C520 .sbss 0x8 1
+8043C528 lbl_8043C528 .sbss 0x8 28
+8043C530 lbl_8043C530 .sbss 0x8 11
+8043C538 lbl_8043C538 .sbss 0x4 1
+8043C588 lbl_8043C588 .sbss 0x8 5
+8043C590 lbl_8043C590 .sbss 0x8 5
+8043C5A0 lbl_8043C5A0 .sbss 0x4 10
+8043C5A5 lbl_8043C5A5 .sbss 0x1 3
+8043C5AC lbl_8043C5AC .sbss 0x4 2
+8043C5D4 lbl_8043C5D4 .sbss 0x4 32
+8043C620 lbl_8043C620 .sbss 0x8 2
+8043C630 lbl_8043C630 .sbss 0x8 2
+8043C638 lbl_8043C638 .sbss 0x8 2
+8043C648 lbl_8043C648 .sbss 0x8 2
+8043C650 lbl_8043C650 .sbss 0x8 2
+8043C658 lbl_8043C658 .sbss 0x8 2
+8043C6A0 lbl_8043C6A0 .sbss 0x8 2
+8043C6A8 lbl_8043C6A8 .sbss 0x8 7
+8043C6B0 lbl_8043C6B0 .sbss 0x8 9
+8043C6B8 lbl_8043C6B8 .sbss 0x8 6
+8043C6C0 lbl_8043C6C0 .sbss 0x8 15
+8043C6C8 lbl_8043C6C8 .sbss 0x8 2
+8043C6E8 lbl_8043C6E8 .sbss 0x8 1

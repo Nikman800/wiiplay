@@ -1,0 +1,11 @@
+address	old_name	new_name	unit	previous
+802B2F84	Cow_GoalMsg_drawScreen	DrawScreen__12RPCowGoalMsgFUc	Pack/RPParty/RPCowScene/RPCowHud_8.cpp	
+802B2F98	Cow_GoalMsg_calc	OnActivate__12RPCowGoalMsgFv	Pack/RPParty/RPCowScene/RPCowHud_8.cpp	
+802B3310	Cow_GoalMsg_exit	OnStop__12RPCowGoalMsgFv	Pack/RPParty/RPCowScene/RPCowHud_8.cpp	
+802B3314	Cow_GoalMsg_reset	OnStart__12RPCowGoalMsgFv	Pack/RPParty/RPCowScene/RPCowHud_8.cpp	
+802B33EC	Cow_GoalMsg_init	LoadResource__12RPCowGoalMsgFv	Pack/RPParty/RPCowScene/RPCowHud_8.cpp	
+802B358C	Cow_GoalMsg_dtor	__dt__12RPCowGoalMsgFv	Pack/RPParty/RPCowScene/RPCowHud_8.cpp	
+802B35E4	Cow_GoalMsg_ctor	__ct__12RPCowGoalMsgFv	Pack/RPParty/RPCowScene/RPCowHud_8.cpp	
+802B3638	Cow_GoalMsg_show	Show__12RPCowGoalMsgFl	Pack/RPParty/RPCowScene/RPCowHud_8.cpp	
+802B3768	Cow_GoalMsg_dtorThunk	@20@__dt__12RPCowGoalMsgFv	Pack/RPParty/RPCowScene/RPCowHud_8.cpp	
+8035D908	lbl_8035D908	__vt__12RPCowGoalMsg	Pack/RPParty/RPCowScene/RPCowHud_8.cpp	

@@ -1,0 +1,17 @@
+address	old_name	new_name	unit	previous
+801B9FC8	Lyt_LytObjBase_ctor	__ct__12RPLytObjBaseFv	Pack/RPParty/RPDucScene/RPDucHud_5.cpp	
+802497DC	Duc_Game_getCurrentRound	GetCurrentRound__9RPDucGameCFv	Pack/RPParty/RPDucScene/RPDucHud_5.cpp	
+8024FF80	Duc_ScoreMgr_getLeader	GetLeader__13RPDucScoreMgrCFv	Pack/RPParty/RPDucScene/RPDucHud_5.cpp	
+80255064	Duc_EndLayout_playOut	PlayOut__14RPDucEndLayoutFv	Pack/RPParty/RPDucScene/RPDucHud_5.cpp	
+80255118	Duc_EndLayout_playIn	PlayIn__14RPDucEndLayoutFv	Pack/RPParty/RPDucScene/RPDucHud_5.cpp	
+802553C0	Duc_EndLayout_exit	VF_0x18__14RPDucEndLayoutFv	Pack/RPParty/RPDucScene/RPDucHud_5.cpp	
+802553C4	Duc_EndLayout_draw	Draw__14RPDucEndLayoutFv	Pack/RPParty/RPDucScene/RPDucHud_5.cpp	
+80255490	Duc_EndLayout_calc	Calculate__14RPDucEndLayoutFv	Pack/RPParty/RPDucScene/RPDucHud_5.cpp	
+802555EC	Duc_EndLayout_reset	Reset__14RPDucEndLayoutFv	Pack/RPParty/RPDucScene/RPDucHud_5.cpp	
+80255910	Duc_EndLayout_load	Load__14RPDucEndLayoutFPQ23EGG7Archive	Pack/RPParty/RPDucScene/RPDucHud_5.cpp	Load__14RPDucEndLayoutFPQ23EGG7Archive
+802559E8	Duc_EndLayout_drawMiiIcons	DrawMiiIcons__14RPDucEndLayoutFv	Pack/RPParty/RPDucScene/RPDucHud_5.cpp	
+80255B90	Duc_EndLayout_updateAnimStates	UpdateAnimStates__14RPDucEndLayoutFv	Pack/RPParty/RPDucScene/RPDucHud_5.cpp	
+80255D10	Duc_EndLayout_dtor	__dt__14RPDucEndLayoutFv	Pack/RPParty/RPDucScene/RPDucHud_5.cpp	
+80255D50	Duc_EndLayout_ctor	__ct__14RPDucEndLayoutFv	Pack/RPParty/RPDucScene/RPDucHud_5.cpp	
+8035B0D0	lbl_8035B0D0	__vt__14RPDucEndLayout	Pack/RPParty/RPDucScene/RPDucHud_5.cpp	
+8043C648	Mii_miiIconSetInstance	sInstance__12RPMiiIconSet	Pack/RPParty/RPDucScene/RPDucHud_5.cpp	

@@ -1,0 +1,7 @@
+address	old_name	new_name	unit	previous
+8018A088	Sys_FontMgr_getFirstFont	GetLoadedResFont__16RPSysFontManagerCFv	Pack/RPSystem/RPSysFontManager.cpp	
+8018A1A4	Sys_FontMgr_getFont	GetResFont__16RPSysFontManagerCFi	Pack/RPSystem/RPSysFontManager.cpp	
+8018A1B4	Sys_FontMgr_loadFonts	LoadResFonts__16RPSysFontManagerFv	Pack/RPSystem/RPSysFontManager.cpp	
+8018A260	Sys_FontMgr_loadRomFont	LoadRomFont__16RPSysFontManagerFv	Pack/RPSystem/RPSysFontManager.cpp	
+8018A2B4	Sys_FontMgr_dtor	__dt__16RPSysFontManagerFv	Pack/RPSystem/RPSysFontManager.cpp	
+8018A2F4	Sys_FontMgr_createInstance	CreateInstance__16RPSysFontManagerFv	Pack/RPSystem/RPSysFontManager.cpp	

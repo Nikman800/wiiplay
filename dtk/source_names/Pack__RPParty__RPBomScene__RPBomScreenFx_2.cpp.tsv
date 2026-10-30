@@ -1,0 +1,17 @@
+address	old_name	new_name	unit	previous
+802DDD74	Bom_ScreenFx_calc	Calculate__13RPBomScreenFxFv	Pack/RPParty/RPBomScene/RPBomScreenFx_2.cpp	
+802DDDA8	Bom_ScreenFx_reset	Reset__13RPBomScreenFxFv	Pack/RPParty/RPBomScene/RPBomScreenFx_2.cpp	
+802DDE48	Bom_ScreenFx_load	Load__13RPBomScreenFxFv	Pack/RPParty/RPBomScene/RPBomScreenFx_2.cpp	
+802DDE4C	Bom_ScreenFx_create	Create__13RPBomScreenFxFv	Pack/RPParty/RPBomScene/RPBomScreenFx_2.cpp	
+802DDEAC	Bom_ScreenFx_stateNop0	StateNop0__13RPBomScreenFxFv	Pack/RPParty/RPBomScene/RPBomScreenFx_2.cpp	
+802DDEB0	Bom_ScreenFx_drawCapturedScreen	DrawCapturedScreen__13RPBomScreenFxFv	Pack/RPParty/RPBomScene/RPBomScreenFx_2.cpp	
+802DE0F4	Bom_ScreenFx_stateNop1	StateNop1__13RPBomScreenFxFv	Pack/RPParty/RPBomScene/RPBomScreenFx_2.cpp	
+802DE0F8	Bom_ScreenFx_stateNop2	StateNop2__13RPBomScreenFxFv	Pack/RPParty/RPBomScene/RPBomScreenFx_2.cpp	
+802DE0FC	Bom_ScreenFx_drawPlayerSpotlights	DrawPlayerSpotlights__13RPBomScreenFxFv	Pack/RPParty/RPBomScene/RPBomScreenFx_2.cpp	
+802DE4D8	Bom_ScreenFx_drawFullMask	DrawFullMask__13RPBomScreenFxFv	Pack/RPParty/RPBomScene/RPBomScreenFx_2.cpp	
+802DE6A8	Bom_ScreenFx_stateNop3	StateNop3__13RPBomScreenFxFv	Pack/RPParty/RPBomScene/RPBomScreenFx_2.cpp	
+802DE6AC	Bom_ScreenFx_stateNop4	StateNop4__13RPBomScreenFxFv	Pack/RPParty/RPBomScene/RPBomScreenFx_2.cpp	
+802DE6B0	Bom_ScreenFx_stateNop5	StateNop5__13RPBomScreenFxFv	Pack/RPParty/RPBomScene/RPBomScreenFx_2.cpp	
+802DE6B4	Bom_ScreenFx_dtor	__dt__13RPBomScreenFxFv	Pack/RPParty/RPBomScene/RPBomScreenFx_2.cpp	
+8043AAB0	Bom_vecUp100	sCapturePos	Pack/RPParty/RPBomScene/RPBomScreenFx_2.cpp	
+802DE8A8		__sinit_\RPBomScreenFx_2_cpp	Pack/RPParty/RPBomScene/RPBomScreenFx_2.cpp	__sinit_\RPBomScreenFx_cpp

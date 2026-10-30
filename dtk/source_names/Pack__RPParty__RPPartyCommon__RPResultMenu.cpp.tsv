@@ -1,0 +1,13 @@
+address	old_name	new_name	unit	previous
+801E9E54	Party_VsResultLyt_close	Close__13RPVsResultLytFv	Pack/RPParty/RPPartyCommon/RPResultMenu.cpp	
+801E9E84	Party_VsResultLyt_open	Open__13RPVsResultLytFPCl	Pack/RPParty/RPPartyCommon/RPResultMenu.cpp	
+801E9EC0	Party_VsResultLyt_draw	DrawLayer1C__13RPVsResultLytFv	Pack/RPParty/RPPartyCommon/RPResultMenu.cpp	
+801E9EE0	Party_VsResultLyt_drawLayer1A	DrawLayer1A__13RPVsResultLytFv	Pack/RPParty/RPPartyCommon/RPResultMenu.cpp	
+801E9EE4	Party_VsResultLyt_calcOut	CalcOut__13RPVsResultLytFv	Pack/RPParty/RPPartyCommon/RPResultMenu.cpp	
+801E9F08	Party_VsResultLyt_enterOut	EnterOut__13RPVsResultLytFv	Pack/RPParty/RPPartyCommon/RPResultMenu.cpp	
+801E9F7C	Party_VsResultLyt_calcIn	CalcIn__13RPVsResultLytFv	Pack/RPParty/RPPartyCommon/RPResultMenu.cpp	
+801E9FA0	Party_VsResultLyt_enterIn	EnterIn__13RPVsResultLytFv	Pack/RPParty/RPPartyCommon/RPResultMenu.cpp	
+801EA0F0	Party_VsResultLyt_calc	Calculate__13RPVsResultLytFv	Pack/RPParty/RPPartyCommon/RPResultMenu.cpp	
+801EA270	Party_VsResultLyt_reset	Reset__13RPVsResultLytFv	Pack/RPParty/RPPartyCommon/RPResultMenu.cpp	
+801EA31C	Party_VsResultLyt_load	Load__13RPVsResultLytFPQ23EGG7Archive	Pack/RPParty/RPPartyCommon/RPResultMenu.cpp	
+801EA46C	Party_VsResultLyt_ctor	__ct__13RPVsResultLytFv	Pack/RPParty/RPPartyCommon/RPResultMenu.cpp	

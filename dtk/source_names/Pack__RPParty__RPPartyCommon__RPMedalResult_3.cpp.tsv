@@ -1,0 +1,15 @@
+address	old_name	new_name	unit	previous
+801E7570	Party_Common_getGameMsgIndex	GetGameMsgIndex__8RPCommonCFlPlPl	Pack/RPParty/RPPartyCommon/RPMedalResult_3.cpp	
+801E7858	Party_Common_draw	UserDraw__8RPCommonFv	Pack/RPParty/RPPartyCommon/RPMedalResult_3.cpp	
+801E7CC8	Party_Common_ctor	__ct__8RPCommonFRC13RPCommonParam	Pack/RPParty/RPPartyCommon/RPMedalResult_3.cpp	
+801E8040	Party_Common_dtor	__dt__8RPCommonFv	Pack/RPParty/RPPartyCommon/RPMedalResult_3.cpp	
+801E80DC	Party_Common_drawThunk	@4@UserDraw__8RPCommonFv	Pack/RPParty/RPPartyCommon/RPMedalResult_3.cpp	
+801E80E4	Party_Common_dtorThunk	@4@__dt__8RPCommonFv	Pack/RPParty/RPPartyCommon/RPMedalResult_3.cpp	
+801E747C	Party_getNextGameId	GetNextGame__8RPCommonCFv	Pack/RPParty/RPPartyCommon/RPMedalResult_3.cpp	
+801E74B8	Party_getGameMsgIndex	GetGameMsgIndex__8RPCommonFllPlPl	Pack/RPParty/RPPartyCommon/RPMedalResult_3.cpp	
+801E7630	Party_isAnyPlayerPressingAB	IsAnyABPressed__8RPCommonFl	Pack/RPParty/RPPartyCommon/RPMedalResult_3.cpp	
+801E76B0	Party_isPadAPressed	IsAPressed__8RPCommonFl	Pack/RPParty/RPPartyCommon/RPMedalResult_3.cpp	
+801E76F0	Party_Common_setAvatarScale	SetAvatarScale__8RPCommonFlfRCQ34nw4r4math5MTX34	Pack/RPParty/RPPartyCommon/RPMedalResult_3.cpp	
+801E77E0	Party_Common_screenToWorld	ScreenToWorld__8RPCommonCFRCQ34nw4r4math4VEC2	Pack/RPParty/RPPartyCommon/RPMedalResult_3.cpp	
+801E77F8	Party_getMedalDrawLayer	GetEffectDrawLayer__8RPCommonFv	Pack/RPParty/RPPartyCommon/RPMedalResult_3.cpp	
+801E7844	Party_addLayerBase1A	GetLayoutViewNo__8RPCommonFl	Pack/RPParty/RPPartyCommon/RPMedalResult_3.cpp	

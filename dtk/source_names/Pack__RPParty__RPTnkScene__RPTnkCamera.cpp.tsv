@@ -1,0 +1,16 @@
+address	old_name	new_name	unit	previous
+80256DE4	Tnk_Camera_updateView	UpdateView__11RPTnkCameraFv	Pack/RPParty/RPTnkScene/RPTnkCamera.cpp	
+80256EAC	Tnk_Camera_setMode	SetMode__11RPTnkCameraFl	Pack/RPParty/RPTnkScene/RPTnkCamera.cpp	
+80257160	Tnk_Camera_calc	Calculate__11RPTnkCameraFv	Pack/RPParty/RPTnkScene/RPTnkCamera.cpp	
+802571C4	Tnk_Camera_initView	InitView__11RPTnkCameraFv	Pack/RPParty/RPTnkScene/RPTnkCamera.cpp	
+8025728C	Tnk_Camera_create	Reset__11RPTnkCameraFv	Pack/RPParty/RPTnkScene/RPTnkCamera.cpp	
+802572F4	Tnk_Camera_stateFixed	StateFixed__11RPTnkCameraFv	Pack/RPParty/RPTnkScene/RPTnkCamera.cpp	
+802572F8	Tnk_Camera_stateIntroMove	StateIntroMove__11RPTnkCameraFv	Pack/RPParty/RPTnkScene/RPTnkCamera.cpp	
+802573C4	Tnk_Camera_dtor	__dt__11RPTnkCameraFv	Pack/RPParty/RPTnkScene/RPTnkCamera.cpp	
+8025741C	Tnk_Camera_destroyInstance	DestroyInstance__11RPTnkCameraFv	Pack/RPParty/RPTnkScene/RPTnkCamera.cpp	
+80257460	Tnk_Camera_createInstance	CreateInstance__11RPTnkCameraFv	Pack/RPParty/RPTnkScene/RPTnkCamera.cpp	
+80257500	Tnk_initCameraPathConsts	__sinit_\RPTnkCamera_cpp	Pack/RPParty/RPTnkScene/RPTnkCamera.cpp	
+8035B178	Tnk_Camera_vtable	__vt__11RPTnkCamera	Pack/RPParty/RPTnkScene/RPTnkCamera.cpp	
+8043A81C	Tnk_cameraIntroTarget	sIntroTarget	Pack/RPParty/RPTnkScene/RPTnkCamera.cpp	
+8043A858	Tnk_cameraFixedTarget	sFixedTargetUp	Pack/RPParty/RPTnkScene/RPTnkCamera.cpp	
+8043C8D8	Tnk_cameraInstance	sInstance__11RPTnkCamera	Pack/RPParty/RPTnkScene/RPTnkCamera.cpp	

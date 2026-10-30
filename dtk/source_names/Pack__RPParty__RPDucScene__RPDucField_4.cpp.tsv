@@ -1,0 +1,6 @@
+address	old_name	new_name	unit	previous
+8024D30C	Duc_ShtCloud_reset	Reset__13RPDucShtCloudFv	Pack/RPParty/RPDucScene/RPDucField_4.cpp	
+8024D3B4	Duc_ShtCloud_load	Load__13RPDucShtCloudFv	Pack/RPParty/RPDucScene/RPDucField_4.cpp	
+8024D4F4	Duc_ShtCloud_init	Create__13RPDucShtCloudFv	Pack/RPParty/RPDucScene/RPDucField_4.cpp	
+8024D4F8	Duc_ShtCloud_dtor	__dt__13RPDucShtCloudFv	Pack/RPParty/RPDucScene/RPDucField_4.cpp	
+8035ACB8	lbl_8035ACB8	__vt__13RPDucShtCloud	Pack/RPParty/RPDucScene/RPDucField_4.cpp	

@@ -1,0 +1,13 @@
+address	old_name	new_name	unit	previous
+802E3EB8	Bom_LytStart_playThemeOut	PlayThemeOut__13RPBomLytStartFv	Pack/RPParty/RPBomScene/RPBomLyt_2.cpp	
+802E3F50	Bom_LytStart_showTheme	ShowTheme__13RPBomLytStartFv	Pack/RPParty/RPBomScene/RPBomLyt_2.cpp	
+802E4068	Bom_LytStart_showTitle	ShowTitle__13RPBomLytStartFv	Pack/RPParty/RPBomScene/RPBomLyt_2.cpp	
+802E41AC	Bom_LytStart_exit	VF_0x18__13RPBomLytStartFv	Pack/RPParty/RPBomScene/RPBomLyt_2.cpp	
+802E41B0	Bom_LytStart_draw	Draw__13RPBomLytStartFv	Pack/RPParty/RPBomScene/RPBomLyt_2.cpp	
+802E41C8	Bom_LytStart_calc	Calculate__13RPBomLytStartFv	Pack/RPParty/RPBomScene/RPBomLyt_2.cpp	
+802E4308	Bom_LytStart_reset	Reset__13RPBomLytStartFv	Pack/RPParty/RPBomScene/RPBomLyt_2.cpp	
+802E44BC	Bom_LytStart_load	Load__13RPBomLytStartFPQ23EGG7Archive	Pack/RPParty/RPBomScene/RPBomLyt_2.cpp	
+802E4598	Bom_LytStart_updateStates	UpdateStates__13RPBomLytStartFv	Pack/RPParty/RPBomScene/RPBomLyt_2.cpp	
+802E4698	Bom_LytStart_dtor	__dt__13RPBomLytStartFv	Pack/RPParty/RPBomScene/RPBomLyt_2.cpp	
+802E46D8	Bom_LytStart_ctor	__ct__13RPBomLytStartFv	Pack/RPParty/RPBomScene/RPBomLyt_2.cpp	
+8035F7C8	lbl_8035F7C8	__vt__13RPBomLytStart	Pack/RPParty/RPBomScene/RPBomLyt_2.cpp	

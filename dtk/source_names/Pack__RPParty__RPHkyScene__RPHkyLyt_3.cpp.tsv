@@ -1,0 +1,4 @@
+address	old_name	new_name	unit
+801973F4	Lyt_setTextBoxMessage_801973F4	setMessage__15RPSysLytTextBoxFP12RPSysMessageUlUlie	Pack/RPParty/RPHkyScene/RPHkyLyt_3.cpp
+801BA3FC	Lyt_createLayoutDefault	RPCreateLayout__FP19RPSysLytResAccessorPCc	Pack/RPParty/RPHkyScene/RPHkyLyt_3.cpp
+801BA40C	Lyt_createLocalResAccessor	RPCreateLocalLytResAccessor__FPCc	Pack/RPParty/RPHkyScene/RPHkyLyt_3.cpp

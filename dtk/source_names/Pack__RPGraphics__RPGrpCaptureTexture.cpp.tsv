@@ -1,0 +1,6 @@
+address	old_name	new_name	unit	previous
+801B1574	Gfx_CapTexture_setFilter	SetFilter__19RPGrpCaptureTextureFi	Pack/RPGraphics/RPGrpCaptureTexture.cpp	
+801B15B8	Gfx_CapTexture_capture	Capture__19RPGrpCaptureTextureFi	Pack/RPGraphics/RPGrpCaptureTexture.cpp	
+801B16C4	Gfx_CapTexture_ctor	__ct__19RPGrpCaptureTextureFP11RPGrpScreen9_GXTexFmtUl	Pack/RPGraphics/RPGrpCaptureTexture.cpp	
+801B17E0	Gfx_CapTexture_dtor	__dt__19RPGrpCaptureTextureFv	Pack/RPGraphics/RPGrpCaptureTexture.cpp	
+8032CFE8	lbl_8032CFE8	__vt__Q23EGG10CapTexture	Pack/RPGraphics/RPGrpCaptureTexture.cpp	

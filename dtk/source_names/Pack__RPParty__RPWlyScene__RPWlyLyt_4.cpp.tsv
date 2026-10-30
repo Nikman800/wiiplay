@@ -1,0 +1,5 @@
+address	old_name	new_name	unit	previous
+80291414	Wly_PointPopup_updatePos	UpdatePos__15RPWlyPointPopupFv	Pack/RPParty/RPWlyScene/RPWlyLyt_4.cpp	
+802918E4	Wly_TimerLyt_updateWarnAnim	UpdateWarnAnim__13RPWlyTimerLytFv	Pack/RPParty/RPWlyScene/RPWlyLyt_4.cpp	
+8029198C	Wly_TimerLyt_playMinus	PlayMinus__13RPWlyTimerLytFv	Pack/RPParty/RPWlyScene/RPWlyLyt_4.cpp	
+80291A08	Wly_TimerLyt_playPlus	PlayPlus__13RPWlyTimerLytFv	Pack/RPParty/RPWlyScene/RPWlyLyt_4.cpp	

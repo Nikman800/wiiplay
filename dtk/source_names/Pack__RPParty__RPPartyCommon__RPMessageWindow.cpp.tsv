@@ -1,0 +1,9 @@
+address	old_name	new_name	unit	previous
+80197D98	Lyt_MessageWindow_dtor	__dt__15RPMessageWindowFv	Pack/RPParty/RPPartyCommon/RPMessageWindow.cpp	
+80197DD8	Lyt_MessageWindow_ctor	__ct__15RPMessageWindowFPQ23EGG4Heap	Pack/RPParty/RPPartyCommon/RPMessageWindow.cpp	
+80197E94	Lyt_MessageWindow_draw	Draw__15RPMessageWindowFv	Pack/RPParty/RPPartyCommon/RPMessageWindow.cpp	
+80197EF0	Lyt_MessageWindow_calc	Calculate__15RPMessageWindowFv	Pack/RPParty/RPPartyCommon/RPMessageWindow.cpp	
+801984A4	Lyt_MessageWindow_reset	Reset__15RPMessageWindowFv	Pack/RPParty/RPPartyCommon/RPMessageWindow.cpp	
+801985B4	Lyt_MessageWindow_load	Load__15RPMessageWindowFv	Pack/RPParty/RPPartyCommon/RPMessageWindow.cpp	
+80198758	Lyt_MessageWindow_createInstance	CreateInstance__15RPMessageWindowFPQ23EGG4Heap	Pack/RPParty/RPPartyCommon/RPMessageWindow.cpp	
+8043C4F0	Lyt_messageWindowInstance	sInstance__15RPMessageWindow	Pack/RPParty/RPPartyCommon/RPMessageWindow.cpp	

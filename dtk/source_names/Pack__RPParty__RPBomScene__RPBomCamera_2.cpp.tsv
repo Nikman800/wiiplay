@@ -1,0 +1,4 @@
+address	old_name	new_name	unit	previous
+802D62AC	Bom_nullCallback	__ct__12BomWorkEntryFv	Pack/RPParty/RPBomScene/RPBomCamera_2.cpp	
+802D62B0	Bom_initIdentityMatrices	__sinit_\RPBomCamera_2_cpp	Pack/RPParty/RPBomScene/RPBomCamera_2.cpp	__sinit_\RPBomCamera_cpp
+80441640	lbl_80441640	Bom_panelMatchScale	Pack/RPParty/RPBomScene/RPBomCamera_2.cpp	

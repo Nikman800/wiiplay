@@ -1,0 +1,85 @@
+address	name	type	confidence	note
+8043C6D8	Party_commonInstance	RPCommon*	H	RPCommon::sInstance; Party_Common_create / Party_Common_destroy, called by every minigame
+8043C6E8	Party_selectSceneInstance	RPSelectScene*	H	RPSelectScene::sInstance; Party_SelectScene_create / Party_SelectScene_destroy
+8043C6F8	Party_dollMgrInstance	RPDollMgr*	H	RPDollMgr::sInstance; Party_DollMgr_create / Party_DollMgr_destroy
+8043C708	Party_crowdMgrInstance	RPCrowdMgr*	H	RPCrowdMgr::sInstance; Party_CrowdMgr_create / Party_CrowdMgr_destroy
+8043C720	Party_msgBoardInstance	RPMsgBoard*	H	RPMsgBoard::sInstance; Party_MsgBoard_create (RPCommon and RPSelectScene constructors)
+8043C710	Party_leadCursorUseDebugTimer	bool	M	RPLeadCursor::sUseDebugTimer; when set, Calculate forces both timers to Party_leadCursorDebugTimer
+8043B480	Party_leadCursorDebugTimer	s32	M	RPLeadCursor::sDebugTimer (120)
+8043C718	Party_screenFadeReloadColor	bool	M	RPScreenFade::sReloadColor; when set, Calculate re-reads Party_screenFadeTargetColor
+8043B488	Party_screenFadeFrames	s32	H	RPScreenFade::sFadeFrames (20)
+8043B48C	Party_screenFadeTargetColor	GXColor	H	RPScreenFade::sTargetColor (200, 200, 200, 200)
+8043B490	Party_titleBubbleInterval	s32	M	RPTitleLyt bubble restart timer (5), Party_TitleLyt_calc / onButtonPress
+8043B494	Party_titleClosedFrames	s32	M	frames in RPTitleLyt state 5 (closed) (10)
+8043B3E8	Party_medalResultActorScale	f32[2]	M	per screen mode (RP 8043BBA8), RPMedalResult actor scale (+0x58) (16, 16)
+8043B3F0	Party_medalResultAngleA	f32[2]	L	per screen mode, degrees, Party_MedalResult_calc (-16, -16)
+8043C6D0	Party_medalResultAngleB	f32[2]	L	per screen mode, degrees, Party_MedalResult_calc (zero-initialised)
+8043B3F8	Party_medalResultMedalScale	f32[2]	M	per screen mode, RPMedalResult::mMedalScale (18.5, 20.5)
+8043B400	Party_medalResultFlag	bool	L	tested by Party_MedalResult_calcMedal / calcRecord (true)
+8043A3D0	Party_medalRecordOffsets	EGG::Vector2f[2]	M	per screen mode, added to the record pane position (20, 110); Party_initStaticScreenOffsets
+8043A3F8	Party_medalModelOffsets	EGG::Vector2f[2]	M	per screen mode, Party_MedalResult_calcMedal ((50, 75), (25, 90)); Party_initStaticScreenOffsets
+8043A3B8	Party_medalRecordOffsetsDtorChain	u8[0x18]	M	__register_global_object chain entries for Party_medalRecordOffsets
+8043A3E0	Party_medalModelOffsetsDtorChain	u8[0x18]	M	__register_global_object chain entries for Party_medalModelOffsets
+8043B408	Party_recordCenterPaneNames	const char*[2]	H	RPRecordLyt::sCenterPaneNames: N_center_00, N_center_01
+803582C0	Party_recordNewRecPaneNames	const char*[5]	H	RPRecordLyt::sNewRecPaneNames: N_newRec_00-04 (Party_RecordLyt_enterIn)
+803582D4	Party_recordPaneNames	const char*[5]	H	RPRecordLyt::sRecordPaneNames: N_tRecord_00-04 (Party_RecordLyt_reset and state enters)
+8043B410	Party_vsWinnerPlayerScale	f32	M	initial RPVsWinner::mPlayerScale (18)
+8043B418	Party_vsWinnerXOffsets	f32[2]	L	Party_VsWinner_calc (10, -10)
+8043B420	Party_vsWinnerFlag	bool	L	tested by Party_VsWinner_calcShow (true)
+8043A420	Party_vsWinnerPlayerOffsets	EGG::Vector2f[2]	M	(50, 95), (-50, 95); Party_initStaticVsWinnerOffsets, Party_VsWinner_updatePositions
+8043A43C	Party_vsWinnerTrophyVec	EGG::Vector3f	L	(7, 8, 8), copied to RPVsWinner + 0xAC; Party_initStaticVsWinnerOffsets
+8043C6E0	Party_vsWinnerTrophyOffset	EGG::Vector2f	M	(0, -30); Party_initStaticVsWinnerOffsets, Party_VsWinner_updatePositions
+8043A408	Party_vsWinnerOffsetsDtorChain	u8[0x18]	M	__register_global_object chain entries for Party_vsWinnerPlayerOffsets
+8043A430	Party_vsWinnerTrophyVecDtorChain	u8[0xC]	M	__register_global_object chain entry for Party_vsWinnerTrophyVec
+8043A448	Party_vsWinnerTrophyOffsetDtorChain	u8[0xC]	M	__register_global_object chain entry for Party_vsWinnerTrophyOffset
+8043B428	Party_dollScale	f32[2]	M	per screen mode, RPDoll actor scale (+0x58) (15.5, 16.5)
+8043B430	Party_dollLookDistance	f32	L	passed with the pointer to RPDollBase::LookAt by Party_Doll_lookAtPointer (500)
+8043B434	Party_dollBillboardFactor	f32	L	Party_Doll_adjustBillboardMatrix (2.5)
+8043B438	Party_dollLookInStep	f32	M	RPDollBase::mLookWeight step while looking (0.08)
+8043B43C	Party_dollLookOutStep	f32	M	RPDollBase::mLookWeight step otherwise (0.06)
+8043B440	Party_dollTurnSpeed	f32	H	RPDollBase::GetTurnSpeed, mLookSpeed after Reset (0.08)
+8043B444	Party_dollHitRadiusA	f32	L	Party_DollBase_hitTestPart / clampLookDir (2)
+8043B448	Party_dollHitRadiusB	f32	L	Party_DollBase_hitTestPart (3)
+8043B44C	Party_dollHitRadiusC	f32	L	Party_DollBase_hitTestPart (1.6)
+8043B450	Party_dollHitRadiusD	f32	L	Party_DollBase_hitTestPart (1.5)
+8043B454	Party_dollHitRadiusE	f32	L	Party_DollBase_hitTestPart (1.5)
+80358460	Party_dollAngles	f32[2][2]	M	[screen mode][player] doll Y rotation in degrees, Party_Doll_calc (5, -5)
+8043A470	Party_dollOffsets1P	EGG::Vector2f[2]	M	per screen mode, single-player doll screen offset ((0, -40), (0, -44)); Party_initStaticDollOffsets, Party_Doll_setScreenPos
+8043A4B0	Party_dollOffsets2P	EGG::Vector2f[2][2]	M	[screen mode][player] two-player doll screen offsets ((25, -44), (-25, -44)), ((8, -44), (-8, -44)); Party_initStaticDollOffsets, Party_Doll_setScreenPos
+8043A458	Party_dollOffsets1PDtorChain	u8[0x18]	M	__register_global_object chain entries for Party_dollOffsets1P
+8043A480	Party_dollOffsets2PDtorChain	u8[0x30]	M	__register_global_object chain entries for Party_dollOffsets2P
+8043C6F0	Party_dollLookSpeed	f32	M	0.3142 (set by Party_initStaticDollOffsets); passed to RPDollBase::LookAt / LookAtTarget
+8043B458	Party_crowdScale	f32	M	RPCrowdMii actor scale (+0x58) (18)
+8043B45C	Party_crowdBaseY	f32	M	RPCrowdMii Reset Y position (-275)
+8043B460	Party_crowdBaseZ	f32	M	RPCrowdMii Reset Z offset (-1500); its negation initialises Party_crowdLookDistance
+8043B464	Party_crowdEdgeX	f32	M	screen-edge X (times the screen aspect) where crowd Miis start and leave (1500)
+8043B468	Party_crowdSpacingZ	f32	M	Z spacing per crowd index (50)
+8043B46C	Party_crowdMove1Speed	f32	M	target speed of state 2 (3)
+8043B470	Party_crowdMove2Speed	f32	M	target speed of state 3 (5)
+8043B474	Party_crowdRunawaySpeed	f32	M	target speed of state 4 (8)
+8043B478	Party_crowdSwimSpeed	f32	M	target speed of state 5 (4)
+8043C700	Party_crowdLookDistance	f32	M	-Party_crowdBaseZ, set by Party_initStaticCrowdLookParams; passed to RPDollBase::LookAt
+8043C704	Party_crowdLookAngle	f32	M	pi / 2, set by Party_initStaticCrowdLookParams
+8031BEF0	Party_medalThresholds	s32[9][4]	H	per game score thresholds for the medals, copied by Party_MedalResult_enterRecord
+8031D1D0	Party_selectGameNeighbors	s32[9][4]	M	neighbouring slot per direction (-1 none), Party_SelectGameLyt_getNeighborGame
+8031DEB0	Party_dollTableReactions	u8[0x60]	M	six 0x10-byte reaction entries (blend frames, animation ...), Party_Doll_enterTableReaction / calcTableReaction
+8031BDC0	Party_rankGetLytStateFuncs	RPStateMachine<RPRankGetLyt>::StateFunc[10]	H	enter/calc per state; copied by the RPRankGetLyt constructor
+8031BF80	Party_medalResultStateFuncs	RPStateMachine<RPMedalResult>::StateFunc[10]	H	copied by the RPMedalResult constructor
+8031C3F8	Party_recordLytStateFuncs	RPStateMachine<RPRecordLyt>::StateFunc[14]	H	copied by the RPRecordLyt constructor
+8031C730	Party_resultMenuStateFuncs	RPStateMachine<RPResultMenu>::StateFunc[10]	H	copied by the RPResultMenu constructor
+8031C7A8	Party_vsResultLytStateFuncs	RPStateMachine<RPVsResultLyt>::StateFunc[10]	H	inline state machine of RPVsResultLyt::Calculate
+8031C8D8	Party_choiceLytStateFuncs	RPStateMachine<RPChoiceLyt>::StateFunc[12]	H	inline state machine of RPChoiceLyt::Calculate
+8031CC18	Party_vsWinnerStateFuncs	RPStateMachine<RPVsWinner>::StateFunc[12]	H	copied by the RPVsWinner constructor (inside dtk symbol 8031CB18)
+8031CD80	Party_vsWinnerLytStateFuncs	RPStateMachine<RPVsWinnerLyt>::StateFunc[10]	H	copied by the RPVsWinnerLyt constructor
+8031CFA0	Party_selectGameLytStateFuncs	RPStateMachine<RPSelectGameLyt>::StateFunc[12]	H	main machine; inside dtk symbol 8031CEA0
+8031D030	Party_selectGameLytSlotStateFuncs	RPStateMachine<RPSelectGameLyt>::StateFunc[12]	H	per game slot; inside dtk symbol 8031CEA0
+8031D0C0	Party_selectGameLytLockedStateFuncs	RPStateMachine<RPSelectGameLyt>::StateFunc[8]	H	per locked icon; inside dtk symbol 8031CEA0
+8031D5E0	Party_selectSceneStateFuncs	RPStateMachine<RPSelectScene>::StateFunc[32]	H	copied by the RPSelectScene constructor
+8031DAC0	Party_gameInfoLytStateFuncs	RPStateMachine<RPGameInfoLyt>::StateFunc[12]	H	copied by the RPGameInfoLyt constructor
+8031DF10	Party_dollStateFuncs	RPStateMachine<RPDoll>::StateFunc[36]	H	copied by the RPDoll constructor
+8031E370	Party_crowdMiiStateFuncs	RPStateMachine<RPCrowdMii>::StateFunc[16]	H	copied by the RPCrowdMii constructor (state 0 has none)
+8031E548	Party_leadCursorLytStateFuncs	RPStateMachine<RPLeadCursorLyt>::StateFunc[8]	H	copied by the RPLeadCursorLyt constructor
+8031E760	Party_rankCompleteLytStateFuncs	RPStateMachine<RPRankCompleteLyt>::StateFunc[10]	H	copied by the RPRankCompleteLyt constructor
+8031E8F8	Party_pauseTextLytStateFuncs	RPStateMachine<RPPauseTextLyt>::StateFunc[8]	H	copied by the RPPauseTextLyt constructor
+8031E9F8	Party_titleLytStateFuncs	RPStateMachine<RPTitleLyt>::StateFunc[14]	H	main machine, copied by the RPTitleLyt constructor
+8031EAA0	Party_titleLytButtonStateFuncs	RPStateMachine<RPTitleLyt>::StateFunc[6]	H	per button; inside dtk symbol 8031E9F8

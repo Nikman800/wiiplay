@@ -1,0 +1,15 @@
+address	old_name	new_name	unit	previous
+802B9800	Cow_AngleDisp_drawScreen	DrawScreen__14RPCowAngleDispFUc	Pack/RPParty/RPCowScene/RPCowHud_13.cpp	
+802B9814	Cow_AngleDisp_calc	OnActivate__14RPCowAngleDispFv	Pack/RPParty/RPCowScene/RPCowHud_13.cpp	
+802B993C	Cow_AngleDisp_exit	OnStop__14RPCowAngleDispFv	Pack/RPParty/RPCowScene/RPCowHud_13.cpp	
+802B9940	Cow_AngleDisp_reset	OnStart__14RPCowAngleDispFv	Pack/RPParty/RPCowScene/RPCowHud_13.cpp	
+802B9AF0	Cow_AngleDisp_init	LoadResource__14RPCowAngleDispFv	Pack/RPParty/RPCowScene/RPCowHud_13.cpp	
+802B9BF8	Cow_AngleDisp_dtor	__dt__14RPCowAngleDispFv	Pack/RPParty/RPCowScene/RPCowHud_13.cpp	
+802B9C50	Cow_AngleDisp_ctor	__ct__14RPCowAngleDispFv	Pack/RPParty/RPCowScene/RPCowHud_13.cpp	
+802B9CA4	Cow_AngleDisp_setAngle	SetAngle__14RPCowAngleDispFlf	Pack/RPParty/RPCowScene/RPCowHud_13.cpp	
+802B9D6C	Cow_AngleDisp_playSwitch	PlaySwitch__14RPCowAngleDispFl	Pack/RPParty/RPCowScene/RPCowHud_13.cpp	
+802B9EC8	Cow_AngleDisp_bindAnimsMode2	BindAnimsMode2__14RPCowAngleDispFv	Pack/RPParty/RPCowScene/RPCowHud_13.cpp	
+802B9F74	Cow_AngleDisp_bindAnimsMode1	BindAnimsMode1__14RPCowAngleDispFv	Pack/RPParty/RPCowScene/RPCowHud_13.cpp	
+802BA19C	Cow_AngleDisp_dtorThunk	@20@__dt__14RPCowAngleDispFv	Pack/RPParty/RPCowScene/RPCowHud_13.cpp	
+8035DBD8	lbl_8035DBD8	__vt__14RPCowAngleDisp	Pack/RPParty/RPCowScene/RPCowHud_13.cpp	
+80441150	lbl_80441150	sCountPosY__14RPCowAngleDisp	Pack/RPParty/RPCowScene/RPCowHud_13.cpp	

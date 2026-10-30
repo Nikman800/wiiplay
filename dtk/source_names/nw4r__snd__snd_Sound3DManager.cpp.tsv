@@ -1,0 +1,9 @@
+address	old_name	new_name	unit	previous
+8043BA48	angleRearLeft$8369	angleRearLeft$8465	nw4r/snd/snd_Sound3DManager.cpp	angleRearLeft$8455
+8043BA50	angleFrontLeft$8372	angleFrontLeft$8468	nw4r/snd/snd_Sound3DManager.cpp	angleFrontLeft$8458
+8043BA58	angleFrontRight$8375	angleFrontRight$8471	nw4r/snd/snd_Sound3DManager.cpp	angleFrontRight$8461
+8043BA60	angleRearRight$8378	angleRearRight$8474	nw4r/snd/snd_Sound3DManager.cpp	angleRearRight$8464
+8043BA68	angleRearLeft$8402	angleRearLeft$8498	nw4r/snd/snd_Sound3DManager.cpp	angleRearLeft$8488
+8043BA70	angleFrontLeft$8405	angleFrontLeft$8501	nw4r/snd/snd_Sound3DManager.cpp	angleFrontLeft$8491
+8043BA78	angleFrontRight$8408	angleFrontRight$8504	nw4r/snd/snd_Sound3DManager.cpp	angleFrontRight$8494
+8043BA80	angleRearRight$8411	angleRearRight$8507	nw4r/snd/snd_Sound3DManager.cpp	angleRearRight$8497

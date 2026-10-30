@@ -1,0 +1,12 @@
+address	old_name	new_name	unit	previous
+802313D0	Pnp_IntroPhase_draw	Draw__15RPPnpIntroPhaseFv	Pack/RPParty/RPPnpScene/RPPnpPhase_5.cpp	
+802313D4	Pnp_IntroPhase_exit	Exit__15RPPnpIntroPhaseFv	Pack/RPParty/RPPnpScene/RPPnpPhase_5.cpp	
+802313D8	Pnp_IntroPhase_calc	Calculate__15RPPnpIntroPhaseFv	Pack/RPParty/RPPnpScene/RPPnpPhase_5.cpp	
+802314D4	Pnp_IntroPhase_reset	Reset__15RPPnpIntroPhaseFv	Pack/RPParty/RPPnpScene/RPPnpPhase_5.cpp	
+802314E4	Pnp_IntroPhase_load	Load__15RPPnpIntroPhaseFv	Pack/RPParty/RPPnpScene/RPPnpPhase_5.cpp	
+802314E8	Pnp_IntroPhase_create	Create__15RPPnpIntroPhaseFv	Pack/RPParty/RPPnpScene/RPPnpPhase_5.cpp	
+802314EC	Pnp_IntroPhase_calcCamera	CalcCamera__15RPPnpIntroPhaseFv	Pack/RPParty/RPPnpScene/RPPnpPhase_5.cpp	
+80231764	Pnp_IntroPhase_dtor	__dt__15RPPnpIntroPhaseFv	Pack/RPParty/RPPnpScene/RPPnpPhase_5.cpp	
+803599D8	Pnp_IntroPhase_vtable	__vt__15RPPnpIntroPhase	Pack/RPParty/RPPnpScene/RPPnpPhase_5.cpp	
+8032DAEC	lbl_8032DAEC	@STRING@SetFovy__Q23EGG7FrustumFf@0	Pack/RPParty/RPPnpScene/RPPnpPhase_5.cpp	
+8032DB08	lbl_8032DB08	@STRING@SetFovy__Q23EGG7FrustumFf	Pack/RPParty/RPPnpScene/RPPnpPhase_5.cpp	

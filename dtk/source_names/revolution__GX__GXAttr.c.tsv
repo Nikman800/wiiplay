@@ -1,0 +1,4 @@
+address	old_name	new_name	unit	previous
+8043AD40	tbl1$1011	tbl1$1035	revolution/GX/GXAttr.c	
+8043AD44	tbl2$1012	tbl2$1036	revolution/GX/GXAttr.c	
+8043AD48	tbl3$1013	tbl3$1037	revolution/GX/GXAttr.c	

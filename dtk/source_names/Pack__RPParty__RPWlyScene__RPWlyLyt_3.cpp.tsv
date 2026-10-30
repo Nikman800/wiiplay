@@ -1,0 +1,10 @@
+address	old_name	new_name	unit	previous
+80290A60	Wly_PointPopupSet_areAllIdle	AreAllIdle__18RPWlyPointPopupSetCFv	Pack/RPParty/RPWlyScene/RPWlyLyt_3.cpp	
+80290B74	Wly_PointPopupSet_showNext	ShowNext__18RPWlyPointPopupSetFlll	Pack/RPParty/RPWlyScene/RPWlyLyt_3.cpp	
+80290DC4	Wly_PointPopup_show	Show__15RPWlyPointPopupFlll	Pack/RPParty/RPWlyScene/RPWlyLyt_3.cpp	
+802910DC	Wly_PointPopup_draw	Draw__15RPWlyPointPopupFv	Pack/RPParty/RPWlyScene/RPWlyLyt_3.cpp	
+80291148	Wly_PointPopup_destroy	Destroy__15RPWlyPointPopupFv	Pack/RPParty/RPWlyScene/RPWlyLyt_3.cpp	
+8029114C	Wly_PointPopup_calc	Calculate__15RPWlyPointPopupFv	Pack/RPParty/RPWlyScene/RPWlyLyt_3.cpp	
+802911C8	Wly_PointPopup_reset	Reset__15RPWlyPointPopupFv	Pack/RPParty/RPWlyScene/RPWlyLyt_3.cpp	
+80291274	Wly_PointPopup_create	Create__15RPWlyPointPopupFv	Pack/RPParty/RPWlyScene/RPWlyLyt_3.cpp	
+802913E8	Wly_PointPopup_init	Init__15RPWlyPointPopupFv	Pack/RPParty/RPWlyScene/RPWlyLyt_3.cpp	

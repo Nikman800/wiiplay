@@ -1,0 +1,3 @@
+address	old_name	new_name	unit	previous
+8034F448	lbl_8034F448	__vt__24RPSysHostIOSocketManager	Pack/RPKernel/RPSysHostIOSocketManager.cpp	
+8043C4B8	lbl_8043C4B8	spInstance__24RPSysHostIOSocketManager	Pack/RPKernel/RPSysHostIOSocketManager.cpp	

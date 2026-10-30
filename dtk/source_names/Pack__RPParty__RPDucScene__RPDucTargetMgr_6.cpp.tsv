@@ -1,0 +1,8 @@
+address	old_name	new_name	unit	previous
+8023EC0C	Duc_UfoMgr_createInstance	CreateInstance__11RPDucUfoMgrFl	Pack/RPParty/RPDucScene/RPDucTargetMgr_6.cpp	
+8023EC80	Duc_UfoMgr_load	Load__11RPDucUfoMgrFv	Pack/RPParty/RPDucScene/RPDucTargetMgr_6.cpp	
+8023EC84	Duc_UfoMgr_dtor	__dt__11RPDucUfoMgrFv	Pack/RPParty/RPDucScene/RPDucTargetMgr_6.cpp	
+8023ECDC	Duc_UfoMgr_allocTarget	AllocTarget__11RPDucUfoMgrFv	Pack/RPParty/RPDucScene/RPDucTargetMgr_6.cpp	
+8023ED0C	Duc_UfoMgr_destroyInstance	DestroyInstance__11RPDucUfoMgrFv	Pack/RPParty/RPDucScene/RPDucTargetMgr_6.cpp	
+80241EFC	Duc_Ufo_ctor	__ct__8RPDucUfoFv	Pack/RPParty/RPDucScene/RPDucTargetMgr_6.cpp	
+8035A1F8	lbl_8035A1F8	__vt__11RPDucUfoMgr	Pack/RPParty/RPDucScene/RPDucTargetMgr_6.cpp	

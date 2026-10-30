@@ -1,0 +1,44 @@
+address	name	type	confidence	note
+80328790	Bom_borderIntroDelays	f32[3]	M	60, 90, 120; RPBomBorder::StartIntro sets mOffsetZ[i] = -(delay * 10 + 16 * i)
+80328E10	Bom_posePaneNames	const char*[3]	M	"P_poseL_00".."P_poseL_02"; local initializer in RPBomLytPoseSel::PlayPoseFrameAnim
+80328E1C	Bom_posePaneNames2	const char*[3]	L	second copy of the P_poseL_* names (RPBomLytPoseSel::ResetPanes or UpdatePoseTransition)
+80328E28	Bom_poseSelAnmNames	const char*[2][10]	H	poseManAB_00/01_*.brlan names per player; RPBomLytPoseSel::Load
+80328E78	Bom_poseFrameIdx	s32[3]	M	{0, 2, 1} pose -> frame index; local initializer in RPBomLytPoseSel::ChangePose / SetPose
+80328E84	Bom_poseFrameIdx2	s32[3]	M	second copy of {0, 2, 1} (the other of ChangePose / SetPose)
+803291D8	Bom_clearScorePaneNames	const char*[3]	L	"T_p1Score_00", "T_p2Score_00", "T_p2Score_02"; local initializer in RPBomLytClear
+8035E7A0	Bom_cameraStateZoomIn	RPBomCamera::StateFunc	H	PTMF initializer copied by RPBomCamera::CreateInstance (mode 0)
+8035E7AC	Bom_cameraStateIdle	RPBomCamera::StateFunc	H	PTMF initializer copied by RPBomCamera::CreateInstance (mode 1)
+8035E828	Bom_playerStateFuncs	RPBomPlayer::StateFunc[14]	H	seven move functions then seven state functions; copied by the RPBomPlayer constructor
+8035ED78	Bom_gameManagerStateFuncs	RPBomGameManager::StateFunc[13]	H	intro .. end; copied by the RPBomGameManager constructor
+8035EE90	Bom_screenFxStateFuncs	RPBomScreenFx::StateFunc[18]	H	two identical copies of the 9-entry table; RPBomScreenFx::CreateInstance copies the second (+0x6C)
+8035F0D8	Bom_panelStateFuncs	RPBomPanel::StateFunc[3]	H	none, fall, hit; copied by the RPBomPanel constructor
+8035F678	Bom_borderStateFuncs	RPBomBorder::StateFunc[12]	H	two identical copies of the 6-entry table; RPBomBorder::CreateInstance copies the second (+0x48)
+8043A9D8	Bom_sceneLightPos	nw4r::math::VEC3	H	(0, 10000, 0); RPScene light position set in RPBomScene::LoadResource
+8043A9E8	Bom_cameraPathStart	nw4r::math::VEC3	H	(0, 5, 120): zoom-in start position and first path point (RPBomCamera::SetMode 0)
+8043A9F4	Bom_cameraPathPoints	nw4r::math::VEC3[5]	M	zoom-in target (0, 15, 0) then path points 1-4 (0,5,155), (0,8,175), (0,10,190), (0,2000,0)
+8043AA30	Bom_cameraIdleTarget	nw4r::math::VEC3[2]	M	idle target (0, 0, 0) and (0, 0, -1) (RPBomCamera::SetMode 1, StateZoomIn)
+8043AA48	Bom_mtx33A	nw4r::math::MTX33	L	rows (1,0,0), (0,0,-1), (0,1,0); initialised by Bom_initIdentityMatrices, no other reader found
+8043AA6C	Bom_rotXNeg90	nw4r::math::MTX33	M	rows (1,0,0), (0,0,-1), (0,1,0); lays models and effects flat (RPBomStartBg, RPBomBorder, RPBomPanel, effects)
+8043AA90	Bom_vecDown	nw4r::math::VEC3	M	(0, -1, 0)
+8043AAB0	Bom_vecUp100	nw4r::math::VEC3	M	(0, 100, 0)
+8043B930	Bom_screenWidth	f32	H	Bom_updateScreenSize (RPBomScene::Reset), from view 0's screen
+8043B934	Bom_screenHeight	f32	H	Bom_updateScreenSize
+8043B938	Bom_screenHalfWidth	f32	H	Bom_updateScreenSize; spawn positions, intro bubbles, miss test
+8043B93C	Bom_screenHalfHeight	f32	H	Bom_updateScreenSize
+8043B940	Bom_bonusFormat	wchar_t[3]	M	swprintf format of RPBomLytClear::mBonusText2 (Reset)
+8043CA70	Bom_startBgInstance	RPBomStartBg*	H	RPBomStartBg::CreateInstance
+8043CA78	Bom_cameraInstance	RPBomCamera*	H	RPBomCamera::CreateInstance
+8043CA80	Bom_shuffleBuffer	u32*	M	0x800-byte {value, random key} pair buffer of Bom_shuffleArray (Bom_allocShuffleBuffers)
+8043CA84	Bom_shuffleBuffer2	void*	L	array of 0x100 16-byte objects (empty constructor) from Bom_allocShuffleBuffers, no reader found
+8043CA88	Bom_cursorManagerInstance	RPBomCursorManager*	H	RPBomCursorManager::CreateInstance
+8043CA90	Bom_playerManagerInstance	RPBomPlayerManager*	H	RPBomPlayerManager::CreateInstance
+8043CA98	Bom_gameManagerInstance	RPBomGameManager*	H	RPBomGameManager::CreateInstance
+8043CAA0	Bom_questionParamInstance	RPBomQuestionParam*	H	RPBomQuestionParam::CreateInstance
+8043CAA8	Bom_lastWavePoseSlots	s32[2]	M	pose slots of the last two waves; RPBomQuestionParam::PickWavePose avoids repeating them
+8043CAB0	Bom_jingleHandle	nw4r::snd::SoundHandle	M	static handle registered by Bom_initSoundHandle; RPBomBgm::IsSoundIdle holds sound 0x10 on it
+8043CAB8	Bom_screenFxInstance	RPBomScreenFx*	H	RPBomScreenFx::CreateInstance
+8043CAC0	Bom_scoreInstance	RPBomScore*	H	RPBomScore::CreateInstance
+8043CAC8	Bom_panelCtrlInstance	RPBomPanelCtrl*	H	RPBomPanelCtrl::CreateInstance
+8043CAD0	Bom_panelPoolInstance	RPBomPanelPool*	H	RPBomPanelPool::CreateInstance (from RPBomPanelCtrl::Create)
+8043CAD8	Bom_borderInstance	RPBomBorder*	H	RPBomBorder::CreateInstance
+8043CAE0	Bom_layoutMgrInstance	RPBomLayoutMgr*	H	RPBomLayoutMgr::CreateInstance

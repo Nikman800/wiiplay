@@ -1,0 +1,15 @@
+address	old_name	new_name	unit	previous
+801C8058	RP_ActorList_stopActor	StopActor__11RPActorListFP7RPActor	Pack/RPParty/RPCowScene/RPCowHud_11.cpp	
+802A0D98	Cow_Camera_projectToScreen	ProjectToScreen__11RPCowCameraCFRCQ23EGG8Vector3f	Pack/RPParty/RPCowScene/RPCowHud_11.cpp	
+802A60D0	Cow_Player_getTargetPos	GetTargetPos__11RPCowPlayerFv	Pack/RPParty/RPCowScene/RPCowHud_11.cpp	GetTargetPos__11RPCowPlayerCFv
+802B47FC	Cow_TargetMarker_drawScreen	DrawScreen__17RPCowTargetMarkerFUc	Pack/RPParty/RPCowScene/RPCowHud_11.cpp	
+802B4880	Cow_TargetMarker_calc	OnActivate__17RPCowTargetMarkerFv	Pack/RPParty/RPCowScene/RPCowHud_11.cpp	
+802B4AF4	Cow_TargetMarker_exit	OnStop__17RPCowTargetMarkerFv	Pack/RPParty/RPCowScene/RPCowHud_11.cpp	
+802B4AF8	Cow_TargetMarker_reset	OnStart__17RPCowTargetMarkerFv	Pack/RPParty/RPCowScene/RPCowHud_11.cpp	
+802B4B1C	Cow_TargetMarker_init	LoadResource__17RPCowTargetMarkerFv	Pack/RPParty/RPCowScene/RPCowHud_11.cpp	
+802B4BCC	Cow_TargetMarker_dtor	__dt__17RPCowTargetMarkerFv	Pack/RPParty/RPCowScene/RPCowHud_11.cpp	
+802B4C24	Cow_TargetMarker_ctor	__ct__17RPCowTargetMarkerFv	Pack/RPParty/RPCowScene/RPCowHud_11.cpp	
+802B4C78	Cow_TargetMarker_restartAnim	RestartAnim__17RPCowTargetMarkerFv	Pack/RPParty/RPCowScene/RPCowHud_11.cpp	
+802B4CC0	Cow_TargetMarker_show	Show__17RPCowTargetMarkerFv	Pack/RPParty/RPCowScene/RPCowHud_11.cpp	
+802B4D54	Cow_TargetMarker_dtorThunk	@20@__dt__17RPCowTargetMarkerFv	Pack/RPParty/RPCowScene/RPCowHud_11.cpp	
+8035DA28	lbl_8035DA28	__vt__17RPCowTargetMarker	Pack/RPParty/RPCowScene/RPCowHud_11.cpp	

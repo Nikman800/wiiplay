@@ -1,0 +1,4 @@
+address	old_name	new_name	unit	previous
+801C2EE0	RP_BBox_getSum	GetSum__6RPBBoxCFv	Pack/RPParty/RPPartyCommon/RPColliderList.cpp	
+801C2EE8	RP_BBox_extend	Extend__6RPBBoxFRCQ23EGG8Vector3f	Pack/RPParty/RPPartyCommon/RPColliderList.cpp	
+801C5E24	RP_Collider_draw	Draw__10RPColliderFv	Pack/RPParty/RPPartyCommon/RPColliderList.cpp	Draw__10RPColliderFv;RP_Collider_draw

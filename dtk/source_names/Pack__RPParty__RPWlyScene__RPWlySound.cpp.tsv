@@ -1,0 +1,11 @@
+address	old_name	new_name	unit	previous
+802763DC	Wly_Avatar_setDrawScene	SetDrawScene__11RPWlyAvatarFUc	Pack/RPParty/RPWlyScene/RPWlySound.cpp	
+80276BC4	Wly_Avatar_calcModelPose	CalcModelPose__11RPWlyAvatarFv	Pack/RPParty/RPWlyScene/RPWlySound.cpp	
+802776B0	Wly_Avatar_loadResource	LoadResource__11RPWlyAvatarFPC24RPSysKokeshiOverloadInfo	Pack/RPParty/RPWlyScene/RPWlySound.cpp	
+802776F8	Wly_Avatar_dtor	__dt__11RPWlyAvatarFv	Pack/RPParty/RPWlyScene/RPWlySound.cpp	
+80277D74	Wly_SoundActor_dtor	__dt__15RPWlySoundActorFv	Pack/RPParty/RPWlyScene/RPWlySound.cpp	
+8027A394	Wly_Avatar_thunk_dtor	@180@__dt__11RPWlyAvatarFv	Pack/RPParty/RPWlyScene/RPWlySound.cpp	@16@__dt__19TRPSndObjectBase<4>Fv
+8027A3DC	Wly_SoundActor_thunk_dtor	@16@__dt__15RPWlySoundActorFv	Pack/RPParty/RPWlyScene/RPWlySound.cpp	
+8027E368	Wly_GameMgr_is1pTypeAStage	Is1pTypeAStage__12RPWlyGameMgrCFv	Pack/RPParty/RPWlyScene/RPWlySound.cpp	
+8035C5E0	lbl_8035C5E0	__vt__15RPWlySoundActor	Pack/RPParty/RPWlyScene/RPWlySound.cpp	
+8035C7E0	lbl_8035C7E0	__vt__11RPWlyAvatar	Pack/RPParty/RPWlyScene/RPWlySound.cpp	

@@ -1,0 +1,29 @@
+address	old_name	new_name	unit	previous
+800A6F50	eggController_800A6F50	func_800A6F50__Q23EGG17CoreControllerMgrFi	Pack/RPParty/RPDucScene/RPDucCamera.cpp	
+801B621C	RP_intersectLinePlane	RPIntersectLinePlane__FPQ34nw4r4math4VEC3PCQ34nw4r4math4VEC3PCQ34nw4r4math4VEC3PCQ34nw4r4math4VEC3PCQ34nw4r4math4VEC3	Pack/RPParty/RPDucScene/RPDucCamera.cpp	
+801B75EC	RP_LookAtCam_reset	Reset__11RPLookAtCamFv	Pack/RPParty/RPDucScene/RPDucCamera.cpp	
+801B76CC	RP_LookAtCam_dtor	__dt__11RPLookAtCamFv	Pack/RPParty/RPDucScene/RPDucCamera.cpp	
+801B770C	RP_LookAtCam_ctor	__ct__11RPLookAtCamFv	Pack/RPParty/RPDucScene/RPDucCamera.cpp	
+801BA018	RP_Polyline_calc	Calc__10RPPolylineCFfPQ34nw4r4math4VEC3	Pack/RPParty/RPDucScene/RPDucCamera.cpp	
+801BA1D4	RP_Polyline_ctor	__ct__10RPPolylineFl	Pack/RPParty/RPDucScene/RPDucCamera.cpp	
+80242170	Duc_Camera_getScreenTopAtDepth	GetScreenTopAtDepth__11RPDucCameraCFf	Pack/RPParty/RPDucScene/RPDucCamera.cpp	
+802421CC	Duc_Camera_getScreenRightAtDepth	GetScreenRightAtDepth__11RPDucCameraCFf	Pack/RPParty/RPDucScene/RPDucCamera.cpp	
+80242228	Duc_Camera_getScreenLeftAtDepth	GetScreenLeftAtDepth__11RPDucCameraCFf	Pack/RPParty/RPDucScene/RPDucCamera.cpp	
+80242284	Duc_Camera_calcFrustumEdges	CalcFrustumEdges__11RPDucCameraFv	Pack/RPParty/RPDucScene/RPDucCamera.cpp	
+8024244C	Duc_Camera_setMode	SetMode__11RPDucCameraFl	Pack/RPParty/RPDucScene/RPDucCamera.cpp	
+802426AC	Duc_Camera_calc	Calculate__11RPDucCameraFv	Pack/RPParty/RPDucScene/RPDucCamera.cpp	
+80242810	Duc_Camera_load	Reset__11RPDucCameraFv	Pack/RPParty/RPDucScene/RPDucCamera.cpp	
+80242878	Duc_Camera_stateIdle	StateIdle__11RPDucCameraFv	Pack/RPParty/RPDucScene/RPDucCamera.cpp	
+8024287C	Duc_Camera_stateIntro	StateIntro__11RPDucCameraFv	Pack/RPParty/RPDucScene/RPDucCamera.cpp	
+80242948	Duc_Camera_dtor	__dt__11RPDucCameraFv	Pack/RPParty/RPDucScene/RPDucCamera.cpp	
+802429A0	Duc_Camera_destroyInstance	DestroyInstance__11RPDucCameraFv	Pack/RPParty/RPDucScene/RPDucCamera.cpp	
+802429E4	Duc_Camera_createInstance	CreateInstance__11RPDucCameraFv	Pack/RPParty/RPDucScene/RPDucCamera.cpp	
+80242A84	Duc_initCameraPathPoints	__sinit_\RPDucCamera_cpp	Pack/RPParty/RPDucScene/RPDucCamera.cpp	
+8035A3F8	lbl_8035A3F8	__vt__11RPDucCamera	Pack/RPParty/RPDucScene/RPDucCamera.cpp	
+8043A77C	Duc_introCamPath	sIntroTarget	Pack/RPParty/RPDucScene/RPDucCamera.cpp	sIntroPath
+8043A7B8	Duc_playCamTargetUp	sPlayTarget	Pack/RPParty/RPDucScene/RPDucCamera.cpp	sPlayTargetUp
+801B73BC	RP_LookAtCam_updateView	UpdateView__11RPLookAtCamFv	Pack/RPParty/RPDucScene/RPDucCamera.cpp	
+801B74B0	RP_LookAtCam_calculate	Calculate__11RPLookAtCamFv	Pack/RPParty/RPDucScene/RPDucCamera.cpp	
+801B74F8	RP_LookAtCam_initView	InitView__11RPLookAtCamFv	Pack/RPParty/RPDucScene/RPDucCamera.cpp	
+801BA150	RP_Polyline_setPoints	SetPoints__10RPPolylineFPCQ34nw4r4math4VEC3	Pack/RPParty/RPDucScene/RPDucCamera.cpp	
+8043A770	Duc_introCamPos	sIntroPos	Pack/RPParty/RPDucScene/RPDucCamera.cpp	

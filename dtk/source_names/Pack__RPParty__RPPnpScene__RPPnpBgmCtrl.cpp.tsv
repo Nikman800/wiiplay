@@ -1,0 +1,7 @@
+address	old_name	new_name	unit	previous
+802352C8	Pnp_BgmCtrl_stop	Stop__12RPPnpBgmCtrlFv	Pack/RPParty/RPPnpScene/RPPnpBgmCtrl.cpp	
+80235350	Pnp_BgmCtrl_updateTracks	UpdateTracks__12RPPnpBgmCtrlFUl	Pack/RPParty/RPPnpScene/RPPnpBgmCtrl.cpp	UpdateTracks__12RPPnpBgmCtrlFb
+8023552C	Pnp_BgmCtrl_setCount	SetCount__12RPPnpBgmCtrlFUlUl	Pack/RPParty/RPPnpScene/RPPnpBgmCtrl.cpp	SetCount__12RPPnpBgmCtrlFbUl
+80235540	Pnp_BgmCtrl_updateRally	UpdateRally__12RPPnpBgmCtrlFfl	Pack/RPParty/RPPnpScene/RPPnpBgmCtrl.cpp	
+80235760	Pnp_BgmCtrl_startRallyBgm	StartRallyBgm__12RPPnpBgmCtrlFi	Pack/RPParty/RPPnpScene/RPPnpBgmCtrl.cpp	
+80235A04	Duc_80235A04	__ct__12RPPnpBgmCtrlFv	Pack/RPParty/RPPnpScene/RPPnpBgmCtrl.cpp	

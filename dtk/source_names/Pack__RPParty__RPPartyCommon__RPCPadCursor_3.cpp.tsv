@@ -1,0 +1,9 @@
+address	old_name	new_name	unit	previous
+801C013C	Lyt_WCursor_calcFadeAlpha	CalcFadeAlpha__9RPWCursorFv	Pack/RPParty/RPPartyCommon/RPCPadCursor_3.cpp	
+801C044C	Lyt_WCursor_updateWindow	UpdateWindow__FR9RPWCursorl	Pack/RPParty/RPPartyCommon/RPCPadCursor_3.cpp	UpdateWindow__9RPWCursorFv
+801C1398	Lyt_WCursor_draw	Draw__9RPWCursorFv	Pack/RPParty/RPPartyCommon/RPCPadCursor_3.cpp	
+801C13DC	Lyt_WCursor_calc	Calculate__9RPWCursorFv	Pack/RPParty/RPPartyCommon/RPCPadCursor_3.cpp	
+801C14B8	Lyt_WCursor_reset	Reset__9RPWCursorFv	Pack/RPParty/RPPartyCommon/RPCPadCursor_3.cpp	
+801C16D8	Lyt_WCursor_load	Load__9RPWCursorFPQ23EGG7Archive	Pack/RPParty/RPPartyCommon/RPCPadCursor_3.cpp	
+801C1780	Lyt_initWCursorDefaultRect	__sinit_\RPCPadCursor_3_cpp	Pack/RPParty/RPPartyCommon/RPCPadCursor_3.cpp	
+801C1378	Lyt_WCursor_setActive	SetActive__9RPWCursorFUl	Pack/RPParty/RPPartyCommon/RPCPadCursor_3.cpp	

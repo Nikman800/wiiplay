@@ -1,0 +1,18 @@
+address	old_name	new_name	unit	previous
+800B2218	_savegpr_15	_savegpr_15	Pack/RPGraphics/RPGrpView.cpp	_savegpr_20;_savegpr_15
+800B2264	_restgpr_15	_restgpr_15	Pack/RPGraphics/RPGrpView.cpp	_restgpr_20;_restgpr_15
+801ADDA8	Gfx_ScreenEffect_draw	Draw__Q29RPGrpView12ScreenEffectFPC11RPGrpScreen	Pack/RPGraphics/RPGrpView.cpp	
+801AE4DC	Gfx_Clipper_calc	Calc__Q29RPGrpView7ClipperFPC11RPGrpScreen	Pack/RPGraphics/RPGrpView.cpp	
+801AE62C	GetCamera__9RPGrpViewCFv	GetCamera__9RPGrpViewCFv	Pack/RPGraphics/RPGrpView.cpp	GetEnableCamera__9RPGrpViewCFv
+801AE634	GetEnableCamera__9RPGrpViewCFv	GetEnableCamera__9RPGrpViewCFv	Pack/RPGraphics/RPGrpView.cpp	GetCamera__9RPGrpViewCFv
+80350060	lbl_80350060	__vt__9RPGrpView	Pack/RPGraphics/RPGrpView.cpp	
+8035008C	lbl_8035008C	__vt__Q29RPGrpView12ScreenEffect	Pack/RPGraphics/RPGrpView.cpp	
+80350098	lbl_80350098	__vt__Q29RPGrpView7Clipper	Pack/RPGraphics/RPGrpView.cpp	
+8039F340	Pnp_debugDrawMtx	s_cameraMtx__Q23EGG6DrawGX	Pack/RPGraphics/RPGrpView.cpp	Pnp_debugDrawMtx
+8043903C	lbl_8043903C	sClipper__9RPGrpView	Pack/RPGraphics/RPGrpView.cpp	
+8043E9B4	lbl_8043E9B4	lbl_8043E9B4	Pack/RPGraphics/RPGrpView.cpp	DEFAULT_CLEAR_COLOR__9RPGrpView;lbl_8043E9B4
+8043E9B5	lbl_8043E9B5	lbl_8043E9B5	Pack/RPGraphics/RPGrpView.cpp	DEFAULT_CLEAR_COLOR__9RPGrpView;lbl_8043E9B5
+8043E9B6	lbl_8043E9B6	lbl_8043E9B6	Pack/RPGraphics/RPGrpView.cpp	DEFAULT_CLEAR_COLOR__9RPGrpView;lbl_8043E9B6
+8043E9B7	lbl_8043E9B7	lbl_8043E9B7	Pack/RPGraphics/RPGrpView.cpp	DEFAULT_CLEAR_COLOR__9RPGrpView;lbl_8043E9B7
+8032CF6C	lbl_8032CF6C	@STRING@setCapTexture__Q23EGG14PostEffectBaseFPQ23EGG10CapTexture@0	Pack/RPGraphics/RPGrpView.cpp	
+8032CF78	lbl_8032CF78	@STRING@setCapTexture__Q23EGG14PostEffectBaseFPQ23EGG10CapTexture	Pack/RPGraphics/RPGrpView.cpp	

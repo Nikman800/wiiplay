@@ -1,0 +1,11 @@
+address	old_name	new_name	unit	previous
+8027A3EC	Wly_AvatarMgr_startSwimEffects	StartSwimEffects__14RPWlyAvatarMgrFv	Pack/RPParty/RPWlyScene/RPWlyField_5.cpp	
+8028D8CC	Wly_TimerSe_startRoundSound	StartRoundSound__12RPWlyTimerSeFv	Pack/RPParty/RPWlyScene/RPWlyField_5.cpp	
+80295418	Wly_Wipe_startClose	StartClose__9RPWlyWipeFv	Pack/RPParty/RPWlyScene/RPWlyField_5.cpp	
+80295424	Wly_Wipe_destroy	Destroy__9RPWlyWipeFv	Pack/RPParty/RPWlyScene/RPWlyField_5.cpp	
+80295428	Wly_Wipe_calc	Calculate__9RPWlyWipeFv	Pack/RPParty/RPWlyScene/RPWlyField_5.cpp	
+80295690	Wly_Wipe_reset	Reset__9RPWlyWipeFv	Pack/RPParty/RPWlyScene/RPWlyField_5.cpp	
+80295694	Wly_Wipe_create	Create__9RPWlyWipeFv	Pack/RPParty/RPWlyScene/RPWlyField_5.cpp	
+802958E8	Wly_Wipe_init	Init__9RPWlyWipeFv	Pack/RPParty/RPWlyScene/RPWlyField_5.cpp	
+802958EC	Wly_Wipe_ctor	__ct__9RPWlyWipeFv	Pack/RPParty/RPWlyScene/RPWlyField_5.cpp	
+80295954	Wly_Wipe_dtor	__dt__9RPWlyWipeFv	Pack/RPParty/RPWlyScene/RPWlyField_5.cpp	

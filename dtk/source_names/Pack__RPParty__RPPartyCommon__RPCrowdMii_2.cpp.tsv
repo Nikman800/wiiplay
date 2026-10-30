@@ -1,0 +1,12 @@
+address	old_name	new_name	unit	previous
+801F6C14	Party_CrowdMii_start	Start__10RPCrowdMiiFl	Pack/RPParty/RPPartyCommon/RPCrowdMii_2.cpp	
+801F7D64	Party_CrowdMii_ctor	__ct__10RPCrowdMiiFl	Pack/RPParty/RPPartyCommon/RPCrowdMii_2.cpp	
+801F82A8	Party_CrowdMgr_calc	Calculate__10RPCrowdMgrFv	Pack/RPParty/RPPartyCommon/RPCrowdMii_2.cpp	
+801F8460	Party_CrowdMgr_reset	Reset__10RPCrowdMgrFv	Pack/RPParty/RPPartyCommon/RPCrowdMii_2.cpp	
+801F84B8	Party_CrowdMgr_load	Load__10RPCrowdMgrFv	Pack/RPParty/RPPartyCommon/RPCrowdMii_2.cpp	
+801F8510	Party_CrowdMgr_dtor	__dt__10RPCrowdMgrFv	Pack/RPParty/RPPartyCommon/RPCrowdMii_2.cpp	
+801F8550	Party_CrowdMgr_destroy	DestroyInstance__10RPCrowdMgrFv	Pack/RPParty/RPPartyCommon/RPCrowdMii_2.cpp	
+801F8594	Party_CrowdMgr_create	CreateInstance__10RPCrowdMgrFv	Pack/RPParty/RPPartyCommon/RPCrowdMii_2.cpp	
+801F861C	Party_CrowdMiiSeq_isState	IsStateSettled__28RPStateMachine<10RPCrowdMii>CFl	Pack/RPParty/RPPartyCommon/RPCrowdMii_2.cpp	
+803586B8	lbl_803586B8	__vt__10RPCrowdMgr	Pack/RPParty/RPPartyCommon/RPCrowdMii_2.cpp	
+8043C708	Party_crowdMgrInstance	sInstance__10RPCrowdMgr	Pack/RPParty/RPPartyCommon/RPCrowdMii_2.cpp	

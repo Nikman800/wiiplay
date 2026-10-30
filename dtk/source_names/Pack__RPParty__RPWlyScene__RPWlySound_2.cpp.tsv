@@ -1,0 +1,19 @@
+address	old_name	new_name	unit	previous
+8027C5BC	Wly_GameMgr_draw	Draw__12RPWlyGameMgrFv	Pack/RPParty/RPWlyScene/RPWlySound_2.cpp	
+8027C6A8	Wly_GameMgr_destroy	Destroy__12RPWlyGameMgrFv	Pack/RPParty/RPWlyScene/RPWlySound_2.cpp	
+8027C784	Wly_GameMgr_calc	Calculate__12RPWlyGameMgrFv	Pack/RPParty/RPWlyScene/RPWlySound_2.cpp	
+8027CEB0	Wly_GameMgr_reset	Reset__12RPWlyGameMgrFv	Pack/RPParty/RPWlyScene/RPWlySound_2.cpp	
+8027D284	Wly_Cursor_setPos	SetPos__11RPWlyCursorFQ23EGG8Vector2ff	Pack/RPParty/RPWlyScene/RPWlySound_2.cpp	SetPos__11RPWlyCursorFRCQ23EGG8Vector2ff
+8027D2A4	Wly_GameMgr_create	Create__12RPWlyGameMgrFv	Pack/RPParty/RPWlyScene/RPWlySound_2.cpp	
+8027D5B8	Wly_GameMgr_init	Init__12RPWlyGameMgrFv	Pack/RPParty/RPWlyScene/RPWlySound_2.cpp	
+8027D6D8	Wly_GameMgr_dtor	__dt__12RPWlyGameMgrFv	Pack/RPParty/RPWlyScene/RPWlySound_2.cpp	
+8027D718	Wly_GameMgr_ctor	__ct__12RPWlyGameMgrFv	Pack/RPParty/RPWlyScene/RPWlySound_2.cpp	
+8027DE7C	Wly_GameMgr_calcClearPhase	CalcClearPhase__12RPWlyGameMgrFv	Pack/RPParty/RPWlyScene/RPWlySound_2.cpp	
+8027DF8C	Wly_GameMgr_onAvatarPicked	OnAvatarPicked__12RPWlyGameMgrFll	Pack/RPParty/RPWlyScene/RPWlySound_2.cpp	
+8027E3F8	Wly_SoundObj_calcNoDuck	calc__13RPSndObject2DFv	Pack/RPParty/RPWlyScene/RPWlySound_2.cpp	
+80280070	Wly_ClearPhase_draw	Draw__15RPWlyClearPhaseFv	Pack/RPParty/RPWlyScene/RPWlySound_2.cpp	
+80280074	Wly_ClearPhase_destroy	Destroy__15RPWlyClearPhaseFv	Pack/RPParty/RPWlyScene/RPWlySound_2.cpp	
+80280164	Wly_ClearPhase_create	Create__15RPWlyClearPhaseFv	Pack/RPParty/RPWlyScene/RPWlySound_2.cpp	
+80280168	Wly_ClearPhase_init	Init__15RPWlyClearPhaseFv	Pack/RPParty/RPWlyScene/RPWlySound_2.cpp	
+8035C8B8	lbl_8035C8B8	__vt__15RPWlyClearPhase	Pack/RPParty/RPWlyScene/RPWlySound_2.cpp	
+8027E2BC	Wly_GameMgr_onPickResolved	OnPickResolved__12RPWlyGameMgrFli	Pack/RPParty/RPWlyScene/RPWlySound_2.cpp	

@@ -1,0 +1,4 @@
+address	old_name	new_name	unit	previous
+8032D5D8	lbl_8032D5D8	__vt__Q23EGG7ModelEx	egg/gfxe/eggModelEx.cpp	
+8043AC1C	lbl_8043AC1C	BYTE_CODE_CALC$16853	egg/gfxe/eggModelEx.cpp	BYTE_CODE_CALC$16849
+8043AC20	BYTE_CODE_MIX$16395	BYTE_CODE_MIX$16854	egg/gfxe/eggModelEx.cpp	BYTE_CODE_MIX$16850

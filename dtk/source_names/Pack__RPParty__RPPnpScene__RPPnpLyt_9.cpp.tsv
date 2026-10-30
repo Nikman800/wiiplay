@@ -1,0 +1,11 @@
+address	old_name	new_name	unit	previous
+8022AB14	Pnp_PointPhase_isServeChangePoint	IsServeChangePoint__15RPPnpPointPhaseCFv	Pack/RPParty/RPPnpScene/RPPnpLyt_9.cpp	
+8022ABAC	Pnp_PointPhase_isServeTurnOdd	IsServeTurnOdd__15RPPnpPointPhaseCFv	Pack/RPParty/RPPnpScene/RPPnpLyt_9.cpp	
+80234098	Pnp_PointMsgLyt_isDone	IsDone__16RPPnpPointMsgLytCFv	Pack/RPParty/RPPnpScene/RPPnpLyt_9.cpp	
+802340A8	Pnp_PointMsgLyt_show	Show__16RPPnpPointMsgLytFl	Pack/RPParty/RPPnpScene/RPPnpLyt_9.cpp	
+802343C0	Pnp_PointMsgLyt_draw	Draw__16RPPnpPointMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_9.cpp	
+802343C8	Pnp_PointMsgLyt_exit	Exit__16RPPnpPointMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_9.cpp	
+802343CC	Pnp_PointMsgLyt_calc	Calculate__16RPPnpPointMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_9.cpp	
+802344C4	Pnp_PointMsgLyt_reset	Reset__16RPPnpPointMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_9.cpp	
+802345B4	Pnp_PointMsgLyt_load	Load__16RPPnpPointMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_9.cpp	
+80234630	Pnp_PointMsgLyt_create	Create__16RPPnpPointMsgLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_9.cpp	

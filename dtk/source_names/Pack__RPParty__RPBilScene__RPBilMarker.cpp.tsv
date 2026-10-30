@@ -1,0 +1,12 @@
+address	old_name	new_name	unit	previous
+802CACF0	Bil_CueGhost_userDraw	UserDraw__13RPBilCueGhostFv	Pack/RPParty/RPBilScene/RPBilMarker.cpp	
+802CACF4	Bil_CueGhost_calc	Exit__13RPBilCueGhostFv	Pack/RPParty/RPBilScene/RPBilMarker.cpp	Exit__13RPBilCueGhostFv;TempExit__13RPBilCueGhostFv
+802CADB0	Bil_CueGhost_exit	Calculate__13RPBilCueGhostFv	Pack/RPParty/RPBilScene/RPBilMarker.cpp	Calculate__13RPBilCueGhostFv;TempCalc__13RPBilCueGhostFv
+802CADB4	Bil_CueGhost_reset	Reset__13RPBilCueGhostFv	Pack/RPParty/RPBilScene/RPBilMarker.cpp	
+802CADC4	Bil_CueGhost_load	Load__13RPBilCueGhostFv	Pack/RPParty/RPBilScene/RPBilMarker.cpp	Load__13RPBilCueGhostFv;__dt__11RPActorBaseFv
+802CAE80	Bil_CueGhost_ctor	__ct__13RPBilCueGhostFv	Pack/RPParty/RPBilScene/RPBilMarker.cpp	SetModel__13RPBilCueGhostFP10RPGrpModel
+802CAECC	Bil_CueGhost_dtor	__dt__13RPBilCueGhostFv	Pack/RPParty/RPBilScene/RPBilMarker.cpp	
+802CAF38	Bil_CueGhost_dtorThunk4	@4@__dt__13RPBilCueGhostFv	Pack/RPParty/RPBilScene/RPBilMarker.cpp	
+802CAF40	Bil_CueGhost_drawThunk	@8@UserDraw__13RPBilCueGhostFv	Pack/RPParty/RPBilScene/RPBilMarker.cpp	
+802CAF48	Bil_CueGhost_dtorThunk8	@8@__dt__13RPBilCueGhostFv	Pack/RPParty/RPBilScene/RPBilMarker.cpp	
+8035E2B8	lbl_8035E2B8	__vt__13RPBilCueGhost	Pack/RPParty/RPBilScene/RPBilMarker.cpp	

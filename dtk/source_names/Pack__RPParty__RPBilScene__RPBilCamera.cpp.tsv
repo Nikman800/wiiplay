@@ -1,0 +1,9 @@
+address	old_name	new_name	unit	previous
+802BB950	Bil_CameraMgr_calc	Calculate__14RPBilCameraMgrFv	Pack/RPParty/RPBilScene/RPBilCamera.cpp	
+802BBA70	Bil_CameraMgr_reset	Reset__14RPBilCameraMgrFv	Pack/RPParty/RPBilScene/RPBilCamera.cpp	
+802BBB90	Bil_CameraMgr_dtor	__dt__14RPBilCameraMgrFv	Pack/RPParty/RPBilScene/RPBilCamera.cpp	
+802BBBD0	Bil_CameraMgr_destroy	DestroyInstance__14RPBilCameraMgrFv	Pack/RPParty/RPBilScene/RPBilCamera.cpp	
+802BBC14	Bil_CameraMgr_create	CreateInstance__14RPBilCameraMgrFv	Pack/RPParty/RPBilScene/RPBilCamera.cpp	
+802BC950	Bil_Camera_ctor	__ct__11RPBilCameraFv	Pack/RPParty/RPBilScene/RPBilCamera.cpp	
+802CAFE0	Bil_AuxCamera_ctor	__ct__14RPBilAuxCameraFv	Pack/RPParty/RPBilScene/RPBilCamera.cpp	
+8035DD38	lbl_8035DD38	__vt__14RPBilCameraMgr	Pack/RPParty/RPBilScene/RPBilCamera.cpp	

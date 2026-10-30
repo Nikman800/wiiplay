@@ -1,0 +1,10 @@
+address	old_name	new_name	unit	previous
+80272A68	Tnk_CompleteMsg_show	Show__16RPTnkCompleteMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_9.cpp	
+80272B08	Tnk_CompleteMsg_exit	VF_0x18__16RPTnkCompleteMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_9.cpp	
+80272B0C	Tnk_CompleteMsg_draw	Draw__16RPTnkCompleteMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_9.cpp	
+80272B14	Tnk_CompleteMsg_calc	Calculate__16RPTnkCompleteMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_9.cpp	
+80272C18	Tnk_CompleteMsg_reset	Reset__16RPTnkCompleteMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_9.cpp	
+80272DD4	Tnk_CompleteMsg_load	Load__16RPTnkCompleteMsgFPQ23EGG7Archive	Pack/RPParty/RPTnkScene/RPTnkLyt_9.cpp	
+80272E78	Tnk_CompleteMsg_dtor	__dt__16RPTnkCompleteMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_9.cpp	
+80272EB8	Tnk_CompleteMsg_ctor	__ct__16RPTnkCompleteMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_9.cpp	
+8035C3A8	Tnk_CompleteMsg_vtable	__vt__16RPTnkCompleteMsg	Pack/RPParty/RPTnkScene/RPTnkLyt_9.cpp	

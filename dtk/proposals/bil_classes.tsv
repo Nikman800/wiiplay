@@ -1,0 +1,34 @@
+vtable	class_name	evidence
+803573E0	RP_Camera	RP camera base (ctor RP_Cls_803573E0_init_801BDFC0); slot2 reset clears lock +0x1fc; Bil cameras derive via +0x174 interface
+8035DC48	Scene	Sys scene subclass; slot16 loads bad_* brres, rp_Bil_sound.brsar, basic_billiards.breff; slot15 creates GameMgr
+8035DC38	SceneSoundRef	0x18 object (base fn_800AC4CC) created in Scene_create holding Mpe sound scene pointer
+8035DCA8	Table	singleton lbl_8043C9B8; loads table.kcl, bad_table/bad_mask, pocket_corner/pocket_side/ball0_range; guide line
+8035DD38	CameraMgr	singleton lbl_8043C9C0; owns main Camera, AuxCamera and two PocketCams
+8035DD48	Camera	main game camera (0x238, +0x174 interface); orbit yaw/pitch, transitions, saved view, SoundActor at +0x234
+8035DD60	SoundActor	sound actor (base vt 80358A88, 4 handles) owned by Camera and BallMgr; camera tick and pocket voice sounds
+8035DDC8	Player	per-player actor (0x68CC); 9-state machine (place ball, aim, address, stroke, rotate view, after shot, wait, inactive); cue/cursor models
+8035DE58	PlayerMgr	singleton lbl_8043C9F0; player count, current player, two Players, turn handling
+8035DE68	Ball	ball actor (0x84); rigid body +0x7c, Sound3D +0x78, 4-state machine (on table/pocketed/out); bad_ball / cue ball face model
+8035DEF8	BallMgr	singleton lbl_8043C9F8; 10 Balls, aim markers, cue ghost, ball icons; physics substeps, collisions, fouls, shot bookkeeping
+8035DF88	GameMgr	singleton lbl_8043CA00; 6-state game flow (intro, start, play, score, foul, game over); creates all singletons
+8035DF98	Sound3D	per-object 3D sound player (0xb4, secondary vt +0x88); start/hold/prepare by id/label/index, stop, volume
+8035E074	Sound3DBase	base vtable of Sound3D (set in dtor); shares slots 16-52
+8035E1E0	AimMarker	bad_ball_2 marker actor (x10 in BallMgr) shown at aim target point
+8035E270	Result	singleton lbl_8043CA08; 8-state end-of-game flow (summary, wait, 1P record / winner, end menu); computes scores
+8035E2B8	CueGhost	bad_ball_2 ghost showing cue-ball placement and validity (BallMgr +0xcc)
+8035E348	AuxCamera	secondary RP camera in CameraMgr (default view reset)
+8035E360	PocketCam	two RP cameras aimed into pockets for sub-windows
+8035E378	PocketCamWindow	singleton lbl_8043CA20; billiard_03 W_subWindow_00; two sub-windows showing pocket cameras with timers
+8035E3C0	NextBallMarker	singleton lbl_8043CA28; two bad_next_ball models over the lowest remaining ball
+8035E450	BreakLottery	singleton lbl_8043CA34; spins cue ball with Mii faces to choose first player
+8035E498	Hud	singleton lbl_8043CA38; billiard_00 layout: scores, instruction text, prompt and turn-panel state machines
+8035E4D0	MsgWindow	singleton lbl_8043CA40; billiard_01 foul message window with 4-state machine
+8035E508	ResultLyt	billiard_02 result layout owned by Result; score figures, two side state machines
+8035E528	Music	singleton lbl_8043CA48; BGM state object (music states, stingers)
+8035E538	BallIcon	pocketed-ball icon actor (x10 in BallMgr) that flies into the score popup
+8035E5C0	ScorePopupLyt	billiard_06 layout (N_ballBg_00) owned by ScorePopup
+8035E5E0	ScorePopup	singleton lbl_8043CA50; pocketed-ball score popup flow with 4-state machine
+8035E608	HintLyt	billiard_04 layout owned by Hint; alpha-faded hint text
+8035E628	StrokeGuide	singleton lbl_8043CA58; billiard_05 pull/push stroke guide messages
+8035E660	Hint	singleton lbl_8043CA60; delayed fade-in/out hint controller (4-state machine)
+8035E680	BallNumberTag	singleton lbl_8043CA68; billiard_07 number tag following the targeted ball

@@ -1,0 +1,15 @@
+address	old_name	new_name	unit	previous
+802B2674	Cow_OrderMsg_drawScreen	DrawScreen__13RPCowOrderMsgFUc	Pack/RPParty/RPCowScene/RPCowHud_6.cpp	
+802B2688	Cow_OrderMsg_calc	OnActivate__13RPCowOrderMsgFv	Pack/RPParty/RPCowScene/RPCowHud_6.cpp	
+802B279C	Cow_OrderMsg_exit	OnStop__13RPCowOrderMsgFv	Pack/RPParty/RPCowScene/RPCowHud_6.cpp	
+802B27A0	Cow_OrderMsg_reset	OnStart__13RPCowOrderMsgFv	Pack/RPParty/RPCowScene/RPCowHud_6.cpp	
+802B289C	Cow_OrderMsg_init	LoadResource__13RPCowOrderMsgFv	Pack/RPParty/RPCowScene/RPCowHud_6.cpp	
+802B2980	Cow_OrderMsg_dtor	__dt__13RPCowOrderMsgFv	Pack/RPParty/RPCowScene/RPCowHud_6.cpp	
+802B29D8	Cow_OrderMsg_ctor	__ct__13RPCowOrderMsgFv	Pack/RPParty/RPCowScene/RPCowHud_6.cpp	
+802B2A2C	Cow_hideAllBalloons	HideAllBalloons__13RPCowOrderMsgFv	Pack/RPParty/RPCowScene/RPCowHud_6.cpp	
+802B2A94	Cow_showAllTargetMarkers	ShowAllTargetMarkers__13RPCowOrderMsgFv	Pack/RPParty/RPCowScene/RPCowHud_6.cpp	
+802B2AF8	Cow_OrderMsg_show	Show__13RPCowOrderMsgFv	Pack/RPParty/RPCowScene/RPCowHud_6.cpp	
+802B2C7C	Cow_OrderMsg_dtorThunk	@20@__dt__13RPCowOrderMsgFv	Pack/RPParty/RPCowScene/RPCowHud_6.cpp	
+802B52D0	Cow_Balloon_hide	Hide__12RPCowBalloonFv	Pack/RPParty/RPCowScene/RPCowHud_6.cpp	
+802B5354	Cow_Balloon_show	Show__12RPCowBalloonFv	Pack/RPParty/RPCowScene/RPCowHud_6.cpp	
+8035D848	lbl_8035D848	__vt__13RPCowOrderMsg	Pack/RPParty/RPCowScene/RPCowHud_6.cpp	

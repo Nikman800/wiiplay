@@ -1,0 +1,4 @@
+address	old_name	new_name	unit	previous
+8019681C	isSlowEffect__18RPSysEffectCreatorCFv	isSlowSystem__18RPSysEffectCreatorCFv	Pack/RPKernel/RPSysEffectCreator.cpp	
+801968BC	Gfx_EffectGroup_dtor	__dt__18RPSysEffectCreatorFv	Pack/RPKernel/RPSysEffectCreator.cpp	
+80196990	Gfx_EffectGroup_ctor	__ct__18RPSysEffectCreatorFUl	Pack/RPKernel/RPSysEffectCreator.cpp	

@@ -1,0 +1,18 @@
+address	old_name	new_name	unit	previous
+802DF9C8	Bom_PanelCtrl_deactivateAll	DeactivateAll__14RPBomPanelCtrlFv	Pack/RPParty/RPBomScene/RPBomPanel.cpp	
+802DF9DC	Bom_PanelCtrl_exit	Exit__14RPBomPanelCtrlFv	Pack/RPParty/RPBomScene/RPBomPanel.cpp	
+802DF9F0	Bom_PanelPool_destroyInstance	Destroy__14RPBomPanelPoolFv	Pack/RPParty/RPBomScene/RPBomPanel.cpp	DestroyInstance__14RPBomPanelPoolFv
+802DF9F4	Bom_PanelCtrl_updateModels	UpdateModels__14RPBomPanelCtrlFv	Pack/RPParty/RPBomScene/RPBomPanel.cpp	
+802DFA08	Bom_PanelCtrl_incrementAges	IncrementAges__14RPBomPanelCtrlFv	Pack/RPParty/RPBomScene/RPBomPanel.cpp	
+802DFA1C	Bom_PanelCtrl_calc	CalcItems__14RPBomPanelCtrlFv	Pack/RPParty/RPBomScene/RPBomPanel.cpp	Calculate__14RPBomPanelCtrlFv
+802DFA30	Bom_PanelCtrl_postCalc	PostCalc__14RPBomPanelCtrlFv	Pack/RPParty/RPBomScene/RPBomPanel.cpp	
+802DFA44	Bom_PanelCtrl_calcHit	CalcHit__14RPBomPanelCtrlFv	Pack/RPParty/RPBomScene/RPBomPanel.cpp	
+802DFA58	Bom_PanelCtrl_preCalc	PreCalc__14RPBomPanelCtrlFv	Pack/RPParty/RPBomScene/RPBomPanel.cpp	
+802DFA6C	Bom_PanelCtrl_move	Move__14RPBomPanelCtrlFv	Pack/RPParty/RPBomScene/RPBomPanel.cpp	
+802DFA94	Bom_PanelCtrl_reset	Reset__14RPBomPanelCtrlFv	Pack/RPParty/RPBomScene/RPBomPanel.cpp	
+802DFAA8	Bom_PanelCtrl_load	Load__14RPBomPanelCtrlFv	Pack/RPParty/RPBomScene/RPBomPanel.cpp	
+802DFABC	Bom_PanelCtrl_create	Create__14RPBomPanelCtrlFv	Pack/RPParty/RPBomScene/RPBomPanel.cpp	
+802DFB04	Bom_PanelCtrl_dtor	__dt__14RPBomPanelCtrlFv	Pack/RPParty/RPBomScene/RPBomPanel.cpp	
+802DFB5C	Bom_PanelCtrl_destroyInstance	DestroyInstance__14RPBomPanelCtrlFv	Pack/RPParty/RPBomScene/RPBomPanel.cpp	
+802DFBA0	Bom_PanelCtrl_createInstance	CreateInstance__14RPBomPanelCtrlFv	Pack/RPParty/RPBomScene/RPBomPanel.cpp	
+8035F0B0	lbl_8035F0B0	__vt__14RPBomPanelCtrl	Pack/RPParty/RPBomScene/RPBomPanel.cpp	

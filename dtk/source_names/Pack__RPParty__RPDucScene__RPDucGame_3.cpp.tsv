@@ -1,0 +1,11 @@
+address	old_name	new_name	unit	previous
+802504E4	Duc_AmmoMgr_tryFire	TryFire__12RPDucAmmoMgrFl	Pack/RPParty/RPDucScene/RPDucGame_3.cpp	
+80250570	Duc_AmmoMgr_refill	Refill__12RPDucAmmoMgrFv	Pack/RPParty/RPDucScene/RPDucGame_3.cpp	
+80250598	Duc_AmmoMgr_clearShotCounts	ClearShotCounts__12RPDucAmmoMgrFv	Pack/RPParty/RPDucScene/RPDucGame_3.cpp	
+802505C0	Duc_AmmoMgr_setup	Setup__12RPDucAmmoMgrFs	Pack/RPParty/RPDucScene/RPDucGame_3.cpp	
+80250604	Duc_AmmoMgr_dtor	__dt__12RPDucAmmoMgrFv	Pack/RPParty/RPDucScene/RPDucGame_3.cpp	
+8025065C	Duc_AmmoMgr_destroyInstance	DestroyInstance__12RPDucAmmoMgrFv	Pack/RPParty/RPDucScene/RPDucGame_3.cpp	
+802506A0	Duc_AmmoMgr_createInstance	CreateInstance__12RPDucAmmoMgrFv	Pack/RPParty/RPDucScene/RPDucGame_3.cpp	
+802506EC	Duc_spawnCircleTarget	SpawnTarget__20RPDucCircleTargetMgrFRCQ34nw4r4math4VEC3Ul	Pack/RPParty/RPDucScene/RPDucGame_3.cpp	
+8035ADB0	lbl_8035ADB0	__vt__12RPDucAmmoMgr	Pack/RPParty/RPDucScene/RPDucGame_3.cpp	
+8043C8B8	Duc_ammoMgrInstance	sInstance__12RPDucAmmoMgr	Pack/RPParty/RPDucScene/RPDucGame_3.cpp	

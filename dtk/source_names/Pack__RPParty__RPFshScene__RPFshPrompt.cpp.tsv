@@ -1,0 +1,10 @@
+address	old_name	new_name	unit	previous
+80212DF8	Fsh_YankPrompt_draw	UserDraw__15RPFshYankPromptFv	Pack/RPParty/RPFshScene/RPFshPrompt.cpp	
+80212E58	Fsh_YankPrompt_hide	Hide__15RPFshYankPromptFl	Pack/RPParty/RPFshScene/RPFshPrompt.cpp	
+80212E88	Fsh_YankPrompt_show	Show__15RPFshYankPromptFl	Pack/RPParty/RPFshScene/RPFshPrompt.cpp	
+80212EF8	Fsh_YankPrompt_calc	Calculate__15RPFshYankPromptFv	Pack/RPParty/RPFshScene/RPFshPrompt.cpp	
+80212F40	Fsh_YankPrompt_reset	Reset__15RPFshYankPromptFv	Pack/RPParty/RPFshScene/RPFshPrompt.cpp	
+80212FEC	Fsh_YankPrompt_create	Create__15RPFshYankPromptFv	Pack/RPParty/RPFshScene/RPFshPrompt.cpp	
+80213158	Fsh_YankPrompt_dtor	__dt__15RPFshYankPromptFv	Pack/RPParty/RPFshScene/RPFshPrompt.cpp	
+80213244	Fsh_FishingYank00_80358FF8_vf06	Exit__15RPFshYankPromptFv	Pack/RPParty/RPFshScene/RPFshPrompt.cpp	
+80358FF8	lbl_80358FF8	__vt__15RPFshYankPrompt	Pack/RPParty/RPFshScene/RPFshPrompt.cpp	

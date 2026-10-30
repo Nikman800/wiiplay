@@ -1,0 +1,3 @@
+address	old_name	new_name	unit	previous
+801BA00C	RP_801BA00C	Load__12RPLytObjBaseFPQ23EGG7Archive	Pack/RPParty/RPPartyCommon/RPLytObjBase.cpp	Reset__12RPLytObjBaseFv
+801BA010	RP_801BA010	Calculate__12RPLytObjBaseFv	Pack/RPParty/RPPartyCommon/RPLytObjBase.cpp	

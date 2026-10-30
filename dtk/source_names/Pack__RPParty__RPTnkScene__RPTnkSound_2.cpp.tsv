@@ -1,0 +1,8 @@
+address	old_name	new_name	unit	previous
+80268488	Tnk_TankSound_approachSpeed	ApproachSpeed__14RPTnkTankSoundFf	Pack/RPParty/RPTnkScene/RPTnkSound_2.cpp	
+8026855C	Tnk_TankSound_updateTread	UpdateTread__14RPTnkTankSoundFfl	Pack/RPParty/RPTnkScene/RPTnkSound_2.cpp	
+80268628	Tnk_TankSound_create	__ct__14RPTnkTankSoundFv	Pack/RPParty/RPTnkScene/RPTnkSound_2.cpp	
+802687CC	Tnk_TankSound_dtor	__dt__14RPTnkTankSoundFv	Pack/RPParty/RPTnkScene/RPTnkSound_2.cpp	
+802688E0	Tnk_TankSound_dtorThunk	@16@__dt__14RPTnkTankSoundFv	Pack/RPParty/RPTnkScene/RPTnkSound_2.cpp	
+80323328	Tnk_treadSoundIds	sTreadSoundIds	Pack/RPParty/RPTnkScene/RPTnkSound_2.cpp	
+8035BF60	Tnk_TankSound_vtable	__vt__14RPTnkTankSound	Pack/RPParty/RPTnkScene/RPTnkSound_2.cpp	

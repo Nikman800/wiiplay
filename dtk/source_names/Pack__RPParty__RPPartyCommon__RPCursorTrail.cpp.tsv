@@ -1,0 +1,3 @@
+address	old_name	new_name	unit	previous
+8009A7F8	__ct__Q33EGG6Screen11TVModeRatioFv	__ct__Q34nw4r4math4VEC2Fv	Pack/RPParty/RPPartyCommon/RPCursorTrail.cpp	
+801BAEC0	RP_CursorTrail_dtor	__dt__13RPCursorTrailFv	Pack/RPParty/RPPartyCommon/RPCursorTrail.cpp	

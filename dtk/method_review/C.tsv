@@ -1,0 +1,390 @@
+address	old_name	new_name	confidence	evidence
+80193F18	Fsh_getLayoutRootPane	Fsh_getLayoutRootPane	high	returns *(*(p+0x20)+0x10); used on layouts to toggle pane visibility bit 0xb7
+801B584C	Fsh_startSoundByName	Snd_SndUtility_startRangeSound	medium	this is the RPSndUtility range table (Snd_SndUtility_lookupRangeValue on it, RPSndUtility.cpp mInfo assert, next function); starts the looked-up sound id on its handle at +4; returns success
+801B9660	Fsh_Rope_setTargetPoint	Fsh_Rope_setTargetPoint	high	writes vec3 into array at +0x18 index i (rope of 8 points used by Rod)
+801B9684	Fsh_Rope_getTargetPoint	Fsh_Rope_getTargetPoint	high	returns &array(+0x18)[i] vec3
+801B96B8	Fsh_Rope_getPoint	Fsh_Rope_getPoint	high	returns &array(+0x14)[i] vec3; index 7 used as hook end of rope
+801E4D78	Party_RankGetLyt_drawOther	Party_RankGetLyt_drawLayer1A	high	empty; only caller Party_MedalResult_drawLayer1A; header RPRankGetLyt has DrawLayer1C/DrawLayer1A
+801E4E10	Party_RankGetLyt_stateNop_801E4E10	Party_RankGetLyt_calcShow	high	state table 8031BDD8: calc of the middle state between In and Out (header CalcShow); empty
+801E4E14	Party_RankGetLyt_stateNop_801E4E14	Party_RankGetLyt_enterShow	high	state table 8031BDD8: enter of the middle state between In and Out (header EnterShow); empty
+801E58B0	Party_MedalResult_enterSave	Party_MedalResult_enterSave	high	state func: if medal earned and flag set, calls Party_801F9D58 for current game
+801E73A4	Party_initStaticScreenOffsets	Party_initStaticMedalOffsets	high	static init of Party_medalRecordOffsets (20,110)x2 and Party_medalModelOffsets (50,75),(25,90)
+801E74B8	Party_getGameMsgIndex	Party_getGameMsgIndex	medium	maps game index through {0,1,2,3,4,5,7,8,9} and flags plural from RPSysStringUtility::IsSingular
+801E7570	Party_Common_getGameMsgIndex	Party_Common_getGameMsgIndex	high	same table lookup using current game id at ctx+0x10; flag out if Lyt_8019E400 false
+801E77E0	Party_Common_screenToWorld	Party_Common_screenToWorld	high	Gfx_801A6788 with common camera +0x34/+0x38 converting point
+801E77F8	Party_getMedalDrawLayer	Party_getMedalDrawLayer	medium	returns 7; used as draw layer when Party_MedalResult/VsWinner load models (layer meaning inferred)
+801E7844	Party_addLayerBase1A	Party_addLayerBase1A	high	returns arg + 0x1a
+801E7850	Party_getConst16	Party_getConst16	high	returns constant 0x10
+801E8510	Party_RecordLyt_stateNop_801E8510	Party_RecordLyt_calcShow	high	state table 8031C410: calc of the state after NewRec, before Out (header CalcShow); empty
+801E8514	Party_RecordLyt_stateNop_801E8514	Party_RecordLyt_enterShow	high	state table 8031C410: enter of the state after NewRec, before Out (header EnterShow); empty
+801E9638	Party_ResultMenu_enterSelect	Party_ResultMenu_enterSelect	high	empty state callback
+801E9EE0	Party_VsResultLyt_drawOther	Party_VsResultLyt_drawLayer1A	high	empty; only caller Party_ResultMenu_drawLayer1A; header RPVsResultLyt has DrawLayer1C/DrawLayer1A
+801EA7EC	Party_ChoiceLyt_drawOther	Party_ChoiceLyt_drawLayer1A	high	empty; only caller Party_ResultMenu_drawLayer1A; header RPChoiceLyt has DrawLayer1C/DrawLayer1A
+801EB7F0	Party_VsWinner_enterSave	Party_VsWinner_enterSave	high	empty state callback
+801EC964	Party_initStaticVsWinnerOffsets	Party_initStaticVsWinnerOffsets	high	static init: float pairs (50,95),(-50,95),(0,-30) and vec (7,8,8) registered as globals
+801ECAE8	Party_VsWinnerLyt_draw	Party_VsWinnerLyt_drawLayer1C	high	empty; only caller Party_VsWinner_drawLayer1C; header RPVsWinnerLyt has DrawLayer1C/DrawLayer1A
+801ECAEC	Party_VsWinnerLyt_drawOther	Party_VsWinnerLyt_drawLayer1A	high	empty; only caller Party_VsWinner_drawLayer1A; header RPVsWinnerLyt has DrawLayer1C/DrawLayer1A
+801ECB84	Party_VsWinnerLyt_stateNop_801ECB84	Party_VsWinnerLyt_calcShow	high	state table 8031CD98: calc of the state between In and Out (header CalcShow); empty
+801ECB88	Party_VsWinnerLyt_stateNop_801ECB88	Party_VsWinnerLyt_enterShow	high	state table 8031CD98: enter of the state between In and Out (header EnterShow); empty
+801ED2D0	Party_SelectGameLyt_stopMedalEffects	Party_SelectGameLyt_stopMedalEffects	high	calls vfunc 0x18 on the 7 effect objects of game slot (+0x43c + game*0x1c)
+801ED40C	Party_SelectGameLyt_getAnimLength	Party_SelectGameLyt_getAnimLength	medium	getFrameMax of the in/out anim obj for index i (+0x1DC); used as divisor for doll fade speed
+801EDA24	Party_SelectGameLyt_stateNop_801EDA24	Party_SelectGameLyt_enterDecide	high	main state table 8031CFA0 state 3 (decide) enter, paired with calcDecide; empty
+801EDA28	Party_SelectGameLyt_stateNop_801EDA28	Party_SelectGameLyt_calcIdle	high	main state table 8031CFA0 state 2 (idle) calc; empty
+801EDA2C	Party_SelectGameLyt_stateNop_801EDA2C	Party_SelectGameLyt_enterIdle	high	main state table 8031CFA0 state 2 (idle) enter; empty
+801EF38C	Party_SelectScene_getDollAvatar	Party_SelectScene_getDollAvatar	high	thunk to Party_DollMgr_getAvatar on lbl_8043C6F8
+801EF394	Party_getConst12	Party_getConst12	high	returns constant 0xc
+801EFCC4	Party_SelectScene_calcGotoSelect	Party_SelectScene_calcGotoSelect	high	state func: immediately -> state 5
+801EFD38	Party_SelectScene_calcWaitBackButton	Party_SelectScene_calcWaitBackButton	high	state func: when back button finished (Menu_801CF888) -> state 0xe
+801EFD7C	Party_SelectScene_enterBackButtonPress	Party_SelectScene_enterBackButtonPress	high	state func: Menu_801CF8B8 press on back button with controller
+801EFD8C	Party_SelectScene_calcWaitInfoConfirm	Party_SelectScene_calcWaitInfoConfirm	high	state func: when game info confirmed and timer elapsed -> state 0xf
+801EFDD0	Party_SelectScene_enterInfoConfirm	Party_SelectScene_enterInfoConfirm	high	state func: confirms game info layout (push A) with controller
+801EFEC8	Party_SelectScene_stateNop_801EFEC8	Party_SelectScene_enterGameInfo	high	state table 8031D5E0 state 11 enter (header EnterGameInfo); empty
+801EFF30	Party_SelectScene_stateNop_801EFF30	Party_SelectScene_enterWaitInfoOpen	high	state table 8031D5E0 state 10 enter (header EnterWaitInfoOpen); empty
+801EFF34	Party_SelectScene_calcGotoState10	Party_SelectScene_calcShowGameInfo	high	state table 8031D5E0 state 9 calc (header CalcShowGameInfo): goes straight to state 10
+801EFFC0	Party_SelectScene_calcBackHighlight	Party_SelectScene_calcBackHighlight	high	state func: updates game highlight; when back button done -> state 2
+801F0024	Party_SelectScene_enterBackPress	Party_SelectScene_enterBackPress	high	state func: presses back button, disables d-pad cursor
+801F0954	Party_SelectScene_enterSelect	Party_SelectScene_enterSelect	high	state func: resets hover timer, allows dolls to doze
+801F0CD8	Party_SelectScene_enterDialog	Party_SelectScene_enterDialog	high	state func: shows message window 0x1b6c (1P) or 0x1b6d
+801F21FC	Party_GameInfoLyt_stateNop	Party_GameInfoLyt_calcIdle	high	state table 8031DAC0 state 2 (idle) calc; empty (takes the name freed by 801F2200)
+801F2200	Party_GameInfoLyt_calcIdle	Party_GameInfoLyt_enterIdle	high	state table 8031DAC0 state 2 (idle) enter, not calc: sets the remote-demo anim rate to 1.0 (name swaps with 801F21FC)
+801F2BBC	Party_Doll_adjustBillboardMatrix	Party_Doll_editJointWorldMtx	high	override of IRPGrpModelCallback::EditJointWorldMtx (primary slot 0xAC, header): turns the chest joint matrix toward the look direction, rescaled
+801F2D54	Party_Doll_setPointerActive	Party_Doll_setPointerActive	high	stores flag at +0x1d8; when set clears idle timer +0x1dc
+801F2D6C	Party_Doll_lookAtPointer	Party_Doll_lookAtPointer	high	if idle (state 0) calls Party_801F6518 with turn constants
+801F303C	Party_Doll_calcPairAnim	Party_Doll_calcPairAnim	high	state func: at frame 27 face 4 and anim 0x12/0x13 by side; when done -> state 0xf
+801F3124	Party_Doll_enterFaceNeutral_801F3124	Party_Doll_enterPairAnim	high	state table 8031DF10 state 17 enter (header EnterPairAnim): neutral face
+801F3168	Party_Doll_calcPairReact	Party_Doll_calcPairReact	high	state func: when anim 0x10/0x11 (by side) done -> state 0
+801F31EC	Party_Doll_enterPairReact	Party_Doll_enterPairReact	high	state func: face 0, anim 0x10/0x11 by side, makes other doll react (type 7)
+801F3274	Party_Doll_calcLookAtOther	Party_Doll_calcLookAtOther	high	state func: turns toward other doll until timer, then randomly -> state 0 or 0x10
+801F3398	Party_Doll_enterLookAtOther	Party_Doll_enterLookAtOther	high	state func: random face (after state 0x11), sets turn speed, random 180-360 frame timer
+801F34F8	Party_Doll_calcWakeUp	Party_Doll_calcWakeUp	high	state func: when anim 9 done -> state 0
+801F3620	Party_Doll_calcSleep	Party_Doll_calcSleep	high	state func: after timer and doze allowed -> state 8; clears flags
+801F3680	Party_Doll_enterSleep	Party_Doll_enterSleep	high	state func: anim 8, face 5, random 7200-8200 frame timer
+801F3730	Party_Doll_calcDoze7	Party_Doll_calcDoze	high	state table 8031DF10 state 6 (doze) calc (header CalcDoze): anim 7 done -> state 0
+801F3788	Party_Doll_enterDoze7	Party_Doll_enterDoze	high	state table 8031DF10 state 6 (doze) enter (header EnterDoze): face 5, anim 7
+801F37DC	Party_Doll_calcAnim6	Party_Doll_calcAnim6	high	state func: when anim 6 done -> state 0
+801F3834	Party_Doll_enterAnim6	Party_Doll_enterAnim6	high	state func: face 5, anim 6
+801F3888	Party_Doll_calcAnim5	Party_Doll_calcAnim5	high	state func: when anim 5 done -> state 0 (or 0xf randomly in 2P)
+801F3968	Party_Doll_enterAnim5	Party_Doll_enterAnim5	high	state func: face 0, anim 5
+801F39BC	Party_Doll_calcResultLoop	Party_Doll_calcResultLoop	high	state func: loops anim 3/4 by side; after 300 frames -> state 0
+801F3A44	Party_Doll_enterFaceNeutral_801F3A44	Party_Doll_enterResultLoop	high	state table 8031DF10 state 3 enter (header EnterResultLoop): neutral face
+801F3A88	Party_Doll_calcAnim2Loop	Party_Doll_calcAnim2Loop	high	state func: loops anim 2; after 300 frames -> state 0
+801F3AF0	Party_Doll_enterFace3	Party_Doll_enterFace3	high	state func: sets face expression 3
+801F3B34	Party_Doll_calcAnim1Loop	Party_Doll_calcAnim1Loop	high	state func: loops anim 1; after 300 frames and flag +0x1e4 -> state 0
+801F3BA8	Party_Doll_enterFace1	Party_Doll_enterFace1	high	state func: sets face expression 1
+801F3F9C	Party_Doll_calcTableReaction	Party_Doll_calcTableReaction	high	state func: looks up current state in table 8031DEB0; when its anim done -> state 0
+801F4020	Party_Doll_enterTableReaction	Party_Doll_enterTableReaction	high	state func: looks up current state in table 8031DEB0; sets face and plays anim at given rate
+801F4AEC	Party_initStaticDollOffsets	Party_initStaticDollOffsets	high	static init: screen offset pairs for 1P/2P doll placement, turn constant
+801F4C0C	Party_Doll_vf40Thunk60	Party_Doll_cacheJointPositionsThunk60	high	IRPGrpModelCallback-part thunk (this-0x60) to Party_DollBase_cacheJointPositions (EditWorldMtx)
+801F4C14	Party_Doll_adjustMatrixThunk	Party_Doll_editJointWorldMtxThunk60	high	IRPGrpModelCallback-part thunk (this-0x60) to Party_Doll_editJointWorldMtx
+801F4C24	Party_getConst12b	Party_getConst12b	high	returns constant 0xc
+801F4C3C	Party_DollMgr_setPointerActive	Party_DollMgr_setPointerActive	high	sets pointer-active flag on all dolls
+801F4CAC	Party_DollMgr_lookAt	Party_DollMgr_lookAt	high	idle dolls (one or all) look at given position
+801F4D48	Party_DollMgr_clearLookFlag	Party_DollMgr_clearLookFlag	high	clears flag +0x8c on idle doll i (or all)
+801F4E04	Party_DollMgr_getDollPos	Party_DollMgr_getDollPos	high	returns pointer to doll i data at +0x68
+801F4E28	Party_DollMgr_setDozeAllowed	Party_DollMgr_setDozeAllowed	high	sets byte +0x1e5 on all dolls
+801F4E54	Party_DollMgr_setIdleExitAllowed	Party_DollMgr_setIdleExitAllowed	high	sets byte +0x1e4 on all dolls
+801F4E80	Party_DollMgr_areAllInState7	Party_DollMgr_areAllAsleep	high	true when every doll is in (or pending) state 7, the sleep state of table 8031DF10
+801F5D2C	Party_DollBase_getTurnSpeed	Party_DollBase_getTurnSpeed	high	returns float constant lbl_8043B440
+801F6098	Party_DollBase_clampLookDir	Party_DollBase_clampLookDir	high	vf39: limits look direction to max angle from facing, rotating toward it
+801F6330	Party_DollBase_projectLookTarget	Party_DollBase_projectLookTarget	high	vf38: computes look target from camera position/orientation
+801F6494	Party_DollBase_lookAtTarget	Party_DollBase_lookAtTarget	high	sets look flag, gets target via vfunc 0xa4, stores look start/end vectors
+801F6518	Party_DollBase_lookAt	Party_DollBase_lookAt	high	sets look flag, gets target via vfunc 0xa0, stores look start/end vectors
+801F6E90	Party_CrowdMii_calcLook6	Party_CrowdMii_calcLook	high	state table 8031E388 state 6 calc (header CalcLook): after 121 frames picks the next move state
+801F6EA8	Party_CrowdMii_enterLook6	Party_CrowdMii_enterLook	high	state table 8031E388 state 6 enter (header EnterLook): looks toward the camera, anim 6
+801F6EF0	Party_CrowdMii_calcFlail	Party_CrowdMii_calcFlail	high	state func: after 101 frames picks next move state
+801F6F08	Party_CrowdMii_enterFlail	Party_CrowdMii_enterFlail	high	state func: maybe looks toward camera, plays anim 5 (cmn_batabataR)
+801F6FC0	Party_CrowdMii_calcSwim	Party_CrowdMii_calcSwim	high	state func: accelerates along heading; off-screen -> 0, timer -> 1
+801F70A0	Party_CrowdMii_enterSwim	Party_CrowdMii_enterSwim	high	state func: anim 4 (cmn_swimR), target speed, random 200-400 frame timer
+801F71AC	Party_CrowdMii_calcMove2	Party_CrowdMii_calcMove2	high	state func: moves along heading; off-screen -> 0, timer -> state 4 or 2
+801F730C	Party_CrowdMii_enterMove2	Party_CrowdMii_enterMove2	high	state func: anim 2, target speed, random 100-200 frame timer
+801F7418	Party_CrowdMii_calcRunaway	Party_CrowdMii_calcRunaway	high	state func: moves along heading; off-screen -> 0, timer -> state 3 or 2
+801F7578	Party_CrowdMii_enterRunaway	Party_CrowdMii_enterRunaway	high	state func: anim 3 (cmn_runawayR), target speed, random timer
+801F7684	Party_CrowdMii_calcMove1	Party_CrowdMii_calcMove1	high	state func: moves along heading; off-screen -> 0, timer -> pick move state
+801F7764	Party_CrowdMii_enterMove1	Party_CrowdMii_enterMove1	high	state func: anim 1, target speed, random 150-350 frame timer
+801F7870	Party_CrowdMii_calcIdle	Party_CrowdMii_calcIdle	high	state func: after 120 frames weighted random choice among states 2-7
+801F79E4	Party_CrowdMii_enterIdle	Party_CrowdMii_enterIdle	high	state func: maybe looks toward camera, anim 0 (cmn_waitR), speed 0
+801F8270	Party_initStaticCrowdLookParams	Party_initStaticCrowdLookParams	high	static init: lbl_8043C704 = pi/2, lbl_8043C700 = -lbl_8043B460
+801F82A0	Party_getConst60	Party_getConst60	high	returns constant 0x3c
+801F8650	Party_FaceCtrl_calc	Party_FaceCtrl_calc	high	per-avatar expression timer: random blink/expression changes via RP_80190980
+801F8904	Party_FaceCtrl_reset	Party_FaceCtrl_reset	high	reads current expression (RP_80190910) and sets timers from per-expression table
+801F8B30	Party_FaceCtrl_ctor	Party_FaceCtrl_ctor	high	empty constructor of 0x18-byte face helper
+801F9804	Party_LeadCursor_setPlayerTimer	Party_LeadCursor_setTimer	high	stores frames into mTimers[side] (header RPLeadCursor::SetTimer(frames, side))
+801F9814	Party_LeadCursor_setTimers	Party_LeadCursor_setTimers	high	stores value to both +0x18 and +0x1c
+801F9E48	Party_MsgBoard_postUnlockMessage	Party_MsgBoard_postUnlockMessage	high	posts message board entry with msgs 10000/11000 for a Mii
+801FA304	Party_RankCompleteLyt_stateNop	Party_RankCompleteLyt_calcShow	high	state table 8031E778: show state calc (header CalcShow), paired with enterShow; empty
+801FADD0	Party_PauseTextLyt_enterShown	Party_PauseTextLyt_enterShown	high	empty state callback
+801FBC70	Party_TitleLyt_stateNop	Party_TitleLyt_calcButtonIdle	high	button state table 8031EAA0 state 0 calc (header CalcButtonIdle); empty
+801FBD38	Party_TitleLyt_calcClosed	Party_TitleLyt_calcClosed	high	state func: after timer lbl_8043B494 -> state 6
+801FBD58	Party_TitleLyt_enterClosed	Party_TitleLyt_enterClosed	high	empty state callback
+801FC0A8	Party_TitleLyt_calcWaitReady	Party_TitleLyt_calcWaitReady	high	state func: when Sys_80184F0C reports ready -> state 2
+801FD6D4	Party_SelectGameLyt_animateIcons	Party_SelectGameLyt_animateIcons	high	called from select layout calc; random-driven float motion applied to game icon panes
+801FE0B4	Party_SelectGameLyt_calcSlotIdle	Party_SelectGameLyt_calcSlotIdle	high	empty slot state callback
+801FE2F8	Party_SelectGameLyt_calcSlotHighlighted	Party_SelectGameLyt_calcSlotHighlighted	high	slot state func: keeps medal effects running
+801FE558	Party_SelectGameLyt_enterLockedLoop	Party_SelectGameLyt_enterLockedLoop	high	empty state callback
+801FE6F0	Party_activateCurrentIfFlag	Party_SelectGameLyt_calcLockedIdle	high	locked-icon state table 8031D0C0 state 0 calc: when mLockedRequest[cur] is set, machine -> state 1 (start)
+801FE71C	Party_clearCurrentFlagB7	Party_SelectGameLyt_enterLockedIdle	high	locked-icon state table 8031D0C0 state 0 enter (header): hides the current game's explanation pane (+0x414[i] flag 0xB7 bit 0)
+801FE73C	Party_requestSelection	Party_SelectGameLyt_requestExpChange	medium	RPSelectGameLyt +0x19C/+0x1A0/+0x1A4: if the slot differs from the shown/pending one, stores it in +0x1A4 and sets mExpPending (explanation change)
+801FE78C	Party_updateSelectionMessage	Party_SelectGameLyt_calcExpChange	high	explanation state 1 calc (header CalcExpChange): at the anim midpoint sets the score text of the pending game, anim end -> state 0
+801FE8D0	Party_restartPaneAnim	Party_SelectGameLyt_enterExpChange	high	explanation state 1 enter (header EnterExpChange): rebinds and restarts the explanation anim
+801FE958	Party_activateIfPending	Party_SelectGameLyt_calcExpIdle	high	explanation state 0 calc (table after 8031D0C0, header CalcExpIdle): mExpPending -> mpExpState state 1
+801FE978	Fsh_Scene_exit	Fsh_Scene_exit	high	slot19 of scene class: calls Fsh scene teardown 80215068, 80215520 and RP/Mpe cleanup
+801FE9AC	Fsh_Scene_vf18	Fsh_Scene_calc	high	RPFshScene vtable 80358760 slot 18 = Calculate (0x50): forwards to the RPFshGame calc (Fsh_Scene_update) on Fsh_gameInstance
+801FE9B4	Fsh_Scene_vf17	Fsh_Scene_reset	high	RPFshScene vtable 80358760 slot 17 = Reset (0x4C): forwards to RPFshGame ResetObjects on Fsh_gameInstance
+801FEC04	Fsh_Scene_configure	Fsh_Scene_configure	high	Fishing scene slot 15 override: sets up res table, model scenes, 3D/2D views, screen effect, sound; moved from Gfx
+801FEF7C	Fsh_Scene_dtor	Fsh_Scene_dtor	high	base dtor fn_800AB4F8, deletes when flag>0 (Fsh module)
+801FF034	Fsh_Scene_dtorThunk	Fsh_Scene_dtorThunk	high	vf10: this-0x24 adjustor thunk to dtor (Fsh module)
+801FF148	Fsh_Fish_drawShadow	Fsh_Fish_draw	high	vtable 803587E0 slot 39 = UserDraw (0xA4, header: empty shadow draw); empty
+801FF1E4	Fsh_Fish_getPullSpeed	Fsh_Fish_getPullSpeed	high	returns fish type table +0x18 float; used by player fight state
+801FF614	Fsh_Fish_resolveCollision	Fsh_Fish_resolveCollision	high	RP_801B93B0 pushout; if displaced, moves fish and turns forward vector
+801FFB84	Fsh_Fish_isNearPoint	Fsh_Fish_isNearPoint	high	fish pos within radius(+size factor) of point, height band check
+80200F50	Fsh_SndActor_startSoundB	Fsh_SndActor_startSoundB	high	vf22: picks handle slot (same id/free/lowest prio) then vf45 start
+80201150	Fsh_SndActor_detailStartSound	Fsh_SndActor_detailStartSound	high	vf45: stops old handle, fn_80047524 start, applies remote speaker params
+80202034	Fsh_SndActor_holdSoundB	Fsh_SndActor_holdSoundB	high	vf30: find handle slot by id/free, then vf46
+80202144	Fsh_SndActor_detailHoldSound	Fsh_SndActor_detailHoldSound	high	vf46: fn_80047590 on handle, applies remote speaker params
+80202E60	Fsh_SndActor_setParamAllRemotes	Fsh_SndActor_set3DPosition	high	TRPSndObject slot 0x48 set3DPosition (header): SetPosition on all four Sound3DActors
+802032C8	Fsh_SndActorBase_dtor	Fsh_SndActorBase_dtor	high	vf14 of base vtable: stops all sounds, destroys handle array, base dtor
+802033D4	Fsh_SndHandleArray_dtor	Fsh_SndHandleArray_dtor	high	destroys handle array at +0x48 then 80358A88 base, optional delete
+80203480	Fsh_SndPlayerBase_dtor	Fsh_SndPlayerBase_dtor	high	sets vtable 80358A88, unregisters from list, optional delete
+802034F8	Fsh_clearHandle	Fsh_clearHandle	high	*p = 0
+80203504	Fsh_SndActor_dtor	Fsh_SndActor_dtor	high	vf14: stops all players, destroys handle array and bases
+80203618	Fsh_SndActor_getDefaultRatio	Fsh_SndHandleArray_getOuterPitch	medium	returns 1.0; TRPSndAudioHandles::getOuterPitch (slot right before get3DPosition at 80358A70 and slot 12 of the TRPSndObject vtables), not an RPFshFishSnd method
+80203620	Fsh_SndPlayerBase_getDefaultRatio	Fsh_SndHandleArray_getOuterVolume	medium	returns 1.0; TRPSndAudioHandles::getOuterVolume of the <4,0> handles part (80358A6C / 80358A80)
+80203628	Fsh_Cls8035CB48_returnZero	Fsh_SndHandleArray_get3DPosition	high	returns NULL; TRPSndAudioActorBaseWithHandles::get3DPosition (alias note; slot after getOuterPitch at 80358A74/8035CB7C/8035DD94)
+80203630	Fsh_SndActor_detailHoldSoundEx	Fsh_SndActor_detailHoldSoundEx	high	vf49: fn_80047590 with extra param, remote speaker params
+80203718	Fsh_SndActor_detailStartSoundEx	Fsh_SndActor_detailStartSoundEx	high	vf48: stops old handle, fn_80047524 with extra param
+80203828	Fsh_SndActor_detailPrepareSound	Fsh_SndActor_detailPrepareSound	high	vf47: stops old handle, fn_8004765C, remote speaker params
+80203944	Fsh_SndActor_getVolume	Fsh_SndActor_getOuterVolume	high	TRPSndObject slot 0xB8 getOuterVolume (header): returns mVolume's current value
+8020394C	Fsh_SndActor_updateSub	Fsh_SndActor_setActorVolume	high	TRPSndObject slot 0xB4 setActorVolume (header): RPSndMoveValueF32::moveValue on mVolume
+80203BAC	Fsh_SndActor_prepareSoundInSlot	Fsh_SndActor_prepareSoundInSlot	high	vf36: asserts slot<count, stops slot, vf47
+80203CAC	Fsh_SndActor_prepareSoundByLabelInSlot	Fsh_SndActor_prepareSoundByLabelInSlot	high	vf38: label->id, slot, vf47
+80203DCC	Fsh_SndActor_prepareSoundByLabel	Fsh_SndActor_prepareSoundByLabel	high	vf37: label->id, choose slot, vf47
+80203FE0	Fsh_SndActor_prepareSoundB	Fsh_SndActor_prepareSoundB	high	vf35: choose slot by id/free/priority, vf47
+802041D4	Fsh_SndActor_prepareSoundA	Fsh_SndActor_prepareSoundA	high	vf34: choose slot by id/free/priority, vf47
+802043C8	Fsh_SndActor_holdSoundByLabelInSlot	Fsh_SndActor_holdSoundByLabelInSlot	high	vf33: label->id, slot, vf46
+802044B0	Fsh_SndActor_holdSoundInSlot	Fsh_SndActor_holdSoundInSlot	high	vf31: slot index, vf46
+80204578	Fsh_SndActor_holdSoundByLabel	Fsh_SndActor_holdSoundByLabel	high	vf32: label->id, find slot, vf46
+802046C0	Fsh_SndActor_holdSoundA	Fsh_SndActor_holdSoundA	high	vf29: find slot by id/free, vf46
+802047D0	Fsh_SndActor_holdSoundExByLabel	Fsh_SndActor_holdSoundExByLabel	high	vf28: label->id, find slot, vf49
+80204928	Fsh_SndActor_holdSoundExB	Fsh_SndActor_holdSoundExB	high	vf27: find slot, vf49
+80204A40	Fsh_SndActor_holdSoundExA	Fsh_SndActor_holdSoundExA	high	vf26: find slot, vf49
+80204B58	Fsh_SndActor_startSoundByLabelInSlot	Fsh_SndActor_startSoundByLabelInSlot	high	vf25: label->id, slot, vf45
+80204C84	Fsh_SndActor_startSoundInSlot	Fsh_SndActor_startSoundInSlot	high	vf23: slot index, stop slot, vf45
+80204D90	Fsh_SndActor_startSoundByLabel	Fsh_SndActor_startSoundByLabel	high	vf24: label->id, choose slot, vf45
+80204FB0	Fsh_SndActor_startSoundA	Fsh_SndActor_startSoundA	high	vf21: choose slot by id/free/priority, vf45
+802051B0	Fsh_SndActor_startSoundExByLabel	Fsh_SndActor_startSoundExByLabel	high	vf20: label->id, choose slot, vf48
+802053D8	Fsh_SndActor_startSoundExB	Fsh_SndActor_startSoundExB	high	vf19: choose slot, vf48
+802055E0	Fsh_SndActor_startSoundExA	Fsh_SndActor_startSoundExA	high	vf18: choose slot, vf48
+802057E8	Fsh_SndActor_applyVolume	Fsh_SndActor_update	high	TRPSndObject slot 0x4C update (header, track volumes): applies mVolume to every seq handle's tracks
+80205898	Fsh_SndActor_getPlayerParam	Fsh_SndActor_get3DPosition	high	TRPSndObject slot 0x44 get3DPosition (header): position of 3D actor idx
+802058A8	Fsh_SndActor_callVf50	Fsh_SndActor_getSoundIdB	high	TRPSndObject slot 0xD8 getSoundId(unsigned int, offset) (header): tail-calls the u32 overload at 0xD0
+802058B8	Fsh_SndActor_getSoundInfoByLabel	Fsh_SndActor_getSoundLabel	high	TRPSndObject slot 0xD4 getSoundLabel (header): label -> id, returns label string of id + offset
+80205924	Fsh_SndActor_addIndex	Fsh_SndActor_getSoundIdA	high	TRPSndObject slot 0xD0 getSoundId(u32, offset) (header): returns id + offset
+80205A14	Fsh_SndActorBase_dtorThunk	Fsh_SndActorBase_dtorThunk	high	vf02: this-0x10 -> base dtor
+80205A1C	Fsh_SndActor_applyVolumeThunk	Fsh_SndActor_updateThunk	high	RPSndAudioActorBase-part slot 0x20 (update) thunk to Fsh_SndActor_update
+80205A24	Fsh_SndActor_updateSubThunk	Fsh_SndActor_setActorVolumeThunk	high	RPSndAudioActorBase-part slot 0x1C (setActorVolume) thunk to Fsh_SndActor_setActorVolume
+80205A2C	Fsh_SndActor_stopAllSoundsThunk	Fsh_SndActor_stopAllSoundsThunk	high	vf06 thunk to vf42
+80205A34	Fsh_SndActor_stopSoundAThunk	Fsh_SndActor_stopSoundAThunk	high	vf03 thunk to vf39
+80205A3C	Fsh_SndActor_stopSoundBThunk	Fsh_SndActor_stopSoundBThunk	high	vf04 thunk to vf40
+80205A44	Fsh_SndActor_stopSoundByLabelThunk	Fsh_SndActor_stopSoundByLabelThunk	high	vf05 thunk to vf41
+80205A4C	Fsh_SndActor_getVolumeThunk	Fsh_SndActor_getOuterVolumeThunk	high	TRPSndAudioHandles-part getOuterVolume slot thunk to Fsh_SndActor_getOuterVolume
+80205A54	Fsh_SndActor_dtorThunk	Fsh_SndActor_dtorThunk	high	vf02 thunk to dtor
+80205A5C	Fsh_SndActor_getPlayerParamThunk	Fsh_SndActor_get3DPositionThunk	high	handles-part get3DPosition slot thunk to Fsh_SndActor_get3DPosition
+80205A6C	Fsh_Fish_drawShadowThunk	Fsh_Fish_drawThunk	high	IRPGrpDrawObject-part thunk (vtable slot 9) to Fsh_Fish_draw (UserDraw)
+80205F8C	Fsh_FishMgr_setFishToSwim	Fsh_FishMgr_setFishToSwim	high	fish not in states 0/2/3/6 forced to state 1 (swim)
+80206484	Fsh_FishMgr_callVf38All	Fsh_FishMgr_exitAll	high	calls vfunc 0xA0 (Exit) on all 30 fish; header RPFshFishMgr::ExitAll, caller Fsh_Scene_destroyObjects
+802067E4	Fsh_Player_drawShadow	Fsh_Player_draw	high	RPFshPlayer UserDraw override (0x88, header); only tests the start layout state, draws nothing
+8020680C	Fsh_Player_isRemoteSteady	Fsh_Player_isRemoteSteady	medium	remote accel below Fsh_steadyAccelMin and last 20 stored CoreStatus accels below Fsh_steadyAccelMax
+802068F4	Fsh_Player_calcAimPos	Fsh_Player_calcAimPos	medium	returns the rod aim position from camera ray and pointer (VEC3 by value)
+80206D24	Fsh_Player_init	Fsh_Player_init	high	sets player index, controller channel, requests state 1
+80206D3C	Fsh_Player_isHookWaiting	Fsh_Player_isHookWaiting	medium	state 2 (wait), no pending change, rod mIsHookInWater set
+80206D74	Fsh_Player_updateRod	Fsh_Player_updateRod	high	moves rod/rope with hooked fish, updates rod pose, hook water check
+802070F0	Fsh_Player_calcIdle	Fsh_Player_calcIdle	high	state6 calc: pushes x outward and clamps, sets rod position
+80207158	Fsh_Player_calcReturn	Fsh_Player_calcReturn	high	state5 calc: lerps rod to rest; when free, back to state 1/2, resets rope
+80207274	Fsh_Player_enterReturn	Fsh_Player_enterReturn	high	state5 enter: clears fish index, stops reel sounds
+802072BC	Fsh_Player_calcLand	Fsh_Player_calcLand	high	state4 calc: lifts caught fish out, rumble, rod sway
+80207670	Fsh_Player_enterLand	Fsh_Player_enterLand	high	state4 enter: Party_801FB680 on party object
+80207680	Fsh_Player_calcFight	Fsh_Player_calcFight	high	state3 calc: fish pulls rod; escape or catch returns to state 2
+80207A8C	Fsh_Player_enterFight	Fsh_Player_enterFight	high	state3 enter: starts reel sound unless type 3, clears rod flag
+80207AEC	Fsh_Player_calcWait	Fsh_Player_calcWait	high	state2 calc: rod follows aim, detects bite, time-up -> state 6
+80207D00	Fsh_Player_enterWait	Fsh_Player_enterWait	high	state2 enter: sets rod flag +0xd8, clears +0x17d8
+80207D18	Fsh_Player_calcAim	Fsh_Player_calcAim	high	state1 calc: rod follows pointer, detects cast, time-up -> state 6
+80207F00	Fsh_Player_enterAim	Fsh_Player_enterAim	high	state1 enter: sets +0x17d8
+80208484	Fsh_Player_exit	Fsh_Player_exit	high	vf31: rod vf38, fn_800CA884(channel,0)
+80208A58	Fsh_sinit_playerConsts	Fsh_sinit_playerConsts	high	static init of player/rod position constants
+80208B94	Fsh_Player_drawShadowThunk	Fsh_Player_drawThunk	high	IRPGrpDrawObject-part thunk (vtable slot 9) to Fsh_Player_draw (UserDraw)
+80208C70	Fsh_PlayerMgr_calcRods	Fsh_PlayerMgr_calcRods	high	vtable 80358BE0 slot: updates each player rod; if all idle (state 6) notifies 8043C778
+80208ED0	Fsh_PlayerMgr_exitAll	Fsh_PlayerMgr_exitAll	high	calls vf31 on each player (from scene exit)
+80209118	Fsh_Rod_drawHookShadow	Fsh_Rod_draw	high	RPFshRod UserDraw override (0xA4, header): in view 0 draw step 9 draws the hook shadow quad at rope point 7 above the pond bottom
+802091BC	Fsh_Rod_calcRopeJoints	Fsh_Rod_editWorldMtx	high	RPFshRod EditWorldMtx override (0xA8, header): orients the rope joint matrices along the rope points
+80209724	Fsh_Rod_getBendRatio	Fsh_Rod_getBendRatio	high	returns +0x110 / const
+802097EC	Fsh_Rod_calcRestDir	Fsh_Rod_calcRestDir	medium	returns rod rest direction Fsh_rodRestDir shifted by player index within the player count
+802098B4	Fsh_Rod_setRopeTargetPoint	Fsh_Rod_setRopeTargetPoint	high	forwards to Rope_setTargetPoint on rope +0x114
+802098BC	Fsh_Rod_setAllRopeTargets	Fsh_Rod_setAllRopeTargets	high	sets all 8 rope target points to vec
+80209918	Fsh_Rod_getRopePoint	Fsh_Rod_getRopePoint	high	forwards to Rope_getPoint on rope +0x114
+80209A00	Fsh_Rod_setPosFromGrip	Fsh_Rod_setPosFromGrip	high	position = grip point minus basis-scaled grip offset
+80209ABC	Fsh_Rod_getGripPos	Fsh_Rod_getGripPos	medium	returns rod position + front/up/side basis scaled by the grip offset
+80209B60	Fsh_Rod_getTipPos	Fsh_Rod_getTipPos	medium	returns rod position + front/up/side basis scaled by the tip offset
+8020AC18	Fsh_RodSndActor_dtor	Fsh_RodSndActor_dtor	high	vf14 of 80358CBC: same teardown as sound actor dtor
+8020AD98	Fsh_sinit_rodConsts	Fsh_sinit_rodConsts	high	static init of rod vectors and constant
+8020AE2C	Fsh_RodSndActor_dtorThunk	Fsh_RodSndActor_dtorThunk	high	vf02 thunk
+8020AE3C	Fsh_Rod_drawHookShadowThunk	Fsh_Rod_drawThunk	high	IRPGrpDrawObject-part thunk (vtable slot 9) to Fsh_Rod_draw (UserDraw)
+8020AE4C	Fsh_Rod_calcRopeJointsThunk	Fsh_Rod_editWorldMtxThunk	high	IRPGrpModelCallback-part thunk (this-0x60, slot 33) to Fsh_Rod_editWorldMtx
+8020AE5C	Fsh_CameraMgr_calc	Fsh_CameraMgr_calc	high	calls camera vtable +0x14, copies camera matrix to global view
+8020AF34	Fsh_CameraMgr_reset	Fsh_CameraMgr_reset	high	calls camera vtable +0x10, copies camera matrix to global view
+8020B0F0	Fsh_Camera_isOffPreset	Fsh_Camera_isOffPreset	medium	0 when eye/target equal the catch-view or result-view presets, else 1
+8020B418	Fsh_Camera_startIntroMove	Fsh_Camera_startIntroMove	medium	once (flag): resets intro frame and starts the RPRange ease over Fsh_cameraIntroFrames
+8020B448	Fsh_Camera_calcIntroMove	Fsh_Camera_calcIntroMove	medium	eases eye/target along the preset intro curve, then ends the move
+8020BDFC	Fsh_Stage_calc	Fsh_Stage_calc	high	vf08: updates lake/tree/cloud/waterface model matrices
+8020C3E8	Fsh_getPondRadius	Fsh_getPondRadius	medium	returns 210.0; used by Fsh_Fish_spawn as spawn radius
+8020C3F0	Fsh_getPondBottomY	Fsh_getPondBottomY	medium	returns -100.0; pond bottom height for fish spawn, mouth check and hook shadow
+8020C3F8	Fsh_getWaterSurfaceY	Fsh_getWaterSurfaceY	medium	returns -15.0; water surface height for fish spawn and the rod hook-water check
+8020C400	Fsh_SceneTexture_dtor	Fsh_SceneTexture_dtor	high	vtable 80358E18 dtor
+8020C444	Fsh_sinit_pondCenter	Fsh_sinit_pondCenter	high	static init vec (0,0,0) used as pond center
+8020C478	Fsh_ResultLayout_drawFishLabels	Fsh_ResultLayout_drawFishLabels	medium	draws each caught fish label layout whose result-fish screen x is inside the visible range
+8020C65C	Fsh_ResultLayout_getScrollSpeed	Fsh_ResultLayout_getScrollSpeed	medium	result scroll speed from remote buttons 0x800/0x400 of any player
+8020C720	Fsh_ResultLayout_calcFinish	Fsh_ResultLayout_calcFinish	high	state7 calc: when party menu done, stores retry choice, state 8
+8020C790	Fsh_ResultLayout_enterFinish	Fsh_ResultLayout_enterFinish	high	state7 enter: Party_801E9224 with 1P or winner index
+8020C7C8	Fsh_ResultLayout_calcVersusEnd	Fsh_ResultLayout_calcVersusEnd	high	state6 calc: plays out animations; party state 5 -> state 7
+8020C8D8	Fsh_ResultLayout_enterVersusEnd	Fsh_ResultLayout_enterVersusEnd	high	state6 enter: determines winner (or draw), reports to party, sound 0x3a
+8020C9D4	Fsh_ResultLayout_calcSingleEnd	Fsh_ResultLayout_calcSingleEnd	high	state5 calc: party state 4 -> state 7
+8020CA00	Fsh_ResultLayout_enterSingleEnd	Fsh_ResultLayout_enterSingleEnd	high	state5 enter: reports 1P score to party, plays out animations
+8020CAD4	Fsh_ResultLayout_calcJudge	Fsh_ResultLayout_calcJudge	high	state4 calc: after 120 frames -> state 5 (1P) or 6 (2P)
+8020CB24	Fsh_ResultLayout_enterJudge	Fsh_ResultLayout_enterJudge	high	state4 enter: finds top score, plays highlight anim for leader
+8020CC48	Fsh_ResultLayout_calcCountPoints	Fsh_ResultLayout_calcCountPoints	high	state3 calc: scrolls caught fish icons and counts points
+8020CFE0	Fsh_ResultLayout_enterCountPoints	Fsh_ResultLayout_enterCountPoints	high	state3 enter: sets T_score/T_fishPoint texts, places result fish icons
+8020D3AC	Fsh_ResultLayout_calcIntro	Fsh_ResultLayout_calcIntro	high	state2 calc: inAll anim finished -> state 3
+8020D3D0	Fsh_ResultLayout_enterIntro	Fsh_ResultLayout_enterIntro	high	state2 enter: starts inAll animations
+8020D4B4	Fsh_ResultLayout_calcCameraMove	Fsh_ResultLayout_calcCameraMove	high	state1 calc: plays result music 0x71, camera arrived -> state 2
+8020D618	Fsh_ResultLayout_enterCameraMove	Fsh_ResultLayout_enterCameraMove	high	state1 enter: camera to result view
+8020E22C	Fsh_getTimeLimitSec	Fsh_getTimeLimitSec	high	returns 60
+8020E304	Fsh_Timer_calcEnd	Fsh_Timer_calcEnd	high	state5 calc: elapsed >= limit -> state 6
+8020E324	Fsh_Timer_enterEnd	Fsh_Timer_enterEnd	high	state5 enter: hides layout root pane
+8020E354	Fsh_Timer_calcLastSecond	Fsh_Timer_calcLastSecond	high	state4 calc: counts down, plays count anim and sound 0x37
+8020E578	Fsh_Timer_enterLastSecond	Fsh_Timer_enterLastSecond	high	state4 enter: stops sound handle lbl_8043C788
+8020E57C	Fsh_Timer_calcCountdown	Fsh_Timer_calcCountdown	high	state3 calc: per-second count anim; under 61 frames -> state 4
+8020E980	Fsh_Timer_enterCountdown	Fsh_Timer_enterCountdown	high	state3 enter: empty
+8020E984	Fsh_Timer_calcCount	Fsh_Timer_calcCount	high	state2 calc: counts frames, <361 -> state 3, <61 -> state 4, window flags
+8020EADC	Fsh_Timer_enterCount	Fsh_Timer_enterCount	high	state2 enter: hides layout root pane
+8020EB0C	Fsh_Timer_calcIdle	Fsh_Timer_calcIdle	high	state1 calc: requests state 2
+8020EB18	Fsh_Timer_enterIdle	Fsh_Timer_enterIdle	high	state1 enter: hides layout root pane
+8020F37C	Fsh_ResultFish_calc	Fsh_ResultFish_calc	high	vf30: applies pending visibility, places model relative to camera
+8020F6AC	Fsh_PointPopup_getOutAnimLength	Fsh_PointPopup_getOutAnimLength	high	returns frame count of anim +0x28 (outAll) as int
+8020FA90	Fsh_PointPopup_enterShow	Fsh_PointPopup_enterShow	high	state2 enter: empty
+802102E0	Fsh_ScoreLayout_updateTexts	Fsh_ScoreLayout_updateTexts	medium	recomputes player totals, updates score texts and holds the count sound
+80210A58	Fsh_ScoreLayout_enterShown	Fsh_ScoreLayout_enterShown	high	panel state2 enter: empty
+80210B84	Fsh_ScoreLayout_enterHidden	Fsh_ScoreLayout_enterHidden	high	panel state0 enter: empty
+80211760	Fsh_StartLayout_enterPlay	Fsh_StartLayout_enterPlay	high	state4 enter: starts game BGM 0x68
+80211A58	Fsh_StartLayout_calcWaitReady	Fsh_StartLayout_calcWaitReady	high	state2 calc: waits players ready, closes messages, then state 3
+80211C58	Fsh_StartLayout_enterWaitReady	Fsh_StartLayout_enterWaitReady	high	state2 enter: clears flag +0x1c
+802126DC	Fsh_RodSnd_holdSplash	Fsh_RodSnd_holdSplash	medium	holdSound(6) on the rod sound actor with volume/pitch scaled by speed when speed >= 1
+80212800	Fsh_FishSnd_startBite	Fsh_FishSnd_startBite	medium	starts size-class bite sound 7..10 (by unk74) via startSoundWithRemotePlayer
+802128F0	Fsh_FishSnd_holdStruggle	Fsh_FishSnd_holdStruggle	medium	holds size-class struggle sounds (0x10..0x13 and 0xC..0xF) while hooked
+80212A60	Fsh_FishSnd_startCatch	Fsh_FishSnd_startCatch	medium	starts size-class catch sounds (0x19..0x1D and 0x14..0x18) on catch view
+80212C80	Fsh_holdGlobalSound	Fsh_holdGlobalSound	high	holds sound id on global handle lbl_8043C78C, returns success
+80212CC8	Fsh_getBgmLeadFrames	Fsh_getBgmLeadFrames	medium	returns 2 for BGM 0x68, 10 for 0x71, else 0
+80212CF0	Fsh_stopAmbientSound	Fsh_stopAmbientSound	medium	stops global handle Fsh_ambientSoundHandle (frame 0)
+80212D3C	Fsh_startAmbientSound	Fsh_startAmbientSound	medium	stops then restarts Fsh_ambientSoundHandle with sound 0x28
+802136D4	Fsh_getStartStateTable	Fsh_getStartSoundTable	medium	returns the sound range table Fsh_startSoundTable {2,0,0x2C,3,0x2B,0}, stored into RPFshStartLayout's RPSndUtility helper (+0x3C); not a state table
+80213E3C	Fsh_BonusFish_enterShow	Fsh_BonusFish_enterShow	high	state2 enter: empty
+80214FF8	Fsh_Scene_enterPlay	Fsh_Scene_enterPlay	high	scene state enter: empty
+802159DC	Fsh_Msg00_calcWait	Fsh_Msg00_calcWait	high	state2 calc: empty
+80216338	Fsh_Msg01_calcWait	Fsh_Msg01_calcWait	high	state2 calc: empty
+80216E20	Hky_SceneSound_dtor	Hky_SceneSound_dtor	high	dtor for 0x18-byte helper object created in Hky_Scene_create (no direct refs)
+80218B68	Hky_Puck_setInPlay	Hky_Puck_setInPlay	high	sets byte +0x50 = 1 when puck simulated this frame
+80218C70	Hky_Puck_exit	Hky_Puck_exit	high	empty RP object slot 8
+80219EFC	Hky_Field_exit	Hky_Field_exit	high	empty RP object slot 8
+8021B824	Hky_sinitLightPos	Hky_sinitLightPos	high	static init of global vec (0,745,0) later copied to light position
+8021B8A4	Hky_Paddle_calcHitVelocity	Hky_Paddle_calcHitVelocity	medium	returns the paddle hit velocity vector (VEC3 by value) built from the velocity history
+8021E5EC	Hky_Paddle_calcCpuTargetRect	Hky_Paddle_calcCpuTargetRect	medium	CPU aim target for the rect paddle; difficulty factor from score and score difference
+8021ECE4	Hky_Paddle_calcCpuTargetRound	Hky_Paddle_calcCpuTargetRound	medium	CPU aim target for the round paddle; difficulty factor from score and score difference
+8021F194	Hky_Paddle_updateCpuStallTimer	Hky_Paddle_updateCpuStallTimer	medium	counts frames the puck stays put on the CPU side; after 40 sets the action timer
+8021F374	Hky_Paddle_exit	Hky_Paddle_exit	high	empty RP object slot 8
+8021FE14	Hky_IntroPhase_draw	Hky_IntroPhase_draw	high	empty; called from Hky_Game_draw for phase at +0x34
+8021FE18	Hky_IntroPhase_exit	Hky_IntroPhase_exit	high	empty; called from Hky_Game_exit
+8021FED4	Hky_IntroPhase_load	Hky_IntroPhase_load	high	empty; called from Hky_Game_load
+8021FF3C	Hky_WaitPhase_draw	Hky_WaitPhase_draw	high	empty; called from Hky_Game_draw for phase at +0x40
+8021FF40	Hky_WaitPhase_exit	Hky_WaitPhase_exit	high	empty; called from Hky_Game_exit
+8021FFB4	Hky_WaitPhase_load	Hky_WaitPhase_load	high	empty; called from Hky_Game_load
+80220034	Hky_ResultPhase_draw	Hky_ResultPhase_draw	high	empty; called from Hky_Game_draw for phase at +0x44
+80220038	Hky_ResultPhase_exit	Hky_ResultPhase_exit	high	empty; called from Hky_Game_exit
+802201A0	Hky_ResultPhase_load	Hky_ResultPhase_load	high	empty; called from Hky_Game_load
+802201A4	Hky_ResultPhase_create	Hky_ResultPhase_create	high	empty; called from Hky_Game_create
+802202BC	Hky_TimeUpPhase_draw	Hky_TimeUpPhase_draw	high	empty; called from Hky_Game_draw for phase at +0x3c
+802202C0	Hky_TimeUpPhase_exit	Hky_TimeUpPhase_exit	high	empty; called from Hky_Game_exit
+80220388	Hky_TimeUpPhase_load	Hky_TimeUpPhase_load	high	empty; called from Hky_Game_load
+80220438	Hky_GoalPhase_draw	Hky_GoalPhase_draw	high	empty; called from Hky_Game_draw for phase at +0x38
+8022043C	Hky_GoalPhase_exit	Hky_GoalPhase_exit	high	empty; called from Hky_Game_exit
+8022053C	Hky_GoalPhase_load	Hky_GoalPhase_load	high	empty; called from Hky_Game_load
+8022061C	Hky_PaddleTrail_updateBySpeed	Hky_PaddleTrail_holdSoundBySpeed	medium	RPHkyPaddleTrail is a TRPSndObject: flag on above speed 50 / off below 20, then holdSound(u32) (own vtable 0x7C); a sound, not an effect
+802206A8	Hky_Effect_setEmitterRate	Hky_PuckTrail_startSoundBySpeed	medium	this is RPHkyPuckTrail (alias of Hky_Effect): startSound(u32) (own vtable 0x5C) then sets its volume to clamp(speed*1.5, 0.5, 1)
+80220FDC	Hky_ScoreLyt_exit	Hky_ScoreLyt_exit	high	empty; called from HUD exit
+80221648	Hky_TimeLyt_exit	Hky_TimeLyt_exit	high	empty; called from HUD exit
+80222118	Hky_PaddleRound_restartHitAnim	Hky_PaddleRound_restartHitAnim	high	sets anim frame 0 on round-paddle model (paddle hit feedback)
+8022213C	Hky_PaddleRound_exit	Hky_PaddleRound_exit	high	empty RP object slot 8
+802224FC	Hky_PaddleRound_create	Hky_PaddleRound_create	high	empty RP object slot 5
+802226F0	Hky_TimeUpMsgLyt_exit	Hky_TimeUpMsgLyt_exit	high	empty; called from HUD exit
+802228D8	Hky_BalloonLyt_requestOut	Hky_BalloonLyt_requestOut	high	sets flag +4 so balloon plays out after wait
+80222A64	Hky_BalloonLyt_exit	Hky_BalloonLyt_exit	high	empty; called from HUD exit
+80223174	Hky_StartMsgLyt_exit	Hky_StartMsgLyt_exit	high	empty; called from HUD exit
+80223968	Hky_GoalMsgLyt_exit	Hky_GoalMsgLyt_exit	high	empty; called from HUD exit
+80224168	Hky_Msg03Lyt_exit	Hky_Msg03Lyt_exit	high	empty; called from HUD exit
+802247FC	Pnp_SceneSound_dtor	Pnp_SceneSound_dtor	high	dtor for 0x18-byte helper object created in Pnp_Scene_create (no direct refs)
+80225138	Pnp_Field_exit	Pnp_Field_exit	high	empty; called from Pnp_Game_exit for field object
+80225140	Pnp_Field_reset	Pnp_Field_reset	high	empty; called from Pnp_Game_reset for field object
+80225CAC	Pnp_Ball_onEventState7	Pnp_Ball_onEventState7	medium	rally rule handler for ball state 7: by event -> 8/6/10/11, awarding points via Pnp_PointPhase_addPoint
+80225DAC	Pnp_Ball_onEventState8	Pnp_Ball_onEventState8	medium	rally rule handler for ball state 8: by event -> 8/6/9/11/12, awarding points
+80225EAC	Pnp_Ball_onEventState4	Pnp_Ball_onEventState4	medium	rally rule handler for ball state 4: by event -> 5/6/11/12, awarding points
+80225FAC	Pnp_Ball_applyReceiverSpin	Pnp_Ball_applyReceiverSpin	medium	after a bounce adds the clamped receiving (human) player's swing vector to the ball x/z velocity
+802260C4	Pnp_Ball_drawShadow	Pnp_Ball_drawShadow	high	debug-mode draw of ball shadow disc on table/floor
+80226328	Pnp_Ball_exit	Pnp_Ball_exit	high	empty; called from Pnp_Game_exit for ball
+802272D4	Pnp_Table_exit	Pnp_Table_exit	high	empty; called from Pnp_Game_exit for table
+802272DC	Pnp_Table_reset	Pnp_Table_reset	high	empty; called from Pnp_Game_reset for table
+802274A0	Pnp_sinitVec8043A700	Pnp_sinitTableBounceScale	high	static init of Pnp_tableBounceScale = (2,1,2)
+80228504	Pnp_Player_exit	Pnp_Player_exit	high	empty; called from Pnp_Game_exit for players
+80229A1C	Pnp_Player_calcCpuReturnVelocity	Pnp_Player_calcCpuReturnVelocity	medium	CPU return velocity toward the picked target x and the far end of the table (VEC3 by value)
+80229BA0	Pnp_Player_pickCpuTargetX	Pnp_Player_pickCpuTargetX	medium	weighted random lane (left/centre/right) from the level table entry
+8022A994	Pnp_sinitRacketParams	Pnp_sinitRacketParams	high	static init of racket hit range/offset constants
+8022AA94	Pnp_PointPhase_isGameOver	Pnp_PointPhase_isGameOver	medium	2P only: true when a score reaches mWinPoints
+8022AB60	Pnp_PointPhase_isCourtChangePoint	Pnp_PointPhase_isCourtChangePoint	medium	2P only: total points is a nonzero multiple of Pnp_serveChangePoints
+8022AC6C	Pnp_PointPhase_draw	Pnp_PointPhase_draw	high	empty; called from Pnp_Game_draw for phase at +0x44
+8022AC70	Pnp_PointPhase_exit	Pnp_PointPhase_exit	high	empty; called from Pnp_Game_exit
+8022AD8C	Pnp_PointPhase_load	Pnp_PointPhase_load	high	empty; called from Pnp_Game_load
+8022B074	Pnp_ResultPhase_draw	Pnp_ResultPhase_draw	high	empty; called from Pnp_Game_draw for phase at +0x48
+8022B078	Pnp_ResultPhase_exit	Pnp_ResultPhase_exit	high	empty; called from Pnp_Game_exit
+8022B3A4	Pnp_ResultPhase_load	Pnp_ResultPhase_load	high	empty; called from Pnp_Game_load
+8022BC8C	Pnp_ServePhase_draw	Pnp_ServePhase_draw	high	empty; called from Pnp_Game_draw for phase at +0x40
+8022BC90	Pnp_ServePhase_exit	Pnp_ServePhase_exit	high	empty; called from Pnp_Game_exit
+8022BD2C	Pnp_ServePhase_load	Pnp_ServePhase_load	high	empty; called from Pnp_Game_load
+8022C478	Pnp_BallTrail_updateEmitterRate	Pnp_BallTrail_startHitSound	medium	RPPnpBallTrail is a TRPSndObject: starts Pnp_ballTrailSoundTable[level][event] via startSoundWithRemotePlayer/startSound, then scales by consecutive hits; a sound, not an emitter
+8022C6A0	Pnp_ReadyPhase_draw	Pnp_ReadyPhase_draw	high	empty; called from Pnp_Game_draw for phase at +0x3c
+8022C6A4	Pnp_ReadyPhase_exit	Pnp_ReadyPhase_exit	high	empty; called from Pnp_Game_exit
+8022C788	Pnp_ReadyPhase_load	Pnp_ReadyPhase_load	high	empty; called from Pnp_Game_load
+8022C7F0	Pnp_fadeOutBgm	Pnp_fadeOutBgm	high	fades out global BGM handle over 60 frames if playing
+8022DDEC	Pnp_sinitCameraPos	Pnp_sinitCameraPos	medium	static init of Pnp_cameraPos = (-275,800,190)
+8022DE10	Pnp_Spectator_draw	Pnp_Spectator_draw	high	empty; called per spectator from Pnp_Audience_draw
+8022E150	Pnp_Spectator_updateWalkIn	Pnp_Spectator_updateWalkIn	medium	moves the spectator along the walk-in path over mTimer and drives the walk anim
+8022E67C	Pnp_Audience_playLoopAnimA	Pnp_Audience_playLoopAnimA	medium	for all (-1) or one seat: anim set 1, expression 3, random start frame
+8022E820	Pnp_Audience_playLoopAnimB	Pnp_Audience_playLoopAnimB	medium	for all (-1) or one seat: anim set 0, expression 1, random start frame
+8022E9C4	Pnp_Audience_cheerTimed	Pnp_Audience_cheerTimed	medium	for all (-1) or one seat: timed cheer flag, anim set 0, random start frame
+8022EBE4	Pnp_Audience_exit	Pnp_Audience_exit	high	empty; called from Pnp_Game_exit
+8022F3EC	Pnp_Audience_create	Pnp_Audience_create	high	empty; called from Pnp_Game_create
+80230060	Pnp_ScoreLyt_exit	Pnp_ScoreLyt_exit	high	empty; called from HUD exit
+80230ACC	Pnp_ServerLyt_exit	Pnp_ServerLyt_exit	high	empty; called from HUD exit
+80231154	Pnp_ArrowLyt_exit	Pnp_ArrowLyt_exit	high	empty; called from HUD exit
+802313D0	Pnp_IntroPhase_draw	Pnp_IntroPhase_draw	high	empty; called from Pnp_Game_draw for phase at +0x38
+802313D4	Pnp_IntroPhase_exit	Pnp_IntroPhase_exit	high	empty; called from Pnp_Game_exit
+802314E4	Pnp_IntroPhase_load	Pnp_IntroPhase_load	high	empty; called from Pnp_Game_load
+802314E8	Pnp_IntroPhase_create	Pnp_IntroPhase_create	high	empty; called from Pnp_Game_create
+802318D4	Pnp_ResultLyt_exit	Pnp_ResultLyt_exit	high	empty; called from HUD exit
+80232420	Pnp_CountLyt_exit	Pnp_CountLyt_exit	high	empty; called from HUD exit
+802330E4	Pnp_BalloonLyt_exit	Pnp_BalloonLyt_exit	high	empty; called from HUD exit
+802339B0	Pnp_StartMsgLyt_exit	Pnp_StartMsgLyt_exit	high	empty; called from HUD exit
+80233E44	Pnp_FaultMsgLyt_exit	Pnp_FaultMsgLyt_exit	high	empty; called from HUD exit
+802343C8	Pnp_PointMsgLyt_exit	Pnp_PointMsgLyt_exit	high	empty; called from HUD exit
+8023479C	Pnp_ServeMsgLyt_exit	Pnp_ServeMsgLyt_exit	high	empty; called from HUD exit
+80234B90	Pnp_HelpMsgLyt_exit	Pnp_HelpMsgLyt_exit	high	empty; called from HUD exit
+802350F4	Pnp_NetShadow_restartAnim	Pnp_NetShadow_restartAnim	high	sets net shadow model anim frame 0 and rate 0
+80235160	Pnp_NetShadow_exit	Pnp_NetShadow_exit	high	empty; called from Pnp_Game_exit
+80235168	Pnp_NetShadow_reset	Pnp_NetShadow_reset	high	empty; called from Pnp_Game_reset
+80235350	Pnp_BgmCtrl_updateTracks	Pnp_BgmCtrl_updateTracks	medium	reads the BGM seq variable, mutes/unmutes tracks on beat and fades the extra track
+8023552C	Pnp_BgmCtrl_setCount	Pnp_BgmCtrl_setCount	medium	stores the count then updates the BGM tracks

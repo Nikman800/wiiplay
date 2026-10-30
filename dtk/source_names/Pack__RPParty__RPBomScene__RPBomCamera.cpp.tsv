@@ -1,0 +1,14 @@
+address	old_name	new_name	unit	previous
+802D58C8	Bom_Camera_updateMatrix	UpdateView__11RPBomCameraFv	Pack/RPParty/RPBomScene/RPBomCamera.cpp	
+802D5990	Bom_Camera_setMode	SetMode__11RPBomCameraFl	Pack/RPParty/RPBomScene/RPBomCamera.cpp	
+802D5C38	Bom_Camera_calc	Calculate__11RPBomCameraFv	Pack/RPParty/RPBomScene/RPBomCamera.cpp	
+802D5C9C	Bom_Camera_initView	InitView__11RPBomCameraFv	Pack/RPParty/RPBomScene/RPBomCamera.cpp	
+802D5D64	Bom_Camera_create	Reset__11RPBomCameraFv	Pack/RPParty/RPBomScene/RPBomCamera.cpp	
+802D5DCC	Bom_Camera_stateIdle	StateIdle__11RPBomCameraFv	Pack/RPParty/RPBomScene/RPBomCamera.cpp	
+802D5DD0	Bom_Camera_stateZoomIn	StateZoomIn__11RPBomCameraFv	Pack/RPParty/RPBomScene/RPBomCamera.cpp	
+802D5E9C	Bom_Camera_dtor	__dt__11RPBomCameraFv	Pack/RPParty/RPBomScene/RPBomCamera.cpp	
+802D5EF4	Bom_Camera_destroyInstance	DestroyInstance__11RPBomCameraFv	Pack/RPParty/RPBomScene/RPBomCamera.cpp	
+802D5F38	Bom_Camera_createInstance	CreateInstance__11RPBomCameraFv	Pack/RPParty/RPBomScene/RPBomCamera.cpp	
+8035E7B8	lbl_8035E7B8	__vt__11RPBomCamera	Pack/RPParty/RPBomScene/RPBomCamera.cpp	
+802D5FD8	Bom_initCameraPathPoints	__sinit_\RPBomCamera_cpp	Pack/RPParty/RPBomScene/RPBomCamera.cpp	
+8043CA78	Bom_cameraInstance	sInstance__11RPBomCamera	Pack/RPParty/RPBomScene/RPBomCamera.cpp	

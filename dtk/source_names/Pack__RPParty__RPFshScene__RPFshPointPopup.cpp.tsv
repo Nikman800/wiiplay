@@ -1,0 +1,20 @@
+address	old_name	new_name	unit	previous
+8020F668	Fsh_PointPopup_draw	UserDraw__15RPFshPointPopupFv	Pack/RPParty/RPFshScene/RPFshPointPopup.cpp	
+8020F698	Fsh_PointPopup_close	Close__15RPFshPointPopupFv	Pack/RPParty/RPFshScene/RPFshPointPopup.cpp	
+8020F6AC	Fsh_PointPopup_getOutAnimLength	GetOutAnmLength__15RPFshPointPopupCFv	Pack/RPParty/RPFshScene/RPFshPointPopup.cpp	
+8020F6DC	Fsh_PointPopup_show	Show__15RPFshPointPopupFll	Pack/RPParty/RPFshScene/RPFshPointPopup.cpp	
+8020F9E8	Fsh_PointPopup_calcOut	OutCalc__15RPFshPointPopupFv	Pack/RPParty/RPFshScene/RPFshPointPopup.cpp	
+8020FA0C	Fsh_PointPopup_enterOut	OutEnter__15RPFshPointPopupFv	Pack/RPParty/RPFshScene/RPFshPointPopup.cpp	
+8020FA80	Fsh_PointPopup_calcShow	ShowCalc__15RPFshPointPopupFv	Pack/RPParty/RPFshScene/RPFshPointPopup.cpp	
+8020FA90	Fsh_PointPopup_enterShow	ShowEnter__15RPFshPointPopupFv	Pack/RPParty/RPFshScene/RPFshPointPopup.cpp	
+8020FA94	Fsh_PointPopup_calcIn	InCalc__15RPFshPointPopupFv	Pack/RPParty/RPFshScene/RPFshPointPopup.cpp	
+8020FAB8	Fsh_PointPopup_enterIn	InEnter__15RPFshPointPopupFv	Pack/RPParty/RPFshScene/RPFshPointPopup.cpp	
+8020FB2C	Fsh_PointPopup_calc	Calculate__15RPFshPointPopupFv	Pack/RPParty/RPFshScene/RPFshPointPopup.cpp	
+8020FC74	Fsh_PointPopup_reset	Reset__15RPFshPointPopupFv	Pack/RPParty/RPFshScene/RPFshPointPopup.cpp	
+8020FC8C	Fsh_PointPopup_create	Create__15RPFshPointPopupFv	Pack/RPParty/RPFshScene/RPFshPointPopup.cpp	
+8020FD9C	Fsh_PointPopup_dtor	__dt__15RPFshPointPopupFv	Pack/RPParty/RPFshScene/RPFshPointPopup.cpp	
+8020FECC	Fsh_FishingPoint00_80358F20_vf14	Exit__15RPFshPointPopupFv	Pack/RPParty/RPFshScene/RPFshPointPopup.cpp	GenMessage__18IRPSysHostIOSocketFv
+8020FED0	Fsh_PointPopup_dtorThunk04	@4@__dt__15RPFshPointPopupFv	Pack/RPParty/RPFshScene/RPFshPointPopup.cpp	
+8020FED8	Fsh_PointPopup_drawThunk	@8@UserDraw__15RPFshPointPopupFv	Pack/RPParty/RPFshScene/RPFshPointPopup.cpp	
+8020FEE0	Fsh_PointPopup_dtorThunk08	@8@__dt__15RPFshPointPopupFv	Pack/RPParty/RPFshScene/RPFshPointPopup.cpp	
+80358F20	lbl_80358F20	__vt__15RPFshPointPopup	Pack/RPParty/RPFshScene/RPFshPointPopup.cpp	

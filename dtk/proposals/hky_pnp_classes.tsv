@@ -1,0 +1,33 @@
+vtable	class_name	evidence
+80359140	Hky_Scene	scene vtable (Sys scene base); slot16 loads rp_Hky_sound.brsar/basic_hokey.breff; forwards to Hky_Game singleton
+803591C8	Hky_PuckTrail	effect-holder (FshRunA-style) created in Hky_Puck_create for Hky_balltail
+803592A4	Hky_Puck	RP object; slot6 loads /G3D/Hck_pack.brres; goal/wall/paddle collision handlers use it
+803592D0	Hky_Field	RP object; slot6 loads Hck_Field_1/2.brres; slot5 builds rink wall segment table
+80359300	Hky_Game	Hky manager singleton (lbl_8043C7E0); ctor builds puck/field/paddles/HUD/phases; loads neon.pblm
+80359328	Hky_PaddleTrail	effect-holder created in Hky_Paddle_create (paddle trail)
+80359404	Hky_Paddle	RP object; ctor sets player index and Hky_paddletail_r1/b1; loads Hck_paddle_R1/B1
+80359430	Hky_IntroPhase	phase object at Game+0x34, active in game state 0 (start message/balloons)
+80359450	Hky_WaitPhase	phase object at Game+0x40, state 4 frame wait after time-up
+80359470	Hky_ResultPhase	phase object at Game+0x44, state 5 Party result/medal/retry menus
+80359490	Hky_TimeUpPhase	phase object at Game+0x3c, state 3 time-up message
+803594B0	Hky_GoalPhase	phase object at Game+0x38, state 2 goal message
+803594E0	Hky_Hud	HUD singleton (lbl_8043C7F0) holding 7 airHockey layout structs; vtable not in index (from Hky_createHud)
+803594F0	Hky_PaddleRound	RP object; ctor with owning paddle and Hky_paddletail_rc/bc_glow; loads Hck_paddle_C_R/C_B
+80359560	Pnp_Scene	scene vtable; slot16 loads rp_Pnp_sound.brsar/basic_pingpong.breff; forwards to Pnp_Game singleton
+803595C0	Pnp_Field	RP object at Game+0x1c; loads /G3D/pin_field.brres; floor hit check
+80359638	Pnp_BallTrail	effect-holder created in Pnp_Ball_create (Pnp_balltail)
+80359714	Pnp_RacketTrail	effect-holder created in Pnp_Player_create
+803597F0	Pnp_Ball	RP object at Game+0x28; loads pin_ball.brres; rally state at +0xc0
+80359810	Pnp_Table	RP object at Game+0x20; loads pin_table.brres; net/table bounce (Pnp_bound)
+80359830	Pnp_Player	RP object at Game+0x2c/+0x30 (side, CPU flag); loads pin_racket0/1; Pnp_shot/Pnp_smashshot
+80359850	Pnp_PointPhase	phase at Game+0x44, state 4; holds scores (+0x50/+0x54), target points, server logic
+8035988C	Pnp_ResultPhase	phase at Game+0x48, state 5 result screens and party menus
+803598A8	Pnp_ServePhase	phase at Game+0x40, state 2 serve/court change and serve wait
+80359938	Pnp_ReadyPhase	phase at Game+0x3c, state 1 timed steps
+80359958	Pnp_Game	Pnp manager singleton (lbl_8043C81C); ctor builds field/table/net shadow/ball/players/phases; loads scene_Bloom.pblm
+80359980	Pnp_Spectator	avatar-based object constructed by Pnp_Audience_ctor; has secondary vtable at +0xb4
+803599A8	Pnp_Audience	singleton (lbl_8043C820) of 17x2 spectators; loads pin_A0_jumpR/waitR avatar anims
+803599D8	Pnp_IntroPhase	phase at Game+0x38, state 0 intro camera and player balloons
+803599F8	Pnp_Hud	HUD singleton (lbl_8043C828) holding 11 pingpong layout structs; vtable not in index (from Pnp_createHud)
+80359A08	Pnp_LevelTable	singleton (lbl_8043C830) loading leveltable.bin/rallyleveluptable*.bin; vtable not in index
+80359A18	Pnp_NetShadow	RP object at Game+0x24; loads pin_net_shadow from pin_table.brres

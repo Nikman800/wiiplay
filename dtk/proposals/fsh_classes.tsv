@@ -1,0 +1,27 @@
+vtable	class_name	evidence
+803587E0	Fish	ctor 80203058 (30 made by FishMgr); vf35 loads fsh_fish_A..rareB + mouth_loc; vf37 runs 10-state table 8031F050
+80358888	SndActor	per-object sound actor with handle array (+0x50 count, +0x58 handles); start/hold/prepare/stop virtuals; used by Fish/Player
+80358964	SndActorBase	base vtable sharing the SndActor slots; its dtor (vf14) is the one both sound dtors store
+80358CBC	RodSndActor	sound actor vtable used by Rod ctor 8020A9B0; same slots as SndActor except dtor
+80358A88	SndPlayerBase	base sound player vtable stored by dtors 802033D4/80203480
+80358B40	FishMgr	global lbl_8043C728 holding 30 Fish; dtor 8020667C, created by 80206700
+80358B50	Player	ctor 802087B8 (2 made by PlayerMgr); vf28 loads scene light and fsh_hand_R_grip anim; owns Rod; remote input, 6 states
+80358BE0	PlayerMgr	global lbl_8043C740 holding 2 Players (count +4); dtor 80209000, slot 80208C70
+80358C10	Rod	ctor 8020A9B0; vf35 loads fsh_rod_B/R and fsh_rope; hook/rope points, Fsh_hook_* effects
+80358D98	CameraMgr	global lbl_8043C750 holding Camera; dtor 8020B00C
+80358DD0	Camera	ctor 8020BAD4 (RP camera base); eye/target presets for default, catch view and result view
+80358DE8	Stage	vf06 loads fsh_lake, fsh_tree, fsh_cloud, fsh_waterface; global lbl_8043C758
+80358E18	SceneTexture	texture-class vtable (egg CpuTexture/CapTexture/ShadowTexture slots); only dtor 8020C400 in batch
+80358E38	ResultLayout	vf11 loads fishingResult_00/01.brlyt; 8-state result sequence table 8031F5D8; global lbl_8043C760
+80358E80	Timer	fishingTimeUp_00 layout + 7-state machine; global lbl_8043C768; dtor 8020ECF4, draw 8020E1F0
+80358E98	ResultFish	ctor 8020F53C (2x6x50 made by ResultLayout); vf28 loads fsh_fish_* model for result screen
+80358F20	PointPopup	vf11 loads fishingPoint_00.brlyt; shows catch points/bonus (N_bonusOya_00); global lbl_8043C770
+80358F68	ScoreLayout	vf11 loads fishingScore_00.brlyt; per-player panel state machines; global lbl_8043C778
+80358FB0	StartLayout	vf11 loads fishingStart_00.brlyt (3-2-1 countdown); 5-state start sequence; global lbl_8043C780
+80358FF8	YankPrompt	slot3 loads fishingYank_00.brlyt; per-player show/hide; global lbl_8043C790
+80359020	AimArrow	slot3 loads fishingArrow_00.brlyt per player; positioned at rod grip; global lbl_8043C798
+80359060	BonusFish	loads fishingBonus_00.brlyt and 6 fish models; spinning bonus-fish indicator, 6 states; global lbl_8043C7B0
+803590E0	Scene	Fsh scene object (global lbl_8043C7B8): ctor 802153DC allocates all Fsh objects; dtor 802154E0
+803590F0	Msg00	slot3 loads fishingMsg_00.brlyt; open/close message with 4 states; global lbl_8043C7C0
+80359110	Msg01	slot3 loads fishingMsg_01.brlyt; open/close message with 4 states; global lbl_8043C7C8
+80358760	FishScene	scene class (init in Sys batch); slot19 801FE978 tears down Fsh objects

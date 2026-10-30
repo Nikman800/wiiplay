@@ -1,0 +1,8 @@
+address	old_name	new_name	unit	previous
+801D151C	Mii_KokeshiHead_setTransform	SetTransform__13RPKokeshiHeadFRCQ34nw4r4math5MTX34RCQ34nw4r4math4VEC3	Pack/RPParty/RPPartyCommon/RPKokeshiMgr_2.cpp	
+801D1598	Mii_MiiModel_applyTransform	Calculate__13RPKokeshiHeadFb	Pack/RPParty/RPPartyCommon/RPKokeshiMgr_2.cpp	
+801D16B0	Mii_KokeshiHead_resetTransform	ResetTransform__13RPKokeshiHeadFv	Pack/RPParty/RPPartyCommon/RPKokeshiMgr_2.cpp	
+801D16D4	Mii_KokeshiHead_dtor	__dt__13RPKokeshiHeadFv	Pack/RPParty/RPPartyCommon/RPKokeshiMgr_2.cpp	
+801D173C	Mii_KokeshiHead_ctor	__ct__13RPKokeshiHeadFPC19RPSysKokeshiGenInfo	Pack/RPParty/RPPartyCommon/RPKokeshiMgr_2.cpp	
+801D179C	Mii_KokeshiHead_dtorThunk	@180@__dt__13RPKokeshiHeadFv	Pack/RPParty/RPPartyCommon/RPKokeshiMgr_2.cpp	
+80357A70	lbl_80357A70	__vt__13RPKokeshiHead	Pack/RPParty/RPPartyCommon/RPKokeshiMgr_2.cpp	

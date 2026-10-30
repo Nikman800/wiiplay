@@ -1,0 +1,2 @@
+address	old_name	new_name	unit	previous
+801ACBC4	Gfx_ScnProcDrawHook_draw	scnProcDraw__17RPScnProcDrawHookFUs	Pack/RPParty/RPPartyCommon/RPScnProcDrawHook.cpp	

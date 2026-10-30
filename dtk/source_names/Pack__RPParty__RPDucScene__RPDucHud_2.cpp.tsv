@@ -1,0 +1,9 @@
+address	old_name	new_name	unit	previous
+801B9F88	Lyt_attachArcFile	AttachArcFile__12RPLytObjBaseFPQ23EGG7ArchivePCcP19RPSysLytResAccessor	Pack/RPParty/RPDucScene/RPDucHud_2.cpp	
+8024D930	Duc_PointPopup_exit	VF_0x18__15RPDucPointPopupFv	Pack/RPParty/RPDucScene/RPDucHud_2.cpp	
+8024D934	Duc_PointPopup_draw	Draw__15RPDucPointPopupFv	Pack/RPParty/RPDucScene/RPDucHud_2.cpp	
+8024D93C	Duc_PointPopup_calc	Calculate__15RPDucPointPopupFv	Pack/RPParty/RPDucScene/RPDucHud_2.cpp	
+8024D978	Duc_PointPopup_reset	Reset__15RPDucPointPopupFv	Pack/RPParty/RPDucScene/RPDucHud_2.cpp	
+8024DA34	Duc_PointPopup_load	Load__15RPDucPointPopupFPQ23EGG7Archive	Pack/RPParty/RPDucScene/RPDucHud_2.cpp	
+8024DAAC	Duc_PointPopup_dtor	__dt__15RPDucPointPopupFv	Pack/RPParty/RPDucScene/RPDucHud_2.cpp	
+8035AD10	lbl_8035AD10	__vt__15RPDucPointPopup	Pack/RPParty/RPDucScene/RPDucHud_2.cpp	

@@ -1,0 +1,38 @@
+vtable	class_name	evidence
+8034F01C	Sys_ConfigData	EGG system config: slots return Video/SysHeap/Display/XfbMgr/PerfView created in Sys_initEgg; static init sets global vtable
+8034F080	Sys_SceneCreator	singleton lbl_8043C458; slot0 creates scenes by id from scene table 80316CE8, slot1 destroy, slot2 dtor
+8034F098	Sys_Scene	RP scene base (egg::Scene subclass): ctor 80184DFC; slots 0-7 egg::Scene, 10 dtor thunk, 15 configure, 16 loadResource, 17 reset, 18 calculate, 19 exit, 20 async load
+8034F248	Sys_SceneMgr	singleton lbl_8043C468, egg::SceneManager subclass with second color fader +0x34 and request state +0x30
+8034F290	Sys_Language	singleton lbl_8043C470; +0x10 language index selects EN/, FR/... directories
+8034F2A0	Sys_GameConfig	"GameConfig" debug tree with RootScene/Language and RP*Print category nodes
+8034F2F8	Sys_ResMgr	singleton lbl_8043C480: archive cache lists, path buffer, mounted common/local/message/font archives
+8034F308	Sys_Cls8034F308	singleton lbl_8043C488 (0xc bytes, heap, -1); purpose not determined
+8034F318	Sys_SystemDrawer	scene +0x30; registers screens as draw layers 0x1d/0x1f, draws sub fader, pause and home overlays
+8034F32C	Sys_Screen	egg::Screen subclass constructed by every module for views and overlays (slot0 dtor here)
+8034F3C0	Sys_DvdErrorChecker	singleton lbl_8043C490; maps DVD drive status to error state and draws localized error text
+8034F3D0	Sys_SaveFile	"Save File" singleton lbl_8043C498: NAND task requests, save data +0x2c, banner creation
+8034F404	Sys_FontMgr	singleton lbl_8043C4A0: ROM font + 7 named res fonts from font archive
+8034F410	Sys_Pause	pause controller (lbl_8043C4A8): detects pause button, opens pause menu, handles retry/quit
+8034F430	Sys_NamedBase	named-object base (RP_8018EDA0 ctor with name string); slots 1/2 are empty virtuals reused widely
+8034F490	Mii_KokeshiMgr	"KokeshiManager" singleton lbl_8043C4D0 (Mii model/data manager); functions moved from Gfx
+8034F4B8	Gfx_EffectMgr	effect manager (lbl_8043C4D8): 3 effect handle slots, loads common breff/breft, draws effects per phase
+8034F4D0	Gfx_EffectMemMgr	nw4r ef memory manager: pools for effects/emitters/particle managers/particles plus free-list heap (slots 22 alloc, 23 free)
+8034FA58	Gfx_ScnUserDraw	g3d ScnLeaf-derived drawable: IsDerivedFrom/G3dProc/dtor/GetTypeObj/GetTypeName with user draw callback
+8034FA90	Gfx_Camera	camera ctor 801A6CA0 sets vtable at +0x174; view/inverse matrices, pos/target/up, angles, mode-based update
+8034FAA0	Gfx_ScnRendererStage0	wrapper of egg ScnRenderer stage entry 0 with enable/disable/isEnabled (shared slots 1-3)
+8034FB00	Gfx_ScnRendererStage1	wrapper of ScnRenderer stage entry 1
+8034FAE8	Gfx_ScnRendererStage2	wrapper of ScnRenderer stage entry 2
+8034FAB8	Gfx_ScnRendererStage3	wrapper of ScnRenderer stage entry 3
+8034FAD0	Gfx_ScnRendererStage4	wrapper of ScnRenderer stage entry 4
+8034FB18	Gfx_ScnProc	egg IScnProc subclass created per model scene; owns stage wrappers, registers 6 draw procs
+8034FB28	Gfx_Model	base model (vptr at +0x44): global model list, egg ModelEx at +0x40, anim ctrl +0x2c, materials +0x30; shared slots 5/18/21/24/27-29/31/36
+8034FBC8	Gfx_ModelAnmBase	base vtable of anim controller (vptr at +0x68), set by 801A8758
+8034FCB0	Gfx_ModelAnm	model animation controller: 8 anim types (chr/clr/pat/srt/vis/shp), blend slots, create/bind/play/stop
+8034FDB8	Gfx_ModelG3d	Gfx_Model subclass built from g3d ResMdl (getType 1); g3d scn-obj callback (+0x48) and calc-world callback (+0x4c) secondary bases
+80350210	Gfx_KokeshiModel	Gfx_Model subclass for Mii (Kokeshi) models (getType 2, scale 8043B358, "dummy" names)
+8034FEC0	Gfx_ModelSceneMgrCb	(from sub-range) 4-byte callback object allocated by ModelSceneMgr ctor
+8034FF70	Gfx_ScnProcDrawHook	(from sub-range) global hook drawing per phase into model scene scnprocs
+80350060	Gfx_View	base view: index, flags, type, clear color, screen +0x10, effect +0x18
+803500A8	Gfx_View2D	View subclass type 1, no camera
+803500D8	Gfx_View3D	View subclass type 0 with camera +0x20
+80350138	Gfx_ModelScene	RPGrpModelScene (assert file): egg ScnRootEx, lights, fog, entry lists

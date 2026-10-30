@@ -1,0 +1,13 @@
+address	old_name	new_name	unit	previous
+8022E9C4	Pnp_Audience_cheerTimed	CheerTimed__13RPPnpAudienceFl	Pack/RPParty/RPPnpScene/RPPnpLyt_5.cpp	
+80231F54	Pnp_CountLyt_playOut	PlayOut__13RPPnpCountLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_5.cpp	
+80231FD0	Pnp_CountLyt_setCount	SetCount__13RPPnpCountLytFl	Pack/RPParty/RPPnpScene/RPPnpLyt_5.cpp	
+8023239C	Pnp_CountLyt_playIn	PlayIn__13RPPnpCountLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_5.cpp	
+80232418	Pnp_CountLyt_draw	Draw__13RPPnpCountLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_5.cpp	
+80232420	Pnp_CountLyt_exit	Exit__13RPPnpCountLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_5.cpp	
+80232424	Pnp_CountLyt_calc	Calculate__13RPPnpCountLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_5.cpp	
+802324B4	Pnp_CountLyt_reset	Reset__13RPPnpCountLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_5.cpp	
+80232584	Pnp_CountLyt_load	Load__13RPPnpCountLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_5.cpp	
+8023267C	Pnp_CountLyt_create	Create__13RPPnpCountLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_5.cpp	
+8023269C	Pnp_CountLyt_setNumber	SetNumber__13RPPnpCountLytFl	Pack/RPParty/RPPnpScene/RPPnpLyt_5.cpp	
+8043C820	Pnp_audienceInstance	sInstance__13RPPnpAudience	Pack/RPParty/RPPnpScene/RPPnpLyt_5.cpp	

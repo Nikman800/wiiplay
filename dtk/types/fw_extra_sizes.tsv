@@ -1,0 +1,3 @@
+# class	wii_play_alloc_size	header (relative to include/Pack)
+RPSceneInfo	D8	RPParty/RPPartyCommon/RPSceneInfo.h
+RPKclHolder	4	RPParty/RPPartyCommon/RPSceneInfo.h

@@ -1,0 +1,8 @@
+address	old_name	new_name	unit	previous
+80232F0C	Pnp_BalloonLyt_show	Show__15RPPnpBalloonLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_6.cpp	
+80233038	Pnp_BalloonLyt_draw	Draw__15RPPnpBalloonLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_6.cpp	
+802330E4	Pnp_BalloonLyt_exit	Exit__15RPPnpBalloonLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_6.cpp	
+802330E8	Pnp_BalloonLyt_calc	Calculate__15RPPnpBalloonLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_6.cpp	
+80233398	Pnp_BalloonLyt_reset	Reset__15RPPnpBalloonLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_6.cpp	
+802334A8	Pnp_BalloonLyt_load	Load__15RPPnpBalloonLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_6.cpp	
+80233660	Pnp_BalloonLyt_create	Create__15RPPnpBalloonLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_6.cpp	

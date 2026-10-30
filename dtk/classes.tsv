@@ -1,0 +1,408 @@
+vtable	class_name	evidence	batch
+8034F01C	Sys_ConfigData	EGG system config: slots return Video/SysHeap/Display/XfbMgr/PerfView created in Sys_initEgg; static init sets global vtable	gfx_sys
+8034F080	Sys_SceneCreator	singleton lbl_8043C458; slot0 creates scenes by id from scene table 80316CE8, slot1 destroy, slot2 dtor	gfx_sys
+8034F098	Sys_Scene	RP scene base (egg::Scene subclass): ctor 80184DFC; slots 0-7 egg::Scene, 10 dtor thunk, 15 configure, 16 loadResource, 17 reset, 18 calculate, 19 exit, 20 async load	gfx_sys
+8034F248	Sys_SceneMgr	singleton lbl_8043C468, egg::SceneManager subclass with second color fader +0x34 and request state +0x30	gfx_sys
+8034F290	Sys_Language	singleton lbl_8043C470; +0x10 language index selects EN/, FR/... directories	gfx_sys
+8034F2A0	Sys_GameConfig	GameConfig debug tree with RootScene/Language and RP*Print category nodes	gfx_sys
+8034F2AC	RP_ParamF32	slot0/1 read/write +0xc via eggStream f32 routines	rp
+8034F2C0	RP_ParamString	derives ParamBase; slot0 reads via eggStream_800A9000, slot1 writes via eggStream_800A8894	rp
+8034F2D4	RP_ParamBase	empty read/write virtuals; ctor links object into owner's list at +4 (parameter group created by Sys_RPPrint_80185D10)	rp
+8034F2F8	Sys_ResMgr	singleton lbl_8043C480: archive cache lists, path buffer, mounted common/local/message/font archives	gfx_sys
+8034F308	Sys_Cls8034F308	singleton lbl_8043C488 (0xc bytes, heap, -1); purpose not determined	gfx_sys
+8034F318	Sys_SystemDrawer	scene +0x30; registers screens as draw layers 0x1d/0x1f, draws sub fader, pause and home overlays	gfx_sys
+8034F32C	Sys_Screen	egg::Screen subclass constructed by every module for views and overlays (slot0 dtor here)	gfx_sys
+8034F3C0	Sys_DvdErrorChecker	singleton lbl_8043C490; maps DVD drive status to error state and draws localized error text	gfx_sys
+8034F3D0	Sys_SaveFile	Save File singleton lbl_8043C498: NAND task requests, save data +0x2c, banner creation	gfx_sys
+8034F404	Sys_FontMgr	singleton lbl_8043C4A0: ROM font + 7 named res fonts from font archive	gfx_sys
+8034F410	Sys_Pause	(rp batch called it RP_SaveMgr; methods sit among Sys_Pause methods) 500-byte singleton lbl_8043C4A8 with layout object at +0x1f0; zeroed data block (low confidence name)	rp
+8034F410	Sys_Pause	pause controller (lbl_8043C4A8): detects pause button, opens pause menu, handles retry/quit	gfx_sys
+8034F420	RP_PlayerMgr	singleton lbl_8043C4B0: player count, 2 player slots (0x18), 3 saved slots, PlayerRecord arrays	rp
+8034F430	RP_Base8034F430	common base whose ctor/dtor are called by many framework and minigame classes	rp
+8034F430	Sys_NamedBase	named-object base (RP_8018EDA0 ctor with name string); slots 1/2 are empty virtuals reused widely	gfx_sys
+8034F458	RP_DbgTextWriter	debug text writer lbl_8043C4C8 (begin/end/printf with ortho setup)	rp
+8034F468	RP_MsgRes	message resource wrapper on eggMsgRes base (vtable stored at +0x1c)	rp
+8034F478	RP_Base8034F478	base ctor Lyt_80197C58/dtor Lyt_80197BE4; used by KokeshiHead and minigame objects	rp
+8034F490	Mii_KokeshiMgr	KokeshiManager singleton lbl_8043C4D0 (Mii model/data manager); functions moved from Gfx	gfx_sys
+8034F4B8	Gfx_EffectMgr	effect manager (lbl_8043C4D8): 3 effect handle slots, loads common breff/breft, draws effects per phase	gfx_sys
+8034F4B8	Gfx_EffectMgr	singleton lbl_8043C4D8 holding 3 effect groups; creates emitters for Gfx_Effect	rp
+8034F4D0	Gfx_EffectMemMgr	nw4r ef memory manager: pools for effects/emitters/particle managers/particles plus free-list heap (slots 22 alloc, 23 free)	gfx_sys
+8034F5D0	Gfx_Effect	effect handle wrapper (name, ids, emitter handle +0x78, transform flags); used by all minigame effects	rp
+8034F668	Gfx_EffectGroup	effect group with base id arg<<7, owns breff/breft resources, 64 effect slots	rp
+8034F678	RP_TextWriter	nw4r text writer subclass with format buffer lbl_8043C4E8 and font from Sys font manager	rp
+8034F688	Lyt_ResAccessor	archive resource accessor; GetResource redirects 'font' type to Sys font manager	rp
+8034F6C8	MiiIconBase	ctor 80197C58 copies 0x58-byte MiiIconParam; dtor 80197BE4 (functions prefixed Mii_, moved from Lyt)	lyt
+8034F6E0	MessageWindow	ctor 80197DD8; load 801985B4 uses messageWindow.arc; singleton lbl_8043C4F0	lyt
+8034F6F0	TagProcessor	80199130 constructs on nw4r TagProcessorBase; handlers 80198EC8/80198ECC; global lbl_8043C4F8	lyt
+8034F708	Controller	ctor 80199AF4 on egg controller base; calc does WPAD probe/DPD/sensor stacks; size 0x2bb0, Mii ID at +0x2ba8 (functions prefixed RP_, moved from Lyt)	lyt
+8034F740	MiiIcon	ctor 8019BDB8 derives MiiIconBase and renders Mii portrait into CapTexture (+0xa4) (functions prefixed Mii_, moved from Lyt)	lyt
+8034F758	MiiIconParam	ctor 8019BE58 (defaults 0x80 size, MiiSource at +8) (functions prefixed Mii_, moved from Lyt)	lyt
+8034F768	MiiSource	ctor 8019BF4C: type/index/ptr triple consumed by Mii resolve functions (functions prefixed Mii_, moved from Lyt)	lyt
+8034F7C4	MiiDataSource	ctor 8019C134 builds primary/secondary Mii lists; resolveIndex 8019C044 (functions prefixed Mii_, moved from Lyt)	lyt
+8034F804	MiiLoader	ctor 8019CB5C; load loop 8019C9EC (functions prefixed Mii_, moved from Lyt)	lyt
+8034F810	CursorManager	ctor Lyt_8019CBF0 names it "Cursor Manager"; vtable slots 8019CB7C, 80189BBC, 80189BC0	lyt
+8034F870	AsyncTask	ctor Lyt_8019E5B4 (handle, state); dtor Lyt_8019E574; state 0 idle / 1 busy / 2 done (functions prefixed RP_, moved from Lyt)	lyt
+8034F8CC	SystemWindow	ctor Lyt_8019FA10; dtor Lyt_8019F9D0; loads messageWindow.arc systemWindow_00.brlyt	lyt
+8034F908	HomeMenu_Mgr	HOME button menu manager lbl_8043C538: 0x80000 work buffer, sound callback, fade, controller feed	rp
+8034F928	Mii_HeadLoader	per-slot loader with own heap and request lists, state machine (4 per set)	rp
+8034F944	Mii_HeadLoaderSet	holds 4 Mii_HeadLoader, registered on Mii manager lbl_8043C4D0 +0x54	rp
+8034F950	RP_CtrlMgr	controller manager lbl_8043C550 (created by RP_CtrlMgr_create), WPAD callbacks	rp
+8034F9FC	RP_Nwc24Msg	WiiConnect24 message work buffers (0x4000 + 0x800)	rp
+8034FA08	ResTexObj	ctor Lyt_801A53DC (base ctor Lyt_80197C58); purpose uncertain (low)	lyt
+8034FA20	RP_ChildOverride	vtable at +0x1c; applies flagged u16/vec2/vec3 overrides to child nodes each calc	rp
+8034FA58	Gfx_ScnUserDraw	(vtable entries are g3d drawable methods; Gfx_RflModel builds on it) RFL (Mii) character model scene object: init, expression get/set, draw	rp
+8034FA58	Gfx_ScnUserDraw	g3d ScnLeaf-derived drawable: IsDerivedFrom/G3dProc/dtor/GetTypeObj/GetTypeName with user draw callback	gfx_sys
+8034FA90	Gfx_Camera	camera ctor 801A6CA0 sets vtable at +0x174; view/inverse matrices, pos/target/up, angles, mode-based update	gfx_sys
+8034FAA0	Gfx_ScnRendererStage0	wrapper of egg ScnRenderer stage entry 0 with enable/disable/isEnabled (shared slots 1-3)	gfx_sys
+8034FAB8	Gfx_ScnRendererStage3	wrapper of ScnRenderer stage entry 3	gfx_sys
+8034FAD0	Gfx_ScnRendererStage4	wrapper of ScnRenderer stage entry 4	gfx_sys
+8034FAE8	Gfx_ScnRendererStage2	wrapper of ScnRenderer stage entry 2	gfx_sys
+8034FB00	Gfx_ScnRendererStage1	wrapper of ScnRenderer stage entry 1	gfx_sys
+8034FB18	Gfx_ScnProc	egg IScnProc subclass created per model scene; owns stage wrappers, registers 6 draw procs	gfx_sys
+8034FB28	Gfx_Model	base model (vptr at +0x44): global model list, egg ModelEx at +0x40, anim ctrl +0x2c, materials +0x30; shared slots 5/18/21/24/27-29/31/36	gfx_sys
+8034FBC8	Gfx_ModelAnmBase	base vtable of anim controller (vptr at +0x68), set by 801A8758	gfx_sys
+8034FCB0	Gfx_ModelAnm	model animation controller: 8 anim types (chr/clr/pat/srt/vis/shp), blend slots, create/bind/play/stop	gfx_sys
+8034FDB8	Gfx_ModelG3d	Gfx_Model subclass built from g3d ResMdl (getType 1); g3d scn-obj callback (+0x48) and calc-world callback (+0x4c) secondary bases	gfx_sys
+8034FEC0	Gfx_ModelSceneMgrCb	(from sub-range) 4-byte callback object allocated by ModelSceneMgr ctor	gfx_sys
+8034FF70	Gfx_ScnProcDrawHook	(from sub-range) global hook drawing per phase into model scene scnprocs	gfx_sys
+80350060	Gfx_View	base view: index, flags, type, clear color, screen +0x10, effect +0x18	gfx_sys
+803500A8	Gfx_View2D	View subclass type 1, no camera	gfx_sys
+803500D8	Gfx_View3D	View subclass type 0 with camera +0x20	gfx_sys
+80350138	Gfx_ModelScene	RPGrpModelScene (assert file): egg ScnRootEx, lights, fog, entry lists	gfx_sys
+80350160	Gfx_Flag10Ctrl	toggles bit 4 of target byte (set/clear/isSet)	rp
+803501A8	Gfx_BoundingInfo	eggModelBoundingInfo wrapper (vtable at +0x14)	rp
+803501B8	Gfx_Flag01Ctrl	toggles bit 0 of target byte (set/clear/isSet)	rp
+803501D0	Gfx_MatEditor	captures and re-applies material TEV colors / pixel modes of a model	rp
+803501E0	Gfx_TexObj	texture object wrapper (vtable at +0x20) built from resource, texture or GX utility	rp
+803501F0	Gfx_CapTexture	screen capture texture (CPU texture sized to screen)	rp
+80350200	Gfx_ProjScreen	camera + screen pair used for projected textures (vtable at +0x1e4)	rp
+80350210	Gfx_KokeshiModel	Gfx_Model subclass for Mii (Kokeshi) models (getType 2, scale 8043B358, "dummy" names)	gfx_sys
+803502E0	Mpe_AudioMgr	0xfac sound/audio manager singleton lbl_8043C5D4 (same class as Mpe_RPCOMGAMEPLAYERPAUSE_* methods)	rp
+803502E0	Mpe_AudioMgr	RP audio manager (global lbl_8043C5D4): EGG arc/exp/heap/fx managers, opens Sound/RPMpeScene brsar, pause flags	wly_misc
+803504C0	Snd_RmtSpkMgr	remote speaker manager lbl_8043C5E0: 4 channels, setup/shutdown request ring of 20	rp
+803504F8	Snd_HomeButtonSndMgr	ctor builds sound heap + arc player; opened with HomeButtonSe.brsar by HomeMenu_loadResources (lbl_8043C53C)	wly_misc
+80357120	Snd_RemoteArcPlayer	arc player at AudioMgr+0x974 sharing main archive; calc processes 4 per-remote pending speaker sounds	wly_misc
+80357180	RP_SceneObj	base object (Gfx_80190C64 base) with empty virtual slots 1-6; base of many Duc/Tnk classes	rp
+803571A8	RP_ResSlots	SceneObj-derived resource slot table wrapper (lbl_8043C608)	rp
+803571D0	RP_ModelObj	SceneObj-derived object owning a model at +0x44, forwards anim controller calls	rp
+80357228	RP_LookAtCam	camera (base Gfx_801A6CA0, vtable at +0x174) computing basis from pos/target/up	rp
+80357248	RP_SimpleModel	model holder (base Gfx_80190C64) loading resource kinds 0xc/0xd, calcs matrix from rot/pos	rp
+80357268	RP_ActorBase	actor base with secondary base 8034F430; vec3 accessors at +0x10..+0x4c, float +0x58	rp
+80357310	RP_Polyline	n points plus two n-1 segment arrays	rp
+80357320	RP_PosHistory	newest-first ring of vec3 samples pulled from controller history	rp
+80357338	RP_CursorTrail	per-entry bytes, two vec2 arrays and floats filled from controller samples	rp
+80357348	RP_JointMtxBuffer	registered as model joint callback, stores per-joint 3x4 matrices	rp
+80357368	RP_PhysSphere	ActorBase-derived rigid sphere (mass, radius, inertia 0.4*m*r^2); used by Billiards	rp
+803573E0	RP_Camera	RP camera base (ctor RP_Cls_803573E0_init_801BDFC0); slot2 reset clears lock +0x1fc; Bil cameras derive via +0x174 interface	bil
+803573E0	RP_InterpCamera	camera interpolating position/target over a timer (vtable at +0x174)	rp
+80357428	CPadCursor	load uses cPadCursor.arc / cPadCursor_00.brlyt with N_cPadCursor_00..02 panes (existing anchor name)	lyt
+80357448	TnkMapData	ctor 801BFD08 loads MapData/TnkMapData_P%d_%02d_%d.bin; singleton lbl_8043C640 (functions prefixed RP_, moved from Lyt)	lyt
+80357458	MiiIconSet	singleton lbl_8043C648; holds array of MiiIcon objects created by 801BFF48 (functions prefixed Mii_, moved from Lyt)	lyt
+80357480	WCursor	load uses cCursorCircle.arc / W_cursor_00 window pane (existing anchor WCursor00)	lyt
+803574A0	AnimButton	ctor 801C1D90; 8 anim slots, current anim index, pane hit test, frame override tables	lyt
+80357508	AnimButtonTable	ctor 801C2DD8; 100 {id, AnimButton} entries looked up by id	lyt
+80357518	BezierSegment	ctor 801C5C40; cubic Bezier eval with 4 control points, length at +0x30 (functions prefixed RP_, moved from Lyt)	lyt
+8035752C	LinearSegment	ctor 801C5B78; linear eval between endpoints (functions prefixed RP_, moved from Lyt)	lyt
+80357540	LinearSegmentArray	created in 801C5770 for linear paths; getCount/getSegment/dtor (functions prefixed RP_, moved from Lyt)	lyt
+80357554	BezierSegmentArray	created in 801C5770 for curved paths; getCount/getSegment/dtor (functions prefixed RP_, moved from Lyt)	lyt
+80357580	CollisionModel	ctor 801C664C; triangle collision query via Bil_801B7D1C, sphere sweep, this-0x40 thunks (functions prefixed RP_, moved from Lyt)	lyt
+803575B8	CollisionShape	ctor 801C7A88; sphere (type 1) / box (type 2) tests, pos +0x1c rot +0x34 radius +0x70, debug draw (functions prefixed RP_, moved from Lyt)	lyt
+803575D8	ActorScene	ctor 801C7FE0 on Sys scene base; drives actor list lbl_8043C680 calc/draw, rumble and debug buffers (functions prefixed RP_, moved from Lyt)	lyt
+80357640	ActorList	ctor 801C8688 / dtor 801C8608; linked list of actors with start/stop/calc/draw helpers (functions prefixed RP_, moved from Lyt)	lyt
+80357668	Actor	ctor 801C879C; priority short +0x18 used by ActorList sort; many Cow actor vtables share its slots (functions prefixed RP_, moved from Lyt)	lyt
+80357718	FrameDown	ctor 801CA250; N_frameDown_00 caption with back button, states hidden/in/idle/hover/unhover/press/out	lyt
+80357738	RP_ButtonSeqHolder	holds a button-sequence detector (table lbl_80318818)	rp
+80357918	Mii_BodyJoints	slots return joint matrices for head_set, hand_l/wrist_l, hand_r/wrist_r and joint tables	menu_mii
+80357948	Health_StrapScene	scene loading strap.arc / strap_00_<region> layout and rp_Health_sound.brsar (health & safety screen)	wly_misc
+803579A8	Menu_MenuScene	scene vtable: configure/loadResource (menuCommon.arc, menuBg_00.brlyt)/reset (menu BGM)/calc state machine/draw	menu_mii
+80357A08	Menu_MenuBgModel	set by ctor 801CE460; loads G3D/menu_BG_model.brres; slot0 dtor 801CE62C	menu_mii
+80357A50	Menu_MenuFrame	layout menuFrame_00.brlyt: frame, back button, caption, name, training, ptGame panels with 7 state machines	menu_mii
+80357A70	Mii_KokeshiHead	Mii head object; vf01 builds head textures from Mii db, vf02 registers light textures (Mii module)	rp
+80357A70	Mii_KokeshiHead	ctor names sub-object 'Kokeshi Head'; created per Mii by KokeshiMgr	menu_mii
+80357AB4	Mii_KokeshiMgr	ctor 'KokeshiMgr'; owns per-source Kokeshi lists, fade, camera and remote-Mii loader	menu_mii
+80357AE0	Menu_RimoconEntryLyt	layout rimoconEntry_00.brlyt (player count / remote entry screen)	menu_mii
+80357B00	Menu_MiiSelectLyt	layout playerSelect_00.brlyt: faces, arrows, buttons for Mii selection	menu_mii
+80357D08	Menu_SportsMessageScene	scene vtable (dtor 801DCECC, configure 801DCB5C, loadResource 801DC96C sports_message.bmg, reset, calc, exit)	menu_mii
+80357DE8	Menu_PtMenuBg	ctor 801DD694; loads PT_menu_BG_model / PT_menu_TV_model; global lbl_8043C6A8	menu_mii
+80357F98	Menu_PlayerSettingPanel	layout playerSelect_01.brlyt: 6 two-choice option rows + OK written to player record; global lbl_8043C6B0	menu_mii
+80357FB8	Menu_PlayerNameTag	layout playerSelect_03.brlyt: per-player lamp and Mii name tag	menu_mii
+80357FD8	Menu_PlayerConfirmLyt	layout playerSelect_02.brlyt: player list with two buttons and 4 name tags	menu_mii
+80357FF8	Menu_PlayerConfirm	ctor 801E268C, dtor 801E2884; 9-state confirm dialog owning PlayerConfirmLyt/PlayAdviceLyt; global lbl_8043C6C0	menu_mii
+80358010	Menu_LogoModel	set by ctor 801E2EFC; loads G3D/logo_model.brres; slot0 dtor 801E3064	menu_mii
+80358020	Menu_PlayAdviceLyt	layout playAdvice_00.brlyt: advice popup with blinking A button (7-state machine)	menu_mii
+80358040	CommonMessage	save-data message state machine: enterStateN slots 22..38, updateStateN slots 39..55	lyt
+80358040	Menu_CommonMessage	existing class name kept; Menu overrides scene slots 16-19,21,43 (loadResource/reset/calc/exit/draw)	menu_mii
+80358128	RP_AvatarScene	scene loading avatar_anim brres, scene lights and select-menu effects	rp
+80358188	RP_Scene80358188	scene with singleton lbl_8043C6C8 (low confidence)	rp
+803581F8	Party_RankGetLyt	ctor 801E5120; vf00 loads myRecord.arc ptRankGet_00 layout (T_rankGet, T_congrats)	party
+80358218	Party_MedalResult	ctor 801E6ED4; loads G3D/medal_model.brres, top-5 records, medal BGM RP_COM_BGM_GET_*; start(score) called by minigames	party
+80358290	Party_Common	ctor 801E7CC8 stores vtable; singleton lbl_8043C6D8 created/calc/reset/destroyed by every minigame; owns result sub-objects	party
+803582E8	Party_RecordLyt	ctor 801E8DB8; vf00 loads myRecord_00 layout with in/newRec/outRec/blink anims	party
+80358308	Party_ResultMenu	ctor 801E999C; owns choice layout, CPadCursor, vs-result layout; getChoice/start called by minigames	party
+80358320	Party_VsResultLyt	ctor 801EA46C; vf00 loads ptVsResult_00 layout, shows both players' win counts	party
+80358340	Party_ChoiceLyt	ctor 801EB284; vf00 loads ptGOMenu_00 layout with two choice buttons (T_choicesF/S)	party
+80358360	Party_VsWinner	ctor 801EC42C; loads win_1P/win_2P/tie models and Bcm_win effects; start(winner) called by minigames	party
+80358378	Party_VsWinnerLyt	ctor 801ECE84; vf00 loads ptVsWinner_00 layout with player/trophy position panes	party
+80358398	Party_SelectGameLyt	ctor 801EEBAC; vf00 loads ptSelectGame_00 with 9 game icons, medals, unlock state	party
+803583B8	Party_SelectScene	ctor 801F1700, singleton lbl_8043C6E8; game-select scene with 16-state machine, select layout, dolls, back button	party
+80358440	Party_GameInfoLyt	ctor 801F2760; vf00 loads ptSelectGame_01 and per-game ptG*Remote layouts (remote-hold demo, T_start)	party
+80358490	Party_Doll	ctor 801F453C; clickable player Mii doll on menu, 18-state reaction machine, DOLL_CLICK/WakUp SE	party
+80358540	Party_DollMgr	create 801F51A0, singleton lbl_8043C6F8; holds one Party_Doll per player, fade alpha	party
+80358558	Party_DollBase	ctor 801F6B78; base of Party_Doll/Party_CrowdMii; vf35 resolves head/hip/arm/leg joints, anim blending	party
+80358608	Party_CrowdMii	ctor 801F7D64; background Mii walker with cmn_waitR/runawayR/swimR/batabataR anims, 8-state machine	party
+803586B8	Party_CrowdMgr	create 801F8594, singleton lbl_8043C708; holds 10 Party_CrowdMii and spawns them randomly	party
+803586D0	Party_LeadCursor	ctor 801F9A1C (Common+0x24); leadCursor.arc off-screen pointer guide per player	party
+803586E8	Party_ScreenFade	ctor 801F9C34 (Common+0x2c); calc steps fade color toward target	party
+80358700	Party_MsgBoard	create 801FA0E4, singleton lbl_8043C720; loads party_message.bmg, posts medal messages with daily limit 15	party
+80358710	Party_RankCompleteLyt	ctor 801FA724; rankComplete_00 layout, Bsm_com_fireworks effects, RP_COMMON_BGM_RANK_COMPLETE	party
+80358730	Party_PauseText	ctor 801FB724 (Common+0x28); owns ptPauseText layout shown per player while paused	party
+80358748	Party_TitleLyt	ctor 801FD05C; vf loads ptTitle.arc bg/logo/info/bubble layouts, RP_COMMON_BGM_PARTY_01	party
+80358760	FishScene	scene class (init in Sys batch); slot19 801FE978 tears down Fsh objects	fsh
+80358760	Fsh_Scene	Fishing scene: vf16 loads fsh_* brres, basic_fishing effects, rp_Fsh_sound.brsar (Fsh module)	rp
+803587E0	Fish	ctor 80203058 (30 made by FishMgr); vf35 loads fsh_fish_A..rareB + mouth_loc; vf37 runs 10-state table 8031F050	fsh
+80358888	SndActor	per-object sound actor with handle array (+0x50 count, +0x58 handles); start/hold/prepare/stop virtuals; used by Fish/Player	fsh
+80358964	SndActorBase	base vtable sharing the SndActor slots; its dtor (vf14) is the one both sound dtors store	fsh
+80358A88	SndPlayerBase	base sound player vtable stored by dtors 802033D4/80203480	fsh
+80358B40	FishMgr	global lbl_8043C728 holding 30 Fish; dtor 8020667C, created by 80206700	fsh
+80358B50	Player	ctor 802087B8 (2 made by PlayerMgr); vf28 loads scene light and fsh_hand_R_grip anim; owns Rod; remote input, 6 states	fsh
+80358BE0	PlayerMgr	global lbl_8043C740 holding 2 Players (count +4); dtor 80209000, slot 80208C70	fsh
+80358C10	Rod	ctor 8020A9B0; vf35 loads fsh_rod_B/R and fsh_rope; hook/rope points, Fsh_hook_* effects	fsh
+80358CBC	RodSndActor	sound actor vtable used by Rod ctor 8020A9B0; same slots as SndActor except dtor	fsh
+80358D98	CameraMgr	global lbl_8043C750 holding Camera; dtor 8020B00C	fsh
+80358DD0	Camera	ctor 8020BAD4 (RP camera base); eye/target presets for default, catch view and result view	fsh
+80358DE8	Stage	vf06 loads fsh_lake, fsh_tree, fsh_cloud, fsh_waterface; global lbl_8043C758	fsh
+80358E18	SceneTexture	texture-class vtable (egg CpuTexture/CapTexture/ShadowTexture slots); only dtor 8020C400 in batch	fsh
+80358E38	ResultLayout	vf11 loads fishingResult_00/01.brlyt; 8-state result sequence table 8031F5D8; global lbl_8043C760	fsh
+80358E80	Timer	fishingTimeUp_00 layout + 7-state machine; global lbl_8043C768; dtor 8020ECF4, draw 8020E1F0	fsh
+80358E98	ResultFish	ctor 8020F53C (2x6x50 made by ResultLayout); vf28 loads fsh_fish_* model for result screen	fsh
+80358F20	PointPopup	vf11 loads fishingPoint_00.brlyt; shows catch points/bonus (N_bonusOya_00); global lbl_8043C770	fsh
+80358F68	ScoreLayout	vf11 loads fishingScore_00.brlyt; per-player panel state machines; global lbl_8043C778	fsh
+80358FB0	StartLayout	vf11 loads fishingStart_00.brlyt (3-2-1 countdown); 5-state start sequence; global lbl_8043C780	fsh
+80358FF8	YankPrompt	slot3 loads fishingYank_00.brlyt; per-player show/hide; global lbl_8043C790	fsh
+80359020	AimArrow	slot3 loads fishingArrow_00.brlyt per player; positioned at rod grip; global lbl_8043C798	fsh
+80359060	BonusFish	loads fishingBonus_00.brlyt and 6 fish models; spinning bonus-fish indicator, 6 states; global lbl_8043C7B0	fsh
+803590E0	Scene	Fsh scene object (global lbl_8043C7B8): ctor 802153DC allocates all Fsh objects; dtor 802154E0	fsh
+803590F0	Msg00	slot3 loads fishingMsg_00.brlyt; open/close message with 4 states; global lbl_8043C7C0	fsh
+80359110	Msg01	slot3 loads fishingMsg_01.brlyt; open/close message with 4 states; global lbl_8043C7C8	fsh
+80359140	Hky_Scene	scene vtable (Sys scene base); slot16 loads rp_Hky_sound.brsar/basic_hokey.breff; forwards to Hky_Game singleton	hky_pnp
+803591C8	Hky_PuckTrail	effect-holder (FshRunA-style) created in Hky_Puck_create for Hky_balltail	hky_pnp
+803592A4	Hky_Puck	RP object; slot6 loads /G3D/Hck_pack.brres; goal/wall/paddle collision handlers use it	hky_pnp
+803592D0	Hky_Field	RP object; slot6 loads Hck_Field_1/2.brres; slot5 builds rink wall segment table	hky_pnp
+80359300	Hky_Game	Hky manager singleton (lbl_8043C7E0); ctor builds puck/field/paddles/HUD/phases; loads neon.pblm	hky_pnp
+80359328	Hky_PaddleTrail	effect-holder created in Hky_Paddle_create (paddle trail)	hky_pnp
+80359404	Hky_Paddle	RP object; ctor sets player index and Hky_paddletail_r1/b1; loads Hck_paddle_R1/B1	hky_pnp
+80359430	Hky_IntroPhase	phase object at Game+0x34, active in game state 0 (start message/balloons)	hky_pnp
+80359450	Hky_WaitPhase	phase object at Game+0x40, state 4 frame wait after time-up	hky_pnp
+80359470	Hky_ResultPhase	phase object at Game+0x44, state 5 Party result/medal/retry menus	hky_pnp
+80359490	Hky_TimeUpPhase	phase object at Game+0x3c, state 3 time-up message	hky_pnp
+803594B0	Hky_GoalPhase	phase object at Game+0x38, state 2 goal message	hky_pnp
+803594E0	Hky_Hud	HUD singleton (lbl_8043C7F0) holding 7 airHockey layout structs; vtable not in index (from Hky_createHud)	hky_pnp
+803594F0	Hky_PaddleRound	RP object; ctor with owning paddle and Hky_paddletail_rc/bc_glow; loads Hck_paddle_C_R/C_B	hky_pnp
+80359560	Pnp_Scene	scene vtable; slot16 loads rp_Pnp_sound.brsar/basic_pingpong.breff; forwards to Pnp_Game singleton	hky_pnp
+803595C0	Pnp_Field	RP object at Game+0x1c; loads /G3D/pin_field.brres; floor hit check	hky_pnp
+80359638	Pnp_BallTrail	effect-holder created in Pnp_Ball_create (Pnp_balltail)	hky_pnp
+80359714	Pnp_RacketTrail	effect-holder created in Pnp_Player_create	hky_pnp
+803597F0	Pnp_Ball	RP object at Game+0x28; loads pin_ball.brres; rally state at +0xc0	hky_pnp
+80359810	Pnp_Table	RP object at Game+0x20; loads pin_table.brres; net/table bounce (Pnp_bound)	hky_pnp
+80359830	Pnp_Player	RP object at Game+0x2c/+0x30 (side, CPU flag); loads pin_racket0/1; Pnp_shot/Pnp_smashshot	hky_pnp
+80359850	Pnp_PointPhase	phase at Game+0x44, state 4; holds scores (+0x50/+0x54), target points, server logic	hky_pnp
+8035988C	Pnp_ResultPhase	phase at Game+0x48, state 5 result screens and party menus	hky_pnp
+803598A8	Pnp_ServePhase	phase at Game+0x40, state 2 serve/court change and serve wait	hky_pnp
+80359938	Pnp_ReadyPhase	phase at Game+0x3c, state 1 timed steps	hky_pnp
+80359958	Pnp_Game	Pnp manager singleton (lbl_8043C81C); ctor builds field/table/net shadow/ball/players/phases; loads scene_Bloom.pblm	hky_pnp
+80359980	Pnp_Spectator	avatar-based object constructed by Pnp_Audience_ctor; has secondary vtable at +0xb4	hky_pnp
+803599A8	Pnp_Audience	singleton (lbl_8043C820) of 17x2 spectators; loads pin_A0_jumpR/waitR avatar anims	hky_pnp
+803599D8	Pnp_IntroPhase	phase at Game+0x38, state 0 intro camera and player balloons	hky_pnp
+803599F8	Pnp_Hud	HUD singleton (lbl_8043C828) holding 11 pingpong layout structs; vtable not in index (from Pnp_createHud)	hky_pnp
+80359A08	Pnp_LevelTable	singleton (lbl_8043C830) loading leveltable.bin/rallyleveluptable*.bin; vtable not in index	hky_pnp
+80359A18	Pnp_NetShadow	RP object at Game+0x24; loads pin_net_shadow from pin_table.brres	hky_pnp
+80359A38	Scene	Duc scene (Sys scene base); create builds all Duc singletons, load reads sceneFile.brres/basic_shooting.breff/rp_Duc_sound.brsar	duc
+80359AA8	ShtGrass	27 made by Field; loads G3D/sht_grass.brres with sht_grass_wait/shake anims; shaken and Sht_grass_hit effect when shot	duc
+80359B00	SndActor	per-object sound actor (FshRunA-style base), allocated in init of targets, grass, shots and game object	duc
+80359BE0	Field	singleton lbl_8043C838; owns ShtField, ShtCloud and 27 ShtGrass, forwards load/reset/calc	duc
+80359C08	ShtField	loads G3D/sht_field.brres and sht_field anims (background field model)	duc
+80359C60	BalloonMgr	TargetMgr subclass, singleton lbl_8043C840, allocTarget builds ShtBRed balloons (spawn type 2)	duc
+80359CD8	Balloon	Target subclass; loads DucBalloonParam.bin, sht_b_red/blue/yellow + sht_balloon_himo string rope; Sht_balloon_hit	duc
+80359DA0	ClayMgr	TargetMgr subclass, singleton lbl_8043C848, allocTarget builds clay targets (spawn type 0)	duc
+80359E30	Clay	Target subclass; loads DucClayParam.bin and G3D/sht_clay.brres; Sht_clay_hit; 4-state flight table	duc
+80359ED8	DuckMgr	TargetMgr subclass, singleton lbl_8043C850, allocTarget builds ducks (spawn type 4)	duc
+80359FA8	Duck	Target subclass; loads DucDuckParam.bin, sht_duck_a/b/c models + fly/damage/fall anims; 9-state table	duc
+8035A090	TargetMgr	base pooled target manager: createPool, spawn (round robin), remove/calc/updateModel over active targets	duc
+8035A0F0	Target	base shootable target: activate/remove, hit records per player, forces, sound actor, score popup; slots 20-39	duc
+8035A1D0	TargetRegistry	singleton lbl_8043C860; holds up to 7 target managers created by type via table lbl_8035A1B4	duc
+8035A1F8	UfoMgr	TargetMgr subclass, singleton lbl_8043C868, allocTarget builds UFOs (spawn type 1)	duc
+8035A2F8	Ufo	Target subclass; loads DucUfoParam.bin, sht_ufo_a/b; Sht_ufo_abduct/glow effects; 13-state wander/circle/abduct table	duc
+8035A3F8	Camera	singleton lbl_8043C870 (secondary vtable at +0x174); camera pos/frustum, intro path interpolation, screen projection	duc
+8035A450	Shot	per-player cursor/shot: pointer aim, fire with ammo check, Sht_shot and Sht_cursor_* effects, hit processing	duc
+8035A488	ShotMgr	singleton lbl_8043C878; owns the players' Shot objects, forwards calc/reset/cursor modes	duc
+8035A6D4	Spawner	singleton lbl_8043C880; 20-entry member-function table of spawn pattern setups and patterns per round	duc
+8035AACC	Game	singleton lbl_8043C890 (0xa8); round state machine (intro, round start/play/end, results), owns spawner/score/ammo	duc
+8035AB60	Hud	singleton lbl_8043C898; owns DuckhuntScore00, DuckhuntStart00, end layout and 32 DuckhuntPoint00 popups	duc
+8035AB88	CanMgr	TargetMgr subclass, singleton lbl_8043C8A0, allocTarget builds cans (spawn type 5)	duc
+8035AC10	Can	Target subclass; loads DucCanParam.bin, sht_can_00..04 (model per hit count); Sht_can_hit/Sht_can_break	duc
+8035ACB8	ShtCloud	loads G3D/sht_cloud.brres and sht_cloud anim (background clouds)	duc
+8035AD10	PointPopup	layout duckhuntPoint_00.brlyt; shows points at screen position, optional Sht_2d_good effect	duc
+8035AD30	ScoreLayout	layout duckhuntScore_00.brlyt with 12 anims; scores, hit counters and streak bonus panes	duc
+8035AD50	StartLayout	layout duckhuntStart_00.brlyt; round banner with round number and scores	duc
+8035AD70	ShotPointer	secondary vtable at +0x10 of the RP pointer helper created by Duc_ShotPointer_ctor (8024FF44)	duc
+8035AD88	ScoreMgr	singleton lbl_8043C8B0; per-player score, hits, streak, bonus (clamped 0..999)	duc
+8035ADB0	AmmoMgr	singleton lbl_8043C8B8; per-player bullets (max +0x1e) and shot counters, tryFire	duc
+8035ADD8	CircleTargetMgr	TargetMgr subclass, singleton lbl_8043C8C0, 32-slot grid occupancy, builds circle targets (spawn type 3)	duc
+8035AE80	CircleTarget	Target subclass; loads DucCircleMatoParam.bin, sht_target_a..d (c/d with Mii face_dummy); 6-state table	duc
+8035AF28	AvatarMgr	TargetMgr subclass, singleton lbl_8043C8C8, builds Mii avatars (spawn type 6), picks avatars for UFOs	duc
+8035B028	Avatar	Target subclass; Mii avatars with sht_avatar_anim wait/batabata/runaway/happy anims; carried by UFOs; 13 states	duc
+8035B0D0	EndLayout	layout duckhuntEnd_00.brlyt; final score display with winner switch anims	duc
+8035B100	Scene	Tnk minigame scene (Sys scene base 8034F098); load uses basic_tank.breff/rp_Tnk_sound.brsar, owns all managers	tnk
+8035B178	Camera	RP camera subclass singleton lbl_8043C8D8; pos/target/up, intro spline + fixed overhead modes	tnk
+8035B198	Field	singleton lbl_8043C8E0; field size/grid by aspect, wall planes, owns field model, block pool, capture texture	tnk
+8035B1C0	FieldModel	loads tnk_field_16_9/4_3 models, binds caterpillar texture to field capture texture	tnk
+8035B238	ActorPool	fixed-size pool of actors (capacity, active count, cursor); spawn/killAll/calcAll; base of B748/B7A0/B9D8/C438	tnk
+8035B290	Actor	base actor: pos, matrix, velocity, force accumulators, collision circle, state 0xa0, owner pool 0xa8	tnk
+8035B354	ActorSound	sound emitter object allocated by Actor_create into 0xac (4 sound handles)	tnk
+8035B490	Tank	loads tnk_tank_1p/2p/e_1..9 models; isEnemy 0x100, player idx 0xa4, enemy type 0x104; 0x20c objects made by TankManager	tnk
+8035B598	TankManager	singleton lbl_8043C8E8; owns player and enemy Tank arrays, spawns/updates/draws them	tnk
+8035B5C0	CursorManager	singleton lbl_8043C8F0 holding array of Cursor objects; forwards reset/calc to them	tnk
+8035B61C	Cursor	creates Tnk_cursor_{1p,2p}_{main,tail,line} effects, tracks pointer and projects to field	tnk
+8035B650	PlayerController	owned by tank (+0x58); reads stick/d-pad and fire buttons, spawns shells/mines	tnk
+8035B684	Block	loads tnk_block_1/7/8 models; kind/height, edges, shadow, break effect Tnk_blockbreak01	tnk
+8035B748	BlockPool	object pool (base 8035B238) singleton lbl_8043C8F8 whose factory constructs Block	tnk
+8035B7A0	ShellPool	object pool (base 8035B238) singleton lbl_8043C900 whose factory constructs Shell	tnk
+8035B804	Shell	loads G3D/shell.brres and Tnk_shellsmoke effects; derives from 8035B290 object base; spawned by ShellPool 8035B7A0 vf07	tnk
+8035B8C8	WeaponManager	global 8043C908; owns ShellPool (8035B7A0, 32) at +4 and MinePool (8035B9D8, 16) at +8; forwards pool calls to both	tnk
+8035B98C	GameManager	global 8043C910; loads param/TnkGameParam.bin; 13-state ptmf machine (play, stage clear, miss, results)	tnk
+8035B9B0	StageMap	global 8043C918; reads stage grid via Lyt_801BFC34: player/enemy spawns, block placement, facing angles	tnk
+8035B9D8	MinePool	global 8043C920; object pool (8035B238 base) whose vf07 constructs TnkMine 8035BA54	tnk
+8035BA54	Mine	loads G3D/tnk_mine.brres, Tnk_mine_bomb effect, 3-state machine (move/armed/explode); derives from 8035B290	tnk
+8035BB18	MineSound	sound actor allocated in Mine create (+0xd8); 80358964-derived; dtor 80267DE8 (vtable dump unavailable)	tnk
+8035BF60	TankSound	sound actor created by Cannon create; speed smoothing and periodic tread sound from table	tnk
+8035C040	StepTimer	singleton 0x14 object; per-frame fractional accumulator yielding integer steps	tnk
+8035C068	EmptyTask	singleton 4-byte object whose virtuals are all empty	tnk
+8035C090	AiController	created by Tank create; owns AiAttack (8035C1C8) at +4 and AiMove (8035C0DC) at +8, forwards update/direction/mode	tnk
+8035C0DC	AiMove	ctor 8026AFF8 owned by 8035C090 at +8; threat lists of shells/mines, ptmf state table, body steering	tnk
+8035C100	AiProbe	ctor 8026B9F0 derives from 8035B290; stepped ray sweep with collision callback, used by AI path prediction	tnk
+8035C1C8	AiAttack	ctor 8026D5FC owned by 8035C090 at +4; turret aiming, fire/mine decisions via predicted shot path	tnk
+8035C1F0	LayoutManager	singleton lbl_8043C938; creates/loads/calcs/draws all Tnk 2D layout parts incl. 16-entry hit popup ring	tnk
+8035C218	GameStats	singleton lbl_8043C940; player count, scores, per-type kill counts, killed-type list, lives (cap 99)	tnk
+8035C240	Fade	tnkfade.brlyt layout: lives / mission / enemy intro screen state machine	tnk
+8035C260	Hud	tnkUI_00 layout: mission number, enemy count, player scores, player balloons	tnk
+8035C280	HitPopup	tnkHit_00.brlyt layout: positioned number popup with hit animation	tnk
+8035C2A0	ExMsg	tnkEx layout (tank.arc): in/out/outAll anims, shows message 0xb7c index n; slots load/reset/calc/draw/exit/dtor	tnk
+8035C320	ExGuide	singleton lbl_8043C948 (RP_Cls_80357180 base); ptmf state machine watching player tanks/cursors, drives ExMsg hints	tnk
+8035C348	StartMsg	tnkMsg_01_start layout; T_start_00..02 text msg 0xb5b; play rebinds anim + sound 0x23	tnk
+8035C368	ClearMsg	tnkMsg_02 inCleare/inTotal layout; N_clear_00/N_total_00/01 panes, score text	tnk
+8035C388	FailedMsg	tnkMsg_03 in/out layout; T_failed_00/01 msg 0xb55 idx 1; timed show/hide	tnk
+8035C3A8	CompleteMsg	tnkMsg_04 in/out layout; T_complete* msg 0xb58; timed show/hide (180 frames)	tnk
+8035C3F0	ResultLyt	tnkResult_00.brlyt with 8 anims; 1P/2P per-enemy-type kill list and totals sequence	tnk
+8035C410	FootmarkTex	singleton lbl_8043C950; loads 11 tnk_footmark/*.bti textures	tnk
+8035C438	CheckMarkPool	singleton lbl_8043C958 derived from 8035B238; slot 7 allocates CheckMark (8035C49C) items	tnk
+8035C49C	CheckMark	derived from 8035B290; G3D/tnk_check.brres blue/red/white models, color index, velocity	tnk
+8035C570	Wly_Scene	Find Mii scene: opens rp_Wly_sound.brsar, basic_wanted effects, forwards create/calc/draw/exit to GameMgr	wly_misc
+8035C5E0	Wly_SoundActor	multi-player sound actor (4 players, N handles at +0x58, fader +0x30): start/hold/prepare/stop by id/label/index	wly_misc
+8035C6BC	Wly_SoundActorBase	same layout as Wly_SoundActor; set by both dtors at +0x78, also built by Bom code	wly_misc
+8035C7E0	Wly_Avatar	KokeshiHead-derived Mii avatar with sound actor, shadow and Wtd_ava_* effects	wly_misc
+8035C850	Wly_AvatarMgr	global lbl_8043C968 (0x291c): 100 avatars at +0x2764, stage object at +0x50, cursor hover detection	wly_misc
+8035C870	Wly_GameMgr	global lbl_8043C970: owns cursors, field, wipe, phases, AvatarMgr/LayoutSet/LevelTable; init/create/reset/calc/draw/destroy slots	wly_misc
+8035C898	Wly_Cursor	per-player pointer cursor with Wtd_cursor_normal_1p/2p, blur and shadow effects	wly_misc
+8035C8B8	Wly_ClearPhase	GameMgr+0x58 phase object for state 3; plays Wtd_clear effect and clear sequence	wly_misc
+8035CA6C	Wly_ResultPhase	GameMgr+0x5c phase object for state 4; score tally, end score and all-clear layouts	wly_misc
+8035CA88	Wly_IntroPhase	GameMgr+0x50 phase object for state 0 (0->1->2)	wly_misc
+8035CAA8	Wly_TargetPhase	GameMgr+0x54 phase object for state 1; shows level, timer and target Mii question	wly_misc
+8035CB18	Wly_Field	GameMgr+0x38 stage background: loads wtd_field01..09 models, earth/ground sub-objects	wly_misc
+8035CB48	Wly_SoundObj	sound object (4 handles at +0x48, fader +0x20) used as GameMgr BGM object with duck/restore logic	wly_misc
+8035CBB0	Wly_AvatarShadow	model object loading wtd_ava_shadow	wly_misc
+8035CC80	Wly_Earth	model object loading wtd_field03_earth	wly_misc
+8035CCC8	Wly_Ground	model object loading wtd_field02_ground	wly_misc
+8035CCF0	Wly_Field06	model object loading wtd_field06	wly_misc
+8035CD18	Wly_Wipe	GameMgr+0x34 model object loading wtd_wipe_a; drives round-start wipe	wly_misc
+8035CD38	Cow_Scene	scene class whose slot 21 creates the Cow_Cow manager (lbl_8043C680); listed under Wly by position only	wly_misc
+8035CE18	Game	ctor 8029AD28; vf01 loads cow_field/kakasi/hurdle/tree resources; vf03 race state machine; owns all object arrays	cow
+8035CE40	Camera	per-player (x2, 0xd0); loads demo/scene_Light plight; 12 member-fn camera states setting eye/target via Gfx_801A6878	cow
+8035CF30	PlayerSound	0x98 sound actor created in Player create (base Wly_WtdAvaSwim01 vtable); vf21/vf29 start sound ids	cow
+8035D00C	Player	x2, 0x72e8; transform/model/arrow/cursor; score +0x72c8; movement, input, collision handling	cow
+8035D080	Field	creates field model (resource 2) and transform; draws with identity matrix	cow
+8035D170	ObjSound	0x90 sound actor created by field-object create (same base as PlayerSound)	cow
+8035D250	KakasiGroup	pmp 0x70005 zones; spawns pooled kakasi near players; counts hits and awards group bonus	cow
+8035D2B8	Goal	pmp 0x70002; onCollide tests crossing of a plane; arrow target in 1P (name inferred)	cow
+8035D320	Kakasi	pool of 32; models cow_kakasi/cow_kakasiL1; spawned by KakasiGroup; vtable also holds shared FieldObj methods	cow
+8035D388	Tree	pmp 0x70004; model cow_tree (0x13), TreeBatch in 2P, cow_maru_kage shadow	cow
+8035D3F0	Hurdle	pmp 0x70000; models cow_hurdle/hurdleL1, cow_hurdle_kage shadow	cow
+8035D458	ModelBatch	instanced model renderer (Gfx draw callback slots 26-29); base uses cow_maru_shadow_128 x128	cow
+8035D4D8	TreeBatch	ModelBatch subclass, cow_treeL1_many x64	cow
+8035D558	HurdleBatch	ModelBatch subclass, cow_hurdleL1_many x32	cow
+8035D5D8	KakasiBatch	ModelBatch subclass, cow_kakasiL1_many x32	cow
+8035D658	PointPopup	pool of 32; cowPoint_00 layout point popups (L/S/XL/XS/Perfect)	cow
+8035D6C0	KakasiKing	x8; model cow_kakasi_king (0xb)	cow
+8035D728	MainHud	cowMain_00/01 layout: time, score, time bonus, total, result anims	cow
+8035D788	PerfectMsg	cowPerfect_00 layout and Cow_2d_perfect_* effects	cow
+8035D7E8	ExMsg	cowEx_00 layout, per-player T_ex messages (0xa8f)	cow
+8035D848	OrderMsg	cowOrder_00 layout shown before the race (message 0xa91)	cow
+8035D8A8	StartMsg	cowStart_00 layout (message 0xa92)	cow
+8035D908	GoalMsg	cowGoal_00 layout, complete text and Cow_2d_complete effect	cow
+8035D968	LimitCount	cowLimit_00 layout, 0-9 countdown digits for last seconds	cow
+8035D9C8	VsResult	cowVsResult_00 layout, win1p/win2p anims, player scores	cow
+8035DA28	TargetMarker	cowOrder_01 layout; per-player marker projected at player's target position	cow
+8035DA88	Balloon	cowBalloon_00 layout; per-player balloon projected above player's cow	cow
+8035DAE8	CowModel	CowRoot: cow_knit_1P/2P model + rider, joint callback on cow_root	cow
+8035DB08	Cloud	pmp 0x70009/0x7000a; models cow_cloudA/cow_cloudB	cow
+8035DB70	KnitCowEx	pmp 0x70007/0x70008; models cow_knit_exA/exB with ex_wait/ex_eat anims	cow
+8035DBD8	AngleDisp	cowAngle_00 layout: 1P/2P angle display and switchCow anims	cow
+8035DC38	SceneSoundRef	0x18 object (base fn_800AC4CC) created in Scene_create holding Mpe sound scene pointer	bil
+8035DC48	Scene	Sys scene subclass; slot16 loads bad_* brres, rp_Bil_sound.brsar, basic_billiards.breff; slot15 creates GameMgr	bil
+8035DCA8	Table	singleton lbl_8043C9B8; loads table.kcl, bad_table/bad_mask, pocket_corner/pocket_side/ball0_range; guide line	bil
+8035DD38	CameraMgr	singleton lbl_8043C9C0; owns main Camera, AuxCamera and two PocketCams	bil
+8035DD48	Camera	main game camera (0x238, +0x174 interface); orbit yaw/pitch, transitions, saved view, SoundActor at +0x234	bil
+8035DD60	SoundActor	sound actor (base vt 80358A88, 4 handles) owned by Camera and BallMgr; camera tick and pocket voice sounds	bil
+8035DDC8	Player	per-player actor (0x68CC); 9-state machine (place ball, aim, address, stroke, rotate view, after shot, wait, inactive); cue/cursor models	bil
+8035DE58	PlayerMgr	singleton lbl_8043C9F0; player count, current player, two Players, turn handling	bil
+8035DE68	Ball	ball actor (0x84); rigid body +0x7c, Sound3D +0x78, 4-state machine (on table/pocketed/out); bad_ball / cue ball face model	bil
+8035DEF8	BallMgr	singleton lbl_8043C9F8; 10 Balls, aim markers, cue ghost, ball icons; physics substeps, collisions, fouls, shot bookkeeping	bil
+8035DF88	GameMgr	singleton lbl_8043CA00; 6-state game flow (intro, start, play, score, foul, game over); creates all singletons	bil
+8035DF98	Sound3D	per-object 3D sound player (0xb4, secondary vt +0x88); start/hold/prepare by id/label/index, stop, volume	bil
+8035E074	Sound3DBase	base vtable of Sound3D (set in dtor); shares slots 16-52	bil
+8035E1E0	AimMarker	bad_ball_2 marker actor (x10 in BallMgr) shown at aim target point	bil
+8035E270	Result	singleton lbl_8043CA08; 8-state end-of-game flow (summary, wait, 1P record / winner, end menu); computes scores	bil
+8035E2B8	CueGhost	bad_ball_2 ghost showing cue-ball placement and validity (BallMgr +0xcc)	bil
+8035E348	AuxCamera	secondary RP camera in CameraMgr (default view reset)	bil
+8035E360	PocketCam	two RP cameras aimed into pockets for sub-windows	bil
+8035E378	PocketCamWindow	singleton lbl_8043CA20; billiard_03 W_subWindow_00; two sub-windows showing pocket cameras with timers	bil
+8035E3C0	NextBallMarker	singleton lbl_8043CA28; two bad_next_ball models over the lowest remaining ball	bil
+8035E450	BreakLottery	singleton lbl_8043CA34; spins cue ball with Mii faces to choose first player	bil
+8035E498	Hud	singleton lbl_8043CA38; billiard_00 layout: scores, instruction text, prompt and turn-panel state machines	bil
+8035E4D0	MsgWindow	singleton lbl_8043CA40; billiard_01 foul message window with 4-state machine	bil
+8035E508	ResultLyt	billiard_02 result layout owned by Result; score figures, two side state machines	bil
+8035E528	Music	singleton lbl_8043CA48; BGM state object (music states, stingers)	bil
+8035E538	BallIcon	pocketed-ball icon actor (x10 in BallMgr) that flies into the score popup	bil
+8035E5C0	ScorePopupLyt	billiard_06 layout (N_ballBg_00) owned by ScorePopup	bil
+8035E5E0	ScorePopup	singleton lbl_8043CA50; pocketed-ball score popup flow with 4-state machine	bil
+8035E608	HintLyt	billiard_04 layout owned by Hint; alpha-faded hint text	bil
+8035E628	StrokeGuide	singleton lbl_8043CA58; billiard_05 pull/push stroke guide messages	bil
+8035E660	Hint	singleton lbl_8043CA60; delayed fade-in/out hint controller (4-state machine)	bil
+8035E680	BallNumberTag	singleton lbl_8043CA68; billiard_07 number tag following the targeted ball	bil
+8035E6B8	Scene	Sys scene subclass; create builds all Bom singletons, load reads sceneFile.brres/basic_bomb.breff/rp_Bom_sound.brsar	bom
+8035E728	StartBg	singleton lbl_8043CA70; loads bg_model/bom_bg_acc_model, plays Bom_startbg(_wipe) effects, level bg anim	bom
+8035E7B8	Camera	singleton lbl_8043CA78; position/target/look vectors, spline zoom-in state table, attached to render layers	bom
+8035E7D8	CursorManager	singleton lbl_8043CA88; array of Cursor objects, forwards reset/calc/draw to active ones	bom
+8035E800	Cursor	per-controller Wii remote pointer: DPD position clamp and roll angle from RP_801BAF00 helper	bom
+8035E8D0	PlayerSound	sound actor (Wly sound-actor family) created in Player_create/Panel_create; plays ids via vt+0x78 slot	bom
+8035ECA4	Player	per-player posing Mii (0x164): avatar, bom_pose_anim/ira_pose anims, bubble model, pose index, 2 state tables	bom
+8035ED50	PlayerManager	singleton lbl_8043CA90; array of Player objects with batch state setters	bom
+8035EE14	GameManager	singleton lbl_8043CA98; 13-state game flow (intro, play, miss, level end, results), owns Score/QuestionParam/BGM	bom
+8035EE38	QuestionParam	singleton lbl_8043CAA0; loads param/BomQuestionParam.bin, generates panel waves and poses per level	bom
+8035EF68	ScreenFx	singleton lbl_8043CAB8; EFB capture texture and full-screen mask/spotlight draw states	bom
+8035EF90	Score	singleton lbl_8043CAC0; per-player score (cap 9999), total (cap 99999), pop count, combo	bom
+8035EFB8	PoolObj	pooled model object base: age/active counter +0x94, owner pool +0x9c, motion integration, activate/deactivate	bom
+8035F058	ObjPool	generic pool of PoolObj: createItems via factory slot, round-robin spawn, per-pass forwarding to active items	bom
+8035F0B0	PanelCtrl	singleton lbl_8043CAC8 (8 bytes); wraps PanelPool and forwards each update pass	bom
+8035F100	Panel	falling pose panel (0x11c) derived from PoolObj; panelA/B/C models, keyhole/ok/miss effects, fall/hit states	bom
+8035F620	PanelPool	singleton lbl_8043CAD0; ObjPool of 16 Panels with counting/spawn/query helpers	bom
+8035F708	Border	singleton lbl_8043CAD8; 3 border_model lives indicators with landing/normal/miss anims and borderbreak effect	bom
+8035F7A0	LayoutMgr	singleton lbl_8043CAE0; owns poseMan.arc layouts (start, level, ready, pose select x2, score, miss, clear, end, 16 points)	bom
+8035F7C8	LytStart	poseManStart_00.brlyt layout (theme title/upDown/signal)	bom
+8035F7E8	LytScore	poseManScore_00.brlyt layout (1P/2P scores, move/switch anims)	bom
+8035F808	LytPoint	poseManPoint_00.brlyt layout (score popup numbers)	bom
+8035F828	LytEnd	poseManEnd_00.brlyt layout (end message)	bom
+8035F848	LytLevel	poseManLevel_00.brlyt layout (level number message)	bom
+8035F868	LytReady	poseManReady_00.brlyt layout (Ready message)	bom
+8035F888	LytPoseSel	poseManAB_00/01.brlyt per-player pose selector with arrows and posechange effects	bom
+8035F8D0	LytClear	poseManClear_00.brlyt layout (level clear, bonus, final score, winner)	bom
+8035F8F0	LytMiss	poseManMiss_00.brlyt layout (miss message)	bom

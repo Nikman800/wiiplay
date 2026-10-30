@@ -1,0 +1,9 @@
+address	old_name	new_name	unit	previous
+8022DE10	Pnp_Spectator_draw	Draw__14RPPnpSpectatorFv	Pack/RPParty/RPPnpScene/RPPnpAudience.cpp	
+8022DE14	Pnp_Spectator_calc	Calculate__14RPPnpSpectatorFv	Pack/RPParty/RPPnpScene/RPPnpAudience.cpp	
+8022E150	Pnp_Spectator_updateWalkIn	UpdateWalkIn__14RPPnpSpectatorFv	Pack/RPParty/RPPnpScene/RPPnpAudience.cpp	
+8022E340	Pnp_Spectator_reset	Reset__14RPPnpSpectatorFv	Pack/RPParty/RPPnpScene/RPPnpAudience.cpp	
+8022E35C	Pnp_Spectator_dtor	__dt__14RPPnpSpectatorFv	Pack/RPParty/RPPnpScene/RPPnpAudience.cpp	
+8022E3C4	Pnp_Spectator_ctor	__ct__14RPPnpSpectatorFPC19RPSysKokeshiGenInfoll	Pack/RPParty/RPPnpScene/RPPnpAudience.cpp	
+8022E674	Pnp_Spectator_dtorThunk	@180@__dt__14RPPnpSpectatorFv	Pack/RPParty/RPPnpScene/RPPnpAudience.cpp	
+80359980	Pnp_Spectator_vtable	__vt__14RPPnpSpectator	Pack/RPParty/RPPnpScene/RPPnpAudience.cpp	

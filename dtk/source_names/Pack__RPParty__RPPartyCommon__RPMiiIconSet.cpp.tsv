@@ -1,0 +1,6 @@
+address	old_name	new_name	unit	previous
+801BFEEC	Mii_MiiIconSet_load	Load__12RPMiiIconSetFv	Pack/RPParty/RPPartyCommon/RPMiiIconSet.cpp	
+801C0048	Mii_MiiIconSet_dtor	__dt__12RPMiiIconSetFv	Pack/RPParty/RPPartyCommon/RPMiiIconSet.cpp	
+801BFF48	Mii_MiiIconSet_createIcons	CreateIcons__12RPMiiIconSetFQ212RPMiiIconSet5Param	Pack/RPParty/RPPartyCommon/RPMiiIconSet.cpp	
+801C00A0	Mii_destroyMiiIconSet	DestroyInstance__12RPMiiIconSetFv	Pack/RPParty/RPPartyCommon/RPMiiIconSet.cpp	
+801C00E4	Mii_createMiiIconSet	CreateInstance__12RPMiiIconSetFv	Pack/RPParty/RPPartyCommon/RPMiiIconSet.cpp	

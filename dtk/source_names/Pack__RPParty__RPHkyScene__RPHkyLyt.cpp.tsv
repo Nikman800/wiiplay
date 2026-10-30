@@ -1,0 +1,5 @@
+address	old_name	new_name	unit
+801975C8	Lyt_setTextBoxMessageF	setText__15RPSysLytTextBoxFPCwie	Pack/RPParty/RPHkyScene/RPHkyLyt.cpp
+80220D90	Hky_ScoreLyt_playResultSwitch	PlayResultSwitch__13RPHkyScoreLytFv	Pack/RPParty/RPHkyScene/RPHkyLyt.cpp
+80220E74	Hky_ScoreLyt_playGoalSwitch	PlayGoalSwitch__13RPHkyScoreLytFl	Pack/RPParty/RPHkyScene/RPHkyLyt.cpp
+80223FC8	Hky_GoalMsgLyt_setScoreText	SetScoreText__15RPHkyGoalMsgLytFll	Pack/RPParty/RPHkyScene/RPHkyLyt.cpp

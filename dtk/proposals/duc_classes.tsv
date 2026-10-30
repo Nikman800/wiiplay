@@ -1,0 +1,37 @@
+vtable	class_name	evidence
+80359A38	Scene	Duc scene (Sys scene base); create builds all Duc singletons, load reads sceneFile.brres/basic_shooting.breff/rp_Duc_sound.brsar
+80359AA8	ShtGrass	27 made by Field; loads G3D/sht_grass.brres with sht_grass_wait/shake anims; shaken and Sht_grass_hit effect when shot
+80359B00	SndActor	per-object sound actor (FshRunA-style base), allocated in init of targets, grass, shots and game object
+80359BE0	Field	singleton lbl_8043C838; owns ShtField, ShtCloud and 27 ShtGrass, forwards load/reset/calc
+80359C08	ShtField	loads G3D/sht_field.brres and sht_field anims (background field model)
+80359C60	BalloonMgr	TargetMgr subclass, singleton lbl_8043C840, allocTarget builds ShtBRed balloons (spawn type 2)
+80359CD8	Balloon	Target subclass; loads DucBalloonParam.bin, sht_b_red/blue/yellow + sht_balloon_himo string rope; Sht_balloon_hit
+80359DA0	ClayMgr	TargetMgr subclass, singleton lbl_8043C848, allocTarget builds clay targets (spawn type 0)
+80359E30	Clay	Target subclass; loads DucClayParam.bin and G3D/sht_clay.brres; Sht_clay_hit; 4-state flight table
+80359ED8	DuckMgr	TargetMgr subclass, singleton lbl_8043C850, allocTarget builds ducks (spawn type 4)
+80359FA8	Duck	Target subclass; loads DucDuckParam.bin, sht_duck_a/b/c models + fly/damage/fall anims; 9-state table
+8035A090	TargetMgr	base pooled target manager: createPool, spawn (round robin), remove/calc/updateModel over active targets
+8035A0F0	Target	base shootable target: activate/remove, hit records per player, forces, sound actor, score popup; slots 20-39
+8035A1D0	TargetRegistry	singleton lbl_8043C860; holds up to 7 target managers created by type via table lbl_8035A1B4
+8035A1F8	UfoMgr	TargetMgr subclass, singleton lbl_8043C868, allocTarget builds UFOs (spawn type 1)
+8035A2F8	Ufo	Target subclass; loads DucUfoParam.bin, sht_ufo_a/b; Sht_ufo_abduct/glow effects; 13-state wander/circle/abduct table
+8035A3F8	Camera	singleton lbl_8043C870 (secondary vtable at +0x174); camera pos/frustum, intro path interpolation, screen projection
+8035A450	Shot	per-player cursor/shot: pointer aim, fire with ammo check, Sht_shot and Sht_cursor_* effects, hit processing
+8035A488	ShotMgr	singleton lbl_8043C878; owns the players' Shot objects, forwards calc/reset/cursor modes
+8035A6D4	Spawner	singleton lbl_8043C880; 20-entry member-function table of spawn pattern setups and patterns per round
+8035AACC	Game	singleton lbl_8043C890 (0xa8); round state machine (intro, round start/play/end, results), owns spawner/score/ammo
+8035AB60	Hud	singleton lbl_8043C898; owns DuckhuntScore00, DuckhuntStart00, end layout and 32 DuckhuntPoint00 popups
+8035AB88	CanMgr	TargetMgr subclass, singleton lbl_8043C8A0, allocTarget builds cans (spawn type 5)
+8035AC10	Can	Target subclass; loads DucCanParam.bin, sht_can_00..04 (model per hit count); Sht_can_hit/Sht_can_break
+8035ACB8	ShtCloud	loads G3D/sht_cloud.brres and sht_cloud anim (background clouds)
+8035AD10	PointPopup	layout duckhuntPoint_00.brlyt; shows points at screen position, optional Sht_2d_good effect
+8035AD30	ScoreLayout	layout duckhuntScore_00.brlyt with 12 anims; scores, hit counters and streak bonus panes
+8035AD50	StartLayout	layout duckhuntStart_00.brlyt; round banner with round number and scores
+8035AD70	ShotPointer	secondary vtable at +0x10 of the RP pointer helper created by Duc_ShotPointer_ctor (8024FF44)
+8035AD88	ScoreMgr	singleton lbl_8043C8B0; per-player score, hits, streak, bonus (clamped 0..999)
+8035ADB0	AmmoMgr	singleton lbl_8043C8B8; per-player bullets (max +0x1e) and shot counters, tryFire
+8035ADD8	CircleTargetMgr	TargetMgr subclass, singleton lbl_8043C8C0, 32-slot grid occupancy, builds circle targets (spawn type 3)
+8035AE80	CircleTarget	Target subclass; loads DucCircleMatoParam.bin, sht_target_a..d (c/d with Mii face_dummy); 6-state table
+8035AF28	AvatarMgr	TargetMgr subclass, singleton lbl_8043C8C8, builds Mii avatars (spawn type 6), picks avatars for UFOs
+8035B028	Avatar	Target subclass; Mii avatars with sht_avatar_anim wait/batabata/runaway/happy anims; carried by UFOs; 13 states
+8035B0D0	EndLayout	layout duckhuntEnd_00.brlyt; final score display with winner switch anims

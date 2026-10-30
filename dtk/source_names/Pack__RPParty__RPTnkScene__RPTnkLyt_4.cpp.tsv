@@ -1,0 +1,10 @@
+address	old_name	new_name	unit	previous
+80270470	Tnk_HitPopup_start	Start__13RPTnkHitPopupFQ34nw4r4math4VEC2ll	Pack/RPParty/RPTnkScene/RPTnkLyt_4.cpp	Start__13RPTnkHitPopupFRQ34nw4r4math4VEC2ll
+80270690	Tnk_HitPopup_exit	VF_0x18__13RPTnkHitPopupFv	Pack/RPParty/RPTnkScene/RPTnkLyt_4.cpp	
+80270694	Tnk_HitPopup_draw	Draw__13RPTnkHitPopupFv	Pack/RPParty/RPTnkScene/RPTnkLyt_4.cpp	
+8027069C	Tnk_HitPopup_calc	Calculate__13RPTnkHitPopupFv	Pack/RPParty/RPTnkScene/RPTnkLyt_4.cpp	
+802706D8	Tnk_HitPopup_reset	Reset__13RPTnkHitPopupFv	Pack/RPParty/RPTnkScene/RPTnkLyt_4.cpp	
+80270844	Tnk_HitPopup_load	Load__13RPTnkHitPopupFPQ23EGG7Archive	Pack/RPParty/RPTnkScene/RPTnkLyt_4.cpp	
+802708BC	Tnk_HitPopup_dtor	__dt__13RPTnkHitPopupFv	Pack/RPParty/RPTnkScene/RPTnkLyt_4.cpp	
+802708FC	Tnk_HitPopup_ctor	__ct__13RPTnkHitPopupFv	Pack/RPParty/RPTnkScene/RPTnkLyt_4.cpp	
+8035C280	Tnk_HitPopup_vtable	__vt__13RPTnkHitPopup	Pack/RPParty/RPTnkScene/RPTnkLyt_4.cpp	

@@ -1,0 +1,9 @@
+address	old_name	new_name	unit	previous
+80237AAC	Duc_BalloonMgr_createInstance	CreateInstance__15RPDucBalloonMgrFl	Pack/RPParty/RPDucScene/RPDucTargetMgr.cpp	
+80237B20	Duc_BalloonMgr_load	Load__15RPDucBalloonMgrFv	Pack/RPParty/RPDucScene/RPDucTargetMgr.cpp	
+80237B24	Duc_BalloonMgr_dtor	__dt__15RPDucBalloonMgrFv	Pack/RPParty/RPDucScene/RPDucTargetMgr.cpp	
+80237B7C	Duc_BalloonMgr_allocTarget	AllocTarget__15RPDucBalloonMgrFv	Pack/RPParty/RPDucScene/RPDucTargetMgr.cpp	
+80237BAC	Duc_BalloonMgr_destroyInstance	DestroyInstance__15RPDucBalloonMgrFv	Pack/RPParty/RPDucScene/RPDucTargetMgr.cpp	
+80238C78	Duc_Balloon_ctor	__ct__12RPDucBalloonFv	Pack/RPParty/RPDucScene/RPDucTargetMgr.cpp	
+80359C60	lbl_80359C60	__vt__15RPDucBalloonMgr	Pack/RPParty/RPDucScene/RPDucTargetMgr.cpp	
+8043C840	Duc_balloonMgrInstance	sInstance__15RPDucBalloonMgr	Pack/RPParty/RPDucScene/RPDucTargetMgr.cpp	

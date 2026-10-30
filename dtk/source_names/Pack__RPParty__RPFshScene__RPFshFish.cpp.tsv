@@ -1,0 +1,90 @@
+address	old_name	new_name	unit	previous
+801B90B0	Fsh_slerpBasis	RPSlerpBasis__FfPCQ23EGG8Vector3fPCQ23EGG8Vector3fPCQ23EGG8Vector3fRCQ23EGG8Vector3fRCQ23EGG8Vector3fRCQ23EGG8Vector3fRQ23EGG8Vector3fRQ23EGG8Vector3fRQ23EGG8Vector3f	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+801B93B0	RP_KclHolder_calcPushOut	CalcPushOut__11RPKclHolderCFRCQ34nw4r4math4VEC3f	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+801B9D74	RP_calcEase	CalcEase__7RPRangeFfl	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+801B9F70	RP_Range_ctor	__ct__7RPRangeFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+801FF03C	Fsh_Fish_updateModel	CalcModelMtx__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+801FF148	Fsh_Fish_draw	UserDraw__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	Fsh_fishPoolOrderS32;Fsh_fishPoolOrderS32__Fl
+801FF14C	Fsh_Fish_getScale	CalcModelScale__9RPFshFishCFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	UserDraw__9RPFshFishFv
+801FF1E4	Fsh_Fish_getPullSpeed	GetPullSpeed__9RPFshFishCFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+801FF20C	Fsh_randomDirXZ	RandomDirXZ__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+801FF328	Fsh_Fish_updateGetEffects	UpdateGetEffects__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+801FF614	Fsh_Fish_resolveCollision	ResolveCollision__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+801FF740	Fsh_Fish_isNearHook	IsNearHook__9RPFshFishCFl	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+801FF978	Fsh_Fish_isMouthNearPoint	IsMouthNearPoint__9RPFshFishCFfRCQ34nw4r4math4VEC3	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+801FFB84	Fsh_Fish_isNearPoint	IsNearPoint__9RPFshFishCFfRCQ34nw4r4math4VEC3	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+801FFC7C	Fsh_Fish_spawn	Spawn__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+802001E4	Fsh_Fish_calcFadeOut	FadeOutCalc__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+802003EC	Fsh_Fish_enterFadeOut	FadeOutEnter__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8020046C	Fsh_Fish_calcShowPoints	ShowPointsCalc__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+80200588	Fsh_Fish_enterShowPoints	ShowPointsEnter__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+80200668	Fsh_Fish_calcCatchView	CatchViewCalc__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+80200894	Fsh_Fish_enterCatchView	CatchViewEnter__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+80200BB8	Fsh_Fish_calcJump	JumpCalc__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+80200E08	Fsh_Fish_enterJump	JumpEnter__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8020126C	Fsh_Fish_exitHooked	HookedExit__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8020130C	Fsh_Fish_calcHooked	HookedCalc__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+80201494	Fsh_Fish_enterHooked	HookedEnter__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+802015F8	Fsh_Fish_calcApproach	ApproachCalc__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+80201B00	Fsh_Fish_enterApproach	ApproachEnter__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+80201B18	Fsh_Fish_calcVanish	VanishCalc__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+80201B9C	Fsh_Fish_enterVanish	VanishEnter__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+80201C54	Fsh_Fish_exitEscape	EscapeExit__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+80201CAC	Fsh_Fish_calcEscape	EscapeCalc__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8020222C	Fsh_Fish_enterEscape	EscapeEnter__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+802022F0	Fsh_Fish_calcSwim	SwimCalc__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+80202A40	Fsh_Fish_enterSwim	SwimEnter__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+80202A5C	Fsh_Fish_calc	Calculate__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+80202EBC	Fsh_MouthLoc_803587E0_vf38	Exit__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+80202EC0	Fsh_Fish_reset	Reset__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+80202ED8	Fsh_Fish_create	Create__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+802032C8	Fsh_SndActorBase_dtor	__dt__15TRPSndObject<0>Fv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+802033D4	Fsh_SndHandleArray_dtor	__dt__36TRPSndAudioActorBaseWithHandles<4,0>Fv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+80203480	Fsh_SndPlayerBase_dtor	__dt__19RPSndAudioActorBaseFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+80203504	Fsh_SndActor_dtor	__dt__12RPFshFishSndFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+80203620	Fsh_SndHandleArray_getOuterVolume	getOuterVolume__21TRPSndAudioHandles<4>Fv	Pack/RPParty/RPFshScene/RPFshFish.cpp	Fsh_fishSndGetterOrder;Fsh_fishSndGetterOrder__FP36TRPSndAudioActorBaseWithHandles<4,0>
+80203628	Fsh_SndHandleArray_get3DPosition	get3DPosition__36TRPSndAudioActorBaseWithHandles<4,0>Fi	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8020592C	Fsh_StateMachine_isStateOrPending	IsStateOrNext__28RPStateMachine<10RPFshTimer>CFl	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+80205974	Fsh_Fish_dtor	__dt__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	__dt__15RPFshModelActorFv
+802059E0	Fsh_sinit_catchViewPos	__sinit_\RPFshFish_cpp	Pack/RPParty/RPFshScene/RPFshFish.cpp	__sinit_\RPFshSound_cpp
+80205A14	Fsh_SndActorBase_dtorThunk	@16@__dt__19TRPSndGameObject<0>Fv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+80205A64	Fsh_Fish_dtorThunk04	@4@__dt__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+80205A6C	Fsh_Fish_drawThunk	@8@UserDraw__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+80205A74	Fsh_Fish_dtorThunk08	@8@__dt__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+80205A7C	Fsh_Fish_dtorThunk60	@96@__dt__9RPFshFishFv	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+80206C7C	Fsh_Player_addCaughtFish	AddCaughtFish__11RPFshPlayerFl	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+803587E0	lbl_803587E0	__vt__9RPFshFish	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+80358888	lbl_80358888	__vt__12RPFshFishSnd	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+80358AAC	lbl_80358AAC	@STRING@getIndexedHandleStop__36TRPSndAudioActorBaseWithHandles<4,0>Fi@0	Pack/RPParty/RPFshScene/RPFshFish.cpp	@LOCAL@GetIndexedFishSoundHandle<1>__23@unnamed@RPFshFish_cpp@FPQ34nw4r3snd11SoundHandleRCli_PQ34nw4r3snd11SoundHandle@message
+80358AC0	lbl_80358AC0	@STRING@getIndexedHandleStop__36TRPSndAudioActorBaseWithHandles<4,0>Fi	Pack/RPParty/RPFshScene/RPFshFish.cpp	@LOCAL@GetIndexedFishSoundHandle<1>__23@unnamed@RPFshFish_cpp@FPQ34nw4r3snd11SoundHandleRCli_PQ34nw4r3snd11SoundHandle@file@0
+80358AD0	lbl_80358AD0	@STRING@getIndexedHandle__15TRPSndObject<0>Fi@0	Pack/RPParty/RPFshScene/RPFshFish.cpp	@LOCAL@GetIndexedFishSoundHandle<0>__23@unnamed@RPFshFish_cpp@FPQ34nw4r3snd11SoundHandleRCli_PQ34nw4r3snd11SoundHandle@message
+80358AE4	lbl_80358AE4	@STRING@getIndexedHandle__15TRPSndObject<0>Fi	Pack/RPParty/RPFshScene/RPFshFish.cpp	@LOCAL@GetIndexedFishSoundHandle<0>__23@unnamed@RPFshFish_cpp@FPQ34nw4r3snd11SoundHandleRCli_PQ34nw4r3snd11SoundHandle@file@0
+8043A4DC	Fsh_catchViewPos	sCatchViewPos__9RPFshFish	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8043B498	Fsh_fishSwimTurnRate	sSwimTurnRate__9RPFshFish	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8043B49C	Fsh_fishSwimAccel	sSwimAccel__9RPFshFish	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8043B4A0	Fsh_fishApproachSpeed	sApproachSpeed__9RPFshFish	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8043B4A4	Fsh_fishApproachRate	sApproachRate__9RPFshFish	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8043B4A8	Fsh_fishApproachFrames	sApproachFrames__9RPFshFish	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8043B4AC	Fsh_fishMouthRadiusScale	sMouthRadiusScale__9RPFshFish	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8043B4B0	Fsh_fishMouthRadiusAdd	sMouthRadiusAdd__9RPFshFish	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8043B4B4	Fsh_fishNearRadiusScale	sNearRadiusScale__9RPFshFish	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8043B4B8	Fsh_fishNearRadiusAdd	sNearRadiusAdd__9RPFshFish	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8043B4BC	Fsh_fishHookViewAngle	sHookViewAngle__9RPFshFish	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8043B4C0	Fsh_fishHookViewDist	sHookViewDist__9RPFshFish	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8043B4C4	Fsh_catchViewFrames	sCatchViewFrames__9RPFshFish	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8043B4C8	Fsh_catchViewHoldFrames	sCatchViewHoldFrames__9RPFshFish	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8043B4CC	Fsh_showPointsFrames	sShowPointsFrames__9RPFshFish	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8043B4D0	Fsh_showPointsEndFrames	sShowPointsEndFrames__9RPFshFish	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8043B4D4	Fsh_fishPopScale	sPopScale__9RPFshFish	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8043B4D8	Fsh_fishPopFrames	sPopFrames__9RPFshFish	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8043B4DC	Fsh_fishJumpFrames	sJumpFrames__9RPFshFish	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8043B4E0	Fsh_fishJumpHeight	sJumpHeight__9RPFshFish	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8043B4E4	Fsh_fishEscapeFrames	sEscapeFrames__9RPFshFish	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8043B4E8	Fsh_fishEscapeTurnFrames	sEscapeTurnFrames__9RPFshFish	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8043B4EC	Fsh_fishEscapeSpeed	sEscapeSpeed__9RPFshFish	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8043B4F0	Fsh_fishEscapeDamp	sEscapeDamp__9RPFshFish	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8043B4F4	Fsh_fishEscapeAccel	sEscapeAccel__9RPFshFish	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8043B4F8	Fsh_getEffectScaleA	sGetEffectOffset__9RPFshFish	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8043B4FC	Fsh_getEffectFrames	sGetEffectHeightA__9RPFshFish	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8043B500	Fsh_getEffectScaleB	sGetEffectHeightB__9RPFshFish	Pack/RPParty/RPFshScene/RPFshFish.cpp	
+8043B504	Fsh_showPointsFlag	sShowPointsClose__9RPFshFish	Pack/RPParty/RPFshScene/RPFshFish.cpp	

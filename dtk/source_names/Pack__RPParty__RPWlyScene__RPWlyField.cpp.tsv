@@ -1,0 +1,8 @@
+address	old_name	new_name	unit	previous
+8028EBBC	Wly_Field_destroy	Destroy__10RPWlyFieldFv	Pack/RPParty/RPWlyScene/RPWlyField.cpp	
+8028EBC0	Wly_Field_calc	Calculate__10RPWlyFieldFv	Pack/RPParty/RPWlyScene/RPWlyField.cpp	
+8028F068	Wly_Field_reset	Reset__10RPWlyFieldFv	Pack/RPParty/RPWlyScene/RPWlyField.cpp	
+8028F0EC	Wly_Field_create	Create__10RPWlyFieldFv	Pack/RPParty/RPWlyScene/RPWlyField.cpp	
+8028FCBC	Wly_Field_init	Init__10RPWlyFieldFv	Pack/RPParty/RPWlyScene/RPWlyField.cpp	
+8028FDE8	Wly_Field_dtor	__dt__10RPWlyFieldFv	Pack/RPParty/RPWlyScene/RPWlyField.cpp	
+8035CB18	lbl_8035CB18	__vt__10RPWlyField	Pack/RPParty/RPWlyScene/RPWlyField.cpp	

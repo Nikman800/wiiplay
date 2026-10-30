@@ -1,0 +1,8 @@
+address	old_name	new_name	unit	previous
+80230F84	Pnp_ArrowLyt_show	Show__13RPPnpArrowLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_3.cpp	
+802310E0	Pnp_ArrowLyt_draw	Draw__13RPPnpArrowLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_3.cpp	
+80231154	Pnp_ArrowLyt_exit	Exit__13RPPnpArrowLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_3.cpp	
+80231158	Pnp_ArrowLyt_calc	Calculate__13RPPnpArrowLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_3.cpp	
+8023120C	Pnp_ArrowLyt_reset	Reset__13RPPnpArrowLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_3.cpp	
+802312D4	Pnp_ArrowLyt_load	Load__13RPPnpArrowLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_3.cpp	
+802313A4	Pnp_ArrowLyt_create	Create__13RPPnpArrowLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_3.cpp	

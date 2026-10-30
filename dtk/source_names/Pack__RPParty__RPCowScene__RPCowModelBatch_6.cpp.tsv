@@ -1,0 +1,5 @@
+address	old_name	new_name	unit	previous
+802ADF14	Cow_HurdleBatch_init	LoadResource__16RPCowHurdleBatchFv	Pack/RPParty/RPCowScene/RPCowModelBatch_6.cpp	
+802ADF8C	Cow_HurdleBatch_dtorThunk2	@36@__dt__16RPCowHurdleBatchFv	Pack/RPParty/RPCowScene/RPCowModelBatch_6.cpp	
+802ADF84	Cow_HurdleBatch_dtorThunk	@20@__dt__16RPCowHurdleBatchFv	Pack/RPParty/RPCowScene/RPCowModelBatch_6.cpp	
+8035D558	lbl_8035D558	__vt__16RPCowHurdleBatch	Pack/RPParty/RPCowScene/RPCowModelBatch_6.cpp	

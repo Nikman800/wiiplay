@@ -1,0 +1,12 @@
+address	old_name	new_name	unit	previous
+801CB288	Health_StrapScene_initSystemResources	taskAsync__14RPSysBootSceneFv	Pack/RPParty/RPPartyCommon/RPSysBootScene.cpp	
+801CB300	Health_StrapScene_exit	Exit__14RPSysBootSceneFv	Pack/RPParty/RPPartyCommon/RPSysBootScene.cpp	
+801CB354	Health_StrapScene_draw	UserDraw__14RPSysBootSceneFv	Pack/RPParty/RPPartyCommon/RPSysBootScene.cpp	
+801CB414	Health_StrapScene_calc	Calculate__14RPSysBootSceneFv	Pack/RPParty/RPPartyCommon/RPSysBootScene.cpp	
+801CB530	Health_StrapScene_calcWaitInput	CalcWaitInput__14RPSysBootSceneFv	Pack/RPParty/RPPartyCommon/RPSysBootScene.cpp	
+801CB618	Health_StrapScene_reset	Reset__14RPSysBootSceneFv	Pack/RPParty/RPPartyCommon/RPSysBootScene.cpp	
+801CB6C0	Health_StrapScene_loadResources	LoadResource__14RPSysBootSceneFv	Pack/RPParty/RPPartyCommon/RPSysBootScene.cpp	
+801CB6F0	Health_StrapScene_create	Configure__14RPSysBootSceneFv	Pack/RPParty/RPPartyCommon/RPSysBootScene.cpp	
+801CB984	Health_StrapScene_dtor	__dt__14RPSysBootSceneFv	Pack/RPParty/RPPartyCommon/RPSysBootScene.cpp	
+801CB9E0	Health_StrapScene_thunk_draw	@36@UserDraw__14RPSysBootSceneFv	Pack/RPParty/RPPartyCommon/RPSysBootScene.cpp	
+801CB9E8	Health_StrapScene_thunk_dtor	@36@__dt__14RPSysBootSceneFv	Pack/RPParty/RPPartyCommon/RPSysBootScene.cpp	

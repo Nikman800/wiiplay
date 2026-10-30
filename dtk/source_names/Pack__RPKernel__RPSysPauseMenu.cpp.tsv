@@ -1,0 +1,4 @@
+address	old_name	new_name	unit	previous
+8019E6D0	Lyt_PauseMenu_resetButtonAnims	resetButtonAnims__14RPSysPauseMenuFv	Pack/RPKernel/RPSysPauseMenu.cpp	
+8019E820	Lyt_PauseMenu_updateButtonHighlight	updateButtonHighlight__14RPSysPauseMenuFv	Pack/RPKernel/RPSysPauseMenu.cpp	
+8019EB20	Lyt_PauseMenu_updateSelect	updateSelect__14RPSysPauseMenuFv	Pack/RPKernel/RPSysPauseMenu.cpp	

@@ -1,0 +1,10 @@
+address	old_name	new_name	unit	previous
+802497D4	Duc_Game_getRoundCount	GetRoundNum__9RPDucGameCFv	Pack/RPParty/RPDucScene/RPDucHud_4.cpp	
+8024F698	Duc_StartLayout_exit	VF_0x18__16RPDucStartLayoutFv	Pack/RPParty/RPDucScene/RPDucHud_4.cpp	
+8024F69C	Duc_StartLayout_draw	Draw__16RPDucStartLayoutFv	Pack/RPParty/RPDucScene/RPDucHud_4.cpp	
+8024F6E4	Duc_StartLayout_calc	Calculate__16RPDucStartLayoutFv	Pack/RPParty/RPDucScene/RPDucHud_4.cpp	
+8024F734	Duc_StartLayout_reset	Reset__16RPDucStartLayoutFv	Pack/RPParty/RPDucScene/RPDucHud_4.cpp	
+8024FA64	Duc_StartLayout_load	Load__16RPDucStartLayoutFPQ23EGG7Archive	Pack/RPParty/RPDucScene/RPDucHud_4.cpp	
+8024FB08	Duc_StartLayout_drawMiiIcons	DrawMiiIcons__16RPDucStartLayoutFv	Pack/RPParty/RPDucScene/RPDucHud_4.cpp	
+8024FCC0	Duc_StartLayout_dtor	__dt__16RPDucStartLayoutFv	Pack/RPParty/RPDucScene/RPDucHud_4.cpp	
+8035AD50	lbl_8035AD50	__vt__16RPDucStartLayout	Pack/RPParty/RPDucScene/RPDucHud_4.cpp	

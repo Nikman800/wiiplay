@@ -1,0 +1,5 @@
+address	old_name	new_name	unit	previous
+802D036C	Bil_Music_destroy	DestroyInstance__10RPBilMusicFv	Pack/RPParty/RPBilScene/RPBilGameMgr_3.cpp	
+802D03B0	Bil_Music_create	CreateInstance__10RPBilMusicFv	Pack/RPParty/RPBilScene/RPBilGameMgr_3.cpp	
+8035E528	lbl_8035E528	__vt__10RPBilMusic	Pack/RPParty/RPBilScene/RPBilGameMgr_3.cpp	
+802D032C	Bil_ResultLyt_dtor	__dt__10RPBilMusicFv	Pack/RPParty/RPBilScene/RPBilGameMgr_3.cpp	

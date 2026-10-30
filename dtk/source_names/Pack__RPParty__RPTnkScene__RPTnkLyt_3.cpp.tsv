@@ -1,0 +1,11 @@
+address	old_name	new_name	unit	previous
+8026F418	Tnk_Hud_placeBalloonP2	PlaceBalloonP2__8RPTnkHudFf	Pack/RPParty/RPTnkScene/RPTnkLyt_3.cpp	
+8026F5EC	Tnk_Hud_placeBalloonP1	PlaceBalloonP1__8RPTnkHudFf	Pack/RPParty/RPTnkScene/RPTnkLyt_3.cpp	
+8026F7C0	Tnk_Hud_playScoreAnim	PlayScoreAnim__8RPTnkHudFl	Pack/RPParty/RPTnkScene/RPTnkLyt_3.cpp	
+8026FA5C	Tnk_Hud_exit	VF_0x18__8RPTnkHudFv	Pack/RPParty/RPTnkScene/RPTnkLyt_3.cpp	
+8026FA60	Tnk_Hud_draw	Draw__8RPTnkHudFv	Pack/RPParty/RPTnkScene/RPTnkLyt_3.cpp	
+8026FC24	Tnk_Hud_calc	Calculate__8RPTnkHudFv	Pack/RPParty/RPTnkScene/RPTnkLyt_3.cpp	
+8026FF5C	Tnk_Hud_reset	Reset__8RPTnkHudFv	Pack/RPParty/RPTnkScene/RPTnkLyt_3.cpp	
+8027033C	Tnk_Hud_load	Load__8RPTnkHudFPQ23EGG7Archive	Pack/RPParty/RPTnkScene/RPTnkLyt_3.cpp	
+802703F4	Tnk_Hud_dtor	__dt__8RPTnkHudFv	Pack/RPParty/RPTnkScene/RPTnkLyt_3.cpp	
+8035C260	Tnk_Hud_vtable	__vt__8RPTnkHud	Pack/RPParty/RPTnkScene/RPTnkLyt_3.cpp	

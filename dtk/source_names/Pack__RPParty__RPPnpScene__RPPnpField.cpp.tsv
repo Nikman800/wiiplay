@@ -1,0 +1,8 @@
+address	old_name	new_name	unit	previous
+8022513C	Pnp_Field_calc	Calculate__10RPPnpFieldFv	Pack/RPParty/RPPnpScene/RPPnpField.cpp	
+80225144	Pnp_Field_load	Load__10RPPnpFieldFv	Pack/RPParty/RPPnpScene/RPPnpField.cpp	
+802251E8	Pnp_Field_dtor	__dt__10RPPnpFieldFv	Pack/RPParty/RPPnpScene/RPPnpField.cpp	
+803595C0	Pnp_Field_vtable	__vt__10RPPnpField	Pack/RPParty/RPPnpScene/RPPnpField.cpp	
+8043B6A8	Pnp_floorHitParamA	sFloorBounce__10RPPnpField	Pack/RPParty/RPPnpScene/RPPnpField.cpp	
+8043B6AC	Pnp_floorHitParamB	sBarrierBounce__10RPPnpField	Pack/RPParty/RPPnpScene/RPPnpField.cpp	
+8043B6B0	Pnp_floorHitParamC	sWallBounce__10RPPnpField	Pack/RPParty/RPPnpScene/RPPnpField.cpp	

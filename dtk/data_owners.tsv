@@ -1,0 +1,414 @@
+start	end	unit	note
+803207C8	80320860	Pack/RPParty/RPHkyScene/RPHkyField.cpp	clr animation pane names and field model paths, used by RPHkyField::Load
+80320964	80320A68	Pack/RPParty/RPHkyScene/RPHkyLyt.cpp	score board layout strings after "T_scoreL_00" (one string pool with it), used by RPHkyScoreLyt::Load and the switch animations
+8043F750	8043F764	Pack/RPParty/RPHkyScene/RPHkyGame.cpp	rink constants RPHkyField::cRinkDepth/cHalfDepth/cCorner/cGoalWidth/cGoalInset (600, 300, 80, 200, 8): named objects at the start of the Game unit's .sdata2 (read by Field, Paddle and Puck)
+8043B630	8043B638	Pack/RPParty/RPHkyScene/RPHkyGame.cpp	RPHkyField::sLength/sWidth (880, 440): the Field unit's .sdata is sScale plus padding to 8, these two follow as the Game unit's .sdata (set by RPHkyGame::Create)
+8043C7E0	8043C7E8	Pack/RPParty/RPHkyScene/RPHkyGame.cpp	RPHkyGame::sInstance: the Game unit's .sbss (the Puck unit's ends after its debug hold statics at 8043C7E0)
+8043F850	8043F868	Pack/RPParty/RPHkyScene/RPHkySound.cpp	trail sound constants (50, 20, 1.5, 0.5, 1.0)
+8043C7F0	8043C7F8	Pack/RPParty/RPHkyScene/RPHkyHud.cpp	RPHkyHud::sInstance
+8034F740	8034F758	Pack/RPKernel/RPSysKokeshiIcon.cpp	RPSysKokeshiIcon::__vt (before the GenInfo vtable; currently an auto data split)
+8034F758	8034F768	Pack/RPKernel/RPSysKokeshiGenInfo.cpp	RPSysKokeshiGenInfo::__vt (currently an auto data split; multiply-defined when the unit links)
+8034F778	8034F788	Pack/RPKernel/RPSysKokeshiOverloadInfo.cpp	RPSysKokeshiOverloadInfo::__vt (currently the second half of the KokeshiLocation .data split)
+8043C4E8	8043C4F0	Pack/RPKernel/RPSysWideTextWriter.cpp	RPSysWideTextWriter::spTextBuffer (currently in the EffectBase .sbss split, which should hold only RPSysEffect::INVALID_HANDLE)
+8043C488	8043C490	Pack/RPSystem/RPSysQueuedScene.cpp	RPSysQueuedScene::spInstance (.sbss)
+8043C470	8043C478	Pack/RPSystem/RPSysProjectLocal.cpp	RPSysProjectLocal::spInstance (.sbss)
+80438FC8	80439030	Pack/RPGraphics/RPGrpScreen.cpp	RPGrpScreen::sRootScreen (.bss, after the unit's static-init dtor chain object)
+803504F8	80350580	Pack/RPAudio/RPSndHomeMenuArcMgr.cpp	RPSndHomeMenuArcMgr vtable (.data)
+803500D8	80350108	Pack/RPGraphics/RPGrpViewRender3D.cpp	RPGrpViewRender3D vtable (.data)
+8043C4B8	8043C4C0	Pack/RPKernel/RPSysHostIOSocketManager.cpp	RPSysHostIOSocketManager::spInstance (.sbss 8043C450-8043C4E0 is in no split; the RPKernel singletons follow in unit order)
+8043C4C8	8043C4D0	Pack/RPKernel/RPSysTextWriter.cpp	RPSysTextWriter::spInstance
+8043C4D0	8043C4D8	Pack/RPKernel/RPSysKokeshiManager.cpp	RPSysKokeshiManager::spInstance
+8043C4D8	8043C4E0	Pack/RPKernel/RPSysEffectMgr.cpp	RPSysEffectMgr::spInstance
+8043C560	8043C580	Pack/RPGraphics/RPGrpModel.cpp	RPGrpModel statics spAllocator/spEntryHead/spEntryTail/spGenList/spCalcModel/spCalcWorldMtxArray/spCalcViewMtxArray (.sbss; currently the end of the RPGrpCamera .sbss split, whose own .sbss is only the cameraData guard at 8043C558)
+8043C478	8043C480	Pack/RPSystem/RPSysGameConfig.cpp	RPSysGameConfig::spInstance (.sbss)
+8043C490	8043C498	Pack/RPSystem/RPSysDvdStatus.cpp	RPSysDvdStatus::spInstance (.sbss)
+8043B348	8043B350	Pack/RPKernel/RPSysNWC24Manager.cpp	RPSysNWC24Manager::sSuccess: the unit .sdata is only this; Gfx_clearColor, RPGrpRenderer::sDrawStep and the (1.0, 0.0) pair after it belong to RPGraphics units
+8043C460	8043C468	Pack/RPSystem/RPSysScene.cpp	RPSysScene::sUnkStruct (.sbss)
+8034F098	8034F0F8	Pack/RPSystem/RPSysScene.cpp	RPSysScene vtable (.data)
+8043C468	8043C470	Pack/RPSystem/RPSysSceneMgr.cpp	RPSysSceneMgr::spInstance (.sbss)
+8034F248	8034F270	Pack/RPSystem/RPSysSceneMgr.cpp	RPSysSceneMgr vtable (.data)
+8043C5E0	8043C5E8	Pack/RPAudio/RPSndSpeakerMgr.cpp	RPSndSpeakerMgr::spInstance (.sbss)
+8043E6A0	8043E6C8	Pack/RPKernel/RPSysKokeshiManager.cpp	RPSysKokeshiManager .sdata2 (SetMatColor TEV_REGS u8[2] + literals), currently in no split
+8043E6C8	8043E6E0	Pack/RPKernel/RPSysEffectMgr.cpp	RPSysEffectMgr .sdata2 literals (draw), currently in no split
+8034FEB0	8034FEE0	Pack/RPGraphics/RPGrpModelManager.cpp	RPGrpModelManager vtable and the weak RPGrpModelMisc vtable it emits (Wii Sports: RPGrpModelManager.cpp .data 803BA3E8-803BA418 = lbl + weak __vt__14RPGrpModelMisc); RPGrpModelMisc.cpp has only .rodata
+8043C4A0	8043C4A8	Pack/RPSystem/RPSysFontManager.cpp	RPSysFontManager::spInstance (.sbss)
+8034FA20	8034FA58	Pack/RPKernel/RPSysParticleManager.cpp	RPSysParticleManager::__vt, currently in no split (the unit .data split 8034FA58-8034FA90 is nw4r::g3d::ScnRfl data, see the unit boundary note)
+8034F2AC	8034F2C0	Pack/RPSystem/RPSysGameConfig.cpp	RPSysPrimTagParm<int> vtable: the weak copy GameConfig's constructor instantiates, after the GameConfig vtable (currently the start of the RPSysTagParms .data split, which then starts unaligned; TagParms' own .data starts at 8034F2C0)
+8034F6B0	8034F6C8	Pack/RPParty/RPPartyCommon/RPBase8034F6B0_2.cpp	vtable of the class split from RPSysFile.cpp
+8034FA58	8034FA90	nw4r/g3d/g3d_scnrfl.cpp	ScnRfl data split from RPSysParticleManager.cpp
+8034F478	8034F490	Pack/RPKernel/RPSysKokeshi.cpp	RPSysKokeshi data (vtable)
+8043E698	8043E6A0	Pack/RPKernel/RPSysKokeshi.cpp	RPSysKokeshi .sdata2 (one double)
+8043C4C0	8043C4C8	Pack/RPKernel/RP_DEBUG_STUB_0.cpp	RP_DEBUG_STUB_0::spInstance
+8043C4F0	8043C4F8	Pack/RPParty/RPPartyCommon/RPMessageWindow.cpp	Lyt_messageWindowInstance (.sbss after RPSysWideTextWriter::spTextBuffer; the WideTextWriter split must end at 8043C4F0 to link from source)
+8043C4F8	8043C500	Pack/RPKernel/RPSysTagProcessor.cpp	RPSysTagProcessor::spInstance (.sbss; otherwise absorbed by the WideTextWriter split)
+803501E0	803501F0	Pack/RPGraphics/RPGrpTexture.cpp	RPGrpTexture vtable (weak in RPGrpTexture.o, placed between ModelMaterial and CaptureTexture data); otherwise given to KokeshiIcon by its inline dtor, which stretches the KokeshiIcon .data span over GenInfo's vtable and drops both
+8032D728	8032D748	egg/gfxe/eggPostEffectBase.cpp	weak @STRING@ pool of EGG::Frustum::SetProjectionType ("type < PROJ_MAX", "eggFrustum.h"): first copy kept by the linker; otherwise given to RPGrpViewRender3D, which stretches its .data span and drops it
+8043B350	8043B358	Pack/RPGraphics/RPGrpRenderer.cpp	Gfx_clearColor and RPGrpRenderer::sDrawStep (.sdata; not RPSysNWC24Manager's)
+8043B358	8043B360	Pack/RPGraphics/RPGrpModelRfl.cpp	RPGrpModelRfl::sBaseScale (.sdata; not RPSysNWC24Manager's)
+8043C498	8043C4A0	Pack/RPSystem/RPSysSaveDataMgr.cpp	RPSysSaveDataMgr::spInstance (.sbss; otherwise in the RPSysDvdStatus split)
+8043ABF4	8043ABF8	egg/gfxe/eggLightTexture.cpp	EGG::LightTexture static after sTextureSize (Wii Sports 804BD4B4; set by RPGrpRenderer, which would otherwise own it and lose its own .sdata span)
+8043ABF8	8043AC00	egg/gfxe/eggLightTextureManager.cpp	EGG::LightTextureManager .sdata (Wii Sports 804BD4B8; set by RPGrpRenderer)
+8043AC30	8043AC38	egg/gfxe/eggLightObject.cpp	EGG::LightObject .sdata (Wii Sports 804BD4F0; set by RPGrpRenderer)
+80317178	80317268	Pack/RPSystem/RPSysResourceManager.cpp	CACHED_SCENES and the unit string pool (STATIC_DIR_NAMES strings first; currently the start of an auto .rodata split)
+803181D0	803181E8	Pack/RPGraphics/RPGrpModel.cpp	RPGrpModel::GEOMETRY_MAGNIFY (.rodata; currently in the RPGrpDrawPathManager split, multiply-defined when Model links)
+8043C480	8043C488	Pack/RPSystem/RPSysResourceManager.cpp	RPSysResourceManager::spInstance (.sbss; otherwise in the RPSysGameConfig split)
+8034FAA0	8034FB28	Pack/RPGraphics/RPGrpDrawPathManager.cpp	weak vtables of RPGrpDrawPathXluSnap/Bloom/DOF/HDR/SV (in that order) and RPGrpDrawPathManager::__vt (currently an auto .data split)
+8043B750	8043B758	Pack/RPParty/RPTnkScene/RPTnkField.cpp	Tnk_cellWidth/Tnk_cellDepth (35, 35): after the Table Tennis count layout's .sdata (its L"%d" padded to 8); set by RPTnkField (stfs at 80258010), read by RPTnkBlock
+8043C4A8	8043C4B0	Pack/RPSystem/RPSysPauseMgr.cpp	RPSysPauseMgr::spInstance (.sbss)
+8043C5E8	8043C5F0	Pack/RPAudio/RPSndUtility.cpp	RPSndUtility::spSoundArchivePlayer (.sbss after RPSndSpeakerMgr::spInstance, as in Wii Sports; was named EGG::AudioSound3DActor::smCommonPlayer, which Wii Play's EGG does not have)
+8043C5F0	8043C608	Pack/RPUtility/RPUtlDohMath_2.cpp	RP_vec2Zero and RP_randSeedX/Y/Z/W: .sbss of the second math utilities file
+8043C820	8043C828	Pack/RPParty/RPPnpScene/RPPnpAudience_2.cpp	RPPnpAudience::sInstance (Pnp_audienceInstance), the Audience unit's .sbss (padded to 8)
+8043C828	8043C830	Pack/RPParty/RPPnpScene/RPPnpHud.cpp	RPPnpHud::sInstance (Pnp_hudInstance), the Hud unit's .sbss (padded to 8)
+8043C830	8043C838	Pack/RPParty/RPPnpScene/RPPnpLevelTable.cpp	RPPnpLevelTable::sInstance (Pnp_levelTableInstance), the LevelTable unit's .sbss (padded to 8)
+8043C588	8043C590	Pack/RPGraphics/RPGrpModelManager.cpp	RPGrpModelManager::spCurrent (.sbss)
+8043C590	8043C598	Pack/RPGraphics/RPGrpModelResManager.cpp	RPGrpModelResManager::spCurrent (.sbss; currently in an auto split, multiply-defined when ResManager links)
+8043B728	8043B738	Pack/RPParty/RPPnpScene/RPPnpGame.cpp	RPPnpGame::sRallyLimit (100), sCameraOffsetNear/Far (-15, 15): the Game unit's .sdata after the serve phase's (sServeWaitFrames padded to 8); read by the serve phase, Lyt and Player units
+80438820	80438860	Pack/RPSystem/RP_80186E40.cpp	Vector3f[4] array set up by its static init
+8043EA68	8043EA78	Pack/RPAudio/RPSndStaticMgr.cpp	.sdata2 (Wii Sports layout)
+8043EA78	8043EA88	Pack/RPUtility/RPUtlDohMath.cpp	.sdata2 pool 0, 1, 0.5 (padded to 8: end of the file)
+8043EA88	8043EA90	Pack/RPUtility/RPUtlDohMath_2.cpp	.sdata2 pool 0, 1 of the static init
+8032DAEC	8032DB18	egg/gfxe/eggFrustum.cpp	weak @STRING@ pool of EGG::Frustum::SetFovy ("0.f < fovy && fovy < 180.f", "eggFrustum.h", assertion line 391): first copy kept by the linker (also inlined by RPPnpIntroPhase::CalcCamera, the Bil/Cow cameras and RPPnpSpectator); currently an auto .data split
+8043C4B0	8043C4B8	Pack/RPSystem/RPSysPlayerMgr.cpp	RPSysPlayerMgr::spInstance (.sbss)
+80316CE8	80316FF0	Pack/RPSystem/RPSysSceneCreator.cpp	SCENE_ATTR_TABLE and its string pool (currently an auto .rodata split)
+8043C458	8043C460	Pack/RPSystem/RPSysSceneCreator.cpp	RPSysSceneCreator::spInstance (.sbss)
+8043F950	8043F958	Pack/RPParty/RPPnpScene/RPPnpField_2.cpp	RPPnpTable::sLengthUnit/sWidthUnit (34, 27): named consts first in the table unit's .sdata2 (before sNetHeightUnit/sHeightUnit and the literals), not the end of the Ball unit's
+80359810	80359830	Pack/RPParty/RPPnpScene/RPPnpField_2.cpp	RPPnpTable vtable: the unit's whole .data (dtk left 803595E0-80359850 out of the Ball/Field_2/Player splits)
+8043C840	8043C848	Pack/RPParty/RPDucScene/RPDucTargetMgr.cpp	RPDucBalloonMgr::sInstance (.sbss)
+8043C848	8043C850	Pack/RPParty/RPDucScene/RPDucTargetMgr_2.cpp	RPDucClayMgr::sInstance (.sbss)
+8043C850	8043C858	Pack/RPParty/RPDucScene/RPDucTargetMgr_3.cpp	RPDucDuckMgr::sInstance (.sbss)
+8043C860	8043C868	Pack/RPParty/RPDucScene/RPDucTargetMgr_5.cpp	RPDucTargetRegistry::sInstance (.sbss)
+8043C868	8043C870	Pack/RPParty/RPDucScene/RPDucTargetMgr_6.cpp	RPDucUfoMgr::sInstance (.sbss)
+8043C8A0	8043C8A8	Pack/RPParty/RPDucScene/RPDucTargetMgr_7.cpp	RPDucCanMgr::sInstance (.sbss; currently the end of the Spawner .sbss split)
+803595E0	80359810	Pack/RPParty/RPPnpScene/RPPnpBall.cpp	OnEvent jump tables, RPPnpBallTrail / RPPnpRacketTrail / RPPnpBall vtables: the Ball unit's whole .data (dtk left 803595E0-80359850 out of the Ball/Field_2/Player splits)
+803598C8	80359938	Pack/RPParty/RPPnpScene/RPPnpSound.cpp	RPPnpBallTrail::sHitSoundTable: the sound unit's .data after the serve phase's vtable (new unit 8022C478-8022C6A0 split from RPPnpPhase_3.cpp)
+8043FAB8	8043FAD8	Pack/RPParty/RPPnpScene/RPPnpSound.cpp	hit sound constants (1, 0.08, 0.1, 1.012, 1.5, int-to-float double): own .sdata2 pool after the serve phase's 180.0 padded to 8
+8043C598	8043C5A0	Pack/RPParty/RPPartyCommon/RPScnProcDrawHook.cpp	Gfx_scnProcDrawHook (.sbss after RPGrpModelResManager::spCurrent; the ResManager split absorbed it, so RPGrpRenderer/RPScnProcDrawHook_2 could not link against it)
+8043C5A0	8043C5B0	Pack/RPGraphics/RPGrpRenderer.cpp	RPGrpRenderer::spCurrent, Gfx_renderFrameCount, sCurrentViewNo, spCurrentView, spCurrentScreen (.sbss; spCurrent was absorbed by the ResManager split)
+80359B00	80359BE0	Pack/RPParty/RPDucScene/RPDucSound.cpp	RPDucSndActor::__vt (key function ~RPDucSndActor; currently an auto data split; multiply-defined when RPDucTarget's sync names it)
+8043FE08	8043FE18	Pack/RPParty/RPDucScene/RPDucTarget.cpp	the Target unit's .sdata2 (1.0, 2.0, 0.5, 0.0), currently the end of the Duck .sdata2 split
+8043C838	8043C840	Pack/RPParty/RPDucScene/RPDucField_2.cpp	RPDucField::sInstance (.sbss)
+8043C870	8043C878	Pack/RPParty/RPDucScene/RPDucCamera.cpp	RPDucCamera::sInstance (.sbss)
+8043C878	8043C880	Pack/RPParty/RPDucScene/RPDucShot_2.cpp	RPDucShotMgr::sInstance (.sbss)
+8043C880	8043C884	Pack/RPParty/RPDucScene/RPDucSpawner.cpp	RPDucSpawner::sInstance (.sbss, before the spawner's pattern statics)
+8043C890	8043C898	Pack/RPParty/RPDucScene/RPDucGame.cpp	RPDucGame::sInstance (.sbss; currently in the Spawner .sbss split)
+8043C898	8043C8A0	Pack/RPParty/RPDucScene/RPDucHud.cpp	RPDucHud::sInstance (.sbss; currently in the Spawner .sbss split)
+8043C8B0	8043C8B8	Pack/RPParty/RPDucScene/RPDucGame_2.cpp	RPDucScoreMgr::sInstance (.sbss)
+8043C8B8	8043C8C0	Pack/RPParty/RPDucScene/RPDucGame_3.cpp	RPDucAmmoMgr::sInstance (.sbss)
+8043C8C0	8043C8C8	Pack/RPParty/RPDucScene/RPDucTargetMgr_8.cpp	RPDucCircleTargetMgr::sInstance (.sbss)
+8043C8C8	8043C8D8	Pack/RPParty/RPDucScene/RPDucTargetMgr_9.cpp	RPDucAvatarMgr::sInstance and sFinalRoundFlag (.sbss)
+80322538	803225F0	Pack/RPParty/RPDucScene/RPDucHud_2.cpp	point popup strings (text box name table, pane and file names), currently an auto rodata split
+80321128	80321210	Pack/RPParty/RPPnpScene/RPPnpPlayer.cpp	hand animation name array (Load) and the unit's string pool (currently an auto .rodata split)
+80359830	80359850	Pack/RPParty/RPPnpScene/RPPnpPlayer.cpp	RPPnpPlayer vtable: the unit's whole .data (dtk left 803595E0-80359850 out of the Ball/Field_2/Player splits)
+80322C38	80322E30	Pack/RPParty/RPDucScene/RPDucHud_5.cpp	end banner animation name table and string pool, currently an auto rodata split
+80358DA4	80358DD0	Pack/RPParty/RPFshScene/RPFshCamera.cpp	setListenerMatrix weak @STRING@ literals after the RPFshCameraMgr vtable (inline in Reset/Calculate)
+8043C8D8	8043C8E0	Pack/RPParty/RPTnkScene/RPTnkCamera.cpp	RPTnkCamera::sInstance (.sbss)
+8043C8E0	8043C8E8	Pack/RPParty/RPTnkScene/RPTnkField.cpp	RPTnkField::sInstance (.sbss)
+8043C8E8	8043C8F0	Pack/RPParty/RPTnkScene/RPTnkTankManager.cpp	RPTnkTankManager::sInstance (.sbss)
+8043C8F0	8043C8F8	Pack/RPParty/RPTnkScene/RPTnkCursor.cpp	RPTnkCursorManager::sInstance (.sbss)
+8043C8F8	8043C900	Pack/RPParty/RPTnkScene/RPTnkBlock_2.cpp	RPTnkBlockPool::sInstance (.sbss)
+8043C900	8043C908	Pack/RPParty/RPTnkScene/RPTnkShell.cpp	RPTnkShellPool::sInstance (.sbss)
+8043C908	8043C910	Pack/RPParty/RPTnkScene/RPTnkWeaponManager.cpp	RPTnkWeaponManager::sInstance (.sbss)
+8043C910	8043C918	Pack/RPParty/RPTnkScene/RPTnkGameManager.cpp	RPTnkGameManager::sInstance (.sbss)
+8043C918	8043C920	Pack/RPParty/RPTnkScene/RPTnkStageMap.cpp	RPTnkStageMap::sInstance (.sbss)
+8043C920	8043C928	Pack/RPParty/RPTnkScene/RPTnkMine.cpp	RPTnkMinePool::sInstance (.sbss)
+8043C928	8043C930	Pack/RPParty/RPTnkScene/RPTnkTask.cpp	RPTnkStepTimer::sInstance (.sbss)
+8043C930	8043C938	Pack/RPParty/RPTnkScene/RPTnkTask_2.cpp	RPTnkEmptyTask::sInstance (.sbss)
+8043C938	8043C940	Pack/RPParty/RPTnkScene/RPTnkLyt.cpp	RPTnkLayoutManager::sInstance (.sbss)
+8043C940	8043C948	Pack/RPParty/RPTnkScene/RPTnkGameManager_2.cpp	RPTnkGameStats::sInstance (.sbss)
+8043C948	8043C950	Pack/RPParty/RPTnkScene/RPTnkExGuide.cpp	RPTnkExGuide::sInstance (.sbss)
+8043C950	8043C958	Pack/RPParty/RPTnkScene/RPTnkTask_3.cpp	RPTnkFootmarkTex::sInstance (.sbss)
+8043C958	8043C960	Pack/RPParty/RPTnkScene/RPTnkCheckMark.cpp	RPTnkCheckMarkPool::sInstance (.sbss)
+8043C750	8043C758	Pack/RPParty/RPFshScene/RPFshCamera.cpp	RPFshCameraMgr::sInstance (.sbss)
+8043C758	8043C760	Pack/RPParty/RPFshScene/RPFshStage.cpp	RPFshStage::sInstance (.sbss)
+803239A0	80323A10	Pack/RPParty/RPTnkScene/RPTnkLyt_5.cpp	hint balloon animation name table and string pool (Load, Show), currently an auto rodata split
+80320598	80320698	Pack/RPParty/RPFshScene/RPFshMsg_2.cpp	RPFshMsg01 constructor state table, Create animation name table and its string pool
+8043C7C8	8043C7D0	Pack/RPParty/RPFshScene/RPFshMsg_2.cpp	RPFshMsg01::sInstance (.sbss)
+80320480	80320498	Pack/RPParty/RPFshScene/RPFshGame.cpp	RPFshGame constructor state table
+80320498	80320598	Pack/RPParty/RPFshScene/RPFshMsg.cpp	RPFshMsg00 constructor state table, animation names and strings
+8043C7B8	8043C7C0	Pack/RPParty/RPFshScene/RPFshGame.cpp	RPFshGame::sInstance, RPFshGame::sPlayerNum (.sbss)
+8043C7C0	8043C7C8	Pack/RPParty/RPFshScene/RPFshMsg.cpp	RPFshMsg00::sInstance (.sbss)
+80320008	80320098	Pack/RPParty/RPFshScene/RPFshPrompt.cpp	RPFshYankPrompt::Create text name table and string pool
+8043C790	8043C798	Pack/RPParty/RPFshScene/RPFshPrompt.cpp	RPFshYankPrompt::sInstance (.sbss)
+80320098	80320140	Pack/RPParty/RPFshScene/RPFshPrompt_2.cpp	RPFshAimArrow::Create animation name table and string pool
+8043C798	8043C7A0	Pack/RPParty/RPFshScene/RPFshPrompt_2.cpp	RPFshAimArrow::sInstance (.sbss)
+80359048	80359060	Pack/RPParty/RPFshScene/RPFshBonusFish.cpp	Fsh_startSoundTable: .data of the file that starts with Fsh_getStartSoundTable (0x802136D4, last function of RPFshPrompt_2.cpp range), before the RPFshBonusFish vtable
+8043C768	8043C770	Pack/RPParty/RPFshScene/RPFshTimer.cpp	RPFshTimer::sInstance (.sbss)
+8031FE48	80320008	Pack/RPParty/RPFshScene/RPFshStartLayout.cpp	RPFshStartLayout constructor state table, Create animation/text name tables and string pool
+8043C780	8043C788	Pack/RPParty/RPFshScene/RPFshStartLayout.cpp	RPFshStartLayout::sInstance (.sbss)
+8043C778	8043C780	Pack/RPParty/RPFshScene/RPFshScoreLayout.cpp	RPFshScoreLayout::sInstance (.sbss)
+8031F958	8031F9C0	Pack/RPParty/RPFshScene/RPFshResultFish.cpp	RPFshResultFish::Create model-name initializer table and its strings
+8031F9C0	8031FB58	Pack/RPParty/RPFshScene/RPFshPointPopup.cpp	RPFshPointPopup state table, text tables, strings
+8043C770	8043C778	Pack/RPParty/RPFshScene/RPFshPointPopup.cpp	RPFshPointPopup::sInstance (.sbss)
+8043C760	8043C768	Pack/RPParty/RPFshScene/RPFshResultLayout.cpp	RPFshResultLayout::sInstance (.sbss)
+80320140	80320330	Pack/RPParty/RPFshScene/RPFshBonusFish.cpp	RPFshBonusFish constructor state table, model/animation name tables, string pool
+8043C7B0	8043C7B8	Pack/RPParty/RPFshScene/RPFshBonusFish.cpp	RPFshBonusFish::sInstance (.sbss)
+80320330	80320480	Pack/RPParty/RPFshScene/RPFshGame.cpp	RPFshFish::sTypeParams, defined in RPFshGame.cpp (.rodata)
+8043C728	8043C730	Pack/RPParty/RPFshScene/RPFshFishMgr.cpp	RPFshFishMgr::sInstance (.sbss)
+8043C740	8043C748	Pack/RPParty/RPFshScene/RPFshPlayerMgr.cpp	RPFshPlayerMgr::sInstance (.sbss)
+8031EEA0	8031F000	Pack/RPParty/RPFshScene/RPFshScene.cpp	RPFshScene::LoadResource brres name table and string pool
+8031F000	8031F2D0	Pack/RPParty/RPFshScene/RPFshFish.cpp	RPFshFish effect/model/animation name tables, Calculate state table, string pool (the RPFshFish file is RPFshSound.cpp + RPFshFish.cpp)
+80321FD0	80322088	Pack/RPParty/RPDucScene/RPDucBalloon.cpp	balloon state-function table, parameter file name and model/animation strings (rodata), currently an auto rodata split
+80322488	80322518	Pack/RPParty/RPDucScene/RPDucCan.cpp	can parameter file name, model/animation strings and jingle data (rodata), currently an auto rodata split
+8031F438	8031F570	Pack/RPParty/RPFshScene/RPFshRod.cpp	.rodata
+80358BF0	80358D98	Pack/RPParty/RPFshScene/RPFshRod.cpp	.data
+8043A568	8043A598	Pack/RPParty/RPFshScene/RPFshRod.cpp	.bss
+8043B560	8043B590	Pack/RPParty/RPFshScene/RPFshRod.cpp	.sdata
+8043C748	8043C750	Pack/RPParty/RPFshScene/RPFshRod.cpp	.sbss
+8031F320	8031F438	Pack/RPParty/RPFshScene/RPFshPlayer.cpp	.rodata
+80358B50	80358BE0	Pack/RPParty/RPFshScene/RPFshPlayer.cpp	.data
+8043A4E8	8043A568	Pack/RPParty/RPFshScene/RPFshPlayer.cpp	.bss
+8043B508	8043B558	Pack/RPParty/RPFshScene/RPFshPlayer.cpp	.sdata
+8043C730	8043C740	Pack/RPParty/RPFshScene/RPFshPlayer.cpp	.sbss
+8043A870	8043A8B8	Pack/RPParty/RPTnkScene/RPTnkField_3.cpp	.bss: Tnk_basisXDown and Tnk_floorQuadBasis, set by the Field static init
+80323C58	80324098	Pack/RPParty/RPTnkScene/RPTnkLyt_10.cpp	RPTnkResultLyt name tables and their T_No.. pane-name strings (.rodata), referenced only by RPTnkLyt_10
+8035B9D8	8035BA30	Pack/RPParty/RPTnkScene/RPTnkMine.cpp	Tnk_MinePool_vtable and padding (.data)
+80440418	80440420	Pack/RPParty/RPTnkScene/RPTnkMine.cpp	the pool file's 0.0f (.sdata2, padded)
+8035BA30	8035BF60	Pack/RPParty/RPTnkScene/RPTnkMine_2.cpp	mine state table, vtables, zero-filled weak data, RPSndObject.h assert strings (.data)
+80323268	80323298	Pack/RPParty/RPTnkScene/RPTnkMine_2.cpp	mine strings (.rodata)
+80440420	80440460	Pack/RPParty/RPTnkScene/RPTnkMine_2.cpp	mine literals (.sdata2)
+80324368	803243B8	Pack/RPParty/RPTnkScene/RPTnkCheckMark_2.cpp	model name table and strings used by RPTnkCheckMark::Load (.rodata)
+8035B198	8035B1C0	Pack/RPParty/RPTnkScene/RPTnkField.cpp	RPTnkField state table and vtable (.data)
+80440240	80440290	Pack/RPParty/RPTnkScene/RPTnkField.cpp	field manager literals (.sdata2)
+8035B1C0	8035B238	Pack/RPParty/RPTnkScene/RPTnkField_2.cpp	RPTnkFieldModel vtable and thunks (.data)
+80322E88	80322F08	Pack/RPParty/RPTnkScene/RPTnkField_2.cpp	field model file and model names (.rodata)
+80440290	804402B0	Pack/RPParty/RPTnkScene/RPTnkField_2.cpp	field model literals (.sdata2)
+804402B0	804402C8	Pack/RPParty/RPTnkScene/RPTnkField_3.cpp	wall test literals (.sdata2)
+803247A0	80324908	Pack/RPParty/RPWlyScene/RPWlyTimerSe.cpp	timer track masks, avatar voice labels and ids (.rodata)
+80440830	80440840	Pack/RPParty/RPWlyScene/RPWlyTimerSe.cpp	timer sound literals (.sdata2)
+8043C980	8043C988	Pack/RPParty/RPWlyScene/RPWlyTimerSe.cpp	Wly_fieldIndex, Wly_roundSoundActive (.sbss; 8-aligned section start)
+80324908	80324940	Pack/RPParty/RPWlyScene/RPWlyLevelTable.cpp	level table file names (.rodata)
+8035CAC8	8035CB18	Pack/RPParty/RPWlyScene/RPWlyLevelTable.cpp	level table vtable and default record (.data)
+80440840	80440868	Pack/RPParty/RPWlyScene/RPWlyLevelTable.cpp	level table literals (.sdata2)
+8043C988	8043C990	Pack/RPParty/RPWlyScene/RPWlyLevelTable.cpp	Wly_levelTableInstance, Wly_levelTableOverride (.sbss)
+8043C990	8043C998	Pack/RPParty/RPCowScene/RPCowGame.cpp	Cow_drawPriorityBase (.sbss; written by Cow_initStatics, the RPCowGame file's static init)
+80440760	80440830	Pack/RPParty/RPWlyScene/RPWlyAvatarMgr_2.cpp	stage literals (.sdata2; 80440760 is also read by RPWlyLevelTable)
+80324440	80324538	Pack/RPParty/RPWlyScene/RPWlyAvatarMgr.cpp	Create anim name table and strings (.rodata)
+80324940	80324B20	Pack/RPParty/RPWlyScene/RPWlyField.cpp	esc anim name tables and field model/anim strings (.rodata)
+8043C970	8043C980	Pack/RPParty/RPWlyScene/RPWlySound_2.cpp	Wly_gameMgrInstance, Wly_isMultiPlayer, Wly_timeUpLock (.sbss)
+80324708	80324718	Pack/RPParty/RPWlyScene/RPWlyClearPhase.cpp	"Wtd_clear" (.rodata)
+8035C8B8	8035C8D8	Pack/RPParty/RPWlyScene/RPWlyClearPhase.cpp	__vt__15RPWlyClearPhase (.data)
+80440758	80440760	Pack/RPParty/RPWlyScene/RPWlyClearPhase.cpp	1.0f (.sdata2)
+80324718	803247A0	Pack/RPParty/RPWlyScene/RPWlyAvatarMgr_2.cpp	stage name and point tables, escalator strings (.rodata)
+8035C8D8	8035CA48	Pack/RPParty/RPWlyScene/RPWlyAvatarMgr_2.cpp	stage tables and jump tables (.data)
+8043B770	8043B778	Pack/RPParty/RPWlyScene/RPWlyAvatarMgr_2.cpp	Wly_avatarSpacing (.sdata)
+8035D4D8	8035D558	Pack/RPParty/RPCowScene/RPCowModelBatch_5.cpp	__vt__14RPCowTreeBatch (.data)
+8035D558	8035D5D8	Pack/RPParty/RPCowScene/RPCowModelBatch_6.cpp	__vt__16RPCowHurdleBatch (.data)
+8035D5D8	8035D658	Pack/RPParty/RPCowScene/RPCowModelBatch_7.cpp	__vt__16RPCowKakasiBatch (.data)
+80326AE0	80326C10	Pack/RPParty/RPCowScene/RPCowHud_10.cpp	RPCowVsResult name table and strings (.rodata)
+8035DA28	8035DA88	Pack/RPParty/RPCowScene/RPCowHud_11.cpp	__vt__17RPCowTargetMarker (.data)
+8035DA88	8035DAE8	Pack/RPParty/RPCowScene/RPCowHud_12.cpp	__vt__12RPCowBalloon (.data; its key function is in Hud_12)
+80325EF0	803263C0	Pack/RPParty/RPCowScene/RPCowHud_3.cpp	main HUD name tables and strings (.rodata)
+803263C0	803266B8	Pack/RPParty/RPCowScene/RPCowHud_4.cpp	perfect message names and strings (.rodata)
+803266B8	80326778	Pack/RPParty/RPCowScene/RPCowHud_5.cpp	ex message names and strings (.rodata)
+803268F8	80326AE0	Pack/RPParty/RPCowScene/RPCowHud_9.cpp	limit count names and strings (.rodata)
+80326C88	80326D60	Pack/RPParty/RPCowScene/RPCowHud_12.cpp	balloon names and strings (.rodata)
+8043C9B8	8043C9C0	Pack/RPParty/RPBilScene/RPBilTable.cpp	Bil_table (.sbss)
+8043C9C0	8043C9C8	Pack/RPParty/RPBilScene/RPBilCamera.cpp	Bil_cameraMgr (.sbss)
+80326E38	80326E80	Pack/RPParty/RPCowScene/RPCowCowModel.cpp	cow model and foot effect strings (.rodata)
+8043A928	8043A938	Pack/RPParty/RPCowScene/RPCowCowModel.cpp	joint caches (.bss)
+80441048	804410C0	Pack/RPParty/RPCowScene/RPCowCowModel.cpp	cow model and foot effect literals (.sdata2)
+80441A08	80441A10	Pack/RPParty/RPCowScene/RPCowCowModel.cpp	zero constants (.sbss2)
+8043C9B0	8043C9B8	Pack/RPParty/RPCowScene/RPCowCowModel.cpp	Cow_cowJointNodeCache (.sbss)
+8035DAE8	8035DB08	Pack/RPParty/RPCowScene/RPCowCowModel.cpp	__vt__13RPCowCowModel (.data)
+8035E528	8035E538	Pack/RPParty/RPBilScene/RPBilGameMgr_3.cpp	__vt__10RPBilMusic (.data)
+8043CA48	8043CA50	Pack/RPParty/RPBilScene/RPBilGameMgr_3.cpp	Bil_music (.sbss)
+8043CA28	8043CA30	Pack/RPParty/RPBilScene/RPBilMarker_2.cpp	Bil_nextBallMarker (.sbss)
+80326F78	80327058	Pack/RPParty/RPBilScene/RPBilScene.cpp	brres name table and strings (.rodata)
+8035D170	8035D250	Pack/RPParty/RPCowScene/RPCowSound_2.cpp	__vt__13RPCowObjSound (.data; key function startSound is in this unit)
+8043CA40	8043CA48	Pack/RPParty/RPBilScene/RPBilLyt.cpp	Bil_msgWindow (.sbss)
+8043CA68	8043CA70	Pack/RPParty/RPBilScene/RPBilLyt_5.cpp	Bil_ballNumberTag (.sbss)
+8043CA50	8043CA58	Pack/RPParty/RPBilScene/RPBilScorePopup.cpp	Bil_scorePopup (.sbss)
+8043CA58	8043CA60	Pack/RPParty/RPBilScene/RPBilLyt_4.cpp	Bil_strokeGuide (.sbss)
+8043CA60	8043CA68	Pack/RPParty/RPBilScene/RPBilHint.cpp	Bil_hint (.sbss)
+8043CA70	8043CA78	Pack/RPParty/RPBomScene/RPBomStartBg.cpp	Bom_startBgInstance (.sbss)
+8043CA78	8043CA80	Pack/RPParty/RPBomScene/RPBomCamera.cpp	Bom_cameraInstance (.sbss)
+8035F0B0	8035F0D8	Pack/RPParty/RPBomScene/RPBomPanel.cpp	__vt__14RPBomPanelCtrl (.data; dtk-sized trailing alignment padding)
+8035ED50	8035ED78	Pack/RPParty/RPBomScene/RPBomPlayer_2.cpp	__vt__18RPBomPlayerManager (.data)
+8035E828	8035ED50	Pack/RPParty/RPBomScene/RPBomPlayer.cpp	player state table, sound vtables and their zero-filled weak duplicates (.data)
+80328BB0	80328C48	Pack/RPParty/RPBomScene/RPBomLyt_4.cpp	point layout strings (.rodata)
+80328818	80328908	Pack/RPParty/RPBomScene/RPBomLyt_2.cpp	start layout anm table and strings (.rodata)
+8035F7A0	8035F7C8	Pack/RPParty/RPBomScene/RPBomLyt.cpp	__vt__14RPBomLayoutMgr (.data; dtk-sized trailing padding)
+80441660	804416A8	Pack/RPParty/RPBomScene/RPBomCursor_2.cpp	cursor literals (.sdata2)
+8035E800	8035E828	Pack/RPParty/RPBomScene/RPBomCursor_2.cpp	__vt__11RPBomCursor (.data; dtk-sized trailing padding)
+804415F8	80441640	Pack/RPParty/RPBomScene/RPBomCamera.cpp	camera literals (.sdata2)
+80441640	80441660	Pack/RPParty/RPBomScene/RPBomCamera_2.cpp	Bom_panelMatchScale (read by RPBomPanel_2) and literals (.sdata2)
+8035E7A0	8035E7D8	Pack/RPParty/RPBomScene/RPBomCamera.cpp	camera vtable and state constants (.data)
+8043A9E8	8043AA48	Pack/RPParty/RPBomScene/RPBomCamera.cpp	camera path statics (.bss)
+8043AA48	8043AA90	Pack/RPParty/RPBomScene/RPBomCamera_2.cpp	work entries and identity matrices (.bss)
+8043B930	8043B940	Pack/RPParty/RPBomScene/RPBomCamera_2.cpp	screen size (.sdata)
+8043CA80	8043CA88	Pack/RPParty/RPBomScene/RPBomCamera_2.cpp	Bom_shuffleBuffer (.sbss)
+8043CA38	8043CA40	Pack/RPParty/RPBilScene/RPBilHud.cpp	Bil_hud (.sbss)
+803272A8	803272C0	Pack/RPParty/RPBilScene/RPBilBallMgr.cpp	ball manager strings (.rodata)
+8035DEF8	8035DF88	Pack/RPParty/RPBilScene/RPBilBallMgr.cpp	__vt__12RPBilBallMgr and weak copies (.data)
+8043B878	8043B8C0	Pack/RPParty/RPBilScene/RPBilBallMgr.cpp	cushion and collision params (.sdata)
+8043C9F8	8043CA00	Pack/RPParty/RPBilScene/RPBilBallMgr.cpp	Bil_ballMgr (.sbss)
+80441318	80441340	Pack/RPParty/RPBilScene/RPBilBallMgr.cpp	sBallNum and literals (.sdata2)
+8043CA00	8043CA08	Pack/RPParty/RPBilScene/RPBilGameMgr.cpp	Bil_gameMgr, RPBilGameMgr::sPlayerNum (.sbss)
+8043CA08	8043CA10	Pack/RPParty/RPBilScene/RPBilResult.cpp	Bil_result (.sbss)
+80328908	80328B80	Pack/RPParty/RPBomScene/RPBomLyt_3.cpp	score layout anm/text tables and strings (.rodata)
+80328E10	803291D8	Pack/RPParty/RPBomScene/RPBomLyt_8.cpp	pose selector tables and strings (.rodata)
+803291D8	80329458	Pack/RPParty/RPBomScene/RPBomLyt_9.cpp	clear layout tables and strings (.rodata)
+8035EE60	8035EE90	Pack/RPParty/RPBomScene/RPBomScreenFx.cpp	Bgm jump table (.data)
+8035EE90	8035EF90	Pack/RPParty/RPBomScene/RPBomScreenFx_2.cpp	screen fx vtable and state PTMFs (.data)
+8043AAA0	8043AAB0	Pack/RPParty/RPBomScene/RPBomScreenFx.cpp	jingle handle (.bss)
+8043AAB0	8043AABC	Pack/RPParty/RPBomScene/RPBomScreenFx_2.cpp	sCapturePos (.bss)
+8043CAB0	8043CAB8	Pack/RPParty/RPBomScene/RPBomScreenFx.cpp	Bgm instance (.sbss)
+80441750	80441758	Pack/RPParty/RPBomScene/RPBomScreenFx.cpp	Bgm literals (.sdata2)
+80441758	80441780	Pack/RPParty/RPBomScene/RPBomScreenFx_2.cpp	screen fx literals (.sdata2)
+8043D6A0	8043D6A8	egg/gfxe/eggDrawGX.cpp	EGG::DrawGX::s_circleDLTbl (.sdata2; read by RPBomScreenFx_2)
+80327E58	80327F48	Pack/RPParty/RPBilScene/RPBilLyt_2.cpp	score popup layout names and strings (.rodata)
+8035E5C0	8035E5E0	Pack/RPParty/RPBilScene/RPBilLyt_2.cpp	__vt__18RPBilScorePopupLyt (.data)
+80441550	80441568	Pack/RPParty/RPBilScene/RPBilLyt_2.cpp	score popup layout literals (.sdata2)
+80327F48	80327FA8	Pack/RPParty/RPBilScene/RPBilScorePopup.cpp	score popup strings (.rodata)
+8035E5E0	8035E608	Pack/RPParty/RPBilScene/RPBilScorePopup.cpp	score popup vtable and state table (.data)
+8043B918	8043B920	Pack/RPParty/RPBilScene/RPBilScorePopup.cpp	score popup .sdata
+80327FF0	803280B8	Pack/RPParty/RPBilScene/RPBilLyt_4.cpp	stroke guide names and strings (.rodata)
+8035E628	8035E660	Pack/RPParty/RPBilScene/RPBilLyt_4.cpp	stroke guide vtables (.data)
+80441568	80441578	Pack/RPParty/RPBilScene/RPBilLyt_4.cpp	stroke guide literals (.sdata2)
+803280B8	80328118	Pack/RPParty/RPBilScene/RPBilHint.cpp	hint names and strings (.rodata)
+8035E660	8035E680	Pack/RPParty/RPBilScene/RPBilHint.cpp	hint vtable and state table (.data)
+8043B920	8043B930	Pack/RPParty/RPBilScene/RPBilHint.cpp	hint .sdata
+8035CF30	8035D080	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	RPCowPlayerSound/RPCowPlayer vtables and the player wstring
+8035D080	8035D0E0	Pack/RPParty/RPCowScene/RPCowField.cpp	__vt__10RPCowField
+80440C40	80440C48	Pack/RPParty/RPCowScene/RPCowField.cpp	sModelScale
+8035D0E0	8035D170	Pack/RPParty/RPCowScene/RPCowFieldObj.cpp	the twelve state vtables
+80440C48	80440CE0	Pack/RPParty/RPCowScene/RPCowFieldObj.cpp	FieldObj constants
+8043ECB8	8043ECBC	Pack/RPParty/RPPartyCommon/RPCollisionShape.cpp	RP_epsilon: named const at the start of RPCollisionShape's .sdata2 (RPCowFieldObj references it as extern)
+803273B0	803273C0	Pack/RPParty/RPBilScene/RPBilAimMarker.cpp	"bad_ball_2"
+8035E1E0	8035E270	Pack/RPParty/RPBilScene/RPBilAimMarker.cpp	__vt__14RPBilAimMarker
+8043B8C8	8043B8D0	Pack/RPParty/RPBilScene/RPBilAimMarker.cpp	marker .sdata
+804413B8	804413C8	Pack/RPParty/RPBilScene/RPBilAimMarker.cpp	marker .sdata2
+803273C0	803274C8	Pack/RPParty/RPBilScene/RPBilResult.cpp	score limits, state table, strings
+8035E270	8035E2B8	Pack/RPParty/RPBilScene/RPBilResult.cpp	__vt__11RPBilResult
+8035CDA0	8035CE40	Pack/RPParty/RPCowScene/RPCowGame.cpp	Calculate jump table, __vt__15RPCowSceneSound, __vt__9RPCowGame
+80440990	804409C0	Pack/RPParty/RPCowScene/RPCowGame.cpp	game .sdata2 pool
+8043A8E8	8043A910	Pack/RPParty/RPCowScene/RPCowGame.cpp	Cow_colliderListA, Cow_objectColliders, Cow_colliderListB
+803259D8	80325AA0	Pack/RPParty/RPCowScene/RPCowCamera_2.cpp	camera .rodata
+8035CE40	8035CF30	Pack/RPParty/RPCowScene/RPCowCamera_2.cpp	camera vtable and 12 state vtables
+804409C0	80440AD0	Pack/RPParty/RPCowScene/RPCowCamera_2.cpp	camera .sdata2 pool
+804419A0	804419A8	Pack/RPParty/RPCowScene/RPCowCamera_2.cpp	camera .sbss2
+8043E9D0	8043E9D8	Pack/RPGraphics/RPGrpProjectionObject.cpp	100000.0f and padding
+8043E9D8	8043E9DC	Pack/RPGraphics/RPGrpModelRfl.cpp	RPSysKokeshiManager::DEFAULT_OUTPUT_ALPHA (8-aligned start of the next file)
+80317120	80317168	Pack/RPSystem/RPSysLoadScene.cpp	string pool
+80317168	80317178	Pack/RPSystem/RP_80186E40.cpp	drawTimeStamp format string
+8043E5F8	8043E608	Pack/RPSystem/RP_80186E40.cpp	drawTimeStamp constants
+8043C538	8043C540	Pack/RPKernel/RPSysHomeMenuMgr.cpp	spInstance (the unit .sbss starts 8-aligned)
+8043EAE8	8043EAF8	Pack/RPParty/RPPartyCommon/RPInterpCamera.cpp	CalcEase constants (0.0 1.0 0.5 pi; RPCurve has its own 0.0)
+804391F0	80439AB0	Pack/RPParty/RPPartyCommon/RPRumblePattern.cpp	sSlots (0x8C0)
+8043C530	8043C538	Pack/RPKernel/RPSysSystemWinMgr.cpp	spInstance__17RPSysSystemWinMgr
+80357310	80357320	Pack/RPParty/RPPartyCommon/RPPolyline.cpp	split of the old RPPolyline/RPPosHistory ranges
+8043EB00	8043EB18	Pack/RPParty/RPPartyCommon/RPPolyline.cpp	split of the old RPPolyline/RPPosHistory ranges
+80357320	80357338	Pack/RPParty/RPPartyCommon/RPPosHistory.cpp	split of the old RPPolyline/RPPosHistory ranges
+8043EB18	8043EB48	Pack/RPParty/RPPartyCommon/RPPosHistory.cpp	split of the old RPPolyline/RPPosHistory ranges
+80357338	80357348	Pack/RPParty/RPPartyCommon/RPCursorTrail.cpp	split of the old RPPolyline/RPPosHistory ranges
+8043EB48	8043EB50	Pack/RPParty/RPPartyCommon/RPCursorTrail.cpp	split of the old RPPolyline/RPPosHistory ranges
+80317A20	80317B8C	Pack/RPKernel/RPSysCursorDrawMgr.cpp	cursor name tables and string pool
+80317A08	80317A20	Pack/RPKernel/RPSysKokeshiIcon.cpp	.rodata (pinned: CursorDrawMgr ownership had dropped it)
+80358540	80358558	Pack/RPParty/RPPartyCommon/RPDoll_2.cpp	__vt__9RPDollMgr
+8031C7A8	8031C8D8	Pack/RPParty/RPPartyCommon/RPResultMenu.cpp	RPVsResultLyt state table, names, string pool
+80358460	80358540	Pack/RPParty/RPPartyCommon/RPDoll.cpp	Party_dollAngles, RPDoll vtable
+80358558	80358608	Pack/RPParty/RPPartyCommon/RPDollBase.cpp	RPDollBase data
+8043C680	8043C684	Pack/RPParty/RPPartyCommon/RPActorScene.cpp	spActorList__12RPActorScene
+80439088	804390B8	Pack/RPGraphics/RPGrpModelRfl.cpp	lbl_804A4608 MTX34 static and draw settings (its __sinit initialises them)
+80357268	803572E0	Pack/RPParty/RPPartyCommon/RPActorBase.cpp	__vt__11RPActorBase
+8043EAC0	8043EAD0	Pack/RPParty/RPPartyCommon/RPActorBase.cpp	1.0 0.0 0.001
+8043EAD0	8043EAD8	Pack/RPParty/RPPartyCommon/RPActorBase_2.cpp	2.0 (RPDrawShadowVolumeQuad)
+80319640	80319D78	Pack/RPParty/RPPartyCommon/RPPlayerNumSelect.cpp	data of Menu_updateRemoteLamps (moved from RPKokeshiMgr_3)
+8043EE50	8043EE58	Pack/RPParty/RPPartyCommon/RPPlayerNumSelect.cpp	.sdata2 start (Menu_updateRemoteLamps)
+8031E4F0	8031E728	Pack/RPParty/RPPartyCommon/RPLeadCursor.cpp	RPFaceCtrl blink tables, state funcs, anim/picture name tables, string pool
+8031E9F8	8031EE48	Pack/RPParty/RPPartyCommon/RPTitleLyt.cpp	state-func tables, name tables, string pool
+8031EE80	8031EEA0	Pack/RPParty/RPPartyCommon/RPSelectGameLyt_3.cpp	balloon SE string pool (8-aligned), used by the locked-balloon states
+8043F338	8043F340	Pack/RPParty/RPPartyCommon/RPSelectGameLyt_3.cpp	.sdata2 int->float constant of the locked-balloon file
+8043F340	8043F348	Pack/RPParty/RPPartyCommon/RPSelectGameLyt_4.cpp	.sdata2 int->float constant of the record-text file
+8043C5C0	8043C5C8	Pack/RPGraphics/RPGrpModelScene.cpp	Gfx_scnAllocator (.sbss), created by RPGrpModelScene
+8043C608	8043C610	Pack/RPParty/RPPartyCommon/RPResSlots.cpp	RP_resSlotsInstance (.sbss)
+80439110	80439170	Pack/RPUtility/RPUtlDohMath_2.cpp	RP_vecZero, RP_vecEx/Ey/Ez, RP_vecOne, RP_mtx33Identity (.bss)
+804387D0	80438820	Pack/RPKernel/RPSysSystem_2.cpp	RPSysSystem::sConfigData (.bss)
+8034F01C	8034F050	-	__vt__15RPSysConfigData: at 4 mod 8 it cannot start a compiled .data section (CodeWarrior aligns them to 8), so it stays in an asm split; RPSysSystem_2.cpp also emits it (weak)
+8031DEB0	8031E280	Pack/RPParty/RPPartyCommon/RPDoll.cpp	reaction table, state functions, animation names, scale factors and CalcIdle state/weight tables (local initializers), and the animation-name string pool
+8031D9C0	8031DEB0	Pack/RPParty/RPPartyCommon/RPGameInfoLyt.cpp	0x100 local-initializer block (Load), state functions, layout/animation name tables and string pool
+8043EAA0	8043EAA8	Pack/RPParty/RPPartyCommon/RPKcl.cpp	.sdata2 pool 0.0f, 1.0f of the KCL functions
+8043EAA8	8043EAB0	Pack/RPParty/RPPartyCommon/RPKcl_2.cpp	.sdata2 pool 0.0f, 1.0f of the RPSimpleModel statics' init
+80439170	804391D0	Pack/RPParty/RPPartyCommon/RPKcl_2.cpp	RPSimpleModel::sVecZero/sVecEx/Ey/Ez/sVecOne/sMtxIdentity (.bss)
+8043C618	8043C620	Pack/RPParty/RPPartyCommon/RPKcl_2.cpp	RP_vec2ZeroB (.sbss)
+8043C620	8043C628	Pack/RPParty/RPPartyCommon/RPSimpleModel.cpp	RPUtlRandom::sRandom (.sbss; SetRandomSeed writes it); each object's .sbss starts 8-aligned, hence the gaps
+8043C628	8043C630	Pack/RPParty/RPPartyCommon/RPSceneInfo.cpp	RPCls803572E0::sInstance (.sbss; created/destroyed there)
+8043EAB0	8043EAC0	Pack/RPParty/RPPartyCommon/RPSimpleModel.cpp	RPUtlRandom constants (RANDF_MAX, RANDF_SHIFT, MULT), defined with sRandom
+8031B568	8031B668	Pack/RPParty/RPPartyCommon/RPPlayerNameTag.cpp	ctor state-function initializer, Show lamp-pane names, string pool
+80318BC0	80318D30	Pack/RPParty/RPPartyCommon/RPSysBootScene.cpp	strap scene strings/constants (Health_StrapScene_create/draw/loadResources)
+80357948	803579A8	Pack/RPParty/RPPartyCommon/RPSysBootScene.cpp	__vt__14RPSysBootScene
+8043B388	8043B390	Pack/RPParty/RPPartyCommon/RPSysBootScene.cpp	Health_isFirstBoot (.sdata)
+8043ED80	8043EDA0	Pack/RPParty/RPPartyCommon/RPSysBootScene.cpp	.sdata2 of the strap scene
+80318D30	80318E00	Pack/RPParty/RPPartyCommon/RPMenuScene.cpp	menu scene strings (playControllerChangeSe/reset/loadResource)
+803579A8	80357A08	Pack/RPParty/RPPartyCommon/RPMenuScene.cpp	__vt__22RPSysPlayerSelectScene
+8043C6A0	8043C6A8	Pack/RPParty/RPPartyCommon/RPMenuScene.cpp	sLastStartTime (.sbss)
+8043C6A8	8043C6B0	Pack/RPParty/RPPartyCommon/RPPtMenuBg.cpp	Menu_ptMenuBgInstance (.sbss)
+8043C6B0	8043C6B8	Pack/RPParty/RPPartyCommon/RPPlayerSettingPanel.cpp	spInstance__20RPPlayerSettingPanel (.sbss)
+8043EDA0	8043EDA8	Pack/RPParty/RPPartyCommon/RPMenuScene.cpp	.sdata2 of the menu scene
+802E9E60	803047D8	-	strap.arc: an embedded Yaz0 archive (separately linked binary, not C++ data)
+8031BA98	8031BAB8	Pack/RPParty/RPPartyCommon/RPLogoModel.cpp	logo model resource strings
+8031BAB8	8031BC68	Pack/RPParty/RPPartyCommon/RPPlayAdviceLyt.cpp	state functions, animation names, string pool
+8031C0AC	8031C2D8	Pack/RPParty/RPPartyCommon/RPMedalResult_2.cpp	string pool continues (medal/effect/fanfare names, G3D/medal_model.brres), referenced via lbl_8031C008 + offset
+8031C2D8	8031C3F8	Pack/RPParty/RPPartyCommon/RPMedalResult_3.cpp	RPCommon: msg-index table (also read by Party_getGameMsgIndex), cmn_* anim table, string pool
+80358290	803582C0	Pack/RPParty/RPPartyCommon/RPMedalResult_3.cpp	RPCommon vtable
+8043C6D8	8043C6E0	Pack/RPParty/RPPartyCommon/RPMedalResult_3.cpp	sInstance__8RPCommon (.sbss)
+8043F020	8043F038	Pack/RPParty/RPPartyCommon/RPMedalResult_3.cpp	RPCommon .sdata2
+8031C3F8	8031C730	Pack/RPParty/RPPartyCommon/RPMedalResult_4.cpp	RPRecordLyt: state funcs, anim/text name tables, string pool
+803582C0	80358308	Pack/RPParty/RPPartyCommon/RPMedalResult_4.cpp	RPRecordLyt pane-name tables and vtable
+8043B408	8043B410	Pack/RPParty/RPPartyCommon/RPMedalResult_4.cpp	RPRecordLyt center pane names (.sdata)
+8043F038	8043F048	Pack/RPParty/RPPartyCommon/RPMedalResult_4.cpp	RPRecordLyt .sdata2
+8031C730	8031C7A8	Pack/RPParty/RPPartyCommon/RPMedalResult_5.cpp	Party_resultMenuStateFuncs
+80358308	80358320	Pack/RPParty/RPPartyCommon/RPMedalResult_5.cpp	RPResultMenu vtable
+80319F48	8031A760	Pack/RPParty/RPPartyCommon/RPMiiSelect.cpp	RPMiiSelectLyt tables and string pool (referenced only from RPMiiSelect)
+80358010	80358020	Pack/RPParty/RPPartyCommon/RPLogoModel.cpp	__vt__11RPLogoModel (+ padding)
+8031ABB8	8031AEB8	Pack/RPParty/RPPartyCommon/RPSportsMessageScene.cpp	one string pool (nunchuk check layout names, panel pane names), shared by the panel and the scene
+8043A304	8043A3B8	Pack/RPParty/RPPartyCommon/RPCollisionShape.cpp	EGG vector/matrix constants built by its static initializer (RP_eggVecEy, RP_eggMtxIdentity, ...)
+8043EB50	8043EB68	Pack/RPParty/RPPartyCommon/RPPhysSphere.cpp	.sdata2 pool of the sphere physics
+8043EB68	8043EB78	Pack/RPParty/RPPartyCommon/RPInterpCamera_2.cpp	.sdata2 pool (CalcUpVector, Calculate)
+8043EB78	8043EBA8	Pack/RPParty/RPPartyCommon/RPCPadCursor_2.cpp	.sdata2: named 2.0f, then the pool (getPointerScreenPos, CalcFadeAlpha, UpdateCorners, sinit)
+8043C630	8043C640	Pack/RPParty/RPPartyCommon/RPCPadCursor_2.cpp	Lyt_cpadCursorDefaultSize/Scale (.sbss)
+8043C640	8043C648	Pack/RPParty/RPPartyCommon/RPTnkMapData.cpp	RP_tnkMapDataInstance (RPTnkMapData singleton)
+8043C648	8043C650	Pack/RPParty/RPPartyCommon/RPMiiIconSet.cpp	RPMiiIconSet::sInstance
+8043C440	8043C458	Pack/RPKernel/RPSysSystem.cpp	spInstance, render-mode statics, disk-check flags (.sbss)
+8043EC00	8043EC10	Pack/RPParty/RPPartyCommon/RPBBox.cpp	.sdata2 pool 0, -FLT_MAX, FLT_MAX
+8043EC10	8043EC78	Pack/RPParty/RPPartyCommon/RPDebugLog.cpp	.sdata2 pool of the debug log/graph code
+8043B360	8043B368	Pack/RPParty/RPPartyCommon/RPDebugLog.cpp	.sdata of the debug log
+8043C660	8043C678	Pack/RPParty/RPPartyCommon/RPDebugLog.cpp	.sbss debug buffers
+8031B668	8031B9A8	Pack/RPParty/RPPartyCommon/RPPlayerConfirmLyt.cpp	RPPlayerConfirmLyt tables and string pool
+80357FD8	80357FF8	Pack/RPParty/RPPartyCommon/RPPlayerConfirmLyt.cpp	__vt__18RPPlayerConfirmLyt
+8043EF30	8043EF68	Pack/RPParty/RPPartyCommon/RPPlayerConfirmLyt.cpp	RPPlayerConfirmLyt .sdata2
+8031B9A8	8031BA98	Pack/RPParty/RPPartyCommon/RPPlayerConfirm.cpp	RPPlayerConfirm PMF table and string pool
+80357FF8	80358010	Pack/RPParty/RPPartyCommon/RPPlayerConfirm.cpp	__vt__15RPPlayerConfirm
+8031B000	8031B540	Pack/RPParty/RPPartyCommon/RPPlayerSettingPanel.cpp	panel tables and string pool
+8031B540	8031B568	Pack/RPParty/RPPartyCommon/RPPlayerSettingPanel_2.cpp	game-id/slot table
+8043C6B8	8043C6C0	Pack/RPParty/RPPartyCommon/RPSportsMessageScene.cpp	Menu_nunchukCheckSportInfo (.sbss)
+8031D5B8	8031D5E0	Pack/RPParty/RPPartyCommon/RPSelectScene.cpp	Party_gameIndexToMsgIndex local initializer (first object of the RPSelectScene file)
+8031E728	8031E760	Pack/RPParty/RPPartyCommon/RPMsgBoard.cpp	gameIds table and "party_message.bmg"
+80358700	80358710	Pack/RPParty/RPPartyCommon/RPMsgBoard.cpp	RPMsgBoard vtable (+ padding)
+8031E760	8031E8F8	Pack/RPParty/RPPartyCommon/RPRankCompleteLyt.cpp	RPRankCompleteLyt tables and string pool
+80358710	80358730	Pack/RPParty/RPPartyCommon/RPRankCompleteLyt.cpp	RPRankCompleteLyt vtable and tables
+8043F2A8	8043F2C0	Pack/RPParty/RPPartyCommon/RPRankCompleteLyt.cpp	RPRankCompleteLyt .sdata2
+80316CB8	80316CE8	-	RPSysSystem's lbl_80316CB8 table and "timeStamp.txt"/"Now Loading" (RPSysSystem.cpp declares them extern; keep auto)
+80316FF0	80317008	Pack/RPSystem/RPSysRenderMode.cpp	RPSysRenderMode::spRenderModeTable
+8034F0F8	8034F228	Pack/RPSystem/RPSysRenderMode.cpp	the five GXRenderModeObj (file-local)
+803181A0	803181A8	Pack/RPParty/RPPartyCommon/RPBase8034F6B0.cpp	"item" (string pool)
+803181A8	803181B8	nw4r/g3d/g3d_scnrfl.cpp	nw4r::g3d::ScnRfl::TYPE_NAME (NW4R_G3D_RTTI_DEF(ScnRfl))
+8034F420	8034F430	Pack/RPSystem/RPSysPlayerMgr.cpp	__vt__14RPSysPlayerMgr
+8043ABC0	8043ABD0	egg/gfxe/eggStateGX.cpp	EGG::StateGX::s_flag, s_modifyRatio, s_tmem_layout (.sdata; Rhae splits.txt)
+8043ABE8	8043ABF0	-	a {pointer, 0} pair into .rodata 8030DF18/8030E118 (later EGG units); RPGrpRenderer::Initialize reads them, which must not stretch its .sdata span over the EGG data
+803104E0	80310510	MSL_C/printf.c	@stringBase0, the inf/nan/0x0p0 string pool of double2hex/float2str (matched 2026-10-27)
+8032E840	8032E8E8	MSL_C/printf.c	@2337 longlong2str and @2720 __pformatter %n switch tables (matched 2026-10-27)
+8043AC78	8043AC7C	MSL_C/printf.c	@wstringBase0 L"" (matched 2026-10-27)
+8043AC88	8043AC90	-	__double_huge: MSL float.c data that MSL/strtold.c reads as an extern (lis/@l), not strtold's
+8043BCF8	8043BD00	MSL_C/uart_console_io_gcn.c	static __uart_initialized (matched 2026-10-27)
+803A77C0	803A7810	revolution/WPAD/WPADMem.c	_wmb, the per-channel memory-read state (matched 2026-10-27)
+8043E288	8043E290	revolution/MTX/mtx.c	mtxOne, mtxZero: PSMTXIdentity's static const floats (matched 2026-10-27)
+8043DBF8	8043DC10	-	locale/__lconv strings (".", "", "AM|PM", "%T"), not MSL/ansi_fp.c data
+8043AC98	8043AD08	revolution/KPAD/KPAD.c	__KPADVersion pointer and KPAD statics/tuning values (matched 2026-10-27)
+8043AC40	8043AC48	egg/core/eggController.cpp	CoreControllerMgr::sWPADWorkSize (matched 2026-10-27)
+8043BC70	8043BC80	egg/core/eggController.cpp	sInstance, sCoreControllerFactory, sConnectCallback, sAllocator (matched 2026-10-27)
+8043AD50	8043AD98	revolution/GX/GXTexture.c	GXTexMode0Ids..GXTexTlutIds, GX2HWFiltConv, HW2GXFiltConv (matched 2026-10-27)
+80330B30	80330C00	revolution/GX/GXInit.c	GXTexRegionAddrTable, GXShutdownFuncInfo (matched 2026-10-27)
+803A78D0	803A7F50	revolution/GX/GXInit.c	FifoObj, gxData (matched 2026-10-27)
+8043BDE8	8043BDF8	revolution/GX/GXInit.c	__piReg, __cpReg, __peReg, __memReg (matched 2026-10-27)
+8043E140	8043E14C	revolution/GX/GXInit.c	__GXData and float pool (matched 2026-10-27)

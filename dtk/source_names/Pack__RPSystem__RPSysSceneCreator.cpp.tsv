@@ -1,0 +1,18 @@
+address	old_name	new_name	unit	previous
+801828DC	RPSysSystem_checkDisk	checkDisk__11RPSysSystemFv	Pack/RPSystem/RPSysSceneCreator.cpp	
+80183C38	Sys_SceneCreator_createGameScene	createPartyScene__17RPSysSceneCreatorFl	Pack/RPSystem/RPSysSceneCreator.cpp	__dt__22RPUtlLoadSaveDataSceneFv
+801840C8	Sys_SceneCreator_getSceneID	getSceneID__17RPSysSceneCreatorFQ217RPSysSceneCreator8ESportID	Pack/RPSystem/RPSysSceneCreator.cpp	
+801841D0	Sys_SceneCreator_destroy	destroy__17RPSysSceneCreatorFl	Pack/RPSystem/RPSysSceneCreator.cpp	
+801C7FE0	RP_ActorScene_ctor	__ct__12RPActorSceneFv	Pack/RPSystem/RPSysSceneCreator.cpp	
+803579A8	lbl_803579A8	__vt__22RPSysPlayerSelectScene	Pack/RPSystem/RPSysSceneCreator.cpp	
+80357D08	lbl_80357D08	__vt__22RPSysNunchukCheckScene	Pack/RPSystem/RPSysSceneCreator.cpp	
+80358040	lbl_80358040	__vt__15RPCommonMessage	Pack/RPSystem/RPSysSceneCreator.cpp	
+80358128	lbl_80358128	__vt__13RPAvatarScene	Pack/RPSystem/RPSysSceneCreator.cpp	
+80358188	lbl_80358188	__vt__16RPPartyRootScene	Pack/RPSystem/RPSysSceneCreator.cpp	
+80358760	lbl_80358760	__vt__10RPFshScene	Pack/RPSystem/RPSysSceneCreator.cpp	
+80359A38	lbl_80359A38	__vt__10RPDucScene	Pack/RPSystem/RPSysSceneCreator.cpp	
+8035B100	Tnk_Scene_vtable	__vt__10RPTnkScene	Pack/RPSystem/RPSysSceneCreator.cpp	
+8035C570	lbl_8035C570	__vt__10RPWlyScene	Pack/RPSystem/RPSysSceneCreator.cpp	
+8035CD38	lbl_8035CD38	__vt__10RPCowScene	Pack/RPSystem/RPSysSceneCreator.cpp	
+8035DC48	lbl_8035DC48	__vt__10RPBilScene	Pack/RPSystem/RPSysSceneCreator.cpp	
+8035E6B8	lbl_8035E6B8	__vt__10RPBomScene	Pack/RPSystem/RPSysSceneCreator.cpp	

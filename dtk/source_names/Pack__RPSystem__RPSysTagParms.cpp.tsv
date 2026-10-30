@@ -1,0 +1,8 @@
+address	old_name	new_name	unit	previous
+8034F2C0	lbl_8034F2C0	__vt__18RPSysStringTagParm	Pack/RPSystem/RPSysTagParms.cpp	
+8034F2D4	lbl_8034F2D4	__vt__12RPSysTagParm	Pack/RPSystem/RPSysTagParms.cpp	
+800A844C	write_u32__Q23EGG6StreamFUl	write_u16__Q23EGG6StreamFUs	Pack/RPSystem/RPSysTagParms.cpp	
+800A8504	read_s32__Q23EGG6StreamFv	read_u32__Q23EGG6StreamFv	Pack/RPSystem/RPSysTagParms.cpp	
+800A8614	write_s32__Q23EGG6StreamFl	write_u32__Q23EGG6StreamFUl	Pack/RPSystem/RPSysTagParms.cpp	
+800A86CC	read_float__Q23EGG6StreamFv	read_s32__Q23EGG6StreamFv	Pack/RPSystem/RPSysTagParms.cpp	
+800A87DC	write_float__Q23EGG6StreamFf	write_s32__Q23EGG6StreamFl	Pack/RPSystem/RPSysTagParms.cpp	

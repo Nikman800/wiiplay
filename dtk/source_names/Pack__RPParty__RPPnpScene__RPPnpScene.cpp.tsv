@@ -1,0 +1,15 @@
+address	old_name	new_name	unit	previous
+802244D0	Pnp_Scene_draw	UserDraw__10RPPnpSceneFv	Pack/RPParty/RPPnpScene/RPPnpScene.cpp	
+802244E4	Pnp_Scene_exit	Exit__10RPPnpSceneFv	Pack/RPParty/RPPnpScene/RPPnpScene.cpp	
+80224534	Pnp_Scene_calc	Calculate__10RPPnpSceneFv	Pack/RPParty/RPPnpScene/RPPnpScene.cpp	
+80224548	Pnp_Scene_reset	Reset__10RPPnpSceneFv	Pack/RPParty/RPPnpScene/RPPnpScene.cpp	
+80224590	Pnp_Scene_load	LoadResource__10RPPnpSceneFv	Pack/RPParty/RPPnpScene/RPPnpScene.cpp	
+8022465C	Pnp_Scene_create	Configure__10RPPnpSceneFv	Pack/RPParty/RPPnpScene/RPPnpScene.cpp	
+80224728	Pnp_80224728	initSound3D__15RPPnpSceneSoundFl	Pack/RPParty/RPPnpScene/RPPnpScene.cpp	
+802247A0	Pnp_Scene_dtor	__dt__10RPPnpSceneFv	Pack/RPParty/RPPnpScene/RPPnpScene.cpp	
+802247FC	Pnp_SceneSound_dtor	__dt__15RPPnpSceneSoundFv	Pack/RPParty/RPPnpScene/RPPnpScene.cpp	
+80224858	Pnp_Scene_drawThunk	@36@UserDraw__10RPPnpSceneFv	Pack/RPParty/RPPnpScene/RPPnpScene.cpp	
+80224860	Pnp_Scene_dtorThunk	@36@__dt__10RPPnpSceneFv	Pack/RPParty/RPPnpScene/RPPnpScene.cpp	
+8022DC8C	Pnp_createGame	CreateInstance__9RPPnpGameFv	Pack/RPParty/RPPnpScene/RPPnpScene.cpp	
+80359550	Pnp_SceneSound_vtable	__vt__15RPPnpSceneSound	Pack/RPParty/RPPnpScene/RPPnpScene.cpp	
+80359560	Pnp_Scene_vtable	__vt__10RPPnpScene	Pack/RPParty/RPPnpScene/RPPnpScene.cpp	

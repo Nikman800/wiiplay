@@ -1,0 +1,29 @@
+vtable	class_name	evidence
+8035E6B8	Scene	Sys scene subclass; create builds all Bom singletons, load reads sceneFile.brres/basic_bomb.breff/rp_Bom_sound.brsar
+8035E728	StartBg	singleton lbl_8043CA70; loads bg_model/bom_bg_acc_model, plays Bom_startbg(_wipe) effects, level bg anim
+8035E7B8	Camera	singleton lbl_8043CA78; position/target/look vectors, spline zoom-in state table, attached to render layers
+8035E7D8	CursorManager	singleton lbl_8043CA88; array of Cursor objects, forwards reset/calc/draw to active ones
+8035E800	Cursor	per-controller Wii remote pointer: DPD position clamp and roll angle from RP_801BAF00 helper
+8035ECA4	Player	per-player posing Mii (0x164): avatar, bom_pose_anim/ira_pose anims, bubble model, pose index, 2 state tables
+8035E8D0	PlayerSound	sound actor (Wly sound-actor family) created in Player_create/Panel_create; plays ids via vt+0x78 slot
+8035ED50	PlayerManager	singleton lbl_8043CA90; array of Player objects with batch state setters
+8035EE14	GameManager	singleton lbl_8043CA98; 13-state game flow (intro, play, miss, level end, results), owns Score/QuestionParam/BGM
+8035EE38	QuestionParam	singleton lbl_8043CAA0; loads param/BomQuestionParam.bin, generates panel waves and poses per level
+8035EF68	ScreenFx	singleton lbl_8043CAB8; EFB capture texture and full-screen mask/spotlight draw states
+8035EF90	Score	singleton lbl_8043CAC0; per-player score (cap 9999), total (cap 99999), pop count, combo
+8035EFB8	PoolObj	pooled model object base: age/active counter +0x94, owner pool +0x9c, motion integration, activate/deactivate
+8035F058	ObjPool	generic pool of PoolObj: createItems via factory slot, round-robin spawn, per-pass forwarding to active items
+8035F0B0	PanelCtrl	singleton lbl_8043CAC8 (8 bytes); wraps PanelPool and forwards each update pass
+8035F100	Panel	falling pose panel (0x11c) derived from PoolObj; panelA/B/C models, keyhole/ok/miss effects, fall/hit states
+8035F620	PanelPool	singleton lbl_8043CAD0; ObjPool of 16 Panels with counting/spawn/query helpers
+8035F708	Border	singleton lbl_8043CAD8; 3 border_model lives indicators with landing/normal/miss anims and borderbreak effect
+8035F7A0	LayoutMgr	singleton lbl_8043CAE0; owns poseMan.arc layouts (start, level, ready, pose select x2, score, miss, clear, end, 16 points)
+8035F7C8	LytStart	poseManStart_00.brlyt layout (theme title/upDown/signal)
+8035F7E8	LytScore	poseManScore_00.brlyt layout (1P/2P scores, move/switch anims)
+8035F808	LytPoint	poseManPoint_00.brlyt layout (score popup numbers)
+8035F828	LytEnd	poseManEnd_00.brlyt layout (end message)
+8035F848	LytLevel	poseManLevel_00.brlyt layout (level number message)
+8035F868	LytReady	poseManReady_00.brlyt layout (Ready message)
+8035F888	LytPoseSel	poseManAB_00/01.brlyt per-player pose selector with arrows and posechange effects
+8035F8D0	LytClear	poseManClear_00.brlyt layout (level clear, bonus, final score, winner)
+8035F8F0	LytMiss	poseManMiss_00.brlyt layout (miss message)

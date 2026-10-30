@@ -1,0 +1,10 @@
+address	old_name	new_name	unit	previous
+80196B0C	RP_TextWriter_beginWithFont	Begin__12RPTextWriterFPCQ34nw4r2ut4Font	Pack/RPParty/RPPartyCommon/RPTextWriter.cpp	
+80196A20	RP_TextWriter_printfAt	Printf__12RPTextWriterFffPCwie	Pack/RPParty/RPPartyCommon/RPTextWriter.cpp	
+80196B00	RP_TextWriter_end	End__12RPTextWriterFv	Pack/RPParty/RPPartyCommon/RPTextWriter.cpp	
+80196BA4	RP_TextWriter_begin	Begin__12RPTextWriterFl	Pack/RPParty/RPPartyCommon/RPTextWriter.cpp	
+80196BF8	RP_TextWriter_dtor	__dt__12RPTextWriterFv	Pack/RPParty/RPPartyCommon/RPTextWriter.cpp	
+80196C50	RP_TextWriter_ctor	__ct__12RPTextWriterFv	Pack/RPParty/RPPartyCommon/RPTextWriter.cpp	
+8034F678	lbl_8034F678	__vt__12RPTextWriter	Pack/RPParty/RPPartyCommon/RPTextWriter.cpp	
+8043AACC	lbl_8043AACC	mFormatBufferSize__Q34nw4r2ut17TextWriterBase<w>	Pack/RPParty/RPPartyCommon/RPTextWriter.cpp	
+8043B998	lbl_8043B998	mFormatBuffer__Q34nw4r2ut17TextWriterBase<w>	Pack/RPParty/RPPartyCommon/RPTextWriter.cpp	

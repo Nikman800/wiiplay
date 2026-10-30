@@ -1,0 +1,161 @@
+address	dtk_name	symbol	qualified	confidence	note	batch
+80004134	fn_80004134	TRK_memset	TRK_memset(void*, int, size_t)	high	MetroTRK mem_TRK: calls TRK_fill_mem, returns dest; called by TRK msg handlers; 0x30 (not nw4r)	nw4r
+80004164	fn_80004164	TRK_memcpy	TRK_memcpy(void*, const void*, size_t)	high	MetroTRK mem_TRK: byte copy loop, called by TRK buffer/__TRK_copy_vectors; 0x24 (not nw4r)	nw4r
+8002FCF8	fn_8002FCF8	VEC3Maximize__Q24nw4r4mathFPQ34nw4r4math4VEC3PCQ34nw4r4math4VEC3PCQ34nw4r4math4VEC3	nw4r::math::VEC3Maximize(VEC3*, const VEC3*, const VEC3*)	high	ref math_types 0x40 vs 0x40; per-component max; used by EGG::ModelEx::getShapeMinMax	nw4r
+8002FD38	fn_8002FD38	VEC3Minimize__Q24nw4r4mathFPQ34nw4r4math4VEC3PCQ34nw4r4math4VEC3PCQ34nw4r4math4VEC3	nw4r::math::VEC3Minimize(VEC3*, const VEC3*, const VEC3*)	high	ref math_types 0x40 vs 0x40; per-component min; follows VEC3Maximize as in ref	nw4r
+8003B734	fn_8003B734	Seek__Q44nw4r3snd18MemorySoundArchive16MemoryFileStreamFlUl	nw4r::snd::MemorySoundArchive::MemoryFileStream::Seek(long, u32)	high	MemoryFileStream vtable slot 15 (IOStream Seek); begin/current/end on +0x1C; ref 0x50 vs 0x4C	nw4r
+8003B780	fn_8003B780	fn_8003B780	?	keep	empty blr, no callers or vtable refs; no matching ref entry	nw4r
+8003B784	fn_8003B784	GetSize__Q44nw4r3snd18MemorySoundArchive16MemoryFileStreamCFv	nw4r::snd::MemorySoundArchive::MemoryFileStream::GetSize() const	high	vtable slot 14 (GetSize), returns +0x18; ref 0x8 vs 0x8	nw4r
+8003B78C	fn_8003B78C	Tell__Q44nw4r3snd18MemorySoundArchive16MemoryFileStreamCFv	nw4r::snd::MemorySoundArchive::MemoryFileStream::Tell() const	high	vtable slot 20 (Tell), returns position +0x1C; ref 0x8 vs 0x8	nw4r
+8003B794	fn_8003B794	CanWrite__Q44nw4r3snd18MemorySoundArchive16MemoryFileStreamCFv	nw4r::snd::MemorySoundArchive::MemoryFileStream::CanWrite() const	high	vtable slot 10 (CanWrite), returns false; ref 0x8	nw4r
+8003B79C	fn_8003B79C	CanRead__Q44nw4r3snd18MemorySoundArchive16MemoryFileStreamCFv	nw4r::snd::MemorySoundArchive::MemoryFileStream::CanRead() const	high	vtable slot 9 (CanRead), returns true; ref 0x8	nw4r
+8003B7A4	fn_8003B7A4	CanAsync__Q44nw4r3snd18MemorySoundArchive16MemoryFileStreamCFv	nw4r::snd::MemorySoundArchive::MemoryFileStream::CanAsync() const	high	vtable slot 8 (CanAsync), returns false; ref 0x8	nw4r
+8003B7AC	fn_8003B7AC	CanCancel__Q44nw4r3snd18MemorySoundArchive16MemoryFileStreamCFv	nw4r::snd::MemorySoundArchive::MemoryFileStream::CanCancel() const	high	vtable slot 19 (CanCancel), returns true; ref 0x8	nw4r
+8003B7B4	fn_8003B7B4	CanSeek__Q44nw4r3snd18MemorySoundArchive16MemoryFileStreamCFv	nw4r::snd::MemorySoundArchive::MemoryFileStream::CanSeek() const	high	vtable slot 18 (CanSeek), returns true; ref 0x8	nw4r
+8003B7BC	fn_8003B7BC	__dt__Q44nw4r3snd18MemorySoundArchive16MemoryFileStreamFv	nw4r::snd::MemorySoundArchive::MemoryFileStream::~MemoryFileStream()	high	vtable slot 1 (dtor), __dl__ on flag; ref 0x40 vs 0x40	nw4r
+8003B7FC	fn_8003B7FC	OnUpdateFrameSoundThread__Q44nw4r3snd6detail9SeqPlayerFv	nw4r::snd::detail::SeqPlayer::OnUpdateFrameSoundThread()	high	SeqPlayer vtable slot 21, tail-calls SeqPlayer::Update; ref 0x4 vs 0x4	nw4r
+8003B830	fn_8003B830	@116@InvalidateWaveData__Q44nw4r3snd6detail9SeqPlayerFPCvPCv	nw4r::snd::detail::SeqPlayer::InvalidateWaveData thunk (this-0x74)	high	SeqPlayer vtable slot 11, this-0x74 (116) then InvalidateWaveData; ref 0x8	nw4r
+8003B838	fn_8003B838	@116@InvalidateData__Q44nw4r3snd6detail9SeqPlayerFPCvPCv	nw4r::snd::detail::SeqPlayer::InvalidateData thunk (this-0x74)	high	SeqPlayer vtable slot 10, this-0x74 then InvalidateData; ref 0x8	nw4r
+8003B840	fn_8003B840	@128@OnShutdownSoundThread__Q44nw4r3snd6detail9SeqPlayerFv	nw4r::snd::detail::SeqPlayer::OnShutdownSoundThread thunk (this-0x80)	high	SeqPlayer vtable slot 17, this-0x80 then OnShutdownSoundThread; ref 0x8	nw4r
+8003B848	fn_8003B848	@128@OnUpdateFrameSoundThread__Q44nw4r3snd6detail9SeqPlayerFv	nw4r::snd::detail::SeqPlayer::OnUpdateFrameSoundThread thunk (this-0x80)	high	SeqPlayer vtable slot 15, this-0x80 then OnUpdateFrameSoundThread (8003B7FC); ref 0x8	nw4r
+8003C928	fn_8003C928	__ct__Q34nw4r3snd16NandSoundArchiveFv	nw4r::snd::NandSoundArchive::NandSoundArchive()	high	ref 0x4C vs 0x4C; SoundArchive ctor + vtable + SoundArchiveFileReader ctor; right before NandSoundArchive dtor	nw4r
+8003D324	fn_8003D324	Update__Q34nw4r3snd13RemoteSpeakerFv	nw4r::snd::RemoteSpeaker::Update()	high	ref Update 0xD4 vs 0xD4; issues WPADControlSpeaker on/play/off; called from RemoteSpeakerManager alarm	nw4r
+8003E848	fn_8003E848	nw4r_snd_SeqPlayer_SetGlobalVariable	nw4r::snd::detail::SeqPlayer::SetGlobalVariable(int, s16)	high	ref 0x70 vs 0x70, writes static var table; from SeqSound::WriteGlobalVariable. Flat: 8003E7D8 has this name	nw4r
+8003E8B8	fn_8003E8B8	SetTrackMute__Q44nw4r3snd6detail9SeqPlayerFUlQ34nw4r3snd7SeqMute	nw4r::snd::detail::SeqPlayer::SetTrackMute(u32, SeqMute)	high	ref 0xBC vs 0xBC; per-track-bit ptmf call with int arg (SetTrackParam inlined)	nw4r
+8003F4B8	fn_8003F4B8	@116@__dt__Q44nw4r3snd6detail9SeqPlayerFv	nw4r::snd::detail::SeqPlayer::~SeqPlayer thunk (this-0x74)	high	SeqPlayer vtable slot 9, this-0x74 then dtor; ref 0x8	nw4r
+8003F4C0	fn_8003F4C0	@128@__dt__Q44nw4r3snd6detail9SeqPlayerFv	nw4r::snd::detail::SeqPlayer::~SeqPlayer thunk (this-0x80)	high	SeqPlayer vtable slot 14, this-0x80 then dtor; ref 0x8	nw4r
+8003FA8C	fn_8003FA8C	nw4r_snd_SeqSound_SetTrackPitch	nw4r::snd::detail::SeqSound::SetTrackPitch(u32, f32)	high	forwards to SeqPlayer::SetTrackPitch on +0xD8; ref 0x8. Flat: 8003FA84 already has this name (shifted)	nw4r
+8003FA94	fn_8003FA94	nw4r_snd_SeqSound_ReadVariable	nw4r::snd::detail::SeqSound::ReadVariable(int, s16*) const	medium	stores player local var (via 8003E7C8 getter) or -1 if inactive, returns true; used by game BGM code	nw4r
+8003FAE4	fn_8003FAE4	ReadGlobalVariable__Q44nw4r3snd6detail8SeqSoundFiPs	nw4r::snd::detail::SeqSound::ReadGlobalVariable(int, s16*)	medium	static; stores global var read via 8003E7D8 (getter), returns true; pairs with WriteGlobalVariable next	nw4r
+800413C4	fn_800413C4	@168@detail_Update__Q34nw4r3snd12Sound3DActorFPvPCQ44nw4r3snd6detail10BasicSound	nw4r::snd::Sound3DActor::detail_Update thunk (this-0xA8)	high	this-0xA8 (168) then detail_Update; ref 0x8	nw4r
+80041E04	fn_80041E04	@4@detail_FreeAmbientArg__Q34nw4r3snd14Sound3DManagerFPvPCQ44nw4r3snd6detail10BasicSound	nw4r::snd::Sound3DManager::detail_FreeAmbientArg thunk (this-4)	high	vtable slot 4, this-4 then detail_FreeAmbientArg; ref 0x8	nw4r
+80041E0C	fn_80041E0C	@4@detail_AllocAmbientArg__Q34nw4r3snd14Sound3DManagerFUl	nw4r::snd::Sound3DManager::detail_AllocAmbientArg thunk (this-4)	high	vtable slot 3, this-4 then detail_AllocAmbientArg; ref 0x8	nw4r
+80045BA0	fn_80045BA0	@12@detail_ConvertLabelStringToSoundId__Q34nw4r3snd18SoundArchivePlayerFPCc	nw4r::snd::SoundArchivePlayer::detail_ConvertLabelStringToSoundId thunk (this-0xC)	high	vtable slot 7, this-0xC then detail_ConvertLabelStringToSoundId; ref 0x8	nw4r
+80045BA8	fn_80045BA8	@12@detail_SetupSound__Q34nw4r3snd18SoundArchivePlayerFPQ34nw4r3snd11SoundHandleUlPQ54nw4r3snd6detail10BasicSound14AmbientArgInfoPQ44nw4r3snd6detail19ExternalSoundPlayerbPCQ44nw4r3snd14SoundStartable9StartInfo	nw4r::snd::SoundArchivePlayer::detail_SetupSound thunk (this-0xC)	high	vtable slot 6, this-0xC then detail_SetupSound; ref 0x8	nw4r
+80045BB0	fn_80045BB0	@12@__dt__Q34nw4r3snd18SoundArchivePlayerFv	nw4r::snd::SoundArchivePlayer::~SoundArchivePlayer thunk (this-0xC)	high	vtable slot 5, this-0xC then dtor; ref 0x8	nw4r
+8004AD4C	fn_8004AD4C	@116@OnShutdownSoundThread__Q44nw4r3snd6detail10StrmPlayerFv	nw4r::snd::detail::StrmPlayer::OnShutdownSoundThread thunk (this-0x74)	high	vtable slot 12, this-0x74 then OnShutdownSoundThread; ref 0x8	nw4r
+8004AD54	fn_8004AD54	@116@OnUpdateVoiceSoundThread__Q44nw4r3snd6detail10StrmPlayerFv	nw4r::snd::detail::StrmPlayer::OnUpdateVoiceSoundThread thunk (this-0x74)	high	vtable slot 11, this-0x74 then OnUpdateVoiceSoundThread; ref 0x8	nw4r
+8004AD5C	fn_8004AD5C	@116@OnUpdateFrameSoundThread__Q44nw4r3snd6detail10StrmPlayerFv	nw4r::snd::detail::StrmPlayer::OnUpdateFrameSoundThread thunk (this-0x74)	high	vtable slot 10, this-0x74 then OnUpdateFrameSoundThread; ref 0x8	nw4r
+8004AD64	fn_8004AD64	@116@__dt__Q44nw4r3snd6detail10StrmPlayerFv	nw4r::snd::detail::StrmPlayer::~StrmPlayer thunk (this-0x74)	high	vtable slot 9, this-0x74 then dtor; ref 0x8	nw4r
+800506B4	fn_800506B4	@116@InvalidateWaveData__Q44nw4r3snd6detail9WsdPlayerFPCvPCv	nw4r::snd::detail::WsdPlayer::InvalidateWaveData thunk (this-0x74)	high	vtable slot 11, this-0x74 then InvalidateWaveData; ref 0x8	nw4r
+800506BC	fn_800506BC	@116@InvalidateData__Q44nw4r3snd6detail9WsdPlayerFPCvPCv	nw4r::snd::detail::WsdPlayer::InvalidateData thunk (this-0x74)	high	vtable slot 10, this-0x74 then InvalidateData; ref 0x8	nw4r
+800506C4	fn_800506C4	@116@__dt__Q44nw4r3snd6detail9WsdPlayerFv	nw4r::snd::detail::WsdPlayer::~WsdPlayer thunk (this-0x74)	high	vtable slot 9, this-0x74 then dtor; ref 0x8	nw4r
+800506CC	fn_800506CC	@128@OnShutdownSoundThread__Q44nw4r3snd6detail9WsdPlayerFv	nw4r::snd::detail::WsdPlayer::OnShutdownSoundThread thunk (this-0x80)	high	vtable slot 17, this-0x80 then OnShutdownSoundThread; ref 0x8	nw4r
+800506D4	fn_800506D4	@128@OnUpdateFrameSoundThread__Q44nw4r3snd6detail9WsdPlayerFv	nw4r::snd::detail::WsdPlayer::OnUpdateFrameSoundThread thunk (this-0x80)	high	vtable slot 15, this-0x80 then OnUpdateFrameSoundThread; ref 0x8	nw4r
+800506DC	fn_800506DC	@128@__dt__Q44nw4r3snd6detail9WsdPlayerFv	nw4r::snd::detail::WsdPlayer::~WsdPlayer thunk (this-0x80)	high	vtable slot 14, this-0x80 then dtor; ref 0x8	nw4r
+800595DC	fn_800595DC	GetRotTrans__Q34nw4r3g3d12ChrAnmResultCFPQ34nw4r4math5MTX34	nw4r::g3d::ChrAnmResult::GetRotTrans(math::MTX34*) const	high	ref resanmchr 0xA4 vs 0xA4; flag-based identity/copy of rt matrix; follows GetScale as in ref	nw4r
+8006FDC0	fn_8006FDC0	SetBoundingVolume__Q34nw4r3g3d6ScnObjFQ44nw4r3g3d6ScnObj24ScnObjBoundingVolumeTypePCQ34nw4r4math4AABB	nw4r::g3d::ScnObj::SetBoundingVolume(ScnObjBoundingVolumeType, const math::AABB*)	high	ref 0x84 vs 0x80; copies AABB into slot (<2), toggles option via SetScnObjOption; before GetBoundingVolume	nw4r
+8006FE40	fn_8006FE40	fn_8006FE40	?	keep	empty blr, no callers or vtable refs; no matching ref entry	nw4r
+800793F8	fn_800793F8	GetColorElement__Q34nw4r3lyt4PaneCFUl	nw4r::lyt::Pane::GetColorElement(u32) const	high	Pane vtable slot 9; alpha (idx 16) else GetVtxColorElement; ref 0x28 vs 0x24	nw4r
+8007941C	fn_8007941C	fn_8007941C	?	keep	empty blr, no callers or vtable refs; no matching ref entry	nw4r
+80079420	fn_80079420	SetColorElement__Q34nw4r3lyt4PaneFUlUc	nw4r::lyt::Pane::SetColorElement(u32, u8)	high	Pane vtable slot 10; alpha (idx 16) else SetVtxColorElement; ref 0x28 vs 0x24	nw4r
+80079444	fn_80079444	fn_80079444	?	keep	empty blr, no callers or vtable refs; no matching ref entry	nw4r
+80079448	fn_80079448	GetVtxColorElement__Q34nw4r3lyt4PaneCFUl	nw4r::lyt::Pane::GetVtxColorElement(u32) const	high	Pane vtable slot 11, returns 0xFF; ref 0x8 vs 0x8	nw4r
+80079450	fn_80079450	SetVtxColorElement__Q34nw4r3lyt4PaneFUlUc	nw4r::lyt::Pane::SetVtxColorElement(u32, u8)	high	Pane vtable slot 12, empty; ref 0x4 vs 0x4	nw4r
+80079454	fn_80079454	FindPaneByName__Q34nw4r3lyt4PaneFPCcb	nw4r::lyt::Pane::FindPaneByName(const char*, bool)	high	Pane vtable slot 13; EqualsResName then recurse children; ref 0xAC vs 0xAC	nw4r
+80079500	fn_80079500	FindMaterialByName__Q34nw4r3lyt4PaneFPCcb	nw4r::lyt::Pane::FindMaterialByName(const char*, bool)	high	Pane vtable slot 14; EqualsMaterialName then recurse; ref 0xB8 vs 0xB8	nw4r
+800795B8	fn_800795B8	CalculateMtx__Q34nw4r3lyt4PaneFRCQ34nw4r3lyt8DrawInfo	nw4r::lyt::Pane::CalculateMtx(const DrawInfo&)	high	Pane vtable slot 2; ref 0x2F8 vs 0x2F8	nw4r
+800798B0	fn_800798B0	Draw__Q34nw4r3lyt4PaneFRCQ34nw4r3lyt8DrawInfo	nw4r::lyt::Pane::Draw(const DrawInfo&)	high	Pane vtable slot 3; ref 0x84 vs 0x84	nw4r
+80079934	fn_80079934	DrawSelf__Q34nw4r3lyt4PaneFRCQ34nw4r3lyt8DrawInfo	nw4r::lyt::Pane::DrawSelf(const DrawInfo&)	high	Pane vtable slot 4 (Bounding overrides it), empty; ref 0x4 vs 0x4	nw4r
+80079938	fn_80079938	Animate__Q34nw4r3lyt4PaneFUl	nw4r::lyt::Pane::Animate(u32)	high	Pane vtable slot 5; ref 0x8C vs 0x8C	nw4r
+800799C4	fn_800799C4	AnimateSelf__Q34nw4r3lyt4PaneFUl	nw4r::lyt::Pane::AnimateSelf(u32)	high	Pane vtable slot 6; ref 0xB4 vs 0xB4	nw4r
+80079A78	fn_80079A78	BindAnimation__Q34nw4r3lyt4PaneFPQ34nw4r3lyt13AnimTransformb	nw4r::lyt::Pane::BindAnimation(AnimTransform*, bool)	high	Pane vtable slot 15; calls animTrans->Bind(this, b); ref 0x1C vs 0x1C	nw4r
+80079A94	fn_80079A94	UnbindAnimation__Q34nw4r3lyt4PaneFPQ34nw4r3lyt13AnimTransformb	nw4r::lyt::Pane::UnbindAnimation(AnimTransform*, bool)	high	Pane vtable slot 16; ref 0x90 vs 0x90	nw4r
+80079B24	fn_80079B24	UnbindAllAnimation__Q34nw4r3lyt4PaneFb	nw4r::lyt::Pane::UnbindAllAnimation(bool)	high	Pane vtable slot 17; calls UnbindAnimation(NULL, b); ref 0x18 vs 0x18	nw4r
+80079B3C	fn_80079B3C	UnbindAnimationSelf__Q34nw4r3lyt4PaneFPQ34nw4r3lyt13AnimTransform	nw4r::lyt::Pane::UnbindAnimationSelf(AnimTransform*)	high	Pane vtable slot 18; ref 0xA0 vs 0xA0	nw4r
+80079BDC	fn_80079BDC	AddAnimationLink__Q34nw4r3lyt4PaneFPQ34nw4r3lyt13AnimationLink	nw4r::lyt::Pane::AddAnimationLink(AnimationLink*)	high	ref 0x34 vs 0x34; inserts into anim link list +0x1C; called by AnimTransformBasic::Bind	nw4r
+80079C10	fn_80079C10	FindAnimationLink__Q34nw4r3lyt4PaneFPQ34nw4r3lyt13AnimTransform	nw4r::lyt::Pane::FindAnimationLink(AnimTransform*)	high	Pane vtable slot 19; own list then material; ref 0x78 vs 0x78	nw4r
+80079C88	fn_80079C88	SetAnimationEnable__Q34nw4r3lyt4PaneFPQ34nw4r3lyt13AnimTransformbb	nw4r::lyt::Pane::SetAnimationEnable(AnimTransform*, bool, bool)	high	Pane vtable slot 20; ref 0xB8 vs 0xB8	nw4r
+80079D40	fn_80079D40	LoadMtx__Q34nw4r3lyt4PaneFRCQ34nw4r3lyt8DrawInfo	nw4r::lyt::Pane::LoadMtx(const DrawInfo&)	high	Pane vtable slot 22; ref 0x100 vs 0x100	nw4r
+80079E40	fn_80079E40	GetVtxPos__Q34nw4r3lyt4PaneCFv	nw4r::lyt::Pane::GetVtxPos() const	high	ref 0xEC vs 0xEC; origin offset from basePosition (%3, /3) and size; used by GetPaneRect/DrawSelf	nw4r
+80079F2C	fn_80079F2C	GetMaterial__Q34nw4r3lyt4PaneCFv	nw4r::lyt::Pane::GetMaterial() const	high	Pane vtable slot 21, returns +0x28; ref 0x8 vs 0x8	nw4r
+80079F34	fn_80079F34	GetRuntimeTypeInfo__Q34nw4r3lyt4PaneCFv	nw4r::lyt::Pane::GetRuntimeTypeInfo() const	high	Pane vtable slot 1, returns &typeInfo; ref 0x8 vs 0x8	nw4r
+80079F3C	fn_80079F3C	__sinit_\lyt_pane_cpp	__sinit_\lyt_pane_cpp	high	ref 0xC vs 0xC; zeroes Pane::typeInfo static; last in lyt_pane before Group ctor	nw4r
+8007B404	fn_8007B404	GetColor__25@unnamed@lyt_textBox_cpp@FRC11_GXColorS10	nw4r::lyt::(anonymous)::GetColor(const GXColorS10&)	high	ref textBox 0xB4 vs 0xB4; clamps 4 s16 to 0..255 into Color; called by TextBox::DrawSelf	nw4r
+8007B4B8	fn_8007B4B8	__ct__Q34nw4r3lyt7TextBoxFPCQ44nw4r3lyt3res7TextBoxRCQ34nw4r3lyt11ResBlockSet	nw4r::lyt::TextBox::TextBox(const res::TextBox*, const ResBlockSet&)	high	ref 0x2A4 vs 0x2A4; Pane ctor, TextBox vtable, font lookup/ResFont, Material; from Layout::BuildPaneObj	nw4r
+8007B75C	fn_8007B75C	__dt__Q34nw4r3lyt7TextBoxFv	nw4r::lyt::TextBox::~TextBox()	high	ref 0x184 vs 0x184; TextBox vtable slot 0; frees ResFont, material, string buffer	nw4r
+8007B8E0	fn_8007B8E0	GetVtxColor__Q34nw4r3lyt7TextBoxCFUl	nw4r::lyt::TextBox::GetVtxColor(u32) const	high	TextBox vtable slot 7; returns mTextColors[idx/2]; ref 0x8 vs 0x34 (GetTextColor inlined)	nw4r
+8007B914	fn_8007B914	SetVtxColor__Q34nw4r3lyt7TextBoxFUlQ34nw4r2ut5Color	nw4r::lyt::TextBox::SetVtxColor(u32, ut::Color)	high	TextBox vtable slot 8; calls SetTextColor(idx/2, c); ref 0x48 vs 0x48	nw4r
+8007B95C	fn_8007B95C	SetTextColor__Q34nw4r3lyt7TextBoxFUlQ34nw4r2ut5Color	nw4r::lyt::TextBox::SetTextColor(u32, ut::Color)	high	ref 0x2C vs 0x2C; stores color at +0xD8+idx*4; called by TextBox::SetVtxColor	nw4r
+8007B988	fn_8007B988	GetVtxColorElement__Q34nw4r3lyt7TextBoxCFUl	nw4r::lyt::TextBox::GetVtxColorElement(u32) const	high	TextBox vtable slot 11; byte of text color; ref 0x18 vs 0x18	nw4r
+8007B9A0	fn_8007B9A0	SetVtxColorElement__Q34nw4r3lyt7TextBoxFUlUc	nw4r::lyt::TextBox::SetVtxColorElement(u32, u8)	high	TextBox vtable slot 12; ref 0x18 vs 0x18	nw4r
+800899F4	fn_800899F4	@112@__dt__Q23EGG12DrawPathBaseFv	EGG::DrawPathBase::~DrawPathBase() [thunk @112]	high	ref; adjustor thunk this-0x70 -> __dt__ DrawPathBase	rest
+800899FC	fn_800899FC	@112@scnProcDraw__Q23EGG12DrawPathBaseFUs	EGG::DrawPathBase::scnProcDraw(u16) [thunk @112]	high	ref; thunk this-0x70 -> scnProcDraw; slot 4 of 5 DrawPath vtables	rest
+8008B5A4	fn_8008B5A4	@112@__dt__Q23EGG13DrawPathBloomFv	EGG::DrawPathBloom::~DrawPathBloom() [thunk @112]	high	ref; thunk this-0x70 -> __dt__ DrawPathBloom	rest
+8008B5AC	fn_8008B5AC	@124@SetBinaryInner__Q23EGG13DrawPathBloomFRCQ33EGG30IBinary<Q23EGG13DrawPathBloom>3Bin	EGG::DrawPathBloom::SetBinaryInner(const IBinary<DrawPathBloom>::Bin&) [thunk @124]	high	ref; thunk this-0x7C -> SetBinaryInner	rest
+8008B5B4	fn_8008B5B4	@124@GetBinaryInner__Q23EGG13DrawPathBloomCFPQ33EGG30IBinary<Q23EGG13DrawPathBloom>3Bin	EGG::DrawPathBloom::GetBinaryInner(IBinary<DrawPathBloom>::Bin*) const [thunk @124]	high	ref; thunk this-0x7C -> GetBinaryInner	rest
+8008B5BC	fn_8008B5BC	@124@GetBinaryType__Q23EGG13DrawPathBloomCFv	EGG::DrawPathBloom::GetBinaryType() const [thunk @124]	high	ref; thunk this-0x7C -> GetBinaryType	rest
+8008B5C4	fn_8008B5C4	@124@GetVersion__Q23EGG13DrawPathBloomCFv	EGG::DrawPathBloom::GetVersion() const [thunk @124]	high	ref; thunk this-0x7C -> GetVersion	rest
+8008CFA0	fn_8008CFA0	@112@__dt__Q23EGG11DrawPathDOFFv	EGG::DrawPathDOF::~DrawPathDOF() [thunk @112]	high	ref; thunk this-0x70 -> __dt__ DrawPathDOF	rest
+8008D288	fn_8008D288	@112@__dt__Q23EGG11DrawPathHDRFv	EGG::DrawPathHDR::~DrawPathHDR() [thunk @112]	high	ref; thunk this-0x70 -> __dt__ DrawPathHDR	rest
+8008DD28	fn_8008DD28	@112@__dt__Q23EGG20DrawPathShadowVolumeFv	EGG::DrawPathShadowVolume::~DrawPathShadowVolume() [thunk @112]	high	thunk this-0x70 -> __dt__ DrawPathShadowVolume (ref slot unnamed fn_8008E28C 0x8; same as siblings)	rest
+8008E7B0	fn_8008E7B0	@112@__dt__Q23EGG15DrawPathXluSnapFv	EGG::DrawPathXluSnap::~DrawPathXluSnap() [thunk @112]	high	ref; thunk this-0x70 -> __dt__ DrawPathXluSnap	rest
+80090D6C	fn_80090D6C	fn_80090D6C	?	keep	ref ogws also unnamed (fn_800914A0, 0x154 same size); LightTexture TEV/blend setup, called by eggLightTexture_80091B4C	rest
+80090EC0	fn_80090EC0	fn_80090EC0	?	keep	ref ogws also unnamed (fn_800915F4, 0x1AC same size); LightTexture indirect-TEV setup variant	rest
+8009106C	fn_8009106C	fn_8009106C	?	keep	ref ogws also unnamed (fn_800917A0, 0x180 same size); LightTexture TEV/blend setup variant	rest
+80092630	fn_80092630	@44@SetBinaryInner__Q23EGG12LightTextureFRCQ33EGG29IBinary<Q23EGG12LightTexture>3Bin	EGG::LightTexture::SetBinaryInner(const IBinary<LightTexture>::Bin&) [thunk @44]	high	ref; thunk this-0x2C -> SetBinaryInner	rest
+80092638	fn_80092638	@44@GetBinaryInner__Q23EGG12LightTextureCFPQ33EGG29IBinary<Q23EGG12LightTexture>3Bin	EGG::LightTexture::GetBinaryInner(IBinary<LightTexture>::Bin*) const [thunk @44]	high	ref; thunk this-0x2C -> GetBinaryInner	rest
+80092640	fn_80092640	@44@GetBinaryType__Q23EGG12LightTextureCFv	EGG::LightTexture::GetBinaryType() const [thunk @44]	high	ref; thunk this-0x2C -> GetBinaryType	rest
+80092648	fn_80092648	@44@GetBinarySize__Q23EGG12LightTextureCFv	EGG::LightTexture::GetBinarySize() const [thunk @44]	high	ref; thunk this-0x2C -> GetBinarySize	rest
+80096C60	fn_80096C60	fn_80096C60	?	keep	ref ogws also unnamed (fn_80097394, 0x414 same size); blur kernel texgen/TEV setup called by PostEffectBlur::draw	rest
+8009E7FC	fn_8009E7FC	fn_8009E7FC	?	keep	ref ogws also unnamed (fn_8009EF30, 0x358 same size); fills CpuTexture gradation from near/center/far colours	rest
+800A165C	fn_800A165C	fn_800A165C	?	keep	empty 4-byte function, no callers/refs; no reference counterpart in eggDrawHelper	rest
+800A191C	fn_800A191C	EGG_Vector2f_operator_minus	EGG::Vector2f::operator-(const Vector2f&) const	low	inline weak; returns (a.x-b.x, a.y-b.y) by value; EGG area, mirrors Vector3f::__mi__; no ref	rest
+800A1940	fn_800A1940	EGG_Vector2f_operator_mul	EGG::Vector2f::operator*(f32) const	low	inline weak; returns (x*s, y*s) by value; mirrors Vector3f::__ml__; no ref	rest
+800A195C	fn_800A195C	EGG_Vector2f_operator_plus	EGG::Vector2f::operator+(const Vector2f&) const	low	inline weak; returns (a.x+b.x, a.y+b.y) by value; mirrors Vector3f::__pl__; no ref	rest
+800A1C80	fn_800A1C80	calcRPY__Q23EGG9Matrix34fCFv	EGG::Matrix34f::calcRPY() const	high	ref mkw same order after makeIdentity, 0xEC vs 0xEC; atan2/asin of rot elems -> Vector3f	rest
+800A1D6C	fn_800A1D6C	__ct__Q23EGG9Matrix34fFffffffffffff	EGG::Matrix34f::Matrix34f(f32 x12)	high	ref mkw same order, 0x44 vs 0x44; stores 12 float args	rest
+800A1DB0	fn_800A1DB0	makeSRT__Q23EGG9Matrix34fFRCQ23EGG8Vector3fRCQ23EGG8Vector3fRCQ23EGG8Vector3f	EGG::Matrix34f::makeSRT(const Vector3f&, const Vector3f&, const Vector3f&)	high	ref mkw same order, 0x1B0 vs 0x1E0; scale*euler rot + trans	rest
+800A1F60	fn_800A1F60	makeRT__Q23EGG9Matrix34fFRCQ23EGG8Vector3fRCQ23EGG8Vector3f	EGG::Matrix34f::makeRT(const Vector3f&, const Vector3f&)	high	ref mkw same order, 0x164 vs 0x184; euler rot + trans	rest
+800A20C4	fn_800A20C4	makeR__Q23EGG9Matrix34fFRCQ23EGG8Vector3f	EGG::Matrix34f::makeR(const Vector3f&)	high	ref mkw same order, 0x110 vs 0x130; euler rot, zero trans	rest
+800A21D4	fn_800A21D4	makeST__Q23EGG9Matrix34fFRCQ23EGG8Vector3fRCQ23EGG8Vector3f	EGG::Matrix34f::makeST(const Vector3f&, const Vector3f&)	high	ref mkw same order, 0x50 vs 0x50; diag scale + trans	rest
+800A2318	fn_800A2318	fromQuat__Q23EGG9Matrix34fFRCQ23EGG5Quatf	EGG::Matrix34f::fromQuat(const Quatf&)	medium	ref mkw fromQuat just before setAxisRotation, 0x98 vs 0xB0; quat->rot matrix, zero trans (makeQ twin)	rest
+800A23B0	fn_800A23B0	EGG_Matrix34f_toQuat	EGG::Matrix34f::toQuat(Quatf&) const	low	no ref; rot matrix -> normalised quaternion (largest-component method); used by Fsh_slerpBasis	rest
+800A26EC	fn_800A26EC	multiplyTo__Q23EGG9Matrix34fCFRCQ23EGG9Matrix34fRQ23EGG9Matrix34f	EGG::Matrix34f::multiplyTo(const Matrix34f&, Matrix34f&) const	high	ref mkw right after loadPosMtx, 0x4 vs 0x4; tail branch to PSMTXConcat	rest
+800A27CC	fn_800A27CC	EGG_Quatf_conjugate	EGG::Quatf::conjugate() const	low	no ref; returns Quatf(w, -v) by value; used by quat vector rotation	rest
+800A2820	fn_800A2820	EGG_Quatf_Quatf	EGG::Quatf::Quatf(f32, const Vector3f&)	low	no ref; inline ctor storing vector xyz and w	rest
+800A2840	fn_800A2840	EGG_Quatf_rotateVector	EGG::Quatf::rotateVector(const Vector3f&) const	low	no ref by-value variant (ref rotateVector has out param); q*v*conj(q); Bil_Camera orbit	rest
+800A2920	fn_800A2920	EGG_Quatf_operator_mul_Vector3f	EGG::operator*(const Quatf&, const Vector3f&)	low	no ref; quat * pure vector: (w*v + q x v, -q.v)	rest
+800A29BC	fn_800A29BC	EGG_Quatf_operator_mul	EGG::operator*(const Quatf&, const Quatf&)	low	no ref; Hamilton product via cross/scale/add	rest
+800A2A80	fn_800A2A80	slerpTo__Q23EGG5QuatfCFRCQ23EGG5QuatffRQ23EGG5Quatf	EGG::Quatf::slerpTo(const Quatf&, f32, Quatf&) const	high	ref mkw/ogws eggQuat, 0x1A8 vs 0x1C4; dot clamp, acos, sin weights, out param	rest
+800AC48C	fn_800AC48C	@68@isVisible__Q23EGG12ProcessMeterFv	EGG::ProcessMeter::isVisible() [thunk @68]	high	ref; thunk this-0x44 -> isVisible	rest
+800AC494	fn_800AC494	@68@setVisible__Q23EGG12ProcessMeterFb	EGG::ProcessMeter::setVisible(bool) [thunk @68]	high	ref; thunk this-0x44 -> setVisible	rest
+800AC49C	fn_800AC49C	@68@draw__Q23EGG12ProcessMeterFv	EGG::ProcessMeter::draw() [thunk @68]	high	ref; thunk this-0x44 -> draw	rest
+800AC4A4	fn_800AC4A4	@68@callbackDrawSync__Q23EGG12ProcessMeterFUs	EGG::ProcessMeter::callbackDrawSync(u16) [thunk @68]	high	ref; thunk this-0x44 -> callbackDrawSync	rest
+800AC4AC	fn_800AC4AC	@68@measureEndRender__Q23EGG12ProcessMeterFv	EGG::ProcessMeter::measureEndRender() [thunk @68]	high	ref; thunk this-0x44 -> measureEndRender	rest
+800AC4B4	fn_800AC4B4	@68@measureBeginRender__Q23EGG12ProcessMeterFv	EGG::ProcessMeter::measureBeginRender() [thunk @68]	high	ref; thunk this-0x44 -> measureBeginRender	rest
+800AC4BC	fn_800AC4BC	@68@measureEndFrame__Q23EGG12ProcessMeterFv	EGG::ProcessMeter::measureEndFrame() [thunk @68]	high	ref; thunk this-0x44 -> measureEndFrame	rest
+800AC4C4	fn_800AC4C4	@68@measureBeginFrame__Q23EGG12ProcessMeterFv	EGG::ProcessMeter::measureBeginFrame() [thunk @68]	high	ref; thunk this-0x44 -> measureBeginFrame	rest
+800AC88C	fn_800AC88C	decode__Q23EGG6DecompFPUcPUc	EGG::Decomp::decode(u8*, u8*)	high	ref ogws decode precedes decodeASH; dispatches Yaz0/ASH/ASR, decodeSZS inlined: 0x260 vs 0xB8	rest
+800AFF2C	fn_800AFF2C	@248@closeArchive__Q23EGG14SimpleAudioMgrFv	EGG::SimpleAudioMgr::closeArchive() [thunk @248]	high	ref; thunk this-0xF8 -> closeArchive	rest
+800AFF34	fn_800AFF34	@248@setupMemoryArchive__Q23EGG14SimpleAudioMgrFPCvPQ34nw4r3snd9SoundHeap	EGG::SimpleAudioMgr::setupMemoryArchive(const void*, nw4r::snd::SoundHeap*) [thunk @248]	high	ref; thunk this-0xF8 -> setupMemoryArchive	rest
+800AFF3C	fn_800AFF3C	@8@loadState__Q23EGG11ExpAudioMgrFl	EGG::ExpAudioMgr::loadState(long) [thunk @8]	high	ref; thunk this-0x8 -> loadState	rest
+800AFF44	fn_800AFF44	@248@calc__Q23EGG14SimpleAudioMgrFv	EGG::SimpleAudioMgr::calc() [thunk @248]	high	ref; thunk this-0xF8 -> calc	rest
+800AFF4C	fn_800AFF4C	@248@loadGroup__Q23EGG14SimpleAudioMgrFUiPQ34nw4r3snd9SoundHeapUl	EGG::SimpleAudioMgr::loadGroup(unsigned int, nw4r::snd::SoundHeap*, u32) [thunk @248]	high	ref; thunk this-0xF8 -> loadGroup(Ui,...)	rest
+800AFF54	fn_800AFF54	@248@loadGroup__Q23EGG14SimpleAudioMgrFiPQ34nw4r3snd9SoundHeapUl	EGG::SimpleAudioMgr::loadGroup(int, nw4r::snd::SoundHeap*, u32) [thunk @248]	high	ref; thunk this-0xF8 -> loadGroup(i,...)	rest
+800AFF5C	fn_800AFF5C	@248@loadGroup__Q23EGG14SimpleAudioMgrFPCcPQ34nw4r3snd9SoundHeapUl	EGG::SimpleAudioMgr::loadGroup(const char*, nw4r::snd::SoundHeap*, u32) [thunk @248]	high	ref; thunk this-0xF8 -> loadGroup(PCc,...)	rest
+800AFF64	fn_800AFF64	@248@closeArchive__Q23EGG11ExpAudioMgrFv	EGG::ExpAudioMgr::closeArchive() [thunk @248]	high	ref; thunk this-0xF8 -> ExpAudioMgr::closeArchive	rest
+800AFF6C	fn_800AFF6C	@248@setupMemoryArchive__Q23EGG11ExpAudioMgrFPCvPQ34nw4r3snd9SoundHeap	EGG::ExpAudioMgr::setupMemoryArchive(const void*, nw4r::snd::SoundHeap*) [thunk @248]	high	ref; thunk this-0xF8 -> setupMemoryArchive	rest
+800AFF74	fn_800AFF74	@248@setupMemoryArchive__Q23EGG11ExpAudioMgrFPCvPQ34nw4r3snd9SoundHeapl	EGG::ExpAudioMgr::setupMemoryArchive(const void*, nw4r::snd::SoundHeap*, long) [thunk @248]	high	ref; thunk this-0xF8 -> setupMemoryArchive(...,l)	rest
+800AFF7C	fn_800AFF7C	@248@openCntArchive__Q23EGG14SimpleAudioMgrFPCcP9CNTHandlePQ34nw4r3snd9SoundHeap	EGG::SimpleAudioMgr::openCntArchive(const char*, CNTHandle*, nw4r::snd::SoundHeap*) [thunk @248]	high	ref; thunk this-0xF8 -> openCntArchive	rest
+800AFF84	fn_800AFF84	@248@openNandArchive__Q23EGG14SimpleAudioMgrFPCcPQ34nw4r3snd9SoundHeap	EGG::SimpleAudioMgr::openNandArchive(const char*, nw4r::snd::SoundHeap*) [thunk @248]	high	ref; thunk this-0xF8 -> openNandArchive	rest
+800AFF8C	fn_800AFF8C	@248@openDvdArchive__Q23EGG14SimpleAudioMgrFPCcPQ34nw4r3snd9SoundHeap	EGG::SimpleAudioMgr::openDvdArchive(const char*, nw4r::snd::SoundHeap*) [thunk @248]	high	ref; thunk this-0xF8 -> openDvdArchive	rest
+800AFF94	fn_800AFF94	@248@openArchive__Q23EGG11ExpAudioMgrFPCcPQ34nw4r3snd9SoundHeapQ33EGG9ArcPlayer12SARC_STORAGEP9CNTHandle	EGG::ExpAudioMgr::openArchive(const char*, nw4r::snd::SoundHeap*, ArcPlayer::SARC_STORAGE, CNTHandle*) [thunk @248]	high	ref; thunk this-0xF8 -> openArchive	rest
+800AFF9C	fn_800AFF9C	@248@__dt__Q23EGG11ExpAudioMgrFv	EGG::ExpAudioMgr::~ExpAudioMgr() [thunk @248]	high	ref; thunk this-0xF8 -> __dt__ ExpAudioMgr	rest
+800B1394	fn_800B1394	@248@__dt__Q23EGG14SimpleAudioMgrFv	EGG::SimpleAudioMgr::~SimpleAudioMgr() [thunk @248]	high	ref; thunk this-0xF8 -> __dt__ SimpleAudioMgr	rest
+800CA884	fn_800CA884	PADControlMotor	PADControlMotor(s32, u32)	high	ref mkw PADControlMotor 0xB8 vs 0xB8; SIGetType nomotor check, SISetCommand+SITransferCommands	rest
+80114E44	fn_80114E44	btm_read_link_policy_complete	btm_read_link_policy_complete	high	ref mkw/petari 0x104 vs 0x104, same position after BTM_SetDefaultLinkPolicy	rest
+80115C10	fn_80115C10	btm_read_rssi_complete	btm_read_rssi_complete	high	ref mkw/petari 0x11C vs 0x11C, after BTM_ReadLinkQuality	rest
+80115D2C	fn_80115D2C	btm_read_link_quality_complete	btm_read_link_quality_complete	high	ref mkw/petari 0x118 vs 0x118, follows rssi_complete	rest
+80116E24	fn_80116E24	btm_reset_complete	btm_reset_complete	high	ref mkw/petari 0x1C4 vs 0x1C4; l2cu_device_reset, read_buffer_size, BTM_SetPinType	rest
+80116FE8	fn_80116FE8	btm_read_hci_buf_size_complete	btm_read_hci_buf_size_complete	high	ref 0xC8 vs 0xC8; parses ACL buf size, set_host_buf_size, read_local_ver	rest
+801170B0	fn_801170B0	btm_read_local_version_complete	btm_read_local_version_complete	high	ref 0xBC vs 0xBC; stores HCI/LMP version, then read_local_features	rest
+8011716C	fn_8011716C	btm_read_local_features_complete	btm_read_local_features_complete	high	ref 0x4FC vs 0x4FC; sets inquiry/page scan types, afh channels	rest
+80117720	fn_80117720	btm_read_local_name_complete	btm_read_local_name_complete	high	ref 0x8C vs 0x8C; stops timer, calls name callback with name ptr	rest
+801177EC	fn_801177EC	btm_read_local_addr_complete	btm_read_local_addr_complete	high	ref 0x48 vs 0x48; copies 6-byte BD_ADDR reversed	rest
+8013DC58	fn_8013DC58	DVDCheckDiskAsync	DVDCheckDiskAsync(DVDCommandBlock*, DVDCBCallback)	high	ref petari DVDCheckDiskAsync 0x23C vs 0x23C, after __DVDGetCoverStatus; state switch + queue cmd	rest
+80140AC8	fn_80140AC8	SISetCommand	SISetCommand(s32, u32)	high	ref mkw SISetCommand 0x14 vs 0x14; writes SI out-buffer reg chan*0xC	rest
+80140ADC	fn_80140ADC	SITransferCommands	SITransferCommands(void)	high	ref mkw SITransferCommands 0x10 vs 0x10; writes 0x80000000 to SISR	rest
+801827F4	fn_801827F4	RPSysSystem_checkDiskCallback	?	low	game RPSysSystem.cpp (not HBM); DVDCheckDiskAsync callback sets flag 1/2 from result; no ref name	rest
+80182888	fn_80182888	setCallBack__11RPSysSystemFv	RPSysSystem::setCallBack()	medium	ref ogws setCallBack after softResetCallBack, 0x54 vs 0x34; sets/clears OS reset+power callbacks by flag	rest
+801828DC	fn_801828DC	RPSysSystem_checkDisk	?	low	ogws same slot unnamed (fn_80182C5C); runs DVDCheckDiskAsync, waits on VIWaitForRetrace, returns ok	rest

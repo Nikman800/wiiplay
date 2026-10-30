@@ -1,0 +1,12 @@
+address	old_name	new_name	unit	previous
+80203058	Fsh_Fish_ctor	__ct__9RPFshFishFll	Pack/RPParty/RPFshScene/RPFshFishMgr.cpp	
+80205A84	Fsh_FishMgr_countFishOfType	CountFishOfType__12RPFshFishMgrCFl	Pack/RPParty/RPFshScene/RPFshFishMgr.cpp	
+80205B38	Fsh_FishMgr_spawnFishOfType	SpawnFishOfType__12RPFshFishMgrFl	Pack/RPParty/RPFshScene/RPFshFishMgr.cpp	
+80205D58	Fsh_FishMgr_spawnRandomFish	SpawnRandomFish__12RPFshFishMgrFv	Pack/RPParty/RPFshScene/RPFshFishMgr.cpp	
+80205F8C	Fsh_FishMgr_setFishToSwim	SetFishToSwim__12RPFshFishMgrFl	Pack/RPParty/RPFshScene/RPFshFishMgr.cpp	
+8020667C	Fsh_FishMgr_dtor	__dt__12RPFshFishMgrFv	Pack/RPParty/RPFshScene/RPFshFishMgr.cpp	
+802067B0	Fsh_StateMachine_isStateSettled	IsStateSettled__28RPStateMachine<10RPFshTimer>CFl	Pack/RPParty/RPFshScene/RPFshFishMgr.cpp	
+8031F2E0	Fsh_spawnPatterns	sSpawnPatterns__12RPFshFishMgr	Pack/RPParty/RPFshScene/RPFshFishMgr.cpp	
+80358B20	Fsh_spawnIntervals	sRareSpawnTimes__12RPFshFishMgr	Pack/RPParty/RPFshScene/RPFshFishMgr.cpp	
+80358B30	Fsh_spawnWeights	sRareSpawnChances__12RPFshFishMgr	Pack/RPParty/RPFshScene/RPFshFishMgr.cpp	
+80358B40	lbl_80358B40	__vt__12RPFshFishMgr	Pack/RPParty/RPFshScene/RPFshFishMgr.cpp	

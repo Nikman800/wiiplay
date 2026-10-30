@@ -1,0 +1,5 @@
+address	old_name	new_name	unit	previous
+802ADF94	Cow_KakasiBatch_init	LoadResource__16RPCowKakasiBatchFv	Pack/RPParty/RPCowScene/RPCowModelBatch_7.cpp	
+802AE00C	Cow_KakasiBatch_dtorThunk2	@36@__dt__16RPCowKakasiBatchFv	Pack/RPParty/RPCowScene/RPCowModelBatch_7.cpp	
+802AE004	Cow_KakasiBatch_dtorThunk	@20@__dt__16RPCowKakasiBatchFv	Pack/RPParty/RPCowScene/RPCowModelBatch_7.cpp	
+8035D5D8	lbl_8035D5D8	__vt__16RPCowKakasiBatch	Pack/RPParty/RPCowScene/RPCowModelBatch_7.cpp	

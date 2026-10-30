@@ -1,0 +1,13 @@
+address	old_name	new_name	unit	previous
+80270E38	Tnk_ExGuide_start	Start__12RPTnkExGuideFv	Pack/RPParty/RPTnkScene/RPTnkExGuide.cpp	
+80270EE0	Tnk_ExGuide_exit	Exit__12RPTnkExGuideFv	Pack/RPParty/RPTnkScene/RPTnkExGuide.cpp	
+80270EE4	Tnk_ExGuide_calc	Calculate__12RPTnkExGuideFv	Pack/RPParty/RPTnkScene/RPTnkExGuide.cpp	
+80270F98	Tnk_ExGuide_reset	Reset__12RPTnkExGuideFv	Pack/RPParty/RPTnkScene/RPTnkExGuide.cpp	
+80270FF8	Tnk_ExGuide_create	Create__12RPTnkExGuideFv	Pack/RPParty/RPTnkScene/RPTnkExGuide.cpp	
+80270FFC	Tnk_ExGuide_stateCheckCursorNear	StateCheckCursorNear__12RPTnkExGuideFv	Pack/RPParty/RPTnkScene/RPTnkExGuide.cpp	
+80271284	Tnk_ExGuide_stateShowHintUntilNear	StateShowHintUntilNear__12RPTnkExGuideFv	Pack/RPParty/RPTnkScene/RPTnkExGuide.cpp	
+80271508	Tnk_ExGuide_stateShowHint	StateShowHint__12RPTnkExGuideFv	Pack/RPParty/RPTnkScene/RPTnkExGuide.cpp	
+80271638	Tnk_ExGuide_stateCheckMoved	StateCheckMoved__12RPTnkExGuideFv	Pack/RPParty/RPTnkScene/RPTnkExGuide.cpp	
+80271838	Tnk_ExGuide_dtor	__dt__12RPTnkExGuideFv	Pack/RPParty/RPTnkScene/RPTnkExGuide.cpp	
+80271890	Tnk_ExGuide_destroyInstance	DestroyInstance__12RPTnkExGuideFv	Pack/RPParty/RPTnkScene/RPTnkExGuide.cpp	
+802718D4	Tnk_ExGuide_createInstance	CreateInstance__12RPTnkExGuideFv	Pack/RPParty/RPTnkScene/RPTnkExGuide.cpp	

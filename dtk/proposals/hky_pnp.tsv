@@ -1,0 +1,489 @@
+address	new_name	confidence	note
+801BA2A4	Pnp_interpolateEased	medium	t/n interpolation a->b: mode 1 linear, 1-2 sin ease, else cosine ease; only Pnp callers
+8021691C	Fsh_StateMachine_registerState	medium	stores two 12-byte member-fn ptrs into tables +0x18/+0x1c at index; only caller Fsh_FishingMsg01 init (position)
+80216960	Fsh_StateMachine_init	medium	sets cur/prev/next state, pending flag=1, frame counter 0; only caller Fsh_FishingMsg01 (position)
+80216998	Fsh_StateMachine_update	medium	on pending change: exit old, prev=cur, cur=next, enter new; then calc; counter++ (caller Fsh only)
+80216A24	Fsh_StateMachine_callExit	medium	invokes ptmf table +0x20 for current state if set; helper of state machine update
+80216A84	Fsh_StateMachine_callCalc	medium	invokes ptmf table +0x1c for current state if set
+80216AE4	Fsh_StateMachine_callEnter	medium	invokes ptmf table +0x18 for current state if set
+80216B44	Hky_Scene_draw	medium	forwards to Hky game manager vtable slot 5 (draw)
+80216B58	Hky_Scene_exit	medium	stops BGM ctrl, Mpe cleanup, calls game manager slot 6 (exit/destroy)
+80216BA8	Hky_Scene_calc	medium	forwards to Hky game manager vtable slot 4 (per-frame calc)
+80216BBC	Hky_Scene_reset	medium	stops BGM ctrl then calls game manager slot 3 (reset)
+80216C04	Hky_Scene_load	high	loads rp_Hky_sound.brsar and basic_hokey.breff/breft, then game manager load
+80216CD0	Hky_Scene_create	medium	creates Hky game manager singleton, calls its create, allocates scene sound helper
+80216D94	Hky_80216D94	keep	empty body; no callers or references
+80216DC4	Hky_Scene_dtor	high	scene dtor: base dtor then operator delete if flag>0
+80216E20	Hky_SceneSound_dtor	low	dtor for 0x18-byte helper object created in Hky_Scene_create (no direct refs)
+80216E7C	Hky_Scene_drawThunk	medium	this-0x24 adjustor thunk to Hky_Scene_draw
+80216E84	Hky_Scene_dtorThunk	medium	this-0x24 adjustor thunk to Hky_Scene_dtor
+80216E8C	Hky_Puck_hide	medium	clears puck model visible bit and stops trail effect
+80216EB0	Hky_Puck_serve	medium	shows puck model, sets active flag, requests BGM state 0 (or 3 at match point in 2P)
+80216F30	Hky_Puck_registerHit	medium	per-contact hit state latch, stores puck speed, requests paddle rumble 5..10 by speed
+8021701C	Hky_Puck_handlePaddleCollision	high	resolves puck vs paddle contacts, bounce impulse, plays Hky_paddlehit effect
+80217750	Hky_Puck_handleGoal	high	increments scorer (cap 99), plays Hky_goal_* effects and sounds, resets puck, shows goal msg
+80217CE0	Hky_Puck_updatePhysics	medium	friction, goal-mouth/edge checks, accumulates impulses into velocity and position, spin clamp
+80218270	Hky_Puck_handleWallCollision	high	puck vs rink wall segments, bounce, plays Hky_wallhit_* colored effects and wall anim
+80218AB8	Hky_Puck_applyVelocity	medium	clears impulse accumulators, pos += vel; debug override position
+80218B68	Hky_Puck_setInPlay	low	sets byte +0x50 = 1 when puck simulated this frame
+80218B74	Hky_Puck_resetState	medium	zeroes hit states/impulses/velocity, identity rotation, position (0,300,0)
+80218C70	Hky_Puck_exit	low	empty RP object slot 8
+80218C74	Hky_Puck_calc	medium	starts trail when below height, updates trail effect, model matrix from position
+80218D20	Hky_Puck_reset	medium	resets position/scale and puck state
+80218D9C	Hky_Puck_load	high	loads /G3D/Hck_pack.brres model and Hck_pack_hit anim
+80218E8C	Hky_Puck_create	high	allocates Hky_balltail trail effect and state, sets speed tuning by table size
+80219068	Hky_PuckTrail_dtor	medium	effect-holder dtor (FshRunA-style base) for puck trail; delete if flag>0
+8021917C	Hky_Puck_dtor	high	RP object base dtor then delete
+802191D4	Hky_PuckTrail_dtorThunk	medium	this-0x10 adjustor thunk to Hky_PuckTrail_dtor
+802191DC	Hky_Field_getHitWallIndex	medium	returns index (0..17) of wall segment pointed to by iterator +0x23c, else -1
+802192D8	Hky_Field_playWallAnim	medium	restarts field model anim channel param_2 (frame 0, rate 1)
+80219354	Hky_Field_testRectCollision	medium	iterates wall segments vs rectangular paddle, outputs normal and depth
+80219C8C	Hky_Field_testCircleCollision	medium	iterates wall segments vs circle radius, outputs normal and penetration depth
+80219EE4	Hky_Field_resetPaddleWallIter	medium	sets wall iterator +0x23c to paddle wall list end (+0x220)
+80219EF0	Hky_Field_resetPuckWallIter	medium	sets wall iterator +0x23c to puck wall list end (+0x1e8)
+80219EFC	Hky_Field_exit	low	empty RP object slot 8
+80219F00	Hky_Field_calc	medium	sets scale field then RP model update
+80219F0C	Hky_Field_reset	medium	resets transform and the 6 field anim channels to last frame
+8021A030	Hky_Field_load	high	loads Hck_Field_1/2 brres by table size and line/goal anims from Hck_anim.brres
+8021A18C	Hky_Field_create	medium	builds rink wall segment table (position, normal, length) from table dimensions
+8021A45C	Hky_Field_dtor	high	RP object base dtor then delete
+8021A4B4	Hky_Game_draw	medium	draws HUD and current phase object
+8021A560	Hky_Game_exit	medium	exits all objects/phases, deletes game manager and HUD singletons
+8021A660	Hky_Game_calc	medium	main state machine: timer, physics step, phase transitions, BGM update, camera
+8021AA74	Hky_Game_reset	medium	timer=7200 frames, state 0, resets objects, HUD, phases, camera and BGM
+8021ACD0	Hky_Game_load	medium	loads party_message.bmg, neon.pblm light, all object/HUD/phase load
+8021AE48	Hky_Game_create	medium	sets substeps/mode, table size by option, lights, calls create on objects/HUD/phases
+8021B0B8	Hky_Game_dtor	high	dtor: delete if flag>0
+8021B0F8	Hky_Game_ctor	high	constructs puck, field, 2 paddles, 2 round-paddle models, HUD, phase objects
+8021B508	Hky_Game_stepPhysics	high	substep loop: paddle control/move/collide, puck walls/paddles/physics, goal check, calc objects
+8021B6C4	Hky_createGame	high	allocates Hky_Game and stores it in the global singleton
+8021B6F8	Hky_IBinary_setBinaryChecked	medium	eggIBinary.h: asserts binary magic matches class then calls setBinary (shared by minigames)
+8021B824	Hky_sinitLightPos	low	static init of global vec (0,745,0) later copied to light position
+8021B844	Hky_Paddle_getHitEdgeIndex	medium	returns rect edge index (0..3) of edge iterator +0x1c8 else -1
+8021B8A4	Hky_Paddle_calcHitVelocity	low	vector sum of paddle velocity history fields used in puck hit response
+8021B9B4	Hky_Paddle_setShape	medium	sets shape (1 rect edges, 0 round radius) and toggles round/rect visual effects
+8021BB38	Hky_Paddle_requestRumble	medium	latches rumble slot state and strength
+8021BB78	Hky_Paddle_collideRectEdges	medium	circle (puck) vs rect paddle edges, returns normal/depth
+8021BDE4	Hky_Paddle_collideRound	medium	circle (puck) vs round paddle, returns normal/depth
+8021C0B8	Hky_Paddle_testPuckCollision	medium	dispatches puck collision by paddle shape, clears speed counter on hit
+8021C128	Hky_Paddle_resetEdgeIter	medium	sets edge iterator +0x1c8 to last edge
+8021C134	Hky_Paddle_collideRectVsPaddle	medium	rect paddle vs other paddle separation
+8021D174	Hky_Paddle_collideRoundVsPaddle	medium	circle-circle overlap between paddles pushes both apart
+8021D370	Hky_Paddle_collidePaddle	medium	dispatches paddle-paddle collision by shape
+8021D398	Hky_Paddle_updateRumble	medium	starts controller rumble for latched hits, counts down rumble slots
+8021D5A4	Hky_Paddle_updateMovement	medium	accelerates toward target pos, speed clamp (CPU vs player), bounds clamp
+8021DB24	Hky_Paddle_collideFieldRect	medium	rect paddle vs rink walls, push out and kill inward velocity
+8021DD74	Hky_Paddle_collideFieldRound	medium	round paddle vs rink walls, push out and kill inward velocity
+8021DF68	Hky_Paddle_collideField	medium	dispatches paddle-wall collision by shape
+8021DF90	Hky_Paddle_applyVelocity	medium	clears impulse accumulators, pos += vel unless game in result state
+8021E020	Hky_Paddle_updateControl	medium	velocity history, trail; target from pointer (player) or CPU AI by shape
+8021E5EC	Hky_Paddle_calcCpuTargetRect	low	CPU AI target for rect paddle, difficulty from score difference
+8021ECE4	Hky_Paddle_calcCpuTargetRound	low	CPU AI target for round paddle, difficulty from score difference
+8021F194	Hky_Paddle_updateCpuStallTimer	low	counts frames puck idles on CPU side, sets action timer +0x128=20 after 40
+8021F374	Hky_Paddle_exit	low	empty RP object slot 8
+8021F378	Hky_Paddle_calc	medium	updates model/trail matrices; button combo toggles paddle shape
+8021F588	Hky_Paddle_reset	medium	position by player side (+-112.5), rect shape, score 0, clears velocities
+8021F768	Hky_Paddle_load	high	loads Hck_paddle_R1/B1 brres and paddle hit anim
+8021F884	Hky_Paddle_create	medium	allocates paddle trail effect, init shape/rumble/impulse fields
+8021FAE4	Hky_Paddle_ctor	high	ctor: player index, rect edge table, Hky_paddletail_r1/b1 effect
+8021FCA0	Hky_PaddleTrail_dtor	medium	effect-holder dtor for paddle trail; delete if flag>0
+8021FDB4	Hky_Paddle_dtor	high	RP object base dtor then delete
+8021FE0C	Hky_PaddleTrail_dtorThunk	medium	this-0x10 adjustor thunk to Hky_PaddleTrail_dtor
+8021FE14	Hky_IntroPhase_draw	low	empty; called from Hky_Game_draw for phase at +0x34
+8021FE18	Hky_IntroPhase_exit	low	empty; called from Hky_Game_exit
+8021FE1C	Hky_IntroPhase_calc	medium	game state 0: starts start-msg and player balloon, waits for start msg finished
+8021FEC4	Hky_IntroPhase_reset	medium	clears phase step/timer
+8021FED4	Hky_IntroPhase_load	low	empty; called from Hky_Game_load
+8021FED8	Hky_IntroPhase_create	medium	clears phase step
+8021FEE4	Hky_IntroPhase_dtor	high	RP object base dtor then delete
+8021FF3C	Hky_WaitPhase_draw	low	empty; called from Hky_Game_draw for phase at +0x40
+8021FF40	Hky_WaitPhase_exit	low	empty; called from Hky_Game_exit
+8021FF44	Hky_WaitPhase_calc	medium	step 1 counts frames up to constant then step 2
+8021FFA4	Hky_WaitPhase_reset	medium	clears phase step/timer
+8021FFB4	Hky_WaitPhase_load	low	empty; called from Hky_Game_load
+8021FFB8	Hky_WaitPhase_create	medium	clears phase step/timer
+8021FFC8	Hky_WaitPhase_start	medium	sets step 1 timer 0 (after time-up message)
+8021FFDC	Hky_WaitPhase_dtor	high	RP object base dtor then delete
+80220034	Hky_ResultPhase_draw	low	empty; called from Hky_Game_draw for phase at +0x44
+80220038	Hky_ResultPhase_exit	low	empty; called from Hky_Game_exit
+8022003C	Hky_ResultPhase_calc	medium	game state 5: drives Party result/medal/choice menus, records retry choice
+80220180	Hky_ResultPhase_reset	medium	clears step/timer, winner=-1, flag=1
+802201A0	Hky_ResultPhase_load	low	empty; called from Hky_Game_load
+802201A4	Hky_ResultPhase_create	low	empty; called from Hky_Game_create
+802201A8	Hky_ResultPhase_start	medium	decides winner from scores, opens 1P score result or 2P vs result party screen
+80220264	Hky_ResultPhase_dtor	high	RP object base dtor then delete
+802202BC	Hky_TimeUpPhase_draw	low	empty; called from Hky_Game_draw for phase at +0x3c
+802202C0	Hky_TimeUpPhase_exit	low	empty; called from Hky_Game_exit
+802202C4	Hky_TimeUpPhase_calc	medium	game state 3: shows time-up msg, after 150 frames plays out anims
+80220378	Hky_TimeUpPhase_reset	medium	clears phase step/timer
+80220388	Hky_TimeUpPhase_load	low	empty; called from Hky_Game_load
+8022038C	Hky_TimeUpPhase_create	medium	clears phase step/timer
+8022039C	Hky_TimeUpPhase_start	medium	step 1, plays time-up msg in and goal-msg result start
+802203E0	Hky_TimeUpPhase_dtor	high	RP object base dtor then delete
+80220438	Hky_GoalPhase_draw	low	empty; called from Hky_Game_draw for phase at +0x38
+8022043C	Hky_GoalPhase_exit	low	empty; called from Hky_Game_exit
+80220440	Hky_GoalPhase_calc	medium	game state 2: shows goal msg for scoring side, waits until done +40 frames
+8022052C	Hky_GoalPhase_reset	medium	clears phase step/timer
+8022053C	Hky_GoalPhase_load	low	empty; called from Hky_Game_load
+80220540	Hky_GoalPhase_create	medium	clears phase step/timer
+80220550	Hky_GoalPhase_start	medium	step 1 and shows goal msg for side of puck x
+802205C4	Hky_GoalPhase_dtor	high	RP object base dtor then delete
+8022061C	Hky_PaddleTrail_updateBySpeed	low	enables trail above speed 50, disables below 20, emits via effect vfunc
+802206A8	Hky_Effect_setEmitterRate	low	gets effect emitter by index and sets its rate from speed*1.5
+8022074C	Hky_BgmCtrl_update	medium	applies requested BGM state: tempo/variation changes, plays BGM 0x41/0x42/0x45
+80220AF4	Hky_BgmCtrl_request	medium	stores requested BGM state and sets pending flag
+80220B04	Hky_BgmCtrl_startGameBgm	medium	starts BGM 0x44 and sets its track volumes/variation
+80220C70	Hky_BgmCtrl_stop	medium	stops two Mpe sound handles and clears BGM ctrl state
+80220D00	Hky_BgmCtrl_init	medium	clears BGM ctrl state (state 0, ids 0xffff)
+80220D1C	Hky_ScoreLyt_playOut	medium	state 5, plays airHockeyScore outAll anim
+80220D90	Hky_ScoreLyt_playResultSwitch	medium	state 4, plays switchResult on winner side T_score and W_scoreBg
+80220E74	Hky_ScoreLyt_playGoalSwitch	medium	state 3, plays switchGoal on scoring side T_score and W_scoreBg
+80220F58	Hky_ScoreLyt_playIn	medium	state 2, plays inAll anim
+80220FD4	Hky_ScoreLyt_draw	medium	draws score layout
+80220FDC	Hky_ScoreLyt_exit	low	empty; called from HUD exit
+80220FE0	Hky_ScoreLyt_calc	medium	anim state machine; on goal switch updates T_scoreL/R digits and plays sound
+802211E4	Hky_ScoreLyt_reset	medium	rewinds anims, plays inAll, zeroes both score texts
+80221354	Hky_ScoreLyt_load	high	loads airHockeyScore_00 layout/anims and player name texts
+802214E0	Hky_ScoreLyt_create	medium	zeroes layout fields
+8022150C	Hky_TimeLyt_playOut	medium	hides T_number_00, state 3, plays outAll
+802215A4	Hky_TimeLyt_playIn	medium	shows T_number_00, state 2, plays inAll
+80221640	Hky_TimeLyt_draw	medium	draws time layout
+80221648	Hky_TimeLyt_exit	low	empty; called from HUD exit
+8022164C	Hky_TimeLyt_calc	high	shows remaining seconds from game timer, countdown sounds, switchBG/lastNum anims
+80221ACC	Hky_TimeLyt_reset	medium	rewinds anims, plays inAll, sets number 120
+80221BA4	Hky_TimeLyt_load	high	loads airHockeyTime_00 layout and anims
+80221C68	Hky_TimeLyt_create	medium	zeroes layout fields
+80221C94	Hky_TimeLyt_setNumber	high	formats number into T_number_00 (blank for -1)
+80221D6C	Hky_Hud_draw	medium	draws HUD layouts (score layout only in result display mode)
+80221DF8	Hky_Hud_exit	medium	calls exit on all 7 HUD layouts
+80221E58	Hky_Hud_calc	medium	calls calc on all 7 HUD layouts
+80221EB8	Hky_Hud_reset	medium	calls reset on all 7 HUD layouts
+80221F18	Hky_Hud_load	medium	calls load on all 7 HUD layouts
+80221F78	Hky_Hud_create	medium	calls create on all 7 HUD layouts
+80221FD8	Hky_Hud_dtor	medium	clears 7 layout pointers, delete if flag>0 (vtable 803594E0 not listed)
+80222038	Hky_destroyHud	high	deletes HUD singleton and clears global
+8022207C	Hky_createHud	high	allocates HUD (vtable 803594E0) and its 7 layout structs, stores global
+80222118	Hky_PaddleRound_restartHitAnim	low	sets anim frame 0 on round-paddle model (paddle hit feedback)
+8022213C	Hky_PaddleRound_exit	low	empty RP object slot 8
+80222140	Hky_PaddleRound_calc	medium	when paddle shape is round copies paddle transform, updates glow effect
+8022234C	Hky_PaddleRound_reset	medium	resets transform, restarts and shows glow effect
+802223E0	Hky_PaddleRound_load	high	loads Hck_paddle_C_R/C_B brres and paddle hit anim
+802224FC	Hky_PaddleRound_create	low	empty RP object slot 5
+80222500	Hky_PaddleRound_ctor	high	ctor: player index, owning paddle, Hky_paddletail_rc/bc_glow effect
+80222598	Hky_PaddleRound_dtor	high	RP object base dtor then delete
+802225F0	Hky_TimeUpMsgLyt_playOut	medium	state 3, plays outMsg anim
+8022266C	Hky_TimeUpMsgLyt_playIn	medium	state 2, plays inMsg anim
+802226E8	Hky_TimeUpMsgLyt_draw	medium	draws time-up message layout
+802226F0	Hky_TimeUpMsgLyt_exit	low	empty; called from HUD exit
+802226F4	Hky_TimeUpMsgLyt_calc	medium	anim state machine, updates layout
+80222764	Hky_TimeUpMsgLyt_reset	medium	rewinds 2 anims, state 0
+80222818	Hky_TimeUpMsgLyt_load	high	loads airHockeyMsg_02 layout and T_timeUpText_00 message
+802228BC	Hky_TimeUpMsgLyt_create	medium	zeroes layout fields
+802228D8	Hky_BalloonLyt_requestOut	low	sets flag +4 so balloon plays out after wait
+802228E4	Hky_BalloonLyt_show	medium	enables N_1pCenter/N_2pCenter per player count and plays inAll
+802229F8	Hky_BalloonLyt_draw	medium	draws balloon layout and per-player pointer cursors
+80222A64	Hky_BalloonLyt_exit	low	empty; called from HUD exit
+80222A68	Hky_BalloonLyt_calc	medium	in/wait/out anim states, projects paddle positions to screen for balloons
+80222D0C	Hky_BalloonLyt_reset	medium	rewinds anims, hides 1p/2p center panes
+80222DFC	Hky_BalloonLyt_load	high	loads airHockeyBalloon_00 layout, anims, 1p/2p texts and panes
+80222F70	Hky_BalloonLyt_create	medium	zeroes fields and creates a pointer cursor object per player
+80223060	Hky_StartMsgLyt_isDone	medium	true when state 1 and star anim finished
+8022308C	Hky_StartMsgLyt_start	medium	plays countdown sound and first count anim
+8022316C	Hky_StartMsgLyt_draw	medium	draws start message layout
+80223174	Hky_StartMsgLyt_exit	low	empty; called from HUD exit
+80223178	Hky_StartMsgLyt_calc	medium	3-2-1 countdown anims and sounds; at end starts BGM, time and score layouts
+802234C0	Hky_StartMsgLyt_reset	medium	rewinds 4 anims, state 0
+80223574	Hky_StartMsgLyt_load	high	loads airHockeyMsg_00 count/star anims and T_startText_00
+80223648	Hky_StartMsgLyt_create	medium	zeroes layout fields
+80223670	Hky_GoalMsgLyt_playOut	medium	state 7, plays outAll anim
+802236EC	Hky_GoalMsgLyt_startResult	medium	hides both side panes, state 5, plays inAll (final result)
+802237A8	Hky_GoalMsgLyt_isOutDone	medium	returns finished bit of outAll anim
+802237B8	Hky_GoalMsgLyt_showGoal	medium	rewinds anims, shows 1p or 2p goal pane by side, plays inAll
+80223960	Hky_GoalMsgLyt_draw	medium	draws goal message layout
+80223968	Hky_GoalMsgLyt_exit	low	empty; called from HUD exit
+8022396C	Hky_GoalMsgLyt_calc	medium	switch-based anim state machine (in, switchScore, out, result)
+80223BE8	Hky_GoalMsgLyt_reset	medium	rewinds anims, hides side panes, zeroes score texts
+80223CF4	Hky_GoalMsgLyt_load	high	loads airHockeyMsg_01 layout/anims and 1p/2p goal texts
+80223E88	Hky_GoalMsgLyt_create	medium	zeroes layout fields
+80223EB0	Hky_GoalMsgLyt_calcResultSwitch	medium	after inAll picks winner side switchScore anim or ends on draw
+80223FC8	Hky_GoalMsgLyt_setScoreText	high	formats score into T_scoreTextL_00/T_scoreTextR_00
+802240E4	Hky_Msg03Lyt_playIn	medium	state 2, plays inMsg anim (started in 2P mode)
+80224160	Hky_Msg03Lyt_draw	medium	draws airHockeyMsg_03 layout
+80224168	Hky_Msg03Lyt_exit	low	empty; called from HUD exit
+8022416C	Hky_Msg03Lyt_calc	medium	in/switch/out anim states; switches message up to 5 times or until result
+80224340	Hky_Msg03Lyt_reset	medium	rewinds 3 anims, state 0
+802243F4	Hky_Msg03Lyt_load	high	loads airHockeyMsg_03 layout/anims and T_msgText_00 message
+802244B0	Hky_Msg03Lyt_create	medium	zeroes layout fields
+802244D0	Pnp_Scene_draw	medium	forwards to Pnp game manager vtable slot 5 (draw)
+802244E4	Pnp_Scene_exit	medium	stops BGM ctrl, Mpe cleanup, calls game manager slot 6 (exit/destroy)
+80224534	Pnp_Scene_calc	medium	forwards to Pnp game manager vtable slot 4 (calc)
+80224548	Pnp_Scene_reset	medium	stops BGM ctrl then calls game manager slot 3 (reset)
+80224590	Pnp_Scene_load	high	loads rp_Pnp_sound.brsar and basic_pingpong.breff/breft, then game manager load
+8022465C	Pnp_Scene_create	medium	creates Pnp game manager singleton, calls its create, allocates scene sound helper
+80224728	Pnp_80224728	keep	empty body; no callers or references
+802247A0	Pnp_Scene_dtor	high	scene dtor: base dtor then operator delete if flag>0
+802247FC	Pnp_SceneSound_dtor	low	dtor for 0x18-byte helper object created in Pnp_Scene_create (no direct refs)
+80224858	Pnp_Scene_drawThunk	medium	this-0x24 adjustor thunk to Pnp_Scene_draw
+80224860	Pnp_Scene_dtorThunk	medium	this-0x24 adjustor thunk to Pnp_Scene_dtor
+80224868	Pnp_Field_checkBallFloorHit	medium	detects ball crossing floor plane, bounces it and sends floor event (0) to ball rally logic
+80225138	Pnp_Field_exit	low	empty; called from Pnp_Game_exit for field object
+8022513C	Pnp_Field_calc	medium	builds model matrix from position/rotation and scale, updates model
+80225140	Pnp_Field_reset	low	empty; called from Pnp_Game_reset for field object
+80225144	Pnp_Field_load	high	loads /G3D/pin_field.brres model
+802251D4	Pnp_Field_create	medium	sets scale 10,10,10
+802251E8	Pnp_Field_dtor	high	RP object base dtor then delete
+80225240	Pnp_Ball_predictTableLanding	medium	simulates ball up to 100 steps until table height, returns landing point if on table
+80225434	Pnp_Ball_onEvent	medium	rally rule state machine on hit/bounce/net/floor events; awards points, rally count
+80225A78	Pnp_Ball_tossServe	medium	serve toss: sets ball pos/vel, state 2, starts trails, hides server lyt, starts rally BGM
+80225C14	Pnp_Ball_prepareServe	medium	zeroes motion, state 1, server side from score keeper
+80225CAC	Pnp_Ball_onEventState7	low	rally rule substate handler (next state 8/6/10/11 by event)
+80225DAC	Pnp_Ball_onEventState8	low	rally rule substate handler (next state 8/6/9/11/12 by event)
+80225EAC	Pnp_Ball_onEventState4	low	rally rule substate handler (next state 5/6/11/12 by event)
+80225FAC	Pnp_Ball_applyReceiverSpin	low	after bounce adds clamped receiving player's swing vector to ball x/z velocity
+802260C4	Pnp_Ball_drawShadow	low	debug-mode draw of ball shadow disc on table/floor
+80226264	Pnp_Ball_integrate	medium	stores prev pos, applies gravity/accel to velocity and velocity to position
+80226328	Pnp_Ball_exit	low	empty; called from Pnp_Game_exit for ball
+8022632C	Pnp_Ball_calc	medium	orients ball model along velocity, updates model matrix and trails
+8022666C	Pnp_Ball_reset	medium	clears ball motion/state, server side from score keeper
+80226720	Pnp_Ball_load	high	loads /G3D/pin_ball.brres model
+8022679C	Pnp_Ball_create	high	allocates ball trail effect holder and Pnp_balltail/balltail02/glow effects, defaults
+80226A24	Pnp_RacketTrail_dtor	medium	effect-holder dtor for racket trail; delete if flag>0
+80226B34	Pnp_BallTrail_dtor	medium	effect-holder dtor for ball trail; delete if flag>0
+80226C48	Pnp_Ball_dtor	high	RP object base dtor then delete
+80226CA0	Pnp_sinitBallDefaults	medium	static init of default ball position, velocity and gravity vectors
+80226CF4	Pnp_RacketTrail_dtorThunk	medium	this-0x10 adjustor thunk to Pnp_RacketTrail_dtor
+80226CFC	Pnp_BallTrail_dtorThunk	medium	this-0x10 adjustor thunk to Pnp_BallTrail_dtor
+80226D04	Pnp_Table_handleBallCollision	high	ball vs net (event 6, net anim) and table surface bounce, plays Pnp_bound effect
+802272D4	Pnp_Table_exit	low	empty; called from Pnp_Game_exit for table
+802272D8	Pnp_Table_calc	medium	builds model matrix from position/rotation and scale, updates model
+802272DC	Pnp_Table_reset	low	empty; called from Pnp_Game_reset for table
+802272E0	Pnp_Table_load	high	loads /G3D/pin_table.brres model and pin_table_a/b anims
+802273F8	Pnp_Table_create	medium	zero position, scale 10
+8022741C	Pnp_Table_getBallRestHeight	medium	table surface height (scale*9.12) plus ball radius
+80227448	Pnp_Table_dtor	high	RP object base dtor then delete
+802274A0	Pnp_sinitVec8043A700	low	static init of global vec (2,1,2)
+802274C0	Pnp_Player_drawDebug	medium	debug-mode draw of racket hit sphere/target and SMASH text
+8022784C	Pnp_Player_pickCpuServeX	medium	for CPU player picks random serve x within table width (0 in 1P mode)
+802278F8	Pnp_Player_checkBallHit	high	racket vs ball using swing history, sets return velocity, rumble, Pnp_shot effect, event 7
+80228154	Pnp_Player_updateInput	medium	CPU/human update, side clamp, pointer swing sample, serve trigger on button
+80228504	Pnp_Player_exit	low	empty; called from Pnp_Game_exit for players
+80228508	Pnp_Player_calc	medium	join detection shows HUD, shadows, hand anims, Pnp_smashshot effect, model matrices
+80228DA0	Pnp_Player_reset	medium	clears swing history/flags, start position by side, racket orientation
+80228F44	Pnp_Player_load	high	loads pin_racket0/1 models, pin_hand_R anims and Pnp_racket_tail_r/b effect
+802291CC	Pnp_Player_create	medium	creates hand model and racket trail effect holder, inits swing/hit params
+8022948C	Pnp_Player_ctor	high	ctor: side index and CPU flag, clears state
+80229508	Pnp_Player_checkServeHit	medium	racket vs tossed serve ball, sets serve velocity, rumble, Pnp_shot effect
+80229A1C	Pnp_Player_calcCpuReturnVelocity	low	CPU return velocity toward chosen target x and far end of table
+80229BA0	Pnp_Player_pickCpuTargetX	low	weighted random target lane (left/center/right) from level table entry
+80229D50	Pnp_Player_updateCpu	medium	CPU racket follows ball x, fixed height, z eased toward predicted landing
+80229FAC	Pnp_Player_updateHuman	medium	maps Wii remote pointer to racket position and records swing samples
+8022A470	Pnp_Player_recordSwingSample	medium	writes position/valid flags into 10-entry swing ring buffer and computes velocity
+8022A93C	Pnp_Player_dtor	high	RP object base dtor then delete
+8022A994	Pnp_sinitRacketParams	low	static init of racket hit range/offset constants
+8022AA04	Pnp_PointPhase_addPoint	medium	2P: increments side score (cap 99), records scorer, plays score lyt switch
+8022AA94	Pnp_PointPhase_isGameOver	low	2P: compares both scores against target points
+8022AAD4	Pnp_PointPhase_getServeTurn	medium	total points / serve interval (+1 if first server swapped)
+8022AB14	Pnp_PointPhase_isServeChangePoint	medium	true when total points is a nonzero multiple of serve interval
+8022AB60	Pnp_PointPhase_isCourtChangePoint	low	true when total points is a nonzero multiple of second interval
+8022ABAC	Pnp_PointPhase_isServeTurnOdd	medium	parity of serve turn
+8022AC0C	Pnp_PointPhase_getServerSide	medium	current server side from total points (1P: always 1)
+8022AC6C	Pnp_PointPhase_draw	low	empty; called from Pnp_Game_draw for phase at +0x44
+8022AC70	Pnp_PointPhase_exit	low	empty; called from Pnp_Game_exit
+8022AC74	Pnp_PointPhase_calc	medium	game state 4: waits for fault/point messages then step 3
+8022AD6C	Pnp_PointPhase_reset	medium	clears step/timer, scorer=2, scores 0
+8022AD8C	Pnp_PointPhase_load	low	empty; called from Pnp_Game_load
+8022AD90	Pnp_PointPhase_create	medium	target points 11, clears step/timer and scores
+8022ADB8	Pnp_PointPhase_start	medium	shows fault message or point message by ball end state, rally count sounds
+8022B01C	Pnp_PointPhase_dtor	high	RP object base dtor then delete
+8022B074	Pnp_ResultPhase_draw	low	empty; called from Pnp_Game_draw for phase at +0x48
+8022B078	Pnp_ResultPhase_exit	low	empty; called from Pnp_Game_exit
+8022B07C	Pnp_ResultPhase_calc	medium	game state 5: camera ease, score/rally result screens, party menus, retry choice
+8022B384	Pnp_ResultPhase_reset	medium	clears step/timer, winner=-1, flag=1
+8022B3A4	Pnp_ResultPhase_load	low	empty; called from Pnp_Game_load
+8022B3A8	Pnp_ResultPhase_create	medium	allocates two celebration effects
+8022B420	Pnp_ResultPhase_start	medium	decides winner; 1P rally result sounds, audience reaction, effects for milestones
+8022BC34	Pnp_ResultPhase_dtor	high	RP object base dtor then delete
+8022BC8C	Pnp_ServePhase_draw	low	empty; called from Pnp_Game_draw for phase at +0x40
+8022BC90	Pnp_ServePhase_exit	low	empty; called from Pnp_Game_exit
+8022BC94	Pnp_ServePhase_calc	medium	game state 2: dispatches start / court-change / wait-serve steps
+8022BD10	Pnp_ServePhase_reset	medium	clears step/timer, message ids 3
+8022BD2C	Pnp_ServePhase_load	low	empty; called from Pnp_Game_load
+8022BD30	Pnp_ServePhase_create	medium	clears step/timer, message ids 3
+8022BD4C	Pnp_ServePhase_calcWaitServe	medium	waits for players ready, prepares serve ball, help messages, server lyt
+8022BFEC	Pnp_ServePhase_calcCourtChange	medium	on serve change eases camera/net to other side, then score lyt in
+8022C244	Pnp_ServePhase_start	medium	serve/court change checks, sounds, here/over message, CPU serve x
+8022C420	Pnp_ServePhase_dtor	high	RP object base dtor then delete
+8022C478	Pnp_BallTrail_updateEmitterRate	low	picks trail emitter by event table and scales its rate by consecutive hits
+8022C6A0	Pnp_ReadyPhase_draw	low	empty; called from Pnp_Game_draw for phase at +0x3c
+8022C6A4	Pnp_ReadyPhase_exit	low	empty; called from Pnp_Game_exit
+8022C6A8	Pnp_ReadyPhase_calc	medium	game state 1: timed steps (90/40 frames) to step 5
+8022C77C	Pnp_ReadyPhase_reset	medium	clears timer
+8022C788	Pnp_ReadyPhase_load	low	empty; called from Pnp_Game_load
+8022C78C	Pnp_ReadyPhase_create	medium	sets step 1
+8022C798	Pnp_ReadyPhase_dtor	high	RP object base dtor then delete
+8022C7F0	Pnp_fadeOutBgm	low	fades out global BGM handle over 60 frames if playing
+8022C83C	Pnp_startBgm	medium	stops global BGM handle and starts BGM 0xC or 0xD by flag
+8022C8B0	Pnp_sinitBgmHandle	medium	static init: clears global BGM handle and registers its dtor
+8022C8D0	Pnp_Game_getOpponentSide	medium	returns 0 for 1, 1 for 0, else 2
+8022C8F8	Pnp_Game_draw	medium	draws ball shadow, player debug, audience, HUD and current phase
+8022C9F0	Pnp_Game_exit	medium	exits all objects/phases, deletes game, audience, HUD, level table singletons
+8022CAD8	Pnp_Game_calc	medium	main state machine: physics step, point end, result, BGM tempo by rally
+8022CE54	Pnp_Game_reset	medium	picks first server, rally goal, resets objects/HUD/phases, camera, starts BGM
+8022D1CC	Pnp_Game_load	medium	loads party_message.bmg, scene lights/bloom, objects, HUD, shadow texture
+8022D4A0	Pnp_Game_create	medium	state 3, calls create on objects, players, audience, HUD and phases
+8022D5A4	Pnp_Game_dtor	high	dtor: delete if flag>0
+8022D5E4	Pnp_Game_ctor	high	constructs field, table, net shadow, ball, 2 players, audience, HUD, phases
+8022DA70	Pnp_Game_stepPhysics	high	ball integrate, player input, floor/table/racket collisions, object calc, HUD calc
+8022DBCC	Pnp_Game_checkPointEnd	medium	after point phase: game over/rally miss -> result, else next serve
+8022DC8C	Pnp_createGame	high	allocates Pnp_Game and stores it in the global singleton
+8022DCC0	Pnp_IBinary_setBinaryChecked	medium	eggIBinary.h: asserts binary magic matches class then calls setBinary
+8022DDEC	Pnp_sinitCameraPos	low	static init of global vec (-275,800,190)
+8022DE10	Pnp_Spectator_draw	low	empty; called per spectator from Pnp_Audience_draw
+8022DE14	Pnp_Spectator_calc	medium	1P walk-in logic, scales and orients spectator and anim models
+8022E150	Pnp_Spectator_updateWalkIn	low	moves spectator along walk-in path over frames, drives walk anim frame
+8022E340	Pnp_Spectator_reset	medium	state 1, scale 10, walk timer 0
+8022E35C	Pnp_Spectator_dtor	medium	destroys anim member and avatar base, delete if flag>0
+8022E3C4	Pnp_Spectator_ctor	medium	avatar-based ctor with seat index, anim member and seat position table
+8022E674	Pnp_Spectator_dtorThunk	medium	this-0xb4 adjustor thunk to Pnp_Spectator_dtor
+8022E67C	Pnp_Audience_playLoopAnimA	low	for all/one seat: anim set 1, expression 3, random start frame
+8022E820	Pnp_Audience_playLoopAnimB	low	for all/one seat: anim set 0, expression 1, random start frame
+8022E9C4	Pnp_Audience_cheerTimed	low	for all/one seat: starts timed jump (switch after 120 frames)
+8022EB70	Pnp_Audience_draw	medium	calls draw on all 17x2 spectators
+8022EBE4	Pnp_Audience_exit	low	empty; called from Pnp_Game_exit
+8022EBE8	Pnp_Audience_calc	medium	per seat anim loop/timers, faces spectators toward ball, calls spectator calc
+8022F014	Pnp_Audience_reset	medium	resets spectators and orients them toward ball
+8022F1CC	Pnp_Audience_load	high	loads pin_A0_jumpR/waitR anims from pin_avatar_anim.brres for all spectators
+8022F3EC	Pnp_Audience_create	low	empty; called from Pnp_Game_create
+8022F3F0	Pnp_Audience_dtor	medium	clears seat pointers, destroys arrays, base dtor, delete if flag>0
+8022F49C	Pnp_Audience_ctor	medium	builds 17 seats of 2 spectators with avatar descriptors
+8022F9A8	Pnp_destroyAudience	high	deletes audience singleton and clears global
+8022F9EC	Pnp_createAudience	high	allocates audience and stores global
+8022FA20	Pnp_ScoreLyt_playOut	medium	2P: plays outAll once (state 4)
+8022FACC	Pnp_ScoreLyt_playPointSwitch	medium	2P: switch1P/2P anim, updates score digits, audience cheer, point sounds
+8022FD40	Pnp_ScoreLyt_playIn	high	2P: shows player panes by serve turn (N_playerLA/RU/LU/RA), plays inAll
+80230044	Pnp_ScoreLyt_draw	medium	draws score layout in 2P mode
+80230060	Pnp_ScoreLyt_exit	low	empty; called from HUD exit
+80230064	Pnp_ScoreLyt_calc	medium	2P anim state machine, result switch at game end
+802301F0	Pnp_ScoreLyt_reset	medium	rewinds anims, hides player panes, zeroes scores
+80230344	Pnp_ScoreLyt_load	high	loads pingpongScore_00 layout/anims and player/score texts
+802305D0	Pnp_ScoreLyt_create	medium	zeroes layout fields
+802305FC	Pnp_ScoreLyt_setScore	high	formats score into T_scoreL/R_00/01
+80230744	Pnp_ScoreLyt_calcSwitch	medium	after switch anim returns to idle or result switch/out
+80230878	Pnp_ServerLyt_hide	medium	requests or plays outAll
+80230958	Pnp_ServerLyt_show	high	selects N_serverWU/WD by side, plays inAll and upDown
+80230AC4	Pnp_ServerLyt_draw	medium	draws server layout
+80230ACC	Pnp_ServerLyt_exit	low	empty; called from HUD exit
+80230AD0	Pnp_ServerLyt_calc	medium	anim states; projects serving player position to screen
+80230BE4	Pnp_ServerLyt_reset	medium	rewinds anims, hides server panes
+80230CB8	Pnp_ServerLyt_load	high	loads pingpongServer_00 layout/anims and texts
+80230DFC	Pnp_ServerLyt_create	medium	zeroes layout fields
+80230E24	Pnp_ServerLyt_applyPending	medium	starts pending in/out anim
+80230F84	Pnp_ArrowLyt_show	medium	shows both player arrows and plays their anims once
+802310E0	Pnp_ArrowLyt_draw	medium	draws arrow for each player not yet ready
+80231154	Pnp_ArrowLyt_exit	low	empty; called from HUD exit
+80231158	Pnp_ArrowLyt_calc	medium	projects player positions to screen for arrows
+8023120C	Pnp_ArrowLyt_reset	medium	hides arrows and rewinds anims
+802312D4	Pnp_ArrowLyt_load	high	loads two pingpongArrow_00 layouts and anims
+802313A4	Pnp_ArrowLyt_create	medium	zeroes layout fields
+802313D0	Pnp_IntroPhase_draw	low	empty; called from Pnp_Game_draw for phase at +0x38
+802313D4	Pnp_IntroPhase_exit	low	empty; called from Pnp_Game_exit
+802313D8	Pnp_IntroPhase_calc	medium	game state 0: sets camera, shows player balloons, runs intro camera
+802314D4	Pnp_IntroPhase_reset	medium	clears step/timer
+802314E4	Pnp_IntroPhase_load	low	empty; called from Pnp_Game_load
+802314E8	Pnp_IntroPhase_create	low	empty; called from Pnp_Game_create
+802314EC	Pnp_IntroPhase_calcCamera	medium	120-frame eased camera sweep, shows start message at frame 40
+80231764	Pnp_IntroPhase_dtor	high	RP object base dtor then delete
+802317BC	Pnp_ResultLyt_playOut	medium	state 3, plays outAll
+80231838	Pnp_ResultLyt_show	medium	sets rally result text then plays inAll
+802318B8	Pnp_ResultLyt_draw	medium	draws result layout in result state
+802318D4	Pnp_ResultLyt_exit	low	empty; called from HUD exit
+802318D8	Pnp_ResultLyt_calc	medium	anim state machine, updates layout
+80231948	Pnp_ResultLyt_reset	medium	rewinds anims, state 0
+802319FC	Pnp_ResultLyt_load	high	loads pingpongResult_00 layout and anims
+80231A78	Pnp_ResultLyt_create	medium	zeroes layout fields
+80231A94	Pnp_ResultLyt_setRallyText	high	picks N_unitA/B/C by rally digits, rank message, formats rally number
+80231F54	Pnp_CountLyt_playOut	medium	state 4, plays outAll
+80231FD0	Pnp_CountLyt_setCount	high	sets rally count; every 10 plays switch, Pnp_count effect, milestone sounds
+8023239C	Pnp_CountLyt_playIn	medium	state 2, plays inAll
+80232418	Pnp_CountLyt_draw	medium	draws rally count layout
+80232420	Pnp_CountLyt_exit	low	empty; called from HUD exit
+80232424	Pnp_CountLyt_calc	medium	anim state machine, updates layout
+802324B4	Pnp_CountLyt_reset	medium	rewinds anims, count 0
+80232584	Pnp_CountLyt_load	high	loads pingpongCount_00 layout/anims and number texts
+8023267C	Pnp_CountLyt_create	medium	zeroes layout fields
+8023269C	Pnp_CountLyt_setNumber	high	formats number into T_number_00/01
+802327AC	Pnp_Hud_draw	medium	draws HUD layouts (score layout only in result display mode)
+80232874	Pnp_Hud_exit	medium	calls exit on all 11 HUD layouts
+802328F4	Pnp_Hud_calc	medium	calls calc on all 11 HUD layouts
+80232974	Pnp_Hud_reset	medium	calls reset on all 11 HUD layouts
+802329F4	Pnp_Hud_load	medium	calls load on all 11 HUD layouts
+80232A74	Pnp_Hud_create	medium	calls create on all 11 HUD layouts
+80232AF4	Pnp_Hud_dtor	medium	clears 11 layout pointers, delete if flag>0 (vtable 803599F8 not listed)
+80232B64	Pnp_destroyHud	high	deletes HUD singleton and clears global
+80232BA8	Pnp_createHud	high	allocates HUD (vtable 803599F8) and its 11 layout structs, stores global
+80232C74	Pnp_LevelTable_lookupRally	medium	finds rally level-up table entry for rally count (per mode), returns two fields
+80232D1C	Pnp_LevelTable_getLevelEntry	medium	returns pointer to 12-byte leveltable entry by index
+80232D2C	Pnp_LevelTable_dtor	medium	dtor: delete if flag>0 (vtable 80359A08 not listed)
+80232D6C	Pnp_LevelTable_ctor	high	loads leveltable.bin, rallyleveluptable.bin and rallyleveluptable2.bin copies
+80232E94	Pnp_destroyLevelTable	high	deletes level table singleton and clears global
+80232ED8	Pnp_createLevelTable	high	allocates level table and stores global
+80232F0C	Pnp_BalloonLyt_show	medium	shows 1p/2p center pane per balloon and plays inAll
+80233038	Pnp_BalloonLyt_draw	medium	draws per-player balloons and pointer cursors
+802330E4	Pnp_BalloonLyt_exit	low	empty; called from HUD exit
+802330E8	Pnp_BalloonLyt_calc	medium	in/updown/out states until player joins; projects player position to screen
+80233398	Pnp_BalloonLyt_reset	medium	rewinds anims, hides center panes
+802334A8	Pnp_BalloonLyt_load	high	loads two pingpongBalloon_00 layouts, anims and player texts
+80233660	Pnp_BalloonLyt_create	medium	zeroes fields and creates pointer cursors per player
+80233788	Pnp_StartMsgLyt_playOut	medium	state 3, plays outAll
+80233804	Pnp_StartMsgLyt_show	medium	sets rally goal or match message text, plays inAll
+802339A8	Pnp_StartMsgLyt_draw	medium	draws pingpongMsg_00 layout
+802339B0	Pnp_StartMsgLyt_exit	low	empty; called from HUD exit
+802339B4	Pnp_StartMsgLyt_calc	medium	anim state machine, updates layout
+80233A24	Pnp_StartMsgLyt_reset	medium	rewinds anims, state 0
+80233AD8	Pnp_StartMsgLyt_load	high	loads pingpongMsg_00 layout and anims
+80233B54	Pnp_StartMsgLyt_create	medium	zeroes layout fields
+80233B70	Pnp_FaultMsgLyt_isDone	medium	returns finished bit of outAll anim
+80233B80	Pnp_FaultMsgLyt_show	medium	sets fault message variant by ball end state, plays inAll
+80233E3C	Pnp_FaultMsgLyt_draw	medium	draws pingpongMsg_02 layout
+80233E44	Pnp_FaultMsgLyt_exit	low	empty; called from HUD exit
+80233E48	Pnp_FaultMsgLyt_calc	medium	holds message 90 frames then plays outAll
+80233F40	Pnp_FaultMsgLyt_reset	medium	rewinds anims, state 0
+80234000	Pnp_FaultMsgLyt_load	high	loads pingpongMsg_02 layout and anims
+8023407C	Pnp_FaultMsgLyt_create	medium	zeroes layout fields
+80234098	Pnp_PointMsgLyt_isDone	medium	returns finished bit of outAll anim
+802340A8	Pnp_PointMsgLyt_show	medium	shows 1p/2p point texts for scorer, positions pane by side, plays inAll
+802343C0	Pnp_PointMsgLyt_draw	medium	draws pingpongMsg_04 layout
+802343C8	Pnp_PointMsgLyt_exit	low	empty; called from HUD exit
+802343CC	Pnp_PointMsgLyt_calc	medium	holds message 90 frames then plays outAll
+802344C4	Pnp_PointMsgLyt_reset	medium	rewinds anims, hides side panes
+802345B4	Pnp_PointMsgLyt_load	high	loads pingpongMsg_04 layout and anims
+80234630	Pnp_PointMsgLyt_create	medium	zeroes layout fields
+80234654	Pnp_ServeMsgLyt_isDone	medium	returns finished bit of outAll anim
+80234664	Pnp_ServeMsgLyt_show	high	shows N_msgHere_00 or N_msgOver_00 and plays inAll
+80234794	Pnp_ServeMsgLyt_draw	medium	draws pingpongMsg_03 layout
+8023479C	Pnp_ServeMsgLyt_exit	low	empty; called from HUD exit
+802347A0	Pnp_ServeMsgLyt_calc	medium	holds message 90 frames then plays outAll
+80234898	Pnp_ServeMsgLyt_reset	medium	rewinds anims, hides here/over panes
+80234988	Pnp_ServeMsgLyt_load	high	loads pingpongMsg_03 layout and here/over texts
+80234AA4	Pnp_ServeMsgLyt_create	medium	zeroes layout fields
+80234AC8	Pnp_HelpMsgLyt_requestHide	medium	sets pending message state 4 (hide)
+80234AD4	Pnp_HelpMsgLyt_setMessage	medium	sets message id; plays inAll now or queues it
+80234B88	Pnp_HelpMsgLyt_draw	medium	draws pingpongMsg_01 layout
+80234B90	Pnp_HelpMsgLyt_exit	low	empty; called from HUD exit
+80234B94	Pnp_HelpMsgLyt_calc	medium	in/wait/out anim states with queued message changes
+80234DCC	Pnp_HelpMsgLyt_reset	medium	rewinds anims, state 0
+80234E7C	Pnp_HelpMsgLyt_load	high	loads pingpongMsg_01 layout and anims
+80234F10	Pnp_HelpMsgLyt_create	medium	zeroes fields, message ids 4
+80234F3C	Pnp_HelpMsgLyt_applyText	medium	sets T_msgText_00/01 message by current message id
+802350F4	Pnp_NetShadow_restartAnim	low	sets net shadow model anim frame 0 and rate 0
+80235160	Pnp_NetShadow_exit	low	empty; called from Pnp_Game_exit
+80235164	Pnp_NetShadow_calc	medium	builds model matrix from position/rotation and scale, updates model
+80235168	Pnp_NetShadow_reset	low	empty; called from Pnp_Game_reset
+8023516C	Pnp_NetShadow_load	high	loads pin_net_shadow model and anim from pin_table.brres
+8023524C	Pnp_NetShadow_create	medium	zero position, scale 10
+80235270	Pnp_NetShadow_dtor	high	RP object base dtor then delete
+802352C8	Pnp_BgmCtrl_stop	medium	stops Mpe BGM handle (fade 10) and clears rally BGM ctrl state
+80235350	Pnp_BgmCtrl_updateTracks	low	toggles BGM track mutes/volumes on beat for rally state, fades extra track
+8023552C	Pnp_BgmCtrl_setCount	low	stores count value then updates tracks
+80235540	Pnp_BgmCtrl_updateRally	medium	adjusts BGM tempo by rally count and level, track volumes
+80235760	Pnp_BgmCtrl_startRallyBgm	medium	starts BGM 0x6B (1P) or 0x6C (2P), sets tracks, resets ctrl state

@@ -1,0 +1,31 @@
+vtable	class_name	evidence
+8034F708	Controller	ctor 80199AF4 on egg controller base; calc does WPAD probe/DPD/sensor stacks; size 0x2bb0, Mii ID at +0x2ba8 (functions prefixed RP_, moved from Lyt)
+8034F6C8	MiiIconBase	ctor 80197C58 copies 0x58-byte MiiIconParam; dtor 80197BE4 (functions prefixed Mii_, moved from Lyt)
+8034F740	MiiIcon	ctor 8019BDB8 derives MiiIconBase and renders Mii portrait into CapTexture (+0xa4) (functions prefixed Mii_, moved from Lyt)
+8034F6E0	MessageWindow	ctor 80197DD8; load 801985B4 uses messageWindow.arc; singleton lbl_8043C4F0
+8034F6F0	TagProcessor	80199130 constructs on nw4r TagProcessorBase; handlers 80198EC8/80198ECC; global lbl_8043C4F8
+8034F758	MiiIconParam	ctor 8019BE58 (defaults 0x80 size, MiiSource at +8) (functions prefixed Mii_, moved from Lyt)
+8034F768	MiiSource	ctor 8019BF4C: type/index/ptr triple consumed by Mii resolve functions (functions prefixed Mii_, moved from Lyt)
+8034F7C4	MiiDataSource	ctor 8019C134 builds primary/secondary Mii lists; resolveIndex 8019C044 (functions prefixed Mii_, moved from Lyt)
+8034F804	MiiLoader	ctor 8019CB5C; load loop 8019C9EC (functions prefixed Mii_, moved from Lyt)
+8034F810	CursorManager	ctor Lyt_8019CBF0 names it "Cursor Manager"; vtable slots 8019CB7C, 80189BBC, 80189BC0
+8034F870	AsyncTask	ctor Lyt_8019E5B4 (handle, state); dtor Lyt_8019E574; state 0 idle / 1 busy / 2 done (functions prefixed RP_, moved from Lyt)
+8034F8CC	SystemWindow	ctor Lyt_8019FA10; dtor Lyt_8019F9D0; loads messageWindow.arc systemWindow_00.brlyt
+8034FA08	ResTexObj	ctor Lyt_801A53DC (base ctor Lyt_80197C58); purpose uncertain (low)
+80357428	CPadCursor	load uses cPadCursor.arc / cPadCursor_00.brlyt with N_cPadCursor_00..02 panes (existing anchor name)
+80357480	WCursor	load uses cCursorCircle.arc / W_cursor_00 window pane (existing anchor WCursor00)
+80357458	MiiIconSet	singleton lbl_8043C648; holds array of MiiIcon objects created by 801BFF48 (functions prefixed Mii_, moved from Lyt)
+80357448	TnkMapData	ctor 801BFD08 loads MapData/TnkMapData_P%d_%02d_%d.bin; singleton lbl_8043C640 (functions prefixed RP_, moved from Lyt)
+803574A0	AnimButton	ctor 801C1D90; 8 anim slots, current anim index, pane hit test, frame override tables
+80357508	AnimButtonTable	ctor 801C2DD8; 100 {id, AnimButton} entries looked up by id
+80358040	CommonMessage	save-data message state machine: enterStateN slots 22..38, updateStateN slots 39..55
+80357518	BezierSegment	ctor 801C5C40; cubic Bezier eval with 4 control points, length at +0x30 (functions prefixed RP_, moved from Lyt)
+8035752C	LinearSegment	ctor 801C5B78; linear eval between endpoints (functions prefixed RP_, moved from Lyt)
+80357540	LinearSegmentArray	created in 801C5770 for linear paths; getCount/getSegment/dtor (functions prefixed RP_, moved from Lyt)
+80357554	BezierSegmentArray	created in 801C5770 for curved paths; getCount/getSegment/dtor (functions prefixed RP_, moved from Lyt)
+80357580	CollisionModel	ctor 801C664C; triangle collision query via Bil_801B7D1C, sphere sweep, this-0x40 thunks (functions prefixed RP_, moved from Lyt)
+803575B8	CollisionShape	ctor 801C7A88; sphere (type 1) / box (type 2) tests, pos +0x1c rot +0x34 radius +0x70, debug draw (functions prefixed RP_, moved from Lyt)
+803575D8	ActorScene	ctor 801C7FE0 on Sys scene base; drives actor list lbl_8043C680 calc/draw, rumble and debug buffers (functions prefixed RP_, moved from Lyt)
+80357668	Actor	ctor 801C879C; priority short +0x18 used by ActorList sort; many Cow actor vtables share its slots (functions prefixed RP_, moved from Lyt)
+80357640	ActorList	ctor 801C8688 / dtor 801C8608; linked list of actors with start/stop/calc/draw helpers (functions prefixed RP_, moved from Lyt)
+80357718	FrameDown	ctor 801CA250; N_frameDown_00 caption with back button, states hidden/in/idle/hover/unhover/press/out

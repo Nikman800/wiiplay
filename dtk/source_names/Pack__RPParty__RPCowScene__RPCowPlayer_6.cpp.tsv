@@ -1,0 +1,79 @@
+address	old_name	new_name	unit	previous
+801C45C4	RP_addRumblePattern	Add__15RPRumblePatternFlRC15RPRumblePattern	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+801C4944	RP_RumblePattern_ctor	__ct__15RPRumblePatternFlfl	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+8029CAE0	Cow_Game_onTimeUp	OnTimeUp__9RPCowGameFl	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+8029CD6C	Cow_Game_onCourseComplete	OnCourseComplete__9RPCowGameFl	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+8029EA50	Cow_Camera_setFollowState	SetFollowState__11RPCowCameraFv	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+8029EA5C	Cow_Camera_setFollowNearState	SetFollowNearState__11RPCowCameraFv	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+802A0EF0	Cow_Arrow_calc	Calc__10RPCowArrowFv	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+802A1444	Cow_Arrow_reset	Reset__10RPCowArrowFl	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+802A1504	Cow_Arrow_init	Init__10RPCowArrowFl	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+802A1680	Cow_Player_drawShadowTex	DrawShadowTex__11RPCowPlayerFv	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+802A16E0	Cow_Player_drawPass	DrawPass__11RPCowPlayerFUc	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+802A16F0	Cow_Player_drawScreen	DrawScreen__11RPCowPlayerFUc	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+802A17EC	Cow_Player_entryDraw	Calculate__11RPCowPlayerFv	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+802A1884	Cow_Player_calc	OnActivate__11RPCowPlayerFv	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+802A1900	Cow_Player_exit	OnStop__11RPCowPlayerFv	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+802A1964	Cow_Player_reset	OnStart__11RPCowPlayerFv	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+802A1CD4	Cow_PosHistory_push	Push__12RPCowPosRingFRCQ23EGG8Vector3f	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+802A1D48	Cow_Player_init	LoadResource__11RPCowPlayerFv	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+802A2058	Cow_Player_destroy	VF_0x40__11RPCowPlayerFv	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+802A207C	Cow_PlayerSound_dtor	__dt__16RPCowPlayerSoundFv	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+802A2190	Cow_Player_create	VF_0x3C__11RPCowPlayerFv	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+802A2468	Cow_Player_onCollide	IsEnabled__11RPCowPlayerFP16IRPActorPriority	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	IsEnabled__11RPCowPlayerCFv
+802A248C	Cow_Player_updateModel	UpdateModel__11RPCowPlayerFv	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+802A2804	Cow_Player_calcProgress	CalcProgress__11RPCowPlayerFv	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+802A2D90	Cow_PlayerSound_set3DPosition	set3DPosition__16RPCowPlayerSoundFRCQ34nw4r4math4VEC3	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+802A2E18	Cow_Player_handleCollisions	HandleCollisions__11RPCowPlayerFv	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+802A3FE8	Cow_Player_calcMovement	CalcMovement__11RPCowPlayerFv	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+802A5370	Cow_Player_calcInput	CalcInput__11RPCowPlayerFv	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+802A5E70	Cow_Player_addBonusScore	AddBonusScore__11RPCowPlayerFl	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	AddBonusScore__11RPCowPlayerFv
+802A60A4	Cow_Player_getTotalScore	GetTotalScore__11RPCowPlayerCFv	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+802A61AC	Cow_Player_getCameraYawVec	GetCameraYawVec__11RPCowPlayerFv	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	GetCameraYawVec__11RPCowPlayerCFv
+802A61C4	Cow_Player_getRightDir	GetRightDir__11RPCowPlayerFv	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	GetRightDir__11RPCowPlayerCFv
+802A6290	Cow_Player_getRotation	GetRotation__11RPCowPlayerFv	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	GetRotation__11RPCowPlayerCFv
+802A62FC	Cow_Player_getForwardMove	GetForwardMove__11RPCowPlayerFv	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	GetForwardMove__11RPCowPlayerCFv
+802A6358	Cow_Player_getMoveDelta	GetMoveDelta__11RPCowPlayerFv	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	GetMoveDelta__11RPCowPlayerCFv
+802A6478	Cow_Player_setArrowVisible	SetArrowVisible__11RPCowPlayerFb	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+802A64AC	Cow_Player_dtorThunk	@20@__dt__11RPCowPlayerFv	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	@16@IsEnabled__11RPCowPlayerCFv
+802A64B4	Cow_PlayerSound_dtorThunk	@16@__dt__16RPCowPlayerSoundFv	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+802AB310	Cow_KakasiGroup_getPos	GetPos__16RPCowKakasiGroupCFv	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+802AC0B4	Cow_Goal_getPos	GetPos__9RPCowGoalCFv	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+8035CF30	lbl_8035CF30	__vt__16RPCowPlayerSound	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+80440AD0	lbl_80440AD0	sModelScale__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+80440AD4	lbl_80440AD4	sC_AD4__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+80440AD8	lbl_80440AD8	sC_AD8__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+80440ADC	lbl_80440ADC	sC_ADC__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+80440AE0	lbl_80440AE0	sC_AE0__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+80440AE4	lbl_80440AE4	sC_AE4__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+80440AE8	lbl_80440AE8	sC_AE8__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+80440AEC	lbl_80440AEC	sC_AEC__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+80440AF0	lbl_80440AF0	sC_AF0__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+80440AF4	lbl_80440AF4	sC_AF4__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+80440AF8	lbl_80440AF8	sC_AF8__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+80440AFC	lbl_80440AFC	sC_AFC__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+80440B00	lbl_80440B00	sC_B00__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+80440B04	lbl_80440B04	sC_B04__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+80440B08	lbl_80440B08	sC_B08__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+80440B0C	lbl_80440B0C	sC_B0C__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+80440B10	lbl_80440B10	sC_B10__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+80440B14	lbl_80440B14	sC_B14__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+80440B18	lbl_80440B18	sMoveScale__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+80440B1C	lbl_80440B1C	sMaxRateSolo__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+80440B20	lbl_80440B20	sMaxRateMax__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+80440B24	lbl_80440B24	sSpeedRateSolo__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+80440B28	lbl_80440B28	sSpeedRateMin__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+80440B2C	lbl_80440B2C	sLeadDistMax__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+80440B30	lbl_80440B30	sLeadAhead__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+80440B34	lbl_80440B34	sChaseDist__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+80440B38	lbl_80440B38	sChaseAngle__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+80440B3C	lbl_80440B3C	sRate__10RPCowArrow	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+80440B40	lbl_80440B40	sOfsY__10RPCowArrow	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+80440B44	lbl_80440B44	sShadowScale__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+804419A8	lbl_804419A8	sZ_19A8__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+804419AC	lbl_804419AC	sZ_19AC__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+804419B0	lbl_804419B0	sZ_19B0__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+804419B4	lbl_804419B4	sLeadDistMin__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+804419B8	lbl_804419B8	sZ_19B8__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+804419BC	lbl_804419BC	sZ_19BC__11RPCowPlayer	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	
+802A64A4	Cow_Player_onCollideThunk	@16@IsEnabled__11RPCowPlayerFP16IRPActorPriority	Pack/RPParty/RPCowScene/RPCowPlayer_6.cpp	

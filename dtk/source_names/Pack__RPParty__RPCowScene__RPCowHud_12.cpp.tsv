@@ -1,0 +1,9 @@
+address	old_name	new_name	unit	previous
+802B4D5C	Cow_Balloon_drawScreen	DrawScreen__12RPCowBalloonFUc	Pack/RPParty/RPCowScene/RPCowHud_12.cpp	
+802B4E24	Cow_Balloon_calc	OnActivate__12RPCowBalloonFv	Pack/RPParty/RPCowScene/RPCowHud_12.cpp	
+802B4F84	Cow_Balloon_exit	OnStop__12RPCowBalloonFv	Pack/RPParty/RPCowScene/RPCowHud_12.cpp	
+802B4F88	Cow_Balloon_reset	OnStart__12RPCowBalloonFv	Pack/RPParty/RPCowScene/RPCowHud_12.cpp	
+802B506C	Cow_Balloon_init	LoadResource__12RPCowBalloonFv	Pack/RPParty/RPCowScene/RPCowHud_12.cpp	
+802B5210	Cow_Balloon_destroy	VF_0x40__12RPCowBalloonFv	Pack/RPParty/RPCowScene/RPCowHud_12.cpp	
+802B5214	Cow_Balloon_create	VF_0x3C__12RPCowBalloonFv	Pack/RPParty/RPCowScene/RPCowHud_12.cpp	
+802B5474	Cow_Balloon_dtorThunk	@20@__dt__12RPCowBalloonFv	Pack/RPParty/RPCowScene/RPCowHud_12.cpp	

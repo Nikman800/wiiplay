@@ -1,0 +1,6 @@
+address	old_name	new_name	unit	previous
+80280078	Wly_ClearPhase_calc	Calculate__15RPWlyClearPhaseFv	Pack/RPParty/RPWlyScene/RPWlyClearPhase.cpp	
+80280154	Wly_ClearPhase_reset	Reset__15RPWlyClearPhaseFv	Pack/RPParty/RPWlyScene/RPWlyClearPhase.cpp	
+80280174	Wly_ClearPhase_updateSequence	UpdateSequence__15RPWlyClearPhaseFv	Pack/RPParty/RPWlyScene/RPWlyClearPhase.cpp	
+80280610	Wly_ClearPhase_start	Start__15RPWlyClearPhaseFv	Pack/RPParty/RPWlyScene/RPWlyClearPhase.cpp	
+802806B4	Wly_ClearPhase_dtor	__dt__15RPWlyClearPhaseFv	Pack/RPParty/RPWlyScene/RPWlyClearPhase.cpp	

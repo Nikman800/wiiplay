@@ -1,0 +1,15 @@
+address	old_name	new_name	unit	previous
+802BBDE4	Bil_Camera_moveToOverview	MoveToOverview__11RPBilCameraFl	Pack/RPParty/RPBilScene/RPBilCamera_2.cpp	
+802BBF28	Bil_Camera_moveToDefaultView	MoveToDefaultView__11RPBilCameraFv	Pack/RPParty/RPBilScene/RPBilCamera_2.cpp	
+802BC000	Bil_Camera_orbitPitch	OrbitPitch__11RPBilCameraFf	Pack/RPParty/RPBilScene/RPBilCamera_2.cpp	
+802BC238	Bil_Camera_orbitYaw	OrbitYaw__11RPBilCameraFf	Pack/RPParty/RPBilScene/RPBilCamera_2.cpp	
+802BC3B8	Bil_Camera_moveToAimAt	MoveToAimAt__11RPBilCameraFRCQ23EGG8Vector3fRCQ23EGG8Vector3f	Pack/RPParty/RPBilScene/RPBilCamera_2.cpp	
+802BC518	Bil_Camera_moveToLookAt	MoveToLookAt__11RPBilCameraFRCQ23EGG8Vector3fRCQ23EGG8Vector3f	Pack/RPParty/RPBilScene/RPBilCamera_2.cpp	
+802BC5E4	Bil_Camera_saveView	SaveView__11RPBilCameraFv	Pack/RPParty/RPBilScene/RPBilCamera_2.cpp	
+802BC638	Bil_Camera_calc	Calculate__11RPBilCameraFv	Pack/RPParty/RPBilScene/RPBilCamera_2.cpp	
+802BC800	Bil_Camera_reset	Reset__11RPBilCameraFv	Pack/RPParty/RPBilScene/RPBilCamera_2.cpp	
+802BCA54	Bil_Camera_dtor	__dt__11RPBilCameraFv	Pack/RPParty/RPBilScene/RPBilCamera_2.cpp	
+802BCADC	Bil_SoundActor_dtor	__dt__15RPBilSoundActorFv	Pack/RPParty/RPBilScene/RPBilCamera_2.cpp	
+802BCB90	Bil_sinitCameraDefaults	__sinit_\RPBilCamera_2_cpp	Pack/RPParty/RPBilScene/RPBilCamera_2.cpp	
+8035DD48	lbl_8035DD48	__vt__11RPBilCamera	Pack/RPParty/RPBilScene/RPBilCamera_2.cpp	
+8035DD60	lbl_8035DD60	__vt__15RPBilSoundActor	Pack/RPParty/RPBilScene/RPBilCamera_2.cpp	

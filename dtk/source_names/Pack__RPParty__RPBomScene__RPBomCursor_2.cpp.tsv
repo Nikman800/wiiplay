@@ -1,0 +1,9 @@
+address	old_name	new_name	unit	previous
+802D6698	Bom_Cursor_setControllerIndex	SetControllerIndex__11RPBomCursorFl	Pack/RPParty/RPBomScene/RPBomCursor_2.cpp	
+802D66A0	Bom_Cursor_draw	Draw__11RPBomCursorFv	Pack/RPParty/RPBomScene/RPBomCursor_2.cpp	
+802D66A4	Bom_Cursor_calc	Calculate__11RPBomCursorFv	Pack/RPParty/RPBomScene/RPBomCursor_2.cpp	
+802D66E4	Bom_Cursor_reset	Reset__11RPBomCursorFv	Pack/RPParty/RPBomScene/RPBomCursor_2.cpp	
+802D677C	Bom_Cursor_create	Create__11RPBomCursorFv	Pack/RPParty/RPBomScene/RPBomCursor_2.cpp	
+802D67C4	Bom_Cursor_updateFromPointer	UpdateFromPointer__11RPBomCursorFv	Pack/RPParty/RPBomScene/RPBomCursor_2.cpp	
+802D6A70	Bom_Cursor_dtor	__dt__11RPBomCursorFv	Pack/RPParty/RPBomScene/RPBomCursor_2.cpp	
+8035E800	lbl_8035E800	__vt__11RPBomCursor	Pack/RPParty/RPBomScene/RPBomCursor_2.cpp	

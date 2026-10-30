@@ -1,0 +1,4 @@
+address	old_name	new_name	unit	previous
+803500D8	lbl_803500D8	__vt__17RPGrpViewRender3D	Pack/RPGraphics/RPGrpViewRender3D.cpp	
+8032D728	lbl_8032D728	@STRING@SetProjectionType__Q23EGG7FrustumFQ33EGG7Frustum14ProjectionType@0	Pack/RPGraphics/RPGrpViewRender3D.cpp	
+8032D738	lbl_8032D738	@STRING@SetProjectionType__Q23EGG7FrustumFQ33EGG7Frustum14ProjectionType	Pack/RPGraphics/RPGrpViewRender3D.cpp	

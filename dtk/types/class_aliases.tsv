@@ -1,0 +1,160 @@
+ledger_class	struct	confidence	note
+Fsh_SndActor	RPFshFishSnd	H	vtable 80358888 (RPFshSound.h); the sound methods are inherited TRPSndObject<0> code, typed as the 0x78 derived class whose layout matches. getDefaultRatio 80203618 is TRPSndAudioHandles<N>::getOuterVolume/Pitch (slot in 8035CB48/8035DD60), not this class
+Lyt_SystemWindow	RPSysSystemWinMgr	H	ctor alloc 0xE0 in Lyt_createSingleton8043C530 = RPSysSystemWinMgr::spInstance; header names the ledger
+RP_PlayerRecord	RPPartyPlayerData	H	0xD0 records: RPSysSaveData +0x10 array of 100 and RPSysPlayerMgr arrays; write/read serialize mMyRecords +0x10, mMedals +0xC4, mMedalDemoFlags +0xCD
+Fsh_StateMachine	RPStateMachine	H	template copies (ctor 0xE0, update 0x8C, call* 0x60, isState* 0x34); two owner instantiations (8020EEB4.. and 8021691C..)
+Tnk_Cls	RPTnkActor	H	vtable 8035B290 default slots (RPTnkActor.h); vf04 80263FD4 is RPTnkWeaponManager's (vtable 8035B8C8)
+Sys_SaveFile	RPSysSaveDataMgr	H	vtable 8034F3D0 = __vt__16RPSysSaveDataMgr; createInstance sets spInstance__16RPSysSaveDataMgr
+Gfx_ModelSceneMgr	RPGrpModelManager	H	vtable 8034FEB0 = __vt__17RPGrpModelManager; ctor alloc 0x38 in RPGrpRenderer::Construct
+Gfx_ModelScene	RPGrpModelScene	H	vtable 80350138 = __vt__15RPGrpModelScene; ctor alloc 0xA8
+Sys_PlayerData	RPSportsPlayerData	H	init 80189D7C resets a 0x45C record (Wii Sports RPSportsPlayerData::reset layout); RPSysSaveData::setSportsPlayerData copies 0x45C records from +0x8
+Sys_SaveData	RPSysSaveData	H	ctor alloc 0x28 in RPSysSaveDataMgr ctor; +0xC RPPartySystemData, +0x10 RPPartyPlayerData[100], signature RPPT/0000
+Health_StrapScene	RPSysBootScene	H	vtable 80357948 = __vt__14RPSysBootScene (header names the ledger)
+Gfx_ModelG3d	RPGrpModelG3D	H	vtable 8034FDB8 = __vt__13RPGrpModelG3D; all ten are secondary-base thunks (this is the sub-object)
+Mpe_AudioMgr	RPSndAudioMgr	H	vtable 803502E0 = __vt__13RPSndAudioMgr; thunks. checkBgmHeader 802003EC is not a method of it (an RPFshFish state function)
+RP_StateMachine3	RPStateMachine	H	RPStateMachine<RPPlayerConfirmLyt> (ctor called by Menu_PlayerConfirmLyt_ctor, 0x28)
+Party_TitleSeq	RPStateMachine	H	typedef RPTitleSeq = RPStateMachine<RPTitleLyt>
+Party_SelectGameSeq	RPStateMachine	H	typedef RPSelectGameSeq = RPStateMachine<RPSelectGameLyt>
+Party_GameInfoSeq	RPStateMachine	H	typedef RPGameInfoSeq = RPStateMachine<RPGameInfoLyt>
+Party_DollSeq	RPStateMachine	H	typedef RPDollSeq = RPStateMachine<RPDoll>
+Party_RankCompleteSeq	RPStateMachine	H	typedef RPRankCompleteSeq = RPStateMachine<RPRankCompleteLyt>
+Bil_BallSM	RPStateMachine	H	RPStateMachine<RPBilBall> (RPBilBall.h)
+Bil_MsgSM	RPStateMachine	H	RPStateMachine of the Billiards message window (RPBilLyt.h)
+Bil_ResultLytSM	RPStateMachine	H	RPStateMachine of the result layout (RPBilResult.h)
+Bil_PopupLytSM	RPStateMachine	H	RPStateMachine of the score popup layout (RPBilLyt.h)
+RP_StateMachine2	RPStateMachine	H	RPStateMachine<RPPlayerNameTag> (ctor called by Menu_PlayerNameTag_ctor)
+RP_StateMachine4	RPStateMachine	H	RPStateMachine<RPPlayerConfirm> (ctor called by Menu_PlayerConfirm_ctor)
+Party_RankGetSeq	RPStateMachine	H	typedef RPRankGetSeq = RPStateMachine<RPRankGetLyt>
+Party_RecordSeq	RPStateMachine	H	typedef RPRecordSeq = RPStateMachine<RPRecordLyt>
+Party_VsWinnerLytSeq	RPStateMachine	H	typedef RPVsWinnerLytSeq = RPStateMachine<RPVsWinnerLyt>
+Party_CrowdMiiSeq	RPStateMachine	H	typedef RPCrowdMiiSeq = RPStateMachine<RPCrowdMii>
+Bil_IconSM	RPStateMachine	H	RPStateMachine<RPBilBallIcon> (RPBilBallIcon.h)
+Bil_ScorePopupSM	RPStateMachine	H	RPStateMachine of the score popup (RPBilLyt.h)
+Bil_HintSM	RPStateMachine	H	RPStateMachine of the hint layout (RPBilLyt.h)
+Sys_ConfigData	RPSysConfigData	H	vtable 8034F01C = __vt__15RPSysConfigData; sinit 80183AB8 is the static initializer of sConfigData (no this)
+Sys_ResMgr	RPSysResourceManager	H	vtable 8034F2F8 = __vt__20RPSysResourceManager; spInstance__20RPSysResourceManager
+Lyt_PauseMenu	RPSysPauseMenu	H	ctor alloc 0x88 in Sys_Pause_createSingleton (RPSysPauseMgr); header names the ledger
+RP_StateMgr	RPStateMachine	H	RPStateMachine<RPMenuFrame> (ctor called by Menu_TPtGame00_ctor)
+RP_StateMachine5	RPStateMachine	H	RPStateMachine<RPPlayAdviceLyt> (ctor called by Menu_PlayAdviceLyt_ctor)
+Party_SelectSceneSeq	RPStateMachine	H	typedef RPSelectSceneSeq = RPStateMachine<RPSelectScene>
+Party_MedalResultSeq	RPStateMachine	H	typedef RPMedalResultSeq = RPStateMachine<RPMedalResult>
+Party_ResultMenuSeq	RPStateMachine	H	typedef RPResultMenuSeq = RPStateMachine<RPResultMenu>
+Party_VsWinnerSeq	RPStateMachine	H	typedef RPVsWinnerSeq = RPStateMachine<RPVsWinner>
+Party_LeadCursorSeq	RPStateMachine	H	typedef RPLeadCursorSeq = RPStateMachine<RPLeadCursorLyt>
+Party_PauseTextSeq	RPStateMachine	H	typedef RPPauseTextSeq = RPStateMachine<RPPauseTextLyt>
+Fsh_ScoreSM	RPStateMachine	H	RPStateMachine<RPFshScoreLayout> (ctor in Fsh_ScoreLayout_ctor)
+Fsh_StartSM	RPStateMachine	H	RPStateMachine<RPFshStartLayout> (ctor in Fsh_StartLayout_ctor)
+Fsh_BonusSM	RPStateMachine	H	RPStateMachine of the bonus fish (ctor in Fsh_BonusFish_ctor)
+Fsh_Msg00SM	RPStateMachine	H	RPStateMachine of message 00 (ctor in Fsh_Msg00_new)
+Bil_PlayerSM	RPStateMachine	H	RPStateMachine<RPBilPlayer> (RPBilPlayer.h)
+Bil_GameSM	RPStateMachine	H	RPStateMachine<RPBilGameMgr> (RPBilGameMgr.h)
+Bil_ResultSM	RPStateMachine	H	RPStateMachine<RPBilResult> (RPBilResult.h)
+Bil_HudSM	RPStateMachine	H	RPStateMachine<RPBilHud> (RPBilHud.h)
+Bil_TagSM	RPStateMachine	H	RPStateMachine of the ball number tag (RPBilLyt.h)
+Sys_SceneCreator	RPSysSceneCreator	H	vtable 8034F080 = __vt__17RPSysSceneCreator; methods take (this, scene id) and read SCENE_ATTR_TABLE__17RPSysSceneCreator
+Sys_FontMgr	RPSysFontManager	H	vtable 8034F404 = __vt__16RPSysFontManager; spInstance__16RPSysFontManager
+Sys_Pause	RPSysPauseMgr	H	vtable 8034F410 = __vt__13RPSysPauseMgr; 0x1F4 singleton spInstance__13RPSysPauseMgr
+RP_RankEntry	RPPartySystemData	H	RPSysSaveData +0xC object (Sys_SaveSettings_ctor, 0x20): read/write mOldIndex[3], mOldAddress[3][6], +0x15, +0x16, +0x18, +0x1C
+Gfx_KokeshiModel	RPGrpModelRfl	H	vtable 80350210 = __vt__13RPGrpModelRfl; setCallback 801A7BBC sits in the RPGrpModel code (inherited base slot 4)
+Fsh_SceneSM	RPStateMachine	H	RPStateMachine of the Fishing scene (ctor in Fsh_Scene_ctor)
+RP_SaveData	RPPartySystemData	H	mRegistTodayCount +0x15, mRegistLastDate +0x16, mGameFlags +0x18, mMsgFlags +0x1C; getMedal 8018BD48 is RPPartyPlayerData's (+0xC4)
+RP_PlayerMgr	RPSysPlayerMgr	H	vtable 8034F420; ctor called by RPSysPlayerMgr::CreateInstance, size 0x2C
+RP_PlayerData	RPSysPlayerMgr	H	mPlayerNum +0x8, mRemoteNum +0xC, mpPlayers +0x14 (0x18 stride), mpOldData +0x18 (0x12 stride), player-data args +0x1C..0x28
+Lyt_TagProcessor	RPSysTagProcessor	H	RPSysTagProcessor::spInstance users; header names the ledger
+Gfx_Renderer	RPGrpRenderer	H	views at +0x14 (8 groups of 4), model manager +0x98; beginFrame/endFrame called from RPSysSystem::mainLoop
+Gfx_Flag10Ctrl	RPGrpDrawPathLightMap	H	vtable 80350160 = __vt__21RPGrpDrawPathLightMap (Construct<RPGrpDrawPathLightMap>)
+Gfx_Model	RPGrpModel	H	vtable 8034FB28 = __vt__10RPGrpModel
+Gfx_MatEditor	RPGrpModelMaterial	H	vtable 803501D0 = __vt__18RPGrpModelMaterial; ctor alloc 0xD4
+Gfx_TexObj	RPGrpTexture	H	vtable 803501E0 = __vt__12RPGrpTexture
+Sys_System	RPSysSystem	H	+0x54 frame counter, +0x4C/+0x4D flags, heaps +0x8..0x10; initGame called by main
+Gfx_Effect	RPSysEffect	H	vtable 8034F5D0 = __vt__11RPSysEffect; sinitNullHandle 80193DB0 is the static initializer of INVALID_HANDLE__11RPSysEffect (no this)
+Gfx_EffectGroup	RPSysEffectCreator	H	vtable 8034F668 = __vt__18RPSysEffectCreator; ctor alloc 0x44
+Gfx_ScnProc	RPGrpDrawPathManager	H	vtable 8034FB18 = __vt__20RPGrpDrawPathManager; ctor alloc 0x34
+Gfx_ScnRendererStage	RPGrpDrawPath	H	On/Off/IsEnable shared by the five draw-path vtables 8034FAA0-8034FB00 (slots 1-3), i.e. the RPGrpDrawPath base
+Fsh_Rope	RPCurve	H	points +0x14, tangents/targets +0x18 (RPCurve.h); same class as RP_PointArray
+Fsh_Ease	RPRange	H	mFrame +0, mDuration +4, mEaseType +8: GetValue / Step / Start (RPInterpCamera.h)
+Sys_Display	Display	M	EGG::Display::setClearColor (mClearColor +0x14, out-of-line copy of the inline setter); getFloat64 801831DC takes no this (reads through sConfigData)
+Sys_SystemDrawer	RPSysCommonObject	H	vtable 8034F318 = __vt__17RPSysCommonObject
+Sys_NamedBase	IRPSysHostIOSocket	H	vtable 8034F430: slot 0 __dt__18IRPSysHostIOSocketFv, slots 1/2 the stubbed ListenPropertyEvent/GenMessage
+Sys_SaveSettings	RPPartySystemData	H	ctor alloc 0x20 in RPSysSaveData ctor; reset sets mOldIndex to -1 and mGameFlags to 1
+RP_Base8034F478	RPSysKokeshi	H	0xB4 Mii objects (RPBomPlayer.h, RPCowCowModel.h)
+Lyt_Layout	RPSysLayout	H	mFlags +0x0, mpDrawInfo +0x1C, mpLayout +0x20
+Lyt_Pane	RPSysLytAnmObj	M	unbindAnim: this->mpAnimTrans (+0x0) unbound from a pane argument; childrenUnbindAll 80194B6C takes an nw4r::lyt::Group (pane links at +0x10) as first argument, not this class
+RP_LytGroup	RPSysLytAnmObj	H	bind/unbind this->mpAnimTrans (+0x0) on every pane of an nw4r::lyt::Group argument
+Lyt_ResTexObj	RPBase8034F6B0	H	ctor sets vtable 8034FA08 after the RPSysAvatar ctor (RPBase8034F6B0.h); resolveSource is its Mii location setup
+Gfx_CapTexture	RPGrpCaptureTexture	H	vtable 803501F0 = __vt__19RPGrpCaptureTexture; alloc 0x10
+Snd_HomeButtonSndMgr	RPSndHomeMenuArcMgr	H	vtable 803504F8 = __vt__19RPSndHomeMenuArcMgr; thunks (this - 0xF0)
+RP_RigidBody	RPPhysSphere	H	RPPhysSphere.h names the ledger (isAtRest, resetMatrices)
+RP_Cls	RPScene80358188	H	vtable 80358188 slots 15/19 (RPScene80358188.h)
+Fsh_SndActorBase	RPFshFishSnd	M	TRPSndObject<0> destructor (vtable 80358964, own vptr +0x68); typed as the derived RPFshFishSnd because types.h emits TRPSndObject<0> only as TRPSndObject_2
+Fsh_SndPlayerBase	RPSndAudioActorBase	H	dtor stores vtable 80358A88 and unlinks from the RPSndObjMgr list (~RPSndAudioActorBase); getDefaultRatio 80203620 is TRPSndAudioHandles<N>::getOuter* (vtables 80358A40+0x2C, 80358A78)
+Fsh_RodSndActor	RPFshRodSnd	H	vtable 80358CBC (RPFshSound.h)
+Fsh_ShadowDummy	RPFshStage	H	empty slots 7/9 of vtable 80358DE8 (RPFshStage) only
+Fsh_SM	RPStateMachine	H	IsStateSettled copies (0x34)
+Fsh_Msg01SM	RPStateMachine	H	RPStateMachine of message 01 (ctor in Fsh_Msg01_new)
+Wly_SoundActorBase	RPWlySoundActor	M	RPSndObject (TRPSndObject<4>, vtable 8035C6BC) destructor, shared with Bom/Cow; typed as RPWlySoundActor because types.h has no TRPSndObject<4> struct (the generated TRPSndObject is the <8> one, 0x94)
+Bil_Sound3DBase	RPBilSound3D	H	TRPSndObject<8> destructor (vtable 8035E074); RPBilSound3D derives from it at offset 0
+Bil_Sound3DPart	TRPSndAudioActorBaseWithHandles	M	getOne/getZero are slots +0x2C/+0x34 of vtable 8035E150 (TRPSndAudioActorBaseWithHandles<4,8>: TRPSndAudioHandles::getOuterVolume and get3DPosition)
+Sys_Scene	RPSysScene	H	vtable 8034F098 = __vt__10RPSysScene (dtor thunk)
+Sys_SceneMgr	RPSysSceneMgr	H	vtable 8034F248 = __vt__13RPSysSceneMgr
+Sys_Cls8034F308	RPSysQueuedScene	H	vtable 8034F308 = __vt__16RPSysQueuedScene; spInstance__16RPSysQueuedScene
+Sys_SaveRecord	RPPartyPlayerData	H	reset of each 0xD0 record (called from the RPPartyPlayerData ctor RP_PlayerRecord_ctor and the RPSysSaveData ctor)
+RP_SavedSlot	RPSysPlayerOldData	H	array ctor of RPSysPlayerMgr::mpOldData (3 x 0x12): constructs RPSysCoreAddress at +0xC
+RP_PlayerSlot	RPSysPlayer	H	array dtor passed with __ct__11RPSysPlayerFv for RPSysPlayerMgr::mpPlayers (2 x 0x18)
+RP_Cls8034F6A0	RPSysFile	H	dtor stores __vt__9RPSysFile and unregisters from RPSysResourceManager
+Sys_CachedArchive	RPSysFile	H	vtable 8034F6A0 = __vt__9RPSysFile; ctor alloc 0xA0
+Mii_MiiIconBase	RPSysAvatar	H	this +0xC RPSysKokeshiLocation, +0x68 RFLAdditionalInfo; called by RPSysKokeshi/RPSysKokeshiIcon Construct (RPSysAvatar setup)
+RP_PageLayout	RPMessageWindow	H	mpLayouts +0xC, mFlags +0x4C, mWindow +0x50, mpAButtonPrompt +0x280; called by the RPSysCommonObject draw
+RP_Controller	RPSysCoreController	H	thunk to __dt__19RPSysCoreControllerFv (this - 0x8FC), secondary vtable 8034F708
+Mii_MiiDataSource	RPSysMiddleDB	M	RFLUpdateMiddleDBAsync(this->mpRandomDB +0x4)
+Lyt_CursorManager	RPSysCursorDrawMgr	H	RPSysCursorDrawMgr.h names the ledger function
+RP_Nwc24Msg	RPSysNWC24Manager	H	ctor: 0x4000 NWC24 work +0x0, 0x800 message work +0x4, vtable 8034F9FC at +0x8 (size 0xC)
+RP_Nwc24	RPSysNWC24Manager	H	RPSysNWC24Manager::initialize (static, no this): NWC24SuspendScheduler
+Gfx_Camera	RPGrpCamera	H	vtable 8034FA90 = __vt__11RPGrpCamera
+Gfx_ScnRendererStage1	RPGrpDrawPathSV	H	vtable 8034FB00 = __vt__15RPGrpDrawPathSV
+Gfx_ScnRendererStage2	RPGrpDrawPathHDR	H	vtable 8034FAE8 = __vt__16RPGrpDrawPathHDR
+Gfx_ScnRendererStage4	RPGrpDrawPathDOF	H	vtable 8034FAD0 = __vt__16RPGrpDrawPathDOF
+Gfx_ScnRendererStage3	RPGrpDrawPathBloom	H	vtable 8034FAB8 = __vt__18RPGrpDrawPathBloom
+Gfx_ScnRendererStage0	RPGrpDrawPathXluSnap	H	vtable 8034FAA0 = __vt__20RPGrpDrawPathXluSnap
+Gfx_ScreenEffect	ScreenEffect	M	RPGrpView::ScreenEffect::Draw (called by RPGrpView::ClearBuffer); the register-save prologue hides the parameters
+RP_Cls80350118	RPGrpLightManager	H	vtable 80350118 = __vt__17RPGrpLightManager (dtor slot)
+Gfx_ModelSnapshot	RPGrpShadowTexture	M	AddModel(RPGrpModel*, f32): EGG::ModelSnapshot::AddModelEx(this, model +0x40); EGG::ShadowTexture derives from ModelSnapshot at offset 0
+Gfx_ShadowTexture	RPGrpShadowTexture	H	Replace(RPGrpModel*, fmt, ...): vsprintf then EGG::ShadowTexture::Replace(this, model +0x40, name)
+Gfx_JointMtx	RPGrpModelRecord	H	RPGrpModelRecord::Calc(RPGrpModel*) (RPGrpModelRecord.h names the ledger)
+Snd_VolumeFader	RPSndMoveParam	M	thunk in vtable 803504D0 to update__14RPSndMoveParamFv (this - 8, i.e. from the RPSndMoveValueF32 sub-object)
+RP_ModelActor	RPModelObj	H	CalcModelMtx slot 0x24 (RPModelObj.h names the ledger)
+RP_ModelActor2	RPActorBase	H	CalcModelMtx slot 0x74 (RPActorBase.h names the ledger)
+RP_PointArray	RPCurve	H	RPCurve.h names the ledger (points +0x14)
+RP_NRPosition00	-	H	empty slot 3 shared by six vtables of different classes (803581F8 RPMedalResult, 803582E8, 80358320, 80358340, 80358378, 8035E498)
+RP_Camera	RPInterpCamera	H	vtable 803573E0; Reset clears mActive +0x1FC (RPInterpCamera.h)
+RP_Mtx34	-	H	struct-return helper: r3 is the returned vector, the matrix is the second argument (column getter); no this to type
+Lyt_Cow	RPCowGame	H	vtable 8035CE18 slot 4 (RPCowGame.h names the ledger)
+RP_Cls80357918	RPBodyJoints	H	vtable 80357918, size 4 (RPBodyJoints.h)
+Menu_TPtGame00	RPMenuFrame	H	ctor alloc 0x288 (RPMenuFrame.h: one class with Menu_MenuFrame)
+Mii_MiiModel	RPKokeshiHead	H	RPSysKokeshi + mFlags +0xB8, mScale +0xBC, mMtx +0xC8 (RPKokeshiMgr.h names the ledger)
+RP_IBinaryLightMap	IBinary	M	EGG::IBinary<T>::SetBinary copy (eggIBinary.h asserts); T not resolved per copy (light texture manager by the ledger name)
+RP_IBinaryLightMgr	IBinary	M	EGG::IBinary<T>::SetBinary copy (eggIBinary.h asserts); T not resolved per copy (light manager by the ledger name)
+Sys_AvatarAnimScene	RPAvatarScene	H	vtable 80358128 slot 18 (Calculate)
+Lyt_AvatarAnim	RPAvatarScene	H	vtable 80358128 slot 17 (Reset); the body only uses globals
+Fsh_MouthLoc	RPFshFish	H	empty slot 38 of vtable 803587E0 (RPFshFish) only
+Fsh_SndHandleArray	TRPSndAudioActorBaseWithHandles	H	dtor of the <4,0> instantiation (vtable 80358A40 slot 0): 4 handles at +0x48, RPSndAudioActorBase part at 0
+Fsh_Cls8035CB48	TRPSndAudioActorBaseWithHandles	H	get3DPosition (returns NULL), slot 11 of the RPSndObject2D-derived vtables 8035CB48 (RPWlySoundObj) and 8035DD60 (RPBilSoundActor), inherited from TRPSndAudioActorBaseWithHandles<4,0>
+Fsh_FshHookDrop	RPFshRod	H	empty slot 38 of vtable 80358C10 (RPFshRod) only
+Fsh_SceneTexture	RPGrpShadowTexture	H	vtable 80358E18 (ShadowTexture slots); RPFshStage.h names the ledger
+Fsh_NPointL00	RPFshResultLayout	H	empty slot 14 of vtable 80358E38 only
+Fsh_FshFishA	RPFshResultFish	H	empty slot 31 of vtable 80358E98 only
+Fsh_FishingPoint00	RPFshPointPopup	H	empty slot 14 of vtable 80358F20 only
+Fsh_TFishL00	RPFshScoreLayout	H	empty slot 14 of vtable 80358F68 only
+Fsh_TCountdown100	RPFshStartLayout	H	empty slot 14 of vtable 80358FB0 only
+Fsh_FishingYank00	RPFshYankPrompt	H	empty slot 6 of vtable 80358FF8 only
+Fsh_FishingArrow00	RPFshAimArrow	H	empty slot 6 of vtable 80359020 only
+Hky_IBinary	IBinary	M	EGG::IBinary<T>::SetBinary copy (eggIBinary.h asserts) used by the Hky/Pnp/Duc/Bom loaders
+Hky_Effect	RPHkyPuckTrail	M	called only by Hky_Puck_handleGoal with puck->mpTrail (+0x44); own vptr +0x68, slot 0x5C sound call, then sets a value on the returned sound; a sound method, not an effect
+Pnp_IBinary	IBinary	M	EGG::IBinary<T>::SetBinary copy (eggIBinary.h asserts) in the Pnp unit
+Wly_SoundObj8	TRPSndAudioActorBaseWithHandles	H	dtor of the <4,4> instantiation (vtable 8035C798 slot 0): 8 handles at +0x48
+Cow_Transform	-	H	struct-return helper: r3 is the returned EGG::Vector3f (+0x1C minus +0x28 of the second argument); no this to type
+Bil_SceneSoundRef	RPBilSceneSound	H	vtable 8035DC38 (RPBilSound.h names the ledger)
+Bil_SoundActorPart	TRPSndAudioActorBaseWithHandles	H	dtor of the <4,8> instantiation (vtable 8035E150 slot 0): 12 handles at +0x48
+Gfx_Clipper	Clipper	H	RPGrpView::Clipper::Calc (Wii Sports same size and place); nested class, named without its scope as in the generated types
+Snd_SndUtility	-	H	RPSndUtility statics: first argument is a sound handle or range table, not this
+Sys_QueuedScene	RPSysQueuedScene	H	dtor of vtable 8034F308 = __vt__16RPSysQueuedScene (renamed from Sys_Cls8034F308 in the name review)

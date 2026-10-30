@@ -1,0 +1,15 @@
+address	old_name	new_name	unit	previous
+80225434	Pnp_Ball_onEvent	OnEvent__9RPPnpBallFll	Pack/RPParty/RPPnpScene/RPPnpField_2.cpp	
+80225FAC	Pnp_Ball_applyReceiverSpin	ApplyReceiverSpin__9RPPnpBallFv	Pack/RPParty/RPPnpScene/RPPnpField_2.cpp	
+802272D8	Pnp_Table_calc	Calculate__10RPPnpTableFv	Pack/RPParty/RPPnpScene/RPPnpField_2.cpp	
+802272E0	Pnp_Table_load	Load__10RPPnpTableFv	Pack/RPParty/RPPnpScene/RPPnpField_2.cpp	
+8022741C	Pnp_Table_getBallRestHeight	GetBallRestHeight__10RPPnpTableCFv	Pack/RPParty/RPPnpScene/RPPnpField_2.cpp	
+80227448	Pnp_Table_dtor	__dt__10RPPnpTableFv	Pack/RPParty/RPPnpScene/RPPnpField_2.cpp	
+802274A0	Pnp_sinitTableBounceScale	__sinit_\RPPnpField_2_cpp	Pack/RPParty/RPPnpScene/RPPnpField_2.cpp	
+80359810	Pnp_Table_vtable	__vt__10RPPnpTable	Pack/RPParty/RPPnpScene/RPPnpField_2.cpp	
+8043A700	Pnp_tableBounceScale	sBounceScale__10RPPnpTable	Pack/RPParty/RPPnpScene/RPPnpField_2.cpp	
+8043B6C0	Pnp_tableRestitution	sRestitution__10RPPnpTable	Pack/RPParty/RPPnpScene/RPPnpField_2.cpp	
+8043B6C4	Pnp_tableFriction	sFriction__10RPPnpTable	Pack/RPParty/RPPnpScene/RPPnpField_2.cpp	
+8043F954	lbl_8043F954	sWidthUnit__10RPPnpTable	Pack/RPParty/RPPnpScene/RPPnpField_2.cpp	
+8043F958	lbl_8043F958	sNetHeightUnit__10RPPnpTable	Pack/RPParty/RPPnpScene/RPPnpField_2.cpp	
+8043F95C	lbl_8043F95C	sHeightUnit__10RPPnpTable	Pack/RPParty/RPPnpScene/RPPnpField_2.cpp	

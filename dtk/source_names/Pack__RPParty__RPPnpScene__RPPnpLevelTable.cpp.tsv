@@ -1,0 +1,9 @@
+address	old_name	new_name	unit	previous
+80232C74	Pnp_LevelTable_lookupRally	LookupRally__15RPPnpLevelTableCFlPfPl	Pack/RPParty/RPPnpScene/RPPnpLevelTable.cpp	
+80232D1C	Pnp_LevelTable_getLevelEntry	GetLevelEntry__15RPPnpLevelTableCFl	Pack/RPParty/RPPnpScene/RPPnpLevelTable.cpp	
+80232D2C	Pnp_LevelTable_dtor	__dt__15RPPnpLevelTableFv	Pack/RPParty/RPPnpScene/RPPnpLevelTable.cpp	
+80232D6C	Pnp_LevelTable_ctor	__ct__15RPPnpLevelTableFv	Pack/RPParty/RPPnpScene/RPPnpLevelTable.cpp	
+80232E94	Pnp_destroyLevelTable	DestroyInstance__15RPPnpLevelTableFv	Pack/RPParty/RPPnpScene/RPPnpLevelTable.cpp	
+80232ED8	Pnp_createLevelTable	CreateInstance__15RPPnpLevelTableFv	Pack/RPParty/RPPnpScene/RPPnpLevelTable.cpp	
+80359A08	Pnp_LevelTable_vtable	__vt__15RPPnpLevelTable	Pack/RPParty/RPPnpScene/RPPnpLevelTable.cpp	
+8043C830	Pnp_levelTableInstance	sInstance__15RPPnpLevelTable	Pack/RPParty/RPPnpScene/RPPnpLevelTable.cpp	

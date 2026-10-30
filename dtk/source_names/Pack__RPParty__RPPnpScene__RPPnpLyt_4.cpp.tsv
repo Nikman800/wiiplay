@@ -1,0 +1,10 @@
+address	old_name	new_name	unit	previous
+802317BC	Pnp_ResultLyt_playOut	PlayOut__14RPPnpResultLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_4.cpp	
+80231838	Pnp_ResultLyt_show	Show__14RPPnpResultLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_4.cpp	
+802318B8	Pnp_ResultLyt_draw	Draw__14RPPnpResultLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_4.cpp	
+802318D4	Pnp_ResultLyt_exit	Exit__14RPPnpResultLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_4.cpp	
+802318D8	Pnp_ResultLyt_calc	Calculate__14RPPnpResultLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_4.cpp	
+80231948	Pnp_ResultLyt_reset	Reset__14RPPnpResultLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_4.cpp	
+802319FC	Pnp_ResultLyt_load	Load__14RPPnpResultLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_4.cpp	
+80231A78	Pnp_ResultLyt_create	Create__14RPPnpResultLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_4.cpp	
+80231A94	Pnp_ResultLyt_setRallyText	SetRallyText__14RPPnpResultLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_4.cpp	

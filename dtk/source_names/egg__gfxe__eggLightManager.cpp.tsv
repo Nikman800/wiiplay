@@ -1,0 +1,3 @@
+address	old_name	new_name	unit	previous
+8030E0F8	lbl_8030E0F8	scLightID__Q23EGG29@unnamed@eggLightManager_cpp@	egg/gfxe/eggLightManager.cpp	
+8032D3B0	lbl_8032D3B0	__vt__Q23EGG12LightManager	egg/gfxe/eggLightManager.cpp	

@@ -1,0 +1,199 @@
+# batch fw_gfx: modules Gfx, Sys, Snd, Mpe, Health, HomeMenu; 235 functions; 51 classes
+
+## classes (ledger class -> suggested C++ name; vtables; allocation sizes; methods)
+Gfx_Camera -> RPCamera; vtables 8034FA90; sizes -; 1 methods: screenToPlane
+Gfx_CapTexture -> RPCapTexture; vtables 803501F0; sizes 0x10 via Gfx_CapTexture_ctor in Bil_Scene_create; 0x10 via Gfx_CapTexture_ctor in Bom_ScreenFx_create; 0x10 via Gfx_CapTexture_ctor in Tnk_Field_create; 0x10 via Gfx_CapTexture_ctor in Wly_GameMgr_ctor; 2 methods: capture, ctor
+Gfx_Effect -> RPEffect; vtables 8034F5D0; sizes 0x80 via Gfx_Effect_ctor in Bil_Ball_ctor; 0x80 via Gfx_Effect_ctor in Bil_Player_ctor; 0x80 via Gfx_Effect_ctor in Bom_LytPoseSel_ctor; 0x80 via Gfx_Effect_ctor in Bom_Player_create; 3 methods: ctor, ctorFromDesc, sinitNullHandle
+Gfx_EffectGroup -> RPEffectGroup; vtables 8034F668; sizes 0x44 via Gfx_EffectGroup_ctor in fn_80182A78; 0x44 via Gfx_EffectGroup_ctor in init__10RPSysSceneFv; 3 methods: ctor, dtor, loadResources
+Gfx_Flag10Ctrl -> RPFlag10Ctrl; vtables 80350160; sizes 0x10 via Gfx_Flag10Ctrl_ctor in Construct<21RPGrpDrawPathLightMap>__13RPGrpDrawPathFPQ23EGG11ScnRenderer_P21RPGrpDrawPathLightMap; 5 methods: clear, ctor, dtor, isSet, set
+Gfx_JointMtx -> RPJointMtx; vtables -; sizes -; 1 methods: apply
+Gfx_KokeshiModel -> RPKokeshiModel; vtables 80350210; sizes 0xB0 via Gfx_Model_ctor in Construct__13RPGrpModelRflF13RFLDataSourceUsP11RFLMiddleDB13RFLResolutionUlUcUl (derived vtable 80350210); 7 methods: setCallback, thunkCalcMat, thunkCalcView, thunkCalcWorld, thunkDrawOpa, thunkDrawXlu, thunkDtor
+Gfx_MatEditor -> RPMatEditor; vtables 803501D0; sizes 0xD4 via Gfx_MatEditor_ctor in Gfx_Model_createMaterials; 4 methods: apply, ctor, readPixelModes, readTevColor
+Gfx_Model -> RPModel; vtables 8034FB28; sizes -; 4 methods: baseDtor, createHelper34, createMaterials, ctor
+Gfx_ModelG3d -> RPModelG3d; vtables 8034FDB8; sizes -; 10 methods: thunkCalcMat, thunkCalcView, thunkCalcWorld, thunkCalcWorldA, thunkCalcWorldB, thunkCalcWorldC, thunkDrawOpa, thunkDrawXlu, thunkDtor48, thunkDtor4C
+Gfx_ModelScene -> RPModelScene; vtables 80350138; sizes 0xA8 via Gfx_ModelScene_ctor in Gfx_ModelSceneMgr_createModelScene; 12 methods: appendDrawEntry, applyEntryLightSet, calc, calcEntries, clearEntries, ctor, draw, drawShadow, dtor, resetViews, setLightHook, setupLights
+Gfx_ModelSceneMgr -> RPModelSceneMgr; vtables -; sizes 0x38 via Gfx_ModelSceneMgr_ctor in Construct__13RPGrpRendererFPQ23EGG9AllocatorUs; 12 methods: calcAll, calcWorldAll, clearCurrent, clearEntriesAll, clearResources, createModelScene, ctor, drawPostAll, getLightMgr, getScnProc, resetViewsAll, setCurrent
+Gfx_ModelSnapshot -> RPModelSnapshot; vtables -; sizes -; 1 methods: capture
+Gfx_Renderer -> RPRenderer; vtables -; sizes -; 5 methods: beginFrame, createView2D, createView3D, endFrame, linkViews
+Gfx_ResTable -> RPResTable; vtables -; sizes -; 5 methods: addIfAbsent, findOrAdd, getAnmByIndex, getAnmByName, setEntry
+Gfx_ScnProc -> RPScnProc; vtables 8034FB18; sizes 0x34 via Gfx_ScnProc_ctor in Construct__20RPGrpDrawPathManagerFUlP15RPGrpModelScene; 3 methods: ctor, drawStage, dtor
+Gfx_ScnProcDrawHook -> RPScnProcDrawHook; vtables 8034FF70; sizes -; 4 methods: draw, dtor, initGlobal, vf02Empty
+Gfx_ScnRendererStage -> RPScnRendererStage; vtables -; sizes -; 3 methods: disable, enable, isEnabled
+Gfx_ScnRendererStage0 -> RPScnRendererStage0; vtables 8034FAA0; sizes -; 1 methods: dtor
+Gfx_ScnRendererStage1 -> RPScnRendererStage1; vtables 8034FB00; sizes -; 1 methods: dtor
+Gfx_ScnRendererStage2 -> RPScnRendererStage2; vtables 8034FAE8; sizes -; 1 methods: dtor
+Gfx_ScnRendererStage3 -> RPScnRendererStage3; vtables 8034FAB8; sizes -; 1 methods: dtor
+Gfx_ScnRendererStage4 -> RPScnRendererStage4; vtables 8034FAD0; sizes -; 1 methods: dtor
+Gfx_ScreenEffect -> RPScreenEffect; vtables -; sizes -; 1 methods: draw
+Gfx_ShadowTexture -> RPShadowTexture; vtables -; sizes -; 1 methods: attachF
+Gfx_TexObj -> RPTexObj; vtables 803501E0; sizes -; 4 methods: ctor, ctorFromObj, ctorFromResIdx, ctorFromTex
+Health_StrapScene -> RPStrapScene; vtables 80357948; sizes 0x58 via __ct__10RPSysSceneFv in create__17RPSysSceneCreatorFl (derived vtable 80357948); 11 methods: calc, calcWaitInput, create, draw, dtor, exit, initSystemResources, loadResources, reset, thunk_draw, thunk_dtor
+Mpe_AudioMgr -> RPAudioMgr; vtables 803502E0; sizes -; 10 methods: checkBgmHeader, thunk_calc, thunk_dtor, thunk_loadGroupById, thunk_loadGroupById2, thunk_loadGroupByLabel, thunk_loadState, thunk_startSoundById, thunk_startSoundById2, thunk_startSoundByLabel
+Snd_HomeButtonSndMgr -> RPHomeButtonSndMgr; vtables 803504F8; sizes -; 2 methods: thunk_calc, thunk_dtor
+Snd_SndUtility -> RPSndUtility; vtables -; sizes -; 1 methods: lookupRangeValue
+Snd_VolumeFader -> RPVolumeFader; vtables -; sizes -; 1 methods: thunk_update
+Sys_AvatarAnimScene -> RPAvatarAnimScene; vtables -; sizes -; 1 methods: calculate
+Sys_CachedArchive -> RPCachedArchive; vtables -; sizes 0xA0 via Sys_CachedArchive_ctor in LoadCompressed__20RPSysResourceManagerFPCcPQ23EGG4Heap; 0xA0 via Sys_CachedArchive_ctor in Sys_ResMgr_preloadSceneArchives; 1 methods: ctor
+Sys_Cls8034F308 -> RPCls8034F308; vtables 8034F308; sizes -; 1 methods: dtor
+Sys_ConfigData -> RPConfigData; vtables 8034F01C; sizes -; 8 methods: getAudioMgr, getDisplay, getPerfView, getSceneMgr, getSysHeap, getVideo, getXfbMgr, sinit
+Sys_Display -> RPDisplay; vtables -; sizes -; 2 methods: getFloat64, setClearColor
+Sys_FontMgr -> RPFontMgr; vtables 8034F404; sizes -; 7 methods: createInstance, dtor, getFirstFont, getFont, getFontByName, loadFonts, loadRomFont
+Sys_NamedBase -> RPNamedBase; vtables -; sizes -; 2 methods: emptySlot1, emptySlot2
+Sys_Pause -> RPPause; vtables 8034F410; sizes -; 7 methods: calc, calcLayout, callPauseLyt, checkStart, clearData, createSingleton, dtor
+Sys_PlayerData -> RPPlayerData; vtables -; sizes -; 11 methods: getBytes4, getField0C, getFlag2, init, setBit, setBitHigh, setBytes4, setField0C, setFlag2, testBit, testBitHigh
+Sys_ResMgr -> RPResMgr; vtables 8034F2F8; sizes -; 8 methods: clearCache, createInstance, dtor, fileExists, loadSceneCommonCarc, loadSceneLocalCarc, loadSystemArchives, preloadSceneArchives
+Sys_ResSlots -> RPResSlots; vtables -; sizes -; 1 methods: findOrLoad
+Sys_SaveData -> RPSaveData; vtables -; sizes 0x28 via Sys_SaveData_ctor in __ct__16RPSysSaveDataMgrFPQ23EGG4Heap; 11 methods: ctor, deserialize, getPlayerData, getRecord, getSettings, getSize, isInvalid, serialize, setPlayerData, setRecord, setSettings
+Sys_SaveFile -> RPSaveFile; vtables 8034F3D0; sizes -; 12 methods: checkFiles, createInstance, deleteFiles, getPlayerData, getRecord, getSettings, requestCheckFiles, requestCheckSpace, requestCreate, setPlayerData, setRecord, setSettings
+Sys_SaveRecord -> RPSaveRecord; vtables -; sizes -; 1 methods: reset
+Sys_SaveSettings -> RPSaveSettings; vtables -; sizes 0x20 via Sys_SaveSettings_ctor in Sys_SaveData_ctor; 2 methods: ctor, reset
+Sys_Scene -> RPScene; vtables 8034F098; sizes -; 1 methods: dtorThunk
+Sys_SceneCreator -> RPSceneCreator; vtables 8034F080; sizes -; 7 methods: createGameScene, destroy, getChangeMode, getResourceDir, getSceneKind, getSoundType, mapIndexToSceneId
+Sys_SceneMgr -> RPSceneMgr; vtables 8034F248; sizes 0x38 via __ct__Q23EGG12SceneManagerFPQ23EGG12SceneCreator in CreateInstance__13RPSysSceneMgrFPQ23EGG4Heap (derived vtable 8034F248); 1 methods: setFaderColor
+Sys_System -> RPSystem; vtables -; sizes -; 3 methods: getByte4D, initGame, isFrameCount300
+Sys_SystemDrawer -> RPSystemDrawer; vtables 8034F318; sizes -; 2 methods: draw, dtor
+
+## globals referenced (address name section size refs)
+800B2218 _savegpr_15 .text 0x0 1
+800B223C _savegpr_24 .text 0x0 1
+800B2244 _savegpr_26 .text 0x0 2
+800B2248 _savegpr_27 .text 0x0 2
+800B2264 _restgpr_15 .text 0x0 1
+800B2288 _restgpr_24 .text 0x0 1
+800B2290 _restgpr_26 .text 0x0 2
+800B2294 _restgpr_27 .text 0x0 2
+802E9E60 lbl_802E9E60 .data6 0xA440 1
+80316CC8 lbl_80316CC8 .rodata 0x20 1
+80316CE8 lbl_80316CE8 .rodata 0x1E0 4
+80317178 lbl_80317178 .rodata 0x34 1
+803171AC lbl_803171AC .rodata 0xE 4
+803175E0 lbl_803175E0 .rodata 0x1C 1
+803176A0 lbl_803176A0 .rodata 0x40 1
+803181B8 lbl_803181B8 .rodata 0x18 1
+80318228 lbl_80318228 .rodata 0x18 1
+80318240 lbl_80318240 .rodata 0x20 1
+80318260 lbl_80318260 .rodata 0xC 1
+8031826C lbl_8031826C .rodata 0xC 1
+80318278 lbl_80318278 .rodata 0x28 1
+803182A0 lbl_803182A0 .rodata 0x10 1
+80318320 lbl_80318320 .rodata 0x18 1
+80318BC0 lbl_80318BC0 .rodata 0x170 3
+8031BCB8 lbl_8031BCB8 .rodata 0x28 1
+8032CF6C lbl_8032CF6C .data 0xC 1
+8032CF78 lbl_8032CF78 .data 0x14 1
+8032CFE8 lbl_8032CFE8 .data 0x18 1
+8032D868 lbl_8032D868 .data 0x9 1
+8032D874 lbl_8032D874 .data 0xF 1
+8032D998 lbl_8032D998 .data 0x1C 1
+8032D9B4 lbl_8032D9B4 .data 0x11 1
+8032D9C8 lbl_8032D9C8 .data 0x18 1
+8032D9E0 lbl_8032D9E0 .data 0x11 1
+8032D9F8 lbl_8032D9F8 .data 0x18 1
+8032DA10 lbl_8032DA10 .data 0x11 1
+8032DBD8 lbl_8032DBD8 .data 0x38 1
+8034F01C lbl_8034F01C .data 0x34 1
+8034F050 jumptable_8034F050 .data 0x30 1
+8034F2E8 lbl_8034F2E8 .data 0x10 1
+8034F2F8 lbl_8034F2F8 .data 0x10 1
+8034F32C lbl_8034F32C .data 0x14 2
+8034F3E8 lbl_8034F3E8 .data 0x1C 2
+8034F404 lbl_8034F404 .data 0xC 1
+8034F410 lbl_8034F410 .data 0x10 2
+8034F5D0 lbl_8034F5D0 .data 0x98 2
+8034F668 lbl_8034F668 .data 0x10 2
+8034F6A0 lbl_8034F6A0 .data 0x10 1
+8034FB18 lbl_8034FB18 .data 0x10 1
+8034FB28 lbl_8034FB28 .data 0xA0 1
+8034FEB0 lbl_8034FEB0 .data 0x10 1
+8034FEC0 lbl_8034FEC0 .data 0x20 1
+8034FEE0 jumptable_8034FEE0 .data 0x30 1
+8034FF10 jumptable_8034FF10 .data 0x28 1
+8034FF38 jumptable_8034FF38 .data 0x28 1
+8034FF70 lbl_8034FF70 .data 0x14 1
+8034FF90 lbl_8034FF90 .data 0xE 1
+8034FFA0 lbl_8034FFA0 .data 0xD 1
+8034FFB0 lbl_8034FFB0 .data 0xE 1
+8034FFC0 lbl_8034FFC0 .data 0xD 1
+8034FFD0 lbl_8034FFD0 .data 0xE 1
+8034FFE0 lbl_8034FFE0 .data 0xD 1
+8034FFF0 lbl_8034FFF0 .data 0xE 1
+80350000 lbl_80350000 .data 0xD 1
+80350010 lbl_80350010 .data 0xE 1
+80350020 lbl_80350020 .data 0xD 1
+80350108 lbl_80350108 .data 0x10 1
+80350118 lbl_80350118 .data 0x20 1
+80350138 lbl_80350138 .data 0x28 2
+80350160 lbl_80350160 .data 0x18 1
+803501D0 lbl_803501D0 .data 0x10 1
+803501E0 lbl_803501E0 .data 0x10 4
+803501F0 lbl_803501F0 .data 0x10 1
+80358040 lbl_80358040 .data 0xE8 1
+80358128 lbl_80358128 .data 0x60 1
+80358188 lbl_80358188 .data 0x60 1
+80358760 lbl_80358760 .data 0x60 1
+80359140 lbl_80359140 .data 0x60 1
+80359560 lbl_80359560 .data 0x60 1
+80359A38 lbl_80359A38 .data 0x60 1
+8035B100 lbl_8035B100 .data 0x60 1
+8035C570 lbl_8035C570 .data 0x60 1
+8035CD38 lbl_8035CD38 .data 0x68 1
+8035DC48 lbl_8035DC48 .data 0x60 1
+8035E6B8 lbl_8035E6B8 .data 0x60 1
+8039E1A0 lbl_8039E1A0 .bss 0x20 1
+804387D0 lbl_804387D0 .bss 0x50 4
+80438F78 lbl_80438F78 .bss 0x10 1
+80438F88 lbl_80438F88 .bss 0x30 1
+80438FB8 lbl_80438FB8 .bss 0x10 1
+80438FC8 lbl_80438FC8 .bss 0x68 2
+8043ABC0 lbl_8043ABC0 .sdata 0x2 1
+8043ABE0 lbl_8043ABE0 .sdata 0x8 1
+8043ABE8 lbl_8043ABE8 .sdata 0x8 1
+8043ABF4 lbl_8043ABF4 .sdata 0x4 1
+8043ABF8 lbl_8043ABF8 .sdata 0x8 1
+8043AC30 lbl_8043AC30 .sdata 0x8 1
+8043B2C8 lbl_8043B2C8 .sdata 0x8 2
+8043B2D0 lbl_8043B2D0 .sdata 0x8 2
+8043B2E0 lbl_8043B2E0 .sdata 0x8 1
+8043B350 lbl_8043B350 .sdata 0x4 1
+8043B354 lbl_8043B354 .sdata 0x4 5
+8043B388 lbl_8043B388 .sdata 0x8 3
+8043BB3C lbl_8043BB3C .sbss 0x4 1
+8043BB74 lbl_8043BB74 .sbss 0x4 1
+8043BC30 lbl_8043BC30 .sbss 0x4 2
+8043BC60 lbl_8043BC60 .sbss 0x2 1
+8043BC70 lbl_8043BC70 .sbss 0x4 2
+8043C440 lbl_8043C440 .sbss 0x4 10
+8043C458 lbl_8043C458 .sbss 0x8 8
+8043C468 lbl_8043C468 .sbss 0x8 13
+8043C470 lbl_8043C470 .sbss 0x8 5
+8043C480 lbl_8043C480 .sbss 0x8 9
+8043C498 lbl_8043C498 .sbss 0x8 2
+8043C4A0 lbl_8043C4A0 .sbss 0x8 3
+8043C4A8 lbl_8043C4A8 .sbss 0x8 3
+8043C4B0 lbl_8043C4B0 .sbss 0x8 1
+8043C4C8 lbl_8043C4C8 .sbss 0x8 1
+8043C4D0 lbl_8043C4D0 .sbss 0x8 3
+8043C4D8 lbl_8043C4D8 .sbss 0x8 2
+8043C4E0 lbl_8043C4E0 .sbss 0x8 1
+8043C4F0 lbl_8043C4F0 .sbss 0x8 2
+8043C530 lbl_8043C530 .sbss 0x8 2
+8043C538 lbl_8043C538 .sbss 0x4 3
+8043C550 lbl_8043C550 .sbss 0x8 1
+8043C560 lbl_8043C560 .sbss 0x4 3
+8043C564 lbl_8043C564 .sbss 0x4 2
+8043C568 lbl_8043C568 .sbss 0x4 2
+8043C56C lbl_8043C56C .sbss 0x4 2
+8043C588 lbl_8043C588 .sbss 0x8 4
+8043C590 lbl_8043C590 .sbss 0x8 5
+8043C598 lbl_8043C598 .sbss 0x8 2
+8043C5A0 lbl_8043C5A0 .sbss 0x4 4
+8043C5A5 lbl_8043C5A5 .sbss 0x1 2
+8043C5A8 lbl_8043C5A8 .sbss 0x4 1
+8043C5AC lbl_8043C5AC .sbss 0x4 1
+8043C5C0 lbl_8043C5C0 .sbss 0x8 4
+8043C5D4 lbl_8043C5D4 .sbss 0x4 5
+8043C620 lbl_8043C620 .sbss 0x8 1
+8043C6A8 lbl_8043C6A8 .sbss 0x8 1
+8043C6C8 lbl_8043C6C8 .sbss 0x8 1
+8043C6D8 lbl_8043C6D8 .sbss 0x8 1
+8043C6E8 lbl_8043C6E8 .sbss 0x8 1

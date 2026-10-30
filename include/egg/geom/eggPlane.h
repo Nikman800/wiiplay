@@ -1,0 +1,32 @@
+#ifndef EGG_GEOM_PLANE_H
+#define EGG_GEOM_PLANE_H
+#include <egg/types_egg.h>
+
+#include <egg/math.h>
+
+namespace EGG {
+
+class Plane3f {
+public:
+    Plane3f() {}
+    Plane3f(const Vector3f& rNormal) : normal(rNormal), depth(0.0f) {}
+    Plane3f(const Vector3f& rNormal, f32 depth)
+        : normal(rNormal), depth(depth) {}
+    // Wii Play: plane through rPoint (RPPhysSphere)
+    Plane3f(const Vector3f& rNormal, const Vector3f& rPoint) {
+        normal = rNormal;
+        depth = normal.dot(rPoint);
+    }
+    ~Plane3f() {}
+
+    // Wii Play: not const; the const form schedules the loads differently (non-const matches)
+    Vector3f project(const Vector3f& rVec);
+
+private:
+    Vector3f normal; // at 0x0
+    f32 depth;       // at 0xC
+};
+
+} // namespace EGG
+
+#endif

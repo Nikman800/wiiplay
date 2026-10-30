@@ -1,0 +1,15 @@
+address	old_name	new_name	unit	previous
+802370B8	Duc_Field_calcModelMtx	CalcModelMtx__10RPDucFieldFv	Pack/RPParty/RPDucScene/RPDucField_2.cpp	
+80237138	Duc_Field_calc	Calculate__10RPDucFieldFv	Pack/RPParty/RPDucScene/RPDucField_2.cpp	
+802372A4	Duc_Field_reset	Reset__10RPDucFieldFv	Pack/RPParty/RPDucScene/RPDucField_2.cpp	
+80237550	Duc_Field_load	Load__10RPDucFieldFv	Pack/RPParty/RPDucScene/RPDucField_2.cpp	
+802375D0	Duc_Field_init	Create__10RPDucFieldFv	Pack/RPParty/RPDucScene/RPDucField_2.cpp	
+8023768C	Duc_Field_dtor	__dt__10RPDucFieldFv	Pack/RPParty/RPDucScene/RPDucField_2.cpp	
+802376E4	Duc_Field_destroyInstance	DestroyInstance__10RPDucFieldFv	Pack/RPParty/RPDucScene/RPDucField_2.cpp	
+80237728	Duc_Field_createInstance	CreateInstance__10RPDucFieldFv	Pack/RPParty/RPDucScene/RPDucField_2.cpp	
+80237A50	Duc_ShtField_ctor	__ct__13RPDucShtFieldFv	Pack/RPParty/RPDucScene/RPDucField_2.cpp	
+8024D550	Duc_ShtCloud_ctor	__ct__13RPDucShtCloudFv	Pack/RPParty/RPDucScene/RPDucField_2.cpp	
+80321F80	Duc_grassRow2X	sGrassRow2X	Pack/RPParty/RPDucScene/RPDucField_2.cpp	
+80321F98	Duc_grassRow3X	sGrassRow3X	Pack/RPParty/RPDucScene/RPDucField_2.cpp	
+80359BE0	lbl_80359BE0	__vt__10RPDucField	Pack/RPParty/RPDucScene/RPDucField_2.cpp	
+8043C838	Duc_fieldInstance	sInstance__10RPDucField	Pack/RPParty/RPDucScene/RPDucField_2.cpp	

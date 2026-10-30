@@ -1,0 +1,8 @@
+address	old_name	new_name	unit	previous
+80213248	Fsh_AimArrow_draw	UserDraw__13RPFshAimArrowFv	Pack/RPParty/RPFshScene/RPFshPrompt_2.cpp	
+8021330C	Fsh_AimArrow_calc	Calculate__13RPFshAimArrowFv	Pack/RPParty/RPFshScene/RPFshPrompt_2.cpp	
+80213408	Fsh_AimArrow_reset	Reset__13RPFshAimArrowFv	Pack/RPParty/RPFshScene/RPFshPrompt_2.cpp	
+802134FC	Fsh_AimArrow_create	Create__13RPFshAimArrowFv	Pack/RPParty/RPFshScene/RPFshPrompt_2.cpp	
+802135E4	Fsh_AimArrow_dtor	__dt__13RPFshAimArrowFv	Pack/RPParty/RPFshScene/RPFshPrompt_2.cpp	
+802136D0	Fsh_FishingArrow00_80359020_vf06	Exit__13RPFshAimArrowFv	Pack/RPParty/RPFshScene/RPFshPrompt_2.cpp	
+80359020	lbl_80359020	__vt__13RPFshAimArrow	Pack/RPParty/RPFshScene/RPFshPrompt_2.cpp	

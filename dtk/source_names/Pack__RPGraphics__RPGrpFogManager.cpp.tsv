@@ -1,0 +1,2 @@
+address	old_name	new_name	unit	previous
+801AFBC4	RP_GrpFogManager_dtor	__dt__15RPGrpFogManagerFv	Pack/RPGraphics/RPGrpFogManager.cpp	LoadScnFog__15RPGrpFogManagerFUsPCcf

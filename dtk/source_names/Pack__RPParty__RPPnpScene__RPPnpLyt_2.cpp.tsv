@@ -1,0 +1,10 @@
+address	old_name	new_name	unit	previous
+80230878	Pnp_ServerLyt_hide	Hide__14RPPnpServerLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_2.cpp	
+80230958	Pnp_ServerLyt_show	Show__14RPPnpServerLytFll	Pack/RPParty/RPPnpScene/RPPnpLyt_2.cpp	
+80230AC4	Pnp_ServerLyt_draw	Draw__14RPPnpServerLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_2.cpp	
+80230ACC	Pnp_ServerLyt_exit	Exit__14RPPnpServerLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_2.cpp	
+80230AD0	Pnp_ServerLyt_calc	Calculate__14RPPnpServerLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_2.cpp	
+80230BE4	Pnp_ServerLyt_reset	Reset__14RPPnpServerLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_2.cpp	
+80230CB8	Pnp_ServerLyt_load	Load__14RPPnpServerLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_2.cpp	
+80230DFC	Pnp_ServerLyt_create	Create__14RPPnpServerLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_2.cpp	
+80230E24	Pnp_ServerLyt_applyPending	ApplyPending__14RPPnpServerLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt_2.cpp	

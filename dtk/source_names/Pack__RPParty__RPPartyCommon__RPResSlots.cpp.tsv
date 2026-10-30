@@ -1,0 +1,3 @@
+address	old_name	new_name	unit	previous
+801B6C0C	RP_ResSlots_findOrLoad	RP_ResSlots_findOrLoad__FP10RPResSlotsPCcUsUlUl	Pack/RPParty/RPPartyCommon/RPResSlots.cpp	
+801B6DF8	RP_ResSlots_dtor	__dt__10RPResSlotsFv	Pack/RPParty/RPPartyCommon/RPResSlots.cpp	

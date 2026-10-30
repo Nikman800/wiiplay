@@ -1,0 +1,4 @@
+address	old_name	new_name	unit	previous
+80189BBC	Sys_NamedBase_listenPropertyEvent	ListenPropertyEvent__18IRPSysHostIOSocketFv	Pack/RPKernel/IRPSysHostIOSocket.cpp	
+80189BC0	Sys_NamedBase_genMessage	GenMessage__18IRPSysHostIOSocketFv	Pack/RPKernel/IRPSysHostIOSocket.cpp	
+8034F430	lbl_8034F430	__vt__18IRPSysHostIOSocket	Pack/RPKernel/IRPSysHostIOSocket.cpp	

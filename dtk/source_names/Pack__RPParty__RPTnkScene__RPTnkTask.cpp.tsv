@@ -1,0 +1,11 @@
+address	old_name	new_name	unit	previous
+802688E8	Tnk_StepTimer_calc	Calculate__14RPTnkStepTimerFv	Pack/RPParty/RPTnkScene/RPTnkTask.cpp	
+80268938	Tnk_StepTimer_start	Start__14RPTnkStepTimerFf	Pack/RPParty/RPTnkScene/RPTnkTask.cpp	
+80268958	Tnk_StepTimer_reset	Reset__14RPTnkStepTimerFv	Pack/RPParty/RPTnkScene/RPTnkTask.cpp	
+80268978	Tnk_StepTimer_load	Load__14RPTnkStepTimerFv	Pack/RPParty/RPTnkScene/RPTnkTask.cpp	
+8026897C	Tnk_StepTimer_create	Create__14RPTnkStepTimerFv	Pack/RPParty/RPTnkScene/RPTnkTask.cpp	
+80268980	Tnk_StepTimer_dtor	__dt__14RPTnkStepTimerFv	Pack/RPParty/RPTnkScene/RPTnkTask.cpp	
+802689D8	Tnk_StepTimer_destroyInstance	DestroyInstance__14RPTnkStepTimerFv	Pack/RPParty/RPTnkScene/RPTnkTask.cpp	
+80268A1C	Tnk_StepTimer_createInstance	CreateInstance__14RPTnkStepTimerFv	Pack/RPParty/RPTnkScene/RPTnkTask.cpp	
+8035C040	Tnk_StepTimer_vtable	__vt__14RPTnkStepTimer	Pack/RPParty/RPTnkScene/RPTnkTask.cpp	
+8043C928	Tnk_stepTimerInstance	sInstance__14RPTnkStepTimer	Pack/RPParty/RPTnkScene/RPTnkTask.cpp	

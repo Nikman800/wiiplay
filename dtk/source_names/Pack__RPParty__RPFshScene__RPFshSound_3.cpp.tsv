@@ -1,0 +1,13 @@
+address	old_name	new_name	unit	previous
+802126DC	Fsh_RodSnd_holdSplash	HoldSplash__11RPFshRodSndFf	Pack/RPParty/RPFshScene/RPFshSound_3.cpp	
+80212800	Fsh_FishSnd_startBite	StartBite__12RPFshFishSndFUl	Pack/RPParty/RPFshScene/RPFshSound_3.cpp	
+802128F0	Fsh_FishSnd_holdStruggle	HoldStruggle__12RPFshFishSndFUl	Pack/RPParty/RPFshScene/RPFshSound_3.cpp	
+80212A60	Fsh_FishSnd_startCatch	StartCatch__12RPFshFishSndFUl	Pack/RPParty/RPFshScene/RPFshSound_3.cpp	
+80212C1C	Fsh_FishSnd_setSizeClass	SetSizeClass__12RPFshFishSndFUlUlf	Pack/RPParty/RPFshScene/RPFshSound_3.cpp	
+80212C80	Fsh_holdGlobalSound	RPFshHoldGlobalSound__FUl	Pack/RPParty/RPFshScene/RPFshSound_3.cpp	
+80212CC8	Fsh_getBgmLeadFrames	RPFshGetBgmFadeFrames__FUl	Pack/RPParty/RPFshScene/RPFshSound_3.cpp	
+80212CF0	Fsh_stopAmbientSound	RPFshStopAmbientSound__Fv	Pack/RPParty/RPFshScene/RPFshSound_3.cpp	
+80212D3C	Fsh_startAmbientSound	RPFshStartAmbientSound__Fv	Pack/RPParty/RPFshScene/RPFshSound_3.cpp	
+80212D94	Fsh_sinit_soundHandles	__sinit_\RPFshSound_3_cpp	Pack/RPParty/RPFshScene/RPFshSound_3.cpp	__sinit_\RPFshSound_4_cpp
+8043C788	Fsh_ambientSoundHandle	sAmbientHandle	Pack/RPParty/RPFshScene/RPFshSound_3.cpp	
+8043C78C	Fsh_globalSoundHandle	sGlobalHandle	Pack/RPParty/RPFshScene/RPFshSound_3.cpp	

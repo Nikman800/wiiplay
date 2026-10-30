@@ -1,0 +1,10 @@
+address	old_name	new_name	unit	previous
+802A0CBC	Cow_Camera_projectToScreenClamped	ProjectToScreenClamped__11RPCowCameraCFRCQ23EGG8Vector3ff	Pack/RPParty/RPCowScene/RPCowPlayer_7.cpp	
+802A0DC0	Cow_Camera_getBackDir	GetBackDir__11RPCowCameraCFv	Pack/RPParty/RPCowScene/RPCowPlayer_7.cpp	
+802A0E0C	Cow_Camera_getEyePos	GetEyePos__11RPCowCameraCFv	Pack/RPParty/RPCowScene/RPCowPlayer_7.cpp	
+802AF810	Cow_PlayerCursor_draw	Draw__17RPCowPlayerCursorFv	Pack/RPParty/RPCowScene/RPCowPlayer_7.cpp	
+802AF840	Cow_PlayerCursor_calc	Calc__17RPCowPlayerCursorFv	Pack/RPParty/RPCowScene/RPCowPlayer_7.cpp	
+802AFC3C	Cow_PlayerCursor_reset	Reset__17RPCowPlayerCursorFv	Pack/RPParty/RPCowScene/RPCowPlayer_7.cpp	
+802AFDE4	Cow_PlayerCursor_init	Init__17RPCowPlayerCursorFll	Pack/RPParty/RPCowScene/RPCowPlayer_7.cpp	
+80440EE8	lbl_80440EE8	sOfsY__17RPCowPlayerCursor	Pack/RPParty/RPCowScene/RPCowPlayer_7.cpp	
+80440EEC	lbl_80440EEC	sMarginX__17RPCowPlayerCursor	Pack/RPParty/RPCowScene/RPCowPlayer_7.cpp	

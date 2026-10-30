@@ -1,0 +1,5 @@
+address	old_name	new_name	unit	previous
+8043AAC8	lbl_8043AAC8	mFormatBufferSize__Q34nw4r2ut17TextWriterBase<c>	nw4r/ut/ut_TextWriterBase.cpp	
+8043B990	lbl_8043B990	mFormatBuffer__Q34nw4r2ut17TextWriterBase<c>	nw4r/ut/ut_TextWriterBase.cpp	
+8043B994	lbl_8043B994	mDefaultTagProcessor__Q34nw4r2ut17TextWriterBase<c>	nw4r/ut/ut_TextWriterBase.cpp	
+8043B99C	lbl_8043B99C	mDefaultTagProcessor__Q34nw4r2ut17TextWriterBase<w>	nw4r/ut/ut_TextWriterBase.cpp	

@@ -1,0 +1,6 @@
+#ifndef PACK_RPPARTY_RPPARTYCOMMON_RPPATHSEGMENT_3_H
+#define PACK_RPPARTY_RPPARTYCOMMON_RPPATHSEGMENT_3_H
+
+#include <Pack/RPParty/RPPartyCommon/RPPathSegment.h>
+
+#endif

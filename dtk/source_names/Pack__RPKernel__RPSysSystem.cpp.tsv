@@ -1,0 +1,11 @@
+address	old_name	new_name	unit	previous
+80182930	fn_80182930	waitRenderModeChange__11RPSysSystemFv	Pack/RPKernel/RPSysSystem.cpp	
+80182A78	fn_80182A78	createEffectWork__11RPSysSystemFv	Pack/RPKernel/RPSysSystem.cpp	
+80182BC0	fn_80182BC0	createFromSystemHeap__11RPSysSystemFv	Pack/RPKernel/RPSysSystem.cpp	
+80182D70	fn_80182D70	__ct__11RPSysSystemFv	Pack/RPKernel/RPSysSystem.cpp	
+80182E50	fn_80182E50	__dt__11RPSysSystemFv	Pack/RPKernel/RPSysSystem.cpp	
+8034F010	lbl_8034F010	__vt__11RPSysSystem	Pack/RPKernel/RPSysSystem.cpp	
+8043C444	lbl_8043C444	spRenderModeObj__11RPSysSystem	Pack/RPKernel/RPSysSystem.cpp	
+8043C448	lbl_8043C448	sRenderModeFormat__11RPSysSystem	Pack/RPKernel/RPSysSystem.cpp	
+8043C44C	lbl_8043C44C	sRenderModeWaitStart__11RPSysSystem	Pack/RPKernel/RPSysSystem.cpp	
+80182FA0	Sys_loadTimeStampTxt	createTimeStamp__11RPSysSystemFv	Pack/RPKernel/RPSysSystem.cpp	

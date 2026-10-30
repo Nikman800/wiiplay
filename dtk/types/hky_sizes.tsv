@@ -1,0 +1,26 @@
+# class	wii_play_alloc_size	header (relative to include/Pack)
+RPSimpleModel	44	RPParty/RPPartyCommon/RPSimpleModel.h
+RPHkyScene	4C	RPParty/RPHkyScene.h
+RPHkyGame	50	RPParty/RPHkyScene.h
+RPHkyPuck	C8	RPParty/RPHkyScene.h
+RPHkyField	240	RPParty/RPHkyScene.h
+RPHkyPaddle	1CC	RPParty/RPHkyScene.h
+RPHkyPaddleRound	50	RPParty/RPHkyScene.h
+RPHkyIntroPhase	50	RPParty/RPHkyScene.h
+RPHkyGoalPhase	4C	RPParty/RPHkyScene.h
+RPHkyTimeUpPhase	4C	RPParty/RPHkyScene.h
+RPHkyWaitPhase	4C	RPParty/RPHkyScene.h
+RPHkyResultPhase	54	RPParty/RPHkyScene.h
+RPHkySegment	1C	RPParty/RPHkyScene.h
+RPHkyBgmCtrl	C	RPParty/RPHkyScene.h
+RPHkyHud	20	RPParty/RPHkyScene.h
+RPHkyStartMsgLyt	20	RPParty/RPHkyScene.h
+RPHkyBalloonLyt	34	RPParty/RPHkyScene.h
+RPHkyTimeLyt	30	RPParty/RPHkyScene.h
+RPHkyScoreLyt	30	RPParty/RPHkyScene.h
+RPHkyGoalMsgLyt	2C	RPParty/RPHkyScene.h
+RPHkyTimeUpMsgLyt	18	RPParty/RPHkyScene.h
+RPHkyMsg03Lyt	1C	RPParty/RPHkyScene.h
+RPHkySceneSound	18	RPParty/RPHkyScene.h
+RPHkyPuckTrail	7C	RPParty/RPHkyScene.h
+RPHkyPaddleTrail	7C	RPParty/RPHkyScene.h

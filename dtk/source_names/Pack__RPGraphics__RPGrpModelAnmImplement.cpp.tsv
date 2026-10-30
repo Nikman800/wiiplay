@@ -1,0 +1,7 @@
+address	old_name	new_name	unit	previous
+801A96A4	Regist__25RPGrpModelAnmImplement<1>FQ213RPGrpModelAnm3AnmUsUs	Regist__25RPGrpModelAnmImplement<1>FQ213RPGrpModelAnm3AnmUsUsUl	Pack/RPGraphics/RPGrpModelAnmImplement.cpp	
+801AA574	RegistFromResFile__25RPGrpModelAnmImplement<1>FQ213RPGrpModelAnm3AnmUsUsPCc	RegistFromResFile__25RPGrpModelAnmImplement<1>FQ213RPGrpModelAnm3AnmUsUsPCcUl	Pack/RPGraphics/RPGrpModelAnmImplement.cpp	
+803181E8	lbl_803181E8	TO_G3D_TYPE__25RPGrpModelAnmImplement<1>	Pack/RPGraphics/RPGrpModelAnmImplement.cpp	
+80318200	lbl_80318200	FROM_G3D_POLICY__25RPGrpModelAnmImplement<1>	Pack/RPGraphics/RPGrpModelAnmImplement.cpp	
+8034FCB0	lbl_8034FCB0	__vt__25RPGrpModelAnmImplement<1>	Pack/RPGraphics/RPGrpModelAnmImplement.cpp	
+8043E950	lbl_8043E950	TO_BIND_OPTION	Pack/RPGraphics/RPGrpModelAnmImplement.cpp	

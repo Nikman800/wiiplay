@@ -1,0 +1,454 @@
+address	new_name	confidence	note
+8018C0E4	RP_PlayerData_setEntryMii	low	moved from Menu; calls RP_8018EC0C on player entry [idx*0x18] with char arg; used when applying chosen Mii to player
+8018C180	RP_PlayerData_setEntryMiiInfo	low	moved from Menu; copies 16 bytes from obj+0x1c..0x28 via Sys_8018D8E0 into player entry [idx*0x18]
+8018C5C4	RP_PlayerData_isEntryValid	medium	moved from Menu; true if entry type byte in 2..5 and index <= 9
+8018C948	RP_PlayerData_assignChannels	medium	moved from Menu; sets +0xc=min(count,n); entry byte0 = round-robin channel 0..n-1
+8018C9A0	RP_PlayerData_setPlayerCount	medium	moved from Menu; stores arg at +8 (player count read everywhere as lbl_8043C4B0+8)
+8018CAA4	RP_PlayerData_getChannelMask	high	moved from Menu; maps entry channel byte (or current channel if idx<0) 0..3 to bit 1/2/4/8, else 0xf
+8018FFB4	RP_removeScaleFromMtx	medium	moved from Mii; divides 3x4 matrix columns by 1/scale(+0x20..0x28) after fn_800E73AC; used by joint-matrix getters
+801908F4	Mii_801908F4	keep	thin wrapper: RP_801A326C(mgr+0x3c, arg)
+801945A4	Lyt_findWindowPane	medium	moved from Menu; finds pane by name in layout, returns it only if its type chain contains lbl_8043BB20; callers are w...
+80194654	Lyt_findTextBoxPane	medium	moved from Menu; finds pane by name, returns it only if type chain contains lbl_8043BB10; callers set names/text
+80196D14	Lyt_initAnimFrame	low	moved from Menu; RP_80195F48(obj+4,arg); sets frame short +8, float +0x14, flags
+80197168	Lyt_setTextBoxFromMessage	low	moved from Menu; sets text box floats +0xf0/+0xe4 from RP_8018F2E0/8018F304 lookups
+801A33DC	Lyt_setWindowColor	medium	moved from Menu; writes RGBA from RP_80193DB8 into all window frame materials (+content if arg3)
+801CAF90	Mii_BodyJoints_getRightHandMtx	high	gets joint 'hand_r' (or 'wrist_r' if idx>=2) matrix, removes scale
+801CB060	Mii_BodyJoints_getLeftHandMtx	high	gets joint 'hand_l' (or 'wrist_l' if idx>=2) matrix, removes scale
+801CB130	Mii_BodyJoints_getHeadMtx	high	gets joint 'head_set' matrix, removes scale
+801CB1C4	Mii_BodyJoints_getTablePair	medium	returns two words from table lbl_80357748[id*0x10 + i*8]
+801CB1F4	Mii_BodyJoints_getTableEntry	medium	returns word from table lbl_803578C8[id*8 + i*4]
+801CB210	Mii_BodyJoints_dtor	high	destructor: deletes when flag>0
+801CB260	Mii_BodyJoints_getCount	low	returns 12
+801CB268	Mii_BodyJoints_getCount2	low	returns 12
+801CB278	Mii_BodyJoints_vf03	low	returns 0
+801CB280	Mii_BodyJoints_getDefaultData	low	returns lbl_8043B380
+801CB9F0	Menu_playControllerChangeSe	high	plays RP_COMMON_SE_CON_Change_01 on remote speaker of chosen channel (mask 1/2/4/8), then Lyt_80199744(ctrl,3)
+801CBC98	Menu_MenuScene_setTitleMessage	medium	selects title message id 0x192..0x198 by game id (lbl_8043C488+8) or explicit id in party mode
+801CBDE8	Menu_MenuScene_loadPlayerMiis	low	for each valid player entry checks controller Mii availability and loads into KokeshiMgr; clears flag
+801CBED0	Menu_MenuScene_calcPaused	low	while lbl_8043C50E set: shows message 0x10f after 30 frames, replays con-change SE; updates Kokeshi
+801CBFD0	Menu_MenuScene_commitPlayerMii	low	mode0 shows msg 0x122/3; mode1 writes Mii to player record, on failure shows msg 0x118/9; sets state
+801CC220	Menu_MenuScene_calcStartGame	medium	waits Sys_80184F04 then requests scene change (2/10/11/0x1a) via Sys_8018459C
+801CC2E4	Menu_MenuScene_calcConfirm	low	calc common message/confirm; on result sets next state (7/3/0xe/0/0xd), records start time
+801CC4F8	Menu_MenuScene_calcPlayerSettings	low	calcs PlayerSelect01 panel; on accept writes 6 setting values to player record and advances
+801CC680	Menu_MenuScene_startPlayerSettings	low	moves player idx, loads 6 setting values from record into PlayerSelect01 panel, sets state 9
+801CC8D0	Menu_MenuScene_calcWaitMiiLoad	medium	waits until all players' Kokeshi are loaded, copies Mii info into player data, state 0xb
+801CCA60	Menu_MenuScene_calcMiiSelect	medium	calc Mii select (obj+0x84); on pick (0x10) stores Mii for current player, on back (0x13) returns
+801CCC40	Menu_MenuScene_startMiiSelect	medium	steps player idx +/-1 (states 4/5) with con-change SE, opens Mii select for player, state 6
+801CCD10	Menu_MenuScene_calcPlayerCountSelect	medium	calc player-count select (obj+0x80); on done sets count/channels then loads Miis
+801CCE10	Menu_MenuScene_exit	low	calls panel slot 7, Menu_801DF7B0, Menu_801E2840, optional PTMenuBG43 cleanup, Lyt_801996E0
+801CCE5C	Menu_MenuScene_draw	medium	draws layouts per draw pass (Lyt_801C7DC0==1/4, phase 5): bg layout, selectors, panels, message
+801CCF50	Menu_MenuScene_calc	high	per-frame: updates bg model, cursor objects, runs state machine at +0x44 dispatching to state handlers
+801CD4D8	Menu_MenuScene_reset	high	resets state fields, title, sub-objects; starts BGM STRM_SportsPackSelect/Training_Select/Party menu
+801CDAC0	Menu_MenuScene_loadResource	high	loads common_message.bmg, menuCommon.arc, menuBg_00.brlyt, pack_sequence effects; loads sub-objects
+801CDC9C	Menu_MenuScene_configure	high	sets up Gfx, allocates BG model, logo, TPtGame00, cursors, selectors, KokeshiMgr, screens
+801CDFF4	Menu_MenuScene_dtor	high	destructor: base dtor then delete when flag>0
+801CE050	Menu_isAnimStateDone	low	true if state==arg && (target==arg || not playing)
+801CE084	Menu_MenuScene_drawThunk	high	this-adjust (-0x24) thunk to slot 21
+801CE08C	Menu_MenuScene_dtorThunk	high	this-adjust (-0x24) thunk to dtor
+801CE094	Menu_MenuBgModel_calc	medium	updates BG model matrix from pos +0x10..0x18 and scale +0x1c..0x24, calcs model
+801CE138	Menu_MenuBgModel_reset	medium	zeroes pos, scale=1, resets model anims (frame from +6)
+801CE268	Menu_MenuBgModel_load	high	loads G3D/menu_BG_model.brres, creates model and binds 3 anims
+801CE460	Menu_MenuBgModel_ctor	medium	ctor: vtable lbl_80357A08, stores args, allocs Gfx object and screen
+801CE62C	Menu_MenuBgModel_dtor	medium	destructor: Gfx_80190C24 base dtor then delete when flag>0; follows MenuBgModel ctor
+801CE684	Menu_MenuFrame_requestPtGameText	medium	if text id/force differs: formats message into buffer +0x1f0 (T_ptGame_00), sets change-pending flag +0x1da
+801CE7B8	Menu_MenuFrame_hidePtGame	medium	sets ptGame hide-request flag +0x1d9
+801CE7C4	Menu_MenuFrame_showPtGame	medium	sets ptGame show-request flag +0x1d8
+801CE7D0	Menu_MenuFrame_ptGameOut_calc	medium	state-table calc: when outPtGame anim (+0x278) ends -> ptGame state 0
+801CE7F0	Menu_MenuFrame_ptGameOut_enter	medium	state-table enter: clears hide flag, plays outPtGame anim (+0x278) on N_ptGame_00
+801CE898	Menu_MenuFrame_ptGameChange_calc	medium	at mid-frame of changePtGame anim applies pending text to T_ptGame_00; on end -> state 2
+801CE940	Menu_MenuFrame_ptGameChange_enter	medium	state-table enter: plays changePtGame anim (+0x27c)
+801CE9DC	Menu_MenuFrame_ptGameShown_calc	medium	hide flag -> state 4 (out), text change pending -> state 3 (change)
+801CEA10	Menu_MenuFrame_ptGameShown_enter	medium	state-table enter for shown state; empty
+801CEA14	Menu_MenuFrame_ptGameIn_calc	medium	when inPtGame anim (+0x274) ends -> state 2
+801CEA34	Menu_MenuFrame_ptGameIn_enter	medium	clears show flag, plays inPtGame anim (+0x274)
+801CEADC	Menu_MenuFrame_ptGameHidden_calc	medium	show flag -> state 1; applies pending text immediately while hidden
+801CEB58	Menu_MenuFrame_ptGameHidden_enter	medium	state-table enter for hidden state; empty
+801CEB5C	Menu_MenuFrame_trainingOut_calc	medium	when outTraining anim (+0x26c) ends -> training state 0
+801CEB7C	Menu_MenuFrame_trainingOut_enter	medium	clears hide flag +0x179, plays outTraining anim on N_training_00
+801CEC24	Menu_MenuFrame_trainingChange_calc	medium	mid-frame of changeTraining anim applies pending text to T_training_00; end -> state 2
+801CECCC	Menu_MenuFrame_trainingChange_enter	medium	plays changeTraining anim (+0x270)
+801CED68	Menu_MenuFrame_trainingShown_calc	medium	hide flag -> state 4, text change pending -> state 3
+801CED9C	Menu_MenuFrame_trainingShown_enter	medium	state-table enter for shown state; empty
+801CEDA0	Menu_MenuFrame_trainingIn_calc	medium	when inTraining anim (+0x268) ends -> state 2
+801CEDC0	Menu_MenuFrame_trainingIn_enter	medium	clears show flag +0x178, plays inTraining anim
+801CEE68	Menu_MenuFrame_trainingHidden_calc	medium	show flag -> state 1; applies pending text while hidden
+801CEEE8	Menu_MenuFrame_trainingHidden_enter	medium	state-table enter for hidden state; empty
+801CEEEC	Menu_MenuFrame_getModelPane	high	returns +0x170 (pane N_3dmodel_00)
+801CEEF4	Menu_MenuFrame_setPlayerNameText	medium	sets T_playerName_00 text, or defers it (+0x124) while name panel is in out state
+801CEF84	Menu_MenuFrame_hideName	medium	sets name hide flag +0x109, clears show flag
+801CEF98	Menu_MenuFrame_showName	medium	shows name panel for player idx, or queues player change if already visible
+801CEFE8	Menu_MenuFrame_nameOut_calc	medium	when outName anim (+0x264) ends -> name state 0
+801CF008	Menu_MenuFrame_nameOut_enter	medium	clears hide flag, plays outName anim on N_name_00
+801CF0B0	Menu_MenuFrame_nameShown_calc	medium	hide flag +0x109 -> state 3
+801CF0CC	Menu_MenuFrame_nameShown_enter	medium	state-table enter for shown state; empty
+801CF0D0	Menu_MenuFrame_nameIn_calc	medium	when inName anim (+0x260) ends -> state 2
+801CF0F0	Menu_MenuFrame_nameIn_enter	medium	plays inName anim, sets P_nameBg_01 player colour, sets player-number text (0x1c3+idx)
+801CF210	Menu_MenuFrame_nameHidden_calc	medium	show flag -> state 1; applies queued player idx and deferred name text
+801CF2BC	Menu_MenuFrame_nameHidden_enter	medium	state-table enter for hidden state; empty
+801CF2C0	Menu_MenuFrame_setCaption	medium	sets caption id fields and immediately formats message into T_caption_00 (+0x100)
+801CF384	Menu_MenuFrame_requestCaptionChange	medium	if id differs or forced: formats message into buffer +0xc0, sets caption change-pending flag
+801CF4B8	Menu_MenuFrame_captionChange_calc	medium	mid-frame of changeText anim applies pending caption text; end -> caption state 0
+801CF560	Menu_MenuFrame_captionChange_enter	medium	plays changeText anim (+0x25c) on N_caption_00
+801CF5FC	Menu_MenuFrame_captionIdle_calc	medium	change-pending flag +0xa8 -> state 1
+801CF618	Menu_MenuFrame_captionIdle_enter	medium	state-table enter; empty
+801CF61C	Menu_MenuFrame_backTextChange_calc	medium	mid-frame of changeBack anim applies pending text to back-button text (+0x9c); end -> state 0
+801CF6C4	Menu_MenuFrame_backTextChange_enter	medium	plays changeBack anim (+0x258) on T_caption_01
+801CF760	Menu_MenuFrame_backTextIdle_calc	medium	change-pending flag +0x44 -> state 1
+801CF77C	Menu_MenuFrame_backTextIdle_enter	medium	state-table enter; empty
+801CF780	Menu_MenuFrame_hideBackButton	medium	if back-button machine idle/shown, switches to out state 6; returns success
+801CF804	Menu_MenuFrame_showBackButton	medium	if back-button machine hidden, switches to in state 1; returns success
+801CF888	Menu_MenuFrame_isBackPushDone	medium	returns true when back-button machine is not in push state 5
+801CF8B8	Menu_MenuFrame_pushBackButton	medium	stores controller mask +0xa0 and enters push state 5 (plays pushBack + back SE)
+801CF8C8	Menu_MenuFrame_setBackButtonActive	medium	switches back button to activate (3, stores channel) or deactivate (4) if state allows
+801CF994	Menu_MenuFrame_isPointOnBackButton	medium	hit-tests point against the two B_backButton panes
+801CFA1C	Menu_MenuFrame_isBackButtonIdle	medium	true if back-button machine is in state 2 and not transitioning
+801CFA44	Menu_MenuFrame_backOut_calc	medium	when outBackButton anim (+0x24c) ends -> back state 0
+801CFA64	Menu_MenuFrame_backOut_enter	medium	plays outBackButton anim (+0x24c)
+801CFB00	Menu_MenuFrame_backPush_calc	medium	when pushBack anim ends -> state 2 and resets activeBack anim
+801CFB70	Menu_MenuFrame_backPush_enter	high	plays pushBack anim (+0x254) and RP_COMMON_SE_KEY_BACK_01 CTSP/TVSP on stored remote mask
+801CFD0C	Menu_MenuFrame_backDeactivate_calc	medium	when activeBack anim (reversed) ends -> state 2
+801CFD2C	Menu_MenuFrame_backDeactivate_enter	medium	plays activeBack anim backwards from current frame, clears active flag
+801CFDCC	Menu_MenuFrame_backActivate_calc	medium	when activeBack anim ends -> state 2
+801CFDEC	Menu_MenuFrame_backActivate_enter	high	plays activeBack anim forward, sets active, plays RP_COMMON_SE_KEY_CURSOR_01 and rumble for channel
+801CFF40	Menu_MenuFrame_backIdle_calc	medium	state-table calc for idle state; empty
+801CFF44	Menu_MenuFrame_backIdle_enter	medium	state-table enter for idle state; empty
+801CFF48	Menu_MenuFrame_backIn_calc	medium	when inBackButton anim (+0x248) ends -> state 2
+801CFF68	Menu_MenuFrame_backIn_enter	medium	plays inBackButton anim (+0x248), clears active flag
+801D0008	Menu_MenuFrame_getAnchorPos	low	returns x/y from pane +0x28 matrix if RootPane and frame visible, else far-off 4649.0
+801D0098	Menu_MenuFrame_setFramePaneVisible	medium	sets visible bit of N_frameUp_00/N_frameDown_00 [idx]
+801D00E4	Menu_MenuFrame_isFrameNotEntering	low	true unless frame machine is in/entering state 1
+801D011C	Menu_MenuFrame_showFrame	medium	switches frame machine from hidden (0) to in (1) if allowed; returns success
+801D01A0	Menu_MenuFrame_frameOut_calc	medium	slides frameUp/Down panes out by anim progress of outFrame (+0x244); end -> state 0
+801D02A4	Menu_MenuFrame_frameOut_enter	medium	resets outFrame anim (+0x244) to start
+801D02E8	Menu_MenuFrame_frameShown_calc	medium	state-table calc for shown state; empty
+801D02EC	Menu_MenuFrame_frameShown_enter	medium	state-table enter for shown state; empty
+801D02F0	Menu_MenuFrame_frameIn_calc	medium	slides frameUp/Down panes in by inFrame anim progress; end -> state 2
+801D040C	Menu_MenuFrame_frameIn_enter	medium	resets inFrame anim (+0x240) to start
+801D0450	Menu_MenuFrame_frameHidden_enter	medium	places frameUp/Down panes at offscreen offset (+/-lbl_8043B398)
+801D04F8	Menu_MenuFrame_draw	high	draws layout (+0x23c) when frame machine is not hidden
+801D0514	Menu_MenuFrame_calc	high	calcs 7 sub state machines, anims, sets pane visibility per machine state, calcs layout
+801D0734	Menu_MenuFrame_reset	high	resets machines/anims, binds text panes T_caption_00/T_player_00/T_playerName_00/T_training_00/T_ptGame_00
+801D0BF8	Menu_MenuFrame_load	high	loads menuCommon.arc/menuFrame_00.brlyt, 18 anims, backButton panes, common_message.bmg
+801D12F4	RP_StateMachine_changeState	high	moved from Menu; sets next state +8 and change-request flags +0x10/+0x11; used by all MenuFrame state callbacks
+801D1394	RP_StateMachine_isStateOrNext	high	moved from Menu; true if current state == arg or pending next state == arg
+801D13C8	RP_StateMachine_isStateSettled	high	moved from Menu; true if current state == arg and no different state pending
+801D16B0	Mii_KokeshiHead_resetTransform	medium	sets flag bit0 +0xb8, scale (+0xbc..0xc4)=1.0, identity matrix +0xc8
+801D16D4	Mii_KokeshiHead_dtor	high	destructor: RP_8018ED50 on name/sub at +0xb4, base dtor, delete when flag>0
+801D173C	Mii_KokeshiHead_ctor	high	ctor: base RP_8018F9E8, names sub-object 'Kokeshi Head', sets vtables 80357A70/80357A84
+801D179C	Mii_KokeshiHead_dtorThunk	high	this-adjust (-0xb4) thunk to dtor
+801D17A4	Mii_KokeshiMgr_calcPaneMtx	low	projects layout pane position through screen/camera into a 3x4 world matrix for a Kokeshi
+801D19C8	Mii_KokeshiMgr_calcPaneScale	medium	scale vec = pane size (+0x44,+0x48) * mgr scale (+0x64)
+801D1A10	Mii_KokeshiMgr_getMiiName	medium	returns Kokeshi[source][idx]+0x68 (Mii name, passed as message arg)
+801D1A2C	Mii_KokeshiMgr_getAlpha	medium	returns fade alpha byte +0x4c
+801D1A38	Mii_KokeshiMgr_setVisible	medium	sets fade-in flag +0x48 (alpha ramps toward 255 or 0 in calc)
+801D1A40	Mii_KokeshiMgr_fixPartyMiiIndices	low	scans 100 party-mode records; if record Mii index mismatches, fixes and writes back, sets changed flag
+801D1B78	Mii_KokeshiMgr_fixPlayerMiiIndices	low	scans 100 player records; if record Mii index mismatches, fixes and writes back, sets changed flag
+801D1CB0	Mii_KokeshiMgr_clearRecordsChanged	medium	clears flag +0x50
+801D1CBC	Mii_KokeshiMgr_isRecordsChanged	medium	returns flag +0x50
+801D1CC4	Mii_KokeshiMgr_loaderFunc801A3AD4	low	forwards to RP_801A3AD4 on remote-Mii loader +0xb4
+801D1CCC	Mii_KokeshiMgr_requestRemoteMii	low	forwards controller to RP_801A3AF4 on loader +0xb4; called once per player with a remote
+801D1CD4	Mii_KokeshiMgr_isRemoteMiiReady	low	returns bool of RP_801A3AE4(loader +0xb4); scene waits on it for every player
+801D1D04	Mii_KokeshiMgr_loaderFunc801A3B04	low	forwards to RP_801A3B04 on loader +0xb4
+801D1D0C	Mii_KokeshiMgr_applyPlayerHighlights	low	resets draw mode/colour of all Kokeshi, then sets mode 2 + colour +0x59.. for first n player slots
+801D1E2C	Mii_isMiiInSlots	medium	searches n 16-byte player slots for matching (source,index); returns bool
+801D1E68	Mii_KokeshiMgr_getPlayerSlot	high	returns this + idx*0x10 + 8
+801D1E78	Mii_KokeshiMgr_setPlayerSlotByType	medium	stores type byte/index in slot, maps type to source list, finds Kokeshi with that index
+801D1F68	Mii_KokeshiMgr_setPlayerSlot	medium	stores Kokeshi[source][idx], source, idx and derived type byte into player slot
+801D201C	Mii_KokeshiMgr_detachSource	medium	hides all Kokeshi of a source list and clears their pane links
+801D2098	Mii_KokeshiMgr_detachKokeshi	medium	hides one Kokeshi (source,idx) and clears its pane link
+801D20F4	Mii_KokeshiMgr_attachKokeshi	medium	shows Kokeshi (source,idx) and links it to a layout pane plus flag
+801D214C	Mii_KokeshiMgr_setViewMode	low	selects offset/scale preset by mode/count and adjusts camera fovy/position for mode
+801D22EC	Mii_KokeshiMgr_calc	medium	ramps fade alpha by 30, places each attached Kokeshi at its pane (matrix/scale), calcs loader
+801D2470	Mii_KokeshiMgr_resetAll	medium	clears fade/offsets/camera, resets every Kokeshi transform and detaches it
+801D257C	Mii_KokeshiMgr_sortMiis	low	sorts Mii lists by record value (descending) using party or player records, then flagged ones first
+801D282C	Mii_KokeshiMgr_load	high	loads scene_Light.plight and scene_Lm.plmap, inits every Kokeshi with light, sorts lists
+801D2998	Mii_KokeshiMgr_onRemoteMiiRemoved	low	clears Kokeshi entry and count of remote list (source+2); reached via secondary-base thunk
+801D29C0	Mii_KokeshiMgr_dtor	high	destructor: RP_8018ED50 base, delete when flag>0
+801D2A18	Mii_KokeshiMgr_onRemoteMiiAdded	low	creates a KokeshiHead for (source+2,index), inits light/transform and appends to list
+801D2BB8	Mii_KokeshiMgr_ctor	high	ctor 'KokeshiMgr': camera/screen setup, per-source arrays (100,6,10x4), Kokeshi for DB Miis, loader
+801D31E8	RP_IBinaryLightMap_setBinary	medium	moved from Mii (used by all games); eggIBinary setBinary: asserts magic matches then calls vf; used for scene_Lm.plmap
+801D3314	RP_IBinaryLightMgr_setBinary	medium	moved from Mii (used by all games); eggIBinary setBinary: asserts magic matches then calls vf; used for scene_Light.p...
+801D3440	Mii_KokeshiMgr_onRemoteMiiRemovedThunk	high	this-adjust (-4) thunk to slot 8
+801D3448	Mii_KokeshiMgr_onRemoteMiiAddedThunk	high	this-adjust (-4) thunk to slot 7
+801D3A88	Menu_RimoconEntryLyt_bindSceneAnims	medium	binds N_playerBg_00/N_rimoconBg_00 to anim +0xa0 and N_scene2_00 to +0xa4, resets both
+801D3BC8	Menu_RimoconEntryLyt_isSceneAnimPlaying	medium	true while scene anim +0xa0 is playing
+801D3BE8	Menu_RimoconEntryLyt_playSceneAnim	medium	plays scene anims forward (arg!=0) or backward from end (arg==0)
+801D3D10	Menu_RimoconEntryLyt_resetButton6Anim	low	binds P_button_06 anims and resets/rewinds anim +0xc8
+801D3DF8	Menu_RimoconEntryLyt_areButtonAnimsDone	medium	true if none of the 6 button anims (+0x68..+0x7c) is playing
+801D3E94	Menu_RimoconEntryLyt_getButtonPane	medium	returns B_button_xx pane for idx 0..5 (name table depends on 4-remote layout flag +8)
+801D3F80	Menu_RimoconEntryLyt_isPointOnButton	medium	hit-tests point against B_button_xx pane for idx
+801D40A8	Menu_RimoconEntryLyt_setButtonState	medium	sets P_button_xx state (0 off,1 on,2 decide) and plays matching anim
+801D42D0	Menu_RimoconEntryLyt_isEntryAnimPlaying	medium	true while either rimoEntry anim (+0x48/+0x4c) is playing
+801D4300	Menu_RimoconEntryLyt_playEntryOutAnim	low	binds N_rimoEntry_00 anims, disables +0x48 path and restarts anim +0x4c
+801D43B0	Menu_RimoconEntryLyt_setRemoteConnected	medium	stores connected flag for remote idx at +0x34[idx]
+801D43C0	Menu_RimoconEntryLyt_setTexts	high	sets T_playMenber_00, T_text_xx, T_rimocon_00/01 texts from message ids 0x1f4..0x21d
+801D4590	Menu_RimoconEntryLyt_draw	high	draws layout +0x44
+801D4598	Menu_RimoconEntryLyt_calc	medium	updates remote lamps when connected state changed, calcs layout
+801D4634	Menu_RimoconEntryLyt_reset	medium	resets states, shows N_rimocon4 or N_rimocon2 panes, plays rimoEntry in anim, resets buttons
+801D483C	Menu_RimoconEntryLyt_load	high	loads rimoconEntry(_pt).arc and rimoconEntry_00.brlyt with 49 anims
+801D4950	Menu_RimoconEntryLyt_ctor	high	ctor: base RP_801B9FC8, vtable 80357AE0, stores 4-remote flag, clears fields
+801D4AA8	Menu_PlayerNumSelect_setTitle	medium	requests MenuFrame caption change: explicit id in party mode, else 0x192..0x198 by game id
+801D4C1C	Menu_PlayerNumSelect_calcEntryButtons	low	d-pad moves cursor to button; A on OK plays RP_COMMON_SE_KEY_A_02 and sets state 5
+801D4EB0	Menu_PlayerNumSelect_calcCountInput	low	d-pad navigation via table, A validates count vs connected remotes (NG SE / msgs 200,0xd2), B backs out
+801D57FC	Menu_PlayerNumSelect_calcPointer	medium	pointer hover over count buttons and back button; plays cursor SE and rumble on change
+801D5B38	Menu_PlayerNumSelect_startCountSelect	medium	after scene anim ends, puts cursor on hovered button and enters state 1
+801D5C98	Menu_PlayerNumSelect_calcEntryPointer	medium	pointer hover over OK button (idx 5), cursor SE, then calls calcEntryButtons
+801D5E6C	Menu_PlayerNumSelect_drawCursor	medium	if active state, calls cursor (+0x20) draw
+801D5E98	Menu_PlayerNumSelect_drawLayout	medium	if active state, calls layout (+0x24) draw
+801D5EC4	Menu_PlayerNumSelect_calc	medium	counts connected remotes, runs state machine (+4) for count select / remote entry, calcs layout
+801D64B8	Menu_PlayerNumSelect_reset	medium	resets state/counts, hides back button, sets title, resets cursor and layout, sets texts
+801D6550	Menu_PlayerNumSelect_load	medium	stores message data, calls layout load
+801D6568	Menu_PlayerNumSelect_ctor	medium	stores MenuFrame/cursor, decides 4-remote layout by game id, creates RimoconEntryLyt
+801D660C	Menu_MiiSelectLyt_setArrowBackVisible	medium	sets visibility of pane groups G_arrow_00/G_back_00 by mode
+801D66C8	Menu_MiiSelectLyt_setButtonState	medium	sets P_button_00..02 state (off/on/decide and variants) and plays matching anim
+801D6A48	Menu_MiiSelectLyt_setFaceState	medium	sets arrow/face item (idx>=3) state and plays matching anim, incl. arrow anims
+801D6CC0	Menu_MiiSelectLyt_getFacePanePos	medium	returns x/y of N_face_xx pane for item index
+801D6DD4	Menu_MiiSelectLyt_getFacePane	medium	returns N_face_xx pane by index
+801D6E30	Menu_MiiSelectLyt_getModelPane	medium	returns N_3Dmodel_xx pane by index
+801D6E8C	Menu_MiiSelectLyt_isMessageAnimPlaying	medium	true while message anim +0xf4/+0xf8 is playing
+801D6EBC	Menu_MiiSelectLyt_playMessageAnimB	low	binds N_message_00 anims and restarts anim +0xf8
+801D6F6C	Menu_MiiSelectLyt_playMessageAnim	medium	plays N_message_00 anim +0xf4 forward (show) or backward (hide)
+801D7084	Menu_MiiSelectLyt_setArrowState	medium	plays P_arrowL_00/P_arrowR_00 appear/disappear anims
+801D7314	Menu_MiiSelectLyt_isFaceAllAnimPlaying	medium	true while N_faceAll anim +0xc0 is playing
+801D732C	Menu_MiiSelectLyt_playFaceAllAnim	medium	plays N_faceAll anim forward or backward
+801D73E4	Menu_MiiSelectLyt_setFaceAllAnimFrame	medium	sets N_faceAll anim to start or end frame without playing
+801D7498	Menu_MiiSelectLyt_areSelectAnimsDone	low	true if none of a group of item anims is playing
+801D75D8	Menu_MiiSelectLyt_areDecideAnimsDone	low	true if none of another group of item anims is playing
+801D771C	Menu_MiiSelectLyt_getItemPane	medium	returns B_button/B_arrow/B_face pane by item index
+801D77D0	Menu_MiiSelectLyt_setItemState	medium	dispatches to setFaceState (idx>2) or setButtonState
+801D77E0	Menu_MiiSelectLyt_isPointOnItem	medium	hit-tests point against item pane
+801D78B0	Menu_MiiSelectLyt_isSceneAnimPlaying	medium	true while scene anim +0x48/+0x4c is playing
+801D78E0	Menu_MiiSelectLyt_playSceneOutAnim	medium	binds N_scene_00 and restarts anim +0x4c
+801D7990	Menu_MiiSelectLyt_setButtonTexts	high	sets T_button_00..02 and T_message_00 texts (ids 0x262..0x265)
+801D7A64	Menu_MiiSelectLyt_setPlayerTitle	medium	sets T_playerSelect text with player number and colours W_baseLine_01..03 for player
+801D7BC8	Menu_MiiSelectLyt_drawBackLayer	low	draws layout with arrow/back groups in mode 1 then restores mode 0
+801D7C0C	Menu_MiiSelectLyt_draw	high	sets group visibility mode 2 and draws layout
+801D7C44	Menu_MiiSelectLyt_calc	high	calcs layout +0x44
+801D7C4C	Menu_MiiSelectLyt_reset	medium	plays scene in anim, resets faceAll anim, all 15 items and arrows
+801D7E9C	Menu_MiiSelectLyt_load	high	loads playerSelect.arc / playerSelect_00.brlyt and 46 anims
+801D7F74	Menu_MiiSelectLyt_ctor	high	ctor: base RP_801B9FC8, vtable 80357B00, item states = 6
+801D80B0	Menu_MiiSelect_playItemSe	high	plays CURSOR_02 for buttons, KEY_A_04 for arrows, CURSOR_05 for faces at item position
+801D831C	Menu_MiiSelect_playChoiceEffect	high	plays Seq_choice_mii_<colour> effect at face pane and RP_COMMON_SE_KEY_A_02
+801D84F8	Menu_MiiSelect_getItemAfterPageChange	low	chooses cursor item after page/tab change from current category and page fill
+801D85F0	Menu_MiiSelect_getFirstFreeFace	medium	returns first face item on page whose Mii is not already assigned to a player
+801D870C	Menu_MiiSelect_getMiiIndexForItem	medium	converts face item to Mii index in category (page*10 + item-5, guest layout differs)
+801D8774	Menu_MiiSelect_isItemEnabled	medium	tells if item is usable (arrows only if more pages, faces only if filled)
+801D8910	Menu_MiiSelect_initCategory	low	picks category by count of players without Mii vs guests, sets cursor to first free face
+801D89DC	Menu_MiiSelect_attachPageKokeshi	medium	scrolls page (-1/0/+1) and attaches Kokeshi of visible Miis to face/model panes
+801D8CD4	Menu_MiiSelect_initCategoryPages	medium	resets remote categories, or initialises one remote category from Kokeshi count
+801D8E04	Menu_MiiSelect_calcInput	medium	d-pad navigation, A selects Mii (NG/A_03 SE, choice effect), B pushes back button, updates name
+801D9A14	Menu_MiiSelect_calcPointer	medium	pointer hover over items and back button, updates item states, plays item SE
+801D9D58	Menu_MiiSelect_onMessageResult	low	handles result of shown message by kind (+0x10): select, retry, or change scene
+801D9E34	Menu_MiiSelect_showMessage	medium	shows common message 0x104/0x105/0xfb/0xfa/0xa1 by kind, enters message state 0x14
+801D9FAC	Menu_MiiSelect_calcFadeIn	medium	waits for Kokeshi alpha 255, then places cursor and enters state 1
+801DA158	Menu_MiiSelect_startPage	medium	attaches Kokeshi, shows arrows, sets cursor to first free face, state 0xd
+801DA304	Menu_MiiSelect_calcFadeOut	medium	waits for Kokeshi alpha 0, detaches all, decides next state for category
+801DA440	Menu_MiiSelect_calcTabChange	low	after faceAll anim, reattaches Kokeshi and re-places cursor, state 1
+801DA614	Menu_MiiSelect_startPageScroll	medium	plays faceAll anim and scrolls page in arrow direction, updates arrows, state 4
+801DA8B8	Menu_MiiSelect_calcEnter	medium	pointer update and name panel while waiting for scene in anim, then state 1
+801DA9A0	Menu_MiiSelect_getSelectedMii	medium	returns (category, Mii index) of the cursor item
+801DAA34	Menu_MiiSelect_drawOverlay	medium	draws layout back layer and both cursors when active
+801DAAA8	Menu_MiiSelect_drawLayout	medium	calls layout draw when active
+801DAADC	Menu_MiiSelect_calc	medium	Mii select state machine (+0xc): input, page scroll, remote Mii read, messages, exit
+801DB09C	Menu_MiiSelect_start	medium	sets player/channel, builds category pages, resets cursors/layout, titles, attaches Kokeshi
+801DB320	Menu_MiiSelect_load	medium	stores message data, calls layout load
+801DB338	Menu_MiiSelect_ctor	medium	stores MenuFrame/cursors/KokeshiMgr, allocs page table, creates MiiSelectLyt
+801DB3B8	Menu_SportsMsgPanel_init	low	binds 8 anims, 7 panes, colours 2 panes by player and sets text 0x367 for player panel
+801DB4E4	Menu_SportsMessageScene_exit	low	Lyt_8019DC8C on global layout manager
+801DB4EC	Menu_SportsMessageScene_calc	medium	state machine (+0x50): ready checks, OK button, scene changes; animates player panels
+801DB988	Menu_getGameIconIndex	low	maps game id 3/4/5,14/6/7 to index 0/4/2/1/3, else -1
+801DB9DC	Menu_SportsMessageScene_isGameIndex3	low	true if selected game maps to index 3 (via lbl_8043C6B8 mode/index)
+801DBA68	Menu_SportsMessageScene_calcOkButton	medium	pointer over OK button highlights it; A or B/home presses it (state 4)
+801DBB6C	Menu_SportsMessageScene_goNext	low	changes scene by party mode / lbl_8043C6B8 mode, or shows message (state 6)
+801DBBE0	Menu_SportsMessageScene_startGame	low	changes scene to selected game id
+801DBCA4	Menu_SportsMessageScene_onAllReady	high	plays RP_COMMON_SE_MESS_OK_02 on all players' remotes, state 2 with 48-frame wait
+801DBE8C	Menu_SportsMessageScene_checkPlayersReady	medium	per player checks remote flag (+0x70) for 20 frames; plays MESS_OK_01 for newly ready; all -> onAllReady
+801DC188	Menu_SportsMessageScene_start	medium	initialises per-player panels (anims, name text 0x366) and ready flags; skips if all ready
+801DC714	Menu_SportsMessageScene_draw	medium	draws layout and button when in draw phase 5
+801DC780	Menu_SportsMessageScene_reset	medium	resets state, player count, game flag, hides panes and player panels
+801DC96C	Menu_SportsMessageScene_loadResource	high	loads layout, common_message.bmg and sports_message.bmg, inits 4 player panels
+801DCB5C	Menu_SportsMessageScene_configure	medium	creates screen, NFrameDown layout object, 4 panels and per-player objects
+801DCDE0	Menu_SportsMessageScene_resetState	low	resets state/player count/game flag (no layout reset)
+801DCECC	Menu_SportsMessageScene_dtor	high	destructor: RP_8018ED50 on +0x44, base dtor, delete when flag>0
+801DCF3C	Menu_SportsMessageScene_drawThunk	high	this-adjust (-0x24) thunk to draw
+801DCF44	Menu_SportsMessageScene_dtorThunk	high	this-adjust (-0x24) thunk to dtor
+801DCF4C	Menu_SportsMessageScene_dtorThunk2	high	this-adjust (-0x44) thunk to dtor
+801DCF54	Menu_PtMenuBg_setMode	low	stores mode at +0x64 (9 = no TV rotation target)
+801DCF5C	Menu_PtMenuBg_calcTvModel	low	rotates PT_menu_TV_model toward selected slot angle (slot*40 deg), updates model
+801DD10C	Menu_PtMenuBg_calc	medium	updates PT_menu_BG_model matrix/scale, calcs TV model if present
+801DD1BC	Menu_PtMenuBg_reset	medium	resets camera and model anims; sets TV frame from unlocked slots and rotation for mode
+801DD430	Menu_PtMenuBg_load	high	loads G3D/PT_menu_BG_model.brres (4_3/16_9) and optional PT_menu_TV_model.brres
+801DD694	Menu_PtMenuBg_ctor	high	ctor: base RP_801B8E3C, vtables 80357DE8/DF4/E08, camera and screen setup
+801DD7C4	Menu_destroyPtMenuBg	high	deletes global PtMenuBg (lbl_8043C6A8) and clears it
+801DD808	Menu_PtMenuBg_dtor	high	destructor: RP_8018ED50, Gfx base dtor, delete when flag>0
+801DD874	Menu_createPtMenuBg	high	allocates PtMenuBg into global lbl_8043C6A8
+801DD8D8	Menu_PtMenuBg_dtorThunk	high	this-adjust (-4) thunk to dtor
+801DD8E0	Menu_PtMenuBg_dtorThunk2	high	this-adjust (-8) thunk to dtor
+801DD8E8	Menu_PlayerSettingPanel_setPlayer	medium	stores controller channel +0x5f4 and player index +0x5f8
+801DD8F4	Menu_PlayerSettingPanel_toNormalizedPos	medium	divides screen point by half screen width/height
+801DD968	Menu_PlayerSettingPanel_onHoverChange	low	on hover change calls sound vfunc +0xbc; first call only sets flag +0x10c
+801DDA7C	Menu_PlayerSettingPanel_getOption	medium	returns option byte +0x5e4[idx*2]
+801DDA8C	Menu_PlayerSettingPanel_setOption	medium	sets option pair bytes for idx from value (1 -> first, else second)
+801DDACC	Menu_PlayerSettingPanel_open	medium	starts in-animation, applies row visibility/colour, clears flags, state 0
+801DDB0C	Menu_PlayerSettingPanel_isCancelled	medium	true if state +4 == 2 (back pushed)
+801DDB20	Menu_PlayerSettingPanel_isConfirmed	medium	true if state +4 == 3 (OK chosen)
+801DDB34	Menu_PlayerSettingPanel_updatePointer	medium	reads controller pointer, stores screen and normalized pos; returns pointer valid
+801DDC04	Menu_PlayerSettingPanel_clampRowForMode	medium	returns row if allowed by row mode +0x5f0, else 6 (OK row)
+801DDC68	Menu_PlayerSettingPanel_getNextRow	low	computes next row for d-pad move honouring row mode
+801DDCD0	Menu_PlayerSettingPanel_navigateDpad	medium	d-pad moves selection over 6 two-choice rows and OK button
+801DDF38	Menu_PlayerSettingPanel_filterButtonForMode	medium	returns button idx if its row is enabled by row mode, else -1
+801DDFB4	Menu_PlayerSettingPanel_hitTest	medium	hit-tests point against buttons, filtered by row mode
+801DE008	Menu_PlayerSettingPanel_setTexts	medium	sets texts of 13 buttons and 12 labels from message tables
+801DE130	Menu_PlayerSettingPanel_applyRowMode	medium	disables rows not in row mode and colours W_baseLine_01/02 for player
+801DE328	Menu_PlayerSettingPanel_bindButtons	medium	binds button panes to 13 option buttons and 6 row groups, default options
+801DE470	Menu_PlayerSettingPanel_createButtons	medium	creates button groups and button objects with their anims
+801DE748	Menu_PlayerSettingPanel_startIn	medium	plays inFrame anim and resets selection/hover state
+801DE81C	Menu_PlayerSettingPanel_refreshButtons	medium	sets every option button on/off from options, resets cursors
+801DE8F0	Menu_PlayerSettingPanel_setHover	medium	moves hover highlight between buttons and rows, moves cursors
+801DEAEC	Menu_PlayerSettingPanel_calcSelect	medium	selection input: toggles options with A_03 SE, OK with A_02 SE, back via MenuFrame
+801DF288	Menu_PlayerSettingPanel_calcMain	medium	waits in-anim then initial hover; afterwards runs calcSelect
+801DF3F0	Menu_PlayerSettingPanel_exit	low	empty virtual (called from scene exit)
+801DF3F4	Menu_PlayerSettingPanel_drawCursors	medium	draws both cursor objects (+0x38c, +0x134)
+801DF444	Menu_PlayerSettingPanel_draw	high	draws layout +0x128
+801DF44C	Menu_PlayerSettingPanel_calc	medium	updates pointer, runs calcMain, calcs layout and cursors
+801DF4D4	Menu_PlayerSettingPanel_reset	medium	resets anim/selection, binds buttons, resets cursors, sets MenuFrame and texts
+801DF5F4	Menu_PlayerSettingPanel_load	high	loads playerSelect.arc / playerSelect_01.brlyt, inFrame anim, buttons, cursors, messages
+801DF728	Menu_PlayerSettingPanel_init	medium	creates anim resource accessor, clears player, row mode 5 (all rows)
+801DF770	Menu_PlayerSettingPanel_dtor	high	destructor: delete when flag>0
+801DF7B0	Menu_destroyPlayerSettingPanel	high	deletes global panel lbl_8043C6B0 and clears it
+801DF7F4	Menu_createPlayerSettingPanel	high	allocates 0x610 panel, sets vtable, constructs two cursors, stores in lbl_8043C6B0
+801DF84C	Menu_slotToGameId	low	returns table value for slot 0..8 (identity), -1 for 9; used widely by Party
+801DF8C0	Menu_gameIdToSlot	low	inverse of slotToGameId; returns 9 if not found
+801DF9C4	Menu_PlayerNameTag_show	medium	on: lights P_lamp for player's channel, sets Mii name text, toggles panes, state 1; off: state 0
+801DFC40	Menu_PlayerNameTag_draw	high	draws layout when state machine not 0
+801DFC5C	Menu_PlayerNameTag_shownCalc	low	state-table calc for shown state; empty
+801DFC60	Menu_PlayerNameTag_shownEnter	low	state-table enter for shown state; empty
+801DFC64	Menu_PlayerNameTag_calc	medium	calcs state machine; when shown positions N_name_00 at +0xc/+0x10 and calcs layout
+801DFCD4	Menu_PlayerNameTag_reset	medium	resets state machine and 4 lamp anims, resets layout and position
+801DFDFC	Menu_PlayerNameTag_load	high	loads playerSelect_03.brlyt, onOffLamp anims, N_name_00, colours for player, player text
+801DFF20	Menu_PlayerNameTag_ctor	high	ctor: base RP_801B9FC8, vtable 80357FB8, 2-state machine, player index
+801E0040	RP_StateMachine2_ctor	medium	moved from Menu: state machine ctor (owner, n states, enter/calc/exit tables); NameTag TU copy
+801E0120	RP_StateMachine2_setStateFuncs	medium	moved from Menu: stores enter and calc PTMFs for state idx; NameTag TU copy
+801E0164	RP_StateMachine2_reset	medium	moved from Menu: sets current/prev/next state, pending enter; NameTag TU copy
+801E0188	RP_StateMachine2_changeState	medium	moved from Menu: requests next state; NameTag TU copy
+801E019C	RP_StateMachine2_calc	medium	moved from Menu: runs exit/enter on change then calc PTMF, counts frames; NameTag TU copy
+801E0228	RP_StateMachine2_callExit	medium	moved from Menu: calls exit PTMF of current state if set
+801E0288	RP_StateMachine2_callCalc	medium	moved from Menu: calls calc PTMF of current state if set
+801E02E8	RP_StateMachine2_callEnter	medium	moved from Menu: calls enter PTMF of current state if set
+801E0348	RP_StateMachine2_isStateSettled	medium	moved from Menu: true if state == arg with no other pending state
+801E037C	Menu_PlayerConfirmLyt_playCursorSe	high	plays RP_COMMON_SE_KEY_CURSOR_01 at button pane position
+801E0424	Menu_PlayerConfirmLyt_getNameTagModelPane	medium	returns pane +0x30 of player's name tag if idx < player count
+801E0450	Menu_PlayerConfirmLyt_hide	medium	switches main machine to out state 4 unless already out
+801E04B0	Menu_PlayerConfirmLyt_pushButton	medium	if idle: deactivates other button, stores choice/mask, main -> 3, button -> push state 4
+801E05C0	Menu_PlayerConfirmLyt_deactivateButtons	medium	puts both buttons into deactivate state 3 when active
+801E0658	Menu_PlayerConfirmLyt_activateButton	medium	deactivates other button, activates given button (state 1)
+801E0760	Menu_PlayerConfirmLyt_hitTestButtons	medium	returns index of B_button pane under point, or -1
+801E07E8	Menu_PlayerConfirmLyt_show	medium	binds player panes, shows name tags for active players, main -> in, sets T_playerAll_00 text
+801E09E4	Menu_PlayerConfirmLyt_draw	medium	draws layout and name tags when visible
+801E0A68	Menu_PlayerConfirmLyt_buttonPush_calc	medium	when pushButton anim ends -> button state 5
+801E0A94	Menu_PlayerConfirmLyt_buttonPush_enter	high	plays pushButton anim and KEY_BACK_01 (button 0) or KEY_A_02 SE on stored mask
+801E0D58	Menu_PlayerConfirmLyt_buttonDeactivate_calc	medium	when activeButton anim (reverse) ends -> button state 2
+801E0D84	Menu_PlayerConfirmLyt_buttonDeactivate_enter	medium	plays activeButton anim backwards from current frame
+801E0E44	Menu_PlayerConfirmLyt_buttonInactive_calc	medium	state-table calc for inactive state; empty
+801E0E48	Menu_PlayerConfirmLyt_buttonInactive_enter	medium	state-table enter for inactive state; empty
+801E0E4C	Menu_PlayerConfirmLyt_buttonActivate_calc	medium	when activeButton anim ends -> button state 0
+801E0E78	Menu_PlayerConfirmLyt_buttonActivate_enter	medium	plays activeButton anim forward from current frame
+801E0F38	Menu_PlayerConfirmLyt_buttonActive_calc	medium	state-table calc for active state; empty
+801E0F3C	Menu_PlayerConfirmLyt_buttonActive_enter	medium	state-table enter for active state; empty
+801E0F40	Menu_PlayerConfirmLyt_mainOut_calc	medium	when outFrame anim (+0x28) ends -> main state 5
+801E0F60	Menu_PlayerConfirmLyt_mainOut_enter	medium	resets layout and plays outFrame anim on N_scene_00
+801E0FEC	Menu_PlayerConfirmLyt_mainDecide_calc	medium	when chosen button reaches pushed state 5 -> main state 2
+801E1018	Menu_PlayerConfirmLyt_mainDecide_enter	medium	state-table enter; empty
+801E101C	Menu_PlayerConfirmLyt_mainIdle_calc	medium	state-table calc; empty
+801E1020	Menu_PlayerConfirmLyt_mainIdle_enter	medium	state-table enter; empty
+801E1024	Menu_PlayerConfirmLyt_mainIn_calc	medium	when inFrame anim (+0x24) ends -> main state 2
+801E1044	Menu_PlayerConfirmLyt_mainIn_enter	medium	resets layout and plays inFrame anim
+801E10B8	Menu_PlayerConfirmLyt_calc	medium	calcs main and button machines, layout, positions name tags at player panes
+801E1190	Menu_PlayerConfirmLyt_reset	medium	resets machines and anims, layout, button panes, name tags
+801E1398	Menu_PlayerConfirmLyt_load	high	loads playerSelect_02.brlyt, in/out/activeButton/pushButton anims, buttons, texts, name tags
+801E15AC	Menu_PlayerConfirmLyt_ctor	high	ctor: vtable 80357FD8, main and 2 button state machines, 4 PlayerNameTags
+801E17A8	RP_StateMachine3_ctor	medium	moved from Menu: state machine ctor; PlayerConfirmLyt TU copy
+801E1888	RP_StateMachine3_setStateFuncs	medium	moved from Menu: stores enter/calc PTMFs for state
+801E18CC	RP_StateMachine3_reset	medium	moved from Menu: resets to given state with pending enter
+801E18F0	RP_StateMachine3_changeState	medium	moved from Menu: requests next state
+801E1904	RP_StateMachine3_calc	medium	moved from Menu: exit/enter on change then calc PTMF
+801E1990	RP_StateMachine3_callExit	medium	moved from Menu: calls exit PTMF if set
+801E19F0	RP_StateMachine3_callCalc	medium	moved from Menu: calls calc PTMF if set
+801E1A50	RP_StateMachine3_callEnter	medium	moved from Menu: calls enter PTMF if set
+801E1AB0	RP_StateMachine3_isStateSettled	medium	moved from Menu: state == arg and nothing else pending
+801E1AE4	RP_StateMachine3_isStateOrNext	medium	moved from Menu: current or pending state == arg
+801E1B18	Menu_PlayerConfirm_getPlayerModelPane	medium	forwards to PlayerConfirmLyt getNameTagModelPane
+801E1B20	Menu_PlayerConfirm_start	medium	resets, copies player params (count, Miis, channels, flags), state 1 (in)
+801E1BD8	Menu_PlayerConfirm_drawOverlay	medium	draws PlayAdvice layout and common message when visible
+801E1C4C	Menu_PlayerConfirm_drawCursor	medium	draws cursor (+0x6c) when visible
+801E1C8C	Menu_PlayerConfirm_drawLayout	medium	draws PlayerConfirmLyt (+0x60) when visible
+801E1CCC	Menu_PlayerConfirm_done_enter	medium	state-table enter for final state; empty
+801E1CD0	Menu_PlayerConfirm_hide_calc	medium	when layout reached hidden state 5 -> state 8
+801E1D1C	Menu_PlayerConfirm_hide_enter	medium	tells PlayerConfirmLyt to hide
+801E1D24	Menu_PlayerConfirm_message_calc	low	when common message object finishes -> state 8
+801E1D68	Menu_PlayerConfirm_message_enter	low	copies 4 values into common message object and starts it
+801E1DA4	Menu_PlayerConfirm_advice_calc	medium	A presses PlayAdvice; when advice done -> message state 6 or state 8
+801E1E68	Menu_PlayerConfirm_advice_enter	medium	shows PlayAdvice (break/range variant), hides cursor
+801E1EE4	Menu_PlayerConfirm_back_calc	medium	deactivates buttons; when back push done -> state 7
+801E1F30	Menu_PlayerConfirm_back_enter	medium	pushes MenuFrame back button, result 2
+801E1F84	Menu_PlayerConfirm_decide_calc	medium	after button pushed: OK -> advice (5) or done (8), back -> hide (7)
+801E204C	Menu_PlayerConfirm_decide_enter	medium	pushes chosen button, result 1 (button 0) or 0
+801E20D8	Menu_PlayerConfirm_select_calc	medium	pointer/d-pad over 2 buttons and back button, A -> decide (3), B -> back (4)
+801E2344	Menu_PlayerConfirm_select_enter	medium	clears previous hover index
+801E2350	Menu_PlayerConfirm_in_calc	medium	when layout idle -> state 2
+801E239C	Menu_PlayerConfirm_in_enter	medium	shows PlayerConfirmLyt, enables cursor
+801E23DC	Menu_PlayerConfirm_calc	medium	updates pointer hover, runs state machine, calcs layout/advice/cursor/message
+801E24C0	Menu_PlayerConfirm_reset	medium	resets state machine and fields, stores MenuFrame, resets sub-objects
+801E25A0	Menu_PlayerConfirm_load	high	loads common_message.bmg and sub-object resources
+801E268C	Menu_PlayerConfirm_ctor	high	ctor: vtable 80357FF8, 9-state machine, PlayerConfirmLyt, PlayAdviceLyt, cursor, message obj
+801E2840	Menu_destroyPlayerConfirm	high	deletes global lbl_8043C6C0 and clears it
+801E2884	Menu_PlayerConfirm_dtor	high	destructor: RP_8018ED50 base, delete when flag>0
+801E28DC	Menu_createPlayerConfirm	high	allocates PlayerConfirm into global lbl_8043C6C0
+801E2920	Menu_PlayerConfirm_initParams	medium	clears confirm parameter struct (count, Mii ptrs, channels=-1, flag)
+801E2958	RP_StateMachine4_calc	medium	moved from Menu: exit/enter on change then calc PTMF; PlayerConfirm TU copy
+801E29E4	RP_StateMachine4_changeState	medium	moved from Menu: requests next state
+801E29F8	RP_StateMachine4_reset	medium	moved from Menu: resets to given state
+801E2A1C	RP_StateMachine4_setStateFuncs	medium	moved from Menu: stores enter/calc PTMFs
+801E2A60	RP_StateMachine4_ctor	medium	moved from Menu: state machine ctor
+801E2B40	RP_StateMachine4_isStateSettled	medium	moved from Menu: state == arg with nothing pending
+801E2B74	RP_StateMachine4_callEnter	medium	moved from Menu: calls enter PTMF if set
+801E2BD4	RP_StateMachine4_callCalc	medium	moved from Menu: calls calc PTMF if set
+801E2C34	RP_StateMachine4_callExit	medium	moved from Menu: calls exit PTMF if set
+801E2C94	Menu_LogoModel_setPosFromScreen	medium	converts screen point to world position (+0x10) via screen of index +4
+801E2CB4	Menu_LogoModel_calc	medium	updates logo model matrix from pos and scale, calcs model
+801E2D58	Menu_LogoModel_reset	medium	resets camera, pos 0, scale 13.0, anim frame
+801E2DD4	Menu_LogoModel_load	high	loads G3D/logo_model.brres, creates model and binds anim
+801E2EFC	Menu_LogoModel_ctor	medium	ctor: vtable 80358010, camera/screen setup
+801E3064	Menu_LogoModel_dtor	high	destructor: Gfx_80190C24 base dtor, delete when flag>0 (vtable 80358010 slot 0)
+801E30BC	Menu_PlayAdviceLyt_pressA	medium	if blinking-A state 3: store remote mask and go to decide state 4
+801E3120	Menu_PlayAdviceLyt_show	medium	if hidden: sets T_advice_00 (0x385/0x384), shows P_break_00 or P_range_00, starts in
+801E3230	Menu_PlayAdviceLyt_draw	high	draws layout when not hidden
+801E324C	Menu_PlayAdviceLyt_out_calc	medium	when out anim (+0x20) ends -> state 6
+801E326C	Menu_PlayAdviceLyt_out_enter	medium	resets layout and plays out anim
+801E32E0	Menu_PlayAdviceLyt_decide_calc	medium	when blink anim stops -> out (5) if flag else done (6)
+801E3318	Menu_PlayAdviceLyt_decide_enter	high	plays RP_COMMON_SE_KEY_A_04 on stored mask and stops blink anim looping
+801E344C	Menu_PlayAdviceLyt_blink_calc	medium	state-table calc; empty
+801E3450	Menu_PlayAdviceLyt_blink_enter	medium	resets layout and plays blinkAButton anim
+801E34C4	Menu_PlayAdviceLyt_aButtonIn_calc	medium	when inAButton anim ends -> state 3
+801E34E4	Menu_PlayAdviceLyt_aButtonIn_enter	medium	resets layout and plays inAButton anim
+801E3558	Menu_PlayAdviceLyt_in_calc	medium	when in anim ends and Sys_80188800 reports ready -> state 2
+801E35AC	Menu_PlayAdviceLyt_in_enter	medium	resets layout and plays in anim
+801E3620	Menu_PlayAdviceLyt_calc	medium	calcs state machine and layout when visible
+801E3668	Menu_PlayAdviceLyt_reset	medium	resets state machine and 4 anims, blink anim looping
+801E3788	Menu_PlayAdviceLyt_load	high	loads playAdvice.arc / playAdvice_00.brlyt and in/inAButton/blinkAButton/out anims
+801E3850	Menu_PlayAdviceLyt_ctor	high	ctor: vtable 80358020, 7-state machine
+801E3960	RP_StateMachine5_ctor	medium	moved from Menu: state machine ctor; PlayAdviceLyt TU copy
+801E3A40	RP_StateMachine5_setStateFuncs	medium	moved from Menu: stores enter/calc PTMFs
+801E3A84	RP_StateMachine5_reset	medium	moved from Menu: resets to given state
+801E3AA8	RP_StateMachine5_changeState	medium	moved from Menu: requests next state
+801E3ABC	RP_StateMachine5_calc	medium	moved from Menu: exit/enter on change then calc PTMF
+801E3B48	RP_StateMachine5_callExit	medium	moved from Menu: calls exit PTMF if set
+801E3BA8	RP_StateMachine5_callCalc	medium	moved from Menu: calls calc PTMF if set
+801E3C08	RP_StateMachine5_callEnter	medium	moved from Menu: calls enter PTMF if set
+801E3C68	Menu_CommonMessage_changeToScene1	low	sets game id 0x1a and requests scene 1 via Sys_8018459C
+801E3C84	Menu_CommonMessage_calcWaitInput	low	polls remotes (shows msg 0x96 on condition), forwards A/B to message, finishes on state 6
+801E3EE8	Menu_CommonMessage_exit	low	base exit then Lyt_8019DC8C/8019DDC8 on layout manager
+801E3F18	Menu_CommonMessage_draw	low	base draw, then message draw and fade when in draw phase 5
+801E3F88	Menu_CommonMessage_calc	medium	state 0x11 waits fade then 0x13; 0x12 waits message; 0x13 calcWaitInput; calcs message
+801E4088	Menu_CommonMessage_reset	medium	base reset, resets message, sets fade, state 0x11
+801E4118	Menu_CommonMessage_loadResource	medium	loads common_message.bmg, message block 0x15, base load, Party_Japan00 load

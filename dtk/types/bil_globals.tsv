@@ -1,0 +1,155 @@
+address	name	type	confidence	note
+80326F78	Bil_brresNames	const char*[8]	H	bad_table, bad_cue, bad_ball, bad_ball_2, bad_ball_0_face_2, bad_next_ball, bad_cursor, bad_arrow; RPBilScene::LoadResource registers G3D/%s.brres as resources 0..7 (function-local table)
+803270A8	Bil_playerStateFuncs	RPBilStateFuncs<RPBilPlayer>[9]	H	RPBilPlayer::sStateFuncs (copied to the stack by the constructor); rows 0 and 8 are NULL
+80327180	Bil_cursorModelNames	const char*[5]	M	bad_cursor3, 4, 5, 1, 2; RPBilPlayer::Load (function-local table)
+80327218	Bil_ballStateFuncs	RPBilStateFuncs<RPBilBall>[4]	H	RPBilBall::sStateFuncs (constructor); row 0 NULL
+803272C0	Bil_gameStateFuncs	RPBilStateFuncs<RPBilGameMgr>[6]	H	RPBilGameMgr::sStateFuncs (constructor): intro, start, play, score, foul, game over
+80327350	Bil_musicTrackTable	s32[6][4]	M	track values indexed by music state and sequence variable; RPBilMusicState::ApplyState
+803273C0	Bil_scoreClamps	s32[9][2]	M	min/max pairs (-999..9999, 0..999, -99..99) clamping each RPBilPlayerResult value; RPBilResult::ComputeScores (function-local table)
+80327408	Bil_resultStateFuncs	RPBilStateFuncs<RPBilResult>[8]	H	RPBilResult::sStateFuncs (constructor); rows 0 and 7 NULL
+80327518	Bil_breakLotteryStateFuncs	RPBilStateFuncs<RPBilBreakLottery>[5]	H	RPBilBreakLottery::sStateFuncs (indexed by Calculate); rows 0 and 4 NULL
+80327590	Bil_hudPromptStateFuncs	RPBilStateFuncs<RPBilHud>[4]	H	RPBilHud::sPromptStateFuncs (constructor)
+803275F0	Bil_hudTurnPanelStateFuncs	RPBilStateFuncs<RPBilHud>[4]	H	RPBilHud::sTurnPanelStateFuncs (constructor); the dtk object also holds the billiard_00 animation and pane name pointers from 80327650
+803278E0	Bil_msgStateFuncs	RPBilStateFuncs<RPBilMsgWindow>[4]	H	RPBilMsgWindow::sStateFuncs (Bil_MsgWindow_create); row 0 NULL
+80327940	Bil_foulMsgIndices	s32[4]	H	4, 2, 3, 1: message 0x8FD text index per foul type; RPBilMsgWindow::ShowFoul (function-local table)
+803279C0	Bil_resultLytStateFuncs	RPBilStateFuncs<RPBilResultLyt>[5]	H	RPBilResultLyt::sStateFuncs (constructor); rows 0 and 4 NULL; the dtk object also holds the billiard_02 animation and pane name pointers from 80327A38
+80327DC8	Bil_iconStateFuncs	RPBilStateFuncs<RPBilBallIcon>[4]	H	RPBilBallIcon::sStateFuncs (constructor); row 0 NULL
+80327E28	Bil_iconRowScales	f32[9]	H	1, 1, 1, 1, 0.8, 0.7, 0.6, 0.52, 0.44; RPBilBallIcon::Show (function-local table)
+80327E58	Bil_popupLytStateFuncs	RPBilStateFuncs<RPBilScorePopupLyt>[4]	H	RPBilScorePopupLyt::sStateFuncs (constructor); row 0 NULL
+80327F48	Bil_scorePopupStateFuncs	RPBilStateFuncs<RPBilScorePopup>[4]	H	RPBilScorePopup::sStateFuncs (Bil_ScorePopup_create); row 0 NULL
+803280B8	Bil_hintStateFuncs	RPBilStateFuncs<RPBilHint>[4]	H	RPBilHint::sStateFuncs (Bil_Hint_create)
+80328118	Bil_tagStateFuncs	RPBilStateFuncs<RPBilBallNumberTag>[4]	H	RPBilBallNumberTag::sStateFuncs (Bil_BallNumberTag_create)
+80328178	Bil_tagAnmNames	const char*[11]	H	billiard_07 in_00, out_00, number_01..09; RPBilBallNumberTag::Load (function-local table, NULL-padded to 12)
+8043A944	Bil_zeroVec	EGG::Vector3f	H	copy of the zero vector (Bil_sinitZeroVec); Bil_getZeroVec, RPBilTable::IsInsideBallRange
+8043A95C	Bil_cameraDefaultPos	EGG::Vector3f	H	(-300, 100, 300); RPBilCamera::sDefaultPos, RPBilCamera::Reset
+8043A974	Bil_cameraDefaultTarget	EGG::Vector3f	H	(100, 0, 0); RPBilCamera::sDefaultTarget
+8043A98C	Bil_cameraDefaultUp	EGG::Vector3f	H	(0, 1, 0); RPBilCamera::sDefaultUp
+8043A9A4	Bil_cameraOverviewOffset	EGG::Vector3f	L	(0, 20, 0); RPBilCamera::MoveToOverview
+8043A9C8	Bil_subWindowPos0	EGG::Vector2f	M	(-0.2, 0.3); RPBilPocketCamWindow::UserDraw window 0 position (Bil_sinitPocketCamConsts)
+8043A9D0	Bil_subWindowPos1	EGG::Vector2f	M	(0.2, 0.3); window 1 position
+8043B788	Bil_guideLineWidth	f32	L	-2; RPBilTable::UserDraw
+8043B78C	Bil_guideLineY	f32	M	-0.3; RPBilTable::SetGuideLine replaces the start's y
+8043B790	Bil_guideLineColors	GXColor[2]	L	(0, 50, 50, 128) and (50, 0, 100, 128); RPBilTable::UserDraw (eight 1-byte .sdata labels)
+8043B798	Bil_cameraFovy	f32	H	40; RPBilCamera::Reset / Calculate
+8043B79C	Bil_cameraLookAtFrames	s32	M	120; RPBilCamera::MoveToLookAt
+8043B7A0	Bil_cameraLookAtDist	f32	L	20; RPBilCamera::MoveToLookAt
+8043B7A4	Bil_cameraAimFrames	s32	M	60; RPBilCamera::MoveToAimAt
+8043B7A8	Bil_cameraAimHeight	f32	L	3; RPBilCamera::MoveToAimAt / OrbitPitch
+8043B7AC	Bil_cameraPitchMin	f32	L	0.2; RPBilCamera::MoveToAimAt / OrbitPitch
+8043B7B0	Bil_cameraPitchMax	f32	L	0.95; RPBilCamera::MoveToAimAt / OrbitPitch
+8043B7B4	Bil_cameraZoomNearAlt	f32	L	25; RPBilCamera::GetZoomDistance (used when 8043BBA8 != 0)
+8043B7B8	Bil_cameraZoomNear	f32	L	30; RPBilCamera::GetZoomDistance
+8043B7BC	Bil_cameraZoomFar	f32	L	45; RPBilCamera::MoveToAimAt / OrbitPitch
+8043B7C0	Bil_cameraOverviewDist	f32	L	270; RPBilCamera::MoveToOverview
+8043B7C4	Bil_cameraOverviewDir	f32	L	-1; RPBilCamera::MoveToOverview
+8043B7C8	Bil_cameraDefaultFrames	s32	M	60; RPBilCamera::MoveToDefaultView
+8043B7CC	Bil_cameraBaseDist	f32	H	280; RPBilCamera::GetBaseDistance / ComputeDefaultView
+8043B7D0	Bil_cameraDefaultDrop	f32	L	-15; RPBilCamera::ComputeDefaultView (8 bytes in dtk)
+8043B7D8	Bil_remoteParamIdleA	f32	L	0.03; RPBilPlayer::Calculate controller parameter (other states)
+8043B7DC	Bil_remoteParamIdleB	f32	L	0.1; RPBilPlayer::Calculate
+8043B7E0	Bil_remoteParamAimA	f32	L	0.06; RPBilPlayer::Calculate (STATE_AIM)
+8043B7E4	Bil_remoteParamAimB	f32	L	0.02; RPBilPlayer::Calculate
+8043B7E8	Bil_remoteParamPlaceA	f32	L	0.04; RPBilPlayer::Calculate (STATE_PLACE_BALL)
+8043B7EC	Bil_remoteParamPlaceB	f32	L	0.05; RPBilPlayer::Calculate
+8043B7F0	Bil_pointerParamB	f32	L	1; RPBilPlayer::Calculate controller distance parameter
+8043B7F4	Bil_pointerParamMax	f32	L	0.12; RPBilPlayer::Calculate (lower bound Bil_pointerParamMin)
+8043B7F8	Bil_remoteDistNear	f32	L	1; RPBilPlayer::Calculate / StrokeCalc distance range
+8043B7FC	Bil_remoteDistFar	f32	L	2.5; RPBilPlayer::Calculate / StrokeCalc
+8043B800	Bil_addressDistOpen	f32	L	2.7; RPBilPlayer::AddressCalc / AimCalc
+8043B804	Bil_addressDistClose	f32	L	2.5; RPBilPlayer::AddressCalc / AimCalc
+8043B808	Bil_pointerTargetRange	f32	L	50; RPBilPlayer::UpdatePointerTarget
+8043B80C	Bil_aimHintFrames	s32	L	100; RPBilPlayer::AimCalc
+8043B810	Bil_strokeParam0	f32	L	0.2; RPBilPlayer::StrokeCalc
+8043B814	Bil_strokeParam1	f32	L	0.5; RPBilPlayer::StrokeCalc
+8043B818	Bil_cuePullRate	f32	L	0.1; RPBilPlayer::AddressCalc / StrokeCalc
+8043B81C	Bil_strokeMaxPower	f32	L	7500; RPBilPlayer::StrokeCalc / AfterShotCalc
+8043B820	Bil_strokeParam2	f32	L	40; RPBilPlayer::StrokeCalc
+8043B824	Bil_strokeParam3	f32	L	0.5; RPBilPlayer::StrokeCalc
+8043B828	Bil_strokeParam4	f32	L	0.9; RPBilPlayer::StrokeCalc
+8043B82C	Bil_strokeParam5	f32	L	10; RPBilPlayer::StrokeCalc
+8043B830	Bil_strokeParam6	f32	L	150; RPBilPlayer::StrokeCalc / AfterShotCalc
+8043B834	Bil_strokeParam7	f32	L	50; RPBilPlayer::StrokeCalc
+8043B838	Bil_strokeParam8	f32	L	0.3; RPBilPlayer::StrokeCalc
+8043B83C	Bil_strokeParam9	f32	L	0.6; RPBilPlayer::StrokeCalc
+8043B840	Bil_cueDist	f32	L	40; RPBilPlayer::CalcCueFromCamera / AfterShotCalc
+8043B844	Bil_cueParamA	f32	L	0.1; RPBilPlayer::CalcCueFromCamera
+8043B848	Bil_cueParamB	f32	L	0.3; RPBilPlayer::CalcCueFromCamera
+8043B84C	Bil_addressByte	u8	L	100; RPBilPlayer::AddressEnter
+8043B850	Bil_afterShotFrames	s32	L	80; RPBilPlayer::AfterShotCalc
+8043B854	Bil_arrowParamA	f32	L	-1; RPBilPlayer::UpdateArrowModel
+8043B858	Bil_arrowParamB	f32	L	2.5; RPBilPlayer::UpdateArrowModel (8 bytes in dtk)
+8043B860	Bil_ballMass	f32	H	100; RPBilBall constructor (RPPhysSphereParam::mass), hit sound scaling
+8043B864	Bil_ballParam8	f32	M	0.01; RPBilBall constructor (RPPhysSphereParam::unk8), kcl hit sound
+8043B868	Bil_ballRadius	f32	H	2.85; RPBilBall constructor (RPPhysSphereParam::radius), Bil_getRackPosition
+8043B86C	Bil_ballParam10	f32	M	5e-05; RPBilBall constructor (RPPhysSphereParam::unk10)
+8043B870	Bil_ballRestSpeed	f32	H	0.0004; RPBilBall constructor (restSpeed), CheckPocket, UpdateModel
+8043B874	Bil_ballParam18	f32	M	0.0001; RPBilBall constructor (RPPhysSphereParam::unk18)
+8043B878	Bil_cushionParam0	f32	L	2; RPBilBallMgr::CalcTableCollisions
+8043B87C	Bil_cushionParam1	f32	L	0.45; RPBilBallMgr::CalcTableCollisions
+8043B880	Bil_cushionParam2	f32	L	0.6; RPBilBallMgr::CalcTableCollisions
+8043B884	Bil_cushionParam3	f32	L	0.004; RPBilBallMgr::CalcTableCollisions
+8043B888	Bil_cushionParam4	f32	L	0.001; RPBilBallMgr::CalcTableCollisions
+8043B88C	Bil_cushionParam5	f32	L	0.04; RPBilBallMgr::CalcTableCollisions
+8043B890	Bil_cushionParam6	f32	L	0.5; RPBilBallMgr::CalcTableCollisions
+8043B894	Bil_cushionParam7	f32	L	0.5; RPBilBallMgr::CalcTableCollisions
+8043B898	Bil_cushionParam8	f32	L	0.6; RPBilBallMgr::CalcTableCollisions
+8043B89C	Bil_cushionParam9	f32	L	0.8; RPBilBallMgr::CalcTableCollisions
+8043B8A0	Bil_cushionParam10	f32	L	0.2; RPBilBallMgr::CalcTableCollisions
+8043B8A4	Bil_cushionParam11	f32	L	0.1; RPBilBallMgr::CalcTableCollisions
+8043B8A8	Bil_cushionParam12	f32	L	0.1; RPBilBallMgr::CalcTableCollisions
+8043B8AC	Bil_cushionParam13	f32	L	0.4; RPBilBallMgr::CalcTableCollisions
+8043B8B0	Bil_ballCollisionParamA	f32	L	0.99; RPBilBallMgr::CalcBallCollisions
+8043B8B4	Bil_ballCollisionParamB	f32	L	0.007; RPBilBallMgr::CalcBallCollisions
+8043B8B8	Bil_cushionParam14	f32	L	0.8; RPBilBallMgr::CalcTableCollisions (8 bytes in dtk)
+8043B8C0	Bil_playTimeout	s32	L	1200; RPBilGameMgr::PlayCalc stores it in a party common object (+0x78)
+8043B8C8	Bil_aimMarkerFrame	s32	M	150; RPBilAimMarker::Load / Calculate animation frame
+8043B8D0	Bil_cueGhostFrame	s32	M	128; RPBilCueGhost::Calculate animation frame when the placement is invalid
+8043B8D8	Bil_pocketCamParamA	f32	L	0.1; RPBilPocketCam::LookAtPocket
+8043B8DC	Bil_pocketCamDist	f32	L	50; RPBilPocketCam::LookAtPocket
+8043B8E0	Bil_pocketWindowFrames	s32	M	120; RPBilPocketCamWindow::ShowPocket
+8043B8E4	Bil_pocketWindowClamp	s32	M	60; RPBilPocketCamWindow::ClampTimers / UserDraw
+8043B8E8	Bil_pocketWindowStep	s32	M	1; RPBilPocketCamWindow::Calculate timer decrement, Bil_sinitPocketCamConsts
+8043B8EC	Bil_pocketEnterParamA	f32	L	10; Bil_findEnteredPocket
+8043B8F0	Bil_pocketEnterParamB	f32	L	30; Bil_findEnteredPocket
+8043B8F4	Bil_subWindowDivisor	s32	M	4; Bil_getSubWindowWidth / Height divide the screen size, RPBilPocketCamWindow::UserDraw
+8043B8F8	Bil_lotterySpinFrames	s32	M	240; RPBilBreakLottery::SpinEnter / SpinCalc
+8043B900	Bil_emptyText	char[8]	L	empty string passed as the text-box format by RPBilHud::SetInstruction
+8043B908	Bil_iconBaseScale	f32	M	20; RPBilBallIcon::Show
+8043B90C	Bil_iconEnterFrames	s32	M	20; RPBilBallIcon::EnterCalc
+8043B910	Bil_iconLeaveFrames	s32	M	15; RPBilBallIcon::LeaveCalc
+8043B918	Bil_scorePopupShowFrames	s32	M	90; RPBilScorePopup::ShowCalc
+8043B920	Bil_hintDelayFrames	s32	M	180; RPBilHint::IdleCalc / Reset
+8043B924	Bil_hintFadeInFrames	s32	M	20; RPBilHint::FadeInCalc
+8043B928	Bil_hintFadeOutFrames	s32	M	40; RPBilHint::FadeOutCalc
+8043B92C	Bil_hintShownFrames	s32	M	240; RPBilHint::ShownCalc
+8043C9B8	Bil_table	RPBilTable*	H	singleton (Bil_Table_create)
+8043C9C0	Bil_cameraMgr	RPBilCameraMgr*	H	singleton (Bil_CameraMgr_create)
+8043C9C8	Bil_pointerParamMin	f32	L	lower bound of the pointer distance parameter; RPBilPlayer::Calculate (no initialiser found)
+8043C9CC	Bil_rotateSpeedX	f32	L	0.000314 (pi / 10000); RPBilPlayer::RotateViewCalc (Bil_sinitPlayerConsts)
+8043C9D0	Bil_rotateSpeedY	f32	L	0.000314; RPBilPlayer::RotateViewCalc
+8043C9D4	Bil_playerConstD4	f32	L	0.0314 (pi / 100); only its static initialiser references it
+8043C9D8	Bil_playerConstD8	f32	L	0.0314; only its static initialiser references it
+8043C9DC	Bil_aimTurnSlow	f32	L	0.00157 (pi / 2000); RPBilPlayer::AimCalc
+8043C9E0	Bil_aimTurnMid	f32	L	0.00628 (pi / 500); RPBilPlayer::AimCalc
+8043C9E4	Bil_aimTurnFast	f32	L	0.0157 (pi / 200); RPBilPlayer::AimCalc
+8043C9E8	Bil_strokeParamD	f64	L	RPBilPlayer::StrokeCalc (no initialiser found)
+8043C9F0	Bil_playerMgr	RPBilPlayerMgr*	H	singleton (Bil_PlayerMgr_create)
+8043C9F8	Bil_ballMgr	RPBilBallMgr*	H	singleton (Bil_BallMgr_create)
+8043CA00	Bil_gameMgr	RPBilGameMgr*	H	singleton (Bil_GameMgr_create)
+8043CA04	Bil_playerNum	s32	H	RPBilGameMgr::sPlayerNum, copied from the game config (+0x4) by the RPBilGameMgr constructor
+8043CA08	Bil_result	RPBilResult*	H	singleton (Bil_Result_create)
+8043CA10	Bil_pocketCamParam	s32	L	Bil_pocketWindowStep + 15; RPBilPocketCamWindow::ShowPocket (Bil_sinitPocketCamConsts)
+8043CA14	Bil_pocketAngle60	f32	L	1.0472 (60 deg); Bil_findEnteredPocket
+8043CA18	Bil_pocketAngle80	f32	L	1.3963 (80 deg); Bil_findEnteredPocket
+8043CA1C	Bil_pocketAngle120	f32	L	2.0944 (120 deg); Bil_findEnteredPocket
+8043CA20	Bil_pocketCamWindow	RPBilPocketCamWindow*	H	singleton (Bil_PocketCamWindow_create)
+8043CA28	Bil_nextBallMarker	RPBilNextBallMarker*	H	singleton (Bil_NextBallMarker_create)
+8043CA30	Bil_lotterySpinDecay	f32	L	0.00314 (pi / 1000); RPBilBreakLottery::SpinEnter / SpinCalc (Bil_sinitBreakLotteryConsts)
+8043CA34	Bil_breakLottery	RPBilBreakLottery*	H	singleton (Bil_BreakLottery_create)
+8043CA38	Bil_hud	RPBilHud*	H	singleton (Bil_Hud_create)
+8043CA40	Bil_msgWindow	RPBilMsgWindow*	H	singleton (Bil_MsgWindow_create)
+8043CA48	Bil_music	RPBilMusic*	H	singleton (Bil_Music_create)
+8043CA50	Bil_scorePopup	RPBilScorePopup*	H	singleton (Bil_ScorePopup_create)
+8043CA58	Bil_strokeGuide	RPBilStrokeGuide*	H	singleton (Bil_StrokeGuide_create)
+8043CA60	Bil_hint	RPBilHint*	H	singleton (Bil_Hint_create)
+8043CA68	Bil_ballNumberTag	RPBilBallNumberTag*	H	singleton (Bil_BallNumberTag_create)

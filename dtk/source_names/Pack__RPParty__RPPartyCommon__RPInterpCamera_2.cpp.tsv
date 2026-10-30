@@ -1,0 +1,4 @@
+address	old_name	new_name	unit	previous
+801BE064	RP_InterpCamera_dtor	__dt__14RPInterpCameraFv	Pack/RPParty/RPPartyCommon/RPInterpCamera_2.cpp	RP_InterpCamera_dtor__FP14RPInterpCamerai
+801BE0E8	RP_getPointerScreenPos	RP_getPointerScreenPos__FRQ23EGG8Vector2fRC12RPCPadCursor	Pack/RPParty/RPPartyCommon/RPInterpCamera_2.cpp	
+803573E0	lbl_803573E0	__vt__14RPInterpCamera	Pack/RPParty/RPPartyCommon/RPInterpCamera_2.cpp	

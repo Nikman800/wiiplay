@@ -1,0 +1,9 @@
+address	old_name	new_name	unit	previous
+8028DEF0	Wly_LevelTable_isSpotlightStage	IsSpotlightStage__15RPWlyLevelTableCFv	Pack/RPParty/RPWlyScene/RPWlyLevelTable.cpp	
+8028E01C	Wly_LevelTable_setup	Setup__15RPWlyLevelTableFl	Pack/RPParty/RPWlyScene/RPWlyLevelTable.cpp	
+8028E7AC	Wly_LevelTable_getLevelIndex	GetLevelIndex__15RPWlyLevelTableFv	Pack/RPParty/RPWlyScene/RPWlyLevelTable.cpp	GetLevelIndex__15RPWlyLevelTableCFv
+8028E938	Wly_LevelTable_dtor	__dt__15RPWlyLevelTableFv	Pack/RPParty/RPWlyScene/RPWlyLevelTable.cpp	
+8028E978	Wly_LevelTable_ctor	__ct__15RPWlyLevelTableFv	Pack/RPParty/RPWlyScene/RPWlyLevelTable.cpp	
+8028EB44	Wly_LevelTable_destroyGlobal	DestroyInstance__15RPWlyLevelTableFv	Pack/RPParty/RPWlyScene/RPWlyLevelTable.cpp	
+8028EB88	Wly_LevelTable_createGlobal	CreateInstance__15RPWlyLevelTableFv	Pack/RPParty/RPWlyScene/RPWlyLevelTable.cpp	
+80440760	lbl_80440760	Wly_fieldType3Unk20	Pack/RPParty/RPWlyScene/RPWlyLevelTable.cpp	

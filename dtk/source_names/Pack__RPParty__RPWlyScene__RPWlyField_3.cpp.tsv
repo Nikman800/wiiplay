@@ -1,0 +1,6 @@
+address	old_name	new_name	unit	previous
+802940B8	Wly_Ground_calc	Calculate__11RPWlyGroundFv	Pack/RPParty/RPWlyScene/RPWlyField_3.cpp	
+802941B4	Wly_Ground_reset	Reset__11RPWlyGroundFv	Pack/RPParty/RPWlyScene/RPWlyField_3.cpp	
+802941B8	Wly_Ground_loadModel	Load__11RPWlyGroundFv	Pack/RPParty/RPWlyScene/RPWlyField_3.cpp	
+80294218	Wly_Ground_ctor	__ct__11RPWlyGroundFv	Pack/RPParty/RPWlyScene/RPWlyField_3.cpp	
+8029428C	Wly_Ground_dtor	__dt__11RPWlyGroundFv	Pack/RPParty/RPWlyScene/RPWlyField_3.cpp	

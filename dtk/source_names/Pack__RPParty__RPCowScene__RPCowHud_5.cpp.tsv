@@ -1,0 +1,14 @@
+address	old_name	new_name	unit	previous
+802B1B78	Cow_ExMsg_drawScreen	DrawScreen__10RPCowExMsgFUc	Pack/RPParty/RPCowScene/RPCowHud_5.cpp	
+802B1B8C	Cow_ExMsg_calc	OnActivate__10RPCowExMsgFv	Pack/RPParty/RPCowScene/RPCowHud_5.cpp	
+802B1D10	Cow_ExMsg_exit	OnStop__10RPCowExMsgFv	Pack/RPParty/RPCowScene/RPCowHud_5.cpp	
+802B1D14	Cow_ExMsg_reset	OnStart__10RPCowExMsgFv	Pack/RPParty/RPCowScene/RPCowHud_5.cpp	
+802B1E68	Cow_ExMsg_init	LoadResource__10RPCowExMsgFv	Pack/RPParty/RPCowScene/RPCowHud_5.cpp	
+802B1FBC	Cow_ExMsg_dtor	__dt__10RPCowExMsgFv	Pack/RPParty/RPCowScene/RPCowHud_5.cpp	
+802B2014	Cow_ExMsg_ctor	__ct__10RPCowExMsgFv	Pack/RPParty/RPCowScene/RPCowHud_5.cpp	
+802B2068	Cow_ExMsg_hide	Hide__10RPCowExMsgFl	Pack/RPParty/RPCowScene/RPCowHud_5.cpp	
+802B217C	Cow_ExMsg_showCollisionMsg	ShowCollisionMsg__10RPCowExMsgFl	Pack/RPParty/RPCowScene/RPCowHud_5.cpp	
+802B2324	Cow_ExMsg_showMoveMsg	ShowMoveMsg__10RPCowExMsgFl	Pack/RPParty/RPCowScene/RPCowHud_5.cpp	
+802B24C8	Cow_ExMsg_showInputMsg	ShowInputMsg__10RPCowExMsgFl	Pack/RPParty/RPCowScene/RPCowHud_5.cpp	
+802B266C	Cow_ExMsg_dtorThunk	@20@__dt__10RPCowExMsgFv	Pack/RPParty/RPCowScene/RPCowHud_5.cpp	
+8035D7E8	lbl_8035D7E8	__vt__10RPCowExMsg	Pack/RPParty/RPCowScene/RPCowHud_5.cpp	

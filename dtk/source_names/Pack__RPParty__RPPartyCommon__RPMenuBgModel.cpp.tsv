@@ -1,0 +1,7 @@
+address	old_name	new_name	unit	previous
+801CE094	Menu_MenuBgModel_calc	Calculate__13RPMenuBgModelFv	Pack/RPParty/RPPartyCommon/RPMenuBgModel.cpp	
+801CE138	Menu_MenuBgModel_reset	Reset__13RPMenuBgModelFv	Pack/RPParty/RPPartyCommon/RPMenuBgModel.cpp	
+801CE268	Menu_MenuBgModel_load	Load__13RPMenuBgModelFPv	Pack/RPParty/RPPartyCommon/RPMenuBgModel.cpp	
+801CE460	Menu_MenuBgModel_ctor	__ct__13RPMenuBgModelFUcUcUc	Pack/RPParty/RPPartyCommon/RPMenuBgModel.cpp	
+801CE62C	Menu_MenuBgModel_dtor	__dt__13RPMenuBgModelFv	Pack/RPParty/RPPartyCommon/RPMenuBgModel.cpp	
+80357A08	lbl_80357A08	__vt__13RPMenuBgModel	Pack/RPParty/RPPartyCommon/RPMenuBgModel.cpp	

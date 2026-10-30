@@ -1,0 +1,14 @@
+address	old_name	new_name	unit	previous
+8022AA94	Pnp_PointPhase_isGameOver	IsGameOver__15RPPnpPointPhaseCFv	Pack/RPParty/RPPnpScene/RPPnpLyt.cpp	
+8022AAD4	Pnp_PointPhase_getServeTurn	GetServeTurn__15RPPnpPointPhaseCFv	Pack/RPParty/RPPnpScene/RPPnpLyt.cpp	
+8022FA20	Pnp_ScoreLyt_playOut	PlayOut__13RPPnpScoreLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt.cpp	
+8022FACC	Pnp_ScoreLyt_playPointSwitch	PlayPointSwitch__13RPPnpScoreLytFl	Pack/RPParty/RPPnpScene/RPPnpLyt.cpp	
+8022FD40	Pnp_ScoreLyt_playIn	PlayIn__13RPPnpScoreLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt.cpp	
+80230044	Pnp_ScoreLyt_draw	Draw__13RPPnpScoreLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt.cpp	
+80230060	Pnp_ScoreLyt_exit	Exit__13RPPnpScoreLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt.cpp	
+80230064	Pnp_ScoreLyt_calc	Calculate__13RPPnpScoreLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt.cpp	
+802301F0	Pnp_ScoreLyt_reset	Reset__13RPPnpScoreLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt.cpp	
+80230344	Pnp_ScoreLyt_load	Load__13RPPnpScoreLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt.cpp	
+802305D0	Pnp_ScoreLyt_create	Create__13RPPnpScoreLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt.cpp	
+802305FC	Pnp_ScoreLyt_setScore	SetScore__13RPPnpScoreLytFll	Pack/RPParty/RPPnpScene/RPPnpLyt.cpp	
+80230744	Pnp_ScoreLyt_calcSwitch	CalcSwitch__13RPPnpScoreLytFv	Pack/RPParty/RPPnpScene/RPPnpLyt.cpp	

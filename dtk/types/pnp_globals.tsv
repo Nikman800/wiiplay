@@ -1,0 +1,74 @@
+address	name	type	confidence	note
+8043C81C	Pnp_gameInstance	RPPnpGame*	H	Pnp_createGame; read by every Pnp object
+8043C820	Pnp_audienceInstance	RPPnpAudience*	H	Pnp_createAudience / Pnp_destroyAudience
+8043C828	Pnp_hudInstance	RPPnpHud*	H	Pnp_createHud / Pnp_destroyHud
+8043C830	Pnp_levelTableInstance	RPPnpLevelTable*	H	Pnp_createLevelTable / Pnp_destroyLevelTable
+8043C810	Pnp_bgmHandle	nw4r::snd::SoundHandle	H	Pnp_sinitBgmHandle registers its destructor; Pnp_startBgm (sound 0xD/0xC), Pnp_fadeOutBgm
+8043A740	Pnp_bgmHandleDtorChain	u8[0x10]	H	__register_global_object chain entry for Pnp_bgmHandle
+8043A6D8	Pnp_ballStartPos	nw4r::math::VEC3	M	(60, 126, -130), Pnp_sinitBallDefaults; RPPnpBall::Create
+8043A6E4	Pnp_ballServeVelocity	nw4r::math::VEC3	M	(0, 15, 0) toss velocity, RPPnpBall::TossServe
+8043A6F0	Pnp_ballGravity	nw4r::math::VEC3	M	(0, -0.98, 0), RPPnpBall::mGravity in play
+8043A700	Pnp_tableBounceScale	nw4r::math::VEC3	L	(2, 1, 2), Pnp_sinitVec8043A700; RPPnpTable::HandleBallCollision
+8043A710	Pnp_racketParams	f32[9]	L	(100, 0.03, 100) serve hit box, then (80, 90, 0.03, 48, 96, 0.03) copied into RPPnpPlayer::mHitBoxes; Pnp_sinitRacketParams
+8043A734	Pnp_spinFactors	nw4r::math::VEC3	L	(0.09 or 0.4 by mode, 0, 0.25); RPPnpPlayer::CheckBallHit / CheckServeHit
+8043A750	Pnp_cameraPos	nw4r::math::VEC3	M	(-275, 800, 190), Pnp_sinitCameraPos
+8039F340	Pnp_debugDrawMtx	nw4r::math::MTX34	L	RPPnpPlayer::DrawDebug concatenates with it
+8043C7F8	Pnp_debugStartRally	s32	L	RPPnpBall::mHitCount starts at 2x this value; never set
+8043C800	Pnp_cpuSwingHintShown	bool	L	RPPnpPlayer::Calculate shows a hint once; cleared by Reset
+8043C804	Pnp_handAnmHandles	u16[3]	M	resource handles of pin_hand_R_fore_wait / _fore / _toss (RPPnpPlayer::Load, player 0)
+8043C818	Pnp_rallyLimitMode	s32	L	0: limit by saved medal, 1: 100, 2: 999 (RPPnpGame::Reset); never set
+8043B728	Pnp_rallyLimit	s32	M	100 or 999; caps the rally counter and the result
+8043B738	Pnp_maxOfficialMii	s32	M	6; official-database Miis used for the audience
+8043B6A8	Pnp_floorHitParamA	f32	L	0.5, RPPnpField::CheckBallFloorHit
+8043B6AC	Pnp_floorHitParamB	f32	L	0.5, RPPnpField::CheckBallFloorHit
+8043B6B0	Pnp_floorHitParamC	f32	L	0.5, RPPnpField::CheckBallFloorHit
+8043B6B8	Pnp_ballDrag	f32	L	1.1, RPPnpBall::Integrate / PredictTableLanding
+8043B6C0	Pnp_tableRestitution	f32	M	0.9, RPPnpTable::HandleBallCollision
+8043B6C4	Pnp_tableFriction	f32	L	0.2, RPPnpTable::HandleBallCollision
+8043B6C8	Pnp_hitWindowFrames	s32	L	6, RPPnpPlayer::CheckBallHit / CheckServeHit
+8043B6CC	Pnp_racketHitRadius	f32	L	25, RPPnpPlayer::mHitRadius
+8043B6D0	Pnp_playerHeight	f32	M	40; player Y = this + table height * 9.12 (RPPnpPlayer::Reset)
+8043B6D4	Pnp_cpuReturnSpeed	f32	L	1.65
+8043B6D8	Pnp_inputScale	f32	L	20, RPPnpPlayer::UpdateInput
+8043B6DC	Pnp_serveHitHeight	f32	L	10
+8043B6E0	Pnp_returnSpinScale	f32	L	0.7
+8043B6E4	Pnp_swingSpeedScale	f32	L	4
+8043B6E8	Pnp_hitParamA	f32	L	1.0, RPPnpPlayer::CheckBallHit
+8043B6EC	Pnp_humanFollowRate	f32	L	0.35, RPPnpPlayer::UpdateHuman
+8043B6F0	Pnp_humanMaxX	f32	L	170
+8043B6F4	Pnp_humanMinX	f32	L	-155
+8043B6F8	Pnp_humanParamA	f32	L	0.5
+8043B6FC	Pnp_hitParamB	f32	L	1.5
+8043B700	Pnp_hitParamC	f32	L	2.0
+8043B704	Pnp_hitParamD	f32	L	0.9
+8043B708	Pnp_cpuParamA	f32	L	60, RPPnpPlayer::UpdateCpu
+8043B710	Pnp_serveChangePoints	s32	M	2; server alternates every 2 points (RPPnpPointPhase::GetServerSide / IsCourtChangePoint)
+8043B714	Pnp_serveTurnPoints	s32	L	4; RPPnpPointPhase::GetServeTurn / IsServeChangePoint
+8043B718	Pnp_resultFrames	s32	L	180, RPPnpResultPhase::Calculate
+8043B71C	Pnp_resultCameraValue	f32	L	-1350; camera +0xE4 target in the result phase
+8043B720	Pnp_serveWaitFrames	s32	L	80, RPPnpServePhase
+8043B72C	Pnp_cameraOffsetNear	f32	M	-15; camera target Z/X offset for the default court side (RPPnpGame::Reset)
+8043B730	Pnp_cameraOffsetFar	f32	M	15; same with the courts swapped
+8043B740	Pnp_rallyTextFormat	wchar_t[3]	H	L"%d", RPPnpResultLyt::SetRallyText
+8043B748	Pnp_countNumberFormat	wchar_t[3]	H	L"%d", RPPnpCountLyt::SetNumber
+803599C8	Pnp_scoreFormat	wchar_t[5]	H	L"%02d", RPPnpScoreLyt::SetScore
+803598C8	Pnp_ballTrailSoundTable	s32[28]	M	sound IDs picked by the ball sound actor's emitter-rate update (Pnp_BallTrail_updateEmitterRate)
+80359560	Pnp_Scene_vtable	void*[24]	H	RPPnpScene
+80359550	Pnp_SceneSound_vtable	void*[4]	H	scene sound object (derived from the shared scene sound base, vtable 803587D0)
+803595C0	Pnp_Field_vtable	void*[8]	H	RPPnpField
+80359638	Pnp_BallTrail_vtable	void*[55]	H	ball sound actor (derived from the shared sound actor, vtable 80358964)
+80359714	Pnp_RacketTrail_vtable	void*[55]	H	racket sound actor
+803597F0	Pnp_Ball_vtable	void*[8]	H	RPPnpBall
+80359810	Pnp_Table_vtable	void*[8]	H	RPPnpTable
+80359830	Pnp_Player_vtable	void*[8]	H	RPPnpPlayer
+80359850	Pnp_PointPhase_vtable	void*[8]	H	RPPnpPointPhase
+8035988C	Pnp_ResultPhase_vtable	void*[7]	H	RPPnpResultPhase
+803598A8	Pnp_ServePhase_vtable	void*[8]	H	RPPnpServePhase
+80359938	Pnp_ReadyPhase_vtable	void*[8]	H	RPPnpReadyPhase
+80359958	Pnp_Game_vtable	void*[10]	H	RPPnpGame
+80359980	Pnp_Spectator_vtable	void*[10]	H	RPPnpSpectator
+803599A8	Pnp_Audience_vtable	void*[8]	H	RPPnpAudience
+803599D8	Pnp_IntroPhase_vtable	void*[8]	H	RPPnpIntroPhase
+803599F8	Pnp_Hud_vtable	void*[4]	H	RPPnpHud
+80359A08	Pnp_LevelTable_vtable	void*[4]	H	RPPnpLevelTable
+80359A18	Pnp_NetShadow_vtable	void*[8]	H	RPPnpNetShadow

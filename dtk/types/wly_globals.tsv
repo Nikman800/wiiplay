@@ -1,0 +1,23 @@
+address	name	type	confidence	note
+803247A0	Wly_timerTrackMasks	u32[10]	M	sequence track masks indexed by RPWlyTimerSe::mMaskIdx (SetTrackVolume on / ~mask off)
+803247C8	Wly_avatarVoiceLabels	u32[4][10]	M	second voice id per voice kind and Wly_fieldIndex; RPWlySoundActor::PlayVoice (Wly_playAvatarVoice)
+80324868	Wly_avatarVoiceIds	u32[4][10]	M	first voice id per voice kind and Wly_fieldIndex, played for player 1 or 2; RPWlySoundActor::PlayVoice
+80324B20	Wly_bgmIds	u32[10]	H	stage BGM per Wly_fieldIndex; RPWlySoundObj PlayBgm (Wly_SoundObj_playBgm)
+8035CAC8	Wly_defaultLevelData	RPWlyLevelData	M	copied over every level record when Wly_levelTableOverride is set (RPWlyLevelTable constructor)
+8043B758	Wly_debugHitScale	f32	L	scale of RPWlyAvatar::mScale for the debug hit area (Wly_Avatar_drawDebugHitArea)
+8043B760	Wly_hitOffsetY	f32	M	avatar hit area offset; RPWlyAvatarMgr::FindAvatarUnderCursor / FindAvatarNearCursor
+8043B764	Wly_hitScale	f32	M	avatar hit area size per RPWlyAvatar::mScale; FindAvatarUnderCursor / FindAvatarNearCursor
+8043B768	Wly_dpdParam0	f32	L	first argument of the controller's slot 0x10 (pointer setting) in RPWlyGameMgr::Init
+8043B76C	Wly_dpdParam1	f32	L	second argument of the controller's slot 0x10 in RPWlyGameMgr::Init
+8043B770	Wly_avatarSpacing	f32	M	7.5 on field type 1 else 5.0 (RPWlyStage constructor); used by the placement patterns
+8043B778	Wly_timeFormat	wchar_t[3]	H	L"%d"-style format of RPWlyTimerLyt (swprintf of the seconds)
+8043B780	Wly_scoreFormat	wchar_t[3]	H	format of RPWlyDisplayLyt::SetPlayerScore
+8043C960	Wly_layoutSetInstance	RPWlyLayoutSet*	H	RPWlyLayoutSet::CreateInstance
+8043C968	Wly_avatarMgrInstance	RPWlyAvatarMgr*	H	RPWlyAvatarMgr::CreateInstance
+8043C970	Wly_gameMgrInstance	RPWlyGameMgr*	H	RPWlyGameMgr::CreateInstance
+8043C974	Wly_isMultiPlayer	BOOL	H	player count != 1, set by the RPWlyGameMgr constructor on the first stage
+8043C978	Wly_timeUpLock	s16	L	checked == 0 with state 2 and a negative timer in RPWlyGameMgr::Calculate
+8043C980	Wly_fieldIndex	s32	H	0-9 by field type and spotlight flag, set by RPWlyField::Create; indexes the BGM and voice tables
+8043C984	Wly_roundSoundActive	bool	M	set by RPWlyTimerSe::StartRoundSound, cleared by Init/Reset/Update
+8043C988	Wly_levelTableInstance	RPWlyLevelTable*	H	RPWlyLevelTable::CreateInstance
+8043C98C	Wly_levelTableOverride	s16	L	non-zero: every level record is replaced by Wly_defaultLevelData (debug)

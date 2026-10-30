@@ -1,0 +1,7 @@
+address	old_name	new_name	unit	previous
+8043B9B8	lbl_8043B9B8	gEmitterFormDisc__Q24nw4r2ef	nw4r/ef/emform/ef_emform.cpp	
+8043B9BC	lbl_8043B9BC	gEmitterFormLine__Q24nw4r2ef	nw4r/ef/emform/ef_emform.cpp	
+8043B9C0	lbl_8043B9C0	gEmitterFormCylinder__Q24nw4r2ef	nw4r/ef/emform/ef_emform.cpp	
+8043B9C4	lbl_8043B9C4	gEmitterFormSphere__Q24nw4r2ef	nw4r/ef/emform/ef_emform.cpp	
+8043B9C8	lbl_8043B9C8	gEmitterFormTorus__Q24nw4r2ef	nw4r/ef/emform/ef_emform.cpp	
+8043B9CC	lbl_8043B9CC	gEmitterFormCube__Q24nw4r2ef	nw4r/ef/emform/ef_emform.cpp	

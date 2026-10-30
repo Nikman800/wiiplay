@@ -1,0 +1,18 @@
+vtable	class_name	evidence
+80357918	Mii_BodyJoints	slots return joint matrices for head_set, hand_l/wrist_l, hand_r/wrist_r and joint tables
+803579A8	Menu_MenuScene	scene vtable: configure/loadResource (menuCommon.arc, menuBg_00.brlyt)/reset (menu BGM)/calc state machine/draw
+80357A08	Menu_MenuBgModel	set by ctor 801CE460; loads G3D/menu_BG_model.brres; slot0 dtor 801CE62C
+80357A50	Menu_MenuFrame	layout menuFrame_00.brlyt: frame, back button, caption, name, training, ptGame panels with 7 state machines
+80357A70	Mii_KokeshiHead	ctor names sub-object 'Kokeshi Head'; created per Mii by KokeshiMgr
+80357AB4	Mii_KokeshiMgr	ctor 'KokeshiMgr'; owns per-source Kokeshi lists, fade, camera and remote-Mii loader
+80357AE0	Menu_RimoconEntryLyt	layout rimoconEntry_00.brlyt (player count / remote entry screen)
+80357B00	Menu_MiiSelectLyt	layout playerSelect_00.brlyt: faces, arrows, buttons for Mii selection
+80357D08	Menu_SportsMessageScene	scene vtable (dtor 801DCECC, configure 801DCB5C, loadResource 801DC96C sports_message.bmg, reset, calc, exit)
+80357DE8	Menu_PtMenuBg	ctor 801DD694; loads PT_menu_BG_model / PT_menu_TV_model; global lbl_8043C6A8
+80357F98	Menu_PlayerSettingPanel	layout playerSelect_01.brlyt: 6 two-choice option rows + OK written to player record; global lbl_8043C6B0
+80357FB8	Menu_PlayerNameTag	layout playerSelect_03.brlyt: per-player lamp and Mii name tag
+80357FD8	Menu_PlayerConfirmLyt	layout playerSelect_02.brlyt: player list with two buttons and 4 name tags
+80357FF8	Menu_PlayerConfirm	ctor 801E268C, dtor 801E2884; 9-state confirm dialog owning PlayerConfirmLyt/PlayAdviceLyt; global lbl_8043C6C0
+80358010	Menu_LogoModel	set by ctor 801E2EFC; loads G3D/logo_model.brres; slot0 dtor 801E3064
+80358020	Menu_PlayAdviceLyt	layout playAdvice_00.brlyt: advice popup with blinking A button (7-state machine)
+80358040	Menu_CommonMessage	existing class name kept; Menu overrides scene slots 16-19,21,43 (loadResource/reset/calc/exit/draw)

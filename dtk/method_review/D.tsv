@@ -1,0 +1,346 @@
+address	old_name	new_name	confidence	evidence
+80235A54	Duc_Scene_setPaused	Duc_Scene_pauseCallBack	high	scene vtable 0x40 = header pauseCallBack(bool); enter: all shot cursors mode 0, leave: restores cursor modes from game state
+80235B10	Duc_Scene_drawHud	Duc_Scene_userDraw	high	scene vtable 0x5C = header UserDraw; draws Duc_Hud only in view 1, draw step 5
+802370B8	Duc_Field_updateModels	Duc_Field_calcModelMtx	medium	calls vtable 0x24 (RPModelObj::CalcModelMtx) on ground, cloud and the 27 grass objects
+80237A8C	Duc_spawnBalloon	Duc_spawnBalloon	high	spawn-table entry: forwards (pos,arg) to Duc_balloonMgrInstance->Spawn (vtable 0x54)
+80238608	Duc_Balloon_stateCheckHit	Duc_Balloon_stateCheckHit	high	4-byte state-table entry that branches to Duc_Balloon_checkShotHit
+80238D28	Duc_Target_asAvatar	Duc_Target_asAvatar	high	vtable 0xA0 = header AsAvatar; base returns NULL
+80238D30	Duc_Target_canShotPassThrough	Duc_Target_canShotPassThrough	high	vtable 0xA4 = header CanShotPassThrough; base returns false
+80238D48	Duc_spawnClay	Duc_spawnClay	high	spawn-table entry: forwards (pos,arg) to Duc_clayMgrInstance->Spawn (vtable 0x54)
+802393FC	Duc_Clay_stateCheckHit	Duc_Clay_stateCheckHit	high	4-byte state-table entry that branches to Duc_Clay_checkShotHit
+80239EA4	Duc_Clay_canShotPassThrough	Duc_Clay_canShotPassThrough	high	overrides vtable 0xA4 CanShotPassThrough, returns true
+80239EAC	Duc_spawnDuck	Duc_spawnDuck	high	spawn-table entry: forwards (pos,arg) to Duc_duckMgrInstance->Spawn (vtable 0x54)
+8023A010	Duc_Duck_onCalcWorldMtx	Duc_Duck_onCalcWorldMtx	medium	4-byte branch to Duc_Duck_updateMouthEffect (vtable slot 0xC4, secondary-interface matrix callback)
+8023A808	Duc_Duck_setAnimRate	Duc_Duck_setAnmUpdateRate	high	vtable 0x48 = RPModelObj SetAnmUpdateRate; forwards to the current colour model's anim
+8023A858	Duc_Duck_animSlot15	Duc_Duck_cancelAnm	high	vtable 0x44 = RPModelObj CancelAnm; forwards to the current colour model's anim
+8023A8A8	Duc_Duck_startAnim	Duc_Duck_startAnm	high	vtable 0x3C = RPModelObj StartAnm; forwards to the current colour model's anim
+8023A9B0	Duc_Duck_initAnimSlotsAll	Duc_Duck_createAnmBuffer	high	vtable 0x30 = RPModelObj CreateAnmBuffer; RPGrpModelAnm::CreateBuffer on all three colour models
+8023D1B8	Duc_Duck_canShotPassThrough	Duc_Duck_canShotPassThrough	high	overrides vtable 0xA4 CanShotPassThrough, returns true
+8023D2FC	Duc_TargetMgr_debugDrawAll	Duc_TargetMgr_debugDrawAll	high	mgr vtable 0x50 DebugDrawAll: target DebugDrawBox (0x8C) on each active target
+8023D488	Duc_TargetMgr_applyForcesHookAll	Duc_TargetMgr_applyForcesHookAll	high	mgr vtable 0x40 ApplyForcesHookAll: target 0x84 on each active target
+8023D4F8	Duc_TargetMgr_slot30All	Duc_TargetMgr_vf80All	medium	mgr vtable 0x3C (header VF_0x80All): calls target vtable 0x80 (empty in base) on each active target
+8023D568	Duc_TargetMgr_clearForcesHookAll	Duc_TargetMgr_clearForcesHookAll	high	mgr vtable 0x38 ClearForcesHookAll: target 0x7C on each active target
+8023DA20	Duc_Target_slot37Empty	Duc_Target_setTargetAvatar	medium	empty base of vtable 0x9C, which RPDucUfo overrides as SetTargetAvatar (header note)
+8023DA24	Duc_Target_slot36Empty	Duc_Target_vf98	low	empty base of vtable 0x98 (header VF_0x98); purpose unknown
+8023DB18	Duc_Target_debugDrawBox	Duc_Target_debugDrawBox	high	vtable 0x8C DebugDrawBox: EGG DrawGX white box sized from mHitRadius at mPos
+8023DC94	Duc_Target_debugDrawSphere	Duc_Target_debugDrawSphere	high	vtable 0x88 DebugDrawSphere: EGG DrawGX sphere scaled by mHitScale at mPos+mHitOffset
+8023DDB4	Duc_Target_applyForcesHook	Duc_Target_applyForcesHook	high	vtable 0x84 ApplyForcesHook: tail-calls ApplyForces (0x5C)
+8023DDC4	Duc_Target_slot30Empty	Duc_Target_vf80	low	empty base of vtable 0x80 (header VF_0x80); purpose unknown
+8023DDC8	Duc_Target_clearForcesHook	Duc_Target_clearForcesHook	high	vtable 0x7C ClearForcesHook: tail-calls ClearForces (0x58)
+8023E6C0	Duc_TargetRegistry_applyForcesHookAll	Duc_TargetRegistry_applyForcesHookAll	high	calls ApplyForcesHookAll (mgr 0x40) on every registered manager
+8023E734	Duc_TargetRegistry_slot30All	Duc_TargetRegistry_vf80All	medium	calls mgr 0x3C (VF_0x80All) on every registered manager
+8023E7A8	Duc_TargetRegistry_clearForcesHookAll	Duc_TargetRegistry_clearForcesHookAll	high	calls ClearForcesHookAll (mgr 0x38) on every registered manager
+8023EBEC	Duc_spawnUfo	Duc_spawnUfo	high	spawn-table entry: forwards (pos,arg) to Duc_ufoMgrInstance->Spawn (vtable 0x54)
+8023ED50	Duc_Ufo_setTargetAvatar	Duc_Ufo_setTargetAvatar	high	vtable 0x9C: stores mpTargetAvatar; if abducting (unk5F4==3) restarts state 7
+80240814	Duc_Ufo_stateCheckHit	Duc_Ufo_stateCheckHit	high	4-byte state-table entry that branches to Duc_Ufo_checkShotHit
+80242878	Duc_Camera_stateIdle	Duc_Camera_stateIdle	medium	empty state function of the camera state table
+80242B40	Duc_Shot_playControllerSound	Duc_Shot_playControllerSound	high	plays wave sound 0x36 (player 0) or 0x37 (player 1) and routes it to the remote speaker(s) by game mode
+80243418	Duc_Shot_updatePointer	Duc_Shot_updatePointer	high	vtable 0x34 = header UpdatePointer; forwards to the shot pointer helper mpPointer
+80243420	Duc_Shot_vf06Empty	Duc_Shot_draw	high	vtable 0x20 = header Draw (empty in RPDucShot)
+80244790	Duc_ShotMgr_slot6All	Duc_ShotMgr_draw	high	shot mgr vtable 0x20 = Draw: calls Draw (0x20) on every shot
+802447F8	Duc_ShotMgr_slot5All	Duc_ShotMgr_exit	high	shot mgr vtable 0x1C = Exit: calls Exit (0x1C) on every shot
+80244A40	Duc_ShotMgr_load	Duc_ShotMgr_load	high	vtable 0x10 = Load; empty
+80244BB8	Duc_Spawner_triggerBonusWave	Duc_Spawner_triggerBonusWave	high	once per game in mode 1 arms the delayed special spawn (5 in 40 frames) and plays the alert sound; header TriggerBonusWave
+80245644	Duc_Spawner_patternCans	Duc_Spawner_patternCans	high	pattern function spawning type-5 targets (cans) per wave with random x offsets
+80245BD4	Duc_Spawner_patternDucksA	Duc_Spawner_patternDucksA	high	pattern function spawning type-4 targets (ducks) through 10 positional sub-steps
+8024618C	Duc_Spawner_patternDucksB	Duc_Spawner_patternDucksB	high	pattern function spawning type-4 targets (ducks) at random x per wave
+802464A8	Duc_Spawner_patternUfosA	Duc_Spawner_patternUfosA	high	pattern function spawning type-1 targets (UFOs) on a circle and assigning each a picked avatar (vtable 0x9C)
+80246900	Duc_Spawner_patternUfosB	Duc_Spawner_patternUfosB	high	pattern function spawning type-1 targets (UFOs) at random unit-circle positions
+80246CB4	Duc_Spawner_patternClayPairs	Duc_Spawner_patternClayPairs	high	pattern function spawning two type-0 targets (clay) at x=+150/-150 per step
+80246D80	Duc_Spawner_patternClay	Duc_Spawner_patternClay	high	pattern function spawning type-0 targets (clay) left/right from Duc_clayPatternTable
+80246FB4	Duc_Spawner_patternType3	Duc_Spawner_patternCircleTargets	high	pattern function spawning type-3 targets (circle targets, uses CircleTargetMgr grid slots)
+80247F30	Duc_Spawner_patternBalloonsA	Duc_Spawner_patternBalloonsA	high	pattern function spawning type-2 targets (balloons)
+80248138	Duc_Spawner_patternBalloonsB	Duc_Spawner_patternBalloonsB	high	pattern function spawning type-2 targets (balloons) in several colours
+80248F14	Duc_Spawner_setup9	Duc_Spawner_setup9	medium	pattern setup 9: interval 20, count from a per-wave table
+80248F6C	Duc_Spawner_setup8	Duc_Spawner_setup8	medium	pattern setup 8: step 0, interval 15
+80248F80	Duc_Spawner_setup7	Duc_Spawner_setup7	medium	pattern setup 7: interval 20, count per wave, plays alert sound 0x2f
+80248FFC	Duc_Spawner_setup6	Duc_Spawner_setup6	medium	pattern setup 6 (UFO round): interval 60, count per wave, 0 without avatars, final-round flag
+80249098	Duc_Spawner_setup5	Duc_Spawner_setup5	medium	pattern setup 5: interval 40, count per wave
+802490F8	Duc_Spawner_setup4	Duc_Spawner_setup4	medium	pattern setup 4: step 0x104, interval 0x122
+8024910C	Duc_Spawner_setup3	Duc_Spawner_setup3	medium	pattern setup 3: interval 50, count 22
+80249128	Duc_Spawner_setup2	Duc_Spawner_setup2	medium	pattern setup 2 (circle targets): clears grid slots, count per wave, may arm timer or delayed special spawn
+8024921C	Duc_Spawner_setup1	Duc_Spawner_setup1	medium	pattern setup 1: step 0, interval 30
+80249230	Duc_Spawner_setup0	Duc_Spawner_setup0	medium	pattern setup 0: step 30, interval 60, count per wave, clears last balloon colours
+8024960C	Duc_playSoundMissIfNoBgm	Duc_Game_playStreakBonusSound	medium	called with Duc_gameInstance from ScoreMgr_awardStreakBonus; plays wave sound 0x6a unless a BGM label is current
+8024968C	Duc_playSoundHitIfNoBgm	Duc_Game_playStreakSound	medium	called with Duc_gameInstance from ScoreMgr_addStreak when the streak reaches 5; plays wave sound 0x69 unless a BGM label is current
+8024970C	Duc_playRemoteSound2E2F	Duc_Game_playRemoteAlertSound	medium	called with Duc_gameInstance by Spawner when a wave/delayed special spawn starts; plays 0x2f (arg 0) or 0x2e on the remote speaker(s)
+8024982C	Duc_Game_drawScreenQuad	Duc_Game_draw	medium	RPDucGame vtable 8035AACC +0x20 = header Draw: RPTextWriter begin/end with draw flag 0x110 at half-screen size (draws nothing visible)
+80249AA4	Duc_Game_stateNone	Duc_Game_load	high	only referenced from RPDucGame vtable 8035AACC +0x10 = header Load (empty), not from the state table
+80249C40	Duc_Game_stateEnd	Duc_Game_stateEnd	medium	waits for the party result menu (state 4), reads retry/quit choice and fades the stream
+80249D70	Duc_Game_stateShowResults	Duc_Game_stateShowResults	high	starts the party result menu with the leader (1P medal / VS winner) then state 7
+8024AA40	Duc_Game_stateNone2	Duc_Game_stateNone	high	state 0 entry of the game state tables at 8035A720/8035A780 (header StateNone); empty
+8024AA44	Duc_Game_spawnFinalRoundObjects	Duc_Game_spawnAvatars	high	spawns six type-6 targets (Duc_spawnAvatar = AvatarMgr) in a row at x -80..80 (aspect-scaled), clears the final-round avatar flag
+8024B034	Duc_Game_dtor	Duc_Game_dtor	high	RPDucGame vtable 8035AACC +0x8: RPSceneObj dtor + delete
+8024B218	Duc_Hud_setHitCounterVisible	Duc_Hud_setHitCounterVisible	high	arg!=0: ScoreLayout_showHitCounter else hideHitCounter
+8024B230	Duc_Hud_showBonus	Duc_Hud_showBonus	high	ScoreLayout_showBonus for the player and playScoreAnim kind 3; called by awardStreakBonus
+8024B358	Duc_Hud_setStartBannerVisible	Duc_Hud_setStartBannerVisible	high	arg!=0: StartLayout_playIn else playOut
+8024B428	Duc_Hud_slot4All	Duc_Hud_exit	high	Hud vtable 0x1C = Exit: calls layout vtable 0x18 on score/start/end layouts and the 32 point popups
+8024B8B0	Duc_spawnCan	Duc_spawnCan	high	spawn-table entry: forwards (pos,arg) to Duc_canMgrInstance->Spawn (vtable 0x54)
+8024C3C8	Duc_Can_stateCheckHit	Duc_Can_stateCheckHit	high	4-byte state-table entry that branches to Duc_Can_checkShotHit
+8024CB68	Duc_Can_applyHitSpin	Duc_Can_applyHitSpin	low	transforms rotation rows by the given matrix, normalises and stores dot terms in unk414; called by calcHitBounce
+8024D238	Duc_stopJingleHandle	Duc_stopJingle	medium	stops Duc_jingleHandle (vtable 0x18 Stop) if set; called by Game_stateRoundEnd
+8024D284	Duc_startJingleHandle	Duc_startJingle	medium	stops Duc_jingleHandle then starts a sound into it; called by Game_stateIntro
+8024D930	Duc_PointPopup_slot4Empty	Duc_PointPopup_exit	medium	empty layout vtable 0x18 (RPLytObjBase VF_0x18), which Duc_Hud_exit calls on every layout
+8024E094	Duc_ScoreLayout_slot4Empty	Duc_ScoreLayout_exit	medium	empty layout vtable 0x18 (RPLytObjBase VF_0x18), which Duc_Hud_exit calls on every layout
+8024F698	Duc_StartLayout_slot4Empty	Duc_StartLayout_exit	medium	empty layout vtable 0x18 (RPLytObjBase VF_0x18), which Duc_Hud_exit calls on every layout
+8024FB08	Duc_StartLayout_drawMiiIcons	Duc_StartLayout_drawMiiIcons	high	draws both player Mii icons into panes chosen by max score >= 100
+8024FD3C	Duc_ShotPointer_readController	Duc_ShotPointer_pullFromController	high	header PullFromController: gets the channel core status and pushes it into the RPPosHistory
+802500C0	Duc_ScoreMgr_setLastColor	Duc_ScoreMgr_setLastColor	high	stores mLastColors[player] (shared slot in mode 2); balloon colour matching
+802500E8	Duc_ScoreMgr_addCounter74	Duc_ScoreMgr_addCircleHits	medium	adds to per-player unk74; only CircleTarget_checkShotHit adds to it and Spawner_setup2 (circle round) clears it
+80250290	Duc_ScoreMgr_clearCounter74	Duc_ScoreMgr_clearCircleHits	medium	zeroes per-player unk74 (circle target hit counter) at circle round setup
+802502B8	Duc_ScoreMgr_clearLastColors	Duc_ScoreMgr_clearLastColors	high	sets mLastColors[] to -1 for every player
+802506EC	Duc_spawnCircleTarget	Duc_spawnCircleTarget	high	spawn-table entry: forwards (pos,arg) to Duc_circleTargetMgrInstance->Spawn (vtable 0x54)
+80251320	Duc_CircleTarget_stateCheckHit	Duc_CircleTarget_stateCheckHit	high	4-byte state-table entry that branches to Duc_CircleTarget_checkShotHit
+802520F8	Duc_spawnAvatar	Duc_spawnAvatar	high	spawn-table entry: forwards (pos,arg) to Duc_avatarMgrInstance->Spawn (vtable 0x54)
+80252208	Duc_AvatarMgr_isLowest	Duc_AvatarMgr_isLowest	high	returns 1 unless another active avatar (AsAvatar) has a lower y than the given one
+802527D8	Duc_Avatar_getCarryValue	Duc_Avatar_getCarryValue	low	returns constant 1.6 used by the UFO carry states; meaning unknown
+8025423C	Duc_Avatar_playSpawnSound	Duc_Avatar_playSpawnSound	high	vtable 0x6C PlaySpawnSound; empty for avatars
+80254240	Duc_Avatar_spawnHitEffect	Duc_Avatar_spawnHitEffect	high	vtable 0x68 SpawnHitEffect; empty for avatars
+80255040	Duc_Avatar_asAvatar	Duc_Avatar_asAvatar	high	vtable 0xA0 AsAvatar override (returns this)
+802553C0	Duc_EndLayout_slot4Empty	Duc_EndLayout_exit	medium	empty layout vtable 0x18 (RPLytObjBase VF_0x18), which Duc_Hud_exit calls on every layout
+802559E8	Duc_EndLayout_drawMiiIcons	Duc_EndLayout_drawMiiIcons	high	draws both player Mii icons into panes chosen by max score >= 100
+802BA1A4	Bil_Scene_drawPass	Bil_Scene_pauseCallBack	high	scene vtable 0x40 = header pauseCallBack(bool); forwards the flag to Bil_GameMgr_setCursorsVisible
+802BAACC	Bil_SceneSoundRef_dtor	Bil_SceneSoundRef_dtor	high	deleting dtor of RPBilSceneSound (EGG::Disposer base dtor + delete)
+802BAF18	Bil_initRackOrigin	Bil_initRackOrigin	medium	writes VEC3 (50,0,0) to the out pointer; only caller Bil_getRackPosition
+802BB48C	Bil_Table_exit	Bil_Table_exit	high	RPBilActor vtable 0x84 Exit; empty
+802BB8E8	Bil_getConst3_57	Bil_getConst3_57	low	returns constant 3.57; used by BallMgr_calcTableCollisions as a height threshold, meaning not confirmed
+802BB8FC	Bil_getZero	Bil_getTableHeight	medium	returns 0.0; used as the table surface height by Player_calcPlaceBall, Ball_updateModel and NextBallMarker_updateModels
+802BB950	Bil_CameraMgr_calc	Bil_CameraMgr_calc	high	header RPBilCameraMgr::Calculate: Calculate (0x14) on main, aux and both pocket cameras, copies the main view matrix to the 3D sound listener
+802BBA70	Bil_CameraMgr_reset	Bil_CameraMgr_reset	high	header RPBilCameraMgr::Reset: Reset (0x10) on every camera, copies the main view matrix to the 3D sound listener
+802BBB90	Bil_CameraMgr_dtor	Bil_CameraMgr_dtor	high	deleting dtor of RPBilCameraMgr (vtable 8035DD38)
+802BBCD0	Bil_Camera_computeDefaultView	Bil_Camera_computeDefaultView	high	header ComputeDefaultView: eye/target/up from fixed offsets, side chosen by sign of z
+802BBDE4	Bil_Camera_moveToOverview	Bil_Camera_moveToOverview	high	header MoveToOverview: new eye from table centre and current direction, starts the interp camera
+802BBF28	Bil_Camera_moveToDefaultView	Bil_Camera_moveToDefaultView	high	header MoveToDefaultView: temp camera from computeDefaultView, starts the interp camera
+802BC3B8	Bil_Camera_moveToAimAt	Bil_Camera_moveToAimAt	high	header MoveToAimAt: transition looking at a point from the direction of another point
+802BC518	Bil_Camera_moveToLookAt	Bil_Camera_moveToLookAt	high	header MoveToLookAt: transition with eye = p + dir*dist looking at p
+802BCA30	Bil_Camera_getBaseDistance	Bil_Camera_getBaseDistance	high	header GetBaseDistance: returns Bil_cameraBaseDist
+802BCA38	Bil_Camera_getZoomDistance	Bil_Camera_getZoomDistance	high	header GetZoomDistance: Bil_cameraZoomNear or the alternative by the aspect flag
+802BD0F8	Bil_Player_updateArrowModel	Bil_Player_updateArrowModel	high	header UpdateArrowModel: places the left/right arrow model beside the cue direction at the pointer target
+802BD5B4	Bil_Player_updateMaxStat	Bil_Player_updateMaxStat	high	header UpdateMaxStat: mMaxStat = max(mMaxStat, arg); GameMgr passes the balls pocketed by the shot
+802BD5CC	Bil_Player_incStat687C	Bil_Player_incFoulCount	high	increments mFoulCount (0x687C) capped at 9 (header IncFoulCount); PlayerMgr calls it on a foul
+802BF438	Bil_Sound3D_startSoundById2	Bil_Sound3D_startSoundUInt	high	TRPSndObject vtable 0x60 = startSound(unsigned int id, handle): picks a handle by priority, detailStartSound
+802BF638	Bil_Sound3D_setupStart	Bil_Sound3D_detailStartSound	high	TRPSndObject vtable 0xBC = detailStartSound: stops the handle, StartSound, applies 3D params
+802C0848	Bil_Sound3D_applyToAllHandles	Bil_Sound3D_set3DPosition	high	TRPSndObject vtable 0x48 = set3DPosition: Sound3DActor::SetPosition on all four actors
+802C1244	Bil_PlayerMgr_updatePlayerMaxStat	Bil_PlayerMgr_updatePlayerMaxStat	high	header UpdatePlayerMaxStat: forwards to Player_updateMaxStat of the given player
+802C125C	Bil_PlayerMgr_incPlayerStat687C	Bil_PlayerMgr_incPlayerFoulCount	high	header IncPlayerFoulCount: forwards to Player_incFoulCount; GameMgr_calcPlay calls it on a foul
+802C15DC	Bil_PlayerMgr_dtor	Bil_PlayerMgr_dtor	high	deleting dtor of RPBilPlayerMgr (vtable 8035DE58)
+802C16F4	Bil_Ball_playRollSound	Bil_Ball_playRollSound	medium	forwards the speed to Bil_Sound3D_playRoll on mpSound; called by BreakLottery_calcSpin
+802C16FC	Bil_Ball_playPlaceSound	Bil_Ball_playPlaceSound	medium	startSound 0x18 on mpSound; called by Player_calcPlaceBall
+802C200C	Bil_Ball_draw	Bil_Ball_userDraw	high	RPBilBall vtable 0x88 = header UserDraw (empty)
+802C24B4	Bil_Ball_preCalc	Bil_Ball_preCalc	medium	empty; called on each ball at the start of BallMgr_calc
+802C24B8	Bil_Ball_exit	Bil_Ball_exit	high	RPBilBall vtable 0x84 Exit; empty
+802C2B44	Bil_Ball_getScale	Bil_Ball_getScale	high	vtable 0x64 = header GetScale; forwards to the physics sphere
+802C2B58	Bil_Ball_vf24	Bil_Ball_setScale	high	vtable 0x68 = header SetScale; forwards to the physics sphere
+802C2CA4	Bil_BallMgr_nextRackMode	Bil_BallMgr_nextRackMode	high	header NextRackMode: next rack mode, ball count from table, Reset
+802C2DF0	Bil_BallMgr_areIconsIdle	Bil_BallMgr_areIconsIdle	high	header AreIconsIdle: every ball icon state machine in state 0
+802C2E6C	Bil_BallMgr_resetIcons	Bil_BallMgr_resetIcons	high	header ResetIcons: Bil_BallIcon_hide on each icon
+802C2ECC	Bil_BallMgr_areIconsDone	Bil_BallMgr_areIconsDone	high	header AreIconsDone: every icon in state 2 or 0
+802C42B0	Bil_ContactResult_dtor	Bil_ContactResult_dtor	high	trivial deleting dtor of the 0x14 contact result array element
+802C42F0	Bil_ContactResult_ctor	Bil_ContactResult_ctor	high	empty array element ctor (paired with the dtor)
+802C42F4	Bil_ContactInput_dtor	Bil_ContactInput_dtor	high	trivial deleting dtor of the 0x20 contact input array element
+802C4334	Bil_ContactInput_ctor	Bil_ContactInput_ctor	high	empty array element ctor (paired with the dtor)
+802C4EE4	Bil_BallMgr_draw	Bil_BallMgr_userDraw	high	RPBilBallMgr vtable 0x88 = header UserDraw (empty)
+802C52F0	Bil_GameMgr_setCursorsVisible	Bil_GameMgr_setCursorsVisible	medium	forwards to Bil_PlayerMgr_setCursorsVisible; called by Bil_Scene_pauseCallBack
+802C5D90	Bil_ScorePopup_exit	Bil_ScorePopup_exit	high	RPBilScorePopup vtable 0x20 Exit (header: empty)
+802C61AC	Bil_GameMgr_dtor	Bil_GameMgr_dtor	high	deleting dtor of RPBilGameMgr
+802C65A0	Bil_Music_applyState	Bil_MusicState_applyState	high	this is RPBilMusicState (mState at 0x0): sets BGM track mutes/volume per state (header RPBilMusicState::ApplyState)
+802C69A0	Bil_Music_calc	Bil_MusicState_calc	high	this is RPBilMusicState: reads seq variable 0, plays transition stinger, applyState (header RPBilMusicState::Calculate)
+802C6B20	Bil_Music_start	Bil_MusicState_start	high	this is RPBilMusicState: starts BGM 0x4E, sets track mutes, state = 6 (header RPBilMusicState::Start)
+802C6CB8	Bil_Sound3D_playRoll	Bil_Sound3D_playRoll	medium	holdSound 0x19 with pitch from speed clamped 0.3..2 (break lottery spin)
+802C6D84	Bil_Sound3D_holdSoundById2	Bil_Sound3D_holdSoundUInt	high	TRPSndObject vtable 0x80 = holdSound(unsigned int id, handle): same-id or free handle, detailHoldSound
+802C6E94	Bil_Sound3D_setupHold	Bil_Sound3D_detailHoldSound	high	TRPSndObject vtable 0xC0 = detailHoldSound: HoldSound, applies 3D params
+802C6F7C	Bil_Sound3D_playRollingLoop	Bil_Sound3D_playRollingLoop	high	holds rolling/slip loop sounds (0x14/0x17, 0x13/0x16) with volume from speed
+802C71E0	Bil_Sound3D_startSoundById	Bil_Sound3D_startSound	high	TRPSndObject vtable 0x5C = startSound(u32 id, handle): picks a handle by priority, detailStartSound
+802C75BC	Bil_Sound3D_startSoundExById	Bil_Sound3D_startSoundWithRemotePlayerUInt	high	TRPSndObject vtable 0x54 = startSoundWithRemotePlayer(unsigned int id, flag, player): detailStartSoundWithRemotePlayer (0xC8)
+802C77C4	Bil_Sound3D_setupStartEx	Bil_Sound3D_detailStartSoundWithRemotePlayer	high	TRPSndObject vtable 0xC8 = detailStartSoundWithRemotePlayer: stops the handle, StartSound with remote info, 3D params
+802C7B94	Bil_SoundActorPart_dtor	Bil_SoundActorPart_dtor	high	TRPSndAudioActorBaseWithHandles<4,8> dtor: destroys 12 handles, unlinks from the actor list, Disposer dtor
+802C7D54	Bil_Sound3D_getOne	Bil_Sound3DPart_getOuterPitch	medium	returns 1.0; slot 0x38 of 8035DF98 = TRPSndAudioHandles getOuterPitch (default 1.0) of the handles base
+802C7D5C	Bil_Sound3DPart_getOne	Bil_Sound3DPart_getOuterVolume	medium	returns 1.0; TRPSndAudioHandles getOuterVolume default in the <4,8> base vtable 8035E150
+802C7D64	Bil_Sound3DPart_getZero	Bil_Sound3DPart_get3DPosition	medium	returns NULL; TRPSndAudioActorBaseWithHandles get3DPosition default in vtable 8035E150
+802C7D6C	Bil_Sound3D_setupHoldEx	Bil_Sound3D_detailHoldSoundWithRemotePlayer	high	TRPSndObject vtable 0xCC = detailHoldSoundWithRemotePlayer: HoldSound with remote info, 3D params
+802C7E54	Bil_Sound3D_setupPrepare	Bil_Sound3D_detailPrepareSound	high	TRPSndObject vtable 0xC4 = detailPrepareSound: stops the handle, PrepareSound, 3D params
+802C7F70	Bil_Sound3D_getVolume	Bil_Sound3D_getOuterVolume	high	TRPSndObject vtable 0xB8 = getOuterVolume: returns mVolume current value (+0x44)
+802C7F78	Bil_Sound3D_updateActor	Bil_Sound3D_setActorVolume	high	TRPSndObject vtable 0xB4 = setActorVolume: RPSndMoveValueF32::moveValue on mVolume
+802C81D8	Bil_Sound3D_prepareSoundAtIndex	Bil_Sound3D_prepareSoundAtIndex	high	TRPSndObject vtable 0x98 = prepareSound(id, idx, handle): asserts idx, detailPrepareSound
+802C82D8	Bil_Sound3D_prepareSoundByLabelAtIndex	Bil_Sound3D_prepareSoundByLabelAtIndex	high	TRPSndObject vtable 0xA0 = prepareSound(label, idx, handle)
+802C83F8	Bil_Sound3D_prepareSoundByLabel	Bil_Sound3D_prepareSoundByLabel	high	TRPSndObject vtable 0x9C = prepareSound(label, handle)
+802C860C	Bil_Sound3D_prepareSoundById2	Bil_Sound3D_prepareSoundUInt	high	TRPSndObject vtable 0x94 = prepareSound(unsigned int id, handle)
+802C8800	Bil_Sound3D_prepareSoundById	Bil_Sound3D_prepareSound	high	TRPSndObject vtable 0x90 = prepareSound(u32 id, handle)
+802C89F4	Bil_Sound3D_holdSoundByLabelAtIndex	Bil_Sound3D_holdSoundByLabelAtIndex	high	TRPSndObject vtable 0x8C = holdSound(label, idx, handle)
+802C8ADC	Bil_Sound3D_holdSoundAtIndex	Bil_Sound3D_holdSoundAtIndex	high	TRPSndObject vtable 0x84 = holdSound(id, idx, handle)
+802C8BA4	Bil_Sound3D_holdSoundByLabel	Bil_Sound3D_holdSoundByLabel	high	TRPSndObject vtable 0x88 = holdSound(label, handle)
+802C8CEC	Bil_Sound3D_holdSoundById	Bil_Sound3D_holdSound	high	TRPSndObject vtable 0x7C = holdSound(u32 id, handle)
+802C8DFC	Bil_Sound3D_holdSoundExByLabel	Bil_Sound3D_holdSoundWithRemotePlayerByLabel	high	TRPSndObject vtable 0x78 = holdSoundWithRemotePlayer(label, flag, player)
+802C8F54	Bil_Sound3D_holdSoundExById2	Bil_Sound3D_holdSoundWithRemotePlayerUInt	high	TRPSndObject vtable 0x74 = holdSoundWithRemotePlayer(unsigned int id, flag, player)
+802C906C	Bil_Sound3D_holdSoundExById	Bil_Sound3D_holdSoundWithRemotePlayer	high	TRPSndObject vtable 0x70 = holdSoundWithRemotePlayer(u32 id, flag, player)
+802C9184	Bil_Sound3D_startSoundByLabelAtIndex	Bil_Sound3D_startSoundByLabelAtIndex	high	TRPSndObject vtable 0x6C = startSound(label, idx, handle)
+802C92B0	Bil_Sound3D_startSoundAtIndex	Bil_Sound3D_startSoundAtIndex	high	TRPSndObject vtable 0x64 = startSound(id, idx, handle)
+802C93BC	Bil_Sound3D_startSoundByLabel	Bil_Sound3D_startSoundByLabel	high	TRPSndObject vtable 0x68 = startSound(label, handle)
+802C95DC	Bil_Sound3D_startSoundExByLabel	Bil_Sound3D_startSoundWithRemotePlayerByLabel	high	TRPSndObject vtable 0x58 = startSoundWithRemotePlayer(label, flag, player)
+802C9804	Bil_Sound3D_startSoundExById2	Bil_Sound3D_startSoundWithRemotePlayer	high	TRPSndObject vtable 0x50 = startSoundWithRemotePlayer(u32 id, flag, player)
+802C9A0C	Bil_Sound3D_applyVolume	Bil_Sound3D_update	high	TRPSndObject vtable 0x4C = update: sets the track volume of every playing seq handle from mVolume
+802C9ABC	Bil_Sound3D_getHandleSlot	Bil_Sound3D_get3DPosition	high	TRPSndObject vtable 0x44 = get3DPosition(idx): returns the position of 3D actor idx
+802C9ACC	Bil_Sound3D_vf52	Bil_Sound3D_getSoundIdUInt	high	TRPSndObject vtable 0xD8 = getSoundId(unsigned int, offset): tail-calls the u32 overload (0xD0)
+802C9ADC	Bil_Sound3D_getSoundInfoByLabel	Bil_Sound3D_getSoundLabel	high	TRPSndObject vtable 0xD4 = getSoundLabel: label -> id (+offset) -> label string
+802C9B48	Bil_Sound3D_offsetSoundId	Bil_Sound3D_getSoundId	high	TRPSndObject vtable 0xD0 = getSoundId(u32, offset): returns id + offset
+802C9BA0	Bil_AimMarker_draw	Bil_AimMarker_userDraw	high	RPBilAimMarker vtable 0x88 = header UserDraw (empty)
+802C9C2C	Bil_AimMarker_exit	Bil_AimMarker_exit	high	RPBilActor vtable 0x84 Exit; empty
+802CA5E8	Bil_Result_exit	Bil_Result_exit	high	RPBilScreen vtable 0x40 Exit; empty
+802CABDC	Bil_SoundActor_startSound	Bil_SoundActor_startPocketSound	medium	RPSndObject2D startSound(id, idx 3) (vtable 0x44), returns success; only caller BallMgr_calcTableCollisions (pocket sounds)
+802CAC18	Bil_SoundActor_playCameraTick	Bil_SoundActor_playCameraTick	high	plays sound 0x12 every N frames, N from camera rotation speed (callers Camera_orbitPitch/orbitYaw)
+802CACF0	Bil_CueGhost_draw	Bil_CueGhost_userDraw	high	RPBilCueGhost vtable 0x88 = header UserDraw (empty)
+802CADB0	Bil_CueGhost_exit	Bil_CueGhost_exit	high	RPBilActor vtable 0x84 Exit; empty
+802CB77C	Bil_PocketCamWindow_clampTimers	Bil_PocketCamWindow_clampTimers	high	header ClampTimers: both mTimers[] = min(timer, Bil_pocketWindowClamp)
+802CBD88	Bil_getSubWindowHeight	Bil_getSubWindowHeight	high	screen height for the aspect / Bil_subWindowDivisor; used by Scene_create
+802CBDA8	Bil_getSubWindowWidth	Bil_getSubWindowWidth	high	screen width for the aspect / Bil_subWindowDivisor; used by Scene_create
+802CBE88	Bil_NextBallMarker_draw	Bil_NextBallMarker_userDraw	high	RPBilNextBallMarker vtable 0x88 = header UserDraw: shows model 0 or 1 by view in draw step 1
+802CC2B0	Bil_NextBallMarker_exit	Bil_NextBallMarker_exit	high	RPBilActor vtable 0x84 Exit; empty
+802CC57C	Bil_BreakLottery_draw	Bil_BreakLottery_userDraw	high	RPBilScreen vtable 0x44 = header UserDraw (empty)
+802CC5F4	Bil_BreakLottery_calcDone	Bil_BreakLottery_calcDone	medium	empty calc of lottery state 3 (state table)
+802CC5F8	Bil_BreakLottery_enterDone	Bil_BreakLottery_enterDone	medium	empty enter of lottery state 3 (state table)
+802CC95C	Bil_BreakLottery_enterWait	Bil_BreakLottery_enterWait	medium	empty enter of lottery state 1 (state table)
+802CCAAC	Bil_BreakLottery_exit	Bil_BreakLottery_exit	high	RPBilScreen vtable 0x40 Exit; empty
+802CCACC	Bil_BreakLottery_load	Bil_BreakLottery_load	high	RPBilScreen vtable 0x34 Load; empty (header)
+802CCCCC	Bil_Hud_setInstruction	Bil_Hud_setInstruction	high	stores mInstruction and sets message 0x8FC/0x902 variants or blank on both text boxes
+802CD034	Bil_Hud_enterTurnPanelShown	Bil_Hud_enterTurnPanelShown	medium	empty enter of turn panel state 2
+802CD2DC	Bil_Hud_enterTurnPanelIdle	Bil_Hud_enterTurnPanelIdle	medium	empty enter of turn panel state 0
+802CD6CC	Bil_Hud_enterPromptIdle	Bil_Hud_enterPromptIdle	medium	empty enter of prompt state 0
+802CDFE8	Bil_Hud_dtor	Bil_Hud_dtor	high	deleting dtor at vtable 0x30 (header ~RPBilHud)
+802CE594	Bil_MsgWindow_calcOpen	Bil_MsgWindow_calcOpen	medium	empty calc of message state 2
+802CE598	Bil_MsgWindow_enterOpen	Bil_MsgWindow_enterOpen	medium	empty enter of message state 2
+802CE800	Bil_MsgWindow_dtor	Bil_MsgWindow_dtor	high	deleting dtor at vtable 0x30 (header ~RPBilMsgWindow)
+802CF53C	Bil_ResultLyt_calcShown	Bil_ResultLyt_calcShown	high	empty calc of side state 2 (header ShownCalc)
+802CF540	Bil_ResultLyt_enterShown	Bil_ResultLyt_enterShown	high	empty enter of side state 2 (header ShownEnter)
+802D032C	Bil_ResultLyt_dtor	Bil_ResultLyt_dtor	medium	trivial deleting dtor typed RPBilResultLyt; no vtable reference found
+802D06B4	Bil_BallIcon_enterLeave	Bil_BallIcon_enterLeave	medium	empty enter of icon state 3
+802D06B8	Bil_BallIcon_calcWait	Bil_BallIcon_calcWait	medium	empty calc of icon state 2
+802D06BC	Bil_BallIcon_enterWait	Bil_BallIcon_enterWait	medium	empty enter of icon state 2
+802D07C4	Bil_BallIcon_enterEnter	Bil_BallIcon_enterEnter	medium	empty enter of icon state 1
+802D091C	Bil_BallIcon_exit	Bil_BallIcon_exit	high	RPBilActor vtable 0x84 Exit; empty
+802D10B4	Bil_ScorePopupLyt_calcOpen	Bil_ScorePopupLyt_calcOpen	medium	empty calc of popup layout state 2
+802D10B8	Bil_ScorePopupLyt_enterOpen	Bil_ScorePopupLyt_enterOpen	medium	empty enter of popup layout state 2
+802D197C	Bil_ScorePopup_enterShow	Bil_ScorePopup_enterShow	medium	empty enter of score popup state 2
+802D1B28	Bil_ScorePopup_dtor	Bil_ScorePopup_dtor	high	deleting dtor at vtable 0x8 of RPBilScorePopup (8035E5E0)
+802D245C	Bil_StrokeGuide_dtor	Bil_StrokeGuide_dtor	high	deleting dtor at vtable 0x30 (header ~RPBilStrokeGuide)
+802D2694	Bil_Hint_enterFadeOut	Bil_Hint_enterFadeOut	medium	empty enter of hint state 3
+802D26C8	Bil_Hint_enterShown	Bil_Hint_enterShown	medium	empty enter of hint state 2
+802D2724	Bil_Hint_enterFadeIn	Bil_Hint_enterFadeIn	medium	empty enter of hint state 1
+802D2760	Bil_Hint_enterIdle	Bil_Hint_enterIdle	medium	empty enter of hint state 0
+802D285C	Bil_Hint_dtor	Bil_Hint_dtor	high	deleting dtor at vtable 0x8 of RPBilHint (8035E660)
+802D2E90	Bil_BallNumberTag_enterShown	Bil_BallNumberTag_enterShown	medium	empty enter of tag state 2
+802D3000	Bil_BallNumberTag_enterIdle	Bil_BallNumberTag_enterIdle	medium	empty enter of tag state 0
+802D34B4	Bil_BallNumberTag_dtor	Bil_BallNumberTag_dtor	high	deleting dtor at vtable 0x30 (header ~RPBilBallNumberTag)
+802D3940	Bom_Scene_vf14	Bom_Scene_pauseCallBack	high	scene vtable 0x40 (8035E6F8) = header pauseCallBack(bool); empty in Pose Mii
+802D4888	Bom_dtorThunk_802D4888	Bom_SoundHolder_dtor	high	vtable 8035E718 +0x8 = RPBomSoundHolder dtor (header RPBomSound.h): EGG::Disposer base dtor + delete
+802D5C9C	Bom_Camera_reset	Bom_Camera_initView	high	RPBomCamera vtable 0x14 = header InitView: look vector, dir, up/side from look pos/target, copies them into the camera
+802D62AC	Bom_nullCallback	Bom_nullCallback	medium	empty function passed as a callback in allocShuffleBuffers
+802D63BC	Bom_CursorManager_exit	Bom_CursorManager_exit	high	vtable 0x1C Exit: calls Exit (0x1C) on every cursor
+802D6520	Bom_CursorManager_load	Bom_CursorManager_load	high	vtable 0x10 Load; empty (header)
+802D66A0	Bom_Cursor_draw	Bom_Cursor_draw	high	vtable 0x20 Draw; empty (header)
+802D6CF0	Bom_Player_setStateIra	Bom_Player_setStateIra	high	optionally starts anim 1 (ira pose) on the body model, state 4 (header SetStateIra)
+802D6D50	Bom_Player_restartPosing2	Bom_Player_restartPosing2	medium	startPosing with the current pose (header RestartPosing2; same body as restartPosing)
+802D6F40	Bom_Player_attachEffectsToNode	Bom_Player_editWorldMtx	high	IRPGrpModelCallback slot at vtable 8035ECA4+0x14 = header EditWorldMtx: copies a joint matrix and moves the 3 pose effects there
+802D7D94	Bom_SoundActorBase_dtor	Bom_SoundActorBase_dtor	high	deleting dtor of RPBomSoundActorBase: stops all sounds, destroys handles, unlinks, Disposer dtor
+802D7EA4	Bom_Player_stateNop6	Bom_Player_stateNop6	medium	empty function of the state table, state 6 (header StateNop6)
+802D7EA8	Bom_Player_stateNop5	Bom_Player_stateNop5	medium	empty function of the state table, state 5 (header StateNop5)
+802D7EAC	Bom_Player_stateNop4	Bom_Player_stateNop4	medium	empty function of the state table, state 4 (header StateNop4)
+802D7EB0	Bom_Player_stateNop3	Bom_Player_stateNop3	medium	empty function of the state table, state 3 (header StateNop3)
+802D8594	Bom_Player_stateNop0	Bom_Player_stateNop0	medium	empty function of the state table, state 0 (header StateNop0)
+802D8598	Bom_Player_moveNop6	Bom_Player_moveNop6	medium	empty function of the move table, state 6 (header MoveNop6)
+802D859C	Bom_Player_moveFollowCursor5	Bom_Player_moveFollowCursor5	high	move state 5: position from the player cursor, base scale, rotation from cursor angle
+802D8698	Bom_Player_moveNop4	Bom_Player_moveNop4	medium	empty function of the move table, state 4 (header MoveNop4)
+802D869C	Bom_Player_moveAlongBubble3	Bom_Player_moveAlongBubble3	high	move state 3: position/rotation from PanelPool_getPanelTransform of mPanelIdx
+802D8778	Bom_Player_moveAlongBubble2	Bom_Player_moveAlongBubble2	high	move state 2: position/rotation from PanelPool_getPanelTransform of mPanelIdx
+802D8854	Bom_Player_moveFollowCursor1	Bom_Player_moveFollowCursor1	high	move state 1: position from the player cursor, base scale, rotation from cursor angle
+802D8950	Bom_Player_moveNop0	Bom_Player_moveNop0	medium	empty function of the move table, state 0 (header MoveNop0)
+802D8B6C	Bom_Player_dtor	Bom_Player_dtor	high	vtable 8035ECA4 +0x8 = ~RPBomPlayer: delete if flag>0
+802D8F2C	Bom_SoundActorBase_dtorThunk	Bom_SoundActorBase_dtorThunk	high	this-adjusting thunk to Bom_SoundActorBase_dtor (secondary vtable 8035E9B4)
+802D90C8	Bom_PlayerManager_setStateIraByMask	Bom_PlayerManager_setStateIraByMask	high	setStateIra on each active player, anim flag from the bit mask (header SetStateIraByMask)
+802D9130	Bom_PlayerManager_restartAllPosing2	Bom_PlayerManager_restartAllPosing2	high	restartPosing2 on every active player (header RestartAllPosing2)
+802D95C4	Bom_GameManager_playSpecialJingle	Bom_GameManager_playSpecialJingle	high	Bgm_requestTrack(1); called when a special bubble spawns (header PlaySpecialJingle)
+802D95D0	Bom_GameManager_setBubbleResult	Bom_GameManager_setBubbleResult	high	mBubbleResult = player, mBubbleResultPending = true
+802D95E0	Bom_GameManager_setForcedMiss	Bom_GameManager_setForcedMiss	high	mMissPending and mForcedMiss set, wait timer from the parameter file
+802D9600	Bom_GameManager_setPlayerMiss	Bom_GameManager_setPlayerMiss	high	mMissPending, mMissPlayer, question falls back to mMissNext and is reloaded
+802D9668	Bom_GameManager_tryAdvanceQuestion	Bom_GameManager_tryAdvanceQuestion	high	if the score total covers the next question cost, deducts it and advances mQuestion
+802D97DC	Bom_drawScreenQuad	Bom_GameManager_drawScreenQuad	medium	called with mpGameMgr by Bom_Scene_draw (view 3, step 3): RPTextWriter begin/end with draw flag 0x110, half-screen size
+802D985C	Bom_drawNop	Bom_GameManager_drawNop	medium	empty; called with mpGameMgr by Bom_Scene_draw (view 2, step 3)
+802D9A64	Bom_GameManager_stateEnd	Bom_GameManager_stateEnd	high	state 12: updates BGM, waits for the result menu choice, sets retry/quit
+802D9B68	Bom_GameManager_stateResult	Bom_GameManager_stateResult	high	state 11: waits for the party result display, starts the result menu, state 12
+802D9C6C	Bom_GameManager_stateAllClear	Bom_GameManager_stateAllClear	high	state 10: when the end layout is done idles players, posts medal/VS result, state 11
+802D9D34	Bom_GameManager_stateGameOver	Bom_GameManager_stateGameOver	high	state 9: when the end layout is done idles players, posts medal/VS result, state 11
+802D9DFC	Bom_GameManager_stateNextLevelTheme	Bom_GameManager_stateNextLevelTheme	high	state 8: waits for the theme layout, restarts posing, shows the score layout, state 3
+802D9EA8	Bom_GameManager_stateLevelUp	Bom_GameManager_stateLevelUp	high	state 7: when players are ready plays level-up effect/track and level layout, state 8
+802DA484	Bom_GameManager_stateWaitBubbles	Bom_GameManager_stateWaitBubbles	high	state 5: until timer or no bubbles left, then requests track 8/9 by miss count, state 3
+802DAC8C	Bom_GameManager_stateShowTheme	Bom_GameManager_stateShowTheme	high	state 2: waits for the theme layout, starts posing, shows the score layout, state 3
+802DAD50	Bom_GameManager_stateWaitReady	Bom_GameManager_stateWaitReady	high	state 1: when players are ready wipes the start background, shows the theme, state 2
+802DAEB4	Bom_GameManager_stateIntro	Bom_GameManager_stateIntro	high	state 0: waits for the border, spawns the start bubbles, shows the title, state 1
+802DB5F0	Bom_QuestionParam_updateSpeed	Bom_QuestionParam_updateSpeed	high	lerps the current speed toward the question target over N frames (header UpdateSpeed)
+802DB6C0	Bom_QuestionParam_nextPattern	Bom_QuestionParam_nextPattern	high	sets the question, reshuffles on level change, loads the next pattern entry (header NextPattern)
+802DB910	Bom_QuestionParam_spawnBubbles	Bom_QuestionParam_spawnBubbles	high	spawns a bubble per pattern slot via PanelPool_spawnPanel with special/player flags (header SpawnBubbles)
+802DBAC0	Bom_QuestionParam_generateWave	Bom_QuestionParam_generateWave	high	finds a free spawn x and randomises speeds, segments, rotation and poses of the wave
+802DBD2C	Bom_QuestionParam_setQuestion	Bom_QuestionParam_setQuestion	high	sets the question index, resets speed/wave slots, shuffles patterns, loads the first (header SetQuestion)
+802DC3C0	Bom_QuestionParam_rollSpecialBubble	Bom_QuestionParam_rollSpecialBubble	high	random roll against the per-level special chance once enough bubbles spawned since the last special
+802DC574	Bom_QuestionParam_rollTargetPlayer	Bom_QuestionParam_rollTargetPlayer	high	2P: random target player weighted by scores, else coin flip
+802DC6C0	Bom_QuestionParam_pickWavePose	Bom_QuestionParam_pickWavePose	high	forced pose or random allowed pose avoiding the previous two (header PickWavePose)
+802DC858	Bom_QuestionParam_randomizeRotSpeed	Bom_QuestionParam_randomizeRotSpeed	high	random rotation speed in [min,max] per bubble with random or fixed sign (header RandomizeRotSpeed)
+802DC988	Bom_QuestionParam_randomizeSpeedAndSegments	Bom_QuestionParam_randomizeSpeedAndSegments	high	random speed per bubble and angle step 360/N (header RandomizeSpeedAndSegments)
+802DCACC	Bom_QuestionParam_findSpawnPosition	Bom_QuestionParam_findSpawnPosition	high	tests 101 shuffled x positions with PanelPool_isPositionOccupied and takes the first free one
+802DCEB0	Bom_Bgm_isSoundIdle	Bom_Bgm_holdJingle	medium	HoldSound(id) into Bom_jingleHandle, returns true on success; stateWaitBubbles holds sound 0x10 every frame
+802DCEF8	Bom_Bgm_update	Bom_Bgm_update	high	sets track mutes by track, switches to the tense variant on the beat, applyTrack (header Update)
+802DD084	Bom_Bgm_applyTrack	Bom_Bgm_applyTrack	high	switch on the track id: starts the matching BGM/jingle or stops (header ApplyTrack)
+802DDAA8	Bom_Bgm_requestTrack	Bom_Bgm_requestTrack	high	stores a changed track id; track 0 starts BGM 0x21 at once (header RequestTrack)
+802DDCEC	Bom_ScreenFx_setAlpha	Bom_ScreenFx_setAlpha	high	mAlpha = arg (header SetAlpha)
+802DDCF4	Bom_ScreenFx_drawState	Bom_ScreenFx_drawState	high	runs the current state function from the draw pass (header DrawState)
+802DDD28	Bom_ScreenFx_captureState	Bom_ScreenFx_captureState	high	runs the state function then captures the EFB into the capture texture (header CaptureState)
+802DDD74	Bom_ScreenFx_calc	Bom_ScreenFx_calc	high	vtable 0x18 Calculate: runs the current state function
+802DDDA8	Bom_ScreenFx_reset	Bom_ScreenFx_reset	high	vtable 0x14 Reset: state 0, alpha 1, screen diagonal length
+802DDE48	Bom_ScreenFx_load	Bom_ScreenFx_load	high	vtable 0x10 Load; empty (header)
+802DDEAC	Bom_ScreenFx_stateNop0	Bom_ScreenFx_stateNop0	medium	empty function of the ScreenFx state table (header StateNop0)
+802DDEB0	Bom_ScreenFx_drawCapturedScreen	Bom_ScreenFx_drawCapturedScreen	high	draws the captured texture as a full-screen quad scaled by 1/alpha
+802DE0F4	Bom_ScreenFx_stateNop1	Bom_ScreenFx_stateNop1	medium	empty function of the ScreenFx state table (header StateNop1)
+802DE0F8	Bom_ScreenFx_stateNop2	Bom_ScreenFx_stateNop2	medium	empty function of the ScreenFx state table (header StateNop2)
+802DE0FC	Bom_ScreenFx_drawPlayerSpotlights	Bom_ScreenFx_drawPlayerSpotlights	high	full-screen masked quad then a circle per active player at the player position
+802DE4D8	Bom_ScreenFx_drawFullMask	Bom_ScreenFx_drawFullMask	high	full-screen quad with colour 0xFF00FF
+802DE6A8	Bom_ScreenFx_stateNop3	Bom_ScreenFx_stateNop3	medium	empty function of the ScreenFx state table (header StateNop3)
+802DE6AC	Bom_ScreenFx_stateNop4	Bom_ScreenFx_stateNop4	medium	empty function of the ScreenFx state table (header StateNop4)
+802DE6B0	Bom_ScreenFx_stateNop5	Bom_ScreenFx_stateNop5	medium	empty function of the ScreenFx state table (header StateNop5)
+802DEDA4	Bom_PoolObj_vf35	Bom_PoolObj_vf35	low	empty RPBomPoolObj vtable 0x94 (header VF_0x94), not overridden by RPBomPanel; purpose unknown
+802DEDA8	Bom_PoolObj_spawnNop	Bom_PoolObj_spawn	high	RPBomPoolObj vtable 0x88 = header Spawn; empty in the base, RPBomPanel overrides it
+802DEDAC	Bom_PoolObj_vf31	Bom_PoolObj_vf31	low	empty RPBomPoolObj vtable 0x84 (header VF_0x84), not overridden by RPBomPanel; purpose unknown
+802DEE98	Bom_PoolObj_calc	Bom_PoolObj_calc	high	vtable 0x18 Calculate; empty (header)
+802DEE9C	Bom_PoolObj_postCalc	Bom_PoolObj_postCalc	high	vtable 0x78 PostCalc: tail-calls Integrate (0x60)
+802DEEAC	Bom_PoolObj_vf27	Bom_PoolObj_calcHit	high	vtable 0x74 = header CalcHit; empty in the base (ObjPool CalcHitItems calls it)
+802DEEB0	Bom_PoolObj_preCalc	Bom_PoolObj_preCalc	high	vtable 0x70 PreCalc: tail-calls ClearForces (0x5C)
+802DEF04	Bom_PoolObj_load	Bom_PoolObj_load	high	vtable 0x10 Load; empty (header)
+802DF06C	Bom_PoolObj_setup	Bom_PoolObj_setup	high	vtable 0x68 Setup; empty in the base (header)
+802DF070	Bom_PoolObj_initFields	Bom_PoolObj_initFields	high	vtable 0x64 InitFields; empty in the base (header)
+802DF398	Bom_PoolObj_getColorType	Bom_PoolObj_getColorType	high	vtable 0x8C GetColorType; returns 0 in the base
+802DF3A0	Bom_PoolObj_getPoseIndex	Bom_PoolObj_getPoseIndex	high	vtable 0x90 GetPoseIndex; returns 0 in the base
+802DF3A8	Bom_PoolObj_isFalling	Bom_PoolObj_isFalling	high	vtable 0x98 IsFalling; returns false in the base
+802DF3B0	Bom_PoolObj_miss	Bom_PoolObj_miss	high	vtable 0x9C Miss; empty in the base
+802DF66C	Bom_ObjPool_vf27Items	Bom_ObjPool_calcHitItems	high	pool vtable 0x38 = header CalcHitItems: calls CalcHit (0x74) on each active object
+802DF9DC	Bom_PanelCtrl_exit	Bom_PanelCtrl_exit	high	vtable 0x1C Exit: calls the pool Destroy (0x2C)
+802DFA44	Bom_PanelCtrl_vf27	Bom_PanelCtrl_calcHit	high	header CalcHit: forwards to the pool CalcHitItems (0x38); called by Scene_calcObjects
+802E08B4	Bom_Panel_clearForcesThunk	Bom_Panel_preCalcThunk	medium	RPBomPanel vtable 8035F100 +0x70 = PreCalc: 4-byte branch to Bom_PoolObj_preCalc (Bom_Panel_preCalc at 802E0870 is really the +0x74 CalcHit)
+802E0A78	Bom_Panel_loadThunk	Bom_Panel_load	high	RPBomPanel vtable 8035F100 +0x10 = Load: branch to Bom_Panel_loadModels
+802E0E4C	Bom_Panel_stateNone	Bom_Panel_stateNone	high	state 0 of the panel state table; empty (header StateNone)
+802E1454	Bom_Panel_resetStateThunk	Bom_Panel_resetState	high	RPBomPanel vtable 8035F100 +0x58 = ResetState: branch to Bom_PoolObj_resetState (header: same code)
+802E2044	Bom_PanelPool_postCalcItems	Bom_PanelPool_postCalcItems	high	pool vtable 0x3C PostCalcItems: branch to Bom_ObjPool_postCalcItems (header: same code)
+802E2160	Bom_Border_startFlash	Bom_Border_startFlash	high	scales the borders, plays anim set 1 at speed 2, timer 80, state 2 (header StartFlash)
+802E228C	Bom_Border_startIntro	Bom_Border_startIntro	high	per-border drop offsets from a table, clears landing flags, state 0 (header StartIntro)
+802E2AE4	Bom_Border_create	Bom_Border_create	high	vtable 0xC Create; empty (header)
+802E2AE8	Bom_Border_stateRise	Bom_Border_stateRise	high	z += 5 up to 350 (state 5 of 8035F680, header StateRise)
+802E2B0C	Bom_Border_stateMissWait	Bom_Border_stateMissWait	high	waits until the game leaves the miss state, restores the normal anim, state 3
+802E2F78	Bom_Border_stateFlash	Bom_Border_stateFlash	high	counts the flash timer down, restores the normal anim, state 3
+802E30A8	Bom_Border_stateNop	Bom_Border_stateNone	high	empty state 1 of the border state table 8035F680 (header StateNone)
+802E37A0	Bom_LayoutMgr_exit	Bom_LayoutMgr_exit	high	vtable 0x1C Exit: calls layout vtable 0x18 on every layout and popup
+802E41AC	Bom_LytStart_exit	Bom_LytStart_exit	medium	empty layout vtable 0x18 (header VF_0x18), called by Bom_LayoutMgr_exit
+802E4DD0	Bom_LytScore_exit	Bom_LytScore_exit	medium	empty layout vtable 0x18 (header VF_0x18), called by Bom_LayoutMgr_exit
+802E58FC	Bom_LytPoint_exit	Bom_LytPoint_exit	medium	empty layout vtable 0x18 (header VF_0x18), called by Bom_LayoutMgr_exit
+802E5CDC	Bom_LytEnd_exit	Bom_LytEnd_exit	medium	empty layout vtable 0x18 (header VF_0x18), called by Bom_LayoutMgr_exit
+802E6228	Bom_LytLevel_exit	Bom_LytLevel_exit	medium	empty layout vtable 0x18 (header VF_0x18), called by Bom_LayoutMgr_exit
+802E6764	Bom_LytReady_exit	Bom_LytReady_exit	medium	empty layout vtable 0x18 (header VF_0x18), called by Bom_LayoutMgr_exit
+802E6E0C	Bom_LytPoseSel_exit	Bom_LytPoseSel_exit	medium	empty layout vtable 0x18 (header VF_0x18), called by Bom_LayoutMgr_exit
+802E83E0	Bom_LytClear_exit	Bom_LytClear_exit	medium	empty layout vtable 0x18 (header VF_0x18), called by Bom_LayoutMgr_exit
+802E89E4	Bom_LytClear_updateSlide	Bom_LytClear_updateSlide	high	2P: slides RootPane y toward -69 by sub-state (header UpdateSlide)
+802E9708	Bom_LytMiss_exit	Bom_LytMiss_exit	medium	empty layout vtable 0x18 (header VF_0x18), called by Bom_LayoutMgr_exit

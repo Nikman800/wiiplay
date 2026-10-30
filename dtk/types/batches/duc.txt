@@ -1,0 +1,210 @@
+# batch duc: modules Duc; 539 functions; 36 classes
+
+## classes (ledger class -> suggested C++ name; vtables; allocation sizes; methods)
+Duc_AmmoMgr -> RPDucAmmoMgr; vtables 8035ADB0; sizes 0x24 via RP_SceneObj_ctor in Duc_AmmoMgr_createInstance (derived vtable 8035ADB0); 7 methods: clearShotCounts, createInstance, destroyInstance, dtor, refill, setup, tryFire
+Duc_Avatar -> RPDucAvatar; vtables 8035B028; sizes 0x204 via Duc_Avatar_ctor in Duc_AvatarMgr_allocTarget; 33 methods: applyVelocity, asAvatar, calc, ctor, dtor, getCarryValue, init, launch, load, pickWanderCircle, playHitSound, playSpawnSound ...
+Duc_AvatarMgr -> RPDucAvatarMgr; vtables 8035AF28; sizes -; 10 methods: allocTarget, areAllGone, calcLinePosition, createInstance, destroyInstance, dtor, isLowest, pickAny, pickFree, reset
+Duc_Balloon -> RPDucBalloon; vtables 80359CD8; sizes 0x208 via Duc_Balloon_ctor in Duc_BalloonMgr_allocTarget; 18 methods: applyVelocity, calc, calcStringMatrices, calcStringMatrices_thunk, checkShotHit, ctor, dtor, dtor_thunk, init, launch, load, playHitSound ...
+Duc_BalloonMgr -> RPDucBalloonMgr; vtables 80359C60; sizes -; 5 methods: allocTarget, createInstance, destroyInstance, dtor, load
+Duc_Camera -> RPDucCamera; vtables 8035A3F8; sizes 0x234 via RP_LookAtCam_ctor in Duc_Camera_createInstance (derived vtable 8035A3F8); 13 methods: calc, calcFrustumEdges, createInstance, destroyInstance, dtor, getScreenLeftAtDepth, getScreenRightAtDepth, getScreenTopAtDepth, load, projectToScreen, setMode, stateIdle ...
+Duc_Can -> RPDucCan; vtables 8035AC10; sizes 0x470 via Duc_Can_ctor in Duc_CanMgr_allocTarget; 18 methods: applyHitSpin, applyVelocity, calc, calcHitBounce, checkShotHit, ctor, dtor, launch, load, playHitSound, playSpawnSound, resetParams ...
+Duc_CanMgr -> RPDucCanMgr; vtables 8035AB88; sizes -; 5 methods: allocTarget, createInstance, destroyInstance, dtor, load
+Duc_CircleTarget -> RPDucCircleTarget; vtables 8035AE80; sizes 0x2CC via Duc_CircleTarget_ctor in Duc_CircleTargetMgr_allocTarget; 21 methods: applyVelocity, calc, checkShotHit, ctor, dtor, init, launch, load, loadParams, playHitSound, playSpawnSound, remove ...
+Duc_CircleTargetMgr -> RPDucCircleTargetMgr; vtables 8035ADD8; sizes -; 9 methods: allocTarget, clearGridSlots, createInstance, destroyInstance, dtor, isGridSlotUsed, load, reset, setGridSlotUsed
+Duc_Clay -> RPDucClay; vtables 80359E30; sizes 0x32C via Duc_Clay_ctor in Duc_ClayMgr_allocTarget; 17 methods: applyVelocity, calc, canShotPassThrough, checkShotHit, ctor, dtor, launch, load, playHitSound, playSpawnSound, resetParams, setupLaunch ...
+Duc_ClayMgr -> RPDucClayMgr; vtables 80359DA0; sizes -; 5 methods: allocTarget, createInstance, destroyInstance, dtor, load
+Duc_Duck -> RPDucDuck; vtables 80359FA8; sizes 0x3E0 via Duc_Duck_ctor in Duc_DuckMgr_allocTarget; 39 methods: animSlot15, applyVelocity, calc, canShotPassThrough, checkShotHit, ctor, dtor, dtor_thunk, getAnimEndFrame, getAnimFrame, init, initAnimSlotsAll ...
+Duc_DuckMgr -> RPDucDuckMgr; vtables 80359ED8; sizes -; 5 methods: allocTarget, createInstance, destroyInstance, dtor, load
+Duc_EndLayout -> RPDucEndLayout; vtables 8035B0D0; sizes 0x38 via Duc_EndLayout_ctor in Duc_Hud_init; 11 methods: calc, ctor, draw, drawMiiIcons, dtor, load, playIn, playOut, reset, slot4Empty, updateAnimStates
+Duc_Field -> RPDucField; vtables 80359BE0; sizes 0x78 via RP_SceneObj_ctor in Duc_Field_createInstance (derived vtable 80359BE0); 8 methods: calc, createInstance, destroyInstance, dtor, init, load, reset, updateModels
+Duc_Game -> RPDucGame; vtables 8035AACC; sizes 0xA8 via RP_SceneObj_ctor in Duc_Game_createInstance (derived vtable 8035AACC); 23 methods: calc, createInstance, destroyChildren, destroyInstance, drawScreenQuad, dtor, getCurrentRound, getRoundCount, init, reset, setRoundParams, setup ...
+Duc_Hud -> RPDucHud; vtables 8035AB60; sizes 0x9C via RP_SceneObj_ctor in Duc_Hud_createInstance (derived vtable 8035AB60); 14 methods: calc, createInstance, destroyInstance, draw, dtor, init, isEndAnimDone, load, reset, setHitCounterVisible, setStartBannerVisible, showBonus ...
+Duc_PointPopup -> RPDucPointPopup; vtables 8035AD10; sizes 0x1C via Duc_PointPopup_ctor in Duc_Hud_init; 8 methods: calc, ctor, draw, dtor, load, reset, show, slot4Empty
+Duc_Scene -> RPDucScene; vtables 80359A38; sizes 0x80 via __ct__10RPSysSceneFv in Sys_SceneCreator_createGameScene (derived vtable 80359A38); 13 methods: calc, calcSubsteps, create, createCameras, destroy, drawHud, drawHud_thunk, dtor, dtor_thunk, load, loadLight, reset ...
+Duc_ScoreLayout -> RPDucScoreLayout; vtables 8035AD30; sizes 0x90 via Duc_ScoreLayout_ctor in Duc_Hud_init; 16 methods: calc, ctor, draw, dtor, hideHitCounter, load, playScoreAnim, playScoreAnimP1, playScoreAnimP2, reset, showBonus, showHitCounter ...
+Duc_ScoreMgr -> RPDucScoreMgr; vtables 8035AD88; sizes 0x88 via RP_SceneObj_ctor in Duc_ScoreMgr_createInstance (derived vtable 8035AD88); 18 methods: addCounter74, addHits, addScore, addStreak, awardStreakBonus, clearCounter74, clearHits, clearLastColors, clearScores, clearStreaks, createInstance, destroyInstance ...
+Duc_Shot -> RPDucShot; vtables 8035A450; sizes 0xA0 via Duc_Shot_ctor in Duc_ShotMgr_createShots; 19 methods: calc, checkGrassHits, createCursorEffects, ctor, dtor, findHitTargets, init, playControllerSound, playShotSound, processHits, reset, restartMainEffect ...
+Duc_ShotMgr -> RPDucShotMgr; vtables 8035A488; sizes 0x1C via RP_SceneObj_ctor in Duc_ShotMgr_createInstance (derived vtable 8035A488); 13 methods: calc, createInstance, createShots, destroyInstance, dtor, load, playControllerSoundAll, processHitsAll, reset, setCursorMode, setCursorModeAll, slot5All ...
+Duc_ShotPointer -> RPDucShotPointer; vtables 8035AD70; sizes 0x18 via Duc_ShotPointer_ctor in Duc_Shot_init; 3 methods: ctor, dtor, readController
+Duc_ShtCloud -> RPDucShtCloud; vtables 8035ACB8; sizes 0x48 via Duc_ShtCloud_ctor in Duc_Field_init; 5 methods: ctor, dtor, init, load, reset
+Duc_ShtField -> RPDucShtField; vtables 80359C08; sizes 0x48 via Duc_ShtField_ctor in Duc_Field_init; 5 methods: ctor, dtor, init, load, reset
+Duc_ShtGrass -> RPDucShtGrass; vtables 80359AA8; sizes 0x54 via Duc_ShtGrass_ctor in Duc_Field_init; 9 methods: calc, ctor, dtor, init, load, playSound, reset, spawnHitEffect, startShake
+Duc_SndActor -> RPDucSndActor; vtables 80359B00; sizes -; 2 methods: dtor, dtor_thunk
+Duc_Spawner -> RPDucSpawner; vtables 8035A6D4; sizes 0x11C via Duc_Spawner_ctor in Duc_Spawner_createInstance; 32 methods: addCount, calc, createInstance, ctor, destroyInstance, dtor, init, patternBalloonsA, patternBalloonsB, patternCans, patternClay, patternClayPairs ...
+Duc_StartLayout -> RPDucStartLayout; vtables 8035AD50; sizes 0x30 via Duc_StartLayout_ctor in Duc_Hud_init; 10 methods: calc, ctor, draw, drawMiiIcons, dtor, load, playIn, playOut, reset, slot4Empty
+Duc_Target -> RPDucTarget; vtables 8035A0F0; sizes -; 29 methods: activate, applyForces, applyForcesHook, applyVelocity, asAvatar, calc, canShotPassThrough, clearForces, clearForcesHook, ctor, debugDrawBox, debugDrawSphere ...
+Duc_TargetMgr -> RPDucTargetMgr; vtables 8035A090; sizes -; 16 methods: applyForcesHookAll, applyVelocityAll, calcAll, clearForcesHookAll, clearHitRecords, createPool, ctor, debugDrawAll, dtor, incAgeAll, load, removeAll ...
+Duc_TargetRegistry -> RPDucTargetRegistry; vtables 8035A1D0; sizes 0x24 via RP_SceneObj_ctor in Duc_TargetRegistry_createInstance (derived vtable 8035A1D0); 18 methods: addManager, applyForcesHookAll, applyVelocityAll, calcAll, clearForcesHookAll, clearHitRecords, countActive, countActiveExclTypes4And6, createInstance, destroyInstance, destroyManagers, dtor ...
+Duc_Ufo -> RPDucUfo; vtables 8035A2F8; sizes 0x6C8 via Duc_Ufo_ctor in Duc_UfoMgr_allocTarget; 36 methods: applyVelocity, calc, checkShotHit, ctor, dtor, dtor_thunk, init, launch, load, loadParams, onCalcWorldMtx, onCalcWorldMtx_thunk ...
+Duc_UfoMgr -> RPDucUfoMgr; vtables 8035A1F8; sizes -; 5 methods: allocTarget, createInstance, destroyInstance, dtor, load
+
+## globals referenced (address name section size refs)
+800B2214 _savegpr_14 .text 0x0 2
+800B2234 _savegpr_22 .text 0x0 1
+800B223C _savegpr_24 .text 0x0 2
+800B2240 _savegpr_25 .text 0x0 2
+800B2244 _savegpr_26 .text 0x0 4
+800B2248 _savegpr_27 .text 0x0 2
+800B2260 _restgpr_14 .text 0x0 2
+800B2280 _restgpr_22 .text 0x0 1
+800B2288 _restgpr_24 .text 0x0 2
+800B228C _restgpr_25 .text 0x0 2
+800B2290 _restgpr_26 .text 0x0 4
+800B2294 _restgpr_27 .text 0x0 2
+80321E68 lbl_80321E68 .rodata 0xD0 2
+80321F38 lbl_80321F38 .rodata 0x48 2
+80321F80 lbl_80321F80 .rodata 0x18 2
+80321F98 lbl_80321F98 .rodata 0x18 2
+80321FB0 lbl_80321FB0 .rodata 0x20 1
+80321FD0 lbl_80321FD0 .rodata 0x10 1
+80321FE0 lbl_80321FE0 .rodata 0x18 1
+80321FF8 lbl_80321FF8 .rodata 0xA 2
+80322088 lbl_80322088 .rodata 0x38 2
+803220C0 lbl_803220C0 .rodata 0x30 1
+803220F0 lbl_803220F0 .rodata 0xC8 8
+803221B8 lbl_803221B8 .rodata 0xB8 5
+80322270 lbl_80322270 .rodata 0x80 2
+803222F0 lbl_803222F0 .rodata 0x10 2
+80322300 lbl_80322300 .rodata 0x18 1
+80322318 lbl_80322318 .rodata 0x14 1
+8032232C lbl_8032232C .rodata 0x14 1
+80322340 lbl_80322340 .rodata 0x18 1
+80322358 lbl_80322358 .rodata 0x100 1
+80322458 lbl_80322458 .rodata 0x18 1
+80322470 lbl_80322470 .rodata 0x12 1
+80322488 lbl_80322488 .rodata 0x14 1
+8032249C lbl_8032249C .rodata 0xB 3
+80322518 lbl_80322518 .rodata 0x20 1
+80322538 lbl_80322538 .rodata 0x10 1
+80322548 lbl_80322548 .rodata 0xD 2
+803225F0 lbl_803225F0 .rodata 0x30 1
+80322620 lbl_80322620 .rodata 0x20 12
+80322960 lbl_80322960 .rodata 0x20 4
+80322AC8 lbl_80322AC8 .rodata 0x118 3
+80322BE0 lbl_80322BE0 .rodata 0x58 2
+80322C38 lbl_80322C38 .rodata 0x10 1
+80322C48 lbl_80322C48 .rodata 0x1E 7
+8032D3F8 lbl_8032D3F8 .data 0x11 1
+8032D40C lbl_8032D40C .data 0x12 1
+8034F32C lbl_8034F32C .data 0x14 1
+803587D0 lbl_803587D0 .data 0x10 1
+80358964 lbl_80358964 .data 0xDC 1
+80358A40 lbl_80358A40 .data 0x38 4
+80358A78 lbl_80358A78 .data 0x10 4
+80358A88 lbl_80358A88 .data 0x24 5
+80358AF4 lbl_80358AF4 .data 0x15 4
+80358B0C lbl_80358B0C .data 0xE 4
+80358DA4 lbl_80358DA4 .data 0x15 2
+80358DC0 lbl_80358DC0 .data 0x10 2
+80359A98 lbl_80359A98 .data 0x10 1
+80359AA8 lbl_80359AA8 .data 0x58 1
+80359B00 lbl_80359B00 .data 0xE0 4
+80359BE0 lbl_80359BE0 .data 0x28 1
+80359C08 lbl_80359C08 .data 0x58 1
+80359C60 lbl_80359C60 .data 0x60 1
+80359CC0 lbl_80359CC0 .data 0xC 1
+80359CCC lbl_80359CCC .data 0xC 1
+80359CD8 lbl_80359CD8 .data 0xC8 1
+80359DA0 lbl_80359DA0 .data 0x60 1
+80359E00 lbl_80359E00 .data 0x30 1
+80359E30 lbl_80359E30 .data 0xA8 1
+80359ED8 lbl_80359ED8 .data 0x60 1
+80359F38 lbl_80359F38 .data 0x70 1
+80359FA8 lbl_80359FA8 .data 0xE8 1
+8035A090 lbl_8035A090 .data 0x60 1
+8035A0F0 lbl_8035A0F0 .data 0xA8 1
+8035A198 lbl_8035A198 .data 0x1C 1
+8035A1B4 lbl_8035A1B4 .data 0x1C 1
+8035A1D0 lbl_8035A1D0 .data 0x28 1
+8035A1F8 lbl_8035A1F8 .data 0x60 1
+8035A258 lbl_8035A258 .data 0xA0 1
+8035A2F8 lbl_8035A2F8 .data 0xE8 1
+8035A3E0 lbl_8035A3E0 .data 0xC 1
+8035A3EC lbl_8035A3EC .data 0xC 1
+8035A3F8 lbl_8035A3F8 .data 0x20 1
+8035A418 jumptable_8035A418 .data 0x28 1
+8035A440 lbl_8035A440 .data 0x10 1
+8035A450 lbl_8035A450 .data 0x38 1
+8035A488 lbl_8035A488 .data 0x28 1
+8035A4B0 lbl_8035A4B0 .data 0x108 2
+8035A5B8 jumptable_8035A5B8 .data 0x2C 1
+8035A6D4 lbl_8035A6D4 .data 0x24 1
+8035A6F8 jumptable_8035A6F8 .data 0x20 2
+8035AACC lbl_8035AACC .data 0x94 1
+8035AB60 lbl_8035AB60 .data 0x28 1
+8035AB88 lbl_8035AB88 .data 0x60 1
+8035ABE8 lbl_8035ABE8 .data 0x28 1
+8035AC10 lbl_8035AC10 .data 0xA8 1
+8035ACB8 lbl_8035ACB8 .data 0x58 1
+8035AD10 lbl_8035AD10 .data 0x20 1
+8035AD30 lbl_8035AD30 .data 0x20 1
+8035AD50 lbl_8035AD50 .data 0x20 1
+8035AD70 lbl_8035AD70 .data 0x18 1
+8035AD88 lbl_8035AD88 .data 0x28 1
+8035ADB0 lbl_8035ADB0 .data 0x28 1
+8035ADD8 lbl_8035ADD8 .data 0x60 1
+8035AE38 lbl_8035AE38 .data 0x48 1
+8035AE80 lbl_8035AE80 .data 0xA8 1
+8035AF28 lbl_8035AF28 .data 0x60 1
+8035AF88 lbl_8035AF88 .data 0xA0 1
+8035B028 lbl_8035B028 .data 0xA8 1
+8035B0D0 lbl_8035B0D0 .data 0x20 1
+8039F340 lbl_8039F340 .bss 0x30 1
+804390E0 lbl_804390E0 .bss 0x10 4
+804390F0 lbl_804390F0 .bss 0x10 5
+80439110 lbl_80439110 .bss 0xC 25
+8043911C lbl_8043911C .bss 0xC 2
+80439128 lbl_80439128 .bss 0xC 10
+80439134 lbl_80439134 .bss 0xC 2
+80439140 lbl_80439140 .bss 0xC 8
+8043914C lbl_8043914C .bss 0x24 21
+8043A760 lbl_8043A760 .bss 0x10 2
+8043A770 lbl_8043A770 .bss 0xC 2
+8043A77C lbl_8043A77C .bss 0x3C 1
+8043A7B8 lbl_8043A7B8 .bss 0x18 1
+8043A7D0 lbl_8043A7D0 .bss 0x10 1
+8043A7E0 lbl_8043A7E0 .bss 0x10 1
+8043A7F0 lbl_8043A7F0 .bss 0x10 2
+8043AC28 lbl_8043AC28 .sdata 0x2 5
+8043AC2C lbl_8043AC2C .sdata 0x2 5
+8043B354 lbl_8043B354 .sdata 0x4 1
+8043BBA8 lbl_8043BBA8 .sbss 0x4 18
+8043BC70 lbl_8043BC70 .sbss 0x4 13
+8043C458 lbl_8043C458 .sbss 0x8 1
+8043C470 lbl_8043C470 .sbss 0x8 2
+8043C4C8 lbl_8043C4C8 .sbss 0x8 1
+8043C588 lbl_8043C588 .sbss 0x8 3
+8043C590 lbl_8043C590 .sbss 0x8 11
+8043C5A0 lbl_8043C5A0 .sbss 0x4 10
+8043C5A5 lbl_8043C5A5 .sbss 0x1 1
+8043C5D4 lbl_8043C5D4 .sbss 0x4 19
+8043C5E8 lbl_8043C5E8 .sbss 0x8 1
+8043C5F0 lbl_8043C5F0 .sbss 0x8 1
+8043C5F8 lbl_8043C5F8 .sbss 0x4 37
+8043C5FC lbl_8043C5FC .sbss 0x4 37
+8043C608 lbl_8043C608 .sbss 0x8 1
+8043C648 lbl_8043C648 .sbss 0x8 6
+8043C6C8 lbl_8043C6C8 .sbss 0x8 3
+8043C6D8 lbl_8043C6D8 .sbss 0x8 9
+8043C838 lbl_8043C838 .sbss 0x8 4
+8043C840 lbl_8043C840 .sbss 0x8 3
+8043C848 lbl_8043C848 .sbss 0x8 3
+8043C850 lbl_8043C850 .sbss 0x8 3
+8043C858 lbl_8043C858 .sbss 0x8 1
+8043C860 lbl_8043C860 .sbss 0x8 21
+8043C868 lbl_8043C868 .sbss 0x8 4
+8043C870 lbl_8043C870 .sbss 0x8 25
+8043C878 lbl_8043C878 .sbss 0x8 8
+8043C880 lbl_8043C880 .sbss 0x4 7
+8043C884 lbl_8043C884 .sbss 0x4 1
+8043C888 lbl_8043C888 .sbss 0x4 1
+8043C88C lbl_8043C88C .sbss 0x2 1
+8043C890 lbl_8043C890 .sbss 0x8 69
+8043C898 lbl_8043C898 .sbss 0x8 20
+8043C8A0 lbl_8043C8A0 .sbss 0x8 4
+8043C8A8 lbl_8043C8A8 .sbss 0x8 3
+8043C8B0 lbl_8043C8B0 .sbss 0x8 30
+8043C8B8 lbl_8043C8B8 .sbss 0x8 4
+8043C8C0 lbl_8043C8C0 .sbss 0x8 7
+8043C8C8 lbl_8043C8C8 .sbss 0x8 9
+8043C8D0 lbl_8043C8D0 .sbss 0x8 4

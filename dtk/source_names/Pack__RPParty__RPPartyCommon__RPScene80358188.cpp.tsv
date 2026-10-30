@@ -1,0 +1,8 @@
+address	old_name	new_name	unit	previous
+801E4998	RP_Scene80358188_reset	Reset__16RPPartyRootSceneFv	Pack/RPParty/RPPartyCommon/RPScene80358188.cpp	
+801E49CC	RP_Cls_80358188_vf15	Configure__16RPPartyRootSceneFv	Pack/RPParty/RPPartyCommon/RPScene80358188.cpp	
+801E49D0	RP_Scene80358188_dtor	__dt__16RPPartyRootSceneFv	Pack/RPParty/RPPartyCommon/RPScene80358188.cpp	
+801E4A2C	RP_Scene80358188_dtorThunk	@36@__dt__16RPPartyRootSceneFv	Pack/RPParty/RPPartyCommon/RPScene80358188.cpp	
+801E4A90	RP_SceneInfo_reset	Reset__11RPSceneInfoFv	Pack/RPParty/RPPartyCommon/RPScene80358188.cpp	
+801E4B18	RP_createSceneInfo	RP_createSceneInfo__Fv	Pack/RPParty/RPPartyCommon/RPScene80358188.cpp	
+801E4994	RP_Cls_80358188_vf19	Exit__16RPPartyRootSceneFv	Pack/RPParty/RPPartyCommon/RPScene80358188.cpp	

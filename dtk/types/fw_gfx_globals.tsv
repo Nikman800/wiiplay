@@ -1,0 +1,93 @@
+address	name	type	confidence	note
+8043C440	spInstance__11RPSysSystem	RPSysSystem*	H	RPSysSystem::create; same .sbss slot order as Wii Sports
+8043C458	spInstance__17RPSysSceneCreator	RPSysSceneCreator*	H	RPSysSceneCreator::CreateInstance
+8043C460	sUnkStruct__10RPSysScene	RPSysScene::UnkStruct	H	returned by RPSysScene::VF_0x3C, cleared by the RPSysScene.cpp static initializer
+8043C468	spInstance__13RPSysSceneMgr	RPSysSceneMgr*	H	RPSysSceneMgr::CreateInstance
+8043C470	spInstance__17RPSysProjectLocal	RPSysProjectLocal*	H	RPSysProjectLocal::CreateInstance (ledger Sys_Language)
+8043C478	spInstance__15RPSysGameConfig	RPSysGameConfig*	H	RPSysGameConfig::CreateInstance
+8043C480	spInstance__20RPSysResourceManager	RPSysResourceManager*	H	RPSysResourceManager::CreateInstance (ledger Sys_ResMgr)
+8043C488	spInstance__16RPSysQueuedScene	RPSysQueuedScene*	H	RPSysQueuedScene::CreateInstance (ledger Sys_Cls8034F308)
+8043C490	spInstance__14RPSysDvdStatus	RPSysDvdStatus*	H	RPSysDvdStatus::CreateInstance (ledger Sys_DvdErrorChecker)
+8043C498	spInstance__16RPSysSaveDataMgr	RPSysSaveDataMgr*	H	ledger Sys_SaveFile_createInstance
+8043C4A0	spInstance__16RPSysFontManager	RPSysFontManager*	H	ledger Sys_FontMgr_createInstance
+8043C4A8	spInstance__13RPSysPauseMgr	RPSysPauseMgr*	H	ledger Sys_Pause_createSingleton
+8043C4B0	spInstance__14RPSysPlayerMgr	RPSysPlayerMgr*	H	RPSysPlayerMgr::CreateInstance
+8043C4C8	spInstance__15RPSysTextWriter	RPSysTextWriter*	H	RPSysTextWriter::Begin/Reset callers
+8043C4D0	spInstance__19RPSysKokeshiManager	RPSysKokeshiManager*	H	RPSysKokeshiManager methods called on it
+8043C4D8	spInstance__14RPSysEffectMgr	RPSysEffectMgr*	H	RPSysEffectMgr::draw/stopAllEffect callers
+8043C4E0	INVALID_HANDLE__11RPSysEffect	nw4r::ef::HandleBase	H	constructed by Gfx_Effect_sinitNullHandle; assigned by RPSysEffect::reset/fade/forceKill
+8043C538	spInstance__16RPSysHomeMenuMgr	RPSysHomeMenuMgr*	H	RPSysHomeMenuMgr::drawBanIcon/softReset callers
+8043C550	spInstance__22RPSysCoreControllerMgr	RPSysCoreControllerMgr*	H	RPSysCoreControllerMgr::create
+8043C560	spAllocator__10RPGrpModel	EGG::Allocator*	H	set from RPGrpModelManager +0x24 when it becomes current (ledger Gfx_ModelSceneMgr_setCurrent)
+8043C564	spEntryHead__10RPGrpModel	RPGrpModel*	H	RPGrpModel::Entry; drained by RPGrpModelManager calc
+8043C568	spEntryTail__10RPGrpModel	RPGrpModel*	H	RPGrpModel::Entry
+8043C56C	spGenList__10RPGrpModel	RPGrpModel*	H	RPGrpModel::RemoveGenList and the model constructor
+8043C588	spCurrent__17RPGrpModelManager	RPGrpModelManager*	H	ledger Gfx_ModelSceneMgr_setCurrent; same slot as Wii Sports
+8043C590	spCurrent__20RPGrpModelResManager	RPGrpModelResManager*	H	set from RPGrpModelManager +0x20
+8043C598	Gfx_scnProcDrawHook	RPScnProcDrawHook	H	global object (vtable 8034FF70) registered by Gfx_ScnProcDrawHook_initGlobal; stored in every draw path manager by RPGrpRenderer::LinkViews
+8043C5A0	spCurrent__13RPGrpRenderer	RPGrpRenderer*	H	RPGrpRenderer::Construct
+8043C5A4	Gfx_renderFrameCount	u8	M	incremented once per RPGrpRenderer::Rendering
+8043C5A5	Gfx_currentViewNo	u8	H	number (RPGrpView +0x0) of the view being rendered, 0x20 outside the view loop; scene draw code tests it
+8043C5A8	spCurrentView__13RPGrpRenderer	RPGrpView*	H	RPGrpRenderer::Rendering view loop
+8043C5AC	spCurrentScreen__13RPGrpRenderer	RPGrpScreen*	H	RPGrpRenderer::Begin sets it to the root screen
+8043C5B0	Gfx_currentCamera	RPGrpCamera*	M	RPGrpView::GetEnableCamera of the current view, set in RPGrpRenderer::Rendering
+8043C5C0	Gfx_scnAllocator	EGG::Allocator*	M	RPGrpModelManager +0x28 of the current manager; allocator of every model scene g3d ScnRoot
+8043C5D4	spInstance__13RPSndAudioMgr	RPSndAudioMgr*	H	RPSndAudioMgr methods called on it (ledger Mpe_AudioMgr)
+8043B350	Gfx_clearColor	GXColor	H	set by Gfx_setClearColor(r, g, b) as RGBA (alpha 0xFF)
+8043B354	Gfx_drawStep	s32	M	current draw pass: 0 begin frame, 1/2/3/5 Rendering passes, 4 end frame, 0xC after Construct; RPScnProcDrawHook::Draw sets it per scene step
+8043B388	Health_isFirstBoot	bool	M	initially true; RPSysBootScene loads the system resources asynchronously while set and clears it when leaving
+8043B2C8	Sys_bannerFilePaths	const char*[2]	H	"banner.bin", "/tmp/banner.bin" (RPSysSaveDataMgr)
+8043B2D0	Sys_saveFileName	const char*	H	"RPParty.dat" (RPSysSaveDataMgr)
+804387D0	sConfigData__11RPSysSystem	RPSysConfigData	H	0x50 bytes; vtable set by ledger Sys_ConfigData_sinit
+80438F78	Gfx_scnProcDrawHookDtorChain	u8[0xC]	H	__register_global_object chain entry for Gfx_scnProcDrawHook
+80438F88	Gfx_effectDrawMtx	nw4r::math::MTX34	H	current camera matrix copied by RPGrpRenderer::Rendering; RPSysEffectMgr::draw matrix in RPScnProcDrawHook::Draw
+80438FB8	Gfx_rootScreenDtorChain	u8[0xC]	H	__register_global_object chain entry for RPGrpScreen::sRootScreen
+80438FC8	sRootScreen__11RPGrpScreen	RPGrpScreen	H	0x68 bytes, constructed by Gfx_initDefaultScreen; RPGrpView::GetEnableScreen default
+802E9E60	Health_strapArchive	u8[0xA440]	H	compressed archive holding strap.arc, decoded by RPSysBootScene::Configure
+80316CE8	SCENE_ATTR_TABLE__17RPSysSceneCreator	RPSysSceneCreator::SceneAttr[15]	H	Wii Sports name and size (0x1E0)
+80317178	CACHED_SCENES__20RPSysResourceManager	s32[13]	H	scene IDs preloaded by ledger Sys_ResMgr_preloadSceneArchives (Wii Sports has 14)
+803175E0	sIsNeedResFont__16RPSysFontManager	BOOL[7]	H	Wii Sports name; ledger Sys_FontMgr_loadFonts
+8034F3E8	RES_FONT_NAMES__16RPSysFontManager	const char*[7]	H	Wii Sports name; ledger Sys_FontMgr_getFontByName/loadFonts
+8034F2E8	STATIC_DIR_NAMES__20RPSysResourceManager	const char*[4]	H	"SportsStatic/", "PartyStatic/", "HealthStatic/", "MusicStatic/"
+803181B8	Gfx_drawPathProcPriorities	u32[6]	M	scene-renderer priority slots of the 6 scn procs of RPGrpDrawPathManager (its constructor)
+80318228	Gfx_drawHookSteps	s32[6]	M	Gfx_drawStep value for each scn proc step in RPScnProcDrawHook::Draw (0xD: no draw)
+80318260	Gfx_opaPriorityPaths	u32[3]	M	draw path indices whose priorities fill RPGrpModelScene::mpOpaPriorities
+8031826C	Gfx_xluPriorityPaths	u32[3]	M	draw path indices for RPGrpModelScene::mpXluPriorities
+8034F01C	__vt__15RPSysConfigData	void*[13]	H	RPSysConfigData vtable
+8034F080	__vt__17RPSysSceneCreator	void*[6]	H	RPSysSceneCreator vtable
+8034F098	__vt__10RPSysScene	void*[24]	H	RPSysScene vtable
+8034F248	__vt__13RPSysSceneMgr	void*[10]	H	RPSysSceneMgr vtable
+8034F2F8	__vt__20RPSysResourceManager	void*[4]	H	RPSysResourceManager vtable
+8034F308	__vt__16RPSysQueuedScene	void*[4]	H	RPSysQueuedScene vtable
+8034F318	__vt__17RPSysCommonObject	void*[5]	H	RPSysCommonObject vtable (ledger Sys_SystemDrawer)
+8034F32C	__vt__11RPGrpScreen	void*[5]	H	RPGrpScreen vtable
+8034F3D0	__vt__16RPSysSaveDataMgr	void*[6]	H	RPSysSaveDataMgr vtable
+8034F404	__vt__16RPSysFontManager	void*[3]	H	RPSysFontManager vtable
+8034F410	__vt__13RPSysPauseMgr	void*[4]	H	RPSysPauseMgr vtable
+8034F5D0	__vt__11RPSysEffect	void*[38]	H	RPSysEffect vtable (ledger Gfx_Effect)
+8034F668	__vt__18RPSysEffectCreator	void*[4]	H	RPSysEffectCreator vtable (ledger Gfx_EffectGroup)
+8034F6A0	__vt__9RPSysFile	void*[4]	H	RPSysFile vtable (ledger Sys_CachedArchive)
+8034FA90	__vt__11RPGrpCamera	void*[4]	H	RPGrpCamera vtable
+8034FAA0	__vt__20RPGrpDrawPathXluSnap	void*[6]	H	from Construct<RPGrpDrawPathXluSnap>
+8034FAB8	__vt__18RPGrpDrawPathBloom	void*[6]	H	from Construct<RPGrpDrawPathBloom>
+8034FAD0	__vt__16RPGrpDrawPathDOF	void*[6]	H	from Construct<RPGrpDrawPathDOF>
+8034FAE8	__vt__16RPGrpDrawPathHDR	void*[6]	H	from Construct<RPGrpDrawPathHDR>
+8034FB00	__vt__15RPGrpDrawPathSV	void*[6]	H	from Construct<RPGrpDrawPathSV>
+8034FB18	__vt__20RPGrpDrawPathManager	void*[4]	H	RPGrpDrawPathManager vtable (ledger Gfx_ScnProc)
+8034FB28	__vt__10RPGrpModel	void*[40]	H	RPGrpModel vtable (ledger Gfx_Model)
+8034FDB8	__vt__13RPGrpModelG3D	void*[62]	H	RPGrpModelG3D vtable
+8034FEB0	__vt__17RPGrpModelManager	void*[4]	H	RPGrpModelManager vtable (ledger Gfx_ModelSceneMgr)
+8034FEC0	__vt__14RPGrpModelMisc	void*[8]	H	RPGrpModelMisc vtable
+8034FF60	__vt__20RPGrpModelResManager	void*[4]	H	RPGrpModelResManager vtable
+8034FF84	__vt__13RPGrpRenderer	void*[3]	H	RPGrpRenderer vtable
+80350108	__vt__15RPGrpFogManager	void*[4]	H	RPGrpFogManager vtable (at +0x84), set in the RPGrpModelScene constructor
+80350118	__vt__17RPGrpLightManager	void*[8]	H	RPGrpLightManager vtable, set in the RPGrpModelScene constructor
+80350138	__vt__15RPGrpModelScene	void*[10]	H	RPGrpModelScene vtable (ledger Gfx_ModelScene)
+80350160	__vt__21RPGrpDrawPathLightMap	void*[6]	H	from Construct<RPGrpDrawPathLightMap> (ledger Gfx_Flag10Ctrl)
+803501D0	__vt__18RPGrpModelMaterial	void*[4]	H	RPGrpModelMaterial vtable (ledger Gfx_MatEditor)
+803501E0	__vt__12RPGrpTexture	void*[4]	H	RPGrpTexture vtable (ledger Gfx_TexObj)
+803501F0	__vt__19RPGrpCaptureTexture	void*[4]	H	RPGrpCaptureTexture vtable (ledger Gfx_CapTexture)
+80350210	__vt__13RPGrpModelRfl	void*[52]	H	RPGrpModelRfl vtable (ledger Gfx_KokeshiModel)
+803502E0	__vt__13RPSndAudioMgr	void*[48]	H	RPSndAudioMgr vtable (ledger Mpe_AudioMgr)
+803504F8	__vt__19RPSndHomeMenuArcMgr	void*[34]	H	RPSndHomeMenuArcMgr vtable (ledger Snd_HomeButtonSndMgr)
+80357948	__vt__14RPSysBootScene	void*[24]	H	RPSysBootScene vtable (ledger Health_StrapScene)

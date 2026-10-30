@@ -1,0 +1,14 @@
+address	old_name	new_name	unit	previous
+80271D2C	Tnk_ClearMsg_hide	Hide__13RPTnkClearMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_7.cpp	
+80271DC0	Tnk_ClearMsg_showTotal	ShowTotal__13RPTnkClearMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_7.cpp	
+80271F9C	Tnk_ClearMsg_show	Show__13RPTnkClearMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_7.cpp	
+802721B8	Tnk_ClearMsg_exit	VF_0x18__13RPTnkClearMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_7.cpp	
+802721BC	Tnk_ClearMsg_draw	Draw__13RPTnkClearMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_7.cpp	
+802721C4	Tnk_ClearMsg_calc	Calculate__13RPTnkClearMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_7.cpp	
+8027225C	Tnk_ClearMsg_reset	Reset__13RPTnkClearMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_7.cpp	
+80272488	Tnk_ClearMsg_load	Load__13RPTnkClearMsgFPQ23EGG7Archive	Pack/RPParty/RPTnkScene/RPTnkLyt_7.cpp	
+8027252C	Tnk_ClearMsg_dtor	__dt__13RPTnkClearMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_7.cpp	
+802725E8	Tnk_ClearMsg_ctor	__ct__13RPTnkClearMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_7.cpp	
+8035C368	Tnk_ClearMsg_vtable	__vt__13RPTnkClearMsg	Pack/RPParty/RPTnkScene/RPTnkLyt_7.cpp	
+8043C910	Tnk_gameManagerInstance	sInstance__16RPTnkGameManager	Pack/RPParty/RPTnkScene/RPTnkLyt_7.cpp	
+8043C940	Tnk_gameStatsInstance	sInstance__14RPTnkGameStats	Pack/RPParty/RPTnkScene/RPTnkLyt_7.cpp	

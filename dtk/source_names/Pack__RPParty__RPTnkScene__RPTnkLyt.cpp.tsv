@@ -1,0 +1,15 @@
+address	old_name	new_name	unit	previous
+8026D670	Tnk_LayoutManager_spawnHitPopup	SpawnHitPopup__18RPTnkLayoutManagerFRCQ34nw4r4math4VEC2ll	Pack/RPParty/RPTnkScene/RPTnkLyt.cpp	
+8026D6F8	Tnk_LayoutManager_draw	Draw2D__18RPTnkLayoutManagerFv	Pack/RPParty/RPTnkScene/RPTnkLyt.cpp	
+8026D860	Tnk_LayoutManager_exit	Exit__18RPTnkLayoutManagerFv	Pack/RPParty/RPTnkScene/RPTnkLyt.cpp	
+8026D964	Tnk_LayoutManager_calc	Calculate__18RPTnkLayoutManagerFv	Pack/RPParty/RPTnkScene/RPTnkLyt.cpp	
+8026DAD0	Tnk_LayoutManager_reset	Reset__18RPTnkLayoutManagerFv	Pack/RPParty/RPTnkScene/RPTnkLyt.cpp	
+8026DBE0	Tnk_LayoutManager_load	Load__18RPTnkLayoutManagerFv	Pack/RPParty/RPTnkScene/RPTnkLyt.cpp	
+8026DD50	Tnk_LayoutManager_create	Create__18RPTnkLayoutManagerFv	Pack/RPParty/RPTnkScene/RPTnkLyt.cpp	
+8026DE84	Tnk_LayoutManager_dtor	__dt__18RPTnkLayoutManagerFv	Pack/RPParty/RPTnkScene/RPTnkLyt.cpp	
+8026DEDC	Tnk_LayoutManager_destroyInstance	DestroyInstance__18RPTnkLayoutManagerFv	Pack/RPParty/RPTnkScene/RPTnkLyt.cpp	
+8026DF20	Tnk_LayoutManager_createInstance	CreateInstance__18RPTnkLayoutManagerFv	Pack/RPParty/RPTnkScene/RPTnkLyt.cpp	
+8026F3DC	Tnk_Fade_ctor	__ct__9RPTnkFadeFv	Pack/RPParty/RPTnkScene/RPTnkLyt.cpp	
+80270434	Tnk_Hud_ctor	__ct__8RPTnkHudFv	Pack/RPParty/RPTnkScene/RPTnkLyt.cpp	
+80274C68	Tnk_ResultLyt_ctor	__ct__14RPTnkResultLytFv	Pack/RPParty/RPTnkScene/RPTnkLyt.cpp	
+8035C1F0	Tnk_LayoutManager_vtable	__vt__18RPTnkLayoutManager	Pack/RPParty/RPTnkScene/RPTnkLyt.cpp	

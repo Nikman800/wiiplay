@@ -1,0 +1,7 @@
+address	old_name	new_name	unit	previous
+8025DDC4	Tnk_CursorManager_draw	Draw__18RPTnkCursorManagerFv	Pack/RPParty/RPTnkScene/RPTnkCursor.cpp	
+8025DE2C	Tnk_CursorManager_exit	Exit__18RPTnkCursorManagerFv	Pack/RPParty/RPTnkScene/RPTnkCursor.cpp	
+8025DE94	Tnk_CursorManager_calc	Calculate__18RPTnkCursorManagerFv	Pack/RPParty/RPTnkScene/RPTnkCursor.cpp	
+8025DEFC	Tnk_CursorManager_reset	Reset__18RPTnkCursorManagerFv	Pack/RPParty/RPTnkScene/RPTnkCursor.cpp	
+8025E088	Tnk_CursorManager_load	Load__18RPTnkCursorManagerFv	Pack/RPParty/RPTnkScene/RPTnkCursor.cpp	
+8025E118	Tnk_CursorManager_dtor	__dt__18RPTnkCursorManagerFv	Pack/RPParty/RPTnkScene/RPTnkCursor.cpp	

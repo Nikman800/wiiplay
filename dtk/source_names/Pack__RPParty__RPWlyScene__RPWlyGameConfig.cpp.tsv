@@ -1,0 +1,3 @@
+address	old_name	new_name	unit	previous
+8028FE40	Wly_MiiEntry_dtor	__dt__13RPWlyMiiEntryFv	Pack/RPParty/RPWlyScene/RPWlyGameConfig.cpp	
+8028FEC4	Wly_MiiEntry_ctor	__ct__13RPWlyMiiEntryFv	Pack/RPParty/RPWlyScene/RPWlyGameConfig.cpp	

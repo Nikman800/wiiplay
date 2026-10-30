@@ -1,0 +1,3 @@
+address	old_name	new_name	confidence	evidence
+802E0870	Bom_Panel_preCalc	Bom_Panel_calcHit	high	RPBomPanel vtable 8035F100 +0x74 (CalcHit) = 802E0870, read from main.dol
+802E08B4	Bom_Panel_clearForcesThunk	Bom_Panel_preCalc	medium	RPBomPanel vtable 8035F100 +0x70 (PreCalc) = 802E08B4: 4-byte branch to Bom_PoolObj_preCalc

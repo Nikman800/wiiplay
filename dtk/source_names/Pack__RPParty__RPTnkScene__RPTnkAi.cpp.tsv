@@ -1,0 +1,3 @@
+address	old_name	new_name	unit	previous
+80268C78	Tnk_AiController_reset	Reset__17RPTnkAiControllerFv	Pack/RPParty/RPTnkScene/RPTnkAi.cpp	
+80268CDC	Tnk_AiController_dtor	__dt__17RPTnkAiControllerFv	Pack/RPParty/RPTnkScene/RPTnkAi.cpp	

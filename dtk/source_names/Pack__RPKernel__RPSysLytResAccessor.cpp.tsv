@@ -1,0 +1,3 @@
+address	old_name	new_name	unit	previous
+8018A11C	Sys_FontMgr_getFontByName	GetResFontData__16RPSysFontManagerCFPCc	Pack/RPKernel/RPSysLytResAccessor.cpp	
+8034F688	lbl_8034F688	__vt__Q219RPSysLytResAccessor16InternalAccessor	Pack/RPKernel/RPSysLytResAccessor.cpp	

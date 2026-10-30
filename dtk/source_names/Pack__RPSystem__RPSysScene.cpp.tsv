@@ -1,0 +1,12 @@
+address	old_name	new_name	unit	previous
+80183EF4	Sys_SceneCreator_getSoundType	getAudioType__17RPSysSceneCreatorFl	Pack/RPSystem/RPSysScene.cpp	
+80183F90	Sys_SceneCreator_getSceneKind	getExitType__17RPSysSceneCreatorFl	Pack/RPSystem/RPSysScene.cpp	
+80184E64	Sys_setFaderColor	setFadeColor__10RPSysSceneFQ34nw4r2ut5Color	Pack/RPSystem/RPSysScene.cpp	
+80184EAC	Sys_Scene_setFadeFrame	setFadeFrame__10RPSysSceneFUs	Pack/RPSystem/RPSysScene.cpp	
+80184EB4	Sys_isSceneChangeAllowed	isNandAccessEnable__10RPSysSceneCFv	Pack/RPSystem/RPSysScene.cpp	
+80184F04	isSceneBlank__10RPSysSceneCFv	isSceneChangeEnable__10RPSysSceneCFv	Pack/RPSystem/RPSysScene.cpp	
+80184F0C	isSceneDisplay__10RPSysSceneCFv	isSceneDisplay__10RPSysSceneCFv	Pack/RPSystem/RPSysScene.cpp	isSceneBlank__10RPSysSceneCFv
+80184F3C	Sys_Scene_dtorThunk	@36@__dt__10RPSysSceneFv	Pack/RPSystem/RPSysScene.cpp	
+801854A0	Sys_SceneMgr_setFaderColor	setFadeColor__13RPSysSceneMgrFQ34nw4r2ut5Color	Pack/RPSystem/RPSysScene.cpp	
+8018C0F8	RP_PlayerData_loadAllData	loadAllData__14RPSysPlayerMgrFv	Pack/RPSystem/RPSysScene.cpp	
+8018C9A8	RP_PlayerMgr_reset	reset__14RPSysPlayerMgrFv	Pack/RPSystem/RPSysScene.cpp	

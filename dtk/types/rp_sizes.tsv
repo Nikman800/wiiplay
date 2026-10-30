@@ -1,0 +1,18 @@
+# class	wii_play_alloc_size	header (relative to include/Pack)
+RPGrpCamera	178	RPGraphics/RPGrpCamera.h
+RPGrpDrawPathShadowTexture	10	RPGraphics/RPGrpDrawPathManager.h
+RPGrpModelAnmG3D	E8	RPGraphics/RPGrpModelAnmImplement.h
+RPGrpModelBoundingInfo	18	RPGraphics/RPGrpModel.h
+RPGrpModelG3D	50	RPGraphics/RPGrpModelG3D.h
+RPGrpModelResManager	C	RPGraphics/RPGrpModelResManager.h
+RPGrpProjectionObject	1E8	RPGraphics/RPGrpProjectionObject.h
+RPGrpViewRender2D	20	RPGraphics/RPGrpViewRender2D.h
+RPGrpViewRender3D	28	RPGraphics/RPGrpViewRender3D.h
+RPSysCommonObject	8	RPSystem/RPSysCommonObject.h
+RPSysCoreController	2BB0	RPKernel/RPSysController.h
+RPSysKokeshiCtrlDataLoader	C	RPKernel/RPSysKokeshiCtrlDataLoader.h
+RPSysKokeshiCtrlDataMgr	3C	RPKernel/RPSysKokeshiCtrlDataMgr.h
+RPSysKokeshiIcon	A8	RPKernel/RPSysKokeshiIcon.h
+RPSysKokeshiIterater	10	RPKernel/RPSysKokeshiCtrlDataMgr.h
+RPSysKokeshiManager	5C	RPKernel/RPSysKokeshiManager.h
+RPSysPairingMgr	8	RPKernel/RPSysControllerMgr.h

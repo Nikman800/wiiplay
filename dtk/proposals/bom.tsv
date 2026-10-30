@@ -1,0 +1,442 @@
+address	new_name	confidence	note
+802D3940	Bom_Scene_vf14	low	empty virtual (slot 14)
+802D3944	Bom_Scene_draw	medium	per-pass dispatch on lbl_8043C5A5 state and view==3; calls draw helpers of subobjects (+0x50/+0x60/+0x64)
+802D39DC	Bom_Scene_destroy	medium	calls subobject vt+0x1c then deletes each global singleton (BomStartbg, BorderMiss, ...), Party cleanup
+802D3AD8	Bom_Scene_calc	medium	per-frame: reads controller, Bom_Scene_calcObjects, calls subobject update slots, copies color, plays sfx 0x18/0x1b
+802D3C04	Bom_Scene_reset	medium	resets counters, camera setup, calls each subobject vt+0x14 (reset), sets controller params for 4 pads
+802D3EBC	Bom_Scene_load	high	loads sceneFile.brres, bloom, light map, basic_bomb.breff/breft, rp_Bom_sound.brsar; calls subobject load slots
+802D414C	Bom_Scene_create	high	creates all Bom singletons (BomStartbg, BorderMiss, etc.), sets up render layers and camera
+802D43C4	Bom_802D43C4	keep	empty body in pseudocode (72 bytes, likely float/GQR only)
+802D440C	Bom_Scene_calcObjects	medium	sets update flag, increments frame count, calls calc on camera and all scene subobjects
+802D4500	Bom_Scene_loadLightMap	high	loads graphic/scene_Light.plight and graphic/scene_Lm.plmap
+802D45C8	Bom_Scene_createCameras	medium	creates camera object (Cls_8035E7B8) and three eggScreen projections, assigns to render layers 0-5
+802D482C	Bom_Scene_dtor	high	destructor: base dtor then operator delete if flag>0
+802D4888	Bom_dtorThunk_802D4888	low	dtor-shaped: fn_800AC520 then operator delete if flag>0; no vtable reference
+802D48E4	Bom_initSceneLightPos	medium	static init: sets lbl_8043A9D8 vec to (0,10000,0), used as light position in Scene_load
+802D4904	Bom_Scene_drawThunk	high	this-0x24 adjustor thunk to Bom_Scene_draw
+802D490C	Bom_Scene_dtorThunk	high	this-0x24 adjustor thunk to Bom_Scene_dtor
+802D4914	Bom_StartBg_setFadeTargetFull	medium	sets field +0x58 (bg alpha target) to 255.0
+802D4920	Bom_StartBg_setFadeTargetDim	medium	sets field +0x58 (bg alpha target) to 120.0
+802D492C	Bom_StartBg_setLevel	medium	stores level at +0x4c; either sets bg anim frame from level table or plays Bom_levelup01 effect and delays 17 frames
+802D4AC0	Bom_StartBg_playWipe	high	plays Bom_startbg_wipe(_st) effect at bg position/scale
+802D4C28	Bom_StartBg_attachBgModelNode	medium	looks up node bg_model in model and stores its matrix into +0x68
+802D4CA0	Bom_StartBg_updateModelMatrix	medium	builds scaled matrix from fields, writes to both bg models (+0x60,+0x64), updates transforms
+802D4E08	Bom_StartBg_calc	medium	counts down level-change delay, then sets bg anim frame from level table; calls updateFade
+802D4F04	Bom_StartBg_reset	medium	resets position/scale, anim frames, alpha 255, restarts startbg effect at bg position
+802D520C	Bom_StartBg_load	high	loads bg_model and bg_acc models
+802D5240	Bom_StartBg_create	high	allocates Bom_startbg or Bom_startbg_st effect by aspect mode
+802D52D0	Bom_StartBg_updateFade	medium	moves alpha (+0x54) toward target (+0x58) and writes it to two materials of bg model
+802D5440	Bom_StartBg_loadBgAccModel	high	loads G3D/bom_bg_acc_model.brres, bg_acc_model, 16:9 or 4:3 anim
+802D55E4	Bom_StartBg_loadBgModel	high	loads G3D/bg_model.brres model and its animations
+802D57C8	Bom_StartBg_dtor	high	destructor: base dtor then operator delete if flag>0
+802D5820	Bom_StartBg_destroyInstance	high	deletes singleton lbl_8043CA70 (BomStartbg) and clears pointer
+802D5864	Bom_StartBg_createInstance	high	allocates 0x9c object, sets BomStartbg vtable, stores to singleton lbl_8043CA70
+802D58B8	Bom_StartBg_attachBgModelNodeThunk	high	this-0x48 adjustor thunk to attachBgModelNode
+802D58C0	Bom_StartBg_dtorThunk	high	this-0x48 adjustor thunk to dtor
+802D58C8	Bom_Camera_updateMatrix	medium	computes look direction from pos (+0x178) to target (+0x190), normalizes, copies into camera fields
+802D5990	Bom_Camera_setMode	medium	mode 1: orbit-style position from sin/cos; mode 0: start zoom path with spline (RP_801BA150); stores mode +0x1e8
+802D5C38	Bom_Camera_calc	medium	reads controller, runs mode state-function table (this+mode*0xc), then camera update slot
+802D5C9C	Bom_Camera_reset	low	computes look direction pos->target and copies into camera fields (same body as updateMatrix)
+802D5D64	Bom_Camera_create	medium	base create, allocates spline path (RP_801BA1D4,5 points), zoom progress 0, speed, mode 1
+802D5DCC	Bom_Camera_stateIdle	medium	empty state function (camera mode 1 entry in state table)
+802D5DD0	Bom_Camera_stateZoomIn	medium	advances spline progress with decaying speed, evaluates path into pos, lerps target Y; switches to mode 1 at end
+802D5E9C	Bom_Camera_dtor	high	destructor: base dtor then operator delete if flag>0
+802D5EF4	Bom_Camera_destroyInstance	high	deletes singleton lbl_8043CA78 (camera) and clears pointer
+802D5F38	Bom_Camera_createInstance	high	allocates 0x204 camera, sets vtable 8035E7B8, state table (stateZoomIn/stateIdle), stores lbl_8043CA78
+802D5FD8	Bom_initCameraPathPoints	medium	static init of camera position/target/spline point constants (lbl_8043A9E8..)
+802D6090	Bom_shuffleArray	high	assigns LCG/LFSR random keys to each word, sorts by key, writes back: random permutation of array
+802D61BC	Bom_getScreenHalfHeight	medium	returns lbl_8043B93C (= viewport height * 0.5, set by updateScreenSize)
+802D61C4	Bom_getScreenHalfWidth	medium	returns lbl_8043B938 (= viewport width * 0.5)
+802D61CC	Bom_getScreenHeight	medium	returns lbl_8043B934 (viewport height)
+802D61D4	Bom_getScreenWidth	medium	returns lbl_8043B930 (viewport width)
+802D61DC	Bom_updateScreenSize	medium	reads viewport size from render layer and stores width/height and halves in globals
+802D6260	Bom_allocShuffleBuffers	medium	allocates 0x800 shuffle work buffer (lbl_8043CA80) and a 16x256 heap/pool (lbl_8043CA84)
+802D62AC	Bom_nullCallback	low	empty callback passed to pool creation in allocShuffleBuffers
+802D62B0	Bom_initIdentityMatrices	medium	static init of two 3x4 orientation matrices (lbl_8043AA48, lbl_8043AA6C)
+802D6354	Bom_CursorManager_draw	medium	calls slot 6 (draw) on each active cursor
+802D63BC	Bom_CursorManager_exit	low	calls slot 5 on every allocated cursor
+802D6424	Bom_CursorManager_calc	medium	calls slot 4 (calc) on each active cursor
+802D648C	Bom_CursorManager_reset	medium	resets all cursors in reverse; active count = 1 or 2 from game player-count mode
+802D6520	Bom_CursorManager_load	low	empty load slot
+802D6524	Bom_CursorManager_createCursors	high	allocates N Cursor objects, calls create, assigns controller index i
+802D65B0	Bom_CursorManager_dtor	high	destructor: base dtor then operator delete if flag>0
+802D6608	Bom_CursorManager_destroyInstance	high	deletes singleton lbl_8043CA88 and clears pointer
+802D664C	Bom_CursorManager_createInstance	high	allocates 0x1c object, sets vtable 8035E7D8, stores lbl_8043CA88
+802D6698	Bom_Cursor_setControllerIndex	medium	stores controller index at +0x5c
+802D66A0	Bom_Cursor_draw	low	empty slot 6
+802D66A4	Bom_Cursor_calc	medium	gets controller for its index and updates from pointer
+802D66E4	Bom_Cursor_reset	medium	sets screen scale by aspect, default x (+-0.4 by player), y, roll 0; resets pointer filter
+802D677C	Bom_Cursor_create	medium	allocates Wii remote pointer helper (RP_801BAF00) at +0x40
+802D67C4	Bom_Cursor_updateFromPointer	medium	reads DPD pointer pos, clamps per aspect, sets world pos at z=1000; computes roll angle from acc vector
+802D6A70	Bom_Cursor_dtor	high	destructor: base dtor then operator delete if flag>0
+802D6AC8	Bom_Cursor_ctor	high	base ctor, sets vtable 8035E800, identity transform, clears controller index
+802D6BAC	Bom_Player_playResultAnim	medium	param 0: avatar anim 3 (ira_pose_lose), else anim 2 (ira_pose_win); sets expression
+802D6C40	Bom_Player_setStateResult	medium	clears bubble index/timer, state = 6
+802D6C5C	Bom_Player_setStateWin	medium	optionally plays win anim (2), state = 5
+802D6CE4	Bom_Player_restartPosing	medium	re-enters posing with current scale (+0x40) and pose (+0x50)
+802D6CF0	Bom_Player_setStateIra	low	optionally plays anim 1 (ira_pose_C), state = 4
+802D6D50	Bom_Player_restartPosing2	low	identical to restartPosing (re-enters posing with current scale and pose)
+802D6D5C	Bom_Player_startPosing	medium	snaps to cursor position/roll, sets scale and pose index (frame = pose*20), resets flags, state = 1
+802D6F28	Bom_Player_setStateIdle	medium	clears bubble index/timer, state = 0
+802D6F40	Bom_Player_attachEffectsToNode	low	looks up model node, stores its matrix at +0x74 and moves the 3 change-pose effects there
+802D7000	Bom_Player_updateModel	medium	writes transform to avatar and model, loops pose anim frame ranges per pose, sets anim speed +-2, updates bubble
+802D7498	Bom_Player_calcMove	medium	runs per-state function (table A), increments frame counter when active, updates sound position
+802D7508	Bom_Player_calcState	medium	runs per-state function (table B), then clears bubble-hit flag +0x44
+802D7550	Bom_Player_reset	medium	identity transform, scale 13, clears state/flags, resets avatar anim and expression, state = 0
+802D7754	Bom_Player_load	high	loads avatarA2_anim/bom_pose_anim (ira_pose_C/win/lose) onto avatar, loads bom_bubble model
+802D7A6C	Bom_Player_create	high	creates Bom_change_pose01-03 effects, Mii avatar (RP_8018F9E8) and PlayerSound object
+802D7D94	Bom_SoundActorBase_dtor	low	dtor of base class with vtable 8035C6BC (Wly sound actor base); releases sound handles, deletes if flag>0
+802D7EA4	Bom_Player_stateNop6	low	empty state function (table B, state 6)
+802D7EA8	Bom_Player_stateNop5	low	empty state function (table B, state 5)
+802D7EAC	Bom_Player_stateNop4	low	empty state function (table B, state 4)
+802D7EB0	Bom_Player_stateNop3	low	empty state function (table B, state 3)
+802D7EB4	Bom_Player_stateHitWait	medium	counts down +0x4c, then snaps back to cursor and returns to state 1
+802D8010	Bom_Player_statePosing	medium	handles bubble hit (rumble, sfx, state 2/3), pose effects, A/B button cycles pose 0..2 with sfx
+802D8594	Bom_Player_stateNop0	low	empty state function (table B, state 0)
+802D8598	Bom_Player_moveNop6	low	empty state function (table A, state 6)
+802D859C	Bom_Player_moveFollowCursor5	low	table A state 5: copies cursor position and roll into transform
+802D8698	Bom_Player_moveNop4	low	empty state function (table A, state 4)
+802D869C	Bom_Player_moveAlongBubble3	low	table A state 3: takes position/orientation from bubble path (Bom_802E1BD0)
+802D8778	Bom_Player_moveAlongBubble2	low	table A state 2: takes position/orientation from bubble path (Bom_802E1BD0)
+802D8854	Bom_Player_moveFollowCursor1	low	table A state 1: copies cursor position and roll into transform
+802D8950	Bom_Player_moveNop0	low	empty state function (table A, state 0)
+802D8954	Bom_Player_playHitSound	medium	plays sound 9 if result 2, 7 if result equals own index, else 8
+802D89BC	Bom_Player_triggerPoseEffects	medium	fires change_pose01/02/03 effects when anim frame crosses 13/32/51 (direction dependent)
+802D8B6C	Bom_Player_dtor	low	dtor-shaped: operator delete if flag>0, no base call
+802D8BAC	Bom_Player_ctor	high	sets vtable 8035ECA4, identity transform, fills two 7-entry state function tables
+802D8DF8	Bom_PlayerSound_dtor	medium	dtor: restores base vtables, releases sound handles, operator delete if flag>0
+802D8F0C	Bom_initDownVector	medium	static init: lbl_8043AA90 = (0,-1,0)
+802D8F2C	Bom_SoundActorBase_dtorThunk	low	this-0x10 adjustor thunk to SoundActorBase_dtor
+802D8F34	Bom_PlayerSound_dtorThunk	medium	this-0x10 adjustor thunk to PlayerSound_dtor
+802D8F3C	Bom_PlayerManager_playResultAnims	medium	plays win/lose anims on player(s) by winner index and 1P/2P mode
+802D8FF8	Bom_PlayerManager_setAllStateResult	medium	setStateResult on every active player
+802D9054	Bom_PlayerManager_setPlayerStateWin	medium	setStateWin on player index
+802D906C	Bom_PlayerManager_restartAllPosing	medium	restartPosing on every active player
+802D90C8	Bom_PlayerManager_setStateIraByMask	low	setStateIra on each player, anim flag from bitmask
+802D9130	Bom_PlayerManager_restartAllPosing2	low	restartPosing2 on every active player
+802D918C	Bom_PlayerManager_startAllPosing	medium	startPosing(scale,pose) on every active player
+802D9208	Bom_PlayerManager_setAllIdle	medium	setStateIdle on every active player
+802D9264	Bom_PlayerManager_updateModels	medium	updateModel on every active player
+802D92C0	Bom_PlayerManager_calcMove	medium	calcMove on every active player
+802D931C	Bom_PlayerManager_calcState	medium	calcState on every active player
+802D9378	Bom_PlayerManager_reset	medium	resets all players; active count 1 or 2 from game player-count mode
+802D9400	Bom_PlayerManager_load	medium	calls Player_load for each allocated player
+802D945C	Bom_PlayerManager_createPlayers	high	allocates N 0x164 Player objects, sets index, calls Player_create
+802D94DC	Bom_PlayerManager_dtor	high	destructor: base dtor then operator delete if flag>0
+802D9534	Bom_PlayerManager_destroyInstance	high	deletes singleton lbl_8043CA90 and clears pointer
+802D9578	Bom_PlayerManager_createInstance	high	allocates 0x1c object, sets vtable 8035ED50, stores lbl_8043CA90
+802D95C4	Bom_GameManager_playSpecialJingle	low	requests BGM/jingle id 1 on the game's BGM controller (+0x64)
+802D95D0	Bom_GameManager_setBubbleResult	low	stores value at +0x30 and sets result-pending flag +0x39
+802D95E0	Bom_GameManager_setForcedMiss	low	sets miss flag +0x38 and forced flag +0x3b, reloads timer from param table
+802D9600	Bom_GameManager_setPlayerMiss	low	sets miss flag, missing player +0x34, falls back question index via table, reloads question
+802D9668	Bom_GameManager_tryAdvanceQuestion	low	if score covers cost of next question index, deducts it (Score_addScore negative) and advances
+802D97B8	Bom_GameManager_exit	medium	destroys Score and QuestionParam singletons
+802D97DC	Bom_drawScreenQuad	low	2D draw setup with screen size by aspect and draws a quad (RP_80196xxx helpers); called from Scene_draw
+802D985C	Bom_drawNop	low	empty function called from Scene_draw
+802D9860	Bom_GameManager_calc	medium	runs current state function (state at +0x58), updates Party display
+802D98B0	Bom_GameManager_start	medium	Party display init, clears flag, calls startGame
+802D98F8	Bom_GameManager_reset	medium	resets counters/flags for player count, lives from param table, resets Score, QuestionParam, BGM
+802D99F8	Bom_GameManager_load	medium	forwards load to QuestionParam (+0x60)
+802D9A0C	Bom_GameManager_create	medium	creates Score and QuestionParam singletons and BGM controller object
+802D9A64	Bom_GameManager_stateEnd	low	state 12: updates BGM; waits Party end-menu choice, sets retry/quit flags
+802D9B68	Bom_GameManager_stateResult	low	state 11: updates BGM; waits Party result display, posts result/score, goes to state 12
+802D9C6C	Bom_GameManager_stateAllClear	low	state 10: when end layout done, idles players, posts record to Party, state 11
+802D9D34	Bom_GameManager_stateGameOver	low	state 9: when end layout done, idles players, posts record to Party, state 11
+802D9DFC	Bom_GameManager_stateNextLevelTheme	low	state 8: waits theme layout, restarts posing at frame 80; when done shows dob, state 3
+802D9EA8	Bom_GameManager_stateLevelUp	low	state 7: when players ready, plays Bom_levelup01 and level message, state 8
+802DA054	Bom_GameManager_stateLevelEnd	medium	state 6: last level -> Bom_all_clear effect, results, state 10; else next level, spawn bubbles, state 7
+802DA484	Bom_GameManager_stateWaitBubbles	low	state 5: counts down or until no bubbles remain, plays jingle by miss count, back to state 3
+802DA554	Bom_GameManager_stateMiss	medium	state 4: waits bubbles cleared; continues to state 3 or, at max misses, game over results (state 9)
+802DA7B0	Bom_GameManager_statePlay	medium	state 3: spawns bubble waves from question params, handles miss (counts misses, state 4) and level end (state 6)
+802DAC8C	Bom_GameManager_stateShowTheme	low	state 2: waits theme layout, starts posing at frame 80; then shows dob layout, state 3
+802DAD50	Bom_GameManager_stateWaitReady	low	state 1: when players ready, wipes start bg, shows theme, state 2
+802DAEB4	Bom_GameManager_stateIntro	low	state 0: waits BorderMiss state 3, spawns first bubbles, shows theme title, state 1
+802DB0E8	Bom_GameManager_startGame	medium	resets level/miss counters, sets level 0 bg, loads first question, starts posing, state 0
+802DB25C	Bom_GameManager_dtor	high	destructor: base dtor then operator delete if flag>0
+802DB2B4	Bom_GameManager_ctor	high	base ctor, sets vtable 8035EE14, fills 13-entry state function table
+802DB464	Bom_GameManager_destroyInstance	high	deletes singleton lbl_8043CA98 and clears pointer
+802DB4A8	Bom_GameManager_createInstance	high	allocates 0x104 GameManager, runs ctor, stores singleton lbl_8043CA98
+802DB4DC	Bom_QuestionParam_pickRandomPose	medium	collects allowed poses for current question, shuffles if several, returns mapped pose id
+802DB5F0	Bom_QuestionParam_updateSpeed	low	lerps current value (+0xd18) toward per-question target over N frames
+802DB6C0	Bom_QuestionParam_nextPattern	low	sets question index, reshuffles if level advanced, loads next pattern entry into work fields
+802DB910	Bom_QuestionParam_spawnBubbles	low	for each pattern slot spawns a bubble via Bom_802E1F34 with flags (special 0x20 / player 0x10)
+802DBAC0	Bom_QuestionParam_generateWave	low	picks free spawn x, randomizes angles/speeds/poses for each bubble in wave
+802DBC60	Bom_QuestionParam_shufflePatternOrder	medium	fills pattern index list for a level and shuffles it (Bom_shuffleArray), pads with -1
+802DBD2C	Bom_QuestionParam_setQuestion	low	sets question index, resets speed and wave slots, shuffles patterns and loads first entry
+802DBFC8	Bom_QuestionParam_reset	medium	randomizes pose id mapping, resets question 0, speed, wave slots and pattern order
+802DC368	Bom_QuestionParam_load	high	loads param/BomQuestionParam.bin and builds per-level pattern index table
+802DC3C0	Bom_QuestionParam_rollSpecialBubble	low	random roll against per-level chance table (by bubble count) if enough spawns since last special
+802DC574	Bom_QuestionParam_rollTargetPlayer	low	2P: random player weighted by scores (Score +4/+8), else coin flip
+802DC6C0	Bom_QuestionParam_pickWavePose	low	uses forced pose if set, else random allowed pose avoiding the previous two choices
+802DC858	Bom_QuestionParam_randomizeRotSpeed	low	random rotation speed in [min,max] per bubble, random or fixed sign
+802DC988	Bom_QuestionParam_randomizeSpeedAndSegments	low	random speed per bubble and angle step 360/N from random count range
+802DCACC	Bom_QuestionParam_findSpawnPosition	low	tests 101 x positions with Bom_802E1CC4 in shuffled order, picks first free one
+802DCD28	Bom_QuestionParam_buildLevelTable	medium	scans 250 pattern entries and records first index and count per level
+802DCDC0	Bom_QuestionParam_dtor	high	destructor: base dtor then operator delete if flag>0
+802DCE18	Bom_QuestionParam_destroyInstance	high	deletes singleton lbl_8043CAA0 and clears pointer
+802DCE5C	Bom_QuestionParam_createInstance	high	allocates 0xdbc object, sets vtable 8035EE38, stores lbl_8043CAA0
+802DCEB0	Bom_Bgm_isSoundIdle	low	checks sound handle lbl_8043CAB0 via fn_80047590 for sound id; returns 1 if not playing
+802DCEF8	Bom_Bgm_update	low	sets track volume/mute mask by track; on beat 4 switches to tense track variant and applies
+802DD084	Bom_Bgm_applyTrack	low	switch on track id: starts corresponding stream (0x21,0x25,0x1d..0x26) or stops (id 11)
+802DDAA8	Bom_Bgm_requestTrack	low	if track id changed, stores it; for id 0 starts stream 0x21 immediately
+802DDC28	Bom_Bgm_stop	medium	stops current stream (fade 10) and resets controller to idle track 11
+802DDCA0	Bom_Bgm_ctor	medium	initializes BGM controller fields (track 11, flags)
+802DDCCC	Bom_initSoundHandle	medium	static init of sound handle lbl_8043CAB0 and registers its destructor
+802DDCEC	Bom_ScreenFx_setAlpha	low	stores float param at +8
+802DDCF4	Bom_ScreenFx_drawState	low	runs state function for current state (+4); called from Scene_draw
+802DDD28	Bom_ScreenFx_captureState	low	runs state function then captures framebuffer texture (RP_801B15B8 0x2b)
+802DDD74	Bom_ScreenFx_calc	low	runs state function for current state (+4)
+802DDDA8	Bom_ScreenFx_reset	low	state 0, alpha 1, sets param 10 and screen diagonal length
+802DDE48	Bom_ScreenFx_load	low	empty load slot
+802DDE4C	Bom_ScreenFx_create	medium	allocates EFB capture texture object (RP_EggCapTexture) at +0xc
+802DDEAC	Bom_ScreenFx_stateNop0	low	empty state function (one of 9 ScreenFx state-table entries)
+802DDEB0	Bom_ScreenFx_drawCapturedScreen	low	draws the captured EFB texture as a full-screen quad scaled by 1/alpha
+802DE0F4	Bom_ScreenFx_stateNop1	low	empty state function (ScreenFx state table)
+802DE0F8	Bom_ScreenFx_stateNop2	low	empty state function (ScreenFx state table)
+802DE0FC	Bom_ScreenFx_drawPlayerSpotlights	low	draws full-screen masked quad then a circle per active player at player position
+802DE4D8	Bom_ScreenFx_drawFullMask	low	draws a full-screen quad with color 0xff00ff
+802DE6A8	Bom_ScreenFx_stateNop3	low	empty state function (ScreenFx state table)
+802DE6AC	Bom_ScreenFx_stateNop4	low	empty state function (ScreenFx state table)
+802DE6B0	Bom_ScreenFx_stateNop5	low	empty state function (ScreenFx state table)
+802DE6B4	Bom_ScreenFx_dtor	high	destructor: base dtor then operator delete if flag>0
+802DE70C	Bom_ScreenFx_destroyInstance	high	deletes singleton lbl_8043CAB8 and clears pointer
+802DE750	Bom_ScreenFx_createInstance	high	allocates 0x84 object, sets vtable 8035EF68, copies 9-entry state table, stores lbl_8043CAB8
+802DE8A8	Bom_initUpVector100	medium	static init: lbl_8043AAB0 = (0,100,0)
+802DE8C8	Bom_Score_getWinner	medium	returns 0 if P1 score higher, 1 if P2 higher, -1 on tie
+802DE8F0	Bom_Score_applyMissPenalty	medium	subtracts (level+1)*5 from player score (clamped 0..9999) and shows score-move layout
+802DE950	Bom_Score_addBubblePoints	medium	adds combo-based points (x2 bonus) to score/total, counts pops, shows popup, increments combo (max 9)
+802DEAF4	Bom_Score_resetCombos	medium	clears per-player combo counters (+0x34)
+802DEB1C	Bom_Score_resetAll	medium	clears per-player score, total, pop count and combo arrays
+802DEBAC	Bom_Score_addTotal	medium	adds value to per-player total (+0x14), clamped 0..99999
+802DEBE4	Bom_Score_addScore	medium	adds value to per-player score (+4), clamped 0..9999
+802DEC18	Bom_Score_clearTotals	medium	clears per-player totals (+0x14)
+802DEC40	Bom_Score_reset	medium	sets player count, clears per-player counters and 32-entry history arrays
+802DECBC	Bom_Score_dtor	high	destructor: base dtor then operator delete if flag>0
+802DED14	Bom_Score_destroyInstance	high	deletes singleton lbl_8043CAC0 and clears pointer
+802DED58	Bom_Score_createInstance	high	allocates 0x2cc object, sets vtable 8035EF90, stores lbl_8043CAC0
+802DEDA4	Bom_PoolObj_vf35	low	empty virtual (slot 35)
+802DEDA8	Bom_PoolObj_spawnNop	low	empty virtual (slot 32, overridden by Panel spawn)
+802DEDAC	Bom_PoolObj_vf31	low	empty virtual (slot 31)
+802DEDB0	Bom_PoolObj_deactivate	medium	marks inactive (age -999), decrements owner pool count, hides model
+802DEDE4	Bom_PoolObj_activate	medium	resets state, sets position, calls init/setup slots, age 0, shows model
+802DEE98	Bom_PoolObj_calc	low	empty calc slot
+802DEE9C	Bom_PoolObj_postCalc	low	forwards to slot 22 (integrate)
+802DEEAC	Bom_PoolObj_vf27	low	empty virtual (slot 27)
+802DEEB0	Bom_PoolObj_preCalc	low	forwards to slot 21 (clear forces)
+802DEEC0	Bom_PoolObj_move	medium	position += velocity
+802DEEF4	Bom_PoolObj_reset	medium	forwards to slot 20 (resetState)
+802DEF04	Bom_PoolObj_load	low	empty load slot
+802DEF08	Bom_PoolObj_create	medium	allocates sound actor object (vtable 8035E9AC) at +0xa0
+802DF06C	Bom_PoolObj_setup	low	empty virtual (slot 24, overridden by Panel_setup)
+802DF070	Bom_PoolObj_initFields	low	empty virtual (slot 23, overridden by Panel_initFields)
+802DF074	Bom_PoolObj_integrate	medium	pos += vel + force terms; vel += accel terms
+802DF108	Bom_PoolObj_clearForces	medium	zeroes the four force/accel vectors (+0x54..+0x80)
+802DF140	Bom_PoolObj_resetState	medium	identity transform, zero velocity/forces, scale 1, age -1 (inactive), hides model
+802DF254	Bom_PoolObj_dtor	high	destructor: base dtor then operator delete if flag>0
+802DF2AC	Bom_PoolObj_ctor	high	model base ctor, sets vtable 8035EFB8, zeroes motion fields and pool links
+802DF398	Bom_PoolObj_getColorType	low	default returns 0 (slot 33; Panel returns +0xdc)
+802DF3A0	Bom_PoolObj_getPoseIndex	low	default returns 0 (slot 34; Panel returns +0xe4)
+802DF3A8	Bom_PoolObj_isFalling	low	default returns 0 (slot 36; Panel returns state != 2)
+802DF3B0	Bom_PoolObj_miss	low	empty virtual (slot 37; Panel plays miss effect)
+802DF3B4	Bom_ObjPool_deactivateAll	medium	calls deactivate on every item and clears active count
+802DF414	Bom_ObjPool_spawn	medium	round-robin finds inactive item, activates it, increments count, returns it
+802DF4E0	Bom_ObjPool_updateModels	medium	calls model update slot 7 on each active item
+802DF550	Bom_ObjPool_incrementAges	medium	increments age counter (+0x94) of each active item
+802DF58C	Bom_ObjPool_calcItems	medium	calls slot 4 (calc) on each active item
+802DF5FC	Bom_ObjPool_postCalcItems	medium	calls slot 28 (postCalc) on each active item
+802DF66C	Bom_ObjPool_vf27Items	low	calls slot 27 on each active item
+802DF6DC	Bom_ObjPool_preCalcItems	medium	calls slot 26 (preCalc) on each active item
+802DF74C	Bom_ObjPool_moveItems	medium	calls slot 25 (move) on each active item
+802DF7BC	Bom_ObjPool_reset	medium	clears count, resets cursor, calls reset on every item
+802DF820	Bom_ObjPool_load	medium	calls load on every item
+802DF878	Bom_ObjPool_createItems	high	allocates N-slot array, creates items via factory slot 7, calls create, sets index/owner
+802DF934	Bom_ObjPool_dtor	high	destructor: base dtor then operator delete if flag>0
+802DF98C	Bom_ObjPool_ctor	high	base ctor, sets vtable 8035F058
+802DF9C8	Bom_PanelCtrl_deactivateAll	medium	forwards to pool slot 18 (deactivateAll)
+802DF9DC	Bom_PanelCtrl_exit	low	forwards to pool slot 9 (destroy instance)
+802DF9F0	Bom_PanelPool_destroyInstance	medium	pool slot 9: deletes singleton lbl_8043CAD0 and clears pointer
+802DF9F4	Bom_PanelCtrl_updateModels	medium	forwards to pool slot 16 (updateModels)
+802DFA08	Bom_PanelCtrl_incrementAges	medium	forwards to pool slot 15 (incrementAges)
+802DFA1C	Bom_PanelCtrl_calc	medium	forwards to pool slot 14 (calcItems)
+802DFA30	Bom_PanelCtrl_postCalc	medium	forwards to pool slot 13 (postCalcItems)
+802DFA44	Bom_PanelCtrl_vf27	low	forwards to pool slot 12 (slot-27 pass)
+802DFA58	Bom_PanelCtrl_preCalc	medium	forwards to pool slot 11 (preCalcItems)
+802DFA6C	Bom_PanelCtrl_move	medium	forwards to pool slot 10 (moveItems) unless game pause timer (+0x14) > 0
+802DFA94	Bom_PanelCtrl_reset	medium	forwards to pool reset
+802DFAA8	Bom_PanelCtrl_load	medium	forwards to pool load
+802DFABC	Bom_PanelCtrl_create	medium	creates PanelPool singleton and its 16 panels
+802DFB04	Bom_PanelCtrl_dtor	high	destructor: base dtor then operator delete if flag>0
+802DFB5C	Bom_PanelCtrl_destroyInstance	high	deletes singleton lbl_8043CAC8 and clears pointer
+802DFBA0	Bom_PanelCtrl_createInstance	high	allocates 8-byte object, sets vtable 8035F0B0, stores lbl_8043CAC8
+802DFBEC	Bom_Panel_checkPlayerMatch	medium	finds nearest posing player in range, counts frames near/facing; sets match flag if pose equals panel pose
+802DFE50	Bom_Panel_miss	high	plays Bom_bubble_miss effect and sound 0x1b, then deactivates
+802DFF9C	Bom_Panel_deactivate	medium	base deactivate then resets color anim by color type
+802E007C	Bom_Panel_spawn	high	sets position/velocity/angles, random rotation, plays Bom_keyhole_appear effect and sound 0xf
+802E03D4	Bom_Panel_attachPanelNode	high	finds panel_node in model and writes rotated/scaled matrix into it
+802E05B8	Bom_Panel_updateModel	medium	writes scaled transform to current panel model and updates it
+802E06D0	Bom_Panel_calc	medium	runs state function (+0xe0) and updates sound position
+802E0728	Bom_Panel_postCalc	medium	integrates; on player match marks player hit, adds score, sets bubble result, glow effect, state 2
+802E0870	Bom_Panel_preCalc	medium	while falling checks player match, else clears match tracking
+802E08B4	Bom_Panel_clearForcesThunk	low	branch to PoolObj_preCalc (clear forces)
+802E08B8	Bom_Panel_move	medium	pos += vel, advances rotation angle (wraps 0..360), rebuilds orientation
+802E09B0	Bom_Panel_reset	medium	resets base state and color anims of the 3 panel models
+802E0A78	Bom_Panel_loadThunk	low	branch to Bom_Panel_loadModels
+802E0A7C	Bom_Panel_create	medium	allocates sound actor (PlayerSound vtable 8035E8D0) at +0xf4
+802E0BE0	Bom_Panel_stateHit	medium	state 2: stops motion; deactivates once target player leaves hit state
+802E0C54	Bom_Panel_stateFall	medium	state 1: sways/falls; on passing bottom resets combos, sets player Ira state, reports miss, calls miss
+802E0E4C	Bom_Panel_stateNone	low	state 0: empty
+802E0E50	Bom_Panel_playOkEffects	high	plays Bom_bubble_ok_fly/glow/ptcl/ptcl2/ring (and sp_ring if special) scaled by combo
+802E11E0	Bom_Panel_setup	medium	decodes flags: pose index (&3), special bit31, color type (>>4&3); sets model anims
+802E13F0	Bom_Panel_initFields	medium	clears rotation/match fields, scale 1, target -1, state 1
+802E1454	Bom_Panel_resetStateThunk	low	branch to PoolObj_resetState
+802E1458	Bom_Panel_loadModels	high	loads bom_panelA/B/C models with panel_color0-2 anims
+802E1798	Bom_Panel_dtor	high	destructor: PoolObj dtor then operator delete if flag>0
+802E17F0	Bom_Panel_ctor	high	PoolObj ctor, sets vtable 8035F100, 3-entry state table (none/fall/hit)
+802E18C0	Bom_Panel_getColorType	medium	returns +0xdc
+802E18C8	Bom_Panel_getPoseIndex	medium	returns +0xe4 (panel model/pose index)
+802E18D0	Bom_Panel_isFalling	medium	returns 1 if state (+0xe0) != 2
+802E18E8	Bom_Panel_attachPanelNodeThunk	high	this-0xa4 adjustor thunk to attachPanelNode
+802E18F0	Bom_Panel_dtorThunk	high	this-0xa4 adjustor thunk to Panel_dtor
+802E18F8	Bom_PanelPool_getMaxFallingZ	medium	max z (+0xc) among active falling panels, -10000 if none
+802E19D0	Bom_PanelPool_countSpecialInRange	medium	counts active falling panels in z range with color type 2
+802E1ADC	Bom_PanelPool_countActiveInRange	medium	counts active falling panels whose z is within param range
+802E1BD0	Bom_PanelPool_getPanelTransform	medium	copies panel i position, matrix and color type; returns flag byte +0x40
+802E1CC4	Bom_PanelPool_isPositionOccupied	medium	returns 1 if any active panel within 2*radius (xz) of position
+802E1DC8	Bom_PanelPool_missFrontPanel	medium	finds falling panel with largest z and calls its miss slot
+802E1ED0	Bom_PanelPool_missAll	medium	calls miss slot on every active panel
+802E1F34	Bom_PanelPool_spawnPanel	medium	round-robin finds inactive panel and calls its spawn slot (32)
+802E2044	Bom_PanelPool_postCalcItems	low	same as ObjPool_postCalcItems (calls slot 28 on active items)
+802E2048	Bom_PanelPool_dtor	high	destructor: ObjPool dtor then operator delete if flag>0
+802E20A0	Bom_PanelPool_destroyInstance2	medium	deletes singleton lbl_8043CAD0 and clears pointer
+802E20E4	Bom_PanelPool_createInstance	high	allocates 0x18 pool, sets vtable 8035F620, stores lbl_8043CAD0
+802E2130	Bom_PanelPool_createItem	high	factory slot 7: allocates 0x11c Panel and runs ctor
+802E2160	Bom_Border_startFlash	low	scales borders, plays anim set 1 at speed 2, timer 80, state 2
+802E228C	Bom_Border_startIntro	low	sets per-border drop offsets from table, clears landing flags, state 0
+802E2308	Bom_Border_attachBorderNode	high	finds border_model node and stores matrix for matching border model
+802E23A4	Bom_Border_updateModels	medium	updates 3 border models; hides those beyond remaining lives (max - misses)
+802E2548	Bom_Border_calc	medium	runs state function (+0x58)
+802E257C	Bom_Border_reset	medium	resets position/scale, anims and offsets of 3 borders, state 1
+802E2874	Bom_Border_load	high	loads border_model.brres with border_landing/normal/miss anims for 3 models
+802E2AE4	Bom_Border_create	low	empty create slot
+802E2AE8	Bom_Border_stateRise	low	z += 5 up to 350
+802E2B0C	Bom_Border_stateMissWait	low	waits until game leaves miss state, restores normal anim, state 3
+802E2C74	Bom_Border_stateIdle	medium	on game miss state: break anim, Bom_borderbreak01 effect at lost border, sfx by lives left, state 4
+802E2F78	Bom_Border_stateFlash	low	counts down timer then restores normal anim, state 3
+802E30A8	Bom_Border_stateNop	low	empty state function
+802E30AC	Bom_Border_stateIntroDrop	medium	drops each border into place with landing anim and sfx 0x16-0x18; state 3 when all landed
+802E3420	Bom_Border_dtor	high	destructor: base dtor then operator delete if flag>0
+802E3478	Bom_Border_destroyInstance	high	deletes singleton lbl_8043CAD8 and clears pointer
+802E34BC	Bom_Border_createInstance	high	allocates 0x158 object, sets vtable 8035F708, copies 6-entry state table, stores lbl_8043CAD8
+802E35C8	Bom_Border_attachBorderNodeThunk	high	this-0x48 adjustor thunk to attachBorderNode
+802E35D0	Bom_Border_dtorThunk	high	this-0x48 adjustor thunk to dtor
+802E35D8	Bom_LayoutMgr_showScoreMove	medium	shows score-change animation left (P1) or right (P2) on score layout
+802E35F8	Bom_LayoutMgr_spawnScorePopup	medium	starts next of 16 ring-buffered dob score popups at screen position
+802E3670	Bom_LayoutMgr_draw	medium	calls draw slot on all fixed layouts and active score popups
+802E37A0	Bom_LayoutMgr_exit	low	calls slot 4 on all layouts and popups
+802E38AC	Bom_LayoutMgr_calc	medium	calls calc slot on all layouts and active score popups
+802E39DC	Bom_LayoutMgr_reset	medium	resets all layouts and popups, clears popup ring
+802E3B00	Bom_LayoutMgr_load	medium	loads party_message.bmg and passes layout archive to each layout load
+802E3C7C	Bom_LayoutMgr_create	high	creates theme, level msg, ready, 2 pose arrows, score, miss, clear, end layouts and 16 popups
+802E3DD0	Bom_LayoutMgr_dtor	high	destructor: base dtor then operator delete if flag>0
+802E3E28	Bom_LayoutMgr_destroyInstance	high	deletes singleton lbl_8043CAE0 and clears pointer
+802E3E6C	Bom_LayoutMgr_createInstance	high	allocates 0x74 object, sets vtable 8035F7A0, stores lbl_8043CAE0
+802E3EB8	Bom_LytStart_playThemeOut	medium	if theme shown (state 4) plays theme out anim, state 5
+802E3F50	Bom_LytStart_showTheme	high	sets theme texts, plays N_theme_00 in anim and signal anim, state 3
+802E4068	Bom_LytStart_showTitle	high	sets T_theme_00/01 texts, plays in anim, state 1
+802E41AC	Bom_LytStart_exit	low	empty slot 4
+802E41B0	Bom_LytStart_draw	medium	draws layout when active (state != 0)
+802E41C8	Bom_LytStart_calc	medium	advances anim states; while theme shown toggles signal anim by panel height; updates layout
+802E4308	Bom_LytStart_reset	medium	clears state/flags, stops anims, sets T_theme texts, binds in anim at frame 0
+802E44BC	Bom_LytStart_load	high	loads poseManStart_00.brlyt and inAll/upDownMsg/outAll/signal anims from poseMan.arc
+802E4598	Bom_LytStart_updateStates	medium	state 1->2 after in anim (start upDown), 3->4 shows level message, 5->0 after out anim
+802E4698	Bom_LytStart_dtor	high	dtor: operator delete if flag>0
+802E46D8	Bom_LytStart_ctor	high	layout base ctor, sets vtable 8035F7C8
+802E4714	Bom_LytScore_showMoveRight	medium	formats amount, shows T_moveRA/RB text by aspect, plays moveScoreR anim and sfx 5
+802E492C	Bom_LytScore_showMoveLeft	medium	formats amount, shows T_moveLA/LB text by aspect, plays moveScoreL anim and sfx 4
+802E4B44	Bom_LytScore_playOut	medium	if shown (state 2) sets 1P/2P panes visible and plays outAll anim, state 3
+802E4C8C	Bom_LytScore_playIn	medium	if hidden (state 0) sets 1P/2P panes visible and plays inAll anim, state 1
+802E4DD0	Bom_LytScore_exit	low	empty slot 4
+802E4DD4	Bom_LytScore_draw	medium	draws layout
+802E4DDC	Bom_LytScore_calc	medium	refreshes P1/P2 score texts, updates move animations, updates layout
+802E4EC4	Bom_LytScore_reset	medium	sets score and 1P/2P texts, hides move panes, stops anims, state 0
+802E5104	Bom_LytScore_load	high	loads poseManScore_00.brlyt and its 8 anims from poseMan.arc
+802E51FC	Bom_LytScore_playScorePlusEffect	high	plays Bom_score_plus_blue/red effect next to P1/P2 score pane, offset by digit count
+802E53AC	Bom_LytScore_updateAnims	medium	in/out state steps; when move anim ends adds pending amount to score, sfx, plus effect, switch anim
+802E55C0	Bom_LytScore_dtor	high	dtor: operator delete if flag>0
+802E5600	Bom_LytScore_ctor	high	layout base ctor, sets vtable 8035F7E8
+802E563C	Bom_LytPoint_show	medium	formats point number, selects point/dob pane and text color, places at clamped screen pos, plays anim
+802E58FC	Bom_LytPoint_exit	low	empty slot 4
+802E5900	Bom_LytPoint_draw	medium	draws layout
+802E5908	Bom_LytPoint_calc	medium	updates layout; when anim finishes decrements LayoutMgr active popup count
+802E596C	Bom_LytPoint_reset	medium	stops anims, sets T_unitDob texts, clears number buffer and active flag
+802E5A90	Bom_LytPoint_load	high	loads poseManPoint_00.brlyt and inOutAll anim from poseMan.arc
+802E5B08	Bom_LytPoint_dtor	high	dtor: operator delete if flag>0
+802E5B48	Bom_LytPoint_ctor	high	layout base ctor, clears active flag, sets vtable 8035F808
+802E5B8C	Bom_LytEnd_show	medium	sets end message (0xaf6, or 0xb08 when param set) and plays in anim, state 2
+802E5CDC	Bom_LytEnd_exit	low	empty slot 4
+802E5CE0	Bom_LytEnd_draw	medium	draws layout
+802E5CE8	Bom_LytEnd_calc	medium	in->shown, then after 180-frame timer plays out anim; sets done flag when out ends
+802E5DEC	Bom_LytEnd_reset	medium	state 1, timer 180, sets end texts, binds in anim at frame 0
+802E5F60	Bom_LytEnd_load	high	loads poseManEnd_00.brlyt with inEnd/outEnd anims from poseMan.arc
+802E6004	Bom_LytEnd_dtor	high	dtor: operator delete if flag>0
+802E6044	Bom_LytEnd_ctor	high	layout base ctor, sets vtable 8035F828
+802E6080	Bom_LytLevel_show	high	shows level number text (or final-level pane on last level) and plays in anim, state 2
+802E6228	Bom_LytLevel_exit	low	empty slot 4
+802E622C	Bom_LytLevel_draw	medium	draws layout unless hidden (state 1)
+802E6244	Bom_LytLevel_calc	medium	in->shown, 110-frame timer then out anim; sets done flag when out ends
+802E6350	Bom_LytLevel_reset	medium	state 1, timer 110, sets T_levelMsg_00-03 texts, binds in anim
+802E6528	Bom_LytLevel_load	high	loads poseManLevel_00.brlyt with in/out anims from poseMan.arc
+802E65CC	Bom_LytLevel_dtor	high	dtor: operator delete if flag>0
+802E660C	Bom_LytLevel_ctor	high	layout base ctor, sets vtable 8035F848
+802E6648	Bom_LytReady_playOut	medium	if shown plays out anim, state 3
+802E66D0	Bom_LytReady_show	medium	if hidden (state 1) plays in anim, state 2
+802E6764	Bom_LytReady_exit	low	empty slot 4
+802E6768	Bom_LytReady_draw	medium	draws layout unless hidden (state 1)
+802E6780	Bom_LytReady_calc	medium	after in anim starts wait loop; after out anim shows level message and hides
+802E6858	Bom_LytReady_reset	medium	state 1, sets T_Ready texts, binds in anim at frame 0
+802E69C4	Bom_LytReady_load	high	loads poseManReady_00.brlyt with in/wait/out anims from poseMan.arc
+802E6A90	Bom_LytReady_dtor	high	dtor: operator delete if flag>0
+802E6AD0	Bom_LytReady_ctor	high	layout base ctor, sets vtable 8035F868
+802E6B0C	Bom_LytPoseSel_playBlocked	medium	plays edge effect a/b (no pose change possible) and short rumble on player's remote
+802E6BA0	Bom_LytPoseSel_changePose	medium	maps pose to frame, plays pose frame anim, plays posechange effect for direction
+802E6C50	Bom_LytPoseSel_playOut	medium	plays out anim on pose selector unless hidden, state 3
+802E6D00	Bom_LytPoseSel_show	medium	if hidden (state 1) plays in anim, state 2
+802E6DBC	Bom_LytPoseSel_setPose	medium	sets current pose frame and plays its frame anim without transition
+802E6E0C	Bom_LytPoseSel_exit	low	empty slot 4
+802E6E10	Bom_LytPoseSel_draw	medium	draws layout
+802E6E18	Bom_LytPoseSel_calc	medium	updates pose transition anims, arrow visibility by pose, in/out state, effect positions
+802E6F84	Bom_LytPoseSel_reset	medium	state 1, clears pose indices, stops all 40 anims, resets pose panes
+802E7050	Bom_LytPoseSel_load	high	loads poseManAB_00/01.brlyt (per player) and 4x10 anims from poseMan.arc
+802E7154	Bom_LytPoseSel_updateEffectPositions	medium	moves the two posechange effects to their layout pane matrices
+802E733C	Bom_LytPoseSel_updatePoseTransition	medium	when transition anim between poses ends, binds idle anim for new pose
+802E7A2C	Bom_LytPoseSel_playPoseFrameAnim	medium	chooses N_frame anim by pose/direction and plays P_poseL highlight anim
+802E7C40	Bom_LytPoseSel_resetPanes	medium	binds base and P_poseL_00-02 anims at frame 0
+802E7DE0	Bom_LytPoseSel_dtor	high	dtor: operator delete if flag>0
+802E7E20	Bom_LytPoseSel_ctor	high	layout base ctor, stores player index, creates Bom_posechange_1p/2p_a/b effects
+802E7F28	Bom_LytClear_showWinner	medium	state 2; plays winner text anim (T_p2Score_01 or P2 pane) unless tie
+802E8004	Bom_LytClear_playOut	medium	if active plays out anim, state 8
+802E808C	Bom_LytClear_showFinalScore	medium	timer 180, shows 1P or 2P score pane, plays inScore anim, state 6
+802E81C8	Bom_LytClear_playOutScore	medium	if active plays outScore anim, state 5
+802E8254	Bom_LytClear_showBonus	medium	formats level bonus, sets bonus/clear texts for 1P or 2P, plays in anim, state 1
+802E83E0	Bom_LytClear_exit	low	empty slot 4
+802E83E4	Bom_LytClear_draw	medium	draws layout when active
+802E83FC	Bom_LytClear_calc	medium	refreshes score texts, runs state machine and 2P slide, updates layout
+802E8564	Bom_LytClear_reset	medium	clears state, sets score/bonus/message texts, binds in anim at frame 0
+802E88F8	Bom_LytClear_load	high	loads poseManClear_00.brlyt with 7 anims from poseMan.arc
+802E89E4	Bom_LytClear_updateSlide	low	2P: slides RootPane y toward -69 depending on substate
+802E8ABC	Bom_LytClear_updateStates	medium	clear sequence: sfx, bonus anim, adds bonus to scores with plus effect, blink/out steps, winner text
+802E900C	Bom_LytClear_playScorePlusEffect	high	plays Bom_score_plus_blue/red at P1/P2 score pane in clear layout
+802E917C	Bom_LytClear_setClearText2P	medium	shows 2P panes and sets clear message (0xb04/0xb05 by both cleared)
+802E9300	Bom_LytClear_setClearText1P	medium	shows 1P panes and sets clear message (0xb04/0xb05)
+802E9474	Bom_LytClear_setBonusText2P	medium	formats level bonus into T_bonusPT_02-05 for each player (zero if not cleared)
+802E95F8	Bom_LytClear_dtor	high	dtor: operator delete if flag>0
+802E9638	Bom_LytClear_ctor	high	layout base ctor, sets vtable 8035F8D0
+802E9674	Bom_LytMiss_show	medium	if not active sets miss text for player and plays inOutAll anim
+802E9708	Bom_LytMiss_exit	low	empty slot 4
+802E970C	Bom_LytMiss_draw	medium	draws layout when active
+802E9724	Bom_LytMiss_calc	medium	updates layout; clears active flag when anim ends
+802E9758	Bom_LytMiss_reset	medium	clears active flag, binds inOutAll anim at frame 0
+802E985C	Bom_LytMiss_load	high	loads poseManMiss_00.brlyt with inOutAll anim from poseMan.arc
+802E98F8	Bom_LytMiss_setMissText	high	sets T_miss text/color and panes for 1P, P1, P2 or both (0xb09)
+802E9C30	Bom_LytMiss_dtor	high	dtor: operator delete if flag>0
+802E9C70	Bom_LytMiss_ctor	high	layout base ctor, sets vtable 8035F8F0

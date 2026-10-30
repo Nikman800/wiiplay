@@ -1,0 +1,4 @@
+address	old_name	new_name	unit	previous
+80261B04	Tnk_BlockPool_isKind0BlockNear	IsKind0BlockNear__14RPTnkBlockPoolFfRCQ34nw4r4math4VEC3	Pack/RPParty/RPTnkScene/RPTnkBlock_2.cpp	
+80261F0C	Tnk_BlockPool_dtor	__dt__14RPTnkBlockPoolFv	Pack/RPParty/RPTnkScene/RPTnkBlock_2.cpp	
+80261FF4	Tnk_BlockPool_createObject	CreateObject__14RPTnkBlockPoolFv	Pack/RPParty/RPTnkScene/RPTnkBlock_2.cpp	

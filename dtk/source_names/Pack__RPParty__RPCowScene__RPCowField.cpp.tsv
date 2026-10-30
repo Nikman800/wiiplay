@@ -1,0 +1,11 @@
+address	old_name	new_name	unit	previous
+802A64BC	Cow_Field_entryDraw	Calculate__10RPCowFieldFv	Pack/RPParty/RPCowScene/RPCowField.cpp	
+802A64C4	Cow_Field_calc	OnActivate__10RPCowFieldFv	Pack/RPParty/RPCowScene/RPCowField.cpp	
+802A64D8	Cow_Field_exit	OnStop__10RPCowFieldFv	Pack/RPParty/RPCowScene/RPCowField.cpp	
+802A64DC	Cow_Field_reset	OnStart__10RPCowFieldFv	Pack/RPParty/RPCowScene/RPCowField.cpp	
+802A64E4	Cow_Field_init	LoadResource__10RPCowFieldFv	Pack/RPParty/RPCowScene/RPCowField.cpp	
+802A653C	Cow_Field_dtor	__dt__10RPCowFieldFv	Pack/RPParty/RPCowScene/RPCowField.cpp	
+802A6594	Cow_Field_ctor	__ct__10RPCowFieldFv	Pack/RPParty/RPCowScene/RPCowField.cpp	
+802A65E8	Cow_Field_dtorThunk	@20@__dt__10RPCowFieldFv	Pack/RPParty/RPCowScene/RPCowField.cpp	
+8035D080	lbl_8035D080	__vt__10RPCowField	Pack/RPParty/RPCowScene/RPCowField.cpp	
+80440C40	lbl_80440C40	sModelScale__10RPCowField	Pack/RPParty/RPCowScene/RPCowField.cpp	

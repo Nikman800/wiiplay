@@ -1,0 +1,24 @@
+vtable	class_name	evidence
+803502E0	Mpe_AudioMgr	RP audio manager (global lbl_8043C5D4): EGG arc/exp/heap/fx managers, opens Sound/RPMpeScene brsar, pause flags
+803504F8	Snd_HomeButtonSndMgr	ctor builds sound heap + arc player; opened with HomeButtonSe.brsar by HomeMenu_loadResources (lbl_8043C53C)
+80357120	Snd_RemoteArcPlayer	arc player at AudioMgr+0x974 sharing main archive; calc processes 4 per-remote pending speaker sounds
+80357948	Health_StrapScene	scene loading strap.arc / strap_00_<region> layout and rp_Health_sound.brsar (health & safety screen)
+8035C570	Wly_Scene	Find Mii scene: opens rp_Wly_sound.brsar, basic_wanted effects, forwards create/calc/draw/exit to GameMgr
+8035C870	Wly_GameMgr	global lbl_8043C970: owns cursors, field, wipe, phases, AvatarMgr/LayoutSet/LevelTable; init/create/reset/calc/draw/destroy slots
+8035C850	Wly_AvatarMgr	global lbl_8043C968 (0x291c): 100 avatars at +0x2764, stage object at +0x50, cursor hover detection
+8035C7E0	Wly_Avatar	KokeshiHead-derived Mii avatar with sound actor, shadow and Wtd_ava_* effects
+8035C5E0	Wly_SoundActor	multi-player sound actor (4 players, N handles at +0x58, fader +0x30): start/hold/prepare/stop by id/label/index
+8035C6BC	Wly_SoundActorBase	same layout as Wly_SoundActor; set by both dtors at +0x78, also built by Bom code
+8035CB48	Wly_SoundObj	sound object (4 handles at +0x48, fader +0x20) used as GameMgr BGM object with duck/restore logic
+8035C898	Wly_Cursor	per-player pointer cursor with Wtd_cursor_normal_1p/2p, blur and shadow effects
+8035C8B8	Wly_ClearPhase	GameMgr+0x58 phase object for state 3; plays Wtd_clear effect and clear sequence
+8035CA6C	Wly_ResultPhase	GameMgr+0x5c phase object for state 4; score tally, end score and all-clear layouts
+8035CA88	Wly_IntroPhase	GameMgr+0x50 phase object for state 0 (0->1->2)
+8035CAA8	Wly_TargetPhase	GameMgr+0x54 phase object for state 1; shows level, timer and target Mii question
+8035CB18	Wly_Field	GameMgr+0x38 stage background: loads wtd_field01..09 models, earth/ground sub-objects
+8035CBB0	Wly_AvatarShadow	model object loading wtd_ava_shadow
+8035CC80	Wly_Earth	model object loading wtd_field03_earth
+8035CCC8	Wly_Ground	model object loading wtd_field02_ground
+8035CCF0	Wly_Field06	model object loading wtd_field06
+8035CD18	Wly_Wipe	GameMgr+0x34 model object loading wtd_wipe_a; drives round-start wipe
+8035CD38	Cow_Scene	scene class whose slot 21 creates the Cow_Cow manager (lbl_8043C680); listed under Wly by position only

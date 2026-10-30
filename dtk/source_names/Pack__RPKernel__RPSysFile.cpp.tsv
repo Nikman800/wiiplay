@@ -1,0 +1,4 @@
+address	old_name	new_name	unit	previous
+8018713C	Sys_ResMgr_removeFromFileList	RemoveFromFileList__20RPSysResourceManagerFP9RPSysFile	Pack/RPKernel/RPSysFile.cpp	
+801978B0	Sys_CachedArchive_dtor	__dt__9RPSysFileFv	Pack/RPKernel/RPSysFile.cpp	
+80197924	Sys_CachedArchive_ctor	__ct__9RPSysFileFPCclPCv	Pack/RPKernel/RPSysFile.cpp	

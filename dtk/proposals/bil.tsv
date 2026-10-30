@@ -1,0 +1,656 @@
+address	new_name	confidence	note
+80194BD4	RP_LytGroup_unbindAnim	low	for each pane in group list (+0x10) calls pane vtable 0x48 with (anim, flag); RP lyt helper range (callers Bil HUD)
+80194C4C	RP_LytGroup_bindAnim	low	for each pane in group list (+0x10) calls pane vtable 0x44 with (anim, flag); RP lyt helper range (callers Bil HUD)
+801B7D1C	RP_Kcl_searchSphereOctree	medium	KCL octree walk over sphere bbox (radius f1), calls RP_801B7748 per triangle; generic collision, callers RP/Lyt/Bil -> R
+801BB80C	RP_RigidBody_isAtRest	medium	true if |vel|(+0x1c)<=+0x74 and |angvel|(+0xe0)<=+0x74/+0x64, optional pos delta check; sits in RP body code
+801BD1B8	RP_RigidBody_resetMatrices	low	copies axis vectors +0x34/+0x40/+0x4c into two 3x4 matrices (+0x80,+0xb0) with zero translation; RP body code
+801BDFB4	RP_Camera_clearLock	low	RP camera base (vt 803573E0) slot 2: clears byte +0x1fc (camera lock flag checked by Bil camera code)
+802B9EC8	Cow_bindAnimsMode2	low	called only from Cow_Cow vf03; binds anim +0x2c via RP_80194D68/CC4, sets frame to end, state +0x50=2; moved to Cow
+802B9F74	Cow_bindAnimsMode1	low	called only from Cow_Cow vf03; binds 3 anim sets per player, rewinds, state +0x50=1; moved to Cow
+802BA1A4	Bil_Scene_drawPass	low	scene slot14: forwards to GameMgr_setCursorsVisible (per-pass cursor visibility)
+802BA1AC	Bil_Scene_exit	medium	scene slot19 (user exit): GameMgr exit + destroy, RP_801B95E0, stops Mpe sound scene
+802BA1E0	Bil_Scene_calc	medium	scene slot18 (user calculate): forwards to GameMgr_calc
+802BA1E8	Bil_Scene_reset	medium	scene slot17 (user reset): forwards to GameMgr_reset
+802BA1F0	Bil_Scene_loadResources	high	loads party_message.bmg, bad_* G3D brres, rp_Bil_sound.brsar, basic_billiards.breff/breft
+802BA354	Bil_Scene_create	medium	scene slot15 (configure): screens/cap textures, lights, Mpe scene, sound helper; creates GameMgr
+802BAA40	Bil_802BAA40	keep	empty function
+802BAA70	Bil_Scene_dtor	high	dtor: base dtor fn_800AB4F8 then delete if flag>0
+802BAACC	Bil_SceneSoundRef_dtor	low	dtor with base fn_800AC520 for the 0x18 object (vt 8035DC38) created in Scene_create holding the Mpe scene
+802BAB28	Bil_Scene_dtorThunk	high	adjusts this by -0x24 and calls Scene dtor
+802BAB30	Bil_Table_draw	medium	Table slot32: draws aim guide line (DrawGX) in certain game states, screen overlay quad
+802BAF18	Bil_initRackOrigin	low	writes vec (50,0,0) to out; used as rack base position by Bil_getRackPosition
+802BAF30	Bil_Table_getPocketPos	high	returns pocket position by index 0-5 from pocket_corner/pocket_side with sign mirroring
+802BB008	Bil_Table_isInsideBallRange	medium	true if point minus radius is within ball0_range extents (+0x88/+0x90) around origin
+802BB0D8	Bil_Table_hideGuideLine	medium	clears guide-line flag +0x60 (flag drawn by Table draw)
+802BB0E4	Bil_Table_setGuideLine	medium	stores origin/normalized dir, computes length to cushion bounds (+0x7c), sets flag +0x60
+802BB234	Bil_Table_sweepHitsKcl	medium	steps a sphere (0.5 units) along segment, KCL query (+0xb0) per step; returns 1 on hit
+802BB398	Bil_Table_calc	medium	Table slot30: shadow calc, base model-matrix update, writes mask model matrix/scale
+802BB48C	Bil_Table_exit	low	Table slot31: empty
+802BB490	Bil_Table_reset	medium	Table slot29: clears +0x80,+0x7c,+0x60 guide flags
+802BB4A8	Bil_Table_load	high	Table slot28: loads table.kcl, bad_table/bad_mask models, ball0_range/pocket_corner/pocket_side, shadow tex
+802BB714	Bil_Table_dtor	high	dtor: RP_8018ED50, Gfx_80190C24, delete if flag>0
+802BB780	Bil_Table_destroy	high	deletes global table lbl_8043C9B8 and nulls it
+802BB7C4	Bil_Table_create	high	allocates 0xB8 Table, sets vtables, registers in Gfx list, stores global lbl_8043C9B8
+802BB850	Bil_getPocketDirection	medium	looks up one of 6 hardcoded direction vectors by pocket index and normalizes it
+802BB8E8	Bil_getConst3_57	low	returns double constant ~3.57 (used as height threshold for balls at rest above table)
+802BB8F0	Bil_getZeroVec	high	returns &static zero vector lbl_8043A944
+802BB8FC	Bil_getZero	low	returns 0.0 (used as table surface height)
+802BB904	Bil_sinitZeroVec	high	static init: zero vector lbl_8043A944 and registers its dtor
+802BB938	Bil_Table_dtorThunk4	high	this-4 thunk to Table dtor
+802BB940	Bil_Table_drawThunk	high	this-8 thunk to Table draw
+802BB948	Bil_Table_dtorThunk8	high	this-8 thunk to Table dtor
+802BB950	Bil_CameraMgr_calc	low	calls slot 0x14 of each camera's +0x174 interface (main, aux, 2 player cams), copies main view mtx to Mpe scene
+802BBA70	Bil_CameraMgr_reset	low	calls slot 0x10 (Camera reset) of each camera interface, copies main view mtx to Mpe scene; called from GameMgr reset
+802BBB90	Bil_CameraMgr_dtor	low	trivial dtor (vt 8035DD38)
+802BBBD0	Bil_CameraMgr_destroy	high	deletes global lbl_8043C9C0
+802BBC14	Bil_CameraMgr_create	high	allocs 0x14 manager, creates main Camera (0x238), aux camera 8035E348, two 8035E360 cameras; global lbl_8043C9C0
+802BBCD0	Bil_Camera_computeDefaultView	low	computes eye/target/up (+0xc0/+0xcc/+0xf4) from fixed offsets; sign of z chooses side
+802BBDE4	Bil_Camera_moveToOverview	low	derives new eye from table centre (lbl_8043A9A4) and current dir, starts RP_801BDC60 transition
+802BBF28	Bil_Camera_moveToDefaultView	low	builds temp camera with computeDefaultView then starts transition RP_801BDC60
+802BC000	Bil_Camera_orbitPitch	medium	rotates eye about target around right axis, clamps pitch to range, adjusts distance; not when locked +0x1fc
+802BC238	Bil_Camera_orbitYaw	medium	rotates eye/up about Y axis around target by angle; not when locked +0x1fc
+802BC3B8	Bil_Camera_moveToAimAt	low	starts transition looking at point from direction of other point, stores target +0x200
+802BC518	Bil_Camera_moveToLookAt	low	starts transition with eye=p+dir*dist looking at p
+802BC5E4	Bil_Camera_saveView	high	sets +0x20c and saves eye/target/up to +0x210..+0x230
+802BC638	Bil_Camera_calc	medium	Camera slot3: sets FOV/aspect, base calc, places light 1 relative to view dir
+802BC800	Bil_Camera_reset	medium	Camera slot2: resets eye/target/up to static defaults, FOV, clears +0x20c,+0x200
+802BC950	Bil_Camera_ctor	high	RP camera base ctor, sets +0x174 vtable, creates SoundActor (+0x234)
+802BCA30	Bil_Camera_getBaseDistance	low	returns float lbl_8043B7CC
+802BCA38	Bil_Camera_getZoomDistance	low	returns lbl_8043B7B4 or lbl_8043B7B8 depending on option flag lbl_8043BBA8
+802BCA54	Bil_Camera_dtor	high	destroys two vec arrays (+0x1b8,+0x17c) then delete if flag>0
+802BCADC	Bil_SoundActor_dtor	medium	destroys sound handle array, unregisters from list lbl_804390F0, base dtor, delete
+802BCB90	Bil_sinitCameraDefaults	high	static init: default eye (-300,100,300), target (100,0,0), up (0,1,0), table centre (0,20,0)
+802BCC5C	Bil_Player_setCursorsVisible	medium	sets/clears hide bit0 on 5 cursor models +0x68b0..+0x68c0 according to arg
+802BCD30	Bil_Player_rumble	medium	starts controller rumble pattern on player's channel (+0x64)
+802BCD6C	Bil_Player_draw	medium	Player slot32: when current player and in certain states, draws overlay quad (DrawGX)
+802BCEF0	Bil_Player_updateCursorModel	medium	places active cursor model (+0x68ac idx) facing camera at ball pos or screen-projected pointer
+802BD0F8	Bil_Player_updateArrowModel	low	places bad_arrow model (+0x68a4/+0x68a8) offset along cue dir; arg selects left/right
+802BD330	Bil_Player_updateCueModel	medium	builds cue model matrix from cue dir +0x6890 and position +0x6884
+802BD450	Bil_Player_calcCueFromCamera	medium	cue dir from camera view+up, smoothed pull-back +0x689c sets cue position behind ball
+802BD5B4	Bil_Player_updateMaxStat	low	+0x6880 = max(+0x6880, arg)
+802BD5CC	Bil_Player_incStat687C	low	increments +0x687c capped at 9
+802BD5EC	Bil_Player_incShotCount	medium	increments +0x6878 capped at 99 (called at start of each turn, shown as 1P score)
+802BD60C	Bil_Player_addScore	medium	adds arg to score +0x6874
+802BD61C	Bil_Player_setChannel	medium	sets controller channel +0x64 and changes state to 8 (inactive)
+802BD62C	Bil_updateAimMarker	medium	casts camera-dir ray at balls, checks clear path (Table sweep), shows/hides aim marker
+802BD7F0	Bil_Ball_getPos	high	Ball slot11: forwards to rigid body getPos (body vtable 0x34)
+802BD804	Bil_Player_calcPointerRay	medium	if pointer valid, unprojects pointer (+0xa8/+0xac) to world ray dir (+0xc8) from camera eye (+0xd4)
+802BD8E8	Bil_Player_updatePointerTarget	medium	projects cue ball to screen, ray-tests cue ball; sets pointer mode +0x6c (0 on ball,1 near,2 far)
+802BDC8C	Bil_Player_calcWait	medium	player state 7 calc (empty), from state table lbl_803270A8
+802BDC90	Bil_Player_enterWait	medium	player state 7 enter (empty)
+802BDC94	Bil_Player_calcAfterShot	medium	player state 6 calc: camera follows/overview, cue slides forward and fades, -> state 7 after 60 frames
+802BDF70	Bil_Player_enterAfterShot	medium	player state 6 enter: hides aim marker/guide line/HUD prompts, sets music state 3
+802BDFF8	Bil_Player_calcRotateView	medium	player state 5 calc: orbits camera by pointer delta while B held, A toggles sound; B release -> state 2
+802BE5B0	Bil_Player_enterRotateView	medium	player state 5 enter: clears pointer-delta history, cursor 4, sets cursor model colour
+802BE744	Bil_Player_calcStroke	high	player state 4 calc: detects remote thrust from motion history, sets shot velocity, rumble, hits cue ball, -> state 6
+802BF394	Bil_Player_enterStroke	medium	player state 4 enter: arrow anim, cue alpha 0xff, resets accel vector (0,-1,0)
+802BF438	Bil_Sound3D_startSoundById2	low	slot22: reuse/free/steal handle slot by priority, then secondary vtable 0xbc (start)
+802BF638	Bil_Sound3D_setupStart	low	slot45: stops old handle, fn_80047524 setup, applies 3D pan/volume params from RP_801B2BF8
+802BF754	Bil_Player_calcAddress	medium	player state 3 calc: B held at cue ball; remote raised -> state 4, B released -> state 2
+802BF950	Bil_Player_enterAddress	medium	player state 3 enter: cursor 1, starts arrow anim, hides HUD prompts, music state 2
+802BF9D4	Bil_Player_calcAim	medium	player state 2 calc: pointer/D-pad camera control, guide line, B on cue ball -> state 3, B far -> state 5
+802BFF04	Bil_Player_enterAim	medium	player state 2 enter: camera aims at lowest ball, guide line, HUD prompts, music state by player
+802C00D4	Bil_Player_calcPlaceBall	medium	player state 1 calc: pointer onto table, validates cue-ball placement, A/B places ball -> state 2
+802C02E0	Bil_Player_enterPlaceBall	medium	player state 1 enter: camera default view, shows cue-ball ghost, HUD prompts
+802C0390	Bil_Player_calc	medium	Player slot30: controller DPD setup, motion history ring buffer (200), pointer read, runs state machine
+802C0848	Bil_Sound3D_applyToAllHandles	low	slot16: calls fn_80041370(handle,arg) on 4 sound handles
+802C08A4	Bil_Player_exit	medium	Player slot31: fn_800CA884(channel,0) (stop rumble)
+802C08B0	Bil_Player_reset	high	Player slot29: resets state machine, pointer data, scores/stats, cue pos, cursor -1
+802C0970	Bil_Player_load	high	Player slot28: loads bad_cue, bad_arrow_00/01, bad_cursor1-5 models and anims
+802C0BC0	Bil_Player_ctor	high	actor base ctor, vtables 8035DDC8, state machine with 9 states from lbl_803270A8, SoundActor, Bil_camera_arrow_2d effect
+802C0D58	Bil_PlayerSM_ctor	high	state machine ctor: owner +0x14, allocates enter/calc/exit ptmf arrays for N states
+802C0E38	Bil_PlayerSM_setStateFuncs	high	stores enter and calc ptmf for state index
+802C0E7C	Bil_PlayerSM_reset	high	sets current/prev/next state, pending flag, frame counter 0
+802C0EA0	Bil_PlayerSM_changeState	high	sets next state +8 and change/exit flags
+802C0EB4	Bil_PlayerSM_update	high	on pending change runs exit, swaps states, runs enter; runs calc; increments frame counter
+802C0F40	Bil_PlayerSM_callEnter	high	invokes enter ptmf of current state if set
+802C0FA0	Bil_PlayerSM_callCalc	high	invokes calc ptmf of current state if set
+802C1000	Bil_PlayerSM_callExit	high	invokes exit ptmf of current state if set
+802C1060	Bil_Player_dtor	high	destroys vec2 array, actor base dtors, delete if flag>0
+802C10E8	Bil_sinitPlayerConsts	medium	static init of camera/aim speed floats lbl_8043C9CC..lbl_8043C9E4
+802C1120	Bil_Player_dtorThunk4	high	this-4 thunk to Player dtor
+802C1128	Bil_Player_drawThunk	high	this-8 thunk to Player draw
+802C1130	Bil_Player_dtorThunk8	high	this-8 thunk to Player dtor
+802C1138	Bil_PlayerMgr_setCursorsVisible	medium	calls Player_setCursorsVisible for each player
+802C11A8	Bil_PlayerMgr_isAorBTriggered	medium	true if any player controller triggered A (0x800) or B (0x400)
+802C1244	Bil_PlayerMgr_updatePlayerMaxStat	low	forwards to Player_updateMaxStat for player index
+802C125C	Bil_PlayerMgr_incPlayerStat687C	low	forwards to Player_incStat687C for player index (called on foul)
+802C126C	Bil_PlayerMgr_addPlayerScore	medium	forwards to Player_addScore for player index
+802C1284	Bil_PlayerMgr_startTurn	high	sets current player; it goes to state 1 (ball in hand) or 2, others to 8; inc shot count; updates score HUD
+802C1388	Bil_PlayerMgr_assignChannels	medium	Player_setChannel(i) for each active player
+802C13F0	Bil_PlayerMgr_calc	medium	calls each player calc; sets shot-finished edge flag when current player reaches state 7
+802C14B4	Bil_PlayerMgr_exit	medium	calls slot31 (exit) on both players
+802C150C	Bil_PlayerMgr_reset	medium	clears current player/flags and calls slot29 (reset) on both players
+802C1584	Bil_PlayerMgr_load	medium	calls slot28 (load) on both players
+802C15DC	Bil_PlayerMgr_dtor	low	trivial dtor (vt 8035DE58)
+802C161C	Bil_PlayerMgr_destroy	high	deletes global lbl_8043C9F0
+802C1660	Bil_PlayerMgr_create	high	allocs manager and two Players (0x68CC), player count from lbl_8043CA04; global lbl_8043C9F0
+802C16F4	Bil_Ball_playRollSound	low	forwards to Sound3D 802C6CB8 (+0x78) with speed
+802C16FC	Bil_Ball_playPlaceSound	low	plays sound id 0x18 on ball Sound3D (after cue ball placement)
+802C1718	Bil_Ball_playCueHitSound	medium	plays cue-strike sound by power on Sound3D (type 1/2 by player)
+802C174C	Bil_Ball_playBallHitSound	medium	plays ball-ball collision sound (id 8) if impact speed above threshold
+802C1770	Bil_Ball_updateRollingSound	medium	computes speed and contact slip, updates rolling sounds via 802C6F7C
+802C185C	Bil_Ball_getVelocity	high	Ball slot13: forwards to rigid body 0x3c (velocity getter)
+802C1870	Bil_Ball_playKclHitSound	medium	plays table collision sound by KCL material (cushion/rail/pocket) and impact speed
+802C18F8	Bil_Ball_checkPocket	medium	if on table and moving, asks PocketMgr (lbl_8043CA20) which pocket ball entered; -1 otherwise
+802C19C0	Bil_Ball_intersectRay	high	ray vs sphere (radius+arg) test; returns hit point and optional distance
+802C1B8C	Bil_getRackPosition	medium	rack layout table per game mode (ballMgr+0x60), small random jitter for object balls
+802C1E1C	Bil_Ball_placeInRack	medium	sets body position to rack slot, zero velocity/spin, default orientation
+802C200C	Bil_Ball_draw	low	Ball slot32: empty
+802C2010	Bil_Ball_setOut	medium	if no pending state change: state 3 (off table/out), records shot index +0x6c
+802C2070	Bil_Ball_setPocketed	high	if no pending state change: state 2 (pocketed), records shot index +0x68
+802C20D0	Bil_Ball_resetToRack	medium	state 1 (on table) and Ball_placeInRack
+802C210C	Bil_Ball_calcOut	medium	ball state 3 calc (empty), from table lbl_80327218
+802C2110	Bil_Ball_enterOut	medium	ball state 3 enter: plays sound 0x21
+802C212C	Bil_Ball_calcPocketed	medium	ball state 2 calc (empty)
+802C2130	Bil_Ball_enterPocketed	medium	ball state 2 enter (empty)
+802C2134	Bil_Ball_calcOnTable	medium	ball state 1 calc: RP_801BD284 on rigid body (integrate)
+802C213C	Bil_Ball_enterOnTable	medium	ball state 1 enter (empty)
+802C2140	Bil_Ball_updateModel	medium	copies body transform, shadow, model matrix, cue-ball tail effect, sound position
+802C24AC	Bil_Ball_calc	medium	Ball slot30: updates ball state machine
+802C24B4	Bil_Ball_preCalc	low	empty, called per ball at start of BallMgr calc
+802C24B8	Bil_Ball_exit	low	Ball slot31: empty
+802C24BC	Bil_Ball_reset	high	Ball slot29: resets state machine, pocket/out shot indices -1, flags
+802C2510	Bil_Ball_load	high	Ball slot28: cue ball loads bad_ball_0_face_2, others bad_ball with number texture frame
+802C2674	Bil_Ball_ctor	high	actor ctor, 4-state machine (lbl_80327218), rigid body (0x108), SoundActor, Bil_ball_tail02 effect for cue ball
+802C2850	Bil_Ball_dtor	high	actor base dtors, delete if flag>0
+802C28BC	Bil_BallSM_update	high	state machine update (exit/enter on change, calc, frame counter)
+802C2948	Bil_BallSM_changeState	high	sets next state and change flags
+802C295C	Bil_BallSM_reset	high	sets current/prev/next state, clears counter
+802C2980	Bil_BallSM_setStateFuncs	high	stores enter and calc ptmf for state index
+802C29C4	Bil_BallSM_ctor	high	state machine ctor: owner, allocates ptmf arrays
+802C2AA4	Bil_Ball_setPos	high	Ball slot12: forwards to body setPos (0x38)
+802C2AB8	Bil_Ball_setVelocity	high	Ball slot14: forwards to body 0x40
+802C2ACC	Bil_Ball_getAxisZ	medium	Ball slot17: forwards to body 0x4c
+802C2AE0	Bil_Ball_setAxisZ	medium	Ball slot18: forwards to body 0x50
+802C2AF4	Bil_Ball_getAxisY	medium	Ball slot19: forwards to body 0x54
+802C2B08	Bil_Ball_setAxisY	medium	Ball slot20: forwards to body 0x58
+802C2B1C	Bil_Ball_getAxisX	medium	Ball slot21: forwards to body 0x5c
+802C2B30	Bil_Ball_setAxisX	medium	Ball slot22: forwards to body 0x60
+802C2B44	Bil_Ball_getScale	low	Ball slot23: forwards to body 0x64
+802C2B58	Bil_Ball_vf24	low	Ball slot24: forwards to body 0x68
+802C2B6C	Bil_BallSM_callEnter	high	invokes enter ptmf of current state
+802C2BCC	Bil_BallSM_callCalc	high	invokes calc ptmf of current state
+802C2C2C	Bil_BallSM_callExit	high	invokes exit ptmf of current state
+802C2C8C	Bil_Ball_dtorThunk4	high	this-4 thunk to Ball dtor
+802C2C94	Bil_Ball_drawThunk	high	this-8 thunk to Ball draw
+802C2C9C	Bil_Ball_dtorThunk8	high	this-8 thunk to Ball dtor
+802C2CA4	Bil_BallMgr_nextRackMode	low	increments mode +0x60 (max 1), ball count from lbl_80441318 table, calls reset
+802C2CE4	Bil_BallMgr_setCueBallFace	medium	applies player Mii face texture to cue ball ball_face1/ball_face2 materials
+802C2DF0	Bil_BallMgr_areIconsIdle	low	true if every ball icon state machine is in state 0
+802C2E6C	Bil_BallMgr_resetIcons	low	calls 802D04AC on each ball icon
+802C2ECC	Bil_BallMgr_areIconsDone	low	true if every ball icon is in state 2 or 0
+802C2F5C	Bil_BallMgr_showPocketedIcons	medium	counts balls pocketed this shot and starts their icon animations
+802C3070	Bil_BallMgr_placeCueBall	high	places cue ball at point on table, zero velocity, default axes, state 1
+802C31DC	Bil_BallMgr_canPlaceBall	high	true if point inside table range and not overlapping any object ball on table
+802C3334	Bil_BallMgr_hideCueGhost	medium	clears visible flag of cue-ball ghost (+0xcc)
+802C3344	Bil_BallMgr_showCueGhost	medium	shows cue-ball ghost at point with valid flag
+802C33B4	Bil_BallMgr_hideAimMarkers	medium	clears visible flag on 10 marker objects (+0xa4..)
+802C340C	Bil_BallMgr_showAimMarker	medium	shows first marker and sets its position
+802C342C	Bil_BallMgr_getLowestBall	medium	lowest-numbered object ball still on table or pocketed/out this shot; -1 if none
+802C3514	Bil_BallMgr_endShot	medium	advances shot index if any ball pocketed/out, clears first-hit/foul, resets PocketMgr
+802C35F8	Bil_BallMgr_sumPocketedNumbers	medium	sum of numbers of object balls pocketed this shot
+802C366C	Bil_BallMgr_countPocketed	medium	count of object balls pocketed this shot
+802C36E0	Bil_BallMgr_isBallPocketed	medium	true if ball index was pocketed this shot
+802C371C	Bil_BallMgr_raycastObjectBalls	medium	nearest object ball (on table) hit by ray; returns index and point
+802C3850	Bil_BallMgr_raycastBalls	medium	nearest on-table ball (incl. cue) hit by ray; returns index and point
+802C3950	Bil_BallMgr_hasObjectBallsOnTable	medium	true if any object ball is in state 1
+802C39D4	Bil_BallMgr_areAllBallsStopped	high	true when no ball changing state and all on-table balls touching and at rest
+802C3A94	Bil_BallMgr_calcTableCollisions	medium	per ball KCL contacts by material, resolves contacts, pocket/out detection, fouls, sounds
+802C42B0	Bil_ContactResult_dtor	low	trivial array element dtor (0x14 struct)
+802C42F0	Bil_ContactResult_ctor	low	empty array element ctor
+802C42F4	Bil_ContactInput_dtor	low	trivial array element dtor (0x20 struct)
+802C4334	Bil_ContactInput_ctor	low	empty array element ctor
+802C4338	Bil_BallMgr_calcBallCollisions	medium	ball-ball contacts via RP_801BC6B8, impulse bounds, first-hit and wrong-ball foul, sounds
+802C4A4C	Bil_BallMgr_calc	medium	BallMgr slot30: 5 physics substeps of ball calc + collisions, model updates, markers, icons, pockets
+802C4C04	Bil_BallMgr_exit	medium	BallMgr slot31: exit on balls, markers, ghost, icons
+802C4CD0	Bil_BallMgr_reset	medium	BallMgr slot29: clears shot data, resets balls to rack, markers, ghost, icons
+802C4DE8	Bil_BallMgr_load	medium	BallMgr slot28: load on balls, markers, ghost, icons; face textures
+802C4EE4	Bil_BallMgr_draw	low	BallMgr slot32: empty
+802C4EE8	Bil_BallMgr_ctor	high	creates 10 Balls, 10 aim markers, cue ghost, 10 ball icons, 2 face textures, SoundActor
+802C5158	Bil_BallMgr_dtor	high	actor base dtors, delete if flag>0
+802C51C4	Bil_BallMgr_destroy	high	deletes global lbl_8043C9F8
+802C5208	Bil_BallMgr_create	high	allocates BallMgr (0x104), global lbl_8043C9F8
+802C523C	Bil_BallSM_isInState	medium	true if current==s and (next==s or no change pending)
+802C5270	Bil_BallSM_isInOrEnteringState	medium	true if current==s or pending next==s
+802C52A4	Bil_IconSM_isInState	medium	same check for ball-icon state machine
+802C52D8	Bil_BallMgr_dtorThunk4	high	this-4 thunk to BallMgr dtor
+802C52E0	Bil_BallMgr_drawThunk	high	this-8 thunk to BallMgr draw
+802C52E8	Bil_BallMgr_dtorThunk8	high	this-8 thunk to BallMgr dtor
+802C52F0	Bil_GameMgr_setCursorsVisible	low	forwards to PlayerMgr_setCursorsVisible (lbl_8043C9F0)
+802C52F8	Bil_GameMgr_calcGameOver	medium	game state 5 calc (table lbl_803272C0): updates all, on end triggers scene change
+802C543C	Bil_GameMgr_enterGameOver	medium	game state 5 enter: finish results 802C9E70, hide HUD, music state 5
+802C5480	Bil_GameMgr_calcFoul	medium	game state 4 calc: foul message; when done next player with ball in hand -> state 2, or 5 if none left
+802C563C	Bil_GameMgr_enterFoul	medium	game state 4 enter (empty)
+802C5640	Bil_GameMgr_calcScore	medium	game state 3 calc: after score popup, same player continues if pocketed else next; -> 2 or 5
+802C57EC	Bil_GameMgr_enterScore	medium	game state 3 enter: starts score popup 802D17A4
+802C5800	Bil_GameMgr_calcPlay	medium	game state 2 calc: updates all; when shot done and balls stopped scores (-> 3) or flags foul (-> 4)
+802C59E0	Bil_GameMgr_enterPlay	medium	game state 2 enter (empty)
+802C59E4	Bil_GameMgr_calcStart	medium	game state 1 calc: when start display reaches 4, assigns channels and starts first turn -> 2
+802C5ABC	Bil_GameMgr_enterStart	medium	game state 1 enter (empty)
+802C5AC0	Bil_GameMgr_calcIntro	medium	game state 0 calc: updates, -> state 1 when camera transition done
+802C5B54	Bil_GameMgr_enterIntro	medium	game state 0 enter: camera to cue ball, start display, music
+802C5BEC	Bil_GameMgr_calc	medium	updates game state machine and music, copies fog/clear colour
+802C5C64	Bil_GameMgr_exit	medium	calls exit on all actors/HUD then destroys all singletons
+802C5D90	Bil_ScorePopup_exit	low	slot6: empty
+802C5D94	Bil_GameMgr_reset	medium	resets game SM to 0, cameras, table, players, balls, HUD; resets clear colour
+802C5F3C	Bil_GameMgr_load	medium	loads all actors/HUD with local archive
+802C6084	Bil_GameMgr_ctor	high	6-state machine from lbl_803272C0, creates cameras, table, players, balls, HUD singletons
+802C61AC	Bil_GameMgr_dtor	low	trivial dtor
+802C61EC	Bil_GameMgr_destroy	high	deletes global lbl_8043CA00
+802C6230	Bil_GameMgr_create	high	allocates GameMgr, global lbl_8043CA00
+802C6264	Bil_GameSM_update	high	state machine update
+802C62F0	Bil_GameSM_changeState	high	sets next state and change flags
+802C6304	Bil_GameSM_reset	high	sets current/prev/next state, clears counter
+802C6328	Bil_GameSM_setStateFuncs	high	stores enter and calc ptmf for state index
+802C636C	Bil_GameSM_ctor	high	state machine ctor
+802C644C	Bil_ScorePopupSM_isInState	medium	isInState check on score popup state machine (lbl_8043CA50+0x10)
+802C6480	Bil_GameSM_callEnter	high	invokes enter ptmf
+802C64E0	Bil_GameSM_callCalc	high	invokes calc ptmf
+802C6540	Bil_GameSM_callExit	high	invokes exit ptmf
+802C65A0	Bil_Music_applyState	low	adjusts BGM handle tracks/volume per music state, starts jingles 0x5b/0x4d at end
+802C6988	Bil_Music_setState	medium	requests music state change (prev=cur, cur=arg, dirty)
+802C69A0	Bil_Music_calc	low	syncs beat counter, plays transition stinger from table lbl_80327350, applies state
+802C6B20	Bil_Music_start	low	starts BGM 0x4e, sets track volumes, resets state to 6
+802C6CB8	Bil_Sound3D_playRoll	low	sound 0x19 with pitch from speed, clamped 0.3..2
+802C6D84	Bil_Sound3D_holdSoundById2	low	slot30: handle with same sound id or free slot, then secondary vtable 0xc0 (hold)
+802C6E94	Bil_Sound3D_setupHold	low	slot46: fn_80047590 setup (no stop), applies 3D pan params
+802C6F7C	Bil_Sound3D_playRollingLoop	low	rolling/slip loop sounds (0x14/0x17, 0x13/0x16 for cue ball) with volume from speed
+802C710C	Bil_Sound3D_playImpact	medium	impact sound by id (8 -> 9/10 by speed), volume from speed
+802C71E0	Bil_Sound3D_startSoundById	low	slot21: reuse/free/steal handle slot by priority, then secondary vtable 0xbc
+802C73E0	Bil_Sound3D_playCueHit	medium	cue strike sound 0xb/0xc/0xd by power plus 0x1d-0x1f, or 0x11 for miss
+802C75BC	Bil_Sound3D_startSoundExById	low	slot19: reuse/free/steal handle slot, then secondary vtable 200 with extra info arg
+802C77C4	Bil_Sound3D_setupStartEx	low	slot48: stops old handle, fn_80047524 setup with extra arg, applies 3D pan params
+802C78D4	Bil_Sound3D_ctor	high	creates 4 sound players (fn_80041028), sound actor base (+0x10), 12 handles, vtables 8035DF98, default curve params
+802C7A88	Bil_Sound3DBase_dtor	medium	dtor for base vtable 8035E074: stops all players, destroys handles, unregisters actor, delete
+802C7B94	Bil_SoundActorPart_dtor	low	dtor of embedded sound-actor part (12 handles), unregisters from list lbl_804390F0, base dtor
+802C7C40	Bil_Sound3D_dtor	high	slot14 dtor: resets to base vtables, stops players, destroys handles, unregisters actor, delete
+802C7D54	Bil_Sound3D_getOne	low	slot12: returns 1.0
+802C7D5C	Bil_Sound3DPart_getOne	low	returns 1.0 (secondary-vtable entry)
+802C7D64	Bil_Sound3DPart_getZero	low	returns 0 (secondary-vtable entry)
+802C7D6C	Bil_Sound3D_setupHoldEx	low	slot49: fn_80047590 setup with extra arg, applies 3D pan params
+802C7E54	Bil_Sound3D_setupPrepare	low	slot47: stops old handle, fn_8004765C setup, applies 3D pan params
+802C7F70	Bil_Sound3D_getVolume	low	slot44: returns float +0x44
+802C7F78	Bil_Sound3D_updateActor	low	slot43: Snd_801B5C2C on actor part +0x30
+802C7F80	Bil_Sound3D_stopAllSounds	medium	slot42: calls stop (vt 0x18, fade arg) on every handle
+802C8008	Bil_Sound3D_stopSoundByLabel	medium	slot41: label->id, stops handles playing that id
+802C80B8	Bil_Sound3D_stopSoundById2	medium	slot40: stops handles playing sound id
+802C8148	Bil_Sound3D_stopSoundById	medium	slot39: stops handles playing sound id
+802C81D8	Bil_Sound3D_prepareSoundAtIndex	low	slot36: stops handle at index (asserts index<mHandleCount), secondary vtable 0xc4
+802C82D8	Bil_Sound3D_prepareSoundByLabelAtIndex	low	slot38: label->id, handle at index, secondary vtable 0xc4
+802C83F8	Bil_Sound3D_prepareSoundByLabel	low	slot37: label->id, reuse/free/steal slot, secondary vtable 0xc4
+802C860C	Bil_Sound3D_prepareSoundById2	low	slot35: reuse/free/steal slot by id, secondary vtable 0xc4
+802C8800	Bil_Sound3D_prepareSoundById	low	slot34: reuse/free/steal slot by id, secondary vtable 0xc4
+802C89F4	Bil_Sound3D_holdSoundByLabelAtIndex	low	slot33: label->id, handle at index, secondary vtable 0xc0
+802C8ADC	Bil_Sound3D_holdSoundAtIndex	low	slot31: handle at index, secondary vtable 0xc0
+802C8BA4	Bil_Sound3D_holdSoundByLabel	low	slot32: label->id, same-id or free slot, secondary vtable 0xc0
+802C8CEC	Bil_Sound3D_holdSoundById	low	slot29: same-id or free slot, secondary vtable 0xc0
+802C8DFC	Bil_Sound3D_holdSoundExByLabel	low	slot28: label->id, same-id or free slot, secondary vtable 0xcc with extra arg
+802C8F54	Bil_Sound3D_holdSoundExById2	low	slot27: same-id or free slot, secondary vtable 0xcc with extra arg
+802C906C	Bil_Sound3D_holdSoundExById	low	slot26: same-id or free slot, secondary vtable 0xcc with extra arg
+802C9184	Bil_Sound3D_startSoundByLabelAtIndex	low	slot25: label->id, handle at index, secondary vtable 0xbc
+802C92B0	Bil_Sound3D_startSoundAtIndex	low	slot23: handle at index, secondary vtable 0xbc
+802C93BC	Bil_Sound3D_startSoundByLabel	low	slot24: label->id, reuse/free/steal slot, secondary vtable 0xbc
+802C95DC	Bil_Sound3D_startSoundExByLabel	low	slot20: label->id, reuse/free/steal slot, secondary vtable 200 with extra arg
+802C9804	Bil_Sound3D_startSoundExById2	low	slot18: reuse/free/steal slot by id, secondary vtable 200 with extra arg
+802C9A0C	Bil_Sound3D_applyVolume	low	slot17: if actor active, sets volume +0x44 on every active handle (fn_8003FA84)
+802C9ABC	Bil_Sound3D_getHandleSlot	low	slot15: returns player[i]+0xb8
+802C9ACC	Bil_Sound3D_vf52	low	slot52: tail-calls secondary vtable 0xd0
+802C9ADC	Bil_Sound3D_getSoundInfoByLabel	low	slot51: label->id plus offset, returns fn_80041EDC info
+802C9B48	Bil_Sound3D_offsetSoundId	low	slot50: returns id + offset
+802C9B50	Bil_Sound3DBase_dtorThunk	high	this-0x10 thunk to Sound3DBase dtor
+802C9B58	Bil_Sound3D_applyVolumeThunk	high	this-0x10 thunk to applyVolume
+802C9B60	Bil_Sound3D_updateActorThunk	high	this-0x10 thunk to updateActor
+802C9B68	Bil_Sound3D_stopAllSoundsThunk	high	this-0x10 thunk to stopAllSounds
+802C9B70	Bil_Sound3D_stopSoundByIdThunk	high	this-0x10 thunk to stopSoundById
+802C9B78	Bil_Sound3D_stopSoundById2Thunk	high	this-0x10 thunk to stopSoundById2
+802C9B80	Bil_Sound3D_stopSoundByLabelThunk	high	this-0x10 thunk to stopSoundByLabel
+802C9B88	Bil_Sound3D_getVolumeThunk	high	this-0x4c thunk to getVolume
+802C9B90	Bil_Sound3D_dtorThunk	high	this-0x10 thunk to Sound3D dtor
+802C9B98	Bil_Sound3D_getHandleSlotThunk	high	this-0x10 thunk to getHandleSlot
+802C9BA0	Bil_AimMarker_draw	low	AimMarker slot32: empty
+802C9BA4	Bil_AimMarker_calc	medium	if visible (+0x64): sets anim frame, updates model matrix
+802C9C2C	Bil_AimMarker_exit	low	slot31: empty
+802C9C30	Bil_AimMarker_reset	medium	clears visible flag +0x64
+802C9C3C	Bil_AimMarker_load	high	loads bad_ball_2 model and anim
+802C9D38	Bil_AimMarker_ctor	high	actor ctor, stores index, vtables 8035E1E0
+802C9D94	Bil_AimMarker_dtor	high	actor base dtors, delete if flag>0
+802C9E00	Bil_AimMarker_dtorThunk4	high	this-4 thunk to dtor
+802C9E08	Bil_AimMarker_drawThunk	high	this-8 thunk to draw
+802C9E10	Bil_AimMarker_dtorThunk8	high	this-8 thunk to dtor
+802C9E18	Bil_Result_draw	medium	slot15: in result draw pass, draws result layout (+0x5c)
+802C9E58	Bil_Result_getWinner	medium	returns winner index +0x14
+802C9E60	Bil_Result_getPlayerResult	medium	returns per-player result record (+0x1c + i*0x20)
+802C9E70	Bil_Result_computeScores	medium	builds per-player score breakdown (score, shots, fouls, best) with clamps, decides winner, -> state 1
+802CA2B8	Bil_Result_calcEndMenu	medium	result state 6 calc: when end menu done reads retry choice, -> state 7
+802CA324	Bil_Result_enterEndMenu	medium	result state 6 enter: opens Party end menu (1P or 2P with winner)
+802CA358	Bil_Result_calcWinner	medium	result state 5 calc: hides layout as winner display proceeds, -> state 6
+802CA3E0	Bil_Result_enterWinner	medium	result state 5 enter: Party winner display for +0x14
+802CA3F0	Bil_Result_calc1pRecord	medium	result state 4 calc: when Party record window finishes -> state 6
+802CA418	Bil_Result_enter1pRecord	medium	result state 4 enter: Party record display with total score +0x38
+802CA428	Bil_Result_calcBranch	medium	result state 3 calc: 1P -> state 4, else -> state 5; hides layout sides
+802CA4C4	Bil_Result_enterBranch	medium	result state 3 enter (empty)
+802CA4C8	Bil_Result_calcWait	medium	result state 2 calc: after 300 frames or A/B -> state 3
+802CA550	Bil_Result_enterWait	medium	result state 2 enter (empty)
+802CA554	Bil_Result_calcSummary	medium	result state 1 calc: when layout show done -> state 2
+802CA598	Bil_Result_enterSummary	medium	result state 1 enter: shows score summary figures for player count
+802CA5A4	Bil_Result_calc	medium	slot13: updates result state machine and layout
+802CA5E8	Bil_Result_exit	low	slot14: empty
+802CA5EC	Bil_Result_reset	medium	slot12: resets state machine, winner -1, layout reset
+802CA63C	Bil_Result_load	medium	slot11: loads result layout from local archive
+802CA688	Bil_Result_ctor	high	8-state machine from lbl_80327408, creates result layout (billiard_02)
+802CA7DC	Bil_Result_dtor	high	base dtors, delete if flag>0
+802CA844	Bil_Result_destroy	high	deletes global lbl_8043CA08
+802CA888	Bil_Result_create	high	allocates Result (0x60), global lbl_8043CA08
+802CA8BC	Bil_ResultSM_ctor	high	state machine ctor
+802CA99C	Bil_ResultSM_setStateFuncs	high	stores enter/calc ptmf
+802CA9E0	Bil_ResultSM_reset	high	state machine reset
+802CAA04	Bil_ResultSM_changeState	high	state machine change request
+802CAA18	Bil_ResultSM_update	high	state machine update
+802CAAA4	Bil_ResultSM_callEnter	high	invokes enter ptmf
+802CAB04	Bil_ResultSM_callCalc	high	invokes calc ptmf
+802CAB64	Bil_ResultSM_callExit	high	invokes exit ptmf
+802CABC4	Bil_Result_dtorThunk4	high	this-4 thunk to dtor
+802CABCC	Bil_Result_drawThunk	high	this-8 thunk to draw
+802CABD4	Bil_Result_dtorThunk8	high	this-8 thunk to dtor
+802CABDC	Bil_SoundActor_startSound	low	calls actor vtable 0x44 (id, 3); returns success (voice lines 0x26-0x28 on pocket)
+802CAC18	Bil_SoundActor_playCameraTick	low	plays sound 0x12 at an interval derived from camera rotation speed
+802CACF0	Bil_CueGhost_draw	low	slot32: empty
+802CACF4	Bil_CueGhost_calc	medium	if visible: anim frame by placement validity (+0x61), updates model matrix
+802CADB0	Bil_CueGhost_exit	low	slot31: empty
+802CADB4	Bil_CueGhost_reset	medium	clears visible and valid flags
+802CADC4	Bil_CueGhost_load	high	loads bad_ball_2 model (ghost) and anim
+802CAE80	Bil_CueGhost_ctor	high	actor ctor, vtables 8035E2B8
+802CAECC	Bil_CueGhost_dtor	high	actor base dtors, delete if flag>0
+802CAF38	Bil_CueGhost_dtorThunk4	high	this-4 thunk to dtor
+802CAF40	Bil_CueGhost_drawThunk	high	this-8 thunk to draw
+802CAF48	Bil_CueGhost_dtorThunk8	high	this-8 thunk to dtor
+802CAF50	Bil_AuxCamera_calc	medium	slot3: controller hook then RP camera calc
+802CAF8C	Bil_AuxCamera_reset	medium	slot2: base reset, default view, apply
+802CAFE0	Bil_AuxCamera_ctor	high	RP camera ctor, +0x174 vtable 8035E348
+802CB01C	Bil_AuxCamera_dtor	high	destroys vec arrays, delete if flag>0
+802CB0A4	Bil_PocketCam_lookAtPocket	medium	places pocket camera eye above pocket (random tilt) looking into it
+802CB2C8	Bil_PocketCam_calc	medium	slot3: controller hook then RP camera calc
+802CB304	Bil_PocketCam_reset	medium	slot2: base reset, eye (1,0,0), target 0, up Y
+802CB390	Bil_PocketCam_ctor	high	RP camera ctor, stores index +0x200, +0x174 vtable 8035E360
+802CB3DC	Bil_PocketCam_dtor	high	destroys vec arrays, delete if flag>0
+802CB464	Bil_PocketCamWindow_draw	medium	slot15: draws two sub-window frames with fade alpha from timers, updates sub-screen viewport
+802CB77C	Bil_PocketCamWindow_clampTimers	low	clamps both window timers to lbl_8043B8E4
+802CB7B0	Bil_PocketCamWindow_showPocket	medium	assigns pocket to free sub-window (random), restarts timer, aims its pocket camera
+802CB950	Bil_findEnteredPocket	medium	for each of 6 pockets: near and moving toward it within angle -> pocket index, else -1
+802CBB68	Bil_PocketCamWindow_calc	medium	slot13: decrements window timers, frees windows at 0, layout calc
+802CBBCC	Bil_PocketCamWindow_reset	medium	slot11: clears pocket indices and timers
+802CBBF0	Bil_PocketCamWindow_load	high	slot12: loads billiard_03.brlyt, pane W_subWindow_00
+802CBC58	Bil_PocketCamWindow_dtor	high	base dtors, delete if flag>0
+802CBCC0	Bil_PocketCamWindow_destroy	high	deletes global lbl_8043CA20
+802CBD04	Bil_PocketCamWindow_create	high	allocates window object (0x30), global lbl_8043CA20
+802CBD88	Bil_getSubWindowHeight	low	screen height table value / lbl_8043B8F4
+802CBDA8	Bil_getSubWindowWidth	low	screen width table value / lbl_8043B8F4
+802CBDC8	Bil_sinitPocketCamConsts	medium	static init of pocket angle thresholds and sub-window offsets
+802CBE70	Bil_PocketCamWindow_dtorThunk4	high	this-4 thunk to dtor
+802CBE78	Bil_PocketCamWindow_drawThunk	high	this-8 thunk to draw
+802CBE80	Bil_PocketCamWindow_dtorThunk8	high	this-8 thunk to dtor
+802CBE88	Bil_NextBallMarker_draw	low	slot32: toggles visibility of two models by render pass
+802CBEFC	Bil_NextBallMarker_show	medium	shows marker over lowest-numbered remaining ball (pos, radius)
+802CBF98	Bil_NextBallMarker_updateModels	medium	slot27: billboards two models above ball, scaled by camera distance
+802CC220	Bil_NextBallMarker_calc	medium	slot30: follows lowest ball position, updates model matrix
+802CC2B0	Bil_NextBallMarker_exit	low	slot31: empty
+802CC2B4	Bil_NextBallMarker_reset	medium	slot29: clears visible flag
+802CC2C0	Bil_NextBallMarker_load	high	slot28: loads two bad_next_ball models and anims
+802CC44C	Bil_NextBallMarker_dtor	high	actor base dtors, delete if flag>0
+802CC4B8	Bil_NextBallMarker_destroy	high	deletes global lbl_8043CA28
+802CC4FC	Bil_NextBallMarker_create	high	allocates marker actor, global lbl_8043CA28
+802CC564	Bil_NextBallMarker_dtorThunk4	high	this-4 thunk to dtor
+802CC56C	Bil_NextBallMarker_drawThunk	high	this-8 thunk to draw
+802CC574	Bil_NextBallMarker_dtorThunk8	high	this-8 thunk to dtor
+802CC57C	Bil_BreakLottery_draw	low	slot15: empty
+802CC580	Bil_BreakLottery_start	medium	stores player count, state 1, sets cue ball Mii faces
+802CC5F4	Bil_BreakLottery_calcDone	low	lottery state 3 calc (empty), table lbl_80327518
+802CC5F8	Bil_BreakLottery_enterDone	low	lottery state 3 enter (empty)
+802CC5FC	Bil_BreakLottery_calcSpin	medium	lottery state 2 calc: spins cue ball with decelerating angle, rolling sound; at end shows chosen face -> state 4
+802CC7E0	Bil_BreakLottery_enterSpin	medium	lottery state 2 enter: randomly picks first player, precomputes total spin angle
+802CC908	Bil_BreakLottery_calcWait	medium	lottery state 1 calc: 1P -> done (player 0); else when cue ball on table -> state 2
+802CC95C	Bil_BreakLottery_enterWait	low	lottery state 1 enter (empty)
+802CC960	Bil_BreakLottery_calc	medium	slot13: inline state machine (enter on change, calc each frame)
+802CCAAC	Bil_BreakLottery_exit	low	slot14: empty
+802CCAB0	Bil_BreakLottery_reset	medium	slot12: clears state and chosen player
+802CCACC	Bil_BreakLottery_load	low	slot11: empty
+802CCAD0	Bil_BreakLottery_dtor	high	base dtors, delete if flag>0
+802CCB38	Bil_BreakLottery_destroy	high	deletes global lbl_8043CA34
+802CCB7C	Bil_BreakLottery_create	high	allocates object (0x38), global lbl_8043CA34
+802CCBF4	Bil_sinitBreakLotteryConsts	medium	static init of spin deceleration step lbl_8043CA30
+802CCC00	Bil_BreakLottery_dtorThunk4	high	this-4 thunk to dtor
+802CCC08	Bil_BreakLottery_drawThunk	high	this-8 thunk to draw
+802CCC10	Bil_BreakLottery_dtorThunk8	high	this-8 thunk to dtor
+802CCC18	Bil_Hud_draw	medium	slot11: in HUD pass draws billiard_00 layout and Mii face pictures
+802CCCCC	Bil_Hud_setInstruction	low	sets instruction text (msg 0x8fc/0x902 variants or blank) on both T_text panes by mode
+802CCDCC	Bil_Hud_setPlayerScore	high	stores score for player and writes number into T_1pScore_00/T_2pScore_00
+802CCE4C	Bil_Hud_set1pScore	high	stores 1P value and writes number into T_only1pScore_00
+802CCEB4	Bil_Hud_hideTurnPanel	medium	requests turn panel hide (+0x34), clears pending player
+802CCEC8	Bil_Hud_showTurnPanel	medium	2+ players: requests turn panel for player
+802CCEE4	Bil_Hud_calcTurnPanelOut	medium	turn panel state 3 calc: when out anim done -> state 0
+802CCF04	Bil_Hud_enterTurnPanelOut	medium	turn panel state 3 enter: binds and plays out anims
+802CD018	Bil_Hud_calcTurnPanelShown	medium	turn panel state 2 calc: hide request -> state 3
+802CD034	Bil_Hud_enterTurnPanelShown	low	turn panel state 2 enter (empty)
+802CD038	Bil_Hud_calcTurnPanelIn	medium	turn panel state 1 calc: when in anim done -> state 2
+802CD058	Bil_Hud_enterTurnPanelIn	medium	turn panel state 1 enter: plays player panel in anim, sounds 0x1a/0x1b, rumbles that player
+802CD2C0	Bil_Hud_calcTurnPanelIdle	medium	turn panel state 0 calc: pending player -> state 1
+802CD2DC	Bil_Hud_enterTurnPanelIdle	low	turn panel state 0 enter (empty)
+802CD2E0	Bil_Hud_hidePrompt	medium	sets prompt hide request
+802CD2F4	Bil_Hud_showPrompt	medium	sets prompt show request
+802CD308	Bil_Hud_calcPromptOut	medium	prompt state 3 calc: when out anim done -> state 0
+802CD328	Bil_Hud_enterPromptOut	medium	prompt state 3 enter: unbinds anims, binds out anim by player count
+802CD430	Bil_Hud_calcPromptShown	medium	prompt state 2 calc: starts loop anim, hide request -> state 3
+802CD4F4	Bil_Hud_enterPromptShown	medium	prompt state 2 enter: binds loop anim
+802CD588	Bil_Hud_calcPromptIn	medium	prompt state 1 calc: when in anim done -> state 2
+802CD5A8	Bil_Hud_enterPromptIn	medium	prompt state 1 enter: unbinds anims, binds in anim by player count
+802CD6B0	Bil_Hud_calcPromptIdle	medium	prompt state 0 calc: show request -> state 1
+802CD6CC	Bil_Hud_enterPromptIdle	low	prompt state 0 enter (empty)
+802CD6D0	Bil_Hud_calc	medium	updates prompt and turn-panel state machines, panel visibility, layout calc
+802CD790	Bil_Hud_reset	medium	resets state machines, anims, flags, player-count groups and panes
+802CDA94	Bil_Hud_load	high	loads billiard_00.brlyt with message/text anims, groups, panes, sets texts
+802CDDF4	Bil_Hud_ctor	high	two 4-state machines (lbl_80327590, lbl_803275F0), Mii face textures per player
+802CDFE8	Bil_Hud_dtor	low	trivial dtor, delete if flag>0
+802CE028	Bil_Hud_destroy	high	deletes global lbl_8043CA38
+802CE06C	Bil_Hud_create	high	allocates HUD (0xa0), global lbl_8043CA38
+802CE0A0	Bil_HudSM_ctor	high	state machine ctor
+802CE180	Bil_HudSM_setStateFuncs	high	stores enter/calc ptmf
+802CE1C4	Bil_HudSM_reset	high	state machine reset
+802CE1E8	Bil_HudSM_changeState	high	state machine change request
+802CE1FC	Bil_HudSM_update	high	state machine update
+802CE288	Bil_HudSM_callEnter	high	invokes enter ptmf
+802CE2E8	Bil_HudSM_callCalc	high	invokes calc ptmf
+802CE348	Bil_HudSM_callExit	high	invokes exit ptmf
+802CE3A8	Bil_Hud_drawThunk	high	this-8 thunk to draw
+802CE3B0	Bil_Hud_dtorThunk	high	this-8 thunk to dtor
+802CE3B8	Bil_MsgWindow_close	medium	if not closing/closed, -> state 3
+802CE418	Bil_MsgWindow_showFoul	medium	if idle: stores foul type, opens window, sets T_msgText_01 to msg 0x8fd by foul type
+802CE4CC	Bil_MsgWindow_draw	medium	slot11: in HUD pass draws billiard_01 layout when open
+802CE500	Bil_MsgWindow_calcClose	medium	msg state 3 calc: when out anim done -> state 0 (table lbl_803278E0)
+802CE520	Bil_MsgWindow_enterClose	medium	msg state 3 enter: plays outAll anim
+802CE594	Bil_MsgWindow_calcOpen	low	msg state 2 calc (empty)
+802CE598	Bil_MsgWindow_enterOpen	low	msg state 2 enter (empty)
+802CE59C	Bil_MsgWindow_calcOpening	medium	msg state 1 calc: when in anim done -> state 2
+802CE5BC	Bil_MsgWindow_enterOpening	medium	msg state 1 enter: plays inAll anim
+802CE630	Bil_MsgWindow_calc	medium	updates state machine and layout
+802CE668	Bil_MsgWindow_reset	medium	resets state machine and anims
+802CE71C	Bil_MsgWindow_load	high	loads billiard_01.brlyt, inAll/outAll anims, T_msgText_00
+802CE800	Bil_MsgWindow_dtor	low	trivial dtor, delete if flag>0
+802CE840	Bil_MsgWindow_destroy	high	deletes global lbl_8043CA40
+802CE884	Bil_MsgWindow_create	high	allocates window (0x24) with 4-state machine, global lbl_8043CA40
+802CE9A8	Bil_MsgSM_ctor	high	state machine ctor
+802CEA88	Bil_MsgSM_setStateFuncs	high	stores enter/calc ptmf
+802CEACC	Bil_MsgSM_reset	high	state machine reset
+802CEAF0	Bil_MsgSM_changeState	high	state machine change request
+802CEB04	Bil_MsgSM_update	high	state machine update
+802CEB90	Bil_MsgSM_callExit	high	invokes exit ptmf
+802CEBF0	Bil_MsgSM_callCalc	high	invokes calc ptmf
+802CEC50	Bil_MsgSM_callEnter	high	invokes enter ptmf
+802CECB0	Bil_MsgSM_isInState	medium	current==s and no other pending
+802CECE4	Bil_MsgSM_isInOrEnteringState	medium	current==s or pending next==s
+802CED18	Bil_MsgWindow_drawThunk	high	this-8 thunk to draw
+802CED20	Bil_MsgWindow_dtorThunk	high	this-8 thunk to dtor
+802CED28	Bil_ResultLyt_hideSide	medium	starts hide (state 3) for display side unless already hiding/hidden
+802CED8C	Bil_ResultLyt_isShowDone	medium	true when both side state machines left states 0/1
+802CEE04	Bil_ResultLyt_showScores	high	if idle: shows 1P/2P panes and writes score figures from Result records
+802CF280	Bil_ResultLyt_draw	medium	slot3: draws billiard_02 layout and Mii face pictures
+802CF37C	Bil_ResultLyt_calcHide	medium	side state 3 calc: when out anim done hides panes -> state 4 (table lbl_803279C0)
+802CF414	Bil_ResultLyt_enterHide	medium	side state 3 enter: binds upper/lower out anim to panes
+802CF53C	Bil_ResultLyt_calcShown	low	side state 2 calc (empty)
+802CF540	Bil_ResultLyt_enterShown	low	side state 2 enter (empty)
+802CF544	Bil_ResultLyt_calcShow	medium	side state 1 calc: when in anim done -> state 2
+802CF570	Bil_ResultLyt_enterShow	medium	side state 1 enter: binds inAll anim, 2P highlights winner with switch anims
+802CF748	Bil_ResultLyt_calc	medium	updates both side state machines and layout
+802CF7F0	Bil_ResultLyt_reset	medium	resets state machines, anims and panes
+802CFA04	Bil_ResultLyt_load	high	loads billiard_02.brlyt, anims, display/face panes, result text messages
+802CFE8C	Bil_ResultLyt_ctor	high	two 5-state machines from lbl_803279C0
+802CFFBC	Bil_ResultLytSM_ctor	high	state machine ctor
+802D009C	Bil_ResultLytSM_setStateFuncs	high	stores enter/calc ptmf
+802D00E0	Bil_ResultLytSM_reset	high	state machine reset
+802D0104	Bil_ResultLytSM_changeState	high	state machine change request
+802D0118	Bil_ResultLytSM_update	high	state machine update
+802D01A4	Bil_ResultLytSM_callExit	high	invokes exit ptmf
+802D0204	Bil_ResultLytSM_callCalc	high	invokes calc ptmf
+802D0264	Bil_ResultLytSM_callEnter	high	invokes enter ptmf
+802D02C4	Bil_ResultLytSM_isInState	medium	current==s and no other pending
+802D02F8	Bil_ResultLytSM_isInOrEnteringState	medium	current==s or pending next==s
+802D032C	Bil_ResultLyt_dtor	low	trivial dtor, delete if flag>0
+802D036C	Bil_Music_destroy	high	deletes global lbl_8043CA48
+802D03B0	Bil_Music_create	high	allocates music controller with state object (cur/prev 6), global lbl_8043CA48
+802D0434	Bil_BallIcon_getRowOffset	medium	x offset centring icon index within row of count, y from +0x7c
+802D04AC	Bil_BallIcon_hide	medium	if icon active and not leaving -> state 3
+802D04D0	Bil_BallIcon_show	medium	sets target, count, index, scale by count, -> state 1
+802D05B8	Bil_BallIcon_calcLeave	medium	icon state 3 calc: eases out across screen, -> state 0 when done
+802D06B4	Bil_BallIcon_enterLeave	low	icon state 3 enter (empty)
+802D06B8	Bil_BallIcon_calcWait	low	icon state 2 calc (empty)
+802D06BC	Bil_BallIcon_enterWait	low	icon state 2 enter (empty)
+802D06C0	Bil_BallIcon_calcEnter	medium	icon state 1 calc: eases in to row position, -> state 2 when done
+802D07C4	Bil_BallIcon_enterEnter	low	icon state 1 enter (empty)
+802D07C8	Bil_BallIcon_calc	medium	slot30: state machine, projects position, faces camera, updates model matrix
+802D091C	Bil_BallIcon_exit	low	slot31: empty
+802D0920	Bil_BallIcon_reset	medium	slot29: resets state machine
+802D092C	Bil_BallIcon_load	high	slot28: loads bad_ball model with number texture frame
+802D0A34	Bil_BallIcon_ctor	high	actor ctor, ball index, 4-state machine
+802D0B44	Bil_BallIcon_dtor	high	actor base dtors, delete if flag>0
+802D0BB0	Bil_IconSM_update	high	state machine update
+802D0C3C	Bil_IconSM_changeState	high	state machine change request
+802D0C50	Bil_IconSM_reset	high	state machine reset
+802D0C74	Bil_IconSM_setStateFuncs	high	stores enter/calc ptmf
+802D0CB8	Bil_IconSM_ctor	high	state machine ctor
+802D0D98	Bil_IconSM_callEnter	high	invokes enter ptmf
+802D0DF8	Bil_IconSM_callCalc	high	invokes calc ptmf
+802D0E58	Bil_IconSM_callExit	high	invokes exit ptmf
+802D0EB8	Bil_BallIcon_dtorThunk4	high	this-4 thunk to dtor
+802D0EC0	Bil_BallIcon_dtorThunk8	high	this-8 thunk to dtor
+802D0EC8	Bil_ScorePopupLyt_hide	medium	if not closing/closed -> state 3
+802D0F28	Bil_ScorePopupLyt_show	high	if idle: opens popup, shows N_score_00 with score number unless 1P
+802D1018	Bil_ScorePopupLyt_draw	medium	slot3: draws billiard_06 layout
+802D1020	Bil_ScorePopupLyt_calcClose	medium	popup state 3 calc: when out anim done -> state 0
+802D1040	Bil_ScorePopupLyt_enterClose	medium	popup state 3 enter: plays outAll anim
+802D10B4	Bil_ScorePopupLyt_calcOpen	low	popup state 2 calc (empty)
+802D10B8	Bil_ScorePopupLyt_enterOpen	low	popup state 2 enter (empty)
+802D10BC	Bil_ScorePopupLyt_calcOpening	medium	popup state 1 calc: when in anim done -> state 2
+802D10DC	Bil_ScorePopupLyt_enterOpening	medium	popup state 1 enter: plays inAll anim
+802D1150	Bil_ScorePopupLyt_calc	medium	slot2: updates state machine and layout
+802D1188	Bil_ScorePopupLyt_reset	medium	slot1: resets state machine and anims
+802D123C	Bil_ScorePopupLyt_load	high	loads billiard_06.brlyt, anims, T_msgText_00, N_ballBg_00
+802D1334	Bil_ScorePopupLyt_ctor	high	4-state machine
+802D1434	Bil_PopupLytSM_ctor	high	state machine ctor
+802D1514	Bil_PopupLytSM_setStateFuncs	high	stores enter/calc ptmf
+802D1558	Bil_PopupLytSM_reset	high	state machine reset
+802D157C	Bil_PopupLytSM_changeState	high	state machine change request
+802D1590	Bil_PopupLytSM_update	high	state machine update
+802D161C	Bil_PopupLytSM_callExit	high	invokes exit ptmf
+802D167C	Bil_PopupLytSM_callCalc	high	invokes calc ptmf
+802D16DC	Bil_PopupLytSM_callEnter	high	invokes enter ptmf
+802D173C	Bil_PopupLytSM_isInState	medium	current==s and no other pending
+802D1770	Bil_PopupLytSM_isInOrEnteringState	medium	current==s or pending next==s
+802D17A4	Bil_ScorePopup_start	medium	if idle and any ball pocketed this shot: stores player count/current player, -> state 1
+802D181C	Bil_ScorePopup_draw	medium	slot1: in HUD pass draws popup layout when active
+802D185C	Bil_ScorePopup_calcClose	medium	popup state 3 calc: when layout closed and icons idle -> state 0
+802D18B8	Bil_ScorePopup_enterClose	medium	popup state 3 enter: closes layout and ball icons
+802D18E4	Bil_ScorePopup_calcShow	medium	popup state 2 calc: A/B or timeout -> state 3
+802D197C	Bil_ScorePopup_enterShow	low	popup state 2 enter (empty)
+802D1980	Bil_ScorePopup_calcOpen	medium	popup state 1 calc: when layout open and icons done -> state 2
+802D19DC	Bil_ScorePopup_enterOpen	medium	popup state 1 enter: shows pocketed sum and pocketed ball icons
+802D1A40	Bil_ScorePopup_calc	medium	slot5: updates state machine, layout calc when active
+802D1A94	Bil_ScorePopup_reset	medium	slot4: resets state machine and layout
+802D1ADC	Bil_ScorePopup_load	medium	slot3: loads layout from local archive
+802D1B28	Bil_ScorePopup_dtor	low	trivial dtor, delete if flag>0
+802D1B68	Bil_ScorePopup_destroy	high	deletes global lbl_8043CA50
+802D1BAC	Bil_ScorePopup_create	high	allocates controller with 4-state machine and popup layout, global lbl_8043CA50
+802D1CDC	Bil_ScorePopupSM_update	high	state machine update
+802D1D68	Bil_ScorePopupSM_changeState	high	state machine change request
+802D1D7C	Bil_ScorePopupSM_reset	high	state machine reset
+802D1DA0	Bil_ScorePopupSM_setStateFuncs	high	stores enter/calc ptmf
+802D1DE4	Bil_ScorePopupSM_ctor	high	state machine ctor
+802D1EC4	Bil_ScorePopupSM_callEnter	high	invokes enter ptmf
+802D1F24	Bil_ScorePopupSM_callCalc	high	invokes calc ptmf
+802D1F84	Bil_ScorePopupSM_callExit	high	invokes exit ptmf
+802D1FE4	Bil_HintLyt_draw	medium	slot3: draws billiard_04 layout
+802D1FEC	Bil_HintLyt_calc	medium	slot2: applies alpha (+8) to pane, layout calc
+802D2000	Bil_HintLyt_reset	medium	slot1: alpha 0
+802D200C	Bil_HintLyt_load	high	loads billiard_04.brlyt, sets T_msgText_00/01 messages
+802D20CC	Bil_StrokeGuide_setMode	medium	switches pull/push guide panes (0/1) and wait anim, -1 hides
+802D21AC	Bil_StrokeGuide_draw	medium	slot11: in HUD pass draws billiard_05 layout when mode set
+802D21DC	Bil_StrokeGuide_calc	medium	slot2: layout calc when mode set
+802D21F4	Bil_StrokeGuide_reset	medium	slot1: mode -1, panes hidden, binds wait anim
+802D229C	Bil_StrokeGuide_load	high	loads billiard_05.brlyt, waitMsg anim, pull/push message texts
+802D245C	Bil_StrokeGuide_dtor	low	trivial dtor, delete if flag>0
+802D249C	Bil_StrokeGuide_destroy	high	deletes global lbl_8043CA58
+802D24E0	Bil_StrokeGuide_create	high	allocates guide layout object, global lbl_8043CA58
+802D2548	Bil_StrokeGuide_drawThunk	high	this-8 thunk to draw
+802D2550	Bil_StrokeGuide_dtorThunk	high	this-8 thunk to dtor
+802D2558	Bil_Hint_hide	medium	clears request; if shown -> state 3 (fade out); if idle resets timer
+802D25C8	Bil_Hint_request	medium	sets request flag; optionally resets idle timer
+802D25F4	Bil_Hint_draw	medium	slot1: draws hint layout when active in pass
+802D2634	Bil_Hint_calcFadeOut	medium	hint state 3 calc: alpha down, -> state 0
+802D2694	Bil_Hint_enterFadeOut	low	hint state 3 enter (empty)
+802D2698	Bil_Hint_calcShown	medium	hint state 2 calc: request cleared or timeout -> state 3
+802D26C8	Bil_Hint_enterShown	low	hint state 2 enter (empty)
+802D26CC	Bil_Hint_calcFadeIn	medium	hint state 1 calc: alpha up, -> state 2
+802D2724	Bil_Hint_enterFadeIn	low	hint state 1 enter (empty)
+802D2728	Bil_Hint_calcIdle	medium	hint state 0 calc: requested and delay elapsed -> state 1
+802D2760	Bil_Hint_enterIdle	low	hint state 0 enter (empty)
+802D2764	Bil_Hint_calc	medium	slot5: updates state machine and layout
+802D27B8	Bil_Hint_reset	medium	slot4: resets state machine, request, delay
+802D2810	Bil_Hint_load	medium	slot3: loads hint layout from local archive
+802D285C	Bil_Hint_dtor	low	trivial dtor, delete if flag>0
+802D289C	Bil_Hint_destroy	high	deletes global lbl_8043CA60
+802D28E0	Bil_Hint_create	high	allocates controller, 4-state machine, hint layout (billiard_04), global lbl_8043CA60
+802D29EC	Bil_HintSM_ctor	high	state machine ctor
+802D2ACC	Bil_HintSM_setStateFuncs	high	stores enter/calc ptmf
+802D2B10	Bil_HintSM_reset	high	state machine reset
+802D2B34	Bil_HintSM_changeState	high	state machine change request
+802D2B48	Bil_HintSM_update	high	state machine update
+802D2BD4	Bil_HintSM_callExit	high	invokes exit ptmf
+802D2C34	Bil_HintSM_callCalc	high	invokes calc ptmf
+802D2C94	Bil_HintSM_callEnter	high	invokes enter ptmf
+802D2CF4	Bil_HintSM_isInState	medium	current==s and no other pending
+802D2D28	Bil_BallNumberTag_draw	medium	slot11: draws billiard_07 layout when active in pass
+802D2D5C	Bil_BallNumberTag_hide	medium	requests hide
+802D2D74	Bil_BallNumberTag_show	medium	requests tag for ball index (switches if different ball)
+802D2DC4	Bil_BallNumberTag_calcOut	medium	tag state 3 calc: when out anim done -> state 0
+802D2DE4	Bil_BallNumberTag_enterOut	medium	tag state 3 enter: plays out anim
+802D2E68	Bil_BallNumberTag_calcShown	medium	tag state 2 calc: hide request after 40 frames -> state 3
+802D2E90	Bil_BallNumberTag_enterShown	low	tag state 2 enter (empty)
+802D2E94	Bil_BallNumberTag_calcIn	medium	tag state 1 calc: when in anim done -> state 2
+802D2EB4	Bil_BallNumberTag_enterIn	medium	tag state 1 enter: plays in anim and number anim for ball
+802D2F80	Bil_BallNumberTag_calcIdle	medium	tag state 0 calc: show request -> state 1, applies pending ball switch
+802D3000	Bil_BallNumberTag_enterIdle	low	tag state 0 enter (empty)
+802D3004	Bil_BallNumberTag_calc	medium	slot2: state machine, projects target ball to screen and positions N_number_00
+802D31F4	Bil_BallNumberTag_reset	medium	slot1: resets state machine, anims, flags, ball -1
+802D33B4	Bil_BallNumberTag_load	high	loads billiard_07.brlyt, in/out and number_01-09 anims, N_number_00
+802D34B4	Bil_BallNumberTag_dtor	low	trivial dtor, delete if flag>0
+802D34F4	Bil_BallNumberTag_destroy	high	deletes global lbl_8043CA68
+802D3538	Bil_BallNumberTag_create	high	allocates tag layout with 4-state machine, global lbl_8043CA68
+802D3628	Bil_TagSM_ctor	high	state machine ctor
+802D3708	Bil_TagSM_setStateFuncs	high	stores enter/calc ptmf
+802D374C	Bil_TagSM_reset	high	state machine reset
+802D3770	Bil_TagSM_changeState	high	state machine change request
+802D3784	Bil_TagSM_update	high	state machine update
+802D3810	Bil_TagSM_callEnter	high	invokes enter ptmf
+802D3870	Bil_TagSM_callCalc	high	invokes calc ptmf
+802D38D0	Bil_TagSM_callExit	high	invokes exit ptmf
+802D3930	Bil_BallNumberTag_drawThunk	high	this-8 thunk to draw
+802D3938	Bil_BallNumberTag_dtorThunk	high	this-8 thunk to dtor

@@ -1,0 +1,10 @@
+address	old_name	new_name	unit	previous
+80272624	Tnk_FailedMsg_show	Show__14RPTnkFailedMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_8.cpp	
+802726C4	Tnk_FailedMsg_exit	VF_0x18__14RPTnkFailedMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_8.cpp	
+802726C8	Tnk_FailedMsg_draw	Draw__14RPTnkFailedMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_8.cpp	
+802726D0	Tnk_FailedMsg_calc	Calculate__14RPTnkFailedMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_8.cpp	
+802727D4	Tnk_FailedMsg_reset	Reset__14RPTnkFailedMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_8.cpp	
+80272948	Tnk_FailedMsg_load	Load__14RPTnkFailedMsgFPQ23EGG7Archive	Pack/RPParty/RPTnkScene/RPTnkLyt_8.cpp	
+802729EC	Tnk_FailedMsg_dtor	__dt__14RPTnkFailedMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_8.cpp	
+80272A2C	Tnk_FailedMsg_ctor	__ct__14RPTnkFailedMsgFv	Pack/RPParty/RPTnkScene/RPTnkLyt_8.cpp	
+8035C388	Tnk_FailedMsg_vtable	__vt__14RPTnkFailedMsg	Pack/RPParty/RPTnkScene/RPTnkLyt_8.cpp	
